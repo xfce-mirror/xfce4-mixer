@@ -90,15 +90,35 @@ static void vc_set_device(char const *name)
 
 static int vc_get_volume(char const *which)
 {
+	/*return: 0..100*/
+	/*someone with netbsd fill that in please. can't be that hard*/
 	return 0;  
 }
 
 static void vc_set_volume(char const *which, int vol_p)
 {
+	/*vol_p: 0..100 */
+	/*someone with netbsd fill that in please. can't be that hard*/
 }
 
 static GList *vc_get_control_list()
 {
+/*
+GList *g;
+g = NULL;
+
+for each control do {
+	volcontrol_t *c;
+	c = g_new0(volcontrol_t, 1);
+	c->name = g_strdup_printf("%s,%u", n, id); /* unique name, no other naming rules except it should look pretty */
+	c->type = CT_SLIDER;
+	g = g_list_append(g, c);
+}
+return g;
+
+someone with netbsd fill that in please
+*/
+
 	return NULL;
 }
 
