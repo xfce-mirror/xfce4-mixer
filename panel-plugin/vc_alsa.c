@@ -337,6 +337,14 @@ static void vc_set_volume_callback(volchanger_callback_t cb, void *data)
 	snd_mixer_set_callback (handle, alsa_cb);
 }
 
+static void vc_close_device()
+{
+	if (!handle) return;
+	
+	snd_mixer_close (handle); /* FIXME does this close all related stuff? */
+	handle = NULL;
+}
+
 REGISTER_VC_PLUGIN(alsa);
 
 #endif /* USE_ALSA */

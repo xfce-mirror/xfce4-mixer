@@ -259,6 +259,14 @@ static void vc_set_volume_callback(volchanger_callback_t cb, void *data)
 	/* unsupported */
 }
 
+static void vc_close_device()
+{
+	if (mixer_handle != -1) {
+		close (mixer_handle);
+		mixer_handle = -1;
+	}
+}
+
 REGISTER_VC_PLUGIN(oss);
 
 #endif	/* !USE_OSS */

@@ -101,6 +101,11 @@ static void vc_set_volume_callback(volchanger_callback_t cb, void *data)
 	/* unsupported */
 }
 
+static void vc_close_device()
+{
+	/* unsupported */
+}
+
 REGISTER_VC_PLUGIN(alsa_fallback);
 
 #endif /* !USE_ALSA */
