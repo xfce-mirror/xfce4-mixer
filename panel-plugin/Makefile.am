@@ -18,7 +18,9 @@ libmixer_la_SOURCES =							\
 
 libmixer_la_CFLAGS =							\
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"				\
-	@XFCE4_PANEL_CFLAGS@
+	@XFCE4_PANEL_CFLAGS@ \
+	@LIBSTARTUP_NOTIFICATION_CFLAGS@
 
 libmixer_la_LIBADD = 							\
-	@XFCE4_PANEL_LIBS@
+	@XFCE4_PANEL_LIBS@ \
+	@LIBSTARTUP_NOTIFICATION_LIBS@

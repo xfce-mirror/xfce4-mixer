@@ -52,6 +52,11 @@ else
   AC_MSG_ERROR([Unknown sound system "$with_sound"])
 fi
 
+dnl Check for startup notification
+BM_DEPEND_CHECK(LIBSTARTUP_NOTIFICATION, libstartup-notification-1.0, 0.4,
+  [startup-notification], [startup notification library], [yes])
+
+
 dnl Check for i18n support
 BM_I18N([xfce4-mixer], [de])
 
