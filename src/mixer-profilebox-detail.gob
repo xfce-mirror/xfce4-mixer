@@ -211,6 +211,9 @@ class Xfce:Mixer:Profilebox:Detail from Gtk:VBox {
 			return;
 		}
 
+		if (self->presents) 
+			g_hash_table_insert (self->presents, it->vcname, self);
+
 		tyc = xfce_mixer_cache_vc_get_type (it->vcname);
 
 		ty = _("<unknown>");
@@ -255,6 +258,10 @@ class Xfce:Mixer:Profilebox:Detail from Gtk:VBox {
 			/* already there. */
 			return;
 		}
+
+		if (self->presents) 
+			g_hash_table_insert (self->presents, vci->name, self);
+
 
 		ty = _("<unknown>");
 		switch(vci->type) {
