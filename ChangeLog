@@ -1,3 +1,113 @@
+2004-07-08 21:53  olivier
+
+	* ltmain.sh: Update tree for 4.0.6 release
+
+2004-07-06 17:58  pollux
+
+	* configure, configure.ac, po/eu.gmo, po/eu.po: add basque
+	  translation from ^pi^ <pi@beobide.net>
+
+2004-06-27 23:18  pollux
+
+	* po/: ru.gmo, ru.po: russian translations update from Anthony
+	  Ivanoff
+
+2004-06-20 19:20  benny
+
+	* panel-plugin/vc_oss.c: PATH_MAX fixes to get it to compile on
+	  GNU/Hurd.
+
+2004-06-11 13:02  pollux
+
+	* configure, configure.ac, ltmain.sh, po/et.gmo, po/et.po: Estonian
+	  translations from Peeter Vois <peeter.vois@proekspert.ee> added
+
+2004-05-04 00:14  olivier
+
+	* Makefile.in, aclocal.m4, config.guess, config.sub, configure,
+	  install-sh, ltmain.sh, mkinstalldirs, panel-plugin/Makefile.in:
+	  Update zh_TW translations by umm <umm@pchome.com.tw>
+
+2004-03-18 13:17  benny
+
+	* panel-plugin/vc.h: Applied sun forte cc patch from #140.
+
+2004-03-15 00:25  olivier
+
+	* aclocal.m4, configure, configure.ac, po/ar.gmo, po/ar.po,
+	  po/bg.gmo, po/bg.po, po/it.gmo, po/it.po: Add/update i18n for:
+	  Bulgarian from Miroslav Yordanov <miordanov@i-space.org> and
+	  Peter Slavov <peshka@i-space.org> Italian from Alex Dupre
+	  <ale@FreeBSD.org> Arabic from Saleh Hathal
+	  <hathalsal@hotmail.com>
+
+2004-03-02 22:32  olivier
+
+	* po/: POTFILES.in, az.gmo, az.po, ca.gmo, ca.po, cs.gmo, cs.po,
+	  de.gmo, de.po, es.gmo, es.po, fa_IR.gmo, fa_IR.po, fr.gmo, fr.po,
+	  hi.gmo, hi.po, hu.gmo, hu.po, it.gmo, it.po, ja.gmo, ja.po,
+	  ko.gmo, ko.po, lt.gmo, lt.po, ms.gmo, ms.po, nl.gmo, nl.po,
+	  no.gmo, no.po, pl.gmo, pl.po, pt_BR.gmo, pt_BR.po, pt_PT.gmo,
+	  pt_PT.po, ru.gmo, ru.po, ta.gmo, ta.po, tr.gmo, tr.po, uk.gmo,
+	  uk.po, vi.gmo, vi.po, xfce4-mixer.pot, zh_CN.gmo, zh_CN.po,
+	  zh_TW.gmo, zh_TW.po: Fix package not passing "make dist"
+
+2004-02-28 18:23  olivier
+
+	* ltmain.sh: sync for 4.0.4 release
+
+2004-01-30 08:06  jasper
+
+	* ltmain.sh, po/es.gmo, po/es.po, po/fa_IR.gmo, po/fa_IR.po,
+	  po/ja.gmo, po/pt_BR.gmo, po/pt_BR.po, po/zh_CN.gmo, po/zh_CN.po:
+	  Update translations for spanish, persian, brasilian and chinese
+
+2004-01-25 01:10  olivier
+
+	* Makefile.in, aclocal.m4, compile, config.guess, config.sub,
+	  configure, configure.ac, depcomp, install-sh, ltmain.sh, missing,
+	  mkinstalldirs, panel-plugin/Makefile.in, po/fa_IR.gmo,
+	  po/fa_IR.po: Update libtool and other automake, autoconf and
+	  gettext.
+
+2004-01-21 12:54  dannym
+
+	* po/: az.gmo, az.po, ca.gmo, ca.po, cs.gmo, cs.po, de.gmo, de.po,
+	  es.po, fr.gmo, fr.po, hi.gmo, hi.po, hu.gmo, hu.po, it.gmo,
+	  it.po, ja.po, ko.gmo, ko.po, lt.gmo, lt.po, ms.gmo, ms.po,
+	  nl.gmo, nl.po, no.gmo, no.po, pl.gmo, pl.po, pt_BR.po, pt_PT.gmo,
+	  pt_PT.po, ru.gmo, ru.po, ta.gmo, ta.po, tr.gmo, tr.po, uk.gmo,
+	  uk.po, vi.gmo, vi.po, xfce4-mixer.pot, zh_CN.gmo, zh_CN.po,
+	  zh_TW.gmo, zh_TW.po: making more oss names translateable
+	  (optionally of course).  Dont kill me :)
+
+2004-01-21 12:42  dannym
+
+	* Makefile.in, aclocal.m4, config.guess, config.sub, configure,
+	  configure.ac, depcomp, install-sh, ltmain.sh, missing,
+	  panel-plugin/mixer_window.c, po/POTFILES.in, po/az.po, po/ca.po,
+	  po/cs.po, po/de.po, po/es.po, po/fr.po, po/hi.po, po/hu.po,
+	  po/it.po, po/ja.po, po/ko.po, po/lt.po, po/ms.po, po/nl.po,
+	  po/no.po, po/pl.po, po/pt_BR.po, po/pt_PT.po, po/ru.po, po/ta.po,
+	  po/tr.po, po/uk.po, po/vi.po, po/xfce4-mixer.pot, po/zh_CN.po,
+	  po/zh_TW.po: make control names translateable (optional)
+
+2004-01-20 23:35  dannym
+
+	* po/: es.po, ja.po, pt_BR.po: new translations for xfce_4_0
+	  branch.  Ran autogen. eeek.
+
+2004-01-20 23:20  dannym
+
+	* panel-plugin/Makefile.in, po/zh_CN.gmo, po/zh_CN.po: added
+	  japanese, simplified chinese and brasilian portugese to mixer
+	  xfce_4_0 branch.  reran autogen. eeek.
+
+2004-01-07 21:38  olivier
+
+	* ChangeLog, po/ChangeLog: Huge update before 4.0.3 release,
+	  mainly: ChangeLog update, Version number updates.
+
 2003-12-29 16:19  olivier
 
 	* ChangeLog, configure, configure.ac, po/no.gmo, po/no.po: Update
