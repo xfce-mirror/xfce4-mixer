@@ -18,7 +18,6 @@ libmixer_la_SOURCES =							\
 			stringlist.inc					\
 			string_option_menu.c				\
 			string_option_menu.h				\
-			test_vc.c					\
 			xfce-mixer-cache-vc.c				\
 			xfce-mixer-cache-vc.h				\
 			xfce-mixer-control.c				\
@@ -49,3 +48,5 @@ libmixer_la_LIBADD = 							\
 	$(top_builddir)/lib/libxfce4mixer.la
 
 libmixer_la_DEPENDENCIES = $(top_builddir)/lib/libxfce4mixer.la
+
+EXTRA_DIST = test_vc.c

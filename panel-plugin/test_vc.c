@@ -39,4 +39,5 @@ int main()
 	vc_get_volume (NULL);
 */
 	vc_set_volume (NULL, 50);
+	return 0;
 }

@@ -52,7 +52,7 @@ am__installdirs = "$(DESTDIR)$(plugindir)"
 pluginLTLIBRARIES_INSTALL = $(INSTALL)
 LTLIBRARIES = $(plugin_LTLIBRARIES)
 am_libmixer_la_OBJECTS = libmixer_la-plugin.lo \
-	libmixer_la-string_option_menu.lo libmixer_la-test_vc.lo \
+	libmixer_la-string_option_menu.lo \
 	libmixer_la-xfce-mixer-cache-vc.lo \
 	libmixer_la-xfce-mixer-control.lo \
 	libmixer_la-xfce-mixer-control-vc.lo \
@@ -66,7 +66,6 @@ depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__depfiles_maybe = depfiles
 @AMDEP_TRUE@DEP_FILES = ./$(DEPDIR)/libmixer_la-plugin.Plo \
 @AMDEP_TRUE@	./$(DEPDIR)/libmixer_la-string_option_menu.Plo \
-@AMDEP_TRUE@	./$(DEPDIR)/libmixer_la-test_vc.Plo \
 @AMDEP_TRUE@	./$(DEPDIR)/libmixer_la-xfce-mixer-cache-vc.Plo \
 @AMDEP_TRUE@	./$(DEPDIR)/libmixer_la-xfce-mixer-control-vc.Plo \
 @AMDEP_TRUE@	./$(DEPDIR)/libmixer_la-xfce-mixer-control.Plo \
@@ -245,7 +244,6 @@ libmixer_la_SOURCES = \
 			stringlist.inc					\
 			string_option_menu.c				\
 			string_option_menu.h				\
-			test_vc.c					\
 			xfce-mixer-cache-vc.c				\
 			xfce-mixer-cache-vc.h				\
 			xfce-mixer-control.c				\
@@ -276,6 +274,7 @@ libmixer_la_LIBADD = \
 	$(top_builddir)/lib/libxfce4mixer.la
 
 libmixer_la_DEPENDENCIES = $(top_builddir)/lib/libxfce4mixer.la
+EXTRA_DIST = test_vc.c
 all: all-am
 
 .SUFFIXES:
@@ -347,7 +346,6 @@ distclean-compile:
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmixer_la-plugin.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmixer_la-string_option_menu.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmixer_la-test_vc.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmixer_la-xfce-mixer-cache-vc.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmixer_la-xfce-mixer-control-vc.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmixer_la-xfce-mixer-control.Plo@am__quote@
@@ -427,30 +425,6 @@ libmixer_la-string_option_menu.lo: string_option_menu.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-string_option_menu.Plo' tmpdepfile='$(DEPDIR)/libmixer_la-string_option_menu.TPlo' @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-string_option_menu.lo `test -f 'string_option_menu.c' || echo '$(srcdir)/'`string_option_menu.c
-
-libmixer_la-test_vc.o: test_vc.c
-@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-test_vc.o -MD -MP -MF "$(DEPDIR)/libmixer_la-test_vc.Tpo" -c -o libmixer_la-test_vc.o `test -f 'test_vc.c' || echo '$(srcdir)/'`test_vc.c; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-test_vc.Tpo" "$(DEPDIR)/libmixer_la-test_vc.Po"; else rm -f "$(DEPDIR)/libmixer_la-test_vc.Tpo"; exit 1; fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='test_vc.c' object='libmixer_la-test_vc.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-test_vc.Po' tmpdepfile='$(DEPDIR)/libmixer_la-test_vc.TPo' @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-test_vc.o `test -f 'test_vc.c' || echo '$(srcdir)/'`test_vc.c
-
-libmixer_la-test_vc.obj: test_vc.c
-@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-test_vc.obj -MD -MP -MF "$(DEPDIR)/libmixer_la-test_vc.Tpo" -c -o libmixer_la-test_vc.obj `if test -f 'test_vc.c'; then $(CYGPATH_W) 'test_vc.c'; else $(CYGPATH_W) '$(srcdir)/test_vc.c'; fi`; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-test_vc.Tpo" "$(DEPDIR)/libmixer_la-test_vc.Po"; else rm -f "$(DEPDIR)/libmixer_la-test_vc.Tpo"; exit 1; fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='test_vc.c' object='libmixer_la-test_vc.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-test_vc.Po' tmpdepfile='$(DEPDIR)/libmixer_la-test_vc.TPo' @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-test_vc.obj `if test -f 'test_vc.c'; then $(CYGPATH_W) 'test_vc.c'; else $(CYGPATH_W) '$(srcdir)/test_vc.c'; fi`
-
-libmixer_la-test_vc.lo: test_vc.c
-@am__fastdepCC_TRUE@	if $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-test_vc.lo -MD -MP -MF "$(DEPDIR)/libmixer_la-test_vc.Tpo" -c -o libmixer_la-test_vc.lo `test -f 'test_vc.c' || echo '$(srcdir)/'`test_vc.c; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-test_vc.Tpo" "$(DEPDIR)/libmixer_la-test_vc.Plo"; else rm -f "$(DEPDIR)/libmixer_la-test_vc.Tpo"; exit 1; fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='test_vc.c' object='libmixer_la-test_vc.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-test_vc.Plo' tmpdepfile='$(DEPDIR)/libmixer_la-test_vc.TPlo' @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-test_vc.lo `test -f 'test_vc.c' || echo '$(srcdir)/'`test_vc.c
 
 libmixer_la-xfce-mixer-cache-vc.o: xfce-mixer-cache-vc.c
 @am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-xfce-mixer-cache-vc.o -MD -MP -MF "$(DEPDIR)/libmixer_la-xfce-mixer-cache-vc.Tpo" -c -o libmixer_la-xfce-mixer-cache-vc.o `test -f 'xfce-mixer-cache-vc.c' || echo '$(srcdir)/'`xfce-mixer-cache-vc.c; \
