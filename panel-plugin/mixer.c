@@ -61,6 +61,7 @@
 
 #include "vc.h"
 #include "mixer_window.h"
+#include "mvisible_opts.h"
 
 /* for xml: */
 #define MIXER_ROOT "Mixer"
@@ -75,6 +76,9 @@ typedef struct
     char		*command;
     gboolean		use_sn;
     gboolean		use_terminal;
+    gboolean		use_internal;
+    GList		*visible_ctrls;
+    GList		*l_visible;
 } MixerOptions;
 
 typedef struct
@@ -96,6 +100,8 @@ typedef struct
     GtkContainer	*settings_c; /* only a link */
     GtkSizeGroup	*sg; /* only a link */
     GtkWidget		*revert_b; /* buttonm only a link */
+    GtkScrolledWindow	*s_visible;
+    mvisible_opts_t	*t_visible;
     
     int			settings_action; /* < 0: get; > 0: set control-used data */
     GtkWidget		*dialog; /* settings dialog, only a link */
@@ -201,12 +207,20 @@ xfce_mixer_new(gboolean *broken)
 	return (GtkWidget *)ib;
 }
 
+static void
+mixer_do_options(t_mixer *mixer, int mode); /* 0: load; 1: store; 2: connect revert, 3: sensitivize/desensitivize */
+
+static void use_internal_changed_cb(t_mixer *m)
+{
+	mixer_do_options(m, 3);
+}
+
 static t_mixer *
 mixer_new (void)
 {
     GtkRcStyle	*rc;
     GdkColor	color;
-    
+        
     t_mixer *mixer;
     
     mixer = g_new0 (t_mixer, 1);
@@ -216,7 +230,9 @@ mixer_new (void)
     
     mixer->options.command = NULL; /*g_strdup("aumix");*/
     mixer->options.use_sn = TRUE;
+    mixer->options.use_internal = TRUE;
     mixer->options.use_terminal = FALSE;
+
     
     mixer->hbox = GTK_BOX(gtk_hbox_new(FALSE, 0));
     gtk_widget_set_name (GTK_WIDGET(mixer->hbox), "xfce_mixer");
@@ -253,6 +269,10 @@ mixer_new (void)
 
     gtk_box_pack_start (GTK_BOX(mixer->hbox), GTK_WIDGET(mixer->eventbox),
 		    FALSE, FALSE, 0);
+
+    mixer->options.l_visible = get_control_list ();
+    
+    use_internal_changed_cb(mixer);
     
     return mixer;
 }
@@ -382,11 +402,11 @@ xfce_mixer_window_destroy_cb(GtkWindow *w, t_mixer *m)
 static void
 xfce_mixer_launch_button_cb(GtkWidget *button, t_mixer *mixer) /* verified prototype: clicked */
 {
-	if (!mixer->options.command || !mixer->options.command[0]) {
+	if (!mixer->options.command || !mixer->options.command[0] || mixer->options.use_internal) {
 		/* empty: use internal */
 
-		if (!mixer->mw) {		
-			mixer->mw = mixer_window_new();
+		if (!mixer->mw) {
+			mixer->mw = mixer_window_new (TRUE, mixer->options.l_visible);
 			g_signal_connect(GTK_WIDGET (mixer->mw->window), "destroy", G_CALLBACK(xfce_mixer_window_destroy_cb), mixer);
 			gtk_widget_show (GTK_WIDGET (mixer->mw->window));
 		}
@@ -427,6 +447,12 @@ free_optionsdialog(t_mixer *mixer)
 		g_free(mixer->options.command); 
 		mixer->options.command = NULL;
 	}
+	
+	if (mixer->revert.l_visible) {
+		free_control_list (mixer->revert.l_visible);
+		mixer->revert.l_visible = NULL;
+	}
+	
 }
 
 static void
@@ -442,6 +468,11 @@ mixer_free (Control * control)
     }
     
     free_optionsdialog(mixer);
+
+    if (mixer->options.l_visible) {
+        free_control_list (mixer->options.l_visible);
+        mixer->options.l_visible = NULL;
+    }
 
     g_free(mixer);
 }
@@ -511,6 +542,9 @@ create_mixer_control (Control * control)
 static void
 create_options_backup(t_mixer *mixer)
 {
+	GList			*v;
+	volchanger_t		*vc, *vco;
+	
 	if (mixer->revert.command) {
 		g_free(mixer->revert.command);
 		mixer->revert.command = NULL;
@@ -518,6 +552,23 @@ create_options_backup(t_mixer *mixer)
 	mixer->revert.command = g_strdup(mixer->options.command); 
 	mixer->revert.use_sn = mixer->options.use_sn;
 	mixer->revert.use_terminal = mixer->options.use_terminal;
+	mixer->revert.use_internal = mixer->options.use_internal;
+	
+	if (mixer->revert.l_visible) {
+		free_control_list (mixer->revert.l_visible);
+		mixer->revert.l_visible = NULL;
+	}
+	
+	v = mixer->options.l_visible;
+	while (v) {
+		vc = g_new0 (volchanger_t, 1);
+		vco = (volchanger_t *) v->data;
+		
+		vc->name = g_strdup (vco->name);
+		
+		mixer->revert.l_visible = g_list_append (mixer->revert.l_visible, vc);
+		v = g_list_next (v);
+	}
 }
 
 static GtkWidget *
@@ -556,6 +607,7 @@ static void
 mixer_stuff_toggled_cb(GtkToggleButton *tb, t_mixer *mixer) /* verified prototype: toggled */
 {
 	mixer_revert_make_sensitive_cb(mixer->revert_b, NULL);
+	use_internal_changed_cb (mixer);
 }
  
 #if 0
@@ -569,7 +621,7 @@ mixer_command_entry_lost_focus_cb(GtkWidget *w, GdkEvent *event, t_mixer *mixer)
 #endif
 
 static void
-mixer_do_options(t_mixer *mixer, int mode) /* 0: load; 1: store; 2: connect revert */
+mixer_do_options(t_mixer *mixer, int mode) /* 0: load; 1: store; 2: connect revert, 3: sensitivize/desensitivize */
 {
 	char const *temp;
 	GtkContainer *c;
@@ -579,7 +631,13 @@ mixer_do_options(t_mixer *mixer, int mode) /* 0: load; 1: store; 2: connect reve
 	GtkEntry	*e_command = NULL;	
 	GtkCheckButton	*b_use_sn = NULL;
 	GtkCheckButton	*b_use_term = NULL;
+	GtkCheckButton	*b_use_internal = NULL;
 	GtkButton	*b_dotdotdot = NULL;
+	GtkTreeView	*tv = NULL;
+	GList		*g;
+	GList		*go;
+	GList		*gn;
+	volchanger_t	*vc;
 	c = mixer->settings_c; /* vbox 1 */
 
 	if (c) {
@@ -591,12 +649,82 @@ mixer_do_options(t_mixer *mixer, int mode) /* 0: load; 1: store; 2: connect reve
 		
 		b_use_term = GTK_CHECK_BUTTON(mixer_options_get(v2, 0));
 		b_use_sn = GTK_CHECK_BUTTON(mixer_options_get(v2, 1));
+		b_use_internal = GTK_CHECK_BUTTON(mixer_options_get(v2, 2));
+		
+		tv = GTK_TREE_VIEW (mixer_options_get (
+			GTK_CONTAINER(mixer_options_get (
+				c,
+			2)),
+		0));
 	}
 	if (b_dotdotdot && mode == 2) {
 		g_signal_connect(GTK_WIDGET(b_dotdotdot), "clicked",
 				G_CALLBACK(mixer_revert_make_sensitive_cb),
 				mixer->revert_b);
 	}
+
+	if (b_use_internal) {
+
+		switch (mode) {
+		case 1:
+			mixer->options.use_internal = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(b_use_internal));
+			break;
+			
+		case 0:
+			gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(b_use_internal), mixer->options.use_internal);
+			break;
+			
+		case 2:
+			g_signal_connect(GTK_WIDGET(b_use_internal), "toggled", G_CALLBACK(mixer_stuff_toggled_cb), mixer);
+			break;
+			
+		}
+
+		mixer->options.use_internal = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(b_use_internal));
+	}
+
+	if (mixer->t_visible) {
+		switch (mode) {
+		case 1:
+			go = mvisible_opts_get_actives (mixer->t_visible);
+			g = go;
+			gn = NULL;
+			while (g) {
+				vc = g_new0 (volchanger_t, 1);
+				vc->name = g_strdup ((gchar *)g->data);
+				gn = g_list_append (gn, vc);
+				g = g_list_next (g);
+			}
+			mvisible_opts_free_actives (go);
+			mixer->options.l_visible = gn;
+			break;
+		case 0:
+			go = mixer->options.l_visible;
+			gn = NULL;
+			g = go;
+			
+			while (g) {
+				vc = (volchanger_t *)g->data;
+				
+				gn = g_list_append (gn, g_strdup (vc->name));
+				g = g_list_next (g);
+			}
+				
+			if (gn) {
+				mvisible_opts_set_actives (mixer->t_visible, gn);
+				mvisible_opts_free_actives (gn);
+			}
+			break;
+		case 3:
+			if (mixer->options.use_internal) {
+				gtk_widget_show (GTK_WIDGET (mixer->s_visible));
+			} else {
+				gtk_widget_hide (GTK_WIDGET (mixer->s_visible));
+			}
+			break;
+		}
+	}
+	
 		
 	if (e_command) {
 		switch (mode) {
@@ -617,6 +745,10 @@ mixer_do_options(t_mixer *mixer, int mode) /* 0: load; 1: store; 2: connect reve
 			*/
 			/*g_signal_connect (e_command, "focus-out-event", G_CALLBACK(mixer_command_entry_lost_focus_cb), mixer);*/
 			break;
+			
+		case 3:
+			gtk_widget_set_sensitive (GTK_WIDGET (e_command), !mixer->options.use_internal);
+			break;
 		}
 	}
 	
@@ -633,6 +765,10 @@ mixer_do_options(t_mixer *mixer, int mode) /* 0: load; 1: store; 2: connect reve
 		case 2:
 			g_signal_connect(GTK_WIDGET(b_use_sn), "toggled", G_CALLBACK(mixer_stuff_toggled_cb), mixer);
 			break;
+		case 3:
+			gtk_widget_set_sensitive (GTK_WIDGET (b_use_sn), !mixer->options.use_internal);
+			break;
+		
 		}
 	}
 
@@ -649,6 +785,11 @@ mixer_do_options(t_mixer *mixer, int mode) /* 0: load; 1: store; 2: connect reve
 		case 2:
 			g_signal_connect(GTK_WIDGET(b_use_term), "toggled", G_CALLBACK(mixer_stuff_toggled_cb), mixer);
 			break;
+			
+		case 3:
+			gtk_widget_set_sensitive (GTK_WIDGET (b_use_term), !mixer->options.use_internal);
+			break;
+		
 		}
 	}
 }
@@ -658,6 +799,9 @@ mixer_apply_options_cb(GtkWidget *button, t_mixer *mixer) /* verified: clicked *
 {
 	if (mixer->options.command) g_free(mixer->options.command);
 	mixer->options.command = NULL;
+	
+	free_control_list (mixer->options.l_visible);
+	mixer->options.l_visible = NULL;
 
 	mixer_do_options(mixer, 1);
 }	
@@ -666,6 +810,7 @@ static void
 mixer_fill_options(t_mixer *mixer)
 {
 	mixer_do_options(mixer, 0);
+	use_internal_changed_cb(mixer);
 }
 
 static void
@@ -677,6 +822,7 @@ mixer_revert_options_cb(GtkWidget *button, t_mixer *mixer) /* verified prototype
 	mixer->options.command = mixer->revert.command;
 	mixer->options.use_sn = mixer->revert.use_sn;
 	mixer->options.use_terminal = mixer->revert.use_terminal;
+	mixer->options.use_internal = mixer->revert.use_internal;
 	mixer->revert.command = NULL;
 	
 	mixer_fill_options(mixer);
@@ -727,6 +873,7 @@ my_create_command_option(GtkSizeGroup *sg)
     GtkWidget *command_browse_button = NULL;
     GtkWidget *term_checkbutton = NULL;
     GtkWidget *sn_checkbutton = NULL;
+    GtkWidget *internal_checkbutton = NULL;
 
     vbox = gtk_vbox_new (FALSE, 8);
     gtk_widget_show (vbox);
@@ -781,6 +928,13 @@ my_create_command_option(GtkSizeGroup *sg)
 #else
     gtk_widget_set_sensitive (sn_checkbutton, FALSE);
 #endif
+
+    internal_checkbutton =
+        gtk_check_button_new_with_mnemonic (_("Use _internal mixer"));
+        
+    gtk_widget_show (internal_checkbutton);
+    gtk_box_pack_start (GTK_BOX (vbox2), internal_checkbutton, FALSE, FALSE, 0);
+
     return vbox;
 }
 
@@ -790,6 +944,10 @@ mixer_add_options(Control *control, GtkContainer *container, GtkWidget *revert, 
 {
 	t_mixer		*mixer;
 	GtkWidget 	*vbox;
+	GList		*names = NULL;
+	GList		*src = NULL;
+	GList		*snode = NULL;
+	volchanger_t	*vc = NULL;
 	
 	mixer = (t_mixer *)control->data;
 
@@ -801,6 +959,36 @@ mixer_add_options(Control *control, GtkContainer *container, GtkWidget *revert, 
 	vbox = my_create_command_option(mixer->sg);
 	gtk_container_add(GTK_CONTAINER(container), GTK_WIDGET(vbox));
 	mixer->settings_c = GTK_CONTAINER(vbox);
+	
+	mixer->s_visible = GTK_SCROLLED_WINDOW (gtk_scrolled_window_new (NULL, NULL));
+	gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (mixer->s_visible), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
+	gtk_widget_show (GTK_WIDGET (mixer->s_visible));
+	
+	mixer->t_visible = mvisible_opts_new ();
+
+	gtk_widget_set_size_request (GTK_WIDGET (mixer->s_visible), -1, 100);
+	
+	src = get_control_list ();
+	
+	snode = src;
+	names = NULL;
+	while (snode) {
+		vc = (volchanger_t *)snode->data;
+		
+		names = g_list_append (names, vc->name);
+		snode = g_list_next (snode);
+	}
+	/*mixer->options.l_visible = names;*/
+	
+	mvisible_opts_fill (GTK_WIDGET (mixer->s_visible), mixer->t_visible, names);
+	g_list_free (names);
+	free_control_list (src);
+	
+	/*gtk_box_pack_start (GTK_BOX(mixer->s_visible), GTK_WIDGET (mixer->t_visible->tv), 
+		FALSE, TRUE, 0);*/
+
+	gtk_container_add (GTK_CONTAINER (mixer->settings_c), GTK_WIDGET (mixer->s_visible));
+	
 	mixer_fill_options(mixer);
 	mixer_do_options(mixer, 2);
 	create_options_backup(mixer);
@@ -850,6 +1038,13 @@ mixer_read_config(Control *control, xmlNodePtr node)
 				mixer->options.use_sn = (n == 1) ? TRUE: FALSE;
 				g_free(value);
 			}
+
+			value = xmlGetProp (node, "internal");
+			if (value) {
+				n = atoi (value);
+				mixer->options.use_internal = (n == 1) ? TRUE: FALSE;
+				g_free(value);
+			}
 		}
 	}
 }
@@ -875,6 +1070,9 @@ mixer_write_config(Control *control, xmlNodePtr parent)
  
 	snprintf (value, 2, "%d", mixer->options.use_sn);
 	xmlSetProp (node, "sn", value);
+
+	snprintf (value, 2, "%d", mixer->options.use_internal);
+	xmlSetProp (node, "internal", value);
 }
 
 G_MODULE_EXPORT void
@@ -883,7 +1081,9 @@ xfce_control_class_init (ControlClass * cc)
 #ifdef ENABLE_NLS
     /* This is required for UTF-8 at least - Please don't remove it */
     bindtextdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR);
+#ifdef HAVE_BIND_TEXTDOMAIN_CODESET
     bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
+#endif
     textdomain (GETTEXT_PACKAGE);
 #endif
 
