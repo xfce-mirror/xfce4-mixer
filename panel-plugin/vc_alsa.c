@@ -91,7 +91,7 @@ static void find_master(void)
 	
 	if ((err = snd_mixer_attach(handle, card)) < 0) {
 		error(_("alsa: Mixer attach %s error: %s"), card, snd_strerror(err));
-		snd_mixer_close(handle);
+		/*snd_mixer_close(handle); <-- alsa 0.9.2 fails assert(hctl) if I do that... weeeeird... */
 		return;
 	}
 	if ((err = snd_mixer_selem_register(handle, NULL, NULL)) < 0) {
