@@ -1,0 +1,18 @@
+#!/bin/sh
+
+o="$1"
+n="$2"
+if [ -z "${n}" ]
+then
+	exit 1
+fi
+
+for s in *.c *.h
+do
+	t="$s.tmp"
+	sed -e 's;'"${o}"';'"${n}"';g' "$s" >"$t" && {
+		mv "$t" "$s"
+	}
+done
+
+exit 0

@@ -48,19 +48,19 @@ static int init(void)
 	return USE_THAT;
 }
 
-static int reinit_device(void)
+static int vc_reinit_device(void)
 {
 	/* TODO */
 	return 0;
 }
 
-static void set_device(char const *name)
+static void vc_set_device(char const *name)
 {
 	/* in your dreams ;) */
 }
 
 
-static int get_volume(char const *which)
+static int vc_get_volume(char const *which)
 {
 	/*char buf[1000];*/
 	FILE *f;
@@ -79,14 +79,14 @@ static int get_volume(char const *which)
 	return vol_p;  
 }
 
-static void set_volume(char const *which, int vol_p)
+static void vc_set_volume(char const *which, int vol_p)
 {
 	char buf[1000];
 	snprintf(buf,sizeof(buf), "amixer sset Master \"%d%%\" >/dev/null", vol_p);
 	system(buf);
 }
 
-static GList *get_control_list()
+static GList *vc_get_control_list()
 {
 	GList *g;
 	
@@ -94,6 +94,11 @@ static GList *get_control_list()
 	g_list_append (g, g_strdup("Master")); 
 	
 	return g;
+}
+
+static void vc_set_volume_callback(volchanger_callback_t cb, void *data)
+{
+	/* unsupported */
 }
 
 REGISTER_VC_PLUGIN(alsa_fallback);

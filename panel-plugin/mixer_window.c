@@ -30,8 +30,9 @@ void change_vol_cb(GtkRange *range, gpointer data)
 	 
 	vol = (int)gtk_range_get_value(range);
 	
-	set_volume(s->name, vol);
+	vc_set_volume(s->name, vol);
 }
+
 
 #if 0
 static gchar*
@@ -45,7 +46,7 @@ void mixer_window_slider_control_refresh_value_p (mixer_window_t *w, mixer_slide
 {
 	int	vol;
 	if (c) {
-		vol = get_volume (c->name);
+		vol = vc_get_volume (c->name);
 		gtk_range_set_value (GTK_RANGE (c->scale), (double) vol);
 	}
 }
@@ -59,6 +60,13 @@ void mixer_window_slider_control_refresh_value (mixer_window_t *w, char const *n
 		}
 		c = c->next;
 	}
+}
+
+static void vc_cb(char const *which, void *data)
+{
+	mixer_window_t *w = (mixer_window_t *)data;
+	
+	mixer_window_slider_control_refresh_value (w, which);
 }
 
 mixer_slider_control_t *mixer_window_slider_control_new(mixer_window_t *w, char const *name)
@@ -162,13 +170,16 @@ mixer_window_t *mixer_window_new(gboolean from_glist, GList *src)
 		if (from_glist) {
 			g = src;
 		} else {
-			g = get_control_list();
+			g = vc_get_control_list();
 		}
 		if (g) {
 			g_list_foreach(g, control_glist_foreach_cb, w);
 			if (!from_glist) {
-				free_control_list (g);
+				vc_free_control_list (g);
 			}
+
+			
+			vc_set_volume_callback (vc_cb, w);
 		}
 	}
 	
@@ -230,7 +241,7 @@ int main(int argc, char *argv[])
 
 	mixer_window_t * w = mixer_window_new();
 	
-	g = get_control_list();
+	g = vc_get_control_list();
 	if (g) g_list_foreach(g, control_glist_foreach_cb, w);
 
 	

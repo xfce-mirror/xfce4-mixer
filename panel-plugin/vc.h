@@ -31,14 +31,17 @@
 
 /* this is the volume changer stuff */
 
+typedef void (*volchanger_callback_t)(char const *which, void *privdata);
+
 typedef struct {
         char *name;
 
-	void (*set_device)(char const *dev);
-	int (*reinit_device)(void);
-        int (*get_volume)(char const *which);
-        void (*set_volume)(char const *which, int v);
-        GList *(*get_control_list)(void);
+	void (*vc_set_device)(char const *dev);
+	int (*vc_reinit_device)(void);
+        int (*vc_get_volume)(char const *which);
+        void (*vc_set_volume)(char const *which, int v);
+        GList *(*vc_get_control_list)(void);
+        void (*vc_set_volume_callback)(volchanger_callback_t cb, void *privdata);
 } volchanger_t;
 
 typedef struct {
@@ -58,19 +61,21 @@ volchanger_t **next_vc(volchanger_t **);
 
 #ifndef VC_PLUGIN
 /* these operate on the selected_vc: */
-int get_volume(char const *which);
-void set_volume(char const *which, int v);
-GList *get_control_list();
-void free_control_list(GList *g);
+int vc_get_volume(char const *which);
+void vc_set_volume(char const *which, int v);
+GList *vc_get_control_list();
+void vc_free_control_list(GList *g);
+void vc_set_volume_callback (volchanger_callback_t cb, void *data);
 #else
 #define REGISTER_VC_PLUGIN(a) \
 static volchanger_t vc = { \
         name: #a, \
-        set_device: set_device, \
-        get_volume: get_volume, \
-        set_volume: set_volume, \
-        reinit_device: reinit_device, \
-        get_control_list: get_control_list \
+        vc_set_device: vc_set_device, \
+        vc_get_volume: vc_get_volume, \
+        vc_set_volume: vc_set_volume, \
+        vc_reinit_device: vc_reinit_device, \
+        vc_get_control_list: vc_get_control_list, \
+        vc_set_volume_callback: vc_set_volume_callback \
 }; \
 \
 int register_##a(void) \

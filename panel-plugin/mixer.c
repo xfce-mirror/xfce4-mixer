@@ -141,7 +141,7 @@ static int find_working_sound(void)
 
 	v = first_vc();
 	while (v) {
-		if ((*v)->reinit_device && (*(*v)->reinit_device)() == 0) {
+		if ((*v)->vc_reinit_device && (*(*v)->vc_reinit_device)() == 0) {
 			/* works */
 			select_vc_direct(*v);
 			return 0;
@@ -272,7 +272,7 @@ mixer_new (void)
     gtk_box_pack_start (GTK_BOX(mixer->hbox), GTK_WIDGET(mixer->eventbox),
 		    FALSE, FALSE, 0);
 
-    mixer->options.l_visible = get_control_list ();
+    mixer->options.l_visible = vc_get_control_list ();
     
     use_internal_changed_cb(mixer);
     
@@ -310,7 +310,7 @@ check_volume (t_mixer *mixer)
 	
 	/*	return FALSE;*/ /* stop */
 	
-	volume = get_volume(NULL);
+	volume = vc_get_volume(NULL);
 	if (volume != mixer->c_volume) {
 		mixer->c_volume = volume; /* atomic? lol */
 		update_volume_display(mixer);
@@ -328,7 +328,7 @@ xfce_mixer_scroll_cb (GtkWidget *widget, GdkEventScroll *event, t_mixer *mixer) 
 	int	tvol;	/* test volume */
 	int	tries;
 	
-	vol = get_volume(NULL);
+	vol = vc_get_volume(NULL);
 	ovol = vol;
 
 	if (event->type != GDK_SCROLL) {
@@ -345,9 +345,9 @@ xfce_mixer_scroll_cb (GtkWidget *widget, GdkEventScroll *event, t_mixer *mixer) 
 			if (vol > 100) { vol = 100; }
 		}
 		if (ovol != vol) {
-			set_volume(NULL, vol);
+			vc_set_volume(NULL, vol);
 		
-			tvol = get_volume(NULL);
+			tvol = vc_get_volume(NULL);
 			if (ovol != tvol) { /* worked. */
 				break;
 			}
@@ -356,7 +356,7 @@ xfce_mixer_scroll_cb (GtkWidget *widget, GdkEventScroll *event, t_mixer *mixer) 
 		++tries;
 	} while (ovol == vol && vol > 0 && vol < 100 && tries < 3); /* if still unchanged, loop */
 
-	tvol = get_volume(NULL);
+	tvol = vc_get_volume(NULL);
 	mixer->c_volume = tvol;
 
 	update_volume_display(mixer);
@@ -387,9 +387,9 @@ xfce_mixer_status_button_cb (GtkWidget * widget, GdkEventButton *b, t_mixer *mix
 		} else y = 0;
 	}
 	
-	set_volume(NULL, y);
+	vc_set_volume(NULL, y);
 		
-	mixer->c_volume = get_volume(NULL);
+	mixer->c_volume = vc_get_volume(NULL);
 	update_volume_display(mixer);
 
 	return TRUE;
@@ -451,7 +451,7 @@ free_optionsdialog(t_mixer *mixer)
 	}
 	
 	if (mixer->revert.l_visible) {
-		free_control_list (mixer->revert.l_visible);
+		vc_free_control_list (mixer->revert.l_visible);
 		mixer->revert.l_visible = NULL;
 	}
 	
@@ -472,7 +472,7 @@ mixer_free (Control * control)
     free_optionsdialog(mixer);
 
     if (mixer->options.l_visible) {
-        free_control_list (mixer->options.l_visible);
+        vc_free_control_list (mixer->options.l_visible);
         mixer->options.l_visible = NULL;
     }
 
@@ -557,7 +557,7 @@ create_options_backup(t_mixer *mixer)
 	mixer->revert.use_internal = mixer->options.use_internal;
 	
 	if (mixer->revert.l_visible) {
-		free_control_list (mixer->revert.l_visible);
+		vc_free_control_list (mixer->revert.l_visible);
 		mixer->revert.l_visible = NULL;
 	}
 	
@@ -802,7 +802,7 @@ mixer_apply_options_cb(GtkWidget *button, t_mixer *mixer) /* verified: clicked *
 	if (mixer->options.command) g_free(mixer->options.command);
 	mixer->options.command = NULL;
 	
-	free_control_list (mixer->options.l_visible);
+	vc_free_control_list (mixer->options.l_visible);
 	mixer->options.l_visible = NULL;
 
 	mixer_do_options(mixer, 1);
@@ -970,7 +970,7 @@ mixer_add_options(Control *control, GtkContainer *container, GtkWidget *revert, 
 
 	gtk_widget_set_size_request (GTK_WIDGET (mixer->s_visible), -1, 100);
 	
-	src = get_control_list ();
+	src = vc_get_control_list ();
 	
 	snode = src;
 	names = NULL;
@@ -984,7 +984,7 @@ mixer_add_options(Control *control, GtkContainer *container, GtkWidget *revert, 
 	
 	mvisible_opts_fill (GTK_WIDGET (mixer->s_visible), mixer->t_visible, names);
 	g_list_free (names);
-	free_control_list (src);
+	vc_free_control_list (src);
 	
 	/*gtk_box_pack_start (GTK_BOX(mixer->s_visible), GTK_WIDGET (mixer->t_visible->tv), 
 		FALSE, TRUE, 0);*/
@@ -1061,7 +1061,7 @@ mixer_read_config(Control *control, xmlNodePtr node)
 			}
 			
 			if (mixer->options.l_visible) {
-				free_control_list (mixer->options.l_visible);
+				vc_free_control_list (mixer->options.l_visible);
 				mixer->options.l_visible = NULL;
 			}
 			mixer->options.l_visible = g;

@@ -127,14 +127,14 @@ static void find_master(void)
 	}
 }
 
-static void set_device(char const *name)
+static void vc_set_device(char const *name)
 {
 	strncpy(card, name, sizeof(card));
 	card[sizeof(card) - 1] = 0;
 	find_master();
 }
 
-static int reinit_device(void)
+static int vc_reinit_device(void)
 {
 	find_master();
 	if (!elem) return -1;
@@ -163,7 +163,7 @@ static snd_mixer_elem_t * find_control(char const *which)
 	return elem;
 }
 
-static int get_volume(char const *which)
+static int vc_get_volume(char const *which)
 {
 	long pmin,pmax;
 	long lval;
@@ -198,7 +198,7 @@ static int get_volume(char const *which)
 	return 0;
 }
 
-static void set_volume(char const *which, int vol_p)
+static void vc_set_volume(char const *which, int vol_p)
 {
 	long pmin,pmax;
 	long lval;
@@ -230,7 +230,7 @@ static void set_volume(char const *which, int vol_p)
 	}
 }
 
-static GList *get_control_list(void)
+static GList *vc_get_control_list(void)
 {
 	volcontrol_t *c;
 	GList *g;
@@ -271,6 +271,34 @@ static GList *get_control_list(void)
 	return g;
 }
 
+static volchanger_callback_t mycb = NULL;
+static void *mydata = NULL;
+
+static int alsa_cb(snd_mixer_t *ctl, unsigned int mask, snd_mixer_elem_t *elem)
+{
+	const char *which;
+	if (elem) {
+		which = snd_mixer_selem_get_name (elem);
+	} else {
+		which = NULL;
+	}
+	(*mycb) (which, mydata);
+	return 0;
+}
+
+
+static void vc_set_volume_callback(volchanger_callback_t cb, void *data)
+{
+	/* supports 1 (ONE) callback */
+
+	if (!handle) return;
+
+	mycb = cb;
+	mydata = data;
+	
+	snd_mixer_set_callback_private (handle, data);
+	snd_mixer_set_callback (handle, alsa_cb);
+}
 
 REGISTER_VC_PLUGIN(alsa);
 

@@ -109,37 +109,47 @@ volchanger_t *selected_vc()
 }
 
 
-int get_volume(char const *which)
+int vc_get_volume(char const *which)
 {
 	volchanger_t *s = selected_vc();
-	if (!s  || !s->get_volume) {
+	if (!s  || !s->vc_get_volume) {
 		return 0;
 	}
 	
-	return (*s->get_volume)(which);
+	return (*s->vc_get_volume)(which);
 }
 
-void set_volume(char const *which, int v)
+void vc_set_volume_callback (volchanger_callback_t cb, void *data)
 {
 	volchanger_t *s = selected_vc();
-	if (!s  || !s->set_volume) {
+	if (!s || !s->vc_set_volume_callback)
+		return;
+		
+	s->vc_set_volume_callback (cb, data);
+}
+
+
+void vc_set_volume(char const *which, int v)
+{
+	volchanger_t *s = selected_vc();
+	if (!s  || !s->vc_set_volume) {
 		return;
 	}
 	
-	(*s->set_volume)(which, v);
+	(*s->vc_set_volume)(which, v);
 }
 
-GList *get_control_list()
+GList *vc_get_control_list()
 {
 	volchanger_t *s = selected_vc();
-	if (!s  || !s->get_control_list) {
+	if (!s  || !s->vc_get_control_list) {
 		return NULL;
 	}
 	
-	return (*s->get_control_list)();
+	return (*s->vc_get_control_list)();
 }
 
-void free_control_list(GList *g)
+void vc_free_control_list(GList *g)
 {
 /*	GList 			*f;*/
 	volcontrol_t		*c;

@@ -124,7 +124,7 @@ set_device(const gchar *name)
 }
 
 static int
-reinit_device()
+vc_reinit_device()
 {
 	find_master();
 
@@ -167,7 +167,7 @@ find_control(char const *name)
  * Sets volume in percent
  */
 static void
-set_volume(char const *which, int percent)
+vc_set_volume(char const *which, int percent)
 {
 	int vol;
 	int level;
@@ -196,7 +196,7 @@ set_volume(char const *which, int percent)
  * Returns volume in percent
  */
 static int
-get_volume(char const *which)
+vc_get_volume(char const *which)
 {
 	int level;
 	int i;
@@ -222,7 +222,7 @@ get_volume(char const *which)
 }
 
 static GList *
-get_control_list(void)
+vc_get_control_list(void)
 {
 	int 	i;
 	volcontrol_t *c;
@@ -250,6 +250,11 @@ get_control_list(void)
 	}
 
 	return g;	
+}
+
+static void vc_set_volume_callback(volchanger_callback_t cb, void *data)
+{
+	/* unsupported */
 }
 
 REGISTER_VC_PLUGIN(oss);
