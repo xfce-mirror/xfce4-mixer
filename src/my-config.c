@@ -21,7 +21,7 @@
 #include <errno.h>
 
 static void 
-migrate_errno_str(gchar const *oldpath, gchar const *newpath, int errno, gboolean newfile_culprit)
+migrate_errno_print(gchar const *oldpath, gchar const *newpath, int errno, gboolean newfile_culprit)
 {
 	char tmp[2049];
 	gchar *whichfile;
@@ -60,7 +60,7 @@ copy_from_old_config(gchar const *oldpath, gchar const *filename)
 	
 	oldfile = open(oldpath, O_RDONLY);
 	if (oldfile == -1) { /* no old file: nothing to migrate from */
-		migrate_errno_str (oldpath, abspath, errno, FALSE);
+		migrate_errno_print (oldpath, abspath, errno, FALSE);
 		goto endme;
 	}
 	
@@ -68,7 +68,7 @@ copy_from_old_config(gchar const *oldpath, gchar const *filename)
 
 	newfile = open(abspath, O_CREAT|O_WRONLY, 0644);
 	if (newfile == -1) { /* new file couldnt be created, probably already exists */
-		migrate_errno_str (oldpath, abspath, errno, TRUE);
+		migrate_errno_print (oldpath, abspath, errno, TRUE);
 		goto endme;
 	}
 	flock(newfile, LOCK_EX);
@@ -78,9 +78,9 @@ copy_from_old_config(gchar const *oldpath, gchar const *filename)
 		wcnt = write (newfile, buf, rcnt);
 		if (wcnt <= 0) { /* something went wrong */
 			if (wcnt < 0) /* normal error */
-				migrate_errno_str (oldpath, abspath, errno, TRUE);
+				migrate_errno_print (oldpath, abspath, errno, TRUE);
 			else /* impossible error */
-				migrate_errno_str (oldpath, abspath, EIO, TRUE);
+				migrate_errno_print (oldpath, abspath, EIO, TRUE);
 
 			close (newfile); /* -1: dont care since its being deleted anyways */
 			newfile = -1;
@@ -90,7 +90,7 @@ copy_from_old_config(gchar const *oldpath, gchar const *filename)
 	}
 	
 	if (rcnt < 0) {
-		migrate_errno_str (oldpath, abspath, errno, FALSE);
+		migrate_errno_print (oldpath, abspath, errno, FALSE);
 		goto endme;
 	}
 	
@@ -98,7 +98,7 @@ endme:
 	if (newfile != -1) { /* open: close down */
 		flock(newfile, LOCK_UN);
 		if (close(newfile) == -1) { /* didnt work, something went wrong when flushing, probably, so revert. */
-			migrate_errno_str (oldpath, abspath, errno, TRUE);
+			migrate_errno_print (oldpath, abspath, errno, TRUE);
 			
 			newfile = -1;
 			unlink (abspath);
