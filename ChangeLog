@@ -1,3 +1,43 @@
+2003-07-10 11:45  huysmans
+
+	* configure, configure.ac: Bump versions for release and update po
+	files
+
+2003-07-09 10:47  huysmans
+
+	* configure, configure.ac, ltmain.sh, panel-plugin/mixer.c,
+	po/ca.gmo, po/ca.po, po/de.gmo, po/de.po, po/it.gmo, po/it.po,
+	po/nl.gmo, po/nl.po, po/ru.gmo, po/ru.po, po/tr.gmo, po/tr.po,
+	po/xfce4-mixer.pot, po/zh_CN.gmo, po/zh_CN.po: Update to new plugin
+	API
+
+2003-07-08 22:55  xfce
+
+	* po/Makefile.in.in: Don't perform an update-po on make dist as it
+	causes far too much trouble
+
+2003-07-08 20:01  huysmans
+
+	* panel-plugin/mixer.c: Replave ... button with gtk stock open icon
+
+2003-07-07 23:22  huysmans
+
+	* po/: ca.gmo, ca.po: Update catalan translations
+
+2003-07-07 22:46  dannym
+
+	* panel-plugin/mixer.c: trying to fix the one-pixel-below bug
+	phrep_ reported...
+
+2003-07-07 22:43  dannym
+
+	* panel-plugin/mixer_window.c: Ok, since the draw_value from
+	GtkScale is starting to annoy me, I just switched it off now. Bah.
+
+2003-07-06 22:14  huysmans
+
+	* ChangeLog: Update ChangeLogs
+
 2003-07-06 15:35  xfce
 
 	* Makefile.in, ltconfig: libtool update
