@@ -142,13 +142,21 @@ volchanger_t **first_vc()
 
 volchanger_t **next_vc(volchanger_t **v)
 {
+	int	i;
+	
 	++v;
-	while (v >= vcs && v < vcs + sizeof(vcs)) {
-		if ((*v)) {
-			return v;
+	
+	i = v - vcs;
+	if (i < 0 || i >= MAX_VC) {
+		return NULL;
+	}
+	
+	while (i < MAX_VC) {
+		if (vcs[i]) {
+			return &vcs[i];
 		}
 	
-		++v;
+		++i;
 	}
 	
 	return NULL;
