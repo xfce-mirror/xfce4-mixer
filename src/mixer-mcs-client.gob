@@ -22,7 +22,7 @@ notify_cb (const char *name, const char *channel_name,
 {
 	XfceMixerMcsClient *m;
 	m = XFCE_MIXER_MCS_CLIENT (data);
-
+g_warning ("mcs client");
 	if (!m->channel)
 		return;
 

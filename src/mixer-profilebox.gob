@@ -39,6 +39,7 @@ static void each_selstring_cb (GtkTreeModel *model, GtkTreePath *path, GtkTreeIt
 	}
 }
 
+/*
 static void profiles_free (GList *go)
 {
 	GList *g;
@@ -54,7 +55,7 @@ static void profiles_free (GList *go)
 	if (go)
 		g_list_free (go);
 }
-
+*/
 
 %}
 
@@ -72,12 +73,7 @@ class Xfce:Mixer:Profilebox from Gtk:VBox {
 	protected GtkToolbar *profiles_toolbar;
 	protected Xfce:Mixer:Profilebox:Detail *detail = NULL;
 	protected GtkBox * hbox;
-	/*protected GList *profile_names = NULL
-		destroywith stringlist_free;*/
-	/*protected GList *profiles = NULL
-		destroywith profiles_free;*/
-	protected XfceMixerProfiles *profilesa = NULL
-		unrefwith g_object_unref;
+	protected gint profiles_updated_lock = 0;
 
 	init (self)
 	{
@@ -86,8 +82,6 @@ class Xfce:Mixer:Profilebox from Gtk:VBox {
 		GtkWidget *dal;
 		gchar const *dd;
 		GtkTreeSelection *sels;
-
-		self->profilesa = xfce_mixer_profiles_new (device);
 
 		devbox = GTK_BOX (gtk_hbox_new (FALSE, 5));
 		d1label = gtk_label_new (_("Device:"));
@@ -208,8 +202,22 @@ class Xfce:Mixer:Profilebox from Gtk:VBox {
 			self
 		);
 
+		g_signal_connect_swapped (G_OBJECT (profiles), 
+			"profiles-changed",
+			G_CALLBACK (self_profiles_changed_cb), self);
+
+		self_profiles_updated (self);
+
 		self_rowcnt_updated_cb (self);
 
+		/*self_load (self);*/
+	}
+
+	protected void profiles_changed_cb (self, GObject *obj)
+	{
+		g_warning ("profiles_changed_cb start !!!!");
+		self_profiles_updated (self);
+		g_warning ("profiles_changed_cb end");
 	}
 
 	protected void sel_changed_cb (self, GtkTreeSelection *sel)
@@ -220,6 +228,8 @@ class Xfce:Mixer:Profilebox from Gtk:VBox {
 		gchar *s;
 		XfceMixerProfile *p;
 
+		g_warning ("sel_changed_cb start");
+
 		/* TODO save current "detail" */
 
 		issel = gtk_tree_selection_get_selected (sel, &model, &iter);
@@ -228,7 +238,7 @@ class Xfce:Mixer:Profilebox from Gtk:VBox {
 			gtk_tree_model_get (GTK_TREE_MODEL (self->profiles_model),
 				&iter, 0, &s, -1);
 
-			p = xfce_mixer_profiles_get_profile (self->profilesa, s);
+			p = xfce_mixer_profiles_get_profile (profiles, s);
 
 			xfce_mixer_profile_set_title (p, s);
 
@@ -237,6 +247,8 @@ class Xfce:Mixer:Profilebox from Gtk:VBox {
 		} else {
 			xfce_mixer_profilebox_detail_set_profile (self->detail, NULL);
 		}
+
+		g_warning ("sel_changed_cb end");
 	}
 
 	/*
@@ -268,7 +280,7 @@ class Xfce:Mixer:Profilebox from Gtk:VBox {
 		if (!name)
 			return TRUE;
 
-		p = xfce_mixer_profiles_get_profile (self->profilesa, name);
+		p = xfce_mixer_profiles_get_profile (profiles, name);
 		if (p) {
 			g_object_unref (G_OBJECT (p));
 			return TRUE;
@@ -279,11 +291,21 @@ class Xfce:Mixer:Profilebox from Gtk:VBox {
 
 	protected void row_inserted_cb (self, GtkTreePath *path, GtkTreeIter *iter, GtkTreeModel *model)
 	{
+		if (self->profiles_updated_lock)
+			return;
+
+		g_warning ("row_inserted_cb start");
+
 		self_rowcnt_updated_cb (self);
+
+		g_warning ("row_inserted_cb end");
 	}
 
 	protected void row_deleted_cb (self, GtkTreePath *path, GtkTreeModel *model)
 	{
+		if (self->profiles_updated_lock)
+			return;
+
 		g_warning ("deleted");
 		self_rowcnt_updated_cb (self);
 	}
@@ -291,6 +313,7 @@ class Xfce:Mixer:Profilebox from Gtk:VBox {
 	protected void rowcnt_updated_cb (self)
 	{
 		gboolean b;
+
 		b = gtk_tree_model_iter_n_children (GTK_TREE_MODEL (self->profiles_model), NULL) > 0;
 		gtk_widget_set_sensitive (GTK_WIDGET (self->profiles_delete_button), b);
 		gtk_widget_set_sensitive (GTK_WIDGET (self->detail), b);
@@ -298,12 +321,14 @@ class Xfce:Mixer:Profilebox from Gtk:VBox {
 
 	public void profile_insert_cb(self)
 	{
+
+		g_warning ("insert p");
 		self_new_dlg (self);
 	}
 
 	public void delete_profile(self, gchar const *name)
 	{
-		xfce_mixer_profiles_delete_profile (self->profilesa, name);
+		xfce_mixer_profiles_delete_profile (profiles, name);
 
 		self_profiles_updated (self);
 	}
@@ -319,6 +344,8 @@ class Xfce:Mixer:Profilebox from Gtk:VBox {
 		gchar *s;
 		GtkResponseType rc;
 		GtkWindow *parent;
+
+		g_warning ("profile_delete_cb start");
 
 		parent = GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (self)));
 
@@ -346,7 +373,6 @@ class Xfce:Mixer:Profilebox from Gtk:VBox {
 		g_free (s);
 
 		if (rc == GTK_RESPONSE_YES) {
-
 			/* TODO really delete */
 			gg = g;
 			while (gg) {
@@ -357,25 +383,43 @@ class Xfce:Mixer:Profilebox from Gtk:VBox {
 				gg = g_list_next (gg);
 			}
 
+			/* TODO maybe unfill right side */
+
 			xfce_mixer_profilebox_detail_set_profile (self->detail, NULL);
 		}
 
 		if (g)
 			stringlist_free (g);
+		g_warning ("profile_delete_cb end");
 	}
 
 	protected void profiles_updated (self) /* profile list changed */
 	{
 		GtkTreeStore *store;
+		GtkTreeSelection *sels;
 		GList *g;
 		gchar const *s;
+		gchar *prevsel;
 		GList *profile_names;
 		GtkTreeIter iter;
+		GtkTreeModel *model;
+
+		if (self->profiles_updated_lock)
+			return;
+
+		self->profiles_updated_lock = 1;
+
 		store = self->profiles_model;
+
+		sels = gtk_tree_view_get_selection (self->profiles_tv);
+		prevsel = NULL;
+		if (gtk_tree_selection_get_selected (sels, &model, &iter)) {
+			gtk_tree_model_get (model, &iter, 0, &prevsel, -1);
+		}
 
 		gtk_tree_store_clear (store);
 
-		profile_names = xfce_mixer_profiles_get_profile_names (self->profilesa);
+		profile_names = xfce_mixer_profiles_get_profile_names (profiles);
 
 		g = profile_names;
 		while (g) {
@@ -386,12 +430,21 @@ class Xfce:Mixer:Profilebox from Gtk:VBox {
 				-1
 			);
 
+			if (s && prevsel && g_str_equal (s, prevsel))
+				gtk_tree_selection_select_iter (sels, &iter);
+
 			g = g_list_next (g);
+		}
+		if (prevsel) {
+			g_free (prevsel);
+			prevsel = NULL;
 		}
 
 		stringlist_free (profile_names);
 
 		self_rowcnt_updated_cb (self);
+
+		self->profiles_updated_lock = 0;
 	}
 
 	protected void select_last (self)
@@ -465,10 +518,8 @@ class Xfce:Mixer:Profilebox from Gtk:VBox {
 				retry = TRUE;
 			} else if (!self_profile_exists (self, name)) {
 				xfce_mixer_profile_set_title (p, name);
-
-				xfce_mixer_profiles_add_profile (self->profilesa, p);
+				xfce_mixer_profiles_add_profile (profiles, p);
 				g_object_unref (G_OBJECT (p));
-
 				/* TODO really insert */
 				p = NULL;
 

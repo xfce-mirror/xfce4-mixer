@@ -6,7 +6,7 @@
 %{
 #include <libxfce4util/util.h>
 #include <libxfce4util/i18n.h>
-
+#define emit
 #define PROFILES_ROOT "Profiles"
 #ifndef MAX_PATH
 #define MAX_PATH 4096
@@ -32,11 +32,22 @@ class Xfce:Mixer:Profiles from G:Object {
 		destroywith g_free;
 	protected gboolean modified = FALSE;
 	protected gint weird_number = 0;
+	protected guint profilesChangedDelayed = 0
+		destroy {
+			if (VAR) g_source_remove (VAR);
+			VAR = 0;
+		};
+
 	protected GList *profiles = NULL
 		destroywith profiles_free;
 
 	protected XfceMixerPxml *xml = NULL
 		unrefwith g_object_unref;
+
+	signal first NONE (NONE)
+	void profiles_changed (self)
+	{
+	}
 
 	init (self)
 	{
@@ -113,6 +124,9 @@ class Xfce:Mixer:Profiles from G:Object {
 					p = XFCE_MIXER_PROFILE (xfce_mixer_profile_new (n));
 					if (p) {
 						/* TODO read data etc */
+
+						self_add_profile (self, p);
+						g_object_unref (G_OBJECT (p));
 					}
 				}
 			}
@@ -188,6 +202,10 @@ class Xfce:Mixer:Profiles from G:Object {
 				return;
 			}
 		}
+
+		g_object_ref (G_OBJECT (pn));
+		self->profiles = g_list_append (self->profiles, pn);
+		self_set_modified (self, TRUE);
 	}
 
 	/*public XfceMixerProfile *create_profile (self, gchar const *fixedname)
@@ -230,12 +248,29 @@ class Xfce:Mixer:Profiles from G:Object {
 			g_object_unref (G_OBJECT (p));
 			g_object_unref (G_OBJECT (p));
 			self->profiles = g_list_remove (self->profiles, p);
+			self_set_modified (self, TRUE);
 		}
 	}
 
 	public void set_modified (self, gboolean modi)
 	{
 		self->modified = modi;
+		if (modi) {
+			if (self->profilesChangedDelayed) {
+				g_source_remove (self->profilesChangedDelayed);
+				self->profilesChangedDelayed = 0;
+			}
+
+			self->profilesChangedDelayed = g_timeout_add (500, 
+				(GSourceFunc)self_delayed_pc_cb, self);
+		}
+	}
+
+	protected gboolean delayed_pc_cb (self)
+	{
+		/*g_warning ("mixer-profiles::profiles-changed");*/
+		emit self_profiles_changed (self);
+		return FALSE;
 	}
 
 	public gboolean get_modified (self)

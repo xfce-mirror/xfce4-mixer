@@ -14,6 +14,7 @@ extern "C" {
 #include <gtk/gtk.h>
 #include "xfce-mixer-view.h"
 #include "xfce-mixer-profile.h"
+#include "main.h"
 #include "xfce-mixer-mcs-client.h"
 
 

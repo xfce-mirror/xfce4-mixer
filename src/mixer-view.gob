@@ -98,8 +98,11 @@ class Xfce:Mixer:View from Gtk:VBox {
 		destroywith control_list_free;
 	protected t_mixer_control_factory_kind kind;
 
+	protected gboolean destruction = FALSE;
+
 	protected Xfce:Mixer:Profile *profile = NULL
 		destroy {
+			self->destruction = TRUE;
 			self_set_profile (self, NULL);
 		};
 
@@ -168,6 +171,11 @@ class Xfce:Mixer:View from Gtk:VBox {
 			win = gtk_widget_get_toplevel (GTK_WIDGET (user_data));
 			g_timeout_add (250 /*500*/, idle_cb, win);
 		}
+	}
+
+	signal first NONE (NONE)
+	void profile_changed (self)
+	{
 	}
 
 	protected virtual void init_containers(self)
@@ -269,11 +277,15 @@ class Xfce:Mixer:View from Gtk:VBox {
 		GList *g, *go;
 		t_mixer_profile_item *item;
 		XfceMixerControl *c;
+
+		if (p)
+			g_object_ref (G_OBJECT (p));
+
 		if (self->profile) {
 			xfce_mixer_profile_unregister_view (self->profile, self);
+			g_object_unref (G_OBJECT (self->profile));
 		}
 		self_clear_controls (self);
-
 		self->profile = p;
 
 		self_view_cleared (self);
@@ -299,6 +311,9 @@ class Xfce:Mixer:View from Gtk:VBox {
 			}
 			xfce_mixer_profile_free_control_list (p, go);
 		}
+
+		if (!self->destruction)
+			emit self_profile_changed (self);
 	}
 
 	public Xfce:Mixer:Profile const *get_profile(self)

@@ -19,6 +19,7 @@ extern "C" {
 #line 20 "xfce-mixer-profiles-private.h"
 void 	xfce_mixer_profiles_goto_device	(XfceMixerProfiles * self);
 void 	xfce_mixer_profiles_xml_text_child	(XfceMixerProfiles * self, gchar const * tagname);
+gboolean 	xfce_mixer_profiles_delayed_pc_cb	(XfceMixerProfiles * self);
 
 #ifdef __cplusplus
 }

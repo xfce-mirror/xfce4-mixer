@@ -7,6 +7,7 @@
 #include <gtk/gtk.h>
 #include <libxfce4util/i18n.h>
 #include "xfce-mixer-profile.h"
+#include "xfce-mixer-profiles.h"
 #include "xfce-mixer-window.h"
 #include "xfce-mixer-mcs-client.h"
 #include "vcs.h"
@@ -17,6 +18,7 @@ GtkTooltips *tooltips;
 static GtkWidget *mixer_window;
 XfceMixerMcsClient *mcsc = NULL;
 gchar *device = NULL;
+XfceMixerProfiles *profiles = NULL;
 
 static void vol_changed_cb (char const *vcname, void *privdata)
 {
@@ -36,6 +38,9 @@ timer_vc_cb (gpointer data)
 static void
 my_main_quit(GtkWidget *w, gpointer user_data)
 {
+	xfce_mixer_profiles_save (profiles);
+	g_object_unref (G_OBJECT (profiles));
+	profiles = NULL;
 	mixer_window = NULL;
 	gtk_main_quit ();
 }
@@ -67,6 +72,8 @@ int main(int argc, char * argv[])
 			device = NULL;
 	}
 	
+  	profiles = xfce_mixer_profiles_new (device);
+	xfce_mixer_profiles_load (profiles);
   
 	mixer_window = xfce_mixer_window_new ();
 	mcsc = XFCE_MIXER_WINDOW (mixer_window)->mcsc;

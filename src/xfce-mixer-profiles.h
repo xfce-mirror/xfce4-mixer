@@ -41,6 +41,7 @@ struct _XfceMixerProfiles {
 	gchar * fname; /* protected */
 	gboolean modified; /* protected */
 	gint weird_number; /* protected */
+	guint profilesChangedDelayed; /* protected */
 	GList * profiles; /* protected */
 	XfceMixerPxml * xml; /* protected */
 };
@@ -51,6 +52,7 @@ struct _XfceMixerProfiles {
 typedef struct _XfceMixerProfilesClass XfceMixerProfilesClass;
 struct _XfceMixerProfilesClass {
 	GObjectClass __parent__;
+	/*signal*/void (* profiles_changed) (XfceMixerProfiles * self);
 };
 
 
@@ -58,6 +60,7 @@ struct _XfceMixerProfilesClass {
  * Public methods
  */
 GType	xfce_mixer_profiles_get_type	(void);
+void 	xfce_mixer_profiles_profiles_changed	(XfceMixerProfiles * self);
 void 	xfce_mixer_profiles_clear	(XfceMixerProfiles * self);
 GList * 	xfce_mixer_profiles_get_profile_names	(XfceMixerProfiles * self);
 void 	xfce_mixer_profiles_load	(XfceMixerProfiles * self);
@@ -72,6 +75,20 @@ void 	xfce_mixer_profiles_set_modified	(XfceMixerProfiles * self,
 					gboolean modi);
 gboolean 	xfce_mixer_profiles_get_modified	(XfceMixerProfiles * self);
 XfceMixerProfiles * 	xfce_mixer_profiles_new	(gchar const * device);
+
+/*
+ * Signal connection wrapper macros
+ */
+#if defined(__GNUC__) && !defined(__STRICT_ANSI__)
+#define xfce_mixer_profiles_connect__profiles_changed(object,func,data)	g_signal_connect(XFCE_MIXER_PROFILES(({XfceMixerProfiles *___object = (object); ___object; })),"profiles_changed",(GCallback)({void (* ___profiles_changed) (XfceMixerProfiles * self, gpointer ___data ) = (func); ___profiles_changed; }), (data))
+#define xfce_mixer_profiles_connect_after__profiles_changed(object,func,data)	g_signal_connect_after(XFCE_MIXER_PROFILES(({XfceMixerProfiles *___object = (object); ___object; })),"profiles_changed",(GCallback)({void (* ___profiles_changed) (XfceMixerProfiles * self, gpointer ___data ) = (func); ___profiles_changed; }), (data))
+#define xfce_mixer_profiles_connect_data__profiles_changed(object,func,data,destroy_data,flags)	g_signal_connect_data(XFCE_MIXER_PROFILES(({XfceMixerProfiles *___object = (object); ___object; })),"profiles_changed",(GCallback)({void (* ___profiles_changed) (XfceMixerProfiles * self, gpointer ___data ) = (func); ___profiles_changed; }), (data), (destroy_data), (GConnectFlags)(flags))
+#else /* __GNUC__ && !__STRICT_ANSI__ */
+#define xfce_mixer_profiles_connect__profiles_changed(object,func,data)	g_signal_connect(XFCE_MIXER_PROFILES(object),"profiles_changed",(GCallback)(func),(data))
+#define xfce_mixer_profiles_connect_after__profiles_changed(object,func,data)	g_signal_connect_after(XFCE_MIXER_PROFILES(object),"profiles_changed",(GCallback)(func),(data))
+#define xfce_mixer_profiles_connect_data__profiles_changed(object,func,data,destroy_data,flags)	g_signal_connect_data(XFCE_MIXER_PROFILES(object),"profiles_changed",(GCallback)(func),(data),(destroy_data),(GConnectFlags)(flags))
+#endif /* __GNUC__ && !__STRICT_ANSI__ */
+
 
 #ifdef __cplusplus
 }

@@ -8,12 +8,15 @@
 #include <gtk/gtk.h>
 #include "xfce-mixer-view.h"
 #include "xfce-mixer-profile.h"
+#include "main.h"
 #include "xfce-mixer-mcs-client.h"
 %}
 %{
 #include <gtk/gtk.h>
 #include <libxfce4util/i18n.h>
 #include "menus.h"
+#include "main.h"
+#include "stringlist.inc"
 #define CHANNEL "sound"
 %}
 
@@ -49,9 +52,18 @@ class Xfce:Mixer:Window from Gtk:Window {
 		self->profile = XFCE_MIXER_PROFILE (xfce_mixer_profile_new ("noname"));
 
 		self->view = xfce_mixer_view_new ();
+
 		gtk_widget_set_size_request (GTK_WIDGET (self->view), 600, -1);
 
 		xfce_mixer_view_set_profile (self->view, self->profile);
+
+		g_object_unref (G_OBJECT (self->profile));
+
+		g_signal_connect_swapped (G_OBJECT (profiles),
+			"profiles-changed", 
+			G_CALLBACK (self_profiles_changed_cb),
+			self);
+
 
 		gtk_widget_show (GTK_WIDGET (self->view));
 
@@ -63,6 +75,148 @@ class Xfce:Mixer:Window from Gtk:Window {
 
 		self->mcsc = xfce_mixer_mcs_client_new ();
 		g_object_set (self->mcsc, "channel", CHANNEL, NULL);
+		g_signal_connect_swapped (G_OBJECT (self->mcsc), "changed", 
+			G_CALLBACK(self_mcs_changed_cb), self);
+
+		self_update_profiles_menu (self);
+	}
+
+	protected void mcs_changed_cb(self, GtkWidget *widget)
+	{
+		g_warning ("mcs changed");
+		self_reset_profile (self);
+	}
+
+	protected void profiles_changed_cb (self, GObject *profiles)
+	{
+		/* TODO avoid loop? */
+		if (!self->view || !self->menubar)
+			return;
+
+		self_update_profiles_menu (self);
+	}
+
+	protected void view_profile_activate_cb (self, GtkWidget *w)
+	{
+		GList *g, *gp;
+		gchar const *n;
+		XfceMixerProfile *p;
+
+		if (!gtk_check_menu_item_get_active (
+			GTK_CHECK_MENU_ITEM (w)
+		))
+			return;
+
+		g = gtk_container_get_children (GTK_CONTAINER (w));
+		gp = g;
+		n = NULL;
+		if (gp)
+			n = gtk_label_get_text (GTK_LABEL (gp->data));
+
+		if (!n)
+			return;
+
+
+		p = xfce_mixer_profiles_get_profile (profiles, n);
+		if (p) {
+			xfce_mixer_view_set_profile (self->view, p);
+			g_object_unref (G_OBJECT (p));
+		}
+
+		if (g)
+			g_list_free (g);
+	}
+
+	protected void update_profiles_menu (self)
+	{
+		XfceMixerProfile const *currentp;
+		GtkContainer *container;
+		GList *g, *gp;
+		GtkWidget *mi;
+		gchar const *currentpn;
+		gchar const *n;
+		GSList *group;
+		currentpn = NULL;
+		currentp = xfce_mixer_view_get_profile (self->view);
+		if (currentp)
+			currentpn = xfce_mixer_profile_get_title ((XfceMixerProfile *)currentp);
+
+		/* self->menubar, View menu: */
+		/* for each v.child(): */
+		/*   if child == seperator: break */
+		/*   child.destroy() */
+
+		container = GTK_CONTAINER (self->menubar);
+		if (!container)
+			return;
+
+		g = gtk_container_get_children (container);
+		if (!g)
+			return;
+
+		mi = GTK_WIDGET (g_list_nth_data (g, 1));
+		if (!mi) {
+			g_list_free (g);
+			return;
+		}
+
+		container = GTK_CONTAINER (gtk_menu_item_get_submenu (GTK_MENU_ITEM (mi)));
+
+		g_list_free (g);
+
+		if (!container)
+			return;
+
+		g = gtk_container_get_children (container);
+		if (!g)
+			return;
+		gp = g;
+		while (gp) {
+			if (!GTK_IS_RADIO_MENU_ITEM (gp->data))
+				break;
+
+			gtk_widget_destroy (GTK_WIDGET (gp->data));
+			gp = g_list_next (gp);
+		}
+
+		if (g)
+			g_list_free (g);
+
+
+		/* profiles.load() */
+		/* for n in profiles.get_profile_names() */
+		/*   v.insert(0, gtk.MenuItem(n).show()) */
+
+		g = xfce_mixer_profiles_get_profile_names (profiles);
+
+		/*g = g_list_append (g, g_strdup ("dummy"));*/
+		/*g = g_list_append (g, g_strdup ("dummy2"));*/
+
+		gp = g;
+		group = NULL;
+		while (gp) {
+			n = (gchar const *)gp->data;
+			mi = gtk_radio_menu_item_new_with_label (group, n);
+
+			group = gtk_radio_menu_item_get_group (GTK_RADIO_MENU_ITEM (mi));
+
+			g_signal_connect_swapped (G_OBJECT (mi),
+				"activate", G_CALLBACK (self_view_profile_activate_cb),
+				self);
+
+			if (currentpn && g_str_equal (currentpn, n)) {
+				gtk_check_menu_item_set_active (GTK_CHECK_MENU_ITEM (mi), TRUE);
+			}
+
+			/* make mi checkmenuitems */
+			gtk_widget_show (GTK_WIDGET (mi));
+			gtk_menu_shell_prepend (GTK_MENU_SHELL (container), mi);
+
+			gp = g_list_next (gp);
+		}
+		if (g)
+			stringlist_free (g);
+
 	}
 
 	public GtkWidget *new(void)
@@ -81,8 +235,8 @@ class Xfce:Mixer:Window from Gtk:Window {
 		if (self->view)
 			xfce_mixer_view_set_profile (self->view, self->profile);
 
-		if (self->profile)
-			xfce_mixer_profile_refresh_views (self->profile);
+		/*if (self->profile)
+			xfce_mixer_profile_refresh_views (self->profile);*/
 	}
 
 	public void refresh_value (self, gchar const *vcname)

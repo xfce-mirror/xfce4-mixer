@@ -50,7 +50,7 @@ struct _XfceMixerProfilebox {
 	GtkToolbar * profiles_toolbar; /* protected */
 	XfceMixerProfileboxDetail * detail; /* protected */
 	GtkBox * hbox; /* protected */
-	XfceMixerProfiles * profilesa; /* protected */
+	gint profiles_updated_lock; /* protected */
 };
 
 /*

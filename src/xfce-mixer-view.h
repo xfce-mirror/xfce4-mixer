@@ -52,6 +52,7 @@ struct _XfceMixerView {
 	GtkBox * tables; /* protected */
 	GList * controls; /* protected */
 	t_mixer_control_factory_kind kind; /* protected */
+	gboolean destruction; /* protected */
 	XfceMixerProfile * profile; /* protected */
 };
 
@@ -61,6 +62,7 @@ struct _XfceMixerView {
 typedef struct _XfceMixerViewClass XfceMixerViewClass;
 struct _XfceMixerViewClass {
 	GtkVBoxClass __parent__;
+	/*signal*/void (* profile_changed) (XfceMixerView * self);
 	void (* init_containers) (XfceMixerView * self);
 	void (* view_item_updated) (XfceMixerView * self, XfceMixerControl * c, t_mixer_profile_item * p);
 	void (* view_cleared) (XfceMixerView * self);
@@ -74,6 +76,7 @@ struct _XfceMixerViewClass {
  */
 GType	xfce_mixer_view_get_type	(void);
 XfceMixerView * 	xfce_mixer_view_new	(void);
+void 	xfce_mixer_view_profile_changed	(XfceMixerView * self);
 GtkContainer * 	xfce_mixer_view_find_container	(XfceMixerView * self,
 					gchar const * name);
 void 	xfce_mixer_view_set_profile	(XfceMixerView * self,
@@ -84,6 +87,20 @@ void 	xfce_mixer_view_refresh_value	(XfceMixerView * self,
 					gchar const * vcname);
 void 	xfce_mixer_view_profile_item_updated	(XfceMixerView * self,
 					t_mixer_profile_item * p);
+
+/*
+ * Signal connection wrapper macros
+ */
+#if defined(__GNUC__) && !defined(__STRICT_ANSI__)
+#define xfce_mixer_view_connect__profile_changed(object,func,data)	g_signal_connect(XFCE_MIXER_VIEW(({XfceMixerView *___object = (object); ___object; })),"profile_changed",(GCallback)({void (* ___profile_changed) (XfceMixerView * self, gpointer ___data ) = (func); ___profile_changed; }), (data))
+#define xfce_mixer_view_connect_after__profile_changed(object,func,data)	g_signal_connect_after(XFCE_MIXER_VIEW(({XfceMixerView *___object = (object); ___object; })),"profile_changed",(GCallback)({void (* ___profile_changed) (XfceMixerView * self, gpointer ___data ) = (func); ___profile_changed; }), (data))
+#define xfce_mixer_view_connect_data__profile_changed(object,func,data,destroy_data,flags)	g_signal_connect_data(XFCE_MIXER_VIEW(({XfceMixerView *___object = (object); ___object; })),"profile_changed",(GCallback)({void (* ___profile_changed) (XfceMixerView * self, gpointer ___data ) = (func); ___profile_changed; }), (data), (destroy_data), (GConnectFlags)(flags))
+#else /* __GNUC__ && !__STRICT_ANSI__ */
+#define xfce_mixer_view_connect__profile_changed(object,func,data)	g_signal_connect(XFCE_MIXER_VIEW(object),"profile_changed",(GCallback)(func),(data))
+#define xfce_mixer_view_connect_after__profile_changed(object,func,data)	g_signal_connect_after(XFCE_MIXER_VIEW(object),"profile_changed",(GCallback)(func),(data))
+#define xfce_mixer_view_connect_data__profile_changed(object,func,data,destroy_data,flags)	g_signal_connect_data(XFCE_MIXER_VIEW(object),"profile_changed",(GCallback)(func),(data),(destroy_data),(GConnectFlags)(flags))
+#endif /* __GNUC__ && !__STRICT_ANSI__ */
+
 
 #ifdef __cplusplus
 }
