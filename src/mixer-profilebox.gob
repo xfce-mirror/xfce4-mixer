@@ -213,6 +213,7 @@ class Xfce:Mixer:Profilebox from Gtk:VBox {
 		GtkTreeModel *model;
 		GtkTreeIter iter;
 		gchar *s;
+		XfceMixerProfile *p;
 
 		/* TODO save current "detail" */
 
@@ -222,12 +223,16 @@ class Xfce:Mixer:Profilebox from Gtk:VBox {
 			gtk_tree_model_get (GTK_TREE_MODEL (self->profiles_model),
 				&iter, 0, &s, -1);
 
-			xfce_mixer_profilebox_detail_filln (self->detail, s);
-			g_free (s);
+			p = XFCE_MIXER_PROFILE (g_list_nth_data (self->profiles, 
+				self_profile_pos (self, s)
+			));
 
-			/* TODO fill real "detail" */
+			xfce_mixer_profile_set_title (p, s);
+
+			g_free (s);
+			xfce_mixer_profilebox_detail_set_profile (self->detail, p);
 		} else {
-			xfce_mixer_profilebox_detail_unfill (self->detail);
+			xfce_mixer_profilebox_detail_set_profile (self->detail, NULL);
 		}
 	}
 
@@ -354,7 +359,7 @@ class Xfce:Mixer:Profilebox from Gtk:VBox {
 				gg = g_list_next (gg);
 			}
 
-			xfce_mixer_profilebox_detail_unfill (self->detail);
+			xfce_mixer_profilebox_detail_set_profile (self->detail, NULL);
 		}
 
 		if (g)
@@ -440,7 +445,8 @@ class Xfce:Mixer:Profilebox from Gtk:VBox {
 
 		gtk_widget_set_size_request (GTK_WIDGET (detail), -1, 200);
 
-		xfce_mixer_profilebox_detail_fill (detail);
+		p = XFCE_MIXER_PROFILE (xfce_mixer_profile_new (""));
+		xfce_mixer_profilebox_detail_set_profile (detail, p);
 
 		retry = TRUE;
 		while (retry) {
@@ -456,12 +462,14 @@ class Xfce:Mixer:Profilebox from Gtk:VBox {
 				_("A profile needs a name"));
 				retry = TRUE;
 			} else if (!self_profile_exists (self, name)) {
-				p = XFCE_MIXER_PROFILE (xfce_mixer_profile_new (name));
+				xfce_mixer_profile_set_title (p, name);
+
 				self->profiles = g_list_append (self->profiles, (gpointer) p);
 				self->profile_names = g_list_append (self->profile_names, g_strdup (
 					name
 				));
 				/* TODO really insert */
+				p = NULL;
 
 				self_profiles_updated (self);
 				self_select_last (self);
@@ -474,6 +482,9 @@ class Xfce:Mixer:Profilebox from Gtk:VBox {
 
 		}
 		gtk_widget_destroy (GTK_WIDGET (dlg));
+		if (p) {
+			g_object_unref (G_OBJECT (p));
+		}
 	}
 
 	public Xfce:Mixer:Profilebox *new (void)
