@@ -5,7 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2003-08-02 11:41+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-01-06 19:55+0100\n"
 "PO-Revision-Date: 2003-11-23 05:05-0000\n"
 "Last-Translator: Artjom Simon <hoek@linuxartist.org>\n"
 "Language-Team: German <xfce4-dev@xfce.org>\n"
@@ -13,60 +14,75 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: panel-plugin/mixer.c:157
-msgid "No working sound"
-msgstr "Keine funktionierende Soundkonfiguration gefunden"
-
-#: panel-plugin/mixer.c:296
-#, c-format
-msgid "Volume: %d%%"
-msgstr "Lautstärke: %d %%"
-
-#: panel-plugin/mixer.c:1022
-msgid "Device:"
+#: mixer-settingsbox.gob:71 mixer-settingsbox.gob:88
+#, fuzzy
+msgid "Device"
 msgstr "Gerät:"
 
-#: panel-plugin/mixer.c:1110
-msgid "Use _internal mixer"
-msgstr "_Internen Mixer verwenden"
+#: mixer-settingsbox.gob:91
+msgid "None"
+msgstr ""
 
-#: panel-plugin/mixer.c:1307
-msgid "Volume Control"
-msgstr "Lautstärkenregler"
+#: mixer-settingsbox.gob:94
+#, fuzzy
+msgid "Useful Controls"
+msgstr "Regler"
 
-#: panel-plugin/vc_alsa.c:90
+#: lib/vc_alsa.c:89
 #, c-format
 msgid "alsa: Mixer %s open error: %s\n"
 msgstr "ALSA: Fehler beim Öffnen von Mixer %s: %s\n"
 
-#: panel-plugin/vc_alsa.c:95
+#: lib/vc_alsa.c:94
 #, c-format
 msgid "alsa: Mixer attach %s error: %s\n"
 msgstr "ALSA: Mixer %s: Fehler beim Verbinden: %s\n"
 
-#: panel-plugin/vc_alsa.c:103
+#: lib/vc_alsa.c:102
 #, c-format
 msgid "alsa: Mixer register error: %s"
 msgstr "ALSA: Mixer %s: Fehler beim Registrieren: %s"
 
-#: panel-plugin/vc_alsa.c:112
-#, c-format
-msgid "alsa: Mixer load error: %s"
+#: lib/vc_alsa.c:111
+#, fuzzy, c-format
+msgid "alsa: Mixer load error: %s: %s"
 msgstr "ALSA: Mixer %s: Fehler beim Laden: %s"
 
-#: panel-plugin/vc_alsa.c:122
+#: lib/vc_alsa.c:121
 #, c-format
 msgid "alsa: Unable to find simple control '%s',%i\n"
 msgstr "ALSA: Regler '%s', %i nicht gefunden\n"
 
-#: panel-plugin/vc_oss.c:133
+#: lib/vc_oss.c:134
 msgid "oss: No master volume"
 msgstr "OSS: Kein Master"
 
-#: panel-plugin/mvisible_opts.c:76
-msgid "Visible"
-msgstr "Sichtbar"
+#: panel-plugin/plugin.c:82
+#, c-format
+msgid "Volume: %d%%"
+msgstr "Lautstärke: %d %%"
 
-#: panel-plugin/mvisible_opts.c:84
-msgid "Control"
-msgstr "Regler"
+#: panel-plugin/plugin.c:326
+msgid "Volume Control"
+msgstr "Lautstärkenregler"
+
+#: settings/sound.c:72 settings/sound.c:90
+msgid "Sound"
+msgstr ""
+
+#: src/disclosure-widget.c:295
+msgid "Expander Size"
+msgstr ""
+
+#: src/disclosure-widget.c:296
+msgid "Size of the expander arrow"
+msgstr ""
+
+#~ msgid "No working sound"
+#~ msgstr "Keine funktionierende Soundkonfiguration gefunden"
+
+#~ msgid "Use _internal mixer"
+#~ msgstr "_Internen Mixer verwenden"
+
+#~ msgid "Visible"
+#~ msgstr "Sichtbar"

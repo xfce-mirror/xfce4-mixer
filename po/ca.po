@@ -6,7 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce 4\n"
-"POT-Creation-Date: 2003-08-02 11:41+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-01-06 19:55+0100\n"
 "PO-Revision-Date: 2003-08-05 13:39+0100\n"
 "Last-Translator: Carles Mu-oz Gorriz <carlesmu@internautas.org>\n"
 "Language-Team: ca <LL@li.org>\n"
@@ -14,60 +15,75 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: panel-plugin/mixer.c:157
-msgid "No working sound"
-msgstr "El so no funciona"
-
-#: panel-plugin/mixer.c:296
-#, c-format
-msgid "Volume: %d%%"
-msgstr "Volum: %d%%"
-
-#: panel-plugin/mixer.c:1022
-msgid "Device:"
+#: mixer-settingsbox.gob:71 mixer-settingsbox.gob:88
+#, fuzzy
+msgid "Device"
 msgstr "Dispositiu:"
 
-#: panel-plugin/mixer.c:1110
-msgid "Use _internal mixer"
-msgstr "utilitza el mesclador _intern"
+#: mixer-settingsbox.gob:91
+msgid "None"
+msgstr ""
 
-#: panel-plugin/mixer.c:1307
-msgid "Volume Control"
-msgstr "Control de volum"
+#: mixer-settingsbox.gob:94
+#, fuzzy
+msgid "Useful Controls"
+msgstr "Control"
 
-#: panel-plugin/vc_alsa.c:90
+#: lib/vc_alsa.c:89
 #, c-format
 msgid "alsa: Mixer %s open error: %s\n"
 msgstr "alsa: Mesclador %s error al obrir: %s\n"
 
-#: panel-plugin/vc_alsa.c:95
+#: lib/vc_alsa.c:94
 #, c-format
 msgid "alsa: Mixer attach %s error: %s\n"
 msgstr "alsa: Error %s en l'adjunt del mesclador: %s\n"
 
-#: panel-plugin/vc_alsa.c:103
+#: lib/vc_alsa.c:102
 #, c-format
 msgid "alsa: Mixer register error: %s"
 msgstr "alsa: Error al registrar el mesclador: %s"
 
-#: panel-plugin/vc_alsa.c:112
-#, c-format
-msgid "alsa: Mixer load error: %s"
+#: lib/vc_alsa.c:111
+#, fuzzy, c-format
+msgid "alsa: Mixer load error: %s: %s"
 msgstr "alsa: Error en la càrrega del mesclador: %s"
 
-#: panel-plugin/vc_alsa.c:122
+#: lib/vc_alsa.c:121
 #, c-format
 msgid "alsa: Unable to find simple control '%s',%i\n"
 msgstr "alsa: No es pot trobar el control '%s',%i\n"
 
-#: panel-plugin/vc_oss.c:133
+#: lib/vc_oss.c:134
 msgid "oss: No master volume"
 msgstr "oss: No hi és el control principal de volum"
 
-#: panel-plugin/mvisible_opts.c:76
-msgid "Visible"
-msgstr "Visible"
+#: panel-plugin/plugin.c:82
+#, c-format
+msgid "Volume: %d%%"
+msgstr "Volum: %d%%"
 
-#: panel-plugin/mvisible_opts.c:84
-msgid "Control"
-msgstr "Control"
+#: panel-plugin/plugin.c:326
+msgid "Volume Control"
+msgstr "Control de volum"
+
+#: settings/sound.c:72 settings/sound.c:90
+msgid "Sound"
+msgstr ""
+
+#: src/disclosure-widget.c:295
+msgid "Expander Size"
+msgstr ""
+
+#: src/disclosure-widget.c:296
+msgid "Size of the expander arrow"
+msgstr ""
+
+#~ msgid "No working sound"
+#~ msgstr "El so no funciona"
+
+#~ msgid "Use _internal mixer"
+#~ msgstr "utilitza el mesclador _intern"
+
+#~ msgid "Visible"
+#~ msgstr "Visible"
