@@ -44,8 +44,7 @@ class Xfce:Mixer:Prefbox from Gtk:VBox {
 	protected GtkCheckButton *in_terminal_c;
 	private delayer_t device_entry_delayer = 0
 		destroy { delayer_free (VAR); };
-	protected CommandOptions *ic = NULL 
-		destroywith destroy_command_options;
+	protected CommandOptions *ic = NULL;
 	protected GtkWidget *click_b = NULL;
 	protected Control *plugin = NULL;
 
