@@ -68,6 +68,9 @@
 #include <glib.h>
 
 #include <libxfce4util/i18n.h>
+#ifndef _
+#define _(x) (x)
+#endif
 
 #define VC_PLUGIN
 #include "vc.h"
