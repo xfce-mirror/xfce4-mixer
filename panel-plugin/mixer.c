@@ -209,7 +209,7 @@ mixer_new (void)
 
     mixer->broken = TRUE;
     
-    mixer->options.command = g_strdup("aumix");
+    mixer->options.command = NULL; /*g_strdup("aumix");*/
     mixer->options.use_sn = TRUE;
     mixer->options.use_terminal = FALSE;
     
@@ -476,7 +476,7 @@ create_mixer_control (Control * control)
 	if (!mixer->broken) {
 		check_volume (mixer);
 		/* timeout_id==0: failed */
-		mixer->timeout_id = g_timeout_add(5 * 1000, (GSourceFunc) check_volume, mixer);
+		mixer->timeout_id = g_timeout_add(5 * 100, (GSourceFunc) check_volume, mixer);
 	}
 
 	return TRUE;
