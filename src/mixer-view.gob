@@ -278,12 +278,8 @@ class Xfce:Mixer:View from Gtk:VBox {
 		t_mixer_profile_item *item;
 		XfceMixerControl *c;
 
-		g_warning ("set_profile entered");
-
-		if (p) {
+		if (p)
 			g_object_ref (G_OBJECT (p));
-			g_warning ("ref profile %X %s", (int)p, xfce_mixer_profile_get_title (p));
-		}
 
 		if (self->profile) {
 			xfce_mixer_profile_unregister_view (self->profile, self);
@@ -300,7 +296,6 @@ class Xfce:Mixer:View from Gtk:VBox {
 
 		if (!self->destruction)
 			emit self_profile_changed (self);
-		g_warning ("set_profile left");
 	}
 
 	public Xfce:Mixer:Profile const *get_profile(self)

@@ -563,8 +563,6 @@ void xfce_mixer_profile_load(XfceMixerProfile *profile, XfceMixerPxml *xml)
 		if (!xml->node)
 			return;
 
-		g_warning ("loading profile");
-		
 		xfce_mixer_pxml_goto_children (xml);
 		if (!xml->node)
 			return;
@@ -612,8 +610,6 @@ void xfce_mixer_profile_save(XfceMixerProfile *profile, XfceMixerPxml *xml)
 		t_mixer_profile_item *item;
 		gchar sorderno[20];
 		
-		g_warning ("xfce_mixer_profile_save");
-
 		xml->node = xfce_mixer_pxml_create_text_child (xml, "controls", NULL);
 		parent = xml->node;
 
