@@ -72,12 +72,12 @@ BM_I18N([xfce4-mixer], [ar az be bg ca de es es_MX et eu fa fi fr gu he hu it
 			zh_TW])
 
 BM_DEPEND([XML], [libxml-2.0], [2.4.0])
-BM_DEPEND([XFCE4_UTIL], [libxfce4util-1.0], [4.1.99.2])
-BM_DEPEND([XFCE4_GUI], [libxfcegui4-1.0], [4.1.0])
-BM_DEPEND([GTK], [gtk+-2.0], [2.0.6])
-BM_DEPEND([XFCE_MCS_CLIENT], [libxfce4mcs-client-1.0], [4.0.0])
-XFCE_PANEL_PLUGIN([XFCE4_PANEL], [4.0.0])
-XFCE_MCS_PLUGIN([XFCE_MCS_MANAGER], [4.0.0])
+BM_DEPEND([XFCE4_UTIL], [libxfce4util-1.0], [4.1.99])
+BM_DEPEND([XFCE4_GUI], [libxfcegui4-1.0], [4.1.99])
+BM_DEPEND([GTK], [gtk+-2.0], [2.2.0])
+BM_DEPEND([XFCE_MCS_CLIENT], [libxfce4mcs-client-1.0], [4.1.99])
+XFCE_PANEL_PLUGIN([XFCE4_PANEL], [4.1.99])
+XFCE_MCS_PLUGIN([XFCE_MCS_MANAGER], [4.1.99])
 
 AC_MSG_CHECKING([whether to build big mixer window])
 AC_ARG_ENABLE([big-mixer],
