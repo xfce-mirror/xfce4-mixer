@@ -11,6 +11,12 @@
 #include "vc.h"
 #include "xfce-mixer-cache-vc.h"
 #include "xfce-mixer-pxml.h"
+#include <panel/item_dialog.h>
+#include <panel/plugins.h>
+
+/* why is this deprecated when it is needed by combo ? O_o */
+GtkWidget *gtk_list_item_new_with_label (const gchar *label);
+
 %}
 %h{
 #include "helpers_h.inc"
@@ -33,19 +39,21 @@ class Xfce:Mixer:Prefbox from Gtk:VBox {
 		destroywith stringlist_free;
 
 	protected GtkCombo *execu_cb;
+	/*protected GtkEntry *execu_entry;*/
 	protected GtkCheckButton *startup_nf_c;
 	protected GtkCheckButton *in_terminal_c;
 	private delayer_t device_entry_delayer = 0
 		destroy { delayer_free (VAR); };
+	protected CommandOptions *ic = NULL 
+		destroywith destroy_command_options;
+	protected GtkWidget *click_b = NULL;
+	protected Control *plugin = NULL;
 
 	public void fill_defaults(self)
 	{
-		gtk_entry_set_text (GTK_ENTRY (self->execu_cb->entry), "xfce4-mixer");
+		command_options_set_command (self->ic, "xfce4-mixer", FALSE, TRUE);
 		gtk_entry_set_text (GTK_ENTRY (self->device_cb->entry), "");
 		emit self_device_changed (self);
-
-		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (self->startup_nf_c), FALSE);
-		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (self->in_terminal_c), FALSE);
 	}
 
 	protected void fill_device_list(self)
@@ -156,40 +164,26 @@ class Xfce:Mixer:Prefbox from Gtk:VBox {
 
 	init(self)
 	{
-		GtkWidget *cbb;
-		GtkWidget *click_b;
 		GtkWidget *dentry;
-		GList *gn;
+		GtkWidget *item;
 
 		gtk_box_set_spacing (GTK_BOX (self), 5);
 		self->device_cb = GTK_COMBO (gtk_combo_new ());
 		self->master_om = GTK_OPTION_MENU (gtk_option_menu_new ());
-		self->execu_cb = GTK_COMBO (gtk_combo_new ());
-		self->startup_nf_c = GTK_CHECK_BUTTON (gtk_check_button_new_with_mnemonic (P_("Use startup _notification")));
-		gtk_widget_show (GTK_WIDGET (self->startup_nf_c));
 
-		self->in_terminal_c = GTK_CHECK_BUTTON (gtk_check_button_new_with_mnemonic (P_("Run in _terminal")));
-		gtk_widget_show (GTK_WIDGET (self->in_terminal_c));
 
 		gtk_container_set_border_width (GTK_CONTAINER (self), 5);
 		gtk_box_pack_start (GTK_BOX (self), twocol_label ("Device:", GTK_WIDGET (self->device_cb)), FALSE, FALSE, 0);
 		gtk_box_pack_start (GTK_BOX (self), twocol_label ("Wannabe Master:", GTK_WIDGET (self->master_om)), FALSE, FALSE, 0);
 
-		gtk_box_pack_start (GTK_BOX (self), headline ("When clicked", &click_b), FALSE, FALSE, 0);
-		gtk_box_pack_start (GTK_BOX (click_b), twocol_label (P_("Command:"), GTK_WIDGET (self->execu_cb)), FALSE, FALSE, 0);
+		gtk_box_pack_start (GTK_BOX (self), headline ("When clicked", &self->click_b), FALSE, FALSE, 0);
 
-		cbb = gtk_vbox_new (TRUE, 1);
-		gtk_box_pack_start (GTK_BOX (cbb), GTK_WIDGET (self->in_terminal_c), FALSE, FALSE, 0);
-		gtk_box_pack_start (GTK_BOX (cbb), GTK_WIDGET (self->startup_nf_c), FALSE, FALSE, 0);
-
-		gtk_widget_show (GTK_WIDGET (cbb));
-
-		gtk_box_pack_start (GTK_BOX (click_b), GTK_WIDGET (cbb), FALSE, FALSE, 0);
 
 		gtk_entry_set_max_length (GTK_ENTRY (self->device_cb->entry), 50);
 
 		gtk_combo_set_value_in_list (GTK_COMBO (self->device_cb), FALSE, TRUE);
-		gtk_combo_set_value_in_list (GTK_COMBO (self->execu_cb), FALSE, TRUE);
+		if (self->execu_cb)
+			gtk_combo_set_value_in_list (GTK_COMBO (self->execu_cb), FALSE, TRUE);
 
 		self_fill_device_list (self);
 
@@ -198,11 +192,23 @@ class Xfce:Mixer:Prefbox from Gtk:VBox {
 		dentry = GTK_WIDGET (self->device_cb->entry);
 		g_signal_connect_swapped (G_OBJECT (dentry), "changed", G_CALLBACK (self_device_changed_cb), self);
 
-		if (g_find_program_in_path ("xfce4-mixer")) {
-			gn = g_list_append (NULL, "xfce4-mixer");
-			gtk_combo_set_popdown_strings (self->execu_cb, gn);
-			g_list_free (gn);
+		if (self->execu_cb && g_find_program_in_path ("xfce4-mixer")) {
+			item = gtk_list_item_new_with_label ("xfce4-mixer");
+			gtk_widget_show (item);
+			gtk_combo_set_item_string (GTK_COMBO (self->execu_cb), GTK_ITEM (item), "xfce4-mixer");
+			gtk_container_add (GTK_CONTAINER (GTK_COMBO (self->execu_cb)->list), item);
 		}
+	}
+
+	protected void add_command_box (self, Control * plugin)
+	{
+		self->plugin = plugin;
+		self->ic = create_command_options (NULL);
+		self->execu_cb = NULL; /*self->ic->combo;*/
+		/*self->execu_entry = self->ic->command_entry;*/
+		self->startup_nf_c = GTK_CHECK_BUTTON (self->ic->sn_checkbutton);
+		self->in_terminal_c = GTK_CHECK_BUTTON (self->ic->term_checkbutton);
+		gtk_box_pack_start (GTK_BOX (self->click_b), GTK_WIDGET (self->ic->base), FALSE, FALSE, 0);
 	}
 
 	protected gboolean device_changed_delayed_cb (self)
@@ -221,9 +227,12 @@ class Xfce:Mixer:Prefbox from Gtk:VBox {
 		);
 	}
 
-	public GtkWidget *new(void)
+	public GtkWidget *new(Control *plugin)
 	{
-		return GTK_WIDGET (GET_NEW);
+		GtkWidget *w;
+		w = GTK_WIDGET (GET_NEW);
+		xfce_mixer_prefbox_add_command_box (XFCE_MIXER_PREFBOX (w), plugin);
+		return w;
 	}
 
 	public void fill_preferences(self, XfceMixerPreferences *p)
@@ -235,7 +244,12 @@ class Xfce:Mixer:Prefbox from Gtk:VBox {
 			return;
 		}
 
-		gtk_entry_set_text (GTK_ENTRY (self->execu_cb->entry), nvl (p->execu, "xfce4-mixer"));
+		command_options_set_command (self->ic, 
+			nvl (p->execu, "xfce4-mixer"),
+			p->in_terminal,
+			p->startup_nf
+		);
+
 		gtk_entry_set_text (GTK_ENTRY (self->device_cb->entry), nvl (p->device, ""));
 
 		g_object_get (G_OBJECT (p), "master", &s, NULL);
@@ -245,16 +259,13 @@ class Xfce:Mixer:Prefbox from Gtk:VBox {
 
 		gtk_option_menu_set_history (self->master_om, omi);
 
-		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (self->startup_nf_c), p->startup_nf);
-		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (self->in_terminal_c), p->in_terminal);
-
 		emit self_device_changed (self);
 	}
 
 	public void save_preferences (self, XfceMixerPreferences *p)
 	{
 		gint omi;
-		gchar const *execu;
+		gchar *execu;
 		gchar const *device;
 		gchar *master;
 		gboolean startup_nf;
@@ -263,15 +274,13 @@ class Xfce:Mixer:Prefbox from Gtk:VBox {
 		if (!p)
 			return;
 
-		execu = gtk_entry_get_text (GTK_ENTRY (self->execu_cb->entry));
 		device = gtk_entry_get_text (GTK_ENTRY (self->device_cb->entry));
 		emit self_device_changed (self);
 
 		omi = gtk_option_menu_get_history (self->master_om);
 		master = self_find_name_by_master_i (self, omi);
 
-		startup_nf = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (self->startup_nf_c));
-		in_terminal = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (self->in_terminal_c));
+		command_options_get_command (self->ic, &execu, &in_terminal, &startup_nf);
 
 		g_object_set (G_OBJECT (p),
 			"device", device,
@@ -281,6 +290,9 @@ class Xfce:Mixer:Prefbox from Gtk:VBox {
 			"in_terminal", in_terminal,
 			NULL
 		);
+
+		if (execu)
+			g_free (execu);
 
 		if (master)
 			g_free (master);

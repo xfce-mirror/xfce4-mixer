@@ -6,13 +6,8 @@
 %a{
 
 #include <gtk/gtk.h>
-
-#include <panel/global.h>
-#include <panel/controls.h>
-#include <panel/icons.h>  
-#include <panel/plugins.h>
-#include <panel/xfce_support.h>
-#include <panel/item_dialog.h>
+#include <libxml/parser.h>
+#include <libxml/tree.h>
 
 #ifndef MYDATA
 extern xmlDocPtr xmlconfig;

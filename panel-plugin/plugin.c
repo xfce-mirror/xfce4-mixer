@@ -14,7 +14,8 @@
 #include "xfce-mixer-control-vc.h"
 #include "vcs.h"
 
-/* TODO: timeout -> update volume */
+/* DO: timeout -> update volume */
+#define UPDATE_TIMEOUT 1000
 
 typedef struct
 {
@@ -24,6 +25,7 @@ typedef struct
 	XfceIconbutton *ib;
 	XfceMixerPrefbox *pb;
 	gboolean broken;
+	guint timer;
 } t_mixer;
 
 GtkTooltips *tooltips;
@@ -133,6 +135,29 @@ mixer_value_changed_cb (GtkWidget *w, gpointer whatsthat, gpointer user_data)
 	mixer_update_tips (mixer);
 }
 
+static gboolean
+mixer_timer_cb (gpointer userdata)
+{
+	t_mixer *mixer;
+	mixer = (t_mixer *) userdata;
+	
+	vc_handle_events ();
+
+	xfce_mixer_control_vc_feed_value (mixer->slider);
+	mixer_update_tips (mixer);
+	
+	return TRUE;
+}
+
+static void callback_vc_cb(char const *which, void *privdata)
+{
+	t_mixer *mixer;
+	mixer = (t_mixer *) privdata;
+	
+	xfce_mixer_control_vc_feed_value (mixer->slider);
+	mixer_update_tips (mixer);
+}
+
 static t_mixer *
 mixer_new(void)
 {
@@ -186,8 +211,15 @@ mixer_new(void)
 
 	xfce_mixer_control_vc_feed_value (mixer->slider);
 	xfce_mixer_control_vc_attach (mixer->slider);
+	mixer_update_tips (mixer);
+
+	mixer->timer = g_timeout_add (UPDATE_TIMEOUT, 
+		(GSourceFunc) mixer_timer_cb, 
+		mixer
+	);
 	
-                             
+	vc_set_volume_callback (callback_vc_cb, (void *) mixer);
+
 	return mixer;
 }
 
@@ -213,9 +245,14 @@ mixer_control_free (Control *ctrl)
 	t_mixer *mixer;
 	g_return_if_fail(ctrl != NULL);
 	g_return_if_fail(ctrl->data != NULL);
+	vc_set_volume_callback (NULL, NULL);
 
 	mixer = (t_mixer *)ctrl->data;
 	if (mixer) {
+		if (mixer->timer) {
+			g_source_remove (mixer->timer);
+			mixer->timer = 0;
+		}
 		g_object_unref (G_OBJECT (mixer->prefs));
 		mixer->prefs = NULL;
 	}
@@ -300,7 +337,7 @@ mixer_create_options (Control *ctrl, GtkContainer *con, GtkWidget *done)
 
 	GtkWidget *w;
 	XfceMixerPrefbox *pb;
-	w = xfce_mixer_prefbox_new ();
+	w = xfce_mixer_prefbox_new (ctrl);
 	gtk_widget_show (w);
 	gtk_container_add (GTK_CONTAINER (con), w);
 

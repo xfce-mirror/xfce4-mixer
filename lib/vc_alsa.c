@@ -221,6 +221,7 @@ static int vc_get_volume(char const *which)
 	if (!xelem) return 0;
 
 	snd_mixer_selem_get_playback_volume_range(xelem, &pmin, &pmax);
+	pmin = 0;
 
 	/* if (snd_mixer_selem_has_playback_volume(xelem)) { */
 	for (chn = 0; chn <= SND_MIXER_SCHN_LAST; chn++) {
@@ -256,10 +257,10 @@ static void vc_set_volume(char const *which, int vol_p)
 	if (!xelem) return;
 
 	snd_mixer_selem_get_playback_volume_range(xelem, &pmin, &pmax);
-
+	pmin = 0;
 
 	/*vol_p = (lval - pmin) * 100 / (pmax - pmin);*/
-	lval = pmin + vol_p * (pmax - pmin) / 100;
+	lval = (long) pmin + (vol_p + 0.999999) * (pmax - pmin) / 100;
 
 
 	for (chn = 0; chn <= SND_MIXER_SCHN_LAST; chn++) {
@@ -583,6 +584,12 @@ static gboolean vc_get_switch(char const *which)
 static char const *vc_get_device()
 {
 	return card;
+}
+
+static void vc_handle_events()
+{
+	if (handle)
+		snd_mixer_handle_events (handle);
 }
         
 REGISTER_VC_PLUGIN(alsa);

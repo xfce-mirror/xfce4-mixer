@@ -225,6 +225,16 @@ void vc_close_device()
 	(*s->vc_close_device)();
 }
 
+void vc_handle_events()
+{
+	volchanger_t *s = selected_vc();
+	if (!s  || !s->vc_handle_events) {
+		return;
+	}
+	
+	(*s->vc_handle_events)();
+}
+
 GList *vc_get_device_list()
 {
 	volchanger_t *s = selected_vc();

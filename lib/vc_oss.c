@@ -356,6 +356,10 @@ static char const *vc_get_device()
 {
 	return dev_name;
 }
+
+static void vc_handle_events()
+{
+}
                 
 REGISTER_VC_PLUGIN(oss);
 

@@ -18,6 +18,12 @@ extern "C" {
 #include "vc.h"
 #include "xfce-mixer-cache-vc.h"
 #include "xfce-mixer-pxml.h"
+#include <panel/item_dialog.h>
+#include <panel/plugins.h>
+
+/* why is this deprecated when it is needed by combo ? O_o */
+GtkWidget *gtk_list_item_new_with_label (const gchar *label);
+
 
 
 
@@ -54,6 +60,9 @@ struct _XfceMixerPrefbox {
 	GtkCombo * execu_cb; /* protected */
 	GtkCheckButton * startup_nf_c; /* protected */
 	GtkCheckButton * in_terminal_c; /* protected */
+	CommandOptions * ic; /* protected */
+	GtkWidget * click_b; /* protected */
+	Control * plugin; /* protected */
 	XfceMixerPrefboxPrivate *_priv;
 };
 
@@ -73,7 +82,7 @@ struct _XfceMixerPrefboxClass {
 GType	xfce_mixer_prefbox_get_type	(void);
 void 	xfce_mixer_prefbox_fill_defaults	(XfceMixerPrefbox * self);
 void 	xfce_mixer_prefbox_device_changed	(XfceMixerPrefbox * self);
-GtkWidget * 	xfce_mixer_prefbox_new	(void);
+GtkWidget * 	xfce_mixer_prefbox_new	(Control * plugin);
 void 	xfce_mixer_prefbox_fill_preferences	(XfceMixerPrefbox * self,
 					XfceMixerPreferences * p);
 void 	xfce_mixer_prefbox_save_preferences	(XfceMixerPrefbox * self,

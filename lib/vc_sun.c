@@ -162,6 +162,10 @@ static char const *vc_get_device()
 	return mixer_device;
 }
 
+static void vc_handle_events()
+{
+}
+
 REGISTER_VC_PLUGIN(sun);
 
 #endif /* !USE_SUN */

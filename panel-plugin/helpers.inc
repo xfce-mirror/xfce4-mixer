@@ -63,12 +63,13 @@ static void master_enum_cb(gpointer data, gpointer user_data)
 #ifdef FHELPERS1
 #include "delayer.inc"
 
-
+#if 0
 /* get translation from the panel's domain */
 static gchar *P_(gchar *s)
 {
 	return(dgettext("xfce4-panel", s));
 }
+#endif
 #endif
 
 #define emit

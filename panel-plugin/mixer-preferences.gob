@@ -12,6 +12,7 @@
 %{
 #include <libxfcegui4/xfce_framebox.h>
 #include <libxfce4util/i18n.h>
+#include <panel/global.h>
 #include "xfce-mixer-cache-vc.h"
 #include "vc.h"
 #include "helpers.inc"

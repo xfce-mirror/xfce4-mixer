@@ -13,7 +13,7 @@ void value_changed_cb(XfceMixerControl *control, gpointer whatsthat, gpointer us
 	gint v;
 	
 	/*if (XFCE_IS_MIXER_SLIDER (control)) {*/
-		if (control->value && (sscanf (control->value, "%d", &v) > 0)) {	
+		if (control->value && (sscanf (control->value, "%d", &v) > 0)) {
 			vc_set_volume (control->vcname, v);
 		}
 	/*}*/
@@ -30,10 +30,14 @@ void xfce_mixer_control_vc_feed_value(XfceMixerControl *c)
 	gchar *tmp;
 	if (!c || !c->vcname)
 		return;
+
+	g_signal_handlers_block_by_func (G_OBJECT (c), value_changed_cb, NULL); 
 		
 	v = vc_get_volume (c->vcname);
 	tmp = g_strdup_printf ("%d", v);
 	g_object_set (G_OBJECT (c), "value", tmp, NULL);
 	g_free (tmp);
+
+	g_signal_handlers_unblock_by_func (G_OBJECT (c), value_changed_cb, NULL); 
 }
 

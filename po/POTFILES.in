@@ -8,3 +8,6 @@ settings/xfce-mixer-settingsbox.c
 src/disclosure-widget.c
 src/mcs_client.c
 src/main.c
+src/xfce-mixer-profilebox.c
+src/xfce-mixer-profilebox-detail.c
+src/menu-callbacks.inc
