@@ -287,7 +287,7 @@ check_volume (t_mixer *mixer)
 }
 
 static gboolean
-xfce_mixer_scroll_cb (GtkWidget *widget, GdkEventScroll *event, t_mixer *mixer)
+xfce_mixer_scroll_cb (GtkWidget *widget, GdkEventScroll *event, t_mixer *mixer) /* verified prototype */
 {
 	int	vol;	/* new volume */
 	int	ovol;	/* old volume */ 
@@ -331,7 +331,7 @@ xfce_mixer_scroll_cb (GtkWidget *widget, GdkEventScroll *event, t_mixer *mixer)
 
 
 static gboolean
-xfce_mixer_status_button_cb (GtkWidget * widget, GdkEventButton *b, t_mixer *mixer)
+xfce_mixer_status_button_cb (GtkWidget * widget, GdkEventButton *b, t_mixer *mixer) /* verified prototype */
 {
 	int	y; /* pos */
 	int	sy; /* size */
@@ -361,14 +361,13 @@ xfce_mixer_status_button_cb (GtkWidget * widget, GdkEventButton *b, t_mixer *mix
 	return TRUE;
 }
 
-static gboolean
-xfce_mixer_launch_button_cb(t_mixer *mixer)
+static void
+xfce_mixer_launch_button_cb(GtkWidget *button, t_mixer *mixer) /* verified prototype: clicked */
 {
-	if (!mixer->options.command) return TRUE;
+	if (!mixer->options.command) return;
 	
 	exec_cmd(mixer->options.command, mixer->options.use_terminal,
 			mixer->options.use_sn);
-	return TRUE;
 }
 
 
@@ -457,7 +456,7 @@ create_mixer_control (Control * control)
 	g_signal_connect(mixer->eventbox, "button-press-event", G_CALLBACK(xfce_mixer_status_button_cb), mixer);
 	g_signal_connect(mixer->eventbox, "button-release-event", G_CALLBACK(xfce_mixer_status_button_cb), mixer);
 	
-	g_signal_connect_swapped(mixer->mixer, "clicked", G_CALLBACK(xfce_mixer_launch_button_cb), mixer);
+	g_signal_connect(mixer->mixer, "clicked", G_CALLBACK(xfce_mixer_launch_button_cb), mixer);
 
 	if (!mixer->broken) {
 		check_volume (mixer);
@@ -498,22 +497,23 @@ mixer_options_get(GtkContainer *c, int index)
 
 
 static void 
-mixer_revert_make_sensitive(GtkWidget *w)
+mixer_revert_make_sensitive_cb(GtkWidget *w, gpointer data)  /* verified prototype: clicked */
 {
 	gtk_widget_set_sensitive (w, TRUE);
 }
 
 static void 
-mixer_stuff_toggled_cb(GtkToggleButton *tb, t_mixer *mixer)
+mixer_stuff_toggled_cb(GtkToggleButton *tb, t_mixer *mixer) /* verified prototype: toggled */
 {
-	mixer_revert_make_sensitive(mixer->revert_b);
+	mixer_revert_make_sensitive_cb(mixer->revert_b, NULL);
 }
  
 static gboolean
-mixer_command_entry_lost_focus(t_mixer *mixer)
+mixer_command_entry_lost_focus_cb(GtkWidget *w, GdkEvent *event, t_mixer *mixer) /* verified prototype: focus-out-event */
 {
-	mixer_revert_make_sensitive(mixer->revert_b);
-	return FALSE; /* needed? */
+	mixer_revert_make_sensitive_cb(mixer->revert_b, NULL);
+	return TRUE;
+	/* FALSE;*/ /* needed? */
 }
 
 static void
@@ -542,7 +542,7 @@ mixer_do_options(t_mixer *mixer, int mode) /* 0: load; 1: store; 2: connect reve
 	}
 	if (b_dotdotdot && mode == 2) {
 		g_signal_connect(GTK_WIDGET(b_dotdotdot), "clicked",
-				G_CALLBACK(mixer_revert_make_sensitive),
+				G_CALLBACK(mixer_revert_make_sensitive_cb),
 				mixer->revert_b);
 	}
 		
@@ -560,10 +560,10 @@ mixer_do_options(t_mixer *mixer, int mode) /* 0: load; 1: store; 2: connect reve
 			}
 			break;
 		case 2:
-			g_signal_connect_swapped (e_command, "insert-at-cursor", G_CALLBACK (mixer_revert_make_sensitive), mixer->revert_b);
-			g_signal_connect_swapped (e_command, "delete-from-cursor", G_CALLBACK (mixer_revert_make_sensitive), mixer->revert_b);
-			g_signal_connect_swapped (e_command, "focus-out-event", G_CALLBACK(mixer_command_entry_lost_focus), mixer);
-
+			/*g_signal_connect (e_command, "insert-at-cursor", G_CALLBACK (mixer_revert_make_sensitive_cb), mixer->revert_b);
+			g_signal_connect_swapped (e_command, "delete-from-cursor", G_CALLBACK (mixer_revert_make_sensitive_cb), mixer->revert_b);
+			*/
+			g_signal_connect (e_command, "focus-out-event", G_CALLBACK(mixer_command_entry_lost_focus_cb), mixer);
 			break;
 		}
 	}
@@ -602,7 +602,7 @@ mixer_do_options(t_mixer *mixer, int mode) /* 0: load; 1: store; 2: connect reve
 }
 
 static void
-mixer_apply_options(t_mixer *mixer)
+mixer_apply_options_cb(GtkWidget *button, t_mixer *mixer) /* verified: clicked */
 {
 	if (mixer->options.command) g_free(mixer->options.command);
 	mixer->options.command = NULL;
@@ -617,7 +617,7 @@ mixer_fill_options(t_mixer *mixer)
 }
 
 static void
-mixer_revert_options(t_mixer *mixer)
+mixer_revert_options_cb(GtkWidget *button, t_mixer *mixer) /* verified prototype: clicked */
 {
 	if (mixer->options.command) g_free(mixer->options.command);
 	mixer->options.command = NULL;
@@ -652,9 +652,9 @@ mixer_add_options(Control *control, GtkContainer *container, GtkWidget *revert, 
 	mixer_do_options(mixer, 2);
 	create_options_backup(mixer);
 	
-	g_signal_connect_swapped(GTK_WIDGET(mixer->dialog), "destroy-event", G_CALLBACK(free_optionsdialog), mixer);
-	g_signal_connect_swapped(GTK_WIDGET(mixer->revert_b), "clicked", G_CALLBACK(mixer_revert_options), mixer);
-	g_signal_connect_swapped(GTK_WIDGET(done), "clicked", G_CALLBACK(mixer_apply_options), mixer);
+	g_signal_connect(GTK_WIDGET(mixer->dialog), "destroy-event", G_CALLBACK(free_optionsdialog), mixer);
+	g_signal_connect(GTK_WIDGET(mixer->revert_b), "clicked", G_CALLBACK(mixer_revert_options_cb), mixer);
+	g_signal_connect(GTK_WIDGET(done), "clicked", G_CALLBACK(mixer_apply_options_cb), mixer);
 }
 
 extern xmlDocPtr xmlconfig;
@@ -680,9 +680,10 @@ mixer_read_config(Control *control, xmlNodePtr node)
 		if (xmlStrEqual (node->name, (const xmlChar *)"Command")) {
 			value = MYDATA (node);
 			if (value) {
-				g_free (mixer->options.command);
+				if (mixer->options.command) g_free (mixer->options.command);
 				mixer->options.command = (char *)value;
 			}
+
 			value = xmlGetProp (node, "term");
 			if (value) {
 				n = atoi (value);
@@ -710,7 +711,11 @@ mixer_write_config(Control *control, xmlNodePtr parent)
 
 	root = xmlNewTextChild (parent, NULL, MIXER_ROOT, NULL);
 
-	node = xmlNewTextChild (root, NULL, "Command", mixer->options.command);
+	if (mixer->options.command) {
+		node = xmlNewTextChild (root, NULL, "Command", mixer->options.command);
+	} else {
+		return;
+	}
 
 	snprintf (value, 2, "%d", mixer->options.use_terminal);
 	xmlSetProp (node, "term", value);
