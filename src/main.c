@@ -23,6 +23,8 @@ static GtkWidget *mixer_window;
 XfceMixerMcsClient *mcsc = NULL;
 gchar *device = NULL;
 XfceMixerProfiles *profiles = NULL;
+static guint src;
+
 
 static void vol_changed_cb (char const *vcname, void *privdata)
 {
@@ -45,7 +47,14 @@ my_main_quit(GtkWidget *w, gpointer user_data)
 	xfce_mixer_profiles_save (profiles);
 	g_object_unref (G_OBJECT (profiles));
 	profiles = NULL;
+	
+	g_source_remove (src);
+	
 	mixer_window = NULL;
+
+	g_free (device);
+	xfce_mixer_cache_vc_free ();
+
 	gtk_main_quit ();
 }
 
@@ -53,7 +62,6 @@ int main(int argc, char * argv[])
 {
 	int rc;
 	gchar const *dd;
-	guint src;
 	gboolean versionOnly;
 	versionOnly = FALSE;
 
@@ -110,10 +118,6 @@ int main(int argc, char * argv[])
 
 	gtk_main ();
 	
-	g_source_remove (src);
-	g_free (device);
-	
-	xfce_mixer_cache_vc_free ();
 	
 	return 0;
 }
