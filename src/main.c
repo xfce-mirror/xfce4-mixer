@@ -5,6 +5,9 @@
 #define UPDATE_TIMEOUT 1000
 
 #include <gtk/gtk.h>
+#ifdef HAVE_STRING_H
+#include <string.h>
+#endif
 #include <libxfce4util/libxfce4util.h>
 #include "xfce-mixer-profile.h"
 #include "xfce-mixer-profiles.h"
