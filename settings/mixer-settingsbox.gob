@@ -8,6 +8,9 @@
 #include "helpers3.inc"
 #include "vc.h"
 #include "stringlist.inc"
+
+#undef SHOW_DEFAULT_DEVICE_ENTRY
+
 %}
 
 class Xfce:Mixer:Settingsbox from Gtk:VBox {
@@ -196,8 +199,14 @@ class Xfce:Mixer:Settingsbox from Gtk:VBox {
 		g = self->device_lst;
 		while (g) {
 			s = (gchar const *) g->data;
-			gtk_tree_store_append (self->devlist_model, &iter, NULL);
-			gtk_tree_store_set (self->devlist_model, &iter, 0, s, -1);
+			if (s
+#ifndef SHOW_DEFAULT_DEVICE_ENTRY
+	&& !g_str_equal (s, "default")
+#endif
+			) {
+				gtk_tree_store_append (self->devlist_model, &iter, NULL);
+				gtk_tree_store_set (self->devlist_model, &iter, 0, s, -1);
+			}
 
 			g = g_list_next (g);
 		}
