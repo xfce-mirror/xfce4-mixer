@@ -1,0 +1,296 @@
+# translation of he.po to Hebrew
+# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
+# Dotan Kamber <kamberd@yahoo.com>, 2004
+# Jonatan Perry <Jonatan443@walla.co.il>, 2004.
+# Yuval Tanny <tanai@int.gov.il>, 2004.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: he\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-08-26 00:04+0200\n"
+"PO-Revision-Date: 2004-08-19 13:14+0300\n"
+"Last-Translator: Yuval Tanny <tanai@int.gov.il>\n"
+"Language-Team: Hebrew Team <xfce2004@yahoo.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.3.1\n"
+
+#: mixer-settingsbox.gob:97
+msgid "Device"
+msgstr "התקן"
+
+#: mixer-settingsbox.gob:100
+msgid "None"
+msgstr "אין"
+
+#. gtk_widget_show (GTK_WIDGET (self->dev_label));
+#: mixer-settingsbox.gob:103
+msgid "Useful Controls"
+msgstr "בקרים שמישים"
+
+#: lib/trans.c:6
+msgid "Vol"
+msgstr "עצמה"
+
+#. Master
+#: lib/trans.c:7
+msgid "Pcm"
+msgstr "Pcm"
+
+#. PCM output
+#: lib/trans.c:8
+msgid "Spkr"
+msgstr "רמקול"
+
+#. Internal speaker?
+#: lib/trans.c:9
+msgid "Line"
+msgstr "קו"
+
+#. Line in
+#: lib/trans.c:10
+msgid "Mic"
+msgstr "מיקרופון"
+
+#. Mic in
+#: lib/trans.c:11
+msgid "CD"
+msgstr "תקליטור"
+
+#. CD in
+#: lib/trans.c:12
+msgid "Bass"
+msgstr "באס"
+
+#: lib/trans.c:13
+msgid "Trebl"
+msgstr "גובה צליל"
+
+#: lib/trans.c:14
+msgid "Synth"
+msgstr "ערבול"
+
+#: lib/trans.c:15
+msgid "Mix"
+msgstr "מיקס"
+
+#: lib/trans.c:16
+msgid "Pcm2"
+msgstr "Pcm2"
+
+#: lib/trans.c:17
+msgid "Rec"
+msgstr "הקלטה"
+
+#: lib/trans.c:18
+msgid "IGain"
+msgstr "IGain"
+
+#: lib/trans.c:19
+msgid "OGain"
+msgstr "OGain"
+
+#: lib/trans.c:20
+msgid "Line1"
+msgstr "קו1"
+
+#: lib/trans.c:21
+msgid "Line2"
+msgstr "קו2"
+
+#: lib/trans.c:22
+msgid "Line3"
+msgstr "קו3"
+
+#: lib/trans.c:23
+msgid "Digital1"
+msgstr "דיגיטלי1"
+
+#: lib/trans.c:24
+msgid "Digital2"
+msgstr "דיגיטלי2"
+
+#: lib/trans.c:25
+msgid "Digital3"
+msgstr "דיגיטלי3"
+
+#: lib/trans.c:26
+msgid "PhoneIn"
+msgstr "PhoneIn"
+
+#: lib/trans.c:27
+msgid "PhoneOut"
+msgstr "PhoneOut"
+
+#: lib/trans.c:28
+msgid "Video"
+msgstr "וידאו"
+
+#: lib/trans.c:29
+msgid "Radio"
+msgstr "רדיו"
+
+#: lib/trans.c:30
+msgid "Monitor"
+msgstr "מוניטור"
+
+#: lib/vc_alsa.c:94
+#, c-format
+msgid "alsa: Mixer %s open error: %s\n"
+msgstr "alsa: מיקסר %s שגיאת פתיחה: %s\n"
+
+#: lib/vc_alsa.c:99
+#, c-format
+msgid "alsa: Mixer attach %s error: %s\n"
+msgstr "alsa: מיקסר מחובר %s שיגאה: %s\n"
+
+#: lib/vc_alsa.c:107
+#, c-format
+msgid "alsa: Mixer register error: %s\n"
+msgstr "alsa: שגיאת רישום מיקסר: %s\n"
+
+#: lib/vc_alsa.c:116
+#, c-format
+msgid "alsa: Mixer load error: %s: %s\n"
+msgstr "alsa: שגיאת טעינת מיקסר: %s: %s\n"
+
+#: lib/vc_alsa.c:126
+#, c-format
+msgid "alsa: Unable to find simple control '%s',%i\n"
+msgstr "alsa: אין אפשרות למצוא בקר פשוט '%s',%i\n"
+
+#: lib/vc_oss.c:131
+msgid "oss: No master volume"
+msgstr "oss:אין עוצמת צליל ראשית"
+
+#: panel-plugin/plugin.c:95
+#, c-format
+msgid "Volume: %d%%"
+msgstr "עוצמת צליל: %d%%"
+
+#: panel-plugin/plugin.c:387 mixer-window.gob:110
+msgid "Volume Control"
+msgstr "בקרת עוצמת צליל"
+
+#: settings/sound.c:69 settings/sound.c:87
+msgid "Sound"
+msgstr "צליל"
+
+#: mixer-view.gob:258
+msgid "Show Switches"
+msgstr "הראה מתגים"
+
+#: mixer-view.gob:259
+msgid "Hide Switches"
+msgstr "הסתר מתגים"
+
+#: src/main.c:69
+msgid "No working sound"
+msgstr "אין צליל עובד"
+
+#: mixer-profilebox.gob:88
+msgid "Device:"
+msgstr "התקן:"
+
+#: mixer-profilebox.gob:142
+msgid "Create new profile"
+msgstr "צור פרופיל חדש"
+
+#: mixer-profilebox.gob:151
+msgid "Delete this profile"
+msgstr "מחק פרופיל זה"
+
+#: mixer-profilebox.gob:170
+msgid "Profile"
+msgstr "פרופיל"
+
+#: mixer-profilebox.gob:374
+#, c-format
+msgid "Really delete those %d profiles?"
+msgstr "האם למחוק את הפרופיל %d ?"
+
+#: mixer-profilebox.gob:377
+#, c-format
+msgid "Really delete profile \"%s\"?"
+msgstr "האם למחוקאת הפרופיל \"%s\" ?"
+
+#: mixer-profilebox.gob:491
+#, c-format
+msgid "%s - New"
+msgstr "%s - חדש"
+
+#: mixer-profilebox.gob:528
+msgid "A profile needs a name"
+msgstr "הפרופיל צריך שם"
+
+#: mixer-profilebox.gob:542
+msgid "A profile with that name already exists"
+msgstr "פרופיל עם שם זה כבר קיים"
+
+#: mixer-profilebox-detail.gob:151
+msgid "Control"
+msgstr "בקרה"
+
+#: mixer-profilebox-detail.gob:154
+msgid "Type"
+msgstr "סוג"
+
+#: mixer-profilebox-detail.gob:166
+msgid "Up"
+msgstr "למעלה"
+
+#: mixer-profilebox-detail.gob:169
+msgid "Down"
+msgstr "למטה"
+
+#: mixer-profilebox-detail.gob:176
+msgid "Move Entry Up"
+msgstr "הזז פריט למעלה"
+
+#: mixer-profilebox-detail.gob:179
+msgid "Move Entry Down"
+msgstr "הזז פריט למטה"
+
+#: mixer-profilebox-detail.gob:188
+msgid "Profile Name:"
+msgstr "שם פרופיל:"
+
+#: mixer-profilebox-detail.gob:370 mixer-profilebox-detail.gob:435
+msgid "<unknown>"
+msgstr "<לא ידוע>"
+
+#: mixer-profilebox-detail.gob:372 mixer-profilebox-detail.gob:437
+msgid "<slider>"
+msgstr "<גולש>"
+
+#: mixer-profilebox-detail.gob:373 mixer-profilebox-detail.gob:438
+msgid "<onoff>"
+msgstr "<פועל מכובה>"
+
+#: mixer-profilebox-detail.gob:374 mixer-profilebox-detail.gob:439
+msgid "<select>"
+msgstr "<בחר>"
+
+#: src/menu-callbacks.inc:16
+#, c-format
+msgid "%s - Info"
+msgstr "%s - מידע"
+
+#: src/menu-callbacks.inc:38
+#, c-format
+msgid "%s - Profiles"
+msgstr "%s - פרופיל"
+
+#: mixer-info.gob:28
+msgid ""
+"This is xfce4-mixer, a volume control program.\n"
+"It is released under the GPL-2 License which you find in the source "
+"directory.\n"
+"No warranty in any way."
+msgstr ""
+"זה הוא מיקסר צליל xfce4, תוכנת בקרת צליל.\n"
+"תוכנה זו מופצת תחת רישיוןה GPL-2 שאפשר למצוא בתיקיית הקוד מקור.\n"
+"אין שום אחריות בכל מקרה."
