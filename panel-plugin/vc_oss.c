@@ -173,13 +173,14 @@ set_volume(char const *which, int percent)
 	int level;
 	int i;
 
+	g_return_if_fail(mixer_handle != -1);
+
 	if (!which) {
 		i = master_i;
 	} else {
 		i = find_control (which);
 	}
 	g_return_if_fail(i != -1);
-	g_return_if_fail(mixer_handle != -1);
 
 	vol = (percent * MAX_AMP) / 100;
 	level = (vol << 8) | vol;
@@ -198,14 +199,22 @@ static int
 get_volume(char const *which)
 {
 	int level;
-	
-	g_return_val_if_fail(master_i != -1, 0);
+	int i;
+
 	g_return_val_if_fail(mixer_handle != -1, 0);
+
+	if (!which) {
+		i = master_i;
+	} else {
+		i = find_control (which);
+	}
+
+	g_return_val_if_fail(i != -1, 0);
 
 	level = 0;
 
-	if (ioctl(mixer_handle, MIXER_READ(master_i), &level) == -1) {
-		perror("oss: Unable to get master volume");
+	if (ioctl(mixer_handle, MIXER_READ(i), &level) == -1) {
+		perror("oss: Unable to get volume");
 		return(0);
 	}
 
@@ -220,9 +229,12 @@ get_control_list(void)
 
 	GList *	g;
 	
+#if 0
 	g = g_list_alloc ();
 	if (!g) return; /* error */
-	
+#endif
+	g = NULL;
+		
 	for (i = 0; i < SOUND_MIXER_NRDEVICES; i++) {
 		if (devmask & (1 << i)) {
 			/* if in doubt, choose the first */
@@ -231,7 +243,7 @@ get_control_list(void)
 			if (!c) return; /* error */
 			c->name = g_strdup(label[i]);
 			
-			g_list_append(g, c);
+			g = g_list_append(g, c);
 
 		}
 	}
