@@ -21,6 +21,8 @@
 #include "vc.h"
 #include "mixer_window.h"
 
+#undef USE_NEW_GTK_2_2
+
 void change_vol_cb(GtkRange *range, gpointer data)
 {
 	mixer_slider_control_t *s;
@@ -145,7 +147,13 @@ gboolean mixer_window_map_cb(GtkWidget *widget, gpointer user_data)
 	GdkScreen	*s;
 	mixer_window_t * a;
 /*	s = gdk_drawable_get_screen (GTK_DRAWABLE (widget));*/
+
+#ifdef USE_NEW_GTK_2_2
 	s = gtk_widget_get_screen (widget);
+#else
+	s = gdk_drawable_get_screen (GDK_DRAWABLE (widget->window));
+	/*s = gdk_get_default_screen ();*/
+#endif
 	
 	mw = gdk_screen_get_width (s) * 2 / 3;
 
