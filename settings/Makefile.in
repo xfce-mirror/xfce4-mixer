@@ -229,7 +229,7 @@ sbindir = @sbindir@
 sharedstatedir = @sharedstatedir@
 sysconfdir = @sysconfdir@
 target_alias = @target_alias@
-sounddir = @XFCE_MCS_MANAGER_PLUGINSDIR@
+sounddir = $(libdir)/xfce4/mcs-plugins
 INCLUDES = -I../include
 sound_LTLIBRARIES = \
 	sound_settings.la

@@ -1,3 +1,16 @@
+2004-12-21 10:03  kelnos
+
+	* po/cs.po: add/update czech translations
+
+2004-12-20 22:32  pollux
+
+	* configure, configure.ac, po/nb_NO.gmo, po/nb_NO.po, po/no.gmo,
+	po/no.po: rename NO pofiles to no_NB
+
+2004-12-20 22:00  jasper
+
+	* ChangeLog, configure, configure.ac: Update versions and ChangeLog
+
 2004-12-19 21:49  pollux
 
 	* po/: ko.gmo, ko.po: update KO translations
@@ -9,7 +22,7 @@
 2004-12-14 21:33  pollux
 
 	* configure, configure.ac, po/ko.gmo, po/ro.gmo, po/ro.po: add RO
-	  translations
+	translations
 
 2004-12-13 23:08  pollux
 
@@ -22,22 +35,22 @@
 2004-12-05 22:20  pollux
 
 	* configure, configure.ac, po/en_GB.gmo, po/en_GB.po: add en_GB
-	  translations
+	translations
 
 2004-12-05 21:50  pollux
 
 	* settings/xfce-mixer-settings.desktop: update KO translations and
-	  add screenshots in xfprint doc
+	add screenshots in xfprint doc
 
 2004-12-04 18:09  benny
 
 	* ChangeLog, configure, configure.ac: Update configure and
-	  ChangeLog.
+	ChangeLog.
 
 2004-12-01 18:53  dannym
 
 	* lib/vc_sun.c: use volcontrol_t for get_control_list rather than
-	  gchar*
+	gchar*
 
 2004-12-01 18:51  dannym
 
@@ -46,7 +59,7 @@
 2004-11-30 20:39  benny
 
 	* config.h.in, configure, configure.ac, lib/vc_sun.c, po/tr.gmo:
-	  More Solaris fixes.
+	More Solaris fixes.
 
 2004-11-28 19:01  pollux
 
@@ -59,19 +72,19 @@
 2004-11-23 01:30  benny
 
 	* Makefile.in, aclocal.m4, compile, config.guess, config.sub,
-	  configure, depcomp, install-sh, ltmain.sh, missing,
-	  include/Makefile.in, lib/Makefile.in, panel-plugin/Makefile.in,
-	  settings/Makefile.in, src/Makefile.in: autogen for danny.
+	configure, depcomp, install-sh, ltmain.sh, missing,
+	include/Makefile.in, lib/Makefile.in, panel-plugin/Makefile.in,
+	settings/Makefile.in, src/Makefile.in: autogen for danny.
 
 2004-11-23 00:59  dannym
 
 	* Makefile.in, aclocal.m4, compile, config.guess, config.sub,
-	  configure, configure.ac, depcomp, install-sh, ltmain.sh, missing,
-	  include/Makefile.in, lib/Makefile.in, panel-plugin/Makefile.in,
-	  settings/Makefile.in, settings/mixer-settingsbox.gob,
-	  settings/sound.c, settings/xfce-mixer-settingsbox.c,
-	  src/Makefile.in: remove translation workaround since root cause
-	  was found and fixed now
+	configure, configure.ac, depcomp, install-sh, ltmain.sh, missing,
+	include/Makefile.in, lib/Makefile.in, panel-plugin/Makefile.in,
+	settings/Makefile.in, settings/mixer-settingsbox.gob,
+	settings/sound.c, settings/xfce-mixer-settingsbox.c,
+	src/Makefile.in: remove translation workaround since root cause was
+	found and fixed now
 
 2004-11-22 23:49  dannym
 
@@ -80,13 +93,12 @@
 2004-11-22 23:35  dannym
 
 	* settings/: mixer-settingsbox.gob, xfce-mixer-settingsbox.c:
-	  remove debugging stuff
+	remove debugging stuff
 
 2004-11-22 23:34  dannym
 
 	* settings/: mixer-settingsbox.gob, sound.c,
-	  xfce-mixer-settingsbox.c: weird workaround for translations to
-	  work
+	xfce-mixer-settingsbox.c: weird workaround for translations to work
 
 2004-11-22 23:16  dannym
 
@@ -95,31 +107,31 @@
 2004-11-22 23:15  dannym
 
 	* settings/sound.c: dgettext(GETTEXT_PACKAGE, "Sound") works fine
-	  in translating the header (not window title) in the settings
-	  dialog. _() doesnt. O_o
-
-	  I leave dgettext() in for now.  Hand checking if all translations
-	  apply.
+	in translating the header (not window title) in the settings
+	dialog. _() doesnt. O_o
+	
+	I leave dgettext() in for now.	Hand checking if all translations
+	apply.
 
 2004-11-22 22:49  dannym
 
 	* panel-plugin/xfce-mixer-control.c,
-	  panel-plugin/xfce-mixer-prefbox.c,
-	  panel-plugin/xfce-mixer-preferences.c,
-	  panel-plugin/xfce-mixer-pxml.c,
-	  panel-plugin/xfce-mixer-slider-tiny.c,
-	  settings/mixer-settingsbox.gob, settings/sound.c,
-	  settings/xfce-mixer-settingsbox-private.h,
-	  settings/xfce-mixer-settingsbox.c,
-	  settings/xfce-mixer-settingsbox.h, src/xfce-mixer-control.c,
-	  src/xfce-mixer-info.c, src/xfce-mixer-mcs-client.c,
-	  src/xfce-mixer-profilebox-detail.c, src/xfce-mixer-profilebox.c,
-	  src/xfce-mixer-profiledlg.c, src/xfce-mixer-profiles.c,
-	  src/xfce-mixer-pxml.c, src/xfce-mixer-select.c,
-	  src/xfce-mixer-slider-tiny.c, src/xfce-mixer-slider.c,
-	  src/xfce-mixer-switch.c, src/xfce-mixer-view-tiny.c,
-	  src/xfce-mixer-view.c, src/xfce-mixer-window.c: make config.h
-	  happy by putting it before string.h include
+	panel-plugin/xfce-mixer-prefbox.c,
+	panel-plugin/xfce-mixer-preferences.c,
+	panel-plugin/xfce-mixer-pxml.c,
+	panel-plugin/xfce-mixer-slider-tiny.c,
+	settings/mixer-settingsbox.gob, settings/sound.c,
+	settings/xfce-mixer-settingsbox-private.h,
+	settings/xfce-mixer-settingsbox.c,
+	settings/xfce-mixer-settingsbox.h, src/xfce-mixer-control.c,
+	src/xfce-mixer-info.c, src/xfce-mixer-mcs-client.c,
+	src/xfce-mixer-profilebox-detail.c, src/xfce-mixer-profilebox.c,
+	src/xfce-mixer-profiledlg.c, src/xfce-mixer-profiles.c,
+	src/xfce-mixer-pxml.c, src/xfce-mixer-select.c,
+	src/xfce-mixer-slider-tiny.c, src/xfce-mixer-slider.c,
+	src/xfce-mixer-switch.c, src/xfce-mixer-view-tiny.c,
+	src/xfce-mixer-view.c, src/xfce-mixer-window.c: make config.h happy
+	by putting it before string.h include
 
 2004-11-22 22:31  olivier
 
@@ -136,40 +148,40 @@
 2004-11-22 21:49  olivier
 
 	* Makefile.in, aclocal.m4, compile, config.guess, config.sub,
-	  configure, depcomp, install-sh, ltmain.sh, missing,
-	  include/Makefile.in, lib/Makefile.in, panel-plugin/Makefile.in,
-	  po/ar.gmo, po/ar.po, po/az.gmo, po/az.po, po/be.gmo, po/be.po,
-	  po/bg.gmo, po/bg.po, po/ca.gmo, po/ca.po, po/de.gmo, po/de.po,
-	  po/es.gmo, po/es.po, po/es_MX.gmo, po/es_MX.po, po/et.gmo,
-	  po/et.po, po/eu.gmo, po/eu.po, po/fa.gmo, po/fa.po, po/fi.gmo,
-	  po/fi.po, po/fr.gmo, po/fr.po, po/gu.gmo, po/gu.po, po/he.gmo,
-	  po/he.po, po/hu.gmo, po/hu.po, po/it.gmo, po/it.po, po/ja.gmo,
-	  po/ja.po, po/ko.gmo, po/ko.po, po/lt.gmo, po/lt.po, po/ms.gmo,
-	  po/ms.po, po/nl.gmo, po/nl.po, po/no.gmo, po/no.po, po/pa.gmo,
-	  po/pa.po, po/pt_BR.gmo, po/pt_BR.po, po/pt_PT.gmo, po/pt_PT.po,
-	  po/ru.gmo, po/ru.po, po/sk.gmo, po/sk.po, po/tr.gmo, po/tr.po,
-	  po/vi.gmo, po/vi.po, po/xfce4-mixer.pot, po/zh_CN.gmo,
-	  po/zh_CN.po, po/zh_TW.gmo, po/zh_TW.po, settings/Makefile.in,
-	  src/Makefile.in: Redoing Danny's update with newer auto tools
+	configure, depcomp, install-sh, ltmain.sh, missing,
+	include/Makefile.in, lib/Makefile.in, panel-plugin/Makefile.in,
+	po/ar.gmo, po/ar.po, po/az.gmo, po/az.po, po/be.gmo, po/be.po,
+	po/bg.gmo, po/bg.po, po/ca.gmo, po/ca.po, po/de.gmo, po/de.po,
+	po/es.gmo, po/es.po, po/es_MX.gmo, po/es_MX.po, po/et.gmo,
+	po/et.po, po/eu.gmo, po/eu.po, po/fa.gmo, po/fa.po, po/fi.gmo,
+	po/fi.po, po/fr.gmo, po/fr.po, po/gu.gmo, po/gu.po, po/he.gmo,
+	po/he.po, po/hu.gmo, po/hu.po, po/it.gmo, po/it.po, po/ja.gmo,
+	po/ja.po, po/ko.gmo, po/ko.po, po/lt.gmo, po/lt.po, po/ms.gmo,
+	po/ms.po, po/nl.gmo, po/nl.po, po/no.gmo, po/no.po, po/pa.gmo,
+	po/pa.po, po/pt_BR.gmo, po/pt_BR.po, po/pt_PT.gmo, po/pt_PT.po,
+	po/ru.gmo, po/ru.po, po/sk.gmo, po/sk.po, po/tr.gmo, po/tr.po,
+	po/vi.gmo, po/vi.po, po/xfce4-mixer.pot, po/zh_CN.gmo, po/zh_CN.po,
+	po/zh_TW.gmo, po/zh_TW.po, settings/Makefile.in, src/Makefile.in:
+	Redoing Danny's update with newer auto tools
 
 2004-11-22 21:36  dannym
 
 	* Makefile.in, aclocal.m4, compile, config.guess, config.sub,
-	  configure, depcomp, install-sh, ltmain.sh, missing,
-	  include/Makefile.in, lib/Makefile.in, panel-plugin/Makefile.in,
-	  po/ar.gmo, po/ar.po, po/az.gmo, po/az.po, po/be.gmo, po/be.po,
-	  po/bg.gmo, po/bg.po, po/ca.gmo, po/ca.po, po/de.gmo, po/de.po,
-	  po/es.gmo, po/es.po, po/es_MX.gmo, po/es_MX.po, po/et.gmo,
-	  po/et.po, po/eu.gmo, po/eu.po, po/fa.gmo, po/fa.po, po/fi.gmo,
-	  po/fi.po, po/fr.gmo, po/fr.po, po/gu.gmo, po/gu.po, po/he.gmo,
-	  po/he.po, po/hu.gmo, po/hu.po, po/it.gmo, po/it.po, po/ja.gmo,
-	  po/ja.po, po/ko.gmo, po/ko.po, po/lt.gmo, po/lt.po, po/ms.gmo,
-	  po/ms.po, po/nl.gmo, po/nl.po, po/no.gmo, po/no.po, po/pa.gmo,
-	  po/pa.po, po/pt_BR.gmo, po/pt_BR.po, po/pt_PT.gmo, po/pt_PT.po,
-	  po/ru.gmo, po/ru.po, po/sk.gmo, po/sk.po, po/tr.gmo, po/tr.po,
-	  po/vi.gmo, po/vi.po, po/xfce4-mixer.pot, po/zh_CN.gmo,
-	  po/zh_CN.po, po/zh_TW.gmo, po/zh_TW.po, settings/Makefile.in,
-	  src/Makefile.in, src/menus.c: make main menu translateable (!)
+	configure, depcomp, install-sh, ltmain.sh, missing,
+	include/Makefile.in, lib/Makefile.in, panel-plugin/Makefile.in,
+	po/ar.gmo, po/ar.po, po/az.gmo, po/az.po, po/be.gmo, po/be.po,
+	po/bg.gmo, po/bg.po, po/ca.gmo, po/ca.po, po/de.gmo, po/de.po,
+	po/es.gmo, po/es.po, po/es_MX.gmo, po/es_MX.po, po/et.gmo,
+	po/et.po, po/eu.gmo, po/eu.po, po/fa.gmo, po/fa.po, po/fi.gmo,
+	po/fi.po, po/fr.gmo, po/fr.po, po/gu.gmo, po/gu.po, po/he.gmo,
+	po/he.po, po/hu.gmo, po/hu.po, po/it.gmo, po/it.po, po/ja.gmo,
+	po/ja.po, po/ko.gmo, po/ko.po, po/lt.gmo, po/lt.po, po/ms.gmo,
+	po/ms.po, po/nl.gmo, po/nl.po, po/no.gmo, po/no.po, po/pa.gmo,
+	po/pa.po, po/pt_BR.gmo, po/pt_BR.po, po/pt_PT.gmo, po/pt_PT.po,
+	po/ru.gmo, po/ru.po, po/sk.gmo, po/sk.po, po/tr.gmo, po/tr.po,
+	po/vi.gmo, po/vi.po, po/xfce4-mixer.pot, po/zh_CN.gmo, po/zh_CN.po,
+	po/zh_TW.gmo, po/zh_TW.po, settings/Makefile.in, src/Makefile.in,
+	src/menus.c: make main menu translateable (!)
 
 2004-11-22 16:23  moe
 
@@ -178,16 +190,16 @@
 2004-11-18 23:25  olivier
 
 	* po/: POTFILES.in, ar.gmo, ar.po, az.gmo, az.po, be.gmo, be.po,
-	  bg.gmo, bg.po, ca.gmo, ca.po, de.gmo, de.po, es.gmo, es.po,
-	  es_MX.gmo, es_MX.po, et.gmo, et.po, eu.gmo, eu.po, fa.gmo, fa.po,
-	  fi.gmo, fi.po, fr.gmo, fr.po, gu.gmo, gu.po, he.gmo, he.po,
-	  hu.gmo, hu.po, it.gmo, it.po, ja.gmo, ja.po, ko.gmo, ko.po,
-	  lt.gmo, lt.po, ms.gmo, ms.po, nl.gmo, nl.po, no.gmo, no.po,
-	  pa.gmo, pa.po, pt_BR.gmo, pt_BR.po, pt_PT.gmo, pt_PT.po, ru.gmo,
-	  ru.po, sk.gmo, sk.po, tr.gmo, tr.po, vi.gmo, vi.po,
-	  xfce4-mixer.pot, zh_CN.gmo, zh_CN.po, zh_TW.gmo, zh_TW.po: Try to
-	  figure out why so many strings aren't translated in the mixer
-	  while the po files is all correct.
+	bg.gmo, bg.po, ca.gmo, ca.po, de.gmo, de.po, es.gmo, es.po,
+	es_MX.gmo, es_MX.po, et.gmo, et.po, eu.gmo, eu.po, fa.gmo, fa.po,
+	fi.gmo, fi.po, fr.gmo, fr.po, gu.gmo, gu.po, he.gmo, he.po, hu.gmo,
+	hu.po, it.gmo, it.po, ja.gmo, ja.po, ko.gmo, ko.po, lt.gmo, lt.po,
+	ms.gmo, ms.po, nl.gmo, nl.po, no.gmo, no.po, pa.gmo, pa.po,
+	pt_BR.gmo, pt_BR.po, pt_PT.gmo, pt_PT.po, ru.gmo, ru.po, sk.gmo,
+	sk.po, tr.gmo, tr.po, vi.gmo, vi.po, xfce4-mixer.pot, zh_CN.gmo,
+	zh_CN.po, zh_TW.gmo, zh_TW.po: Try to figure out why so many
+	strings aren't translated in the mixer while the po files is all
+	correct.
 
 2004-11-13 19:01  olivier
 
@@ -200,12 +212,12 @@
 2004-11-06 17:24  olivier
 
 	* ChangeLog, Makefile.in, aclocal.m4, compile, config.guess,
-	  config.sub, configure, configure.ac, depcomp, install-sh,
-	  missing, include/Makefile.in, lib/Makefile.in,
-	  panel-plugin/Makefile.in, settings/Makefile.in, src/Makefile.in:
-	  Update automake/autoconf/libtool/gettext versions to generate the
-	  configure scripts and Makefiles, Update versions of all packages
-	  to 4.1.99.1 (ie 4.2 RC1), Update ChangeLogs.
+	config.sub, configure, configure.ac, depcomp, install-sh, missing,
+	include/Makefile.in, lib/Makefile.in, panel-plugin/Makefile.in,
+	settings/Makefile.in, src/Makefile.in: Update
+	automake/autoconf/libtool/gettext versions to generate the
+	configure scripts and Makefiles, Update versions of all packages to
+	4.1.99.1 (ie 4.2 RC1), Update ChangeLogs.
 
 2004-10-30 21:03  olivier
 
@@ -214,14 +226,14 @@
 2004-10-30 16:42  jasper
 
 	* po/: ar.gmo, ar.po, az.gmo, az.po, be.gmo, be.po, bg.gmo, bg.po,
-	  ca.gmo, ca.po, de.gmo, de.po, es.gmo, es.po, es_MX.gmo, es_MX.po,
-	  et.gmo, et.po, eu.gmo, eu.po, fa.gmo, fa.po, fi.gmo, fi.po,
-	  fr.gmo, fr.po, gu.gmo, gu.po, he.gmo, he.po, hu.gmo, hu.po,
-	  it.gmo, it.po, ja.gmo, ja.po, ko.gmo, ko.po, ms.gmo, ms.po,
-	  nl.gmo, nl.po, no.gmo, no.po, pa.gmo, pa.po, pt_BR.gmo, pt_BR.po,
-	  pt_PT.gmo, pt_PT.po, ru.gmo, ru.po, sk.gmo, sk.po, tr.gmo, tr.po,
-	  vi.gmo, vi.po, zh_CN.gmo, zh_CN.po, zh_TW.gmo, zh_TW.po: Update a
-	  few nl translations
+	ca.gmo, ca.po, de.gmo, de.po, es.gmo, es.po, es_MX.gmo, es_MX.po,
+	et.gmo, et.po, eu.gmo, eu.po, fa.gmo, fa.po, fi.gmo, fi.po, fr.gmo,
+	fr.po, gu.gmo, gu.po, he.gmo, he.po, hu.gmo, hu.po, it.gmo, it.po,
+	ja.gmo, ja.po, ko.gmo, ko.po, ms.gmo, ms.po, nl.gmo, nl.po, no.gmo,
+	no.po, pa.gmo, pa.po, pt_BR.gmo, pt_BR.po, pt_PT.gmo, pt_PT.po,
+	ru.gmo, ru.po, sk.gmo, sk.po, tr.gmo, tr.po, vi.gmo, vi.po,
+	zh_CN.gmo, zh_CN.po, zh_TW.gmo, zh_TW.po: Update a few nl
+	translations
 
 2004-10-30 16:00  pollux
 
@@ -230,24 +242,23 @@
 2004-10-29 22:11  dannym
 
 	* panel-plugin/mixer-control.gob,
-	  panel-plugin/mixer-preferences.gob, panel-plugin/mixer-pxml.gob,
-	  panel-plugin/xfce-mixer-control.c,
-	  panel-plugin/xfce-mixer-prefbox.c,
-	  panel-plugin/xfce-mixer-preferences-private.h,
-	  panel-plugin/xfce-mixer-preferences.c,
-	  panel-plugin/xfce-mixer-pxml.c,
-	  panel-plugin/xfce-mixer-slider-tiny.c, po/xfce4-mixer.pot,
-	  settings/mixer-settingsbox.gob,
-	  settings/xfce-mixer-settingsbox.c, src/mixer-control.gob,
-	  src/mixer-mcs-client.gob, src/mixer-profilebox-detail.gob,
-	  src/mixer-profiles.gob, src/mixer-pxml.gob, src/mixer-window.gob,
-	  src/xfce-mixer-control.c, src/xfce-mixer-mcs-client.c,
-	  src/xfce-mixer-profilebox-detail.c, src/xfce-mixer-profiles.c,
-	  src/xfce-mixer-pxml.c, src/xfce-mixer-window.c,
-	  src/xfce-mixer-window.h: fixed a few remaining bugs:	   - free
-	  window state properly    - remove timer before its too late
-	  - prevent strict aliasing rules from kicking in by preventing
-	  useless casting
+	panel-plugin/mixer-preferences.gob, panel-plugin/mixer-pxml.gob,
+	panel-plugin/xfce-mixer-control.c,
+	panel-plugin/xfce-mixer-prefbox.c,
+	panel-plugin/xfce-mixer-preferences-private.h,
+	panel-plugin/xfce-mixer-preferences.c,
+	panel-plugin/xfce-mixer-pxml.c,
+	panel-plugin/xfce-mixer-slider-tiny.c, po/xfce4-mixer.pot,
+	settings/mixer-settingsbox.gob, settings/xfce-mixer-settingsbox.c,
+	src/mixer-control.gob, src/mixer-mcs-client.gob,
+	src/mixer-profilebox-detail.gob, src/mixer-profiles.gob,
+	src/mixer-pxml.gob, src/mixer-window.gob, src/xfce-mixer-control.c,
+	src/xfce-mixer-mcs-client.c, src/xfce-mixer-profilebox-detail.c,
+	src/xfce-mixer-profiles.c, src/xfce-mixer-pxml.c,
+	src/xfce-mixer-window.c, src/xfce-mixer-window.h: fixed a few
+	remaining bugs:     - free window state properly    - remove timer
+	before its too late	 - prevent strict aliasing rules from
+	kicking in by preventing useless casting
 
 2004-10-29 21:59  dannym
 
@@ -264,17 +275,17 @@
 2004-10-29 17:37  benny
 
 	* lib/vc_sun.c: Check AUDIODEV environment variable to support
-	  SunRay devices.
+	SunRay devices.
 
 2004-10-28 13:55  pollux
 
 	* po/he.gmo, po/he.po, settings/xfce-mixer-settings.desktop: update
-	  HE translations
+	HE translations
 
 2004-10-27 15:43  jasper
 
 	* panel-plugin/plugin.c: Probably could be smarter than this, but
-	  at least it should solve bug #357
+	at least it should solve bug #357
 
 2004-10-23 16:45  olivier
 
@@ -283,44 +294,44 @@
 2004-10-22 22:38  olivier
 
 	* ChangeLog, configure, configure.ac, ltmain.sh: Updated versions
-	  and change logs
+	and change logs
 
 2004-10-21 19:37  benny
 
 	* src/: xfce-mixer-mcs-client.c, xfce-mixer-profilebox-detail.c:
-	  Fix casting bug that breaks gcc34 based plattforms. Danny, please
-	  get rid of gob as soon as possible, it generates faulty code!
+	Fix casting bug that breaks gcc34 based plattforms. Danny, please
+	get rid of gob as soon as possible, it generates faulty code!
 
 2004-10-21 19:35  benny
 
 	* src/: mixer-window.gob, xfce-mixer-window.c: Fix memory
-	  corruption, calling g_free on data, which is accessed later on.
+	corruption, calling g_free on data, which is accessed later on.
 
 2004-10-15 11:42  pollux
 
 	* configure, configure.ac, po/ar.gmo, po/az.gmo, po/be.gmo,
-	  po/bg.gmo, po/ca.gmo, po/de.gmo, po/es.gmo, po/et.gmo, po/eu.gmo,
-	  po/fi.gmo, po/fi.po, po/fr.gmo, po/gu.gmo, po/he.gmo, po/hu.gmo,
-	  po/it.gmo, po/ja.gmo, po/ko.gmo, po/lt.gmo, po/ms.gmo, po/nl.gmo,
-	  po/no.gmo, po/pa.gmo, po/pt_BR.gmo, po/pt_PT.gmo, po/ru.gmo,
-	  po/sk.gmo, po/tr.gmo, po/vi.gmo, po/zh_CN.gmo, po/zh_TW.gmo,
-	  settings/xfce-mixer-settings.desktop: update FI translations
+	po/bg.gmo, po/ca.gmo, po/de.gmo, po/es.gmo, po/et.gmo, po/eu.gmo,
+	po/fi.gmo, po/fi.po, po/fr.gmo, po/gu.gmo, po/he.gmo, po/hu.gmo,
+	po/it.gmo, po/ja.gmo, po/ko.gmo, po/lt.gmo, po/ms.gmo, po/nl.gmo,
+	po/no.gmo, po/pa.gmo, po/pt_BR.gmo, po/pt_PT.gmo, po/ru.gmo,
+	po/sk.gmo, po/tr.gmo, po/vi.gmo, po/zh_CN.gmo, po/zh_TW.gmo,
+	settings/xfce-mixer-settings.desktop: update FI translations
 
 2004-10-11 20:10  benny
 
 	* lib/vc_sun.c: Here we go, Sun mixer support. Just what I have so
-	  far. Seems to block the mixer device, tho it shouldn't. Since I
-	  merged this from my test .c files, it may not even compile. I'll
-	  check once I get my hands on Solaris next time. Other than that,
-	  the code is very straight forward, nothing glorious (just like
-	  the solaris audio/mixer system itself :-).
+	far. Seems to block the mixer device, tho it shouldn't. Since I
+	merged this from my test .c files, it may not even compile. I'll
+	check once I get my hands on Solaris next time. Other than that,
+	the code is very straight forward, nothing glorious (just like the
+	solaris audio/mixer system itself :-).
 
 2004-10-11 18:30  benny
 
 	* po/: ar.po, az.po, be.po, bg.po, ca.po, de.po, es.po, et.po,
-	  eu.po, fr.po, gu.po, he.po, hu.po, it.po, ja.po, ko.po, lt.po,
-	  ms.po, nl.po, no.po, pa.po, pt_BR.po, pt_PT.po, ru.po, sk.po,
-	  tr.po, vi.po, zh_CN.po, zh_TW.po: update-po for Moe.
+	eu.po, fr.po, gu.po, he.po, hu.po, it.po, ja.po, ko.po, lt.po,
+	ms.po, nl.po, no.po, pa.po, pt_BR.po, pt_PT.po, ru.po, sk.po,
+	tr.po, vi.po, zh_CN.po, zh_TW.po: update-po for Moe.
 
 2004-10-10 13:52  pollux
 
@@ -329,12 +340,12 @@
 2004-10-09 16:20  pollux
 
 	* configure, configure.ac, po/fa.gmo, po/fa.po, po/fa_IR.gmo,
-	  po/fa_IR.po: update FA translations
+	po/fa_IR.po: update FA translations
 
 2004-10-08 16:01  edscott
 
 	* configure, configure.ac, po/es.gmo, po/es_MX.gmo, po/es_MX.po:
-	  add spanish translation
+	add spanish translation
 
 2004-10-08 15:58  edscott
 
@@ -343,25 +354,25 @@
 2004-10-07 22:35  benny
 
 	* Makefile.in, aclocal.m4, configure, include/Makefile.in,
-	  lib/Makefile.in, m4/debug.m4, m4/glib-gettext.m4, m4/pkg.m4,
-	  panel-plugin/Makefile.in, settings/Makefile.in, src/Makefile.in:
-	  Added --enable-final (-O1 for GNU ld) as per Jaspers request.
-	  Added missing m4 files.
+	lib/Makefile.in, m4/debug.m4, m4/glib-gettext.m4, m4/pkg.m4,
+	panel-plugin/Makefile.in, settings/Makefile.in, src/Makefile.in:
+	Added --enable-final (-O1 for GNU ld) as per Jaspers request. Added
+	missing m4 files.
 
 2004-10-03 18:14  pollux
 
 	* configure, configure.ac, po/pa.gmo, po/pa.po: Punjabi
-	  translations (PA) from jaswinderlinux@netscape.net
+	translations (PA) from jaswinderlinux@netscape.net
 
 2004-10-03 17:43  pollux
 
 	* settings/xfce-mixer-settings.desktop: zh_TW translations of
-	  desktop files from Ambrose Li <acli@ada.dhs.org>
+	desktop files from Ambrose Li <acli@ada.dhs.org>
 
 2004-10-03 17:00  jasper
 
 	* ltmain.sh, lib/Makefile.am, lib/Makefile.in: Missing file from
-	  tarball
+	tarball
 
 2004-10-03 01:26  olivier
 
@@ -370,24 +381,24 @@
 2004-10-02 15:28  olivier
 
 	* ChangeLog, ltmain.sh, po/xfce4-mixer.pot: Update all files for
-	  4.2 beta 1
+	4.2 beta 1
 
 2004-09-30 13:12  jasper
 
 	* configure, configure.ac, lib/Makefile.am, lib/Makefile.in,
-	  panel-plugin/Makefile.am, panel-plugin/Makefile.in,
-	  settings/Makefile.am, settings/Makefile.in, src/Makefile.am,
-	  src/Makefile.in: Update version and fix make distcheck target
+	panel-plugin/Makefile.am, panel-plugin/Makefile.in,
+	settings/Makefile.am, settings/Makefile.in, src/Makefile.am,
+	src/Makefile.in: Update version and fix make distcheck target
 
 2004-09-29 10:22  pollux
 
 	* po/: zh_TW.gmo, zh_TW.po: updated zh_TW translations from Ambrose
-	  Li <acli@ada.dhs.org>
+	Li <acli@ada.dhs.org>
 
 2004-09-29 09:59  pollux
 
 	* po/: zh_CN.gmo, zh_CN.po: updated zh_CN translations from yongtao
-	  yang <yongtao.yang@gmail.com>
+	yang <yongtao.yang@gmail.com>
 
 2004-09-26 10:32  jasper
 
@@ -396,19 +407,19 @@
 2004-09-26 10:20  dannym
 
 	* src/xfce-mixer-control-vc.c, src/xfce-mixer-profile.c,
-	  panel-plugin/xfce-mixer-control-vc.c: apply patch from a.c.li at
-	  ieee.org
+	panel-plugin/xfce-mixer-control-vc.c: apply patch from a.c.li at
+	ieee.org
 
 2004-09-25 14:31  dannym
 
 	* src/: mixer-window.gob, xfce-mixer-window.c: fix crash by
-	  removing g_object_unref from the icontheme and the gdkscreen
+	removing g_object_unref from the icontheme and the gdkscreen
 
 2004-09-25 14:13  dannym
 
 	* Makefile.in, include/Makefile.in, lib/Makefile.in,
-	  panel-plugin/Makefile.in, src/Makefile.am, src/Makefile.in:
-	  autogen O_O
+	panel-plugin/Makefile.in, src/Makefile.am, src/Makefile.in: autogen
+	O_O
 
 2004-09-25 13:43  dannym
 
@@ -417,12 +428,12 @@
 2004-09-25 13:40  dannym
 
 	* src/: mixer-window.gob, xfce-mixer-window-private.h,
-	  xfce-mixer-window.c: add icon loader
+	xfce-mixer-window.c: add icon loader
 
 2004-09-23 23:36  pollux
 
 	* configure, configure.ac, po/gu.gmo, po/gu.po: add Gujarati
-	  translations (GU) from Ankit Patel <ankit@redhat.com>
+	translations (GU) from Ankit Patel <ankit@redhat.com>
 
 2004-09-23 11:09  jasper
 
@@ -435,18 +446,18 @@
 2004-09-22 05:18  kelnos
 
 	* settings/xfce-mixer-settings.desktop: add GenericName tags to
-	  settings .desktop files
+	settings .desktop files
 
 2004-09-21 13:51  jasper
 
 	* po/: ar.gmo, ar.po, az.gmo, az.po, be.gmo, be.po, bg.gmo, bg.po,
-	  ca.gmo, ca.po, de.gmo, de.po, es.gmo, es.po, et.gmo, et.po,
-	  eu.gmo, eu.po, fa_IR.gmo, fa_IR.po, fr.gmo, fr.po, he.gmo, he.po,
-	  hu.gmo, hu.po, it.gmo, it.po, ja.gmo, ja.po, ko.gmo, ko.po,
-	  lt.gmo, lt.po, ms.gmo, ms.po, nl.gmo, nl.po, no.gmo, no.po,
-	  pt_BR.gmo, pt_BR.po, pt_PT.gmo, pt_PT.po, ru.gmo, ru.po, sk.gmo,
-	  sk.po, tr.gmo, tr.po, vi.gmo, vi.po, zh_CN.gmo, zh_CN.po,
-	  zh_TW.gmo, zh_TW.po: Run make update-po at Moe's request.
+	ca.gmo, ca.po, de.gmo, de.po, es.gmo, es.po, et.gmo, et.po, eu.gmo,
+	eu.po, fa_IR.gmo, fa_IR.po, fr.gmo, fr.po, he.gmo, he.po, hu.gmo,
+	hu.po, it.gmo, it.po, ja.gmo, ja.po, ko.gmo, ko.po, lt.gmo, lt.po,
+	ms.gmo, ms.po, nl.gmo, nl.po, no.gmo, no.po, pt_BR.gmo, pt_BR.po,
+	pt_PT.gmo, pt_PT.po, ru.gmo, ru.po, sk.gmo, sk.po, tr.gmo, tr.po,
+	vi.gmo, vi.po, zh_CN.gmo, zh_CN.po, zh_TW.gmo, zh_TW.po: Run make
+	update-po at Moe's request.
 
 2004-09-21 00:22  olivier
 
@@ -475,15 +486,14 @@
 2004-09-18 02:02  moe
 
 	* po/de.po: Updating these for alpha release. Not yet finished ..
-	  but I'm just too tired to continue. Needs extensive spell
-	  checking and approvement (Note to myself: Write mail to the
-	  list!).
+	but I'm just too tired to continue. Needs extensive spell checking
+	and approvement (Note to myself: Write mail to the list!).
 
 2004-09-17 00:10  pollux
 
 	* aclocal.m4, configure, configure.ac, ltmain.sh, po/be.gmo,
-	  po/be.po, settings/Makefile.in: add BE translations from Ales
-	  Nyakhaychyk <nab@mail.by>
+	po/be.po, settings/Makefile.in: add BE translations from Ales
+	Nyakhaychyk <nab@mail.by>
 
 2004-09-12 21:35  jasper
 
@@ -500,14 +510,14 @@
 2004-09-11 23:58  dannym
 
 	* src/: mixer-profiles.gob, mixer-window.gob, my-config.c,
-	  my-config.h, xfce-mixer-profiles.c, xfce-mixer-window.c: all
-	  config files use temp file
+	my-config.h, xfce-mixer-profiles.c, xfce-mixer-window.c: all config
+	files use temp file
 
 2004-09-11 23:34  dannym
 
 	* src/: mixer-profiles.gob, mixer-window.gob, my-config.c,
-	  my-config.h, xfce-mixer-profiles.c, xfce-mixer-window.c: fix
-	  names of my-config functions
+	my-config.h, xfce-mixer-profiles.c, xfce-mixer-window.c: fix names
+	of my-config functions
 
 2004-09-11 23:23  dannym
 
@@ -516,7 +526,7 @@
 2004-09-11 23:20  dannym
 
 	* src/my-config.c: add comment to use strerror_r with threads, but
-	  use g_strerror for now
+	use g_strerror for now
 
 2004-09-11 23:14  dannym
 
@@ -525,7 +535,7 @@
 2004-09-11 23:12  dannym
 
 	* src/my-config.c: add comment about return value of
-	  rename_tmp_file
+	rename_tmp_file
 
 2004-09-11 23:11  dannym
 
@@ -538,19 +548,19 @@
 2004-09-11 23:08  dannym
 
 	* src/: mixer-window.gob, my-config.c, xfce-mixer-window.c: #if 0
-	  unused function
+	unused function
 
 2004-09-11 23:08  dannym
 
 	* src/: mixer-mcs-client.gob, xfce-mixer-mcs-client.c:
-	  mixer-mcs-client.gob:76: warning: function called through a
-	  non-compatible type mixer-mcs-client.gob:76: note: if this code
-	  is reached, the program will abort
+	mixer-mcs-client.gob:76: warning: function called through a
+	non-compatible type mixer-mcs-client.gob:76: note: if this code is
+	reached, the program will abort
 
 2004-09-11 23:05  dannym
 
 	* configure, configure.ac: fix CHECK_HEADERS so my autotools
-	  understand
+	understand
 
 2004-09-11 23:03  dannym
 
@@ -559,14 +569,14 @@
 2004-09-11 22:53  dannym
 
 	* configure.ac, panel-plugin/mixer-pxml.gob,
-	  panel-plugin/xfce-mixer-control.c,
-	  panel-plugin/xfce-mixer-prefbox.c,
-	  panel-plugin/xfce-mixer-preferences.c,
-	  panel-plugin/xfce-mixer-pxml-private.h,
-	  panel-plugin/xfce-mixer-pxml.c,
-	  panel-plugin/xfce-mixer-slider-tiny.c, src/mixer-pxml.gob,
-	  src/my-config.c, src/xfce-mixer-pxml-private.h,
-	  src/xfce-mixer-pxml.c: readd configure, ran autogen, ...
+	panel-plugin/xfce-mixer-control.c,
+	panel-plugin/xfce-mixer-prefbox.c,
+	panel-plugin/xfce-mixer-preferences.c,
+	panel-plugin/xfce-mixer-pxml-private.h,
+	panel-plugin/xfce-mixer-pxml.c,
+	panel-plugin/xfce-mixer-slider-tiny.c, src/mixer-pxml.gob,
+	src/my-config.c, src/xfce-mixer-pxml-private.h,
+	src/xfce-mixer-pxml.c: readd configure, ran autogen, ...
 
 2004-09-11 22:30  dannym
 
@@ -579,7 +589,7 @@
 2004-09-11 22:15  dannym
 
 	* aclocal.m4, config.h.in, configure.ac, ltmain.sh,
-	  settings/Makefile.in, src/my-config.c: cvs ! work ! now !
+	settings/Makefile.in, src/my-config.c: cvs ! work ! now !
 
 2004-09-11 21:18  dannym
 
@@ -588,24 +598,23 @@
 2004-09-11 21:15  dannym
 
 	* src/my-config.c: previous commit: add XDG config mechanism; this
-	  commit; typo
+	commit; typo
 
 2004-09-11 21:15  dannym
 
 	* src/: Makefile.am, Makefile.in, mixer-profiles.gob,
-	  mixer-window.gob, my-config.c, my-config.h,
-	  xfce-mixer-profiles.c, xfce-mixer-window-private.h,
-	  xfce-mixer-window.c: flock
+	mixer-window.gob, my-config.c, my-config.h, xfce-mixer-profiles.c,
+	xfce-mixer-window-private.h, xfce-mixer-window.c: flock
 
 2004-09-10 22:49  pollux
 
 	* configure, configure.ac, po/he.gmo, po/he.po: HE translations
-	  update from Yuval Tanny <tanai@int.gov.il>
+	update from Yuval Tanny <tanai@int.gov.il>
 
 2004-09-09 20:51  pollux
 
 	* configure, configure.ac, po/vi.gmo, po/vi.po: update VI
-	  translations
+	translations
 
 2004-09-08 22:18  dannym
 
@@ -614,17 +623,17 @@
 2004-09-06 21:48  jasper
 
 	* panel-plugin/: Makefile.am, Makefile.in, test_vc.c: Build fixes.
-	  Don't link test_vc object into library.
+	Don't link test_vc object into library.
 
 2004-09-06 16:08  pollux
 
 	* configure, configure.ac, po/et.gmo, po/et.po: ET translations
-	  from Peeter Vois <Peeter.Vois@proekspert.ee>
+	from Peeter Vois <Peeter.Vois@proekspert.ee>
 
 2004-08-29 18:03  pollux
 
 	* configure, configure.ac, po/az.gmo: AZ translations update from
-	  Metin Amiroff <metin@karegen.com>
+	Metin Amiroff <metin@karegen.com>
 
 2004-08-29 01:03  dannym
 
@@ -633,9 +642,9 @@
 2004-08-28 21:20  pollux
 
 	* Makefile.in, aclocal.m4, configure, configure.ac, ltmain.sh,
-	  include/Makefile.in, lib/Makefile.in, panel-plugin/Makefile.in,
-	  po/sk.gmo, po/sk.po, settings/Makefile.in, src/Makefile.in: add
-	  Slovak translations from Juraj Brosz <Juraj.Brosz@pobox.sk>
+	include/Makefile.in, lib/Makefile.in, panel-plugin/Makefile.in,
+	po/sk.gmo, po/sk.po, settings/Makefile.in, src/Makefile.in: add
+	Slovak translations from Juraj Brosz <Juraj.Brosz@pobox.sk>
 
 2004-08-26 17:19  dannym
 
@@ -644,9 +653,9 @@
 2004-08-26 17:17  dannym
 
 	* Makefile.in, aclocal.m4, configure, ltmain.sh,
-	  include/Makefile.in, lib/Makefile.in, panel-plugin/Makefile.in,
-	  settings/Makefile.am, settings/Makefile.in, src/Makefile.in:
-	  update using autotools by hand
+	include/Makefile.in, lib/Makefile.in, panel-plugin/Makefile.in,
+	settings/Makefile.am, settings/Makefile.in, src/Makefile.in: update
+	using autotools by hand
 
 2004-08-26 16:58  dannym
 
@@ -655,13 +664,13 @@
 2004-08-26 16:56  dannym
 
 	* src/: Makefile.am, Makefile.in: add missing headers to
-	  Makefile.am
+	Makefile.am
 
 2004-08-26 16:38  dannym
 
 	* panel-plugin/Makefile.in: ran autogen... heavens help me.  To be
-	  on the safe side, someone that knows how to force the correct
-	  autotools versions should run it again. Thanks :)
+	on the safe side, someone that knows how to force the correct
+	autotools versions should run it again. Thanks :)
 
 2004-08-26 15:17  dannym
 
@@ -674,15 +683,15 @@
 2004-08-26 07:57  olivier
 
 	* Makefile.am, Makefile.in, configure, configure.ac,
-	  include/Makefile.am, include/Makefile.in, lib/Makefile.am,
-	  lib/Makefile.in, panel-plugin/Makefile.am,
-	  panel-plugin/Makefile.in: Try to fix dist for this package, but
-	  it doesn't build.
+	include/Makefile.am, include/Makefile.in, lib/Makefile.am,
+	lib/Makefile.in, panel-plugin/Makefile.am,
+	panel-plugin/Makefile.in: Try to fix dist for this package, but it
+	doesn't build.
 
 2004-08-26 00:10  olivier
 
 	* Makefile.in, aclocal.m4, configure, configure.ac, ltmain.sh,
-	  po/nl.gmo, po/xfce4-mixer.pot: another make dist fix
+	po/nl.gmo, po/xfce4-mixer.pot: another make dist fix
 
 2004-08-25 23:38  dannym
 
@@ -695,33 +704,33 @@
 2004-08-24 12:04  pollux
 
 	* po/: ru.gmo, ru.po: RU translations update from Anthony Ivanoff
-	  <a-i@bk.ru>
+	<a-i@bk.ru>
 
 2004-08-15 21:39  olivier
 
 	* po/ar.gmo, po/ar.po, po/bg.gmo, po/bg.po, po/ca.gmo, po/ca.po,
-	  po/de.gmo, po/de.po, po/es.gmo, po/es.po, po/eu.gmo, po/eu.po,
-	  po/fa_IR.gmo, po/fa_IR.po, po/fr.gmo, po/fr.po, po/hu.gmo,
-	  po/hu.po, po/it.gmo, po/it.po, po/ja.gmo, po/ja.po, po/ko.gmo,
-	  po/ko.po, po/lt.gmo, po/lt.po, po/ms.gmo, po/ms.po, po/nl.gmo,
-	  po/nl.po, po/no.gmo, po/no.po, po/pt_BR.gmo, po/pt_BR.po,
-	  po/pt_PT.gmo, po/pt_PT.po, po/ru.gmo, po/ru.po, po/tr.gmo,
-	  po/tr.po, po/xfce4-mixer.pot, po/zh_CN.gmo, po/zh_CN.po,
-	  po/zh_TW.gmo, po/zh_TW.po, settings/xfce-mixer-settings.desktop:
-	  Resync with repository, most notably: - libxfcegui4 fixes with
-	  gtk 2.2 - xfwm4 updates - Present panel plugins in alphabetical
-	  order - Fix add plugin dialog being placed over the panel when
-	  using SM - French po updates - Other various small bug fixes
+	po/de.gmo, po/de.po, po/es.gmo, po/es.po, po/eu.gmo, po/eu.po,
+	po/fa_IR.gmo, po/fa_IR.po, po/fr.gmo, po/fr.po, po/hu.gmo,
+	po/hu.po, po/it.gmo, po/it.po, po/ja.gmo, po/ja.po, po/ko.gmo,
+	po/ko.po, po/lt.gmo, po/lt.po, po/ms.gmo, po/ms.po, po/nl.gmo,
+	po/nl.po, po/no.gmo, po/no.po, po/pt_BR.gmo, po/pt_BR.po,
+	po/pt_PT.gmo, po/pt_PT.po, po/ru.gmo, po/ru.po, po/tr.gmo,
+	po/tr.po, po/xfce4-mixer.pot, po/zh_CN.gmo, po/zh_CN.po,
+	po/zh_TW.gmo, po/zh_TW.po, settings/xfce-mixer-settings.desktop:
+	Resync with repository, most notably: - libxfcegui4 fixes with gtk
+	2.2 - xfwm4 updates - Present panel plugins in alphabetical order -
+	Fix add plugin dialog being placed over the panel when using SM -
+	French po updates - Other various small bug fixes
 
 2004-08-09 00:14  dannym
 
 	* src/: mixer-view.gob, xfce-mixer-view.c: add a bit spacing
-	  between the selects
+	between the selects
 
 2004-07-28 23:22  benny
 
 	* m4/depends.m4: Fixed (module)_FOUND bug reported by brian.
-	  Hopefully nothing else broke this time.
+	Hopefully nothing else broke this time.
 
 2004-07-25 17:38  benny
 
@@ -738,111 +747,142 @@
 2004-07-24 20:52  benny
 
 	* m4/depends.m4: Readded XFCE_MCS_PLUGIN() again, dunno how I
-	  manage to remove it everytime I edit depends.m4!
+	manage to remove it everytime I edit depends.m4!
 
 2004-07-24 19:30  benny
 
 	* m4/depends.m4: XFCE_PANEL_PLUGIN had wrong panel version for the
-	  threaded test.
+	threaded test.
 
 2004-07-24 19:28  benny
 
 	* m4/depends.m4: Extended the XFCE_PANEL_PLUGIN macro to include
-	  some magic for threaded panels.
+	some magic for threaded panels.
 
 2004-07-24 01:07  benny
 
 	* aclocal.m4, configure, ltmain.sh, settings/Makefile.am,
-	  settings/Makefile.in, settings/sound-icon.h, settings/sound.c,
-	  settings/sound.png, settings/xfce4-mixer.png: Made icon themable.
+	settings/Makefile.in, settings/sound-icon.h, settings/sound.c,
+	settings/sound.png, settings/xfce4-mixer.png: Made icon themable.
 
 2004-07-22 01:00  benny
 
 	* m4/depends.m4: Readded the XFCE_MCS_PLUGIN macro. I didn't ment
-	  to remove it, tho.
+	to remove it, tho.
 
 2004-07-21 21:15  dannym
 
 	* panel-plugin/xfce-mixer-control.c,
-	  panel-plugin/xfce-mixer-control.h,
-	  panel-plugin/xfce-mixer-prefbox-private.h,
-	  panel-plugin/xfce-mixer-prefbox.c,
-	  panel-plugin/xfce-mixer-prefbox.h,
-	  panel-plugin/xfce-mixer-preferences-private.h,
-	  panel-plugin/xfce-mixer-preferences.c,
-	  panel-plugin/xfce-mixer-preferences.h,
-	  panel-plugin/xfce-mixer-pxml-private.h,
-	  panel-plugin/xfce-mixer-pxml.c, panel-plugin/xfce-mixer-pxml.h,
-	  panel-plugin/xfce-mixer-slider-tiny-private.h,
-	  panel-plugin/xfce-mixer-slider-tiny.c,
-	  panel-plugin/xfce-mixer-slider-tiny.h,
-	  settings/xfce-mixer-settingsbox-private.h,
-	  settings/xfce-mixer-settingsbox.c,
-	  settings/xfce-mixer-settingsbox.h, src/xfce-mixer-control.c,
-	  src/xfce-mixer-control.h, src/xfce-mixer-info.c,
-	  src/xfce-mixer-info.h, src/xfce-mixer-mcs-client.c,
-	  src/xfce-mixer-mcs-client.h,
-	  src/xfce-mixer-profilebox-detail-private.h,
-	  src/xfce-mixer-profilebox-detail.c,
-	  src/xfce-mixer-profilebox-detail.h,
-	  src/xfce-mixer-profilebox-private.h, src/xfce-mixer-profilebox.c,
-	  src/xfce-mixer-profilebox.h, src/xfce-mixer-profiledlg-private.h,
-	  src/xfce-mixer-profiledlg.c, src/xfce-mixer-profiledlg.h,
-	  src/xfce-mixer-profiles-private.h, src/xfce-mixer-profiles.c,
-	  src/xfce-mixer-profiles.h, src/xfce-mixer-pxml-private.h,
-	  src/xfce-mixer-pxml.c, src/xfce-mixer-pxml.h,
-	  src/xfce-mixer-select-private.h, src/xfce-mixer-select.c,
-	  src/xfce-mixer-select.h, src/xfce-mixer-slider-tiny-private.h,
-	  src/xfce-mixer-slider-tiny.c, src/xfce-mixer-slider-tiny.h,
-	  src/xfce-mixer-slider.c, src/xfce-mixer-slider.h,
-	  src/xfce-mixer-switch-private.h, src/xfce-mixer-switch.c,
-	  src/xfce-mixer-switch.h, src/xfce-mixer-view-private.h,
-	  src/xfce-mixer-view-tiny.c, src/xfce-mixer-view-tiny.h,
-	  src/xfce-mixer-view.c, src/xfce-mixer-view.h,
-	  src/xfce-mixer-window-private.h, src/xfce-mixer-window.c,
-	  src/xfce-mixer-window.h: updated gob preprocessor to 2.0.9 and
-	  regenerated the files...
+	panel-plugin/xfce-mixer-control.h,
+	panel-plugin/xfce-mixer-prefbox-private.h,
+	panel-plugin/xfce-mixer-prefbox.c,
+	panel-plugin/xfce-mixer-prefbox.h,
+	panel-plugin/xfce-mixer-preferences-private.h,
+	panel-plugin/xfce-mixer-preferences.c,
+	panel-plugin/xfce-mixer-preferences.h,
+	panel-plugin/xfce-mixer-pxml-private.h,
+	panel-plugin/xfce-mixer-pxml.c, panel-plugin/xfce-mixer-pxml.h,
+	panel-plugin/xfce-mixer-slider-tiny-private.h,
+	panel-plugin/xfce-mixer-slider-tiny.c,
+	panel-plugin/xfce-mixer-slider-tiny.h,
+	settings/xfce-mixer-settingsbox-private.h,
+	settings/xfce-mixer-settingsbox.c,
+	settings/xfce-mixer-settingsbox.h, src/xfce-mixer-control.c,
+	src/xfce-mixer-control.h, src/xfce-mixer-info.c,
+	src/xfce-mixer-info.h, src/xfce-mixer-mcs-client.c,
+	src/xfce-mixer-mcs-client.h,
+	src/xfce-mixer-profilebox-detail-private.h,
+	src/xfce-mixer-profilebox-detail.c,
+	src/xfce-mixer-profilebox-detail.h,
+	src/xfce-mixer-profilebox-private.h, src/xfce-mixer-profilebox.c,
+	src/xfce-mixer-profilebox.h, src/xfce-mixer-profiledlg-private.h,
+	src/xfce-mixer-profiledlg.c, src/xfce-mixer-profiledlg.h,
+	src/xfce-mixer-profiles-private.h, src/xfce-mixer-profiles.c,
+	src/xfce-mixer-profiles.h, src/xfce-mixer-pxml-private.h,
+	src/xfce-mixer-pxml.c, src/xfce-mixer-pxml.h,
+	src/xfce-mixer-select-private.h, src/xfce-mixer-select.c,
+	src/xfce-mixer-select.h, src/xfce-mixer-slider-tiny-private.h,
+	src/xfce-mixer-slider-tiny.c, src/xfce-mixer-slider-tiny.h,
+	src/xfce-mixer-slider.c, src/xfce-mixer-slider.h,
+	src/xfce-mixer-switch-private.h, src/xfce-mixer-switch.c,
+	src/xfce-mixer-switch.h, src/xfce-mixer-view-private.h,
+	src/xfce-mixer-view-tiny.c, src/xfce-mixer-view-tiny.h,
+	src/xfce-mixer-view.c, src/xfce-mixer-view.h,
+	src/xfce-mixer-window-private.h, src/xfce-mixer-window.c,
+	src/xfce-mixer-window.h: updated gob preprocessor to 2.0.9 and
+	regenerated the files...
 
 2004-07-21 20:47  dannym
 
 	* src/: mixer-profiles.gob, mixer-view.gob, xfce-mixer-profiles.c,
-	  xfce-mixer-view.c: more gcc 3.4 fixes
+	xfce-mixer-view.c: more gcc 3.4 fixes
 
 2004-07-21 20:38  dannym
 
 	* TODO, panel-plugin/mixer-prefbox.gob,
-	  panel-plugin/mixer-preferences.gob,
-	  panel-plugin/xfce-mixer-prefbox-private.h,
-	  panel-plugin/xfce-mixer-prefbox.c,
-	  panel-plugin/xfce-mixer-prefbox.h,
-	  panel-plugin/xfce-mixer-preferences.c,
-	  settings/mixer-settingsbox.gob,
-	  settings/xfce-mixer-settingsbox-private.h,
-	  settings/xfce-mixer-settingsbox.c,
-	  settings/xfce-mixer-settingsbox.h, src/mixer-select.gob,
-	  src/xfce-mixer-select.c: possible fix for gcc/gob weirdness to
-	  mixer cvs
+	panel-plugin/mixer-preferences.gob,
+	panel-plugin/xfce-mixer-prefbox-private.h,
+	panel-plugin/xfce-mixer-prefbox.c,
+	panel-plugin/xfce-mixer-prefbox.h,
+	panel-plugin/xfce-mixer-preferences.c,
+	settings/mixer-settingsbox.gob,
+	settings/xfce-mixer-settingsbox-private.h,
+	settings/xfce-mixer-settingsbox.c,
+	settings/xfce-mixer-settingsbox.h, src/mixer-select.gob,
+	src/xfce-mixer-select.c: possible fix for gcc/gob weirdness to
+	mixer cvs
 
 2004-07-20 22:58  benny
 
 	* m4/depends.m4: Modifed panel plugin check, so one (the installer)
-	  can choose to install into a different plugin dir.
+	can choose to install into a different plugin dir.
 
 2004-07-19 23:47  dannym
 
 	* src/main.c: include string.h if neccessary
 
+2004-07-09 11:32  olivier
+
+	* ChangeLog: Update ChangeLog
+
+2004-07-09 10:59  olivier
+
+	* configure, configure.ac, po/xfce4-mixer.pot: Update versions.
+
+2004-07-09 09:53  olivier
+
+	* ChangeLog: Update ChangeLogs for 4.0.6
+
+2004-07-08 21:53  olivier
+
+	* ltmain.sh: Update tree for 4.0.6 release
+
+2004-07-06 17:58  pollux
+
+	* configure, configure.ac, po/eu.gmo, po/eu.po: add basque
+	translation from ^pi^ <pi@beobide.net>
+
+2004-06-27 23:18  pollux
+
+	* po/: ru.gmo, ru.po: russian translations update from Anthony
+	Ivanoff
+
 2004-06-20 22:57  dannym
 
 	* src/: mixer-mcs-client.gob, xfce-mixer-mcs-client.c: fix possible
-	  breakage when setting couldn't be read.
+	breakage when setting couldn't be read.
+
+2004-06-20 19:20  benny
+
+	* panel-plugin/vc_oss.c: PATH_MAX fixes to get it to compile on
+	GNU/Hurd.
 
 2004-06-20 10:25  dannym
 
 	* panel-plugin/mixer-slider-tiny.gob,
-	  panel-plugin/xfce-mixer-slider-tiny.c, po/xfce4-mixer.pot,
-	  src/mixer-slider-tiny.gob, src/xfce-mixer-slider-tiny.c: sanity
-	  check volume in mixer-slider-tiny
+	panel-plugin/xfce-mixer-slider-tiny.c, po/xfce4-mixer.pot,
+	src/mixer-slider-tiny.gob, src/xfce-mixer-slider-tiny.c: sanity
+	check volume in mixer-slider-tiny
 
 2004-06-18 07:47  dannym
 
@@ -864,22 +904,41 @@
 
 	* po/zh_CN.po: Update zh_CN translations
 
+2004-06-11 13:03  pollux
+
+	* po/et.gmo: file et.gmo was initially added on branch xfce_4_0.
+
+2004-06-11 13:03  pollux
+
+	* po/et.po: file et.po was initially added on branch xfce_4_0.
+
+2004-06-11 13:02  pollux
+
+	* configure, configure.ac, ltmain.sh, po/et.gmo, po/et.po: Estonian
+	translations from Peeter Vois <peeter.vois@proekspert.ee> added
+
 2004-06-09 23:46  dannym
 
 	* lib/trans.c: add missing (dummy) file with translations in it for
-	  regeneration of xfce4-mixer.pot to work
+	regeneration of xfce4-mixer.pot to work
+
+2004-05-04 00:14  olivier
+
+	* Makefile.in, aclocal.m4, config.guess, config.sub, configure,
+	install-sh, ltmain.sh, mkinstalldirs, panel-plugin/Makefile.in:
+	Update zh_TW translations by umm <umm@pchome.com.tw>
 
 2004-05-03 23:44  olivier
 
 	* Makefile.in, aclocal.m4, config.guess, config.sub, configure,
-	  install-sh, ltmain.sh, mkinstalldirs, lib/Makefile.in,
-	  panel-plugin/Makefile.in, src/Makefile.in: Update zh_TW
-	  translations from umm <umm@pchome.com.tw>
+	install-sh, ltmain.sh, mkinstalldirs, lib/Makefile.in,
+	panel-plugin/Makefile.in, src/Makefile.in: Update zh_TW
+	translations from umm <umm@pchome.com.tw>
 
 2004-05-03 22:18  kelnos
 
 	* settings/: Makefile.am, Makefile.in, xfce-mixer-settings.desktop:
-	  mixer settings .desktop w/EXTRA_DIST
+	mixer settings .desktop w/EXTRA_DIST
 
 2004-05-03 00:12  dannym
 
@@ -896,95 +955,135 @@
 2004-04-12 15:28  dannym
 
 	* po/: ca.gmo, ca.po: VS:
-	  ----------------------------------------------------------------------
-	  Update catalan translations by Carles Muñoz Gorriz
+	-------------------------------------------------------------------
+	--- Update catalan translations by Carles Muñoz Gorriz
 
 2004-04-10 14:28  dannym
 
 	* m4/debug.m4: got rid of GTK_DISABLE_DEPRECATED as with gtk+ 2.4
-	  it deprecated GtkCombo and GtkOptionMenu which are perfectly
-	  normal to use with gtk+ 2.2 (and since xfce supports both gtk+
-	  2.2 and 2.4 ...)
-
-	  Do I have to autogen now ?
+	it deprecated GtkCombo and GtkOptionMenu which are perfectly normal
+	to use with gtk+ 2.2 (and since xfce supports both gtk+ 2.2 and 2.4
+	...)
+	
+	Do I have to autogen now ?
 
 2004-03-31 21:46  benny
 
 	* Makefile.am, Makefile.in, configure, configure.ac,
-	  lib/Makefile.in, panel-plugin/Makefile.in, settings/Makefile.in,
-	  src/Makefile.in: Generate files for danny.
+	lib/Makefile.in, panel-plugin/Makefile.in, settings/Makefile.in,
+	src/Makefile.in: Generate files for danny.
 
 2004-03-31 21:37  dannym
 
-	* Makefile.am, configure.ac:
-	  add --disable-big-mixer support for Moe :)
+	* Makefile.am, configure.ac: 
+	add --disable-big-mixer support for Moe :)
+
+2004-03-18 13:17  benny
+
+	* panel-plugin/vc.h: Applied sun forte cc patch from #140.
 
 2004-03-18 13:14  benny
 
 	* aclocal.m4, ltmain.sh, include/vc.h, lib/vc.h, lib/vc_oss.c,
-	  lib/vc_sun.c, panel-plugin/mixer-control.gob,
-	  panel-plugin/mixer-prefbox.gob,
-	  panel-plugin/mixer-preferences.gob, panel-plugin/plugin.c,
-	  panel-plugin/xfce-mixer-control.c,
-	  panel-plugin/xfce-mixer-prefbox.c,
-	  panel-plugin/xfce-mixer-preferences.c,
-	  settings/mixer-settingsbox.gob, settings/sound.c,
-	  settings/xfce-mixer-settingsbox.c, src/main.c, src/menus.c,
-	  src/mixer-control.gob, src/mixer-info.gob,
-	  src/mixer-mcs-client.gob, src/mixer-profilebox-detail.gob,
-	  src/mixer-profilebox.gob, src/mixer-profiles.gob,
-	  src/mixer-view.gob, src/mixer-window.gob,
-	  src/xfce-mixer-control.c, src/xfce-mixer-info.c,
-	  src/xfce-mixer-mcs-client.c, src/xfce-mixer-profiles.c,
-	  src/xfce-mixer-window.c: <libxfce4util/*.h> ->
-	  <libxfce4util/libxfce4util.h>, Fixed compile problems with sun
-	  forte cc (resolves bug #140). Make compiler happy.
+	lib/vc_sun.c, panel-plugin/mixer-control.gob,
+	panel-plugin/mixer-prefbox.gob, panel-plugin/mixer-preferences.gob,
+	panel-plugin/plugin.c, panel-plugin/xfce-mixer-control.c,
+	panel-plugin/xfce-mixer-prefbox.c,
+	panel-plugin/xfce-mixer-preferences.c,
+	settings/mixer-settingsbox.gob, settings/sound.c,
+	settings/xfce-mixer-settingsbox.c, src/main.c, src/menus.c,
+	src/mixer-control.gob, src/mixer-info.gob,
+	src/mixer-mcs-client.gob, src/mixer-profilebox-detail.gob,
+	src/mixer-profilebox.gob, src/mixer-profiles.gob,
+	src/mixer-view.gob, src/mixer-window.gob, src/xfce-mixer-control.c,
+	src/xfce-mixer-info.c, src/xfce-mixer-mcs-client.c,
+	src/xfce-mixer-profiles.c, src/xfce-mixer-window.c:
+	<libxfce4util/*.h> -> <libxfce4util/libxfce4util.h>, Fixed compile
+	problems with sun forte cc (resolves bug #140). Make compiler
+	happy.
 
 2004-03-15 08:36  olivier
 
 	* aclocal.m4, configure, configure.ac, ltmain.sh, po/ar.gmo,
-	  po/ar.po, po/bg.gmo, po/bg.po, po/it.gmo, po/it.po: Add/update
-	  i18n for: Bulgarian from Miroslav Yordanov
-	  <miordanov@i-space.org> and Peter Slavov <peshka@i-space.org>
-	  Italian from Alex Dupre <ale@FreeBSD.org> Arabic from Saleh
-	  Hathal <hathalsal@hotmail.com>
+	po/ar.po, po/bg.gmo, po/bg.po, po/it.gmo, po/it.po: Add/update i18n
+	for: Bulgarian from Miroslav Yordanov <miordanov@i-space.org> and
+	Peter Slavov <peshka@i-space.org> Italian from Alex Dupre
+	<ale@FreeBSD.org> Arabic from Saleh Hathal <hathalsal@hotmail.com>
+
+2004-03-15 00:25  olivier
+
+	* po/ar.gmo: file ar.gmo was initially added on branch xfce_4_0.
+
+2004-03-15 00:25  olivier
+
+	* po/bg.gmo: file bg.gmo was initially added on branch xfce_4_0.
+
+2004-03-15 00:25  olivier
+
+	* po/bg.po: file bg.po was initially added on branch xfce_4_0.
+
+2004-03-15 00:25  olivier
+
+	* po/ar.po: file ar.po was initially added on branch xfce_4_0.
+
+2004-03-15 00:25  olivier
+
+	* aclocal.m4, configure, configure.ac, po/ar.gmo, po/ar.po,
+	po/bg.gmo, po/bg.po, po/it.gmo, po/it.po: Add/update i18n for:
+	Bulgarian from Miroslav Yordanov <miordanov@i-space.org> and Peter
+	Slavov <peshka@i-space.org> Italian from Alex Dupre
+	<ale@FreeBSD.org> Arabic from Saleh Hathal <hathalsal@hotmail.com>
 
 2004-03-11 00:58  benny
 
 	* Makefile.in, aclocal.m4, configure, ltmain.sh,
-	  settings/Makefile.am, settings/Makefile.in: Removed unneccesary
-	  lib depends from the mcs plugins, as xfce-mcs-manager provides
-	  them.
+	settings/Makefile.am, settings/Makefile.in: Removed unneccesary lib
+	depends from the mcs plugins, as xfce-mcs-manager provides them.
 
 2004-03-09 13:45  dannym
 
 	* lib/vc_sun.c: comments what to fill in to make it work for
-	  netbsd... patches accepted :)
+	netbsd... patches accepted :)
+
+2004-03-02 22:32  olivier
+
+	* po/: POTFILES.in, az.gmo, az.po, ca.gmo, ca.po, cs.gmo, cs.po,
+	de.gmo, de.po, es.gmo, es.po, fa_IR.gmo, fa_IR.po, fr.gmo, fr.po,
+	hi.gmo, hi.po, hu.gmo, hu.po, it.gmo, it.po, ja.gmo, ja.po, ko.gmo,
+	ko.po, lt.gmo, lt.po, ms.gmo, ms.po, nl.gmo, nl.po, no.gmo, no.po,
+	pl.gmo, pl.po, pt_BR.gmo, pt_BR.po, pt_PT.gmo, pt_PT.po, ru.gmo,
+	ru.po, ta.gmo, ta.po, tr.gmo, tr.po, uk.gmo, uk.po, vi.gmo, vi.po,
+	xfce4-mixer.pot, zh_CN.gmo, zh_CN.po, zh_TW.gmo, zh_TW.po: Fix
+	package not passing "make dist"
 
 2004-03-01 22:09  benny
 
 	* m4/debug.m4: Added --enable-gcov to compile xfce with support for
-	  coverage tests. Very useful.
+	coverage tests. Very useful.
 
 2004-02-28 23:59  dannym
 
 	* src/: main.c, mixer-profilebox-detail.gob, xfce-mixer-cache-vc.c,
-	  xfce-mixer-cache-vc.h, xfce-mixer-profilebox-detail-private.h,
-	  xfce-mixer-profilebox-detail.c, xfce-mixer-profilebox-detail.h:
-	  cleanup, change atexit to normal call in main
+	xfce-mixer-cache-vc.h, xfce-mixer-profilebox-detail-private.h,
+	xfce-mixer-profilebox-detail.c, xfce-mixer-profilebox-detail.h:
+	cleanup, change atexit to normal call in main
 
 2004-02-28 23:57  dannym
 
 	* panel-plugin/: plugin.c, xfce-mixer-cache-vc.c,
-	  xfce-mixer-cache-vc.h: use g_module_unload instead of atexit
+	xfce-mixer-cache-vc.h: use g_module_unload instead of atexit
 
 2004-02-28 23:04  dannym
 
 	* panel-plugin/: mixer-pxml.gob, xfce-mixer-cache-vc.c,
-	  xfce-mixer-control.c, xfce-mixer-prefbox.c,
-	  xfce-mixer-preferences.c, xfce-mixer-pxml.c,
-	  xfce-mixer-slider-tiny.c: use g_atexit instead of atexit, maybe
-	  that helps...
+	xfce-mixer-control.c, xfce-mixer-prefbox.c,
+	xfce-mixer-preferences.c, xfce-mixer-pxml.c,
+	xfce-mixer-slider-tiny.c: use g_atexit instead of atexit, maybe
+	that helps...
+
+2004-02-28 18:23  olivier
+
+	* ltmain.sh: sync for 4.0.4 release
 
 2004-02-24 20:13  dannym
 
@@ -997,27 +1096,27 @@
 2004-02-24 19:02  dannym
 
 	* src/: mixer-mcs-client.gob, mixer-profiles.gob, mixer-pxml.gob,
-	  mixer-window.gob, xfce-mixer-mcs-client.c, xfce-mixer-profiles.c,
-	  xfce-mixer-pxml.c, xfce-mixer-window.c, xfce_sizehook.c: get rid
-	  of a bunch of g_warning's
+	mixer-window.gob, xfce-mixer-mcs-client.c, xfce-mixer-profiles.c,
+	xfce-mixer-pxml.c, xfce-mixer-window.c, xfce_sizehook.c: get rid of
+	a bunch of g_warning's
 
 2004-02-24 18:57  dannym
 
 	* TODO, src/mixer-profilebox-detail.gob,
-	  src/xfce-mixer-profilebox-detail.c: up and down button
+	src/xfce-mixer-profilebox-detail.c: up and down button
 
 2004-02-24 18:45  dannym
 
 	* TODO, src/mixer-profilebox-detail.gob, src/mixer-profilebox.gob,
-	  src/mixer-profiledlg.gob, src/mixer-view.gob,
-	  src/xfce-mixer-cache-vc.c, src/xfce-mixer-profile.c,
-	  src/xfce-mixer-profilebox-detail-private.h,
-	  src/xfce-mixer-profilebox-detail.c,
-	  src/xfce-mixer-profilebox-detail.h, src/xfce-mixer-profilebox.c,
-	  src/xfce-mixer-profilebox.h, src/xfce-mixer-profiledlg-private.h,
-	  src/xfce-mixer-profiledlg.c, src/xfce-mixer-view.c:
-	  load/save/manage profiles work now... although somewhat
-	  unordered...
+	src/mixer-profiledlg.gob, src/mixer-view.gob,
+	src/xfce-mixer-cache-vc.c, src/xfce-mixer-profile.c,
+	src/xfce-mixer-profilebox-detail-private.h,
+	src/xfce-mixer-profilebox-detail.c,
+	src/xfce-mixer-profilebox-detail.h, src/xfce-mixer-profilebox.c,
+	src/xfce-mixer-profilebox.h, src/xfce-mixer-profiledlg-private.h,
+	src/xfce-mixer-profiledlg.c, src/xfce-mixer-view.c:
+	load/save/manage profiles work now... although somewhat
+	unordered...
 
 2004-02-23 23:43  dannym
 
@@ -1030,31 +1129,31 @@
 2004-02-21 11:22  dannym
 
 	* src/: mixer-profilebox-detail.gob,
-	  xfce-mixer-profilebox-detail.c: actually use the "presents"
-	  uniqueness hash.
+	xfce-mixer-profilebox-detail.c: actually use the "presents"
+	uniqueness hash.
 
 2004-02-20 16:28  dannym
 
 	* TODO, src/mixer-profilebox-detail.gob,
-	  src/xfce-mixer-profilebox-detail-private.h,
-	  src/xfce-mixer-profilebox-detail.c,
-	  src/xfce-mixer-profilebox-detail.h, src/xfce-mixer-window.c:
-	  loading of profile into profile manager box works now
+	src/xfce-mixer-profilebox-detail-private.h,
+	src/xfce-mixer-profilebox-detail.c,
+	src/xfce-mixer-profilebox-detail.h, src/xfce-mixer-window.c:
+	loading of profile into profile manager box works now
 
 2004-02-20 14:45  dannym
 
 	* TODO, src/mixer-window.gob, src/xfce-mixer-window-private.h,
-	  src/xfce-mixer-window.c, src/xfce-mixer-window.h: save/restore
-	  accelerators :)
+	src/xfce-mixer-window.c, src/xfce-mixer-window.h: save/restore
+	accelerators :)
 
 2004-02-20 14:10  dannym
 
 	* TODO, src/mixer-profilebox.gob,
-	  src/xfce-mixer-profilebox-private.h, src/xfce-mixer-profilebox.c,
-	  src/xfce-mixer-profilebox.h: fix bug when entering profile
-	  manager, creating profile, leaving profile manager, then entering
-	  profile manager, deleting the recently created profile, leaving
-	  profile manager: crashed
+	src/xfce-mixer-profilebox-private.h, src/xfce-mixer-profilebox.c,
+	src/xfce-mixer-profilebox.h: fix bug when entering profile manager,
+	creating profile, leaving profile manager, then entering profile
+	manager, deleting the recently created profile, leaving profile
+	manager: crashed
 
 2004-02-20 13:40  dannym
 
@@ -1067,13 +1166,13 @@
 2004-02-12 23:17  dannym
 
 	* src/: mixer-view.gob, xfce-mixer-view-private.h,
-	  xfce-mixer-view.c: fix resizing oddity
+	xfce-mixer-view.c: fix resizing oddity
 
 2004-02-12 21:14  dannym
 
 	* src/: mixer-view.gob, mixer-window.gob,
-	  xfce-mixer-view-private.h, xfce-mixer-view.c, xfce-mixer-view.h,
-	  xfce-mixer-window.c: save disclosure widget state as well
+	xfce-mixer-view-private.h, xfce-mixer-view.c, xfce-mixer-view.h,
+	xfce-mixer-window.c: save disclosure widget state as well
 
 2004-02-11 22:50  dannym
 
@@ -1082,8 +1181,8 @@
 2004-02-11 22:04  dannym
 
 	* src/: Makefile.am, Makefile.in, mixer-window.gob,
-	  xfce-mixer-window-private.h, xfce-mixer-window.c,
-	  xfce-mixer-window.h, xfce_sizehook.c, xfce_sizehook.h: clean up
+	xfce-mixer-window-private.h, xfce-mixer-window.c,
+	xfce-mixer-window.h, xfce_sizehook.c, xfce_sizehook.h: clean up
 
 2004-02-11 21:44  jasper
 
@@ -1092,93 +1191,96 @@
 2004-02-11 21:17  dannym
 
 	* Makefile.in, configure, configure.ac, lib/Makefile.in,
-	  panel-plugin/Makefile.in, settings/Makefile.in, src/Makefile.am,
-	  src/Makefile.in: unbreak mixer
+	panel-plugin/Makefile.in, settings/Makefile.in, src/Makefile.am,
+	src/Makefile.in: unbreak mixer
 
 2004-02-11 20:59  dannym
 
 	* src/: mixer-window.gob, xfce-mixer-window-private.h,
-	  xfce-mixer-window.c: save&restore window pos,size,stickyness
-	  works now
+	xfce-mixer-window.c: save&restore window pos,size,stickyness works
+	now
 
 2004-02-11 20:28  dannym
 
 	* Makefile.in, configure, configure.ac, ltmain.sh, lib/Makefile.in,
-	  panel-plugin/Makefile.in, panel-plugin/mixer-pxml.gob,
-	  settings/Makefile.in, settings/xfce-mixer-settingsbox.c,
-	  src/Makefile.am, src/Makefile.in, src/mixer-pxml.gob,
-	  src/mixer-window.gob, src/xfce-mixer-pxml.c,
-	  src/xfce-mixer-window-private.h, src/xfce-mixer-window.c,
-	  src/xfce-mixer-window.h: breaking the mixer muhahaha
+	panel-plugin/Makefile.in, panel-plugin/mixer-pxml.gob,
+	settings/Makefile.in, settings/xfce-mixer-settingsbox.c,
+	src/Makefile.am, src/Makefile.in, src/mixer-pxml.gob,
+	src/mixer-window.gob, src/xfce-mixer-pxml.c,
+	src/xfce-mixer-window-private.h, src/xfce-mixer-window.c,
+	src/xfce-mixer-window.h: breaking the mixer muhahaha
 
 2004-02-11 19:27  dannym
 
 	* src/: mixer-pxml.gob, mixer-window.gob, xfce-mixer-pxml.c,
-	  xfce-mixer-pxml.h, xfce-mixer-window-private.h,
-	  xfce-mixer-window.c: working save/restore position & size
+	xfce-mixer-pxml.h, xfce-mixer-window-private.h,
+	xfce-mixer-window.c: working save/restore position & size
 
 2004-02-11 19:26  dannym
 
 	* panel-plugin/: mixer-pxml.gob, xfce-mixer-control.c,
-	  xfce-mixer-prefbox.c, xfce-mixer-preferences.c,
-	  xfce-mixer-pxml.c, xfce-mixer-pxml.h, xfce-mixer-slider-tiny.c:
-	  pxml additions
+	xfce-mixer-prefbox.c, xfce-mixer-preferences.c, xfce-mixer-pxml.c,
+	xfce-mixer-pxml.h, xfce-mixer-slider-tiny.c: pxml additions
 
 2004-02-11 19:16  dannym
 
 	* src/mixer-profilebox.gob, src/mixer-pxml.gob,
-	  src/mixer-window.gob, src/xfce-mixer-profilebox.c,
-	  src/xfce-mixer-pxml.c, src/xfce-mixer-pxml.h,
-	  src/xfce-mixer-window-private.h, src/xfce-mixer-window.c,
-	  src/xfce-mixer-window.h, panel-plugin/mixer-pxml.gob,
-	  panel-plugin/xfce-mixer-control.c,
-	  panel-plugin/xfce-mixer-prefbox.c,
-	  panel-plugin/xfce-mixer-preferences.c,
-	  panel-plugin/xfce-mixer-pxml.c, panel-plugin/xfce-mixer-pxml.h,
-	  panel-plugin/xfce-mixer-slider-tiny.c: bugfix pxml, initial try
-	  to store pos&size
+	src/mixer-window.gob, src/xfce-mixer-profilebox.c,
+	src/xfce-mixer-pxml.c, src/xfce-mixer-pxml.h,
+	src/xfce-mixer-window-private.h, src/xfce-mixer-window.c,
+	src/xfce-mixer-window.h, panel-plugin/mixer-pxml.gob,
+	panel-plugin/xfce-mixer-control.c,
+	panel-plugin/xfce-mixer-prefbox.c,
+	panel-plugin/xfce-mixer-preferences.c,
+	panel-plugin/xfce-mixer-pxml.c, panel-plugin/xfce-mixer-pxml.h,
+	panel-plugin/xfce-mixer-slider-tiny.c: bugfix pxml, initial try to
+	store pos&size
 
 2004-02-08 22:10  dannym
 
 	* TODO: updated todo file :P things list in order of descending
-	  importance, and removed stuff already done.
+	importance, and removed stuff already done.
 
 2004-02-01 22:57  dannym
 
 	* panel-plugin/: mixer-preferences.gob, plugin.c,
-	  xfce-mixer-control.c, xfce-mixer-prefbox.c,
-	  xfce-mixer-preferences.c, xfce-mixer-preferences.h,
-	  xfce-mixer-pxml.c, xfce-mixer-slider-tiny.c: fixed bug with
-	  floating references (mixer-preferences from Gtk:Object to
-	  G:Object)
+	xfce-mixer-control.c, xfce-mixer-prefbox.c,
+	xfce-mixer-preferences.c, xfce-mixer-preferences.h,
+	xfce-mixer-pxml.c, xfce-mixer-slider-tiny.c: fixed bug with
+	floating references (mixer-preferences from Gtk:Object to G:Object)
 
 2004-02-01 22:07  dannym
 
 	* src/: mixer-pxml.gob, mixer-view.gob, xfce-mixer-pxml-private.h,
-	  xfce-mixer-pxml.c, xfce-mixer-pxml.h, xfce-mixer-view.c: xml
-	  bugfix from panel-plugin -> src
+	xfce-mixer-pxml.c, xfce-mixer-pxml.h, xfce-mixer-view.c: xml bugfix
+	from panel-plugin -> src
 
 2004-02-01 22:06  dannym
 
 	* panel-plugin/: mixer-pxml.gob, xfce-mixer-control.c,
-	  xfce-mixer-prefbox.c, xfce-mixer-preferences.c,
-	  xfce-mixer-pxml-private.h, xfce-mixer-pxml.c, xfce-mixer-pxml.h,
-	  xfce-mixer-slider-tiny.c: don't free xml document
+	xfce-mixer-prefbox.c, xfce-mixer-preferences.c,
+	xfce-mixer-pxml-private.h, xfce-mixer-pxml.c, xfce-mixer-pxml.h,
+	xfce-mixer-slider-tiny.c: don't free xml document
 
 2004-02-01 00:26  dannym
 
 	* src/: mixer-mcs-client.gob, xfce-mixer-mcs-client.c: fix mcs
-	  leak.
+	leak.
 
 2004-01-31 21:44  dannym
 
 	* panel-plugin/: mixer-pxml.gob, plugin.c, xfce-mixer-control.c,
-	  xfce-mixer-prefbox.c, xfce-mixer-preferences.c,
-	  xfce-mixer-pxml.c, xfce-mixer-slider-tiny.c: make mixer plugin
-	  unique since current mixer api doesnt allow for anything more
-	  fancy :P
+	xfce-mixer-prefbox.c, xfce-mixer-preferences.c, xfce-mixer-pxml.c,
+	xfce-mixer-slider-tiny.c: make mixer plugin unique since current
+	mixer api doesnt allow for anything more fancy :P
+	
+	misc. additions to xml wrapper...
 
-	  misc. additions to xml wrapper...
+2004-01-30 08:06  jasper
+
+	* ltmain.sh, po/es.gmo, po/es.po, po/fa_IR.gmo, po/fa_IR.po,
+	po/ja.gmo, po/pt_BR.gmo, po/pt_BR.po, po/zh_CN.gmo, po/zh_CN.po:
+	Update translations for spanish, persian, brasilian and chinese
 
 2004-01-29 16:51  jasper
 
@@ -1187,17 +1289,17 @@
 2004-01-28 21:24  dannym
 
 	* src/: mixer-view.gob, xfce-mixer-profile.c, xfce-mixer-view.c:
-	  alright, remove annoying debug messages
+	alright, remove annoying debug messages
 
 2004-01-28 21:21  dannym
 
 	* src/: mixer-mcs-client.gob, mixer-profiles.gob, mixer-view.gob,
-	  mixer-window.gob, xfce-mixer-mcs-client.c, xfce-mixer-profile.c,
-	  xfce-mixer-profile.h, xfce-mixer-profiles-private.h,
-	  xfce-mixer-profiles.c, xfce-mixer-view.c,
-	  xfce-mixer-window-private.h, xfce-mixer-window.c: profile <-> xml
-	  profiles <-> xml window: set_profile fix leaks fix profile load
-	  bugs
+	mixer-window.gob, xfce-mixer-mcs-client.c, xfce-mixer-profile.c,
+	xfce-mixer-profile.h, xfce-mixer-profiles-private.h,
+	xfce-mixer-profiles.c, xfce-mixer-view.c,
+	xfce-mixer-window-private.h, xfce-mixer-window.c: profile <-> xml
+	profiles <-> xml window: set_profile fix leaks fix profile load
+	bugs
 
 2004-01-25 18:10  dannym
 
@@ -1206,46 +1308,52 @@
 2004-01-25 17:59  dannym
 
 	* src/: mixer-window.gob, xfce-mixer-profile.c,
-	  xfce-mixer-window.c: and fill up some dummy functions with real
-	  code ;)
+	xfce-mixer-window.c: and fill up some dummy functions with real
+	code ;)
 
 2004-01-25 17:53  dannym
 
 	* src/: main.c, main.h, mixer-mcs-client.gob, mixer-profilebox.gob,
-	  mixer-profiles.gob, mixer-pxml.gob, mixer-view.gob,
-	  mixer-window.gob, xfce-mixer-mcs-client.c,
-	  xfce-mixer-profilebox-private.h, xfce-mixer-profilebox.c,
-	  xfce-mixer-profilebox.h, xfce-mixer-profiles-private.h,
-	  xfce-mixer-profiles.c, xfce-mixer-profiles.h, xfce-mixer-pxml.c,
-	  xfce-mixer-view.c, xfce-mixer-view.h, xfce-mixer-window.c,
-	  xfce-mixer-window.h: profile update on mcs change, working
-	  version
+	mixer-profiles.gob, mixer-pxml.gob, mixer-view.gob,
+	mixer-window.gob, xfce-mixer-mcs-client.c,
+	xfce-mixer-profilebox-private.h, xfce-mixer-profilebox.c,
+	xfce-mixer-profilebox.h, xfce-mixer-profiles-private.h,
+	xfce-mixer-profiles.c, xfce-mixer-profiles.h, xfce-mixer-pxml.c,
+	xfce-mixer-view.c, xfce-mixer-view.h, xfce-mixer-window.c,
+	xfce-mixer-window.h: profile update on mcs change, working version
+
+2004-01-25 01:10  olivier
+
+	* Makefile.in, aclocal.m4, compile, config.guess, config.sub,
+	configure, configure.ac, depcomp, install-sh, ltmain.sh, missing,
+	mkinstalldirs, panel-plugin/Makefile.in, po/fa_IR.gmo, po/fa_IR.po:
+	Update libtool and other automake, autoconf and gettext.
 
 2004-01-25 01:07  olivier
 
 	* Makefile.in, aclocal.m4, compile, config.guess, config.sub,
-	  configure, depcomp, install-sh, ltmain.sh, missing,
-	  mkinstalldirs, lib/Makefile.in, panel-plugin/Makefile.in,
-	  settings/Makefile.in, src/Makefile.in: Update libtool and other
-	  automake, autoconf and gettext packages
+	configure, depcomp, install-sh, ltmain.sh, missing, mkinstalldirs,
+	lib/Makefile.in, panel-plugin/Makefile.in, settings/Makefile.in,
+	src/Makefile.in: Update libtool and other automake, autoconf and
+	gettext packages
 
 2004-01-21 20:18  dannym
 
 	* panel-plugin/mixer-pxml.gob, panel-plugin/xfce-mixer-control.c,
-	  panel-plugin/xfce-mixer-prefbox.c,
-	  panel-plugin/xfce-mixer-preferences.c,
-	  panel-plugin/xfce-mixer-pxml-private.h,
-	  panel-plugin/xfce-mixer-pxml.c, panel-plugin/xfce-mixer-pxml.h,
-	  panel-plugin/xfce-mixer-slider-tiny.c, src/mixer-profilebox.gob,
-	  src/mixer-profiles.gob, src/mixer-pxml.gob,
-	  src/xfce-mixer-profile.c, src/xfce-mixer-profile.h,
-	  src/xfce-mixer-profilebox-private.h, src/xfce-mixer-profilebox.c,
-	  src/xfce-mixer-profilebox.h, src/xfce-mixer-profiles.c,
-	  src/xfce-mixer-profiles.h, src/xfce-mixer-pxml-private.h,
-	  src/xfce-mixer-pxml.c: hm, cvs, work, will you ? what did I
-	  change ? profiles data and view seperated.  Translations and
-	  autogen seem to have been recompiled by someone else.  Thats good
-	  :) mkdir() fixes. hopefully.
+	panel-plugin/xfce-mixer-prefbox.c,
+	panel-plugin/xfce-mixer-preferences.c,
+	panel-plugin/xfce-mixer-pxml-private.h,
+	panel-plugin/xfce-mixer-pxml.c, panel-plugin/xfce-mixer-pxml.h,
+	panel-plugin/xfce-mixer-slider-tiny.c, src/mixer-profilebox.gob,
+	src/mixer-profiles.gob, src/mixer-pxml.gob,
+	src/xfce-mixer-profile.c, src/xfce-mixer-profile.h,
+	src/xfce-mixer-profilebox-private.h, src/xfce-mixer-profilebox.c,
+	src/xfce-mixer-profilebox.h, src/xfce-mixer-profiles.c,
+	src/xfce-mixer-profiles.h, src/xfce-mixer-pxml-private.h,
+	src/xfce-mixer-pxml.c: hm, cvs, work, will you ? what did I change
+	? profiles data and view seperated.  Translations and autogen seem
+	to have been recompiled by someone else.  Thats good :) mkdir()
+	fixes. hopefully.
 
 2004-01-21 19:41  dannym
 
@@ -1254,8 +1362,8 @@
 2004-01-21 19:38  dannym
 
 	* src/: xfce-mixer-profilebox-private.h,
-	  xfce-mixer-profiles-private.h, xfce-mixer-pxml-private.h: add
-	  missing files
+	xfce-mixer-profiles-private.h, xfce-mixer-pxml-private.h: add
+	missing files
 
 2004-01-21 19:24  dannym
 
@@ -1264,39 +1372,60 @@
 2004-01-21 17:25  dannym
 
 	* src/: mixer-profilebox-detail.gob,
-	  xfce-mixer-profilebox-detail-private.h,
-	  xfce-mixer-profilebox-detail.c, xfce-mixer-profilebox-detail.h:
-	  adding missing files
+	xfce-mixer-profilebox-detail-private.h,
+	xfce-mixer-profilebox-detail.c, xfce-mixer-profilebox-detail.h:
+	adding missing files
 
 2004-01-21 14:43  jasper
 
 	* configure, configure.ac, po/es.gmo, po/fa_IR.gmo, po/fa_IR.po,
-	  po/ja.gmo, po/pt_BR.gmo: Translations added/updated for spanish,
-	  persian, japanese, korean, brasilian and chinese
+	po/ja.gmo, po/pt_BR.gmo: Translations added/updated for spanish,
+	persian, japanese, korean, brasilian and chinese
 
 2004-01-21 13:09  dannym
 
 	* panel-plugin/mixer-control.gob,
-	  panel-plugin/mixer-preferences.gob, panel-plugin/mixer-pxml.gob,
-	  panel-plugin/xfce-mixer-control.c,
-	  panel-plugin/xfce-mixer-prefbox.c,
-	  panel-plugin/xfce-mixer-preferences-private.h,
-	  panel-plugin/xfce-mixer-preferences.c,
-	  panel-plugin/xfce-mixer-pxml.c, panel-plugin/xfce-mixer-pxml.h,
-	  panel-plugin/xfce-mixer-slider-tiny.c, po/POTFILES.in, po/ca.gmo,
-	  po/ca.po, po/de.gmo, po/de.po, po/es.po, po/fr.gmo, po/fr.po,
-	  po/hu.gmo, po/hu.po, po/it.gmo, po/it.po, po/ja.po, po/ko.gmo,
-	  po/ko.po, po/lt.gmo, po/lt.po, po/ms.gmo, po/ms.po, po/nl.gmo,
-	  po/nl.po, po/no.gmo, po/no.po, po/pt_BR.po, po/pt_PT.gmo,
-	  po/pt_PT.po, po/ru.gmo, po/ru.po, po/tr.gmo, po/tr.po,
-	  po/xfce4-mixer.pot, po/zh_CN.gmo, po/zh_CN.po, po/zh_TW.gmo,
-	  po/zh_TW.po, src/Makefile.am, src/Makefile.in,
-	  src/mixer-control.gob, src/mixer-profiles.gob,
-	  src/mixer-pxml.gob, src/xfce-mixer-control.c,
-	  src/xfce-mixer-profiles.c, src/xfce-mixer-profiles.h,
-	  src/xfce-mixer-pxml.c, src/xfce-mixer-pxml.h: made (oss) mixer
-	  names translateable in po files.  added (non-working)
-	  mixer-profiles storage class.
+	panel-plugin/mixer-preferences.gob, panel-plugin/mixer-pxml.gob,
+	panel-plugin/xfce-mixer-control.c,
+	panel-plugin/xfce-mixer-prefbox.c,
+	panel-plugin/xfce-mixer-preferences-private.h,
+	panel-plugin/xfce-mixer-preferences.c,
+	panel-plugin/xfce-mixer-pxml.c, panel-plugin/xfce-mixer-pxml.h,
+	panel-plugin/xfce-mixer-slider-tiny.c, po/POTFILES.in, po/ca.gmo,
+	po/ca.po, po/de.gmo, po/de.po, po/es.po, po/fr.gmo, po/fr.po,
+	po/hu.gmo, po/hu.po, po/it.gmo, po/it.po, po/ja.po, po/ko.gmo,
+	po/ko.po, po/lt.gmo, po/lt.po, po/ms.gmo, po/ms.po, po/nl.gmo,
+	po/nl.po, po/no.gmo, po/no.po, po/pt_BR.po, po/pt_PT.gmo,
+	po/pt_PT.po, po/ru.gmo, po/ru.po, po/tr.gmo, po/tr.po,
+	po/xfce4-mixer.pot, po/zh_CN.gmo, po/zh_CN.po, po/zh_TW.gmo,
+	po/zh_TW.po, src/Makefile.am, src/Makefile.in,
+	src/mixer-control.gob, src/mixer-profiles.gob, src/mixer-pxml.gob,
+	src/xfce-mixer-control.c, src/xfce-mixer-profiles.c,
+	src/xfce-mixer-profiles.h, src/xfce-mixer-pxml.c,
+	src/xfce-mixer-pxml.h: made (oss) mixer names translateable in po
+	files.	added (non-working) mixer-profiles storage class.
+
+2004-01-21 12:54  dannym
+
+	* po/: az.gmo, az.po, ca.gmo, ca.po, cs.gmo, cs.po, de.gmo, de.po,
+	es.po, fr.gmo, fr.po, hi.gmo, hi.po, hu.gmo, hu.po, it.gmo, it.po,
+	ja.po, ko.gmo, ko.po, lt.gmo, lt.po, ms.gmo, ms.po, nl.gmo, nl.po,
+	no.gmo, no.po, pl.gmo, pl.po, pt_BR.po, pt_PT.gmo, pt_PT.po,
+	ru.gmo, ru.po, ta.gmo, ta.po, tr.gmo, tr.po, uk.gmo, uk.po, vi.gmo,
+	vi.po, xfce4-mixer.pot, zh_CN.gmo, zh_CN.po, zh_TW.gmo, zh_TW.po:
+	making more oss names translateable (optionally of course).  Dont
+	kill me :)
+
+2004-01-21 12:42  dannym
+
+	* Makefile.in, aclocal.m4, config.guess, config.sub, configure,
+	configure.ac, depcomp, install-sh, ltmain.sh, missing,
+	panel-plugin/mixer_window.c, po/POTFILES.in, po/az.po, po/ca.po,
+	po/cs.po, po/de.po, po/es.po, po/fr.po, po/hi.po, po/hu.po,
+	po/it.po, po/ja.po, po/ko.po, po/lt.po, po/ms.po, po/nl.po,
+	po/no.po, po/pl.po, po/pt_BR.po, po/pt_PT.po, po/ru.po, po/ta.po,
+	po/tr.po, po/uk.po, po/vi.po, po/xfce4-mixer.pot, po/zh_CN.po,
+	po/zh_TW.po: make control names translateable (optional)
 
 2004-01-21 00:30  dannym
 
@@ -1317,46 +1446,65 @@
 2004-01-21 00:05  dannym
 
 	* src/menus.c: fixed menus.c not getting translated, I think.  I
-	  knew I forgot something... *sweatdrop*
+	knew I forgot something... *sweatdrop*
 
 2004-01-20 23:59  dannym
 
 	* configure, configure.ac, lib/vc_alsa.c, po/az.po, po/ca.gmo,
-	  po/ca.po, po/cs.po, po/de.gmo, po/de.po, po/es.po, po/fr.gmo,
-	  po/fr.po, po/hi.po, po/hu.gmo, po/hu.po, po/it.gmo, po/it.po,
-	  po/ja.po, po/ko.gmo, po/ko.po, po/lt.gmo, po/lt.po, po/ms.gmo,
-	  po/ms.po, po/nl.gmo, po/nl.po, po/no.gmo, po/no.po, po/pl.po,
-	  po/pt_BR.po, po/pt_PT.gmo, po/pt_PT.po, po/ru.gmo, po/ru.po,
-	  po/ta.po, po/tr.gmo, po/tr.po, po/uk.po, po/vi.po,
-	  po/xfce4-mixer.pot, po/zh_CN.gmo, po/zh_CN.po, po/zh_TW.gmo,
-	  po/zh_TW.po: updated translations. fixed newlines. make update-po
+	po/ca.po, po/cs.po, po/de.gmo, po/de.po, po/es.po, po/fr.gmo,
+	po/fr.po, po/hi.po, po/hu.gmo, po/hu.po, po/it.gmo, po/it.po,
+	po/ja.po, po/ko.gmo, po/ko.po, po/lt.gmo, po/lt.po, po/ms.gmo,
+	po/ms.po, po/nl.gmo, po/nl.po, po/no.gmo, po/no.po, po/pl.po,
+	po/pt_BR.po, po/pt_PT.gmo, po/pt_PT.po, po/ru.gmo, po/ru.po,
+	po/ta.po, po/tr.gmo, po/tr.po, po/uk.po, po/vi.po,
+	po/xfce4-mixer.pot, po/zh_CN.gmo, po/zh_CN.po, po/zh_TW.gmo,
+	po/zh_TW.po: updated translations. fixed newlines. make update-po
+
+2004-01-20 23:35  dannym
+
+	* po/: es.po, ja.po, pt_BR.po: new translations for xfce_4_0
+	branch.  Ran autogen. eeek.
+
+2004-01-20 23:35  dannym
+
+	* po/es.po: file es.po was initially added on branch xfce_4_0.
+
+2004-01-20 23:35  dannym
+
+	* po/ja.po: file ja.po was initially added on branch xfce_4_0.
+
+2004-01-20 23:20  dannym
+
+	* panel-plugin/Makefile.in, po/zh_CN.gmo, po/zh_CN.po: added
+	japanese, simplified chinese and brasilian portugese to mixer
+	xfce_4_0 branch.  reran autogen. eeek.
 
 2004-01-20 16:06  dannym
 
 	* panel-plugin/Makefile.am, panel-plugin/Makefile.in,
-	  panel-plugin/plugin.c, po/POTFILES.in, po/ca.gmo, po/ca.po,
-	  po/de.gmo, po/de.po, po/fr.gmo, po/fr.po, po/hu.gmo, po/hu.po,
-	  po/it.gmo, po/it.po, po/ko.gmo, po/ko.po, po/lt.gmo, po/lt.po,
-	  po/ms.gmo, po/ms.po, po/nl.gmo, po/nl.po, po/no.gmo, po/no.po,
-	  po/pt_BR.po, po/pt_PT.gmo, po/pt_PT.po, po/ru.gmo, po/ru.po,
-	  po/tr.gmo, po/tr.po, po/xfce4-mixer.pot, po/zh_CN.gmo,
-	  po/zh_CN.po, po/zh_TW.gmo, po/zh_TW.po, src/Makefile.am,
-	  src/Makefile.in, src/main.c, src/mixer-info.gob,
-	  src/mixer-profilebox.gob, src/mixer-window.gob,
-	  src/xfce-mixer-info.c, src/xfce-mixer-profilebox.c,
-	  src/xfce-mixer-window.c: starting to make mixer translateable
+	panel-plugin/plugin.c, po/POTFILES.in, po/ca.gmo, po/ca.po,
+	po/de.gmo, po/de.po, po/fr.gmo, po/fr.po, po/hu.gmo, po/hu.po,
+	po/it.gmo, po/it.po, po/ko.gmo, po/ko.po, po/lt.gmo, po/lt.po,
+	po/ms.gmo, po/ms.po, po/nl.gmo, po/nl.po, po/no.gmo, po/no.po,
+	po/pt_BR.po, po/pt_PT.gmo, po/pt_PT.po, po/ru.gmo, po/ru.po,
+	po/tr.gmo, po/tr.po, po/xfce4-mixer.pot, po/zh_CN.gmo, po/zh_CN.po,
+	po/zh_TW.gmo, po/zh_TW.po, src/Makefile.am, src/Makefile.in,
+	src/main.c, src/mixer-info.gob, src/mixer-profilebox.gob,
+	src/mixer-window.gob, src/xfce-mixer-info.c,
+	src/xfce-mixer-profilebox.c, src/xfce-mixer-window.c: starting to
+	make mixer translateable
 
 2004-01-20 15:41  dannym
 
 	* po/POTFILES.in, po/ca.gmo, po/ca.po, po/de.gmo, po/de.po,
-	  po/fr.gmo, po/fr.po, po/hu.gmo, po/hu.po, po/it.gmo, po/it.po,
-	  po/ko.gmo, po/ko.po, po/lt.gmo, po/lt.po, po/ms.gmo, po/ms.po,
-	  po/nl.gmo, po/nl.po, po/no.gmo, po/no.po, po/pt_BR.po,
-	  po/pt_PT.gmo, po/pt_PT.po, po/ru.gmo, po/ru.po, po/tr.gmo,
-	  po/tr.po, po/xfce4-mixer.pot, po/zh_CN.gmo, po/zh_CN.po,
-	  po/zh_TW.gmo, po/zh_TW.po, src/menus.c, src/mixer-view.gob,
-	  src/xfce-mixer-view-private.h, src/xfce-mixer-view.c: updated pot
-	  file. Updated de translation.
+	po/fr.gmo, po/fr.po, po/hu.gmo, po/hu.po, po/it.gmo, po/it.po,
+	po/ko.gmo, po/ko.po, po/lt.gmo, po/lt.po, po/ms.gmo, po/ms.po,
+	po/nl.gmo, po/nl.po, po/no.gmo, po/no.po, po/pt_BR.po,
+	po/pt_PT.gmo, po/pt_PT.po, po/ru.gmo, po/ru.po, po/tr.gmo,
+	po/tr.po, po/xfce4-mixer.pot, po/zh_CN.gmo, po/zh_CN.po,
+	po/zh_TW.gmo, po/zh_TW.po, src/menus.c, src/mixer-view.gob,
+	src/xfce-mixer-view-private.h, src/xfce-mixer-view.c: updated pot
+	file. Updated de translation.
 
 2004-01-20 15:21  dannym
 
@@ -1365,40 +1513,40 @@
 2004-01-20 15:05  dannym
 
 	* configure, configure.ac, po/pt_BR.po: added pt_BR translation.
-	  Ran autogen. Beware.
+	Ran autogen. Beware.
 
 2004-01-19 13:49  dannym
 
 	* panel-plugin/: mixer-prefbox.gob, xfce-mixer-control.c,
-	  xfce-mixer-prefbox.c, xfce-mixer-preferences.c,
-	  xfce-mixer-pxml.c, xfce-mixer-slider-tiny.c: remove
-	  destroy_command_options as it is called automatically...
+	xfce-mixer-prefbox.c, xfce-mixer-preferences.c, xfce-mixer-pxml.c,
+	xfce-mixer-slider-tiny.c: remove destroy_command_options as it is
+	called automatically...
 
 2004-01-18 22:57  dannym
 
 	* Makefile.in, configure, configure.ac, include/vc.h,
-	  lib/Makefile.in, lib/vc.c, lib/vc.h, lib/vc_alsa.c, lib/vc_oss.c,
-	  lib/vc_sun.c, panel-plugin/Makefile.in, panel-plugin/helpers.inc,
-	  panel-plugin/mixer-prefbox.gob,
-	  panel-plugin/mixer-preferences.gob, panel-plugin/mixer-pxml.gob,
-	  panel-plugin/plugin.c, panel-plugin/xfce-mixer-control-vc.c,
-	  panel-plugin/xfce-mixer-control.c,
-	  panel-plugin/xfce-mixer-prefbox-private.h,
-	  panel-plugin/xfce-mixer-prefbox.c,
-	  panel-plugin/xfce-mixer-prefbox.h,
-	  panel-plugin/xfce-mixer-preferences-private.h,
-	  panel-plugin/xfce-mixer-preferences.c,
-	  panel-plugin/xfce-mixer-pxml.c, panel-plugin/xfce-mixer-pxml.h,
-	  panel-plugin/xfce-mixer-slider-tiny.c, po/POTFILES.in: since
-	  jasper added the command option stuff, here you go with new
-	  simplified panel-plugin, among other things ;)
+	lib/Makefile.in, lib/vc.c, lib/vc.h, lib/vc_alsa.c, lib/vc_oss.c,
+	lib/vc_sun.c, panel-plugin/Makefile.in, panel-plugin/helpers.inc,
+	panel-plugin/mixer-prefbox.gob, panel-plugin/mixer-preferences.gob,
+	panel-plugin/mixer-pxml.gob, panel-plugin/plugin.c,
+	panel-plugin/xfce-mixer-control-vc.c,
+	panel-plugin/xfce-mixer-control.c,
+	panel-plugin/xfce-mixer-prefbox-private.h,
+	panel-plugin/xfce-mixer-prefbox.c,
+	panel-plugin/xfce-mixer-prefbox.h,
+	panel-plugin/xfce-mixer-preferences-private.h,
+	panel-plugin/xfce-mixer-preferences.c,
+	panel-plugin/xfce-mixer-pxml.c, panel-plugin/xfce-mixer-pxml.h,
+	panel-plugin/xfce-mixer-slider-tiny.c, po/POTFILES.in: since jasper
+	added the command option stuff, here you go with new simplified
+	panel-plugin, among other things ;)
 
 2004-01-16 03:20  dannym
 
 	* src/: main.c, mixer-view.gob, mixer-window.gob,
-	  xfce-mixer-control-vc.c, xfce-mixer-slider-tiny.c,
-	  xfce-mixer-view-private.h, xfce-mixer-view.c, xfce-mixer-view.h,
-	  xfce-mixer-window.c, xfce-mixer-window.h: various fixes
+	xfce-mixer-control-vc.c, xfce-mixer-slider-tiny.c,
+	xfce-mixer-view-private.h, xfce-mixer-view.c, xfce-mixer-view.h,
+	xfce-mixer-window.c, xfce-mixer-window.h: various fixes
 
 2004-01-10 23:26  dannym
 
@@ -1407,29 +1555,29 @@
 2004-01-10 23:26  dannym
 
 	* settings/: Makefile.in, helpers3.inc, mixer-settingsbox.gob,
-	  xfce-mixer-settingsbox.c: show "default" entry..
+	xfce-mixer-settingsbox.c: show "default" entry..
 
 2004-01-10 23:16  dannym
 
 	* src/: mixer-profilebox.gob, xfce-mixer-profilebox.c: add a
-	  profile reference to profilebox-detail for modifications.
+	profile reference to profilebox-detail for modifications.
 
 2004-01-10 22:56  dannym
 
 	* src/: Makefile.am, Makefile.in, main.c, main.h,
-	  mixer-profilebox.gob, mixer-pxml.gob, xfce-mixer-profilebox.c,
-	  xfce-mixer-profilebox.h, xfce-mixer-pxml.c, xfce-mixer-pxml.h:
-	  profile dialog can add and remove profiles now, their data is
-	  still not used though.
+	mixer-profilebox.gob, mixer-pxml.gob, xfce-mixer-profilebox.c,
+	xfce-mixer-profilebox.h, xfce-mixer-pxml.c, xfce-mixer-pxml.h:
+	profile dialog can add and remove profiles now, their data is still
+	not used though.
 
 2004-01-10 21:00  dannym
 
 	* src/: Makefile.am, Makefile.in, helpers.inc, helpers3.inc,
-	  menu-callbacks.inc, menus.c, menus.h, mixer-profilebox.gob,
-	  mixer-profiledlg.gob, mixer-window.gob, xfce-mixer-profilebox.c,
-	  xfce-mixer-profilebox.h, xfce-mixer-profiledlg.c,
-	  xfce-mixer-profiledlg.h, xfce-mixer-window.c: add profile dialogs
-	  as prototypes (non-working)
+	menu-callbacks.inc, menus.c, menus.h, mixer-profilebox.gob,
+	mixer-profiledlg.gob, mixer-window.gob, xfce-mixer-profilebox.c,
+	xfce-mixer-profilebox.h, xfce-mixer-profiledlg.c,
+	xfce-mixer-profiledlg.h, xfce-mixer-window.c: add profile dialogs
+	as prototypes (non-working)
 
 2004-01-09 22:34  dannym
 
@@ -1438,32 +1586,29 @@
 2004-01-09 00:23  dannym
 
 	* panel-plugin/mixer-control.gob, panel-plugin/plugin.c,
-	  panel-plugin/string_option_menu.c,
-	  panel-plugin/string_option_menu.h,
-	  settings/mixer-settingsbox.gob, settings/string_option_menu.c,
-	  settings/string_option_menu.h,
-	  settings/xfce-mixer-settingsbox-private.h,
-	  settings/xfce-mixer-settingsbox.c, src/mixer-control.gob,
-	  src/mixer-info.gob, src/mixer-mcs-client.gob,
-	  src/mixer-select.gob, src/mixer-slider.gob, src/mixer-switch.gob,
-	  src/mixer-view-tiny.gob, src/mixer-view.gob,
-	  src/mixer-window.gob, src/string_option_menu.c,
-	  src/string_option_menu.h, src/xfce-mixer-control.c,
-	  src/xfce-mixer-info.c, src/xfce-mixer-mcs-client.c,
-	  src/xfce-mixer-select-private.h, src/xfce-mixer-select.c,
-	  src/xfce-mixer-slider-tiny-private.h,
-	  src/xfce-mixer-slider-tiny.c, src/xfce-mixer-slider.c,
-	  src/xfce-mixer-switch-private.h, src/xfce-mixer-switch.c,
-	  src/xfce-mixer-view-private.h, src/xfce-mixer-view-tiny.c,
-	  src/xfce-mixer-view.c, src/xfce-mixer-window.c: pretty formatting
-	  of mcs settings device options menu.	include config.h in all
-	  gobs
+	panel-plugin/string_option_menu.c,
+	panel-plugin/string_option_menu.h, settings/mixer-settingsbox.gob,
+	settings/string_option_menu.c, settings/string_option_menu.h,
+	settings/xfce-mixer-settingsbox-private.h,
+	settings/xfce-mixer-settingsbox.c, src/mixer-control.gob,
+	src/mixer-info.gob, src/mixer-mcs-client.gob, src/mixer-select.gob,
+	src/mixer-slider.gob, src/mixer-switch.gob,
+	src/mixer-view-tiny.gob, src/mixer-view.gob, src/mixer-window.gob,
+	src/string_option_menu.c, src/string_option_menu.h,
+	src/xfce-mixer-control.c, src/xfce-mixer-info.c,
+	src/xfce-mixer-mcs-client.c, src/xfce-mixer-select-private.h,
+	src/xfce-mixer-select.c, src/xfce-mixer-slider-tiny-private.h,
+	src/xfce-mixer-slider-tiny.c, src/xfce-mixer-slider.c,
+	src/xfce-mixer-switch-private.h, src/xfce-mixer-switch.c,
+	src/xfce-mixer-view-private.h, src/xfce-mixer-view-tiny.c,
+	src/xfce-mixer-view.c, src/xfce-mixer-window.c: pretty formatting
+	of mcs settings device options menu.  include config.h in all gobs
 
 2004-01-09 00:06  dannym
 
 	* settings/: Makefile.am, Makefile.in, mixer-settingsbox.gob,
-	  sound.c, xfce-mixer-settingsbox.c, xfce-mixer-settingsbox.h:
-	  perldude's settings :)
+	sound.c, xfce-mixer-settingsbox.c, xfce-mixer-settingsbox.h:
+	perldude's settings :)
 
 2004-01-08 23:26  dannym
 
@@ -1472,14 +1617,14 @@
 2004-01-08 22:55  dannym
 
 	* settings/: string_option_menu.c, string_option_menu.h:
-	  preparation for changing listbox to option menu as Moe suggested
+	preparation for changing listbox to option menu as Moe suggested
 
 2004-01-08 22:29  dannym
 
 	* panel-plugin/: mixer-prefbox.gob, plugin.c, xfce-mixer-control.c,
-	  xfce-mixer-prefbox.c, xfce-mixer-preferences.c,
-	  xfce-mixer-pxml.c, xfce-mixer-slider-tiny.c: make it actually use
-	  the command setting ;)
+	xfce-mixer-prefbox.c, xfce-mixer-preferences.c, xfce-mixer-pxml.c,
+	xfce-mixer-slider-tiny.c: make it actually use the command setting
+	;)
 
 2004-01-08 21:57  dannym
 
@@ -1488,21 +1633,20 @@
 2004-01-08 21:51  dannym
 
 	* autogen.sh, config.h.in, panel-plugin/Makefile.am,
-	  panel-plugin/Makefile.in, panel-plugin/mixer-control.gob,
-	  panel-plugin/mixer-prefbox.gob,
-	  panel-plugin/mixer-preferences.gob, panel-plugin/mixer-pxml.gob,
-	  panel-plugin/mixer-slider-tiny.gob,
-	  panel-plugin/xfce-mixer-control.c,
-	  panel-plugin/xfce-mixer-prefbox-private.h,
-	  panel-plugin/xfce-mixer-prefbox.c,
-	  panel-plugin/xfce-mixer-preferences-private.h,
-	  panel-plugin/xfce-mixer-preferences.c,
-	  panel-plugin/xfce-mixer-preferences.h,
-	  panel-plugin/xfce-mixer-pxml.c, panel-plugin/xfce-mixer-pxml.h,
-	  panel-plugin/xfce-mixer-slider-tiny-private.h,
-	  panel-plugin/xfce-mixer-slider-tiny.c, src/mixer-control.gob,
-	  src/mixer-slider-tiny.gob: make autogen.sh work as i want it to,
-	  i.e. not #define const make --enable-debug=full work correctly
+	panel-plugin/Makefile.in, panel-plugin/mixer-control.gob,
+	panel-plugin/mixer-prefbox.gob, panel-plugin/mixer-preferences.gob,
+	panel-plugin/mixer-pxml.gob, panel-plugin/mixer-slider-tiny.gob,
+	panel-plugin/xfce-mixer-control.c,
+	panel-plugin/xfce-mixer-prefbox-private.h,
+	panel-plugin/xfce-mixer-prefbox.c,
+	panel-plugin/xfce-mixer-preferences-private.h,
+	panel-plugin/xfce-mixer-preferences.c,
+	panel-plugin/xfce-mixer-preferences.h,
+	panel-plugin/xfce-mixer-pxml.c, panel-plugin/xfce-mixer-pxml.h,
+	panel-plugin/xfce-mixer-slider-tiny-private.h,
+	panel-plugin/xfce-mixer-slider-tiny.c, src/mixer-control.gob,
+	src/mixer-slider-tiny.gob: make autogen.sh work as i want it to,
+	i.e. not #define const make --enable-debug=full work correctly
 
 2004-01-08 19:45  dannym
 
@@ -1515,94 +1659,98 @@
 2004-01-08 18:55  dannym
 
 	* src/: mixer-mcs-client.gob, xfce-mixer-mcs-client.c: remove
-	  debugging stuff
+	debugging stuff
 
 2004-01-08 18:53  dannym
 
 	* include/mixer-mcs-names.h, src/mcs_client.c, src/mcs_client.h,
-	  src/xfce-mixer-mcs-client.c: add missing headers, remove
-	  unneccessary cruft
+	src/xfce-mixer-mcs-client.c: add missing headers, remove
+	unneccessary cruft
 
 2004-01-08 17:29  dannym
 
 	* panel-plugin/: mixer-prefbox.gob, xfce-mixer-control.c,
-	  xfce-mixer-prefbox.c, xfce-mixer-preferences.c,
-	  xfce-mixer-pxml.c, xfce-mixer-slider-tiny.c: declare the
-	  variable, free the variable...
+	xfce-mixer-prefbox.c, xfce-mixer-preferences.c, xfce-mixer-pxml.c,
+	xfce-mixer-slider-tiny.c: declare the variable, free the
+	variable...
 
 2004-01-08 17:20  dannym
 
 	* panel-plugin/: mixer-prefbox.gob, xfce-mixer-control.c,
-	  xfce-mixer-prefbox-private.h, xfce-mixer-prefbox.c,
-	  xfce-mixer-prefbox.h, xfce-mixer-preferences.c,
-	  xfce-mixer-pxml.c, xfce-mixer-slider-tiny.c: add "xfce4-mixer" to
-	  panel plugin properties Command Combo if program found...
+	xfce-mixer-prefbox-private.h, xfce-mixer-prefbox.c,
+	xfce-mixer-prefbox.h, xfce-mixer-preferences.c, xfce-mixer-pxml.c,
+	xfce-mixer-slider-tiny.c: add "xfce4-mixer" to panel plugin
+	properties Command Combo if program found...
 
 2004-01-08 16:58  dannym
 
 	* src/: main.h, xfce-mixer-select-private.h,
-	  xfce-mixer-switch-private.h: add missing files
+	xfce-mixer-switch-private.h: add missing files
+
+2004-01-07 21:38  olivier
+
+	* ChangeLog, po/ChangeLog: Huge update before 4.0.3 release,
+	mainly: ChangeLog update, Version number updates.
 
 2004-01-06 22:57  dannym
 
 	* include/vc.h, lib/vc.c, lib/vc.h, lib/vc_alsa.c,
-	  lib/vc_alsa_fallback.c, lib/vc_oss.c, lib/vc_sun.c,
-	  settings/mixer-settingsbox.gob, src/main.c,
-	  src/mixer-mcs-client.gob, src/mixer-window.gob,
-	  src/xfce-mixer-control-factory.c, src/xfce-mixer-mcs-client.c,
-	  src/xfce-mixer-mcs-client.h, src/xfce-mixer-window.c,
-	  src/xfce-mixer-window.h: more mcs client stuff...
+	lib/vc_alsa_fallback.c, lib/vc_oss.c, lib/vc_sun.c,
+	settings/mixer-settingsbox.gob, src/main.c,
+	src/mixer-mcs-client.gob, src/mixer-window.gob,
+	src/xfce-mixer-control-factory.c, src/xfce-mixer-mcs-client.c,
+	src/xfce-mixer-mcs-client.h, src/xfce-mixer-window.c,
+	src/xfce-mixer-window.h: more mcs client stuff...
 
 2004-01-06 22:07  dannym
 
 	* lib/stringlist.inc, lib/vc_alsa.c, src/mixer-select.gob,
-	  src/mixer-switch.gob, src/xfce-mixer-control-vc.c,
-	  src/xfce-mixer-select.c, src/xfce-mixer-switch.c: implement
-	  extended controls (switch, select) on all levels, including vc
-	  level
+	src/mixer-switch.gob, src/xfce-mixer-control-vc.c,
+	src/xfce-mixer-select.c, src/xfce-mixer-switch.c: implement
+	extended controls (switch, select) on all levels, including vc
+	level
 
 2004-01-06 20:45  dannym
 
 	* po/POTFILES.in, po/ca.gmo, po/ca.po, po/de.gmo, po/de.po,
-	  po/fr.gmo, po/fr.po, po/hu.gmo, po/hu.po, po/it.gmo, po/it.po,
-	  po/ko.gmo, po/ko.po, po/lt.gmo, po/lt.po, po/ms.gmo, po/ms.po,
-	  po/nl.gmo, po/nl.po, po/no.gmo, po/no.po, po/pt_PT.gmo,
-	  po/pt_PT.po, po/ru.gmo, po/ru.po, po/tr.gmo, po/tr.po,
-	  po/xfce4-mixer.pot, po/zh_CN.gmo, po/zh_CN.po, po/zh_TW.gmo,
-	  po/zh_TW.po, src/main.c: standalone xfce4-mixer: check if
-	  soundsystem registration worked
+	po/fr.gmo, po/fr.po, po/hu.gmo, po/hu.po, po/it.gmo, po/it.po,
+	po/ko.gmo, po/ko.po, po/lt.gmo, po/lt.po, po/ms.gmo, po/ms.po,
+	po/nl.gmo, po/nl.po, po/no.gmo, po/no.po, po/pt_PT.gmo,
+	po/pt_PT.po, po/ru.gmo, po/ru.po, po/tr.gmo, po/tr.po,
+	po/xfce4-mixer.pot, po/zh_CN.gmo, po/zh_CN.po, po/zh_TW.gmo,
+	po/zh_TW.po, src/main.c: standalone xfce4-mixer: check if
+	soundsystem registration worked
 
 2004-01-06 20:10  dannym
 
 	* src/: mixer-mcs-client.gob, xfce-mixer-mcs-client-private.h,
-	  xfce-mixer-mcs-client.c, xfce-mixer-mcs-client.h: add missing
-	  files <
+	xfce-mixer-mcs-client.c, xfce-mixer-mcs-client.h: add missing files
+	<
 
 2004-01-06 20:09  dannym
 
 	* po/ca.gmo, po/ca.po, po/de.gmo, po/de.po, po/fr.gmo, po/fr.po,
-	  po/hu.gmo, po/hu.po, po/it.gmo, po/it.po, po/ko.gmo, po/ko.po,
-	  po/lt.gmo, po/lt.po, po/ms.gmo, po/ms.po, po/nl.gmo, po/nl.po,
-	  po/no.gmo, po/no.po, po/pt_PT.gmo, po/pt_PT.po, po/ru.gmo,
-	  po/ru.po, po/tr.gmo, po/tr.po, po/xfce4-mixer.pot, po/zh_CN.gmo,
-	  po/zh_CN.po, po/zh_TW.gmo, po/zh_TW.po, src/disclosure-widget.c:
-	  "update" translations, that is add untranslated strings
+	po/hu.gmo, po/hu.po, po/it.gmo, po/it.po, po/ko.gmo, po/ko.po,
+	po/lt.gmo, po/lt.po, po/ms.gmo, po/ms.po, po/nl.gmo, po/nl.po,
+	po/no.gmo, po/no.po, po/pt_PT.gmo, po/pt_PT.po, po/ru.gmo,
+	po/ru.po, po/tr.gmo, po/tr.po, po/xfce4-mixer.pot, po/zh_CN.gmo,
+	po/zh_CN.po, po/zh_TW.gmo, po/zh_TW.po, src/disclosure-widget.c:
+	"update" translations, that is add untranslated strings
 
 2004-01-06 19:56  dannym
 
 	* po/: ca.po, de.po, fr.po, hu.po, it.po, ko.po, lt.po, ms.po,
-	  nl.po, no.po, pt_PT.po, ru.po, tr.po, xfce4-mixer.pot, zh_CN.po,
-	  zh_TW.po: make update-po
+	nl.po, no.po, pt_PT.po, ru.po, tr.po, xfce4-mixer.pot, zh_CN.po,
+	zh_TW.po: make update-po
 
 2004-01-06 19:54  dannym
 
 	* include/vc.h, lib/vc.c, lib/vc.h, lib/vc_alsa.c,
-	  lib/vc_alsa_fallback.c, lib/vc_oss.c, lib/vc_sun.c,
-	  settings/mixer-settingsbox.gob,
-	  settings/xfce-mixer-settingsbox.c, src/Makefile.am,
-	  src/Makefile.in, src/main.c, src/mcs_client.c, src/mcs_client.h,
-	  src/mixer-window.gob, src/xfce-mixer-window.c,
-	  src/xfce-mixer-window.h: make notification half working
+	lib/vc_alsa_fallback.c, lib/vc_oss.c, lib/vc_sun.c,
+	settings/mixer-settingsbox.gob, settings/xfce-mixer-settingsbox.c,
+	src/Makefile.am, src/Makefile.in, src/main.c, src/mcs_client.c,
+	src/mcs_client.h, src/mixer-window.gob, src/xfce-mixer-window.c,
+	src/xfce-mixer-window.h: make notification half working
 
 2004-01-06 18:45  dannym
 
@@ -1615,14 +1763,14 @@
 2004-01-06 18:30  dannym
 
 	* src/: Makefile.am, Makefile.in: working again... my bad... now i
-	  know what the first param of BM_DEPEND is for :)
+	know what the first param of BM_DEPEND is for :)
 
 2004-01-06 18:18  dannym
 
 	* configure, configure.ac, src/Makefile.am, src/Makefile.in,
-	  src/main.c, src/mcs_client.c, src/mixer-window.gob,
-	  src/xfce-mixer-window.c, src/xfce-mixer-window.h: broken not that
-	  bad...
+	src/main.c, src/mcs_client.c, src/mixer-window.gob,
+	src/xfce-mixer-window.c, src/xfce-mixer-window.h: broken not that
+	bad...
 
 2004-01-06 18:08  dannym
 
@@ -1635,12 +1783,12 @@
 2004-01-06 17:42  dannym
 
 	* Makefile.in, configure, configure.ac, po/POTFILES.in: unbreak my
-	  ... m4
+	... m4
 
 2004-01-06 17:31  dannym
 
 	* ChangeLog, Makefile.am, Makefile.in, configure: add empty m4 dir
-	  ?
+	?
 
 2004-01-06 17:26  dannym
 
@@ -1653,27 +1801,26 @@
 2004-01-06 17:01  dannym
 
 	* AUTHORS, TODO, configure, configure.ac, lib/Makefile.in,
-	  panel-plugin/delayer.inc, panel-plugin/helpers.inc,
-	  panel-plugin/mixer-prefbox.gob, panel-plugin/plugin.c,
-	  panel-plugin/stringlist.inc, panel-plugin/xfce-mixer-control.c,
-	  panel-plugin/xfce-mixer-prefbox-private.h,
-	  panel-plugin/xfce-mixer-prefbox.c,
-	  panel-plugin/xfce-mixer-prefbox.h,
-	  panel-plugin/xfce-mixer-preferences.c,
-	  panel-plugin/xfce-mixer-pxml.c,
-	  panel-plugin/xfce-mixer-slider-tiny.c, settings/Makefile.in,
-	  src/Makefile.am, src/Makefile.in, src/delayer.inc,
-	  src/helpers.inc, src/helpers_h.inc, src/main.c,
-	  src/mixer-window.gob, src/stringlist.inc,
-	  src/xfce-mixer-window.c, src/xfce-mixer-window.h: dummy mcs
-	  client
+	panel-plugin/delayer.inc, panel-plugin/helpers.inc,
+	panel-plugin/mixer-prefbox.gob, panel-plugin/plugin.c,
+	panel-plugin/stringlist.inc, panel-plugin/xfce-mixer-control.c,
+	panel-plugin/xfce-mixer-prefbox-private.h,
+	panel-plugin/xfce-mixer-prefbox.c,
+	panel-plugin/xfce-mixer-prefbox.h,
+	panel-plugin/xfce-mixer-preferences.c,
+	panel-plugin/xfce-mixer-pxml.c,
+	panel-plugin/xfce-mixer-slider-tiny.c, settings/Makefile.in,
+	src/Makefile.am, src/Makefile.in, src/delayer.inc, src/helpers.inc,
+	src/helpers_h.inc, src/main.c, src/mixer-window.gob,
+	src/stringlist.inc, src/xfce-mixer-window.c,
+	src/xfce-mixer-window.h: dummy mcs client
 
 2004-01-06 16:24  dannym
 
 	* settings/: Makefile.in, mixer-settingsbox.gob, sound.c,
-	  stringlist.inc, xfce-mixer-settingsbox-private.h,
-	  xfce-mixer-settingsbox.c, xfce-mixer-settingsbox.h: make settings
-	  plugin really work
+	stringlist.inc, xfce-mixer-settingsbox-private.h,
+	xfce-mixer-settingsbox.c, xfce-mixer-settingsbox.h: make settings
+	plugin really work
 
 2004-01-06 16:23  dannym
 
@@ -1686,41 +1833,41 @@
 2004-01-06 01:04  dannym
 
 	* panel-plugin/plugin.c, settings/sound.c, src/main.c: include
-	  library
+	library
 
 2004-01-06 01:01  dannym
 
 	* Makefile.am, Makefile.in, aclocal.m4, config.guess, config.sub,
-	  configure, configure.ac, depcomp, install-sh, ltmain.sh, missing,
-	  panel-plugin/Makefile.am, panel-plugin/Makefile.in,
-	  panel-plugin/helpers.inc, panel-plugin/mixer-preferences.gob,
-	  panel-plugin/stringlist.inc, panel-plugin/vc.c,
-	  panel-plugin/vc.h, panel-plugin/vc_alsa.c,
-	  panel-plugin/vc_alsa_fallback.c, panel-plugin/vc_oss.c,
-	  panel-plugin/vcreg.inc, panel-plugin/xfce-mixer-control.c,
-	  panel-plugin/xfce-mixer-prefbox.c,
-	  panel-plugin/xfce-mixer-preferences-private.h,
-	  panel-plugin/xfce-mixer-preferences.c,
-	  panel-plugin/xfce-mixer-preferences.h,
-	  panel-plugin/xfce-mixer-pxml.c,
-	  panel-plugin/xfce-mixer-slider-tiny.c, settings/Makefile.am,
-	  settings/Makefile.in, settings/vc.c, settings/vc.h,
-	  settings/vc_alsa.c, settings/vc_oss.c, settings/vc_sun.c,
-	  settings/vcreg.inc, src/Makefile.am, src/Makefile.in, src/vc.c,
-	  src/vc.h, src/vc_alsa.c, src/vc_alsa_fallback.c, src/vc_oss.c,
-	  src/vc_sun.c, src/vcreg.inc: library split...
+	configure, configure.ac, depcomp, install-sh, ltmain.sh, missing,
+	panel-plugin/Makefile.am, panel-plugin/Makefile.in,
+	panel-plugin/helpers.inc, panel-plugin/mixer-preferences.gob,
+	panel-plugin/stringlist.inc, panel-plugin/vc.c, panel-plugin/vc.h,
+	panel-plugin/vc_alsa.c, panel-plugin/vc_alsa_fallback.c,
+	panel-plugin/vc_oss.c, panel-plugin/vcreg.inc,
+	panel-plugin/xfce-mixer-control.c,
+	panel-plugin/xfce-mixer-prefbox.c,
+	panel-plugin/xfce-mixer-preferences-private.h,
+	panel-plugin/xfce-mixer-preferences.c,
+	panel-plugin/xfce-mixer-preferences.h,
+	panel-plugin/xfce-mixer-pxml.c,
+	panel-plugin/xfce-mixer-slider-tiny.c, settings/Makefile.am,
+	settings/Makefile.in, settings/vc.c, settings/vc.h,
+	settings/vc_alsa.c, settings/vc_oss.c, settings/vc_sun.c,
+	settings/vcreg.inc, src/Makefile.am, src/Makefile.in, src/vc.c,
+	src/vc.h, src/vc_alsa.c, src/vc_alsa_fallback.c, src/vc_oss.c,
+	src/vc_sun.c, src/vcreg.inc: library split...
 
 2004-01-06 00:52  dannym
 
 	* lib/Makefile.in, lib/vc.c, lib/vc.h, lib/vc_alsa.c,
-	  lib/vc_alsa_fallback.c, lib/vc_oss.c, lib/vc_sun.c, lib/vcs.c,
-	  include/vc.h, include/vcs.h: stuffing lowlevel things in a
-	  separate library
+	lib/vc_alsa_fallback.c, lib/vc_oss.c, lib/vc_sun.c, lib/vcs.c,
+	include/vc.h, include/vcs.h: stuffing lowlevel things in a separate
+	library
 
 2004-01-06 00:13  dannym
 
 	* src/: Makefile.am, Makefile.in, vc_sun.c: prototype for sun audio
-	  / BSD from bmeurer...  unfinished.
+	/ BSD from bmeurer...  unfinished.
 
 2004-01-05 23:50  dannym
 
@@ -1729,30 +1876,30 @@
 2004-01-05 21:59  dannym
 
 	* src/: Makefile.am, Makefile.in, mixer-select.gob, mixer-view.gob,
-	  string_option_menu.c, string_option_menu.h, stringlist.inc,
-	  xfce-mixer-cache-vc.c, xfce-mixer-cache-vc.h,
-	  xfce-mixer-control-factory.c, xfce-mixer-profile.c,
-	  xfce-mixer-select.c, xfce-mixer-select.h,
-	  xfce-mixer-view-private.h, xfce-mixer-view.c, xfce-mixer-view.h:
-	  added select (option menu) support.  tables = vbox(switches,
-	  selects) disclosure.add(tables)
+	string_option_menu.c, string_option_menu.h, stringlist.inc,
+	xfce-mixer-cache-vc.c, xfce-mixer-cache-vc.h,
+	xfce-mixer-control-factory.c, xfce-mixer-profile.c,
+	xfce-mixer-select.c, xfce-mixer-select.h,
+	xfce-mixer-view-private.h, xfce-mixer-view.c, xfce-mixer-view.h:
+	added select (option menu) support.  tables = vbox(switches,
+	selects) disclosure.add(tables)
 
 2004-01-05 21:09  dannym
 
 	* src/: Makefile.am, Makefile.in, mixer-select.gob, mixer-view.gob,
-	  xfce-mixer-control-factory.c, xfce-mixer-control.c,
-	  xfce-mixer-select.c, xfce-mixer-select.h, xfce-mixer-view.c: add
-	  preliminary select support.  fix event order bug.
+	xfce-mixer-control-factory.c, xfce-mixer-control.c,
+	xfce-mixer-select.c, xfce-mixer-select.h, xfce-mixer-view.c: add
+	preliminary select support.  fix event order bug.
 
 2004-01-05 20:49  dannym
 
 	* src/: Makefile.in, mixer-info.gob, xfce-mixer-info.c: fix text
-	  typo.
+	typo.
 
 2004-01-05 20:41  dannym
 
 	* settings/: mixer-settingsbox.gob, xfce-mixer-settingsbox.c: hide
-	  "default" device entry.
+	"default" device entry.
 
 2004-01-05 20:35  dannym
 
@@ -1761,22 +1908,22 @@
 2004-01-05 20:30  dannym
 
 	* settings/: helpers3.inc, mixer-settingsbox.gob, sound-icon.h,
-	  sound.c, sound.png, xfce-mixer-settingsbox-private.h,
-	  xfce-mixer-settingsbox.c, xfce-mixer-settingsbox.h: add mcs
-	  manager connection, modify icon
+	sound.c, sound.png, xfce-mixer-settingsbox-private.h,
+	xfce-mixer-settingsbox.c, xfce-mixer-settingsbox.h: add mcs manager
+	connection, modify icon
 
 2004-01-05 19:10  dannym
 
 	* settings/: mixer-settingsbox.gob, xfce-mixer-settingsbox.c: take
-	  2
+	2
 
 2004-01-05 18:43  dannym
 
 	* settings/: Makefile.am, Makefile.in, gobs, helpers3.inc,
-	  mixer-settingsbox.gob, sound.c, stringlist.inc, vc.c, vc.h,
-	  vc_alsa.c, vc_oss.c, vc_sun.c, vcreg.inc,
-	  xfce-mixer-settingsbox-private.h, xfce-mixer-settingsbox.c,
-	  xfce-mixer-settingsbox.h: mcs plugin, take 1
+	mixer-settingsbox.gob, sound.c, stringlist.inc, vc.c, vc.h,
+	vc_alsa.c, vc_oss.c, vc_sun.c, vcreg.inc,
+	xfce-mixer-settingsbox-private.h, xfce-mixer-settingsbox.c,
+	xfce-mixer-settingsbox.h: mcs plugin, take 1
 
 2004-01-05 15:15  dannym
 
@@ -1785,12 +1932,12 @@
 2004-01-05 10:38  jasper
 
 	* Makefile.in, aclocal.m4, autogen.sh, config.guess, config.h.in,
-	  config.sub, configure, configure.ac, depcomp, install-sh,
-	  ltmain.sh, missing, m4/depends.m4, panel-plugin/Makefile.am,
-	  panel-plugin/Makefile.in, panel-plugin/plugin.c,
-	  settings/Makefile.am, settings/Makefile.in,
-	  settings/sound-icon.h, src/Makefile.am, src/Makefile.in: Fix
-	  build system and icon/slider sizing.
+	config.sub, configure, configure.ac, depcomp, install-sh,
+	ltmain.sh, missing, m4/depends.m4, panel-plugin/Makefile.am,
+	panel-plugin/Makefile.in, panel-plugin/plugin.c,
+	settings/Makefile.am, settings/Makefile.in, settings/sound-icon.h,
+	src/Makefile.am, src/Makefile.in: Fix build system and icon/slider
+	sizing.
 
 2004-01-04 23:16  dannym
 
@@ -1807,8 +1954,8 @@
 2004-01-04 22:30  dannym
 
 	* src/: gobs, mixer-view.gob, xfce-mixer-view-private.h,
-	  xfce-mixer-view.c: make disclosure widget disappear if there is
-	  nothing to disclose
+	xfce-mixer-view.c: make disclosure widget disappear if there is
+	nothing to disclose
 
 2004-01-04 21:57  dannym
 
@@ -1821,7 +1968,7 @@
 2004-01-04 21:54  dannym
 
 	* panel-plugin/: vc.c, vc.h, vc_alsa.c, vc_alsa_fallback.c,
-	  vc_oss.c: linking common files
+	vc_oss.c: linking common files
 
 2004-01-04 21:51  dannym
 
@@ -1834,32 +1981,32 @@
 2004-01-04 21:29  dannym
 
 	* panel-plugin/: Makefile.in, gobs, main.c, mixer-control.gob,
-	  mixer-prefbox.gob, mixer-preferences.gob, mixer-pxml.gob,
-	  mixer-slider-tiny.gob, plugin.c, xfce-mixer-cache-vc.c,
-	  xfce-mixer-cache-vc.h, xfce-mixer-control-vc.c,
-	  xfce-mixer-control-vc.h, xfce-mixer-control.c,
-	  xfce-mixer-control.h, xfce-mixer-prefbox-private.h,
-	  xfce-mixer-prefbox.c, xfce-mixer-prefbox.h,
-	  xfce-mixer-preferences-private.h, xfce-mixer-preferences.c,
-	  xfce-mixer-preferences.h, xfce-mixer-pxml.c, xfce-mixer-pxml.h,
-	  xfce-mixer-slider-tiny-private.h, xfce-mixer-slider-tiny.c,
-	  xfce-mixer-slider-tiny.h: make panel plugin work again
+	mixer-prefbox.gob, mixer-preferences.gob, mixer-pxml.gob,
+	mixer-slider-tiny.gob, plugin.c, xfce-mixer-cache-vc.c,
+	xfce-mixer-cache-vc.h, xfce-mixer-control-vc.c,
+	xfce-mixer-control-vc.h, xfce-mixer-control.c,
+	xfce-mixer-control.h, xfce-mixer-prefbox-private.h,
+	xfce-mixer-prefbox.c, xfce-mixer-prefbox.h,
+	xfce-mixer-preferences-private.h, xfce-mixer-preferences.c,
+	xfce-mixer-preferences.h, xfce-mixer-pxml.c, xfce-mixer-pxml.h,
+	xfce-mixer-slider-tiny-private.h, xfce-mixer-slider-tiny.c,
+	xfce-mixer-slider-tiny.h: make panel plugin work again
 
 2004-01-04 21:25  dannym
 
 	* src/: xfce-mixer-control-factory.c, xfce-mixer-profile.c: updates
-	  to make --enable-debug=full work
+	to make --enable-debug=full work
 
 2004-01-04 21:18  dannym
 
 	* src/: Makefile.in, mixer-control.gob, mixer-info.gob,
-	  mixer-slider-tiny.gob, mixer-slider.gob, mixer-switch.gob,
-	  mixer-view-tiny.gob, mixer-view.gob, mixer-window.gob,
-	  xfce-mixer-control.c, xfce-mixer-info.c,
-	  xfce-mixer-slider-tiny-private.h, xfce-mixer-slider-tiny.c,
-	  xfce-mixer-slider-tiny.h, xfce-mixer-slider.c,
-	  xfce-mixer-switch.c, xfce-mixer-view-tiny.c, xfce-mixer-view.c,
-	  xfce-mixer-window.c: sources
+	mixer-slider-tiny.gob, mixer-slider.gob, mixer-switch.gob,
+	mixer-view-tiny.gob, mixer-view.gob, mixer-window.gob,
+	xfce-mixer-control.c, xfce-mixer-info.c,
+	xfce-mixer-slider-tiny-private.h, xfce-mixer-slider-tiny.c,
+	xfce-mixer-slider-tiny.h, xfce-mixer-slider.c, xfce-mixer-switch.c,
+	xfce-mixer-view-tiny.c, xfce-mixer-view.c, xfce-mixer-window.c:
+	sources
 
 2004-01-04 21:16  dannym
 
@@ -1868,78 +2015,153 @@
 2004-01-04 21:07  dannym
 
 	* AUTHORS, COPYING, ChangeLog, Makefile.am, Makefile.in, README,
-	  TODO, aclocal.m4, autogen.sh, config.guess, config.sub,
-	  configure, configure.ac, depcomp, install-sh, ltmain.sh, missing,
-	  panel-plugin/Makefile.am, panel-plugin/Makefile.in,
-	  panel-plugin/mixer.c, panel-plugin/mixer_window.c,
-	  panel-plugin/mixer_window.h, panel-plugin/mvisible_opts.c,
-	  panel-plugin/mvisible_opts.h, panel-plugin/scroller_size.c,
-	  panel-plugin/scroller_size.h, panel-plugin/string_option_menu.c,
-	  panel-plugin/string_option_menu.h, panel-plugin/vc.h,
-	  panel-plugin/vc_alsa.c, panel-plugin/vc_alsa_fallback.c,
-	  panel-plugin/vc_oss.c, settings/Makefile.am,
-	  settings/Makefile.in, settings/sound.c, settings/sound.png,
-	  src/CONFIG, src/Makefile.am, src/Makefile.in, src/compile,
-	  src/disclosure-widget.c, src/disclosure-widget.h, src/gobs,
-	  src/main.c, src/menu-callbacks.inc, src/menus.c, src/menus.h,
-	  src/vc.c, src/vc.h, src/vc_alsa.c, src/vc_alsa_fallback.c,
-	  src/vc_oss.c, src/vcreg.inc, src/xfce-mixer-cache-vc.c,
-	  src/xfce-mixer-cache-vc.h, src/xfce-mixer-control-factory.c,
-	  src/xfce-mixer-control-factory.h,
-	  src/xfce-mixer-control-private.h, src/xfce-mixer-control-vc.c,
-	  src/xfce-mixer-control-vc.h, src/xfce-mixer-control.c,
-	  src/xfce-mixer-control.h, src/xfce-mixer-info.c,
-	  src/xfce-mixer-info.h, src/xfce-mixer-profile.c,
-	  src/xfce-mixer-profile.h, src/xfce-mixer-slider-private.h,
-	  src/xfce-mixer-slider-tiny.c, src/xfce-mixer-slider-tiny.h,
-	  src/xfce-mixer-slider.c, src/xfce-mixer-slider.h,
-	  src/xfce-mixer-switch.c, src/xfce-mixer-switch.h,
-	  src/xfce-mixer-view-private.h, src/xfce-mixer-view-tiny.c,
-	  src/xfce-mixer-view-tiny.h, src/xfce-mixer-view.c,
-	  src/xfce-mixer-view.h, src/xfce-mixer-window.c,
-	  src/xfce-mixer-window.h: new gobject-based mixer
+	TODO, aclocal.m4, autogen.sh, config.guess, config.sub, configure,
+	configure.ac, depcomp, install-sh, ltmain.sh, missing,
+	panel-plugin/Makefile.am, panel-plugin/Makefile.in,
+	panel-plugin/mixer.c, panel-plugin/mixer_window.c,
+	panel-plugin/mixer_window.h, panel-plugin/mvisible_opts.c,
+	panel-plugin/mvisible_opts.h, panel-plugin/scroller_size.c,
+	panel-plugin/scroller_size.h, panel-plugin/string_option_menu.c,
+	panel-plugin/string_option_menu.h, panel-plugin/vc.h,
+	panel-plugin/vc_alsa.c, panel-plugin/vc_alsa_fallback.c,
+	panel-plugin/vc_oss.c, settings/Makefile.am, settings/Makefile.in,
+	settings/sound.c, settings/sound.png, src/CONFIG, src/Makefile.am,
+	src/Makefile.in, src/compile, src/disclosure-widget.c,
+	src/disclosure-widget.h, src/gobs, src/main.c,
+	src/menu-callbacks.inc, src/menus.c, src/menus.h, src/vc.c,
+	src/vc.h, src/vc_alsa.c, src/vc_alsa_fallback.c, src/vc_oss.c,
+	src/vcreg.inc, src/xfce-mixer-cache-vc.c,
+	src/xfce-mixer-cache-vc.h, src/xfce-mixer-control-factory.c,
+	src/xfce-mixer-control-factory.h, src/xfce-mixer-control-private.h,
+	src/xfce-mixer-control-vc.c, src/xfce-mixer-control-vc.h,
+	src/xfce-mixer-control.c, src/xfce-mixer-control.h,
+	src/xfce-mixer-info.c, src/xfce-mixer-info.h,
+	src/xfce-mixer-profile.c, src/xfce-mixer-profile.h,
+	src/xfce-mixer-slider-private.h, src/xfce-mixer-slider-tiny.c,
+	src/xfce-mixer-slider-tiny.h, src/xfce-mixer-slider.c,
+	src/xfce-mixer-slider.h, src/xfce-mixer-switch.c,
+	src/xfce-mixer-switch.h, src/xfce-mixer-view-private.h,
+	src/xfce-mixer-view-tiny.c, src/xfce-mixer-view-tiny.h,
+	src/xfce-mixer-view.c, src/xfce-mixer-view.h,
+	src/xfce-mixer-window.c, src/xfce-mixer-window.h: new gobject-based
+	mixer
+
+2003-12-29 16:19  olivier
+
+	* ChangeLog, configure, configure.ac, po/no.gmo, po/no.po: Update
+	version number, Update ChangeLog Fix missing CHARSET in potfiles
 
 2003-12-29 16:18  olivier
 
 	* po/: no.gmo, no.po: Fix missing CHARSET in potfiles
 
+2003-12-29 13:16  jasper
+
+	* configure, configure.ac, po/no.gmo, po/no.po, po/tr.gmo,
+	po/tr.po: Update Norwegian and Turkish translations
+
 2003-12-29 11:56  jasper
 
 	* configure, configure.ac, po/no.gmo, po/no.po, po/tr.gmo,
-	  po/tr.po: Update Norwegian and Turkish translations
+	po/tr.po: Update Norwegian and Turkish translations
+
+2003-12-27 22:52  jasper
+
+	* configure, configure.ac, po/pl.gmo, po/pl.po: Update Polish
+	translations
 
 2003-12-27 20:46  jasper
 
 	* configure, configure.ac, po/de.gmo, po/pl.gmo, po/pl.po: Update
-	  Polish translations
+	Polish translations
+
+2003-12-18 00:00  olivier
+
+	* ChangeLog: Update ChangeLog(s)
+
+2003-12-16 23:36  olivier
+
+	* configure, configure.ac: Resync, update version number
+
+2003-12-15 22:35  jasper
+
+	* configure, configure.ac, po/az.gmo, po/az.po: Add Azerbaijani
+	translations
 
 2003-12-15 21:56  jasper
 
 	* configure, configure.ac, po/az.gmo, po/az.po: Add Azerbaijani
-	  translations
+	translations
 
 2003-11-23 14:44  moe
 
 	* po/de.po: Updating german translation
 
-2003-11-16 09:45  jasper
+2003-11-16 09:44  jasper
 
-	* po/cs.po: Update Czech translations
+	* po/: cs.gmo, cs.po, cs.po: Update Czech translations
+
+2003-11-12 08:02  jasper
+
+	* po/: ca.gmo, cs.gmo, de.gmo, fr.gmo, hi.gmo, hu.gmo, it.gmo,
+	ko.gmo, lt.gmo, ms.gmo, nl.gmo, pt_PT.gmo, ru.gmo, ta.gmo, tr.gmo,
+	uk.gmo, vi.gmo, zh_CN.gmo, zh_TW.gmo: Forgot gmo files update
+
+2003-11-11 19:35  jasper
+
+	* po/: ca.po, cs.po, de.po, fr.po, hi.po, hu.po, it.po, ko.po,
+	lt.po, ms.po, nl.po, pt_PT.po, ru.po, ta.po, tr.po, uk.po, vi.po,
+	xfce4-mixer.pot, zh_CN.po, zh_TW.po: Update po files, just in case
+	something changed ...
 
 2003-11-09 20:22  jasper
 
 	* configure, configure.ac, po/cs.gmo, po/cs.po: Add Check
-	  translations
+	translations
+
+2003-11-09 20:09  jasper
+
+	* po/cs.gmo: file cs.gmo was initially added on branch xfce_4_0.
+
+2003-11-09 20:09  jasper
+
+	* po/cs.po: file cs.po was initially added on branch xfce_4_0.
+
+2003-11-09 20:09  jasper
+
+	* configure, configure.ac, po/cs.gmo, po/cs.po: Add Check
+	translations
 
 2003-11-03 19:06  jasper
 
-	* configure, configure.ac, po/uk.gmo, po/uk.po: Add Ukranian
-	  translations
+	* po/uk.po: file uk.po was initially added on branch xfce_4_0.
+
+2003-11-03 19:06  jasper
+
+	* po/uk.gmo: file uk.gmo was initially added on branch xfce_4_0.
+
+2003-11-03 19:06  jasper
+
+	* configure, configure.ac, po/uk.gmo, po/uk.po, configure,
+	configure.ac, po/uk.gmo, po/uk.po: Add Ukranian translations
 
 2003-11-02 09:22  olivier
 
 	* Makefile.in, configure, configure.ac, po/hi.gmo, po/hi.po: Add
-	  hi.po
+	hi.po
+
+2003-11-02 00:28  olivier
+
+	* po/hi.po: file hi.po was initially added on branch xfce_4_0.
+
+2003-11-02 00:28  olivier
+
+	* po/hi.gmo: file hi.gmo was initially added on branch xfce_4_0.
+
+2003-11-02 00:28  olivier
+
+	* configure, configure.ac, po/hi.gmo, po/hi.po: Add Hindi
+	translation
 
 2003-11-01 19:46  dannym
 
@@ -1948,43 +2170,95 @@
 2003-10-29 20:46  dannym
 
 	* po/ko.po: Small fix to the translations by David
-	  <byunghyunchoi@hotmail.com>
+	<byunghyunchoi@hotmail.com>
 
 2003-10-29 20:45  dannym
 
 	* po/ko.po: Updated Korean Translations by David
-	  <byunghyunchoi@hotmail.com>
+	<byunghyunchoi@hotmail.com>
 
 2003-10-25 21:21  jasper
 
 	* panel-plugin/mixer.c: Improve sizing
 
+2003-10-25 00:31  jasper
+
+	* configure, configure.ac, po/vi.gmo, po/vi.po: 
+	Add vietnamese translations by Lam Vinh Nien <nienvl@yahoo.ca>.
+
 2003-10-25 00:20  jasper
 
-	* configure, configure.ac, po/vi.gmo, po/vi.po:
-	  Add vietnamese translations by Lam Vinh Nien <nienvl@yahoo.ca>.
+	* configure, configure.ac, po/vi.gmo, po/vi.po: 
+	Add vietnamese translations by Lam Vinh Nien <nienvl@yahoo.ca>.
 
 2003-10-15 13:20  jasper
 
-	* po/: ko.gmo, ko.po: Update korean translations
+	* po/: ko.gmo, ko.po, ko.gmo, ko.po: Update korean translations
 
 2003-10-13 20:51  jasper
 
 	* ChangeLog: Update ChangeLog's after syncing with SF. Everything
-	  should now be up-to-date.
+	should now be up-to-date.
+
+2003-10-13 20:30  jasper
+
+	* ChangeLog: Update ChangeLog's after syncing with SF. Everything
+	should now be up-to-date.
+
+2003-10-13 20:09  jasper
+
+	* panel-plugin/mixer_window.c: 
+	Bring up-to-date with SF repository. Only one commit missing.
+	ChanLog entry follows:
+	
+	+++
+	
+	2003-10-10 22:50  dannym
+	
+		* xfce4-mixer/panel-plugin/mixer_window.c: fixed memory
+	leak on
+		mixer window close.
+	
+	+++
 
 2003-09-28 10:16  huysmans
 
 	* configure, configure.ac, po/ko.gmo: Fix latest po file changes
 
+2003-09-28 10:08  huysmans
+
+	* po/ko.gmo: file ko.gmo was initially added on branch xfce_4_0.
+
+2003-09-28 10:07  huysmans
+
+	* configure, configure.ac, po/ko.gmo, po/ko.po: Merge changes in
+	HEAD to stable branch
+
 2003-09-27 14:36  huysmans
 
 	* configure, panel-plugin/vc_alsa.c, po/ta.gmo, po/ta.po: Update
-	  tamil translation
+	tamil translation
 
 2003-09-27 13:59  dannym
 
 	* configure, configure.ac, po/ko.po: added korean translation
+
+2003-09-27 13:18  huysmans
+
+	* po/ta.gmo: file ta.gmo was initially added on branch xfce_4_0.
+
+2003-09-27 13:18  huysmans
+
+	* configure, configure.ac, po/ta.gmo, po/ta.po: Update tamil
+	translations
+
+2003-09-27 13:18  huysmans
+
+	* po/ta.po: file ta.po was initially added on branch xfce_4_0.
+
+2003-09-27 11:47  dannym
+
+	* panel-plugin/vc_alsa.c: header location fixed.
 
 2003-09-22 22:56  huysmans
 
@@ -1993,7 +2267,7 @@
 2003-09-22 22:44  huysmans
 
 	* po/: pt_PT.gmo, pt_PT.po: Update version numbers and po files for
-	  release
+	release
 
 2003-09-22 00:43  xfce
 
@@ -2002,7 +2276,7 @@
 2003-09-15 23:07  huysmans
 
 	* configure, configure.ac, po/pt_PT.gmo, po/pt_PT.po: Big portugese
-	  translation update
+	translation update
 
 2003-09-10 09:57  huysmans
 
@@ -2011,23 +2285,23 @@
 2003-09-10 09:49  huysmans
 
 	* configure, configure.ac, po/zh_TW.po: Update version numbers and
-	  po files for release
+	po files for release
 
 2003-09-02 09:17  huysmans
 
 	* configure, configure.ac, po/ms.gmo, po/ms.po: Add malaysian
-	  translations
+	translations
 
 2003-08-30 14:49  huysmans
 
 	* aclocal.m4, configure, configure.ac, po/zh_TW.Big5.gmo,
-	  po/zh_TW.Big5.po, po/zh_TW.gmo, po/zh_TW.po: Rename zh_TW.Big5 ->
-	  zh_TW
+	po/zh_TW.Big5.po, po/zh_TW.gmo, po/zh_TW.po: Rename zh_TW.Big5 ->
+	zh_TW
 
 2003-08-30 10:59  huysmans
 
 	* po/: zh_TW.Big5.gmo, zh_TW.Big5.po: Add traditional chinese
-	  translations
+	translations
 
 2003-08-26 09:38  huysmans
 
@@ -2036,12 +2310,12 @@
 2003-08-26 09:22  huysmans
 
 	* po/: ca.po, lt.gmo, lt.po, zh_CN.po: Update version numbers and
-	  po files for release
+	po files for release
 
 2003-08-17 13:36  huysmans
 
 	* configure, configure.ac, po/lt.gmo, po/lt.po: Add lithuanian
-	  translations
+	translations
 
 2003-08-10 21:54  huysmans
 
@@ -2050,7 +2324,7 @@
 2003-08-07 23:57  huysmans
 
 	* po/: ca.gmo, ca.po, de.gmo, fr.gmo, hu.gmo, it.gmo, nl.gmo,
-	  ru.gmo, tr.gmo, zh_CN.gmo: Update catalan translations
+	ru.gmo, tr.gmo, zh_CN.gmo: Update catalan translations
 
 2003-08-04 18:38  dannym
 
@@ -2059,8 +2333,8 @@
 2003-08-02 11:41  dannym
 
 	* po/: ca.po, de.po, fr.po, hu.po, it.po, nl.po, ru.po, tr.po,
-	  xfce4-mixer.pot, zh_CN.po: added translateable strings for
-	  "Visible", "Control" (for the tree)
+	xfce4-mixer.pot, zh_CN.po: added translateable strings for
+	"Visible", "Control" (for the tree)
 
 2003-08-01 14:38  dannym
 
@@ -2073,17 +2347,17 @@
 2003-08-01 14:34  dannym
 
 	* panel-plugin/mvisible_opts.c: translateable "Control" and
-	  "Visible"
+	"Visible"
 
 2003-07-30 22:34  dannym
 
 	* panel-plugin/: string_option_menu.c, string_option_menu.h: small
-	  nice helpers
+	nice helpers
 
 2003-07-30 22:30  dannym
 
 	* panel-plugin/: vc_alsa.c, vc_oss.c: device listing, alsa fixups
-	  for proper (hopefully) device selection...
+	for proper (hopefully) device selection...
 
 2003-07-30 13:31  huysmans
 
@@ -2092,20 +2366,20 @@
 2003-07-30 10:16  huysmans
 
 	* configure, configure.ac, po/ca.gmo, po/ca.po, po/de.gmo,
-	  po/de.po, po/fr.gmo, po/fr.po, po/hu.gmo, po/hu.po, po/it.gmo,
-	  po/it.po, po/nl.gmo, po/nl.po, po/ru.gmo, po/ru.po, po/tr.gmo,
-	  po/tr.po, po/xfce4-mixer.pot, po/zh_CN.gmo, po/zh_CN.po: Update
-	  version numbers and po files for release
+	po/de.po, po/fr.gmo, po/fr.po, po/hu.gmo, po/hu.po, po/it.gmo,
+	po/it.po, po/nl.gmo, po/nl.po, po/ru.gmo, po/ru.po, po/tr.gmo,
+	po/tr.po, po/xfce4-mixer.pot, po/zh_CN.gmo, po/zh_CN.po: Update
+	version numbers and po files for release
 
 2003-07-30 00:30  dannym
 
 	* panel-plugin/mixer_window.c: fixed source of a warning with
-	  --enable-debug=full
+	--enable-debug=full
 
 2003-07-30 00:28  dannym
 
 	* panel-plugin/mixer.c: bugfix for when the internal mixer window
-	  is left open and USR1 is sent to the panel
+	is left open and USR1 is sent to the panel
 
 2003-07-30 00:07  dannym
 
@@ -2154,8 +2428,8 @@
 2003-07-28 00:08  dannym
 
 	* panel-plugin/test_vc.c:
-	  ----------------------------------------------------------------------
-	  test program for the vc stuff (oss so far)
+	-------------------------------------------------------------------
+	--- test program for the vc stuff (oss so far)
 
 2003-07-27 23:59  dannym
 
@@ -2168,23 +2442,23 @@
 2003-07-27 23:26  dannym
 
 	* panel-plugin/: mixer.c, vc.c, vc.h, vc_alsa.c,
-	  vc_alsa_fallback.c, vc_oss.c: Bugfix *sweatdrops*
+	vc_alsa_fallback.c, vc_oss.c: Bugfix *sweatdrops*
 
 2003-07-27 22:40  dannym
 
 	* panel-plugin/: mixer.c, vc.c, vc.h, vc_alsa.c,
-	  vc_alsa_fallback.c, vc_oss.c: bugfix set_device
+	vc_alsa_fallback.c, vc_oss.c: bugfix set_device
 
 2003-07-27 21:56  dannym
 
 	* panel-plugin/: vc_oss.c, vc_alsa.c, vc_alsa_fallback.c:
-	  close_device
+	close_device
 
 2003-07-27 21:38  dannym
 
 	* panel-plugin/: mixer.c, vc.c, vc.h:
-	  ----------------------------------------------------------------------
-	  set_device by Toby :)
+	-------------------------------------------------------------------
+	--- set_device by Toby :)
 
 2003-07-19 11:30  huysmans
 
@@ -2193,20 +2467,20 @@
 2003-07-19 11:08  huysmans
 
 	* config.h.in, configure, configure.ac, po/ca.gmo, po/ca.po,
-	  po/de.gmo, po/de.po, po/fr.gmo, po/fr.po, po/hu.gmo, po/hu.po,
-	  po/it.gmo, po/it.po, po/nl.gmo, po/nl.po, po/ru.gmo, po/ru.po,
-	  po/tr.gmo, po/tr.po, po/xfce4-mixer.pot, po/zh_CN.gmo,
-	  po/zh_CN.po: Update version numbers and po files for release
+	po/de.gmo, po/de.po, po/fr.gmo, po/fr.po, po/hu.gmo, po/hu.po,
+	po/it.gmo, po/it.po, po/nl.gmo, po/nl.po, po/ru.gmo, po/ru.po,
+	po/tr.gmo, po/tr.po, po/xfce4-mixer.pot, po/zh_CN.gmo, po/zh_CN.po:
+	Update version numbers and po files for release
 
 2003-07-18 20:16  bmeurer
 
 	* ChangeLog, configure, configure.ac: Make this depend on the
-	  latest panel.
+	latest panel.
 
 2003-07-18 17:58  huysmans
 
 	* panel-plugin/mixer.c: Change panel API again to prevent old
-	  plugins to crah the panel
+	plugins to crah the panel
 
 2003-07-18 12:57  huysmans
 
@@ -2223,7 +2497,7 @@
 2003-07-16 11:57  huysmans
 
 	* configure, configure.ac, po/ca.po, po/hu.gmo, po/hu.po: Add
-	  hungarian translations
+	hungarian translations
 
 2003-07-16 10:22  huysmans
 
@@ -2232,9 +2506,9 @@
 2003-07-15 19:21  dannym
 
 	* panel-plugin/: scroller_size.c, scroller_size.h: Moved the
-	  scroll-window be as big as possible, but without leaving empty
-	  space in the window, and smaller than the whole screen, to a
-	  function. TODO: mcs desktop borders
+	scroll-window be as big as possible, but without leaving empty
+	space in the window, and smaller than the whole screen, to a
+	function. TODO: mcs desktop borders
 
 2003-07-13 10:43  huysmans
 
@@ -2247,24 +2521,24 @@
 2003-07-12 15:27  huysmans
 
 	* po/: ca.gmo, ca.po, de.gmo, de.po, fr.gmo, fr.po, it.gmo, it.po,
-	  nl.gmo, nl.po, ru.gmo, ru.po, tr.gmo, tr.po, zh_CN.gmo, zh_CN.po:
-	  Update po files before release (again ;)
+	nl.gmo, nl.po, ru.gmo, ru.po, tr.gmo, tr.po, zh_CN.gmo, zh_CN.po:
+	Update po files before release (again ;)
 
 2003-07-12 15:03  xfce
 
 	* panel-plugin/mixer_window.c, po/xfce4-mixer.pot: Set fixed width
-	  and set hscrollbar policy to automatic
+	and set hscrollbar policy to automatic
 
 2003-07-12 14:11  xfce
 
 	* configure, configure.ac, panel-plugin/Makefile.am,
-	  panel-plugin/Makefile.in, panel-plugin/mixer_window.c, po/fr.gmo,
-	  po/fr.po: Remove the hack for map event on mixer window.
+	panel-plugin/Makefile.in, panel-plugin/mixer_window.c, po/fr.gmo,
+	po/fr.po: Remove the hack for map event on mixer window.
 
 2003-07-12 11:08  dannym
 
 	* panel-plugin/: mixer_window.c, mixer_window.h, vc_alsa.c: Update,
-	  breaks stored configuration, ow well
+	breaks stored configuration, ow well
 
 2003-07-11 09:33  huysmans
 
@@ -2281,20 +2555,20 @@
 2003-07-10 11:45  huysmans
 
 	* configure, configure.ac: Bump versions for release and update po
-	  files
+	files
 
 2003-07-09 10:47  huysmans
 
 	* configure, configure.ac, ltmain.sh, panel-plugin/mixer.c,
-	  po/ca.gmo, po/ca.po, po/de.gmo, po/de.po, po/it.gmo, po/it.po,
-	  po/nl.gmo, po/nl.po, po/ru.gmo, po/ru.po, po/tr.gmo, po/tr.po,
-	  po/xfce4-mixer.pot, po/zh_CN.gmo, po/zh_CN.po: Update to new
-	  plugin API
+	po/ca.gmo, po/ca.po, po/de.gmo, po/de.po, po/it.gmo, po/it.po,
+	po/nl.gmo, po/nl.po, po/ru.gmo, po/ru.po, po/tr.gmo, po/tr.po,
+	po/xfce4-mixer.pot, po/zh_CN.gmo, po/zh_CN.po: Update to new plugin
+	API
 
 2003-07-08 22:55  xfce
 
 	* po/Makefile.in.in: Don't perform an update-po on make dist as it
-	  causes far too much trouble
+	causes far too much trouble
 
 2003-07-08 20:01  huysmans
 
@@ -2307,13 +2581,12 @@
 2003-07-07 22:46  dannym
 
 	* panel-plugin/mixer.c: trying to fix the one-pixel-below bug
-	  phrep_ reported...
+	phrep_ reported...
 
 2003-07-07 22:43  dannym
 
 	* panel-plugin/mixer_window.c: Ok, since the draw_value from
-	  GtkScale is starting to annoy me, I just switched it off now.
-	  Bah.
+	GtkScale is starting to annoy me, I just switched it off now. Bah.
 
 2003-07-06 22:14  huysmans
 
@@ -2330,7 +2603,7 @@
 2003-07-02 00:32  dannym
 
 	* panel-plugin/mixer_window.c: Small xinerama/xrandr fixup... needs
-	  work...
+	work...
 
 2003-06-29 16:17  dannym
 
@@ -2339,13 +2612,13 @@
 2003-06-29 16:09  dannym
 
 	* panel-plugin/mixer_window.c: Finally... scroller only has
-	  scrollbars if required. If possible, the window just gets bigger
-	  instead of adding scrollbars...
+	scrollbars if required. If possible, the window just gets bigger
+	instead of adding scrollbars...
 
 2003-06-28 12:00  xfce
 
 	* Makefile.in, aclocal.m4, config.h.in, configure, ltmain.sh,
-	  panel-plugin/Makefile.in: Switch to GNU libtool 1.5
+	panel-plugin/Makefile.in: Switch to GNU libtool 1.5
 
 2003-06-25 00:38  xfce
 
@@ -2354,7 +2627,7 @@
 2003-06-24 22:49  xfce
 
 	* aclocal.m4, configure, configure.ac, ltcf-c.sh, ltconfig,
-	  ltmain.sh, po/it.po: Add Italian locale
+	ltmain.sh, po/it.po: Add Italian locale
 
 2003-06-19 13:19  dannym
 
@@ -2367,7 +2640,7 @@
 2003-06-18 19:22  dannym
 
 	* panel-plugin/vc_alsa.c: Now unmutes alsa automatically (damn you,
-	  alsa). Needs more testing...
+	alsa). Needs more testing...
 
 2003-06-18 00:04  dannym
 
@@ -2380,7 +2653,7 @@
 2003-06-17 23:55  dannym
 
 	* panel-plugin/mixer.c: Muting with middle or right mouse button on
-	  green bar
+	green bar
 
 2003-06-16 13:53  dannym
 
@@ -2389,7 +2662,7 @@
 2003-06-15 14:11  dannym
 
 	* panel-plugin/: mixer.c, mixer_window.c, name_change, vc.c, vc.h,
-	  vc_alsa.c, vc_alsa_fallback.c, vc_oss.c: Name Change ;)
+	vc_alsa.c, vc_alsa_fallback.c, vc_oss.c: Name Change ;)
 
 2003-06-15 13:29  dannym
 
@@ -2398,14 +2671,14 @@
 2003-06-14 23:51  bmeurer
 
 	* Makefile.in, aclocal.m4, config.guess, config.sub, configure,
-	  install-sh, ltcf-c.sh, ltconfig, ltmain.sh,
-	  panel-plugin/Makefile.am, panel-plugin/Makefile.in,
-	  panel-plugin/mixer.c: Fixed forgotten file.
+	install-sh, ltcf-c.sh, ltconfig, ltmain.sh,
+	panel-plugin/Makefile.am, panel-plugin/Makefile.in,
+	panel-plugin/mixer.c: Fixed forgotten file.
 
 2003-06-14 11:34  dannym
 
 	* panel-plugin/: mixer.c, vc_alsa.c: small bugfixes for the case
-	  there is no working sound device...
+	there is no working sound device...
 
 2003-06-14 10:35  dannym
 
@@ -2430,7 +2703,7 @@
 2003-06-12 13:13  dannym
 
 	* panel-plugin/: mixer_window.c, mixer_window.h, mvisible_opts.c,
-	  vc.c, vc_alsa.c, vc_oss.c: Update... mixer window and all
+	vc.c, vc_alsa.c, vc_oss.c: Update... mixer window and all
 
 2003-06-12 08:53  dannym
 
@@ -2439,12 +2712,12 @@
 2003-06-10 23:47  dannym
 
 	* panel-plugin/mixer.c: Check for bind_textdomain_codeset before
-	  using it.
+	using it.
 
 2003-06-10 22:28  dannym
 
 	* panel-plugin/vc_oss.c: Fixed multiple controls handling for
-	  get_volume in OSS.
+	get_volume in OSS.
 
 2003-06-08 16:28  huysmans
 
@@ -2453,7 +2726,7 @@
 2003-06-08 16:23  huysmans
 
 	* Makefile.in, aclocal.m4, config.h.in, configure, configure.ac,
-	  panel-plugin/Makefile.in: Add russian translation
+	panel-plugin/Makefile.in: Add russian translation
 
 2003-06-07 20:14  bmeurer
 
@@ -2466,21 +2739,21 @@
 2003-06-07 02:01  xfce
 
 	* Makefile.am, Makefile.in, aclocal.m4, config.h.in, configure,
-	  xfce4-mixer.spec.in, panel-plugin/Makefile.am,
-	  panel-plugin/Makefile.in: Fix a bunch of errors is build process!
+	xfce4-mixer.spec.in, panel-plugin/Makefile.am,
+	panel-plugin/Makefile.in: Fix a bunch of errors is build process!
 
 2003-06-05 13:46  huysmans
 
 	* Makefile.am, Makefile.in, configure, configure.ac,
-	  xfce4-mixer.spec.in, po/Makefile.in.in, po/ca.gmo, po/ca.po,
-	  po/de.gmo, po/de.po, po/nl.gmo, po/nl.po, po/tr.gmo, po/tr.po,
-	  po/xfce4-mixer.pot, po/zh_CN.gmo, po/zh_CN.po: Add spec file and
-	  Dutch translations
+	xfce4-mixer.spec.in, po/Makefile.in.in, po/ca.gmo, po/ca.po,
+	po/de.gmo, po/de.po, po/nl.gmo, po/nl.po, po/tr.gmo, po/tr.po,
+	po/xfce4-mixer.pot, po/zh_CN.gmo, po/zh_CN.po: Add spec file and
+	Dutch translations
 
 2003-06-05 09:31  huysmans
 
 	* panel-plugin/Makefile.in, po/tr.gmo, po/tr.po: Updated
-	  translations
+	translations
 
 2003-05-31 13:10  huysmans
 
@@ -2497,12 +2770,12 @@
 2003-05-29 14:35  huysmans
 
 	* configure, configure.ac, po/ca.gmo, po/ca.po: Update catalan
-	  translations
+	translations
 
 2003-05-29 11:17  dannym
 
 	* panel-plugin/mixer_window.c: bug fix: first init graphics
-	  controls then connect changed signal.
+	controls then connect changed signal.
 
 2003-05-29 00:29  dannym
 
@@ -2510,25 +2783,25 @@
 
 2003-05-29 00:04  dannym
 
-	* panel-plugin/mixer_window.h:
-	  part 2 of the mixer window ;)
+	* panel-plugin/mixer_window.h: 
+	part 2 of the mixer window ;)
 
 2003-05-28 23:36  dannym
 
-	* panel-plugin/: mixer_window.c, vc_alsa.c, vc_oss.c:
-	  Mixer Window, part 2 ;) now can actually change volume
+	* panel-plugin/: mixer_window.c, vc_alsa.c, vc_oss.c: 
+	Mixer Window, part 2 ;) now can actually change volume
 
 2003-05-28 23:13  dannym
 
-	* panel-plugin/: Makefile.am, Makefile.in:
-	  added mixer_window{.c,.h}
+	* panel-plugin/: Makefile.am, Makefile.in: 
+	added mixer_window{.c,.h}
 
 2003-05-28 22:43  dannym
 
 	* panel-plugin/: vc_oss.c, mixer.c, vc.c, vc.h, vc_alsa.c,
-	  vc_alsa_fallback.c, mixer_window.c, mixer_window.h:
-	  Beginning of a mixer window with sliders etc... leave the launch
-	  command of the panel plugin empty to use.
+	vc_alsa_fallback.c, mixer_window.c, mixer_window.h: 
+	Beginning of a mixer window with sliders etc... leave the launch
+	command of the panel plugin empty to use.
 
 2003-05-27 21:41  dannym
 
@@ -2541,24 +2814,24 @@
 2003-05-21 23:43  huysmans
 
 	* Makefile.in, aclocal.m4, config.guess, config.sub, configure,
-	  configure.ac, panel-plugin/Makefile.in, po/tr.gmo, po/tr.po: Add
-	  Turkish translations
+	configure.ac, panel-plugin/Makefile.in, po/tr.gmo, po/tr.po: Add
+	Turkish translations
 
 2003-05-08 21:17  dannym
 
 	* panel-plugin/vc_alsa.c: set_master_volume is more fault-tolerant
-	  now.
+	now.
 
 2003-05-08 19:46  dannym
 
 	* panel-plugin/vc_alsa.c: trying something else... hmmmm alsa will
-	  you still play dumb?
+	you still play dumb?
 
 2003-05-08 19:21  dannym
 
 	* panel-plugin/vc_alsa.c: Removed snd_mixer_close in the error
-	  handling block of snd_mixer_attach, since that makes an assertion
-	  fail within alsa 0.9.2 lib's snd_mixer_close routine O_o
+	handling block of snd_mixer_attach, since that makes an assertion
+	fail within alsa 0.9.2 lib's snd_mixer_close routine O_o
 
 2003-05-03 12:47  huysmans
 
@@ -2567,13 +2840,13 @@
 2003-05-03 12:35  huysmans
 
 	* Makefile.in, aclocal.m4, config.guess, config.sub, configure,
-	  configure.ac, ltcf-c.sh, ltconfig, ltmain.sh,
-	  panel-plugin/Makefile.in: Add Chinese translations
+	configure.ac, ltcf-c.sh, ltconfig, ltmain.sh,
+	panel-plugin/Makefile.in: Add Chinese translations
 
 2003-05-01 20:49  dannym
 
 	* panel-plugin/mixer.c: Now using translations sourced from the
-	  panel (P_)
+	panel (P_)
 
 2003-04-30 20:42  bmeurer
 
@@ -2582,27 +2855,27 @@
 2003-04-30 20:38  bmeurer
 
 	* Makefile.in, config.h.in, panel-plugin/Makefile.in: Added de.gmo
-	  for people w/o msgfmt.
+	for people w/o msgfmt.
 
 2003-04-30 19:24  bmeurer
 
 	* configure, configure.ac: BM_DEPEND_CHECK need to appear after
-	  BM_DEPENDs
+	BM_DEPENDs
 
 2003-04-30 17:20  dannym
 
 	* configure.ac, panel-plugin/Makefile.am: Added startup
-	  notification check for the options dialog ;)
+	notification check for the options dialog ;)
 
 2003-04-30 16:52  dannym
 
 	* panel-plugin/mixer.c: Launcher dependent code copy-and-pasted to
-	  mixer (trying to fix what belial reported)
+	mixer (trying to fix what belial reported)
 
 2003-04-29 19:02  dannym
 
 	* README: You README you, will you go into the right place,
-	  already? :)
+	already? :)
 
 2003-04-29 13:33  dannym
 
@@ -2619,12 +2892,12 @@
 2003-04-27 22:43  dannym
 
 	* panel-plugin/mixer.c: Removed focus-out-event as it caused weird
-	  crashes. Hmz.
+	crashes. Hmz.
 
 2003-04-27 16:37  dannym
 
 	* panel-plugin/mixer.c: Fixed all the dialog callbacks. The options
-	  dialog should work fine now :)
+	dialog should work fine now :)
 
 2003-04-27 15:24  dannym
 
@@ -2637,7 +2910,7 @@
 2003-04-26 23:30  bmeurer
 
 	* Makefile.am, Makefile.in, aclocal.m4, m4/depends.m4: Updated
-	  autostuff.
+	autostuff.
 
 2003-04-26 23:11  dannym
 
@@ -2646,8 +2919,8 @@
 2003-04-26 22:56  dannym
 
 	* panel-plugin/: vc.c, vc_alsa.c, vc_oss.c: Now thats what you call
-	  a dumb bug :) Found it, anyways: vc.c: register: "break" was
-	  missing.
+	a dumb bug :) Found it, anyways: vc.c: register: "break" was
+	missing.
 
 2003-04-26 17:40  dannym
 
@@ -2656,7 +2929,7 @@
 2003-04-26 15:42  dannym
 
 	* panel-plugin/mixer.c: Fixed leak that could happen if never going
-	  to the property dialog. (no freed options.command)
+	to the property dialog. (no freed options.command)
 
 2003-04-26 15:30  dannym
 
@@ -2665,32 +2938,45 @@
 2003-04-26 15:29  dannym
 
 	* panel-plugin/mixer.c: update_volume_display: caption: Tooltip:
-	  "Volume" instead "Volume control"
+	"Volume" instead "Volume control"
 
 2003-04-26 14:37  dannym
 
 	* panel-plugin/mixer.c: Fixed bug in mixer_command_entry_lost_focus
-	  handler.
+	handler.
 
 2003-04-26 12:48  bmeurer
 
 	* COPYING, Makefile.am, Makefile.in, NOTES, README, aclocal.m4,
-	  config.h.in, configure, configure.ac, m4/i18n.m4,
-	  panel-plugin/Makefile.am, panel-plugin/Makefile.in,
-	  panel-plugin/mixer.c, panel-plugin/vc.c, panel-plugin/vc_alsa.c,
-	  panel-plugin/vc_oss.c, po/Makefile.in.in, po/POTFILES.in,
-	  po/de.po, po/xfce4-mixer.pot: Added gettext framework. Some
-	  improvements to the OSS mixer stuff. Some fixes and cleanups.
+	config.h.in, configure, configure.ac, m4/i18n.m4,
+	panel-plugin/Makefile.am, panel-plugin/Makefile.in,
+	panel-plugin/mixer.c, panel-plugin/vc.c, panel-plugin/vc_alsa.c,
+	panel-plugin/vc_oss.c, po/Makefile.in.in, po/POTFILES.in, po/de.po,
+	po/xfce4-mixer.pot: Added gettext framework. Some improvements to
+	the OSS mixer stuff. Some fixes and cleanups.
 
 2003-04-26 11:01  bmeurer
 
 	* config.guess, AUTHORS, ChangeLog, aclocal.m4, autogen.sh,
-	  compile, config.h.in, config.sub, ltconfig, COPYING, INSTALL,
-	  configure, configure.ac, depcomp, install-sh, ltcf-c.sh,
-	  Makefile.am, Makefile.in, README, TODO, ltmain.sh, missing,
-	  mkinstalldirs, m4/debug.m4, m4/depends.m4,
-	  panel-plugin/Makefile.am, panel-plugin/Makefile.in,
-	  panel-plugin/mixer.c, panel-plugin/vc.c, panel-plugin/vc.h,
-	  panel-plugin/vc_alsa.c, panel-plugin/vc_alsa_fallback.c,
-	  panel-plugin/vc_oss.c: Initial revision
+	compile, config.h.in, config.sub, ltconfig, COPYING, INSTALL,
+	configure, configure.ac, depcomp, install-sh, ltcf-c.sh,
+	Makefile.am, Makefile.in, README, TODO, ltmain.sh, missing,
+	mkinstalldirs, m4/debug.m4, m4/depends.m4,
+	panel-plugin/Makefile.am, panel-plugin/Makefile.in,
+	panel-plugin/mixer.c, panel-plugin/vc.c, panel-plugin/vc.h,
+	panel-plugin/vc_alsa.c, panel-plugin/vc_alsa_fallback.c,
+	panel-plugin/vc_oss.c: Initial import of xfce4-mixer. Thanks to
+	Danny Milo.
+
+2003-04-26 11:01  bmeurer
+
+	* config.guess, AUTHORS, ChangeLog, aclocal.m4, autogen.sh,
+	compile, config.h.in, config.sub, ltconfig, COPYING, INSTALL,
+	configure, configure.ac, depcomp, install-sh, ltcf-c.sh,
+	Makefile.am, Makefile.in, README, TODO, ltmain.sh, missing,
+	mkinstalldirs, m4/debug.m4, m4/depends.m4,
+	panel-plugin/Makefile.am, panel-plugin/Makefile.in,
+	panel-plugin/mixer.c, panel-plugin/vc.c, panel-plugin/vc.h,
+	panel-plugin/vc_alsa.c, panel-plugin/vc_alsa_fallback.c,
+	panel-plugin/vc_oss.c: Initial revision
 

@@ -1,4 +1,4 @@
-sounddir = @XFCE_MCS_MANAGER_PLUGINSDIR@
+sounddir = $(libdir)/xfce4/mcs-plugins
 
 INCLUDES = -I../include
 

@@ -230,7 +230,7 @@ sbindir = @sbindir@
 sharedstatedir = @sharedstatedir@
 sysconfdir = @sysconfdir@
 target_alias = @target_alias@
-plugindir = @XFCE4_PANEL_PLUGINSDIR@
+plugindir = $(libdir)/xfce4/panel-plugins
 INCLUDES = -I../include
 plugin_LTLIBRARIES = \
 	libmixer.la
