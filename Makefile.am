@@ -5,7 +5,12 @@ EXTRA_DIST = config.rpath  \
 	autogen.sh \
 	NOTES
 
-SUBDIRS = lib src panel-plugin settings po
+if BUILD_BIG_MIXER
+SUBDIR_BIG_MIXER = src settings
+endif
+
+SUBDIRS = lib panel-plugin $SUBDIR_BIG_MIXER po
+DIST_SUBDIRS = lib panel-plugin src settings po
 
 distclean-local:
 	rm -rf *.cache *~ *.spec

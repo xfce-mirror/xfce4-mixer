@@ -63,6 +63,13 @@ BM_DEPEND([XFCE_MCS_CLIENT], [libxfce4mcs-client-1.0], [4.0.0])
 XFCE_PANEL_PLUGIN([XFCE4_PANEL], [4.0.0])
 XFCE_MCS_PLUGIN([XFCE_MCS_MANAGER], [4.0.0])
 
+AC_MSG_CHECKING([whether to build big mixer window])
+AC_ARG_ENABLE([big-mixer],
+  AC_HELP_STRING([--disable-big-mixer], [don't build big mixer window]),
+[], [enable_big_mixer=yes])
+AM_CONDITIONAL([BUILD_BIG_MIXER], [test x"$enable_big_mixer" = x"yes"])
+AC_MSG_RESULT([$enable_big_mixer])
+
 dnl Check for debugging support
 BM_DEBUG_SUPPORT
 
@@ -70,6 +77,8 @@ BM_DEBUG_SUPPORT
 dnl Checks for library functions.
 dnl Checks for typedefs, structures, and compiler characteristics.
 AC_C_CONST
+
+
 
 AC_OUTPUT([
 Makefile
