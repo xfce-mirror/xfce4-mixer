@@ -1,20 +1,20 @@
 # translation of xfce4-mixer.po to Slovak
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
-# Juraj Brosz <Juraj.Brosz@pobox.sk>, 2004.
+# Juraj Brosz <juro@jurajbrosz.info>, 2004, 2005.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-11-22 21:44+0100\n"
-"PO-Revision-Date: 2004-08-26 20:59+0200\n"
-"Last-Translator: Juraj Brosz <Juraj.Brosz@pobox.sk>\n"
+"POT-Creation-Date: 2005-01-10 17:30+0100\n"
+"PO-Revision-Date: 2005-02-08 20:54+0100\n"
+"Last-Translator: Juraj Brosz <juro@jurajbrosz.info>\n"
 "Language-Team: Slovak <sk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.3.1\n"
+"X-Generator: KBabel 1.9.1\n"
 
 #: lib/trans.c:6
 msgid "Vol"
@@ -48,11 +48,11 @@ msgstr "CD"
 #. CD in
 #: lib/trans.c:12
 msgid "Bass"
-msgstr ""
+msgstr "Basy"
 
 #: lib/trans.c:13
 msgid "Trebl"
-msgstr ""
+msgstr "Výšky"
 
 #: lib/trans.c:14
 msgid "Synth"
@@ -72,11 +72,11 @@ msgstr "Záznam"
 
 #: lib/trans.c:18
 msgid "IGain"
-msgstr "IGain"
+msgstr ""
 
 #: lib/trans.c:19
 msgid "OGain"
-msgstr "OGain"
+msgstr ""
 
 #: lib/trans.c:20
 msgid "Line1"
@@ -104,11 +104,11 @@ msgstr "Digitálny3"
 
 #: lib/trans.c:26
 msgid "PhoneIn"
-msgstr ""
+msgstr "Vstup z telefónu"
 
 #: lib/trans.c:27
 msgid "PhoneOut"
-msgstr ""
+msgstr "Výstup z telefónu"
 
 #: lib/trans.c:28
 msgid "Video"
@@ -125,31 +125,31 @@ msgstr "Monitor"
 #: lib/vc_alsa.c:94
 #, c-format
 msgid "alsa: Mixer %s open error: %s\n"
-msgstr "alsa: Chyba pri otvorení mixéra %s: %s\n"
+msgstr "alsa: Chyba pri otvorení mixéru %s: %s\n"
 
 #: lib/vc_alsa.c:99
 #, c-format
 msgid "alsa: Mixer attach %s error: %s\n"
-msgstr "alsa: Chyba pri pripojení mixéra %s: %s\n"
+msgstr "alsa: Chyba pri pripojení mixéru %s: %s\n"
 
 #: lib/vc_alsa.c:107
 #, c-format
 msgid "alsa: Mixer register error: %s\n"
-msgstr "alsa: Chyba pri registrácií mixéra: %s\n"
+msgstr "alsa: Chyba pri registrácií mixéru: %s\n"
 
 #: lib/vc_alsa.c:116
 #, c-format
 msgid "alsa: Mixer load error: %s: %s\n"
-msgstr "alsa: Chyba pri natiahnutí mixéra: %s: %s\n"
+msgstr "alsa: Chyba pri načítaní mixéru: %s: %s\n"
 
 #: lib/vc_alsa.c:126
 #, c-format
 msgid "alsa: Unable to find simple control '%s',%i\n"
-msgstr "alsa: Nemôžem nájsť jednoduchý ovládač '%s',%i\n"
+msgstr "alsa: Nie je možné nájsť jednoduchý ovládač '%s',%i\n"
 
-#: lib/vc_oss.c:131
+#: lib/vc_oss.c:138
 msgid "oss: No master volume"
-msgstr ""
+msgstr "oss: Žiadny hlavný ovládač hlasitosti"
 
 #: panel-plugin/plugin.c:95
 #, c-format
@@ -160,20 +160,21 @@ msgstr "Hlasitosť: %d%%"
 msgid "Volume Control"
 msgstr "Nastavenie hlasitosti"
 
-#: settings/mixer-settingsbox.gob:102 mixer-settingsbox.gob:102
+#: settings/mixer-settingsbox.gob:99 mixer-settingsbox.gob:99
 msgid "Device"
 msgstr "Zariadenie"
 
-#: settings/mixer-settingsbox.gob:105 mixer-settingsbox.gob:105
+#: settings/mixer-settingsbox.gob:102 mixer-settingsbox.gob:102
 msgid "None"
 msgstr "Žiadne"
 
 #. gtk_widget_show (GTK_WIDGET (self->dev_label));
-#: settings/mixer-settingsbox.gob:108 mixer-settingsbox.gob:108
+#. debug_bindtextdomain();
+#: settings/mixer-settingsbox.gob:107 mixer-settingsbox.gob:107
 msgid "Useful Controls"
 msgstr "Užitočné ovládacie prvky"
 
-#: settings/sound.c:80 settings/sound.c:102 settings/sound.c:109
+#: settings/sound.c:80 settings/sound.c:100 settings/sound.c:107
 msgid "Sound"
 msgstr "Zvuk"
 
@@ -181,37 +182,33 @@ msgstr "Zvuk"
 msgid "No working sound"
 msgstr "Nefungujúci zvuk"
 
-#: src/menus.c:9
-msgid "/_File"
-msgstr ""
-
-#: src/menus.c:10
-msgid "/File/_Options"
-msgstr ""
-
-#: src/menus.c:11
-msgid "/File/_Exit"
-msgstr ""
-
 #: src/menus.c:12
-msgid "/_View"
-msgstr ""
+msgid "/_File"
+msgstr "/_Súbor"
 
 #: src/menus.c:13
-msgid "/View/sep"
-msgstr ""
+msgid "/File/_Options"
+msgstr "/Súbor/_Možnosti"
 
 #: src/menus.c:14
-msgid "/View/_Manage"
-msgstr ""
+msgid "/File/_Exit"
+msgstr "/Súbor/_Koniec"
 
 #: src/menus.c:15
-msgid "/_Help"
-msgstr ""
+msgid "/_View"
+msgstr "/_Zobrazenie"
 
 #: src/menus.c:16
+msgid "/View/_Manage"
+msgstr "/Zobrazenie/_Nastavenia"
+
+#: src/menus.c:17
+msgid "/_Help"
+msgstr "/_Pomocník"
+
+#: src/menus.c:18
 msgid "/Help/_Info"
-msgstr ""
+msgstr "/Pomocník/_Informácie"
 
 #: src/mixer-info.gob:28 mixer-info.gob:28
 msgid ""
@@ -220,6 +217,9 @@ msgid ""
 "directory.\n"
 "No warranty in any way."
 msgstr ""
+"Toto je xfce4-mixér, ovládací program hlasitosti.\n"
+"Je uvoľnený pod licenciou GPL-2, ktorú nájdete v adresári so zdrojovými kódmi.\n"
+"Žiadna záruka."
 
 #: src/mixer-profilebox-detail.gob:163 mixer-profilebox-detail.gob:163
 msgid "Control"
@@ -231,19 +231,19 @@ msgstr "Typ"
 
 #: src/mixer-profilebox-detail.gob:178 mixer-profilebox-detail.gob:178
 msgid "Up"
-msgstr "Hore"
+msgstr "Nahor"
 
 #: src/mixer-profilebox-detail.gob:181 mixer-profilebox-detail.gob:181
 msgid "Down"
-msgstr "Dole"
+msgstr "Nadol"
 
 #: src/mixer-profilebox-detail.gob:188 mixer-profilebox-detail.gob:188
 msgid "Move Entry Up"
-msgstr "Presunúť položku hore"
+msgstr "Presunúť položku nahor"
 
 #: src/mixer-profilebox-detail.gob:191 mixer-profilebox-detail.gob:191
 msgid "Move Entry Down"
-msgstr "Presunúť položku dole"
+msgstr "Presunúť položku nadol"
 
 #: src/mixer-profilebox-detail.gob:200 mixer-profilebox-detail.gob:200
 msgid "Profile Name:"
@@ -310,9 +310,9 @@ msgstr "Profil s týmto menom už existuje"
 
 #: src/mixer-profiles.gob:262 src/mixer-profiles.gob:269
 #: mixer-profiles.gob:262 mixer-profiles.gob:269
-#, fuzzy, c-format
+#, c-format
 msgid "profile%d"
-msgstr "Profil"
+msgstr "profil%d"
 
 #: src/mixer-view.gob:258 mixer-view.gob:258
 msgid "Show Switches"
@@ -322,8 +322,3 @@ msgstr "Zobraziť prepínače"
 msgid "Hide Switches"
 msgstr "Skryť prepínače"
 
-#~ msgid "%s - Info"
-#~ msgstr "%s - Informácia"
-
-#~ msgid "%s - Profiles"
-#~ msgstr "%s - Profily"
