@@ -1,4 +1,5 @@
 settings/xfce-mixer-settingsbox.c
+lib/trans.c
 lib/vc_alsa.c
 lib/vc_oss.c
 panel-plugin/plugin.c

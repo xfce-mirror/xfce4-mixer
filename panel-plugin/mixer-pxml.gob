@@ -9,18 +9,90 @@
 #include <libxml/parser.h>
 #include <libxml/tree.h>
 
-#ifndef MYDATA
-extern xmlDocPtr xmlconfig;
-#define MYDATA(node) xmlNodeListGetString(xmlconfig, node->children, 1)
-#endif
-
 %}
 
 class Xfce:Mixer:Pxml from G:Object {
-	protected gchar * root = NULL
+	protected gchar *root = NULL
 		destroywith g_free;
 
+	protected gchar * fname = NULL
+		destroy {
+			self_set_file (self, NULL);
+		};
+
+	property STRING fname (
+		nick = "File name and path",
+		blurb = "Filename and path to use, if any"
+	)
+	get {
+		g_value_set_string (VAL, self->fname);
+	}
+	set {
+		self_set_file (self, g_value_get_string (VAL));
+	};
+
 	public xmlNodePtr node = NULL;
+	protected xmlDocPtr document = NULL
+		destroywith xmlFreeDoc;
+
+	public void set_document (self, xmlDocPtr doc)
+	{
+		self->document = doc;
+	}
+
+	protected void set_file (self, gchar const *fnamen)
+	{
+		gchar *dir;
+		self->node = NULL;
+
+		if (self->fname && self->document) {
+			/* store blahblah if required */
+			xmlSaveFormatFile (self->fname, self->document, 1);
+			xmlFreeDoc (self->document);
+			self->document = NULL;
+
+			g_free (self->fname);
+			self->fname = NULL;
+		}
+
+		if (fnamen) {
+			self->fname = g_strdup (fnamen);
+			if (!self->fname) {
+				/* eeek TODO exception */
+			}
+
+			if (g_file_test (self->fname, G_FILE_TEST_EXISTS)) {
+				/* TODO backup */
+			} else {
+				/* create directory */
+				dir = g_path_get_dirname (self->fname);
+				if (dir && !g_file_test (dir, G_FILE_TEST_IS_DIR))
+					mkdir (dir, S_IRWXU | S_IRGRP 
+					| S_IXGRP | S_IROTH | S_IXOTH);
+
+				if (dir)
+					g_free (dir);
+			}
+
+			/* create document etc */
+			self->document = xmlParseFile (self->fname);
+
+			if (!self->document && self->root) {
+				self->document = xmlNewDoc ("1.0");
+				self->document->children = xmlNewDocRawNode (self->document, NULL, self->root, NULL);
+				xmlDocSetRootElement (self->document, self->document->children);
+			}
+
+			if (!self->document)
+				return;
+
+			self_goto_root (self);
+			if (!self->node) { /* no root */
+				xmlFreeDoc (self->document);
+				self->document = NULL;
+			}
+		}
+	}
 
 	init(self)
 	{
@@ -130,6 +202,18 @@ class Xfce:Mixer:Pxml from G:Object {
 		self->node = self->node->children;
 	}
 
+	public void goto_root (self)
+	{
+		if (!self->document)
+			return;
+
+		self->node = xmlDocGetRootElement (self->document);
+
+		if (self->root && !self_check_tag (self, self->root)) {
+			self->node = NULL;
+		}
+	}
+
 	public void goto_node(self, xmlNodePtr nn)
 	{
 		self->node = nn;
@@ -155,16 +239,28 @@ class Xfce:Mixer:Pxml from G:Object {
 
 	public xmlNodePtr create_text_child (self, gchar const *name, gchar const *opt_text)
 	{
+		if (!self->node)
+			return NULL;
+
 		return xmlNewTextChild (self->node, NULL, (const xmlChar *)name, (const xmlChar *) opt_text);
 	}
-
 
 	public XfceMixerPxml *new(gchar const *root)
 	{
 		XfceMixerPxml *p;
 		p = XFCE_MIXER_PXML (GET_NEW);
-		p->root = g_strdup (root);
+		if (root)
+			p->root = g_strdup (root);
 		return p;
 	}
+
+	public gchar *get_text_child(self)
+	{
+		if (!self->node)
+			return NULL;
+
+		return xmlNodeListGetString(self->document, self->node->children, 1);
+	}
+
 }
 

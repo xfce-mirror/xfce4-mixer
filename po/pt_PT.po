@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-01-20 23:55+0100\n"
+"POT-Creation-Date: 2004-01-21 12:54+0100\n"
 "PO-Revision-Date: 2003-09-12 01:29+0100\n"
 "Last-Translator: Nuno Donato <nunodonato@sapo.pt>\n"
 "Language-Team: Portuguese <pt@li.org>\n"
@@ -31,6 +31,112 @@ msgstr ""
 #, fuzzy
 msgid "Useful Controls"
 msgstr "Controlo"
+
+#: lib/trans.c:6
+msgid "Vol"
+msgstr ""
+
+#. Master
+#: lib/trans.c:7
+msgid "Pcm"
+msgstr ""
+
+#. PCM output
+#: lib/trans.c:8
+msgid "Spkr"
+msgstr ""
+
+#. Internal speaker?
+#: lib/trans.c:9
+msgid "Line"
+msgstr ""
+
+#. Line in
+#: lib/trans.c:10
+msgid "Mic"
+msgstr ""
+
+#. Mic in
+#: lib/trans.c:11
+msgid "CD"
+msgstr ""
+
+#. CD in
+#: lib/trans.c:12
+msgid "Bass"
+msgstr ""
+
+#: lib/trans.c:13
+msgid "Trebl"
+msgstr ""
+
+#: lib/trans.c:14
+msgid "Synth"
+msgstr ""
+
+#: lib/trans.c:15
+msgid "Mix"
+msgstr ""
+
+#: lib/trans.c:16
+msgid "Pcm2"
+msgstr ""
+
+#: lib/trans.c:17
+msgid "Rec"
+msgstr ""
+
+#: lib/trans.c:18
+msgid "IGain"
+msgstr ""
+
+#: lib/trans.c:19
+msgid "OGain"
+msgstr ""
+
+#: lib/trans.c:20
+msgid "Line1"
+msgstr ""
+
+#: lib/trans.c:21
+msgid "Line2"
+msgstr ""
+
+#: lib/trans.c:22
+msgid "Line3"
+msgstr ""
+
+#: lib/trans.c:23
+msgid "Digital1"
+msgstr ""
+
+#: lib/trans.c:24
+msgid "Digital2"
+msgstr ""
+
+#: lib/trans.c:25
+msgid "Digital3"
+msgstr ""
+
+#: lib/trans.c:26
+msgid "PhoneIn"
+msgstr ""
+
+#: lib/trans.c:27
+msgid "PhoneOut"
+msgstr ""
+
+#: lib/trans.c:28
+msgid "Video"
+msgstr ""
+
+#: lib/trans.c:29
+msgid "Radio"
+msgstr ""
+
+#: lib/trans.c:30
+msgid "Monitor"
+msgstr ""
 
 #: lib/vc_alsa.c:94
 #, c-format
@@ -85,38 +191,6 @@ msgstr ""
 #: src/main.c:50
 msgid "No working sound"
 msgstr "Sem som"
-
-#: src/menus.c:9
-msgid "/_File"
-msgstr ""
-
-#: src/menus.c:10
-msgid "/File/_Options"
-msgstr ""
-
-#: src/menus.c:11
-msgid "/File/_Exit"
-msgstr ""
-
-#: src/menus.c:12
-msgid "/_View"
-msgstr ""
-
-#: src/menus.c:13
-msgid "/View/sep"
-msgstr ""
-
-#: src/menus.c:14
-msgid "/View/_Manage"
-msgstr ""
-
-#: src/menus.c:15
-msgid "/_Help"
-msgstr ""
-
-#: src/menus.c:16
-msgid "/Help/_Info"
-msgstr ""
 
 #: mixer-profilebox.gob:88
 #, fuzzy

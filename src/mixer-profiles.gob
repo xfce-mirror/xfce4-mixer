@@ -1,0 +1,224 @@
+%a{
+#include <gtk/gtk.h>
+#include "xfce-mixer-profile.h"
+#include "xfce-mixer-pxml.h"
+%}
+%{
+#include <libxfce4util/util.h>
+#include <libxfce4util/i18n.h>
+
+#define PROFILES_ROOT "Profiles"
+#ifndef MAX_PATH
+#define MAX_PATH 4096
+#endif
+
+static void profiles_free (GList *profiles)
+{
+	GList *g;
+	g = profiles;
+	while (g) {
+		g_object_unref (G_OBJECT (g->data));
+		g = g_list_next (g);
+	}
+	g_list_free (profiles);
+}
+
+%}
+
+class Xfce:Mixer:Profiles from G:Object {
+	protected gchar *device = NULL
+		destroywith g_free;
+	protected gchar *fname = NULL
+		destroywith g_free;
+	protected gboolean modified = FALSE;
+	protected gint weird_number = 0;
+	protected GList *profiles = NULL
+		destroywith profiles_free;
+
+	protected XfceMixerPxml *xml = NULL
+		unrefwith g_object_unref;
+
+	init (self)
+	{
+		self->fname = xfce_get_userfile ("xfce4-mixer", "profiles.xml", NULL);
+		self->xml = xfce_mixer_pxml_new (PROFILES_ROOT);
+		g_object_set (G_OBJECT (self->xml), "fname", self->fname, NULL);
+	}
+
+	public void clear(self)
+	{
+		profiles_free (self->profiles);
+		self->weird_number = 0;
+		self->profiles = NULL;
+	}
+
+	protected void goto_device (self)
+	{
+		gchar *n;
+		xfce_mixer_pxml_goto_root (self->xml);
+		xfce_mixer_pxml_goto_children (self->xml);
+		while (self->xml->node) {
+			if (xfce_mixer_pxml_check_tag (self->xml, "device")) {
+				n = xfce_mixer_pxml_get_prop (self->xml, "name");
+				if (n && self->device && g_str_equal (n, self->device)) {
+					g_free (n);
+					return;
+				}
+				if (n)
+					g_free (n);
+			}
+
+			xfce_mixer_pxml_goto_next (self->xml);
+		}
+
+		/* device does not exist yet in xml */
+		self->xml->node = NULL;
+		xfce_mixer_pxml_goto_root (self->xml);
+		self->xml->node = xfce_mixer_pxml_create_text_child (self->xml, "device", NULL);
+		xfce_mixer_pxml_set_prop (self->xml, "name", self->device);
+	}
+
+	public void load(self)
+	{
+		gchar *n;
+		XfceMixerProfile *p;
+		self_clear (self);
+		self_goto_device (self);
+
+		xfce_mixer_pxml_goto_children (self->xml);
+		while (self->xml->node) {
+			if (xfce_mixer_pxml_check_tag (self->xml, "profile")) {
+				n = xfce_mixer_pxml_get_prop (self->xml, "name");
+				if (n) {
+					p = self_create_profile (self, n);
+					if (p) {
+						/* TODO read data etc */
+					}
+				}
+			}
+
+			xfce_mixer_pxml_goto_next (self->xml);
+		}
+
+	}
+
+	protected void xml_text_child (self, gchar const *tagname)
+	{
+		self->xml->node = xfce_mixer_pxml_create_text_child (self->xml, tagname, NULL);
+	}
+
+	public void save(self)
+	{
+		xmlNodePtr profilesx;
+		XfceMixerProfile *p;
+		GList *g;
+		gchar const *n;
+		if (!self_get_modified (self))
+			return;
+
+		xfce_mixer_pxml_goto_root (self->xml);
+		self_goto_device (self);
+
+		profilesx = self->xml->node;
+
+		xfce_mixer_pxml_eat_children (self->xml, NULL);
+
+		g = self->profiles;
+		while (g) {
+			p = XFCE_MIXER_PROFILE (g->data);
+
+			n = xfce_mixer_profile_get_title (p);
+			xfce_mixer_pxml_goto_node (self->xml, profilesx);
+			self_xml_text_child (self, "profile");
+			xfce_mixer_pxml_set_prop (self->xml, "name", n);
+
+			/* TODO save actual data */
+
+			g = g_list_next (g);
+		}
+
+		self_set_modified (self, FALSE);
+	}
+
+	public XfceMixerProfile *create_profile (self, gchar const *fixedname)
+	{
+		XfceMixerProfile *p;
+		gchar tmp[MAX_PATH];
+
+		if (fixedname)
+			g_snprintf (tmp, MAX_PATH, "%s", fixedname);
+		else
+			g_snprintf (tmp, MAX_PATH, _("profile%d"), ++self->weird_number);
+
+		/* check if name is a dupe */
+
+		p = self_get_profile (self, tmp);
+		if (p) {
+			g_object_unref (G_OBJECT (p));
+			g_snprintf (tmp, MAX_PATH, _("profile%d"), ++self->weird_number);
+
+			p = self_get_profile (self, tmp);
+			if (p) { /* hmpf. */
+				g_object_unref (G_OBJECT (p));
+				return NULL;
+			}
+		}
+
+		p = XFCE_MIXER_PROFILE (xfce_mixer_profile_new (tmp));
+		return p;
+	}
+
+	public XfceMixerProfile *get_profile (self, gchar const *name)
+	{
+		GList *g;
+		gchar const *s;
+		g = self->profiles;
+		if (!name)
+			return NULL;
+
+		while (g) {
+			s = xfce_mixer_profile_get_title (XFCE_MIXER_PROFILE (g->data));
+			if (s) {
+				if (g_str_equal (s, name)) {
+					g_object_ref (G_OBJECT (g->data));
+					return XFCE_MIXER_PROFILE (g->data);
+				}
+			}
+			g = g_list_next (g);
+		}
+
+		return NULL;
+	}
+
+	public void delete_profile (self, gchar const *name)
+	{
+		XfceMixerProfile *p;
+		if (!name)
+			return;
+
+		p = self_get_profile (self, name);
+		if (p) {
+			g_object_unref (G_OBJECT (p));
+			g_object_unref (G_OBJECT (p));
+			self->profiles = g_list_remove (self->profiles, p);
+		}
+	}
+
+	public void set_modified (self, gboolean modi)
+	{
+		self->modified = modi;
+	}
+
+	public gboolean get_modified (self)
+	{
+		return self->modified;
+	}
+
+	public XfceMixerProfiles *new (gchar const *device)
+	{
+		XfceMixerProfiles *p;
+		p = XFCE_MIXER_PROFILES (GET_NEW);
+		p->device = g_strdup (device);
+		return p;
+	}
+}

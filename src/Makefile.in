@@ -177,7 +177,7 @@ xfce4_mixer_SOURCES = xfce-mixer-control.c xfce-mixer-slider.c \
 	xfce-mixer-select.c string_option_menu.c \
 	xfce-mixer-mcs-client.c xfce-mixer-profiledlg.c \
 	xfce-mixer-profilebox.c xfce-mixer-profilebox-detail.c \
-	xfce-mixer-pxml.c
+	xfce-mixer-pxml.c xfce-mixer-profiles.c
 
 
 xfce4_mixer_GSOURCES = mixer-control.gob \
@@ -185,7 +185,8 @@ xfce4_mixer_GSOURCES = mixer-control.gob \
 	mixer-slider-tiny.gob mixer-window.gob mixer-switch.gob \
 	mixer-info.gob mixer-select.gob mixer-mcs-client.gob \
 	mixer-profiledlg.gob mixer-profilebox.gob \
-	mixer-profilebox-detail.gob mixer-pxml.gob
+	mixer-profilebox-detail.gob mixer-pxml.gob \
+	mixer-profiles.gob
 
 
 xfce4_mixer_CFLAGS = \
@@ -245,7 +246,8 @@ am_xfce4_mixer_OBJECTS = xfce4_mixer-xfce-mixer-control.$(OBJEXT) \
 	xfce4_mixer-xfce-mixer-profiledlg.$(OBJEXT) \
 	xfce4_mixer-xfce-mixer-profilebox.$(OBJEXT) \
 	xfce4_mixer-xfce-mixer-profilebox-detail.$(OBJEXT) \
-	xfce4_mixer-xfce-mixer-pxml.$(OBJEXT)
+	xfce4_mixer-xfce-mixer-pxml.$(OBJEXT) \
+	xfce4_mixer-xfce-mixer-profiles.$(OBJEXT)
 xfce4_mixer_OBJECTS = $(am_xfce4_mixer_OBJECTS)
 xfce4_mixer_LDFLAGS =
 
@@ -266,6 +268,7 @@ am__depfiles_maybe = depfiles
 @AMDEP_TRUE@	./$(DEPDIR)/xfce4_mixer-xfce-mixer-profilebox-detail.Po \
 @AMDEP_TRUE@	./$(DEPDIR)/xfce4_mixer-xfce-mixer-profilebox.Po \
 @AMDEP_TRUE@	./$(DEPDIR)/xfce4_mixer-xfce-mixer-profiledlg.Po \
+@AMDEP_TRUE@	./$(DEPDIR)/xfce4_mixer-xfce-mixer-profiles.Po \
 @AMDEP_TRUE@	./$(DEPDIR)/xfce4_mixer-xfce-mixer-pxml.Po \
 @AMDEP_TRUE@	./$(DEPDIR)/xfce4_mixer-xfce-mixer-select.Po \
 @AMDEP_TRUE@	./$(DEPDIR)/xfce4_mixer-xfce-mixer-slider-tiny.Po \
@@ -347,6 +350,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/xfce4_mixer-xfce-mixer-profilebox-detail.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/xfce4_mixer-xfce-mixer-profilebox.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/xfce4_mixer-xfce-mixer-profiledlg.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/xfce4_mixer-xfce-mixer-profiles.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/xfce4_mixer-xfce-mixer-pxml.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/xfce4_mixer-xfce-mixer-select.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/xfce4_mixer-xfce-mixer-slider-tiny.Po@am__quote@
@@ -1114,6 +1118,39 @@ xfce4_mixer-xfce-mixer-pxml.lo: xfce-mixer-pxml.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/xfce4_mixer-xfce-mixer-pxml.Plo' tmpdepfile='$(DEPDIR)/xfce4_mixer-xfce-mixer-pxml.TPlo' @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(xfce4_mixer_CFLAGS) $(CFLAGS) -c -o xfce4_mixer-xfce-mixer-pxml.lo `test -f 'xfce-mixer-pxml.c' || echo '$(srcdir)/'`xfce-mixer-pxml.c
+
+xfce4_mixer-xfce-mixer-profiles.o: xfce-mixer-profiles.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(xfce4_mixer_CFLAGS) $(CFLAGS) -MT xfce4_mixer-xfce-mixer-profiles.o -MD -MP -MF "$(DEPDIR)/xfce4_mixer-xfce-mixer-profiles.Tpo" \
+@am__fastdepCC_TRUE@	  -c -o xfce4_mixer-xfce-mixer-profiles.o `test -f 'xfce-mixer-profiles.c' || echo '$(srcdir)/'`xfce-mixer-profiles.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/xfce4_mixer-xfce-mixer-profiles.Tpo" "$(DEPDIR)/xfce4_mixer-xfce-mixer-profiles.Po"; \
+@am__fastdepCC_TRUE@	else rm -f "$(DEPDIR)/xfce4_mixer-xfce-mixer-profiles.Tpo"; exit 1; \
+@am__fastdepCC_TRUE@	fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='xfce-mixer-profiles.c' object='xfce4_mixer-xfce-mixer-profiles.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/xfce4_mixer-xfce-mixer-profiles.Po' tmpdepfile='$(DEPDIR)/xfce4_mixer-xfce-mixer-profiles.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(xfce4_mixer_CFLAGS) $(CFLAGS) -c -o xfce4_mixer-xfce-mixer-profiles.o `test -f 'xfce-mixer-profiles.c' || echo '$(srcdir)/'`xfce-mixer-profiles.c
+
+xfce4_mixer-xfce-mixer-profiles.obj: xfce-mixer-profiles.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(xfce4_mixer_CFLAGS) $(CFLAGS) -MT xfce4_mixer-xfce-mixer-profiles.obj -MD -MP -MF "$(DEPDIR)/xfce4_mixer-xfce-mixer-profiles.Tpo" \
+@am__fastdepCC_TRUE@	  -c -o xfce4_mixer-xfce-mixer-profiles.obj `if test -f 'xfce-mixer-profiles.c'; then $(CYGPATH_W) 'xfce-mixer-profiles.c'; else $(CYGPATH_W) '$(srcdir)/xfce-mixer-profiles.c'; fi`; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/xfce4_mixer-xfce-mixer-profiles.Tpo" "$(DEPDIR)/xfce4_mixer-xfce-mixer-profiles.Po"; \
+@am__fastdepCC_TRUE@	else rm -f "$(DEPDIR)/xfce4_mixer-xfce-mixer-profiles.Tpo"; exit 1; \
+@am__fastdepCC_TRUE@	fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='xfce-mixer-profiles.c' object='xfce4_mixer-xfce-mixer-profiles.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/xfce4_mixer-xfce-mixer-profiles.Po' tmpdepfile='$(DEPDIR)/xfce4_mixer-xfce-mixer-profiles.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(xfce4_mixer_CFLAGS) $(CFLAGS) -c -o xfce4_mixer-xfce-mixer-profiles.obj `if test -f 'xfce-mixer-profiles.c'; then $(CYGPATH_W) 'xfce-mixer-profiles.c'; else $(CYGPATH_W) '$(srcdir)/xfce-mixer-profiles.c'; fi`
+
+xfce4_mixer-xfce-mixer-profiles.lo: xfce-mixer-profiles.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(xfce4_mixer_CFLAGS) $(CFLAGS) -MT xfce4_mixer-xfce-mixer-profiles.lo -MD -MP -MF "$(DEPDIR)/xfce4_mixer-xfce-mixer-profiles.Tpo" \
+@am__fastdepCC_TRUE@	  -c -o xfce4_mixer-xfce-mixer-profiles.lo `test -f 'xfce-mixer-profiles.c' || echo '$(srcdir)/'`xfce-mixer-profiles.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/xfce4_mixer-xfce-mixer-profiles.Tpo" "$(DEPDIR)/xfce4_mixer-xfce-mixer-profiles.Plo"; \
+@am__fastdepCC_TRUE@	else rm -f "$(DEPDIR)/xfce4_mixer-xfce-mixer-profiles.Tpo"; exit 1; \
+@am__fastdepCC_TRUE@	fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='xfce-mixer-profiles.c' object='xfce4_mixer-xfce-mixer-profiles.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/xfce4_mixer-xfce-mixer-profiles.Plo' tmpdepfile='$(DEPDIR)/xfce4_mixer-xfce-mixer-profiles.TPlo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(xfce4_mixer_CFLAGS) $(CFLAGS) -c -o xfce4_mixer-xfce-mixer-profiles.lo `test -f 'xfce-mixer-profiles.c' || echo '$(srcdir)/'`xfce-mixer-profiles.c
 
 mostlyclean-libtool:
 	-rm -f *.lo

@@ -19,10 +19,10 @@ extern "C" {
 
 #include "xfce-mixer-pxml.h"
 
-#line 24 "mixer-preferences.gob"
+#line 25 "mixer-preferences.gob"
 #line 24 "xfce-mixer-preferences-private.h"
 struct _XfceMixerPreferencesPrivate {
-#line 32 "mixer-preferences.gob"
+#line 33 "mixer-preferences.gob"
 	gchar * master;
 #line 28 "xfce-mixer-preferences-private.h"
 };

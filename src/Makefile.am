@@ -15,14 +15,15 @@ xfce4_mixer_SOURCES = xfce-mixer-control.c xfce-mixer-slider.c \
 	xfce-mixer-select.c string_option_menu.c \
 	xfce-mixer-mcs-client.c xfce-mixer-profiledlg.c \
 	xfce-mixer-profilebox.c xfce-mixer-profilebox-detail.c \
-	xfce-mixer-pxml.c
+	xfce-mixer-pxml.c xfce-mixer-profiles.c
 
 xfce4_mixer_GSOURCES = mixer-control.gob \
 	mixer-slider.gob mixer-view.gob mixer-view-tiny.gob \
 	mixer-slider-tiny.gob mixer-window.gob mixer-switch.gob \
 	mixer-info.gob mixer-select.gob mixer-mcs-client.gob \
 	mixer-profiledlg.gob mixer-profilebox.gob \
-	mixer-profilebox-detail.gob mixer-pxml.gob
+	mixer-profilebox-detail.gob mixer-pxml.gob \
+	mixer-profiles.gob
 
 xfce4_mixer_CFLAGS =							\
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"                           \

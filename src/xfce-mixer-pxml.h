@@ -16,11 +16,6 @@ extern "C" {
 #include <libxml/parser.h>
 #include <libxml/tree.h>
 
-#ifndef MYDATA
-extern xmlDocPtr xmlconfig;
-#define MYDATA(node) xmlNodeListGetString(xmlconfig, node->children, 1)
-#endif
-
 
 
 /*
@@ -47,6 +42,8 @@ struct _XfceMixerPxml {
 	xmlNodePtr node;
 	/*< private >*/
 	gchar * root; /* protected */
+	gchar * fname; /* protected */
+	xmlDocPtr document; /* protected */
 };
 
 /*
@@ -62,6 +59,8 @@ struct _XfceMixerPxmlClass {
  * Public methods
  */
 GType	xfce_mixer_pxml_get_type	(void);
+void 	xfce_mixer_pxml_set_document	(XfceMixerPxml * self,
+					xmlDocPtr doc);
 void 	xfce_mixer_pxml_eat_children	(XfceMixerPxml * self,
 					GList * exceptions);
 gboolean 	xfce_mixer_pxml_goto_next	(XfceMixerPxml * self);
@@ -72,6 +71,7 @@ gboolean 	xfce_mixer_pxml_goto_child_tag	(XfceMixerPxml * self,
 gboolean 	xfce_mixer_pxml_has_parent	(XfceMixerPxml * self);
 void 	xfce_mixer_pxml_goto_parent	(XfceMixerPxml * self);
 void 	xfce_mixer_pxml_goto_children	(XfceMixerPxml * self);
+void 	xfce_mixer_pxml_goto_root	(XfceMixerPxml * self);
 void 	xfce_mixer_pxml_goto_node	(XfceMixerPxml * self,
 					xmlNodePtr nn);
 gboolean 	xfce_mixer_pxml_has_children	(XfceMixerPxml * self);
@@ -84,6 +84,19 @@ xmlNodePtr 	xfce_mixer_pxml_create_text_child	(XfceMixerPxml * self,
 					gchar const * name,
 					gchar const * opt_text);
 XfceMixerPxml * 	xfce_mixer_pxml_new	(gchar const * root);
+gchar * 	xfce_mixer_pxml_get_text_child	(XfceMixerPxml * self);
+
+/*
+ * Argument wrapping macros
+ */
+#if defined(__GNUC__) && !defined(__STRICT_ANSI__)
+#define XFCE_MIXER_PXML_PROP_FNAME(arg)    	"fname",({gchar *z = (arg); z;})
+#define XFCE_MIXER_PXML_GET_PROP_FNAME(arg)	"fname",({gchar **z = (arg); z;})
+#else /* __GNUC__ && !__STRICT_ANSI__ */
+#define XFCE_MIXER_PXML_PROP_FNAME(arg)    	"fname",(gchar *)(arg)
+#define XFCE_MIXER_PXML_GET_PROP_FNAME(arg)	"fname",(gchar **)(arg)
+#endif /* __GNUC__ && !__STRICT_ANSI__ */
+
 
 #ifdef __cplusplus
 }

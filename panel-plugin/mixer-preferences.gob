@@ -19,6 +19,7 @@
 #include "stringlist.inc"
 
 #define MIXER_ROOT "Mixer"
+extern xmlDocPtr xmlconfig;
 
 %}
 %a{
@@ -175,6 +176,8 @@ class Xfce:Mixer:Preferences from Gtk:Object {
 	init (self)
 	{
 		self->xml = XFCE_MIXER_PXML (xfce_mixer_pxml_new (MIXER_ROOT));
+
+		xfce_mixer_pxml_set_document (self->xml, xmlconfig);
 		self_fill_probably_master (self);
 	}
 
@@ -198,7 +201,7 @@ class Xfce:Mixer:Preferences from Gtk:Object {
 		xfce_mixer_pxml_goto_children (self->xml);
 
 		while (self->xml->node) {
-			value = MYDATA (self->xml->node);
+			value = xfce_mixer_pxml_get_text_child (self->xml);
 			if (xfce_mixer_pxml_check_tag (self->xml, "Device")) {
 				g_object_set (G_OBJECT (self), "device", value, NULL);
 			} else if (xfce_mixer_pxml_check_tag (self->xml, "Command")) {

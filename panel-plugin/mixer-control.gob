@@ -11,6 +11,7 @@ requires 2.0.0
 #endif
 #include <stdio.h>
 #include <stdlib.h>
+#include <libxfce4util/i18n.h>
 #define emit 
 %}
 
@@ -43,14 +44,14 @@ class Xfce:Mixer:Control from Gtk:VBox {
 			return g_strdup ("?");
 
 		if (g_str_has_suffix (self->vcname, ",0")) {
-			tmp = g_strdup (self->vcname);
+			tmp = g_strdup (_(self->vcname));
 			if (tmp && strlen(tmp) >= 2)
 				tmp[strlen (tmp) - 2] = 0;
 
 			return tmp;
 		}
 
-		return g_strdup_printf("%s", self->vcname);
+		return g_strdup_printf("%s", _(self->vcname));
 	}
 
 	/* signal first NONE (NONE) */

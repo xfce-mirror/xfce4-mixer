@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-01-20 23:55+0100\n"
+"POT-Creation-Date: 2004-01-21 12:54+0100\n"
 "PO-Revision-Date: 2004-01-20 15:30+0100\n"
 "Last-Translator: Artjom Simon <hoek@linuxartist.org>\n"
 "Language-Team: German <xfce4-dev@xfce.org>\n"
@@ -26,6 +26,112 @@ msgstr "Nichts"
 #: mixer-settingsbox.gob:104
 msgid "Useful Controls"
 msgstr "Nützliche Regler"
+
+#: lib/trans.c:6
+msgid "Vol"
+msgstr "Master"
+
+#. Master
+#: lib/trans.c:7
+msgid "Pcm"
+msgstr "Wave"
+
+#. PCM output
+#: lib/trans.c:8
+msgid "Spkr"
+msgstr "PC-Lautsprecher"
+
+#. Internal speaker?
+#: lib/trans.c:9
+msgid "Line"
+msgstr "Line"
+
+#. Line in
+#: lib/trans.c:10
+msgid "Mic"
+msgstr "Mikrofon"
+
+#. Mic in
+#: lib/trans.c:11
+msgid "CD"
+msgstr ""
+
+#. CD in
+#: lib/trans.c:12
+msgid "Bass"
+msgstr ""
+
+#: lib/trans.c:13
+msgid "Trebl"
+msgstr ""
+
+#: lib/trans.c:14
+msgid "Synth"
+msgstr ""
+
+#: lib/trans.c:15
+msgid "Mix"
+msgstr ""
+
+#: lib/trans.c:16
+msgid "Pcm2"
+msgstr "Wave 2"
+
+#: lib/trans.c:17
+msgid "Rec"
+msgstr ""
+
+#: lib/trans.c:18
+msgid "IGain"
+msgstr ""
+
+#: lib/trans.c:19
+msgid "OGain"
+msgstr ""
+
+#: lib/trans.c:20
+msgid "Line1"
+msgstr ""
+
+#: lib/trans.c:21
+msgid "Line2"
+msgstr ""
+
+#: lib/trans.c:22
+msgid "Line3"
+msgstr ""
+
+#: lib/trans.c:23
+msgid "Digital1"
+msgstr ""
+
+#: lib/trans.c:24
+msgid "Digital2"
+msgstr ""
+
+#: lib/trans.c:25
+msgid "Digital3"
+msgstr ""
+
+#: lib/trans.c:26
+msgid "PhoneIn"
+msgstr ""
+
+#: lib/trans.c:27
+msgid "PhoneOut"
+msgstr ""
+
+#: lib/trans.c:28
+msgid "Video"
+msgstr ""
+
+#: lib/trans.c:29
+msgid "Radio"
+msgstr ""
+
+#: lib/trans.c:30
+msgid "Monitor"
+msgstr ""
 
 #: lib/vc_alsa.c:94
 #, c-format
@@ -80,38 +186,6 @@ msgstr "Schalter ausblenden"
 #: src/main.c:50
 msgid "No working sound"
 msgstr "Keine funktionierende Soundkonfiguration gefunden"
-
-#: src/menus.c:9
-msgid "/_File"
-msgstr "/_Datei"
-
-#: src/menus.c:10
-msgid "/File/_Options"
-msgstr "/Datei/_Optionen"
-
-#: src/menus.c:11
-msgid "/File/_Exit"
-msgstr "/Datei/_Beenden"
-
-#: src/menus.c:12
-msgid "/_View"
-msgstr "/_Ansicht"
-
-#: src/menus.c:13
-msgid "/View/sep"
-msgstr "/Ansicht/sep"
-
-#: src/menus.c:14
-msgid "/View/_Manage"
-msgstr "/Ansicht/An_passen"
-
-#: src/menus.c:15
-msgid "/_Help"
-msgstr "/_Hilfe"
-
-#: src/menus.c:16
-msgid "/Help/_Info"
-msgstr "/Hilfe/_Info"
 
 #: mixer-profilebox.gob:88
 #, fuzzy
@@ -204,6 +278,30 @@ msgstr ""
 "Es ist unter der GPL-2 lizensiert, die man auch im Quelltextverzeichnis "
 "finden kann.\n"
 "Keine Garantie jeglicher Art für das Programm."
+
+#~ msgid "/_File"
+#~ msgstr "/_Datei"
+
+#~ msgid "/File/_Options"
+#~ msgstr "/Datei/_Optionen"
+
+#~ msgid "/File/_Exit"
+#~ msgstr "/Datei/_Beenden"
+
+#~ msgid "/_View"
+#~ msgstr "/_Ansicht"
+
+#~ msgid "/View/sep"
+#~ msgstr "/Ansicht/sep"
+
+#~ msgid "/View/_Manage"
+#~ msgstr "/Ansicht/An_passen"
+
+#~ msgid "/_Help"
+#~ msgstr "/_Hilfe"
+
+#~ msgid "/Help/_Info"
+#~ msgstr "/Hilfe/_Info"
 
 #~ msgid "Use _internal mixer"
 #~ msgstr "_Internen Mixer verwenden"
