@@ -3,6 +3,6 @@
 
 #include <gtk/gtk.h>
 
-GtkMenuBar *xfce_mixer_create_main_menu (GtkAccelGroup *accel_group);
+GtkMenuBar *xfce_mixer_create_main_menu (GtkWindow *win, GtkAccelGroup *accel_group);
 
 #endif

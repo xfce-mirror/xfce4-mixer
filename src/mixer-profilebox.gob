@@ -1,0 +1,272 @@
+%{
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+%}
+%a{
+#include <gtk/gtk.h>
+#include "xfce-mixer-profilebox-detail.h"
+%}
+%{
+#include <libxfce4util/i18n.h>
+#define NO_TREE_CHECK_COLUMN
+#include "helpers3.inc"
+#include "stringlist.inc"
+
+static void profile_insert_cb (GtkWidget *w, gpointer user_data);
+static void profile_delete_cb (GtkWidget *w, gpointer user_data);
+
+static void each_selstring_cb (GtkTreeModel *model, GtkTreePath *path, GtkTreeIter *iter, gpointer data)
+{
+	GList **gg;
+	gchar *s;
+	gg = (GList **)data;
+
+	gtk_tree_model_get (model, iter, 0, &s, -1);
+	if (s) {
+		*gg = g_list_append (*gg, s);
+	}
+}
+
+%}
+
+class Xfce:Mixer:Profilebox from Gtk:VBox {
+	protected GtkWidget *sep1;
+	protected GtkWidget *sep2;
+	protected GtkLabel *device_label;
+	protected GtkScrolledWindow *profiles_sw;
+	protected GtkTreeView *profiles_tv;
+	protected GtkTreeStore *profiles_model;
+	protected GtkBox *profiles_box;
+	protected GtkWidget *profiles_insert_button;
+	protected GtkWidget *profiles_delete_button;
+
+	protected GtkToolbar *profiles_toolbar;
+	protected Xfce:Mixer:Profilebox:Detail *detail = NULL;
+	protected GtkBox * hbox;
+
+	init (self)
+	{
+		GtkBox *devbox;
+		GtkWidget *d1label;
+		GtkWidget *dal;
+		devbox = GTK_BOX (gtk_hbox_new (FALSE, 5));
+		d1label = gtk_label_new (_("Device:"));
+		gtk_widget_show (GTK_WIDGET (d1label));
+		gtk_box_pack_start (devbox, d1label, FALSE, FALSE, 0);
+
+		self->device_label = GTK_LABEL (gtk_label_new ("(TODO)"));
+		gtk_widget_show (GTK_WIDGET (self->device_label));
+
+		gtk_box_pack_start (devbox, GTK_WIDGET (self->device_label), FALSE, FALSE, 0);
+		gtk_widget_show (GTK_WIDGET (devbox));
+
+		self->hbox = GTK_BOX (gtk_hbox_new (FALSE, 0));
+		gtk_widget_show (GTK_WIDGET (self->hbox));
+
+		dal = gtk_alignment_new (0.5, 0.5, 0.0, 0.0);
+		gtk_widget_show (GTK_WIDGET (dal));
+
+		gtk_container_add (GTK_CONTAINER (dal), GTK_WIDGET (devbox));
+
+		self->sep2 = gtk_hseparator_new ();
+		gtk_widget_show (self->sep2);
+
+		gtk_box_pack_start (GTK_BOX (self), GTK_WIDGET (dal), FALSE, FALSE, 0);
+		gtk_box_pack_start (GTK_BOX (self), GTK_WIDGET (self->sep2), FALSE, FALSE, 3);
+		gtk_box_pack_start (GTK_BOX (self), GTK_WIDGET (self->hbox), TRUE, TRUE, 3);
+
+		self->detail = xfce_mixer_profilebox_detail_new ();
+		gtk_widget_show (GTK_WIDGET (self->detail));
+
+		self->sep1 = gtk_vseparator_new ();
+		gtk_widget_show (self->sep1);
+
+		self->profiles_box = GTK_BOX (gtk_vbox_new (FALSE, 0));
+		gtk_widget_show (GTK_WIDGET (self->profiles_box));
+
+		self->profiles_toolbar = GTK_TOOLBAR (gtk_toolbar_new ());
+
+#if 0
+		gtk_toolbar_append_item (self->profiles_toolbar,
+			"test", "testtip", NULL, NULL/*icon*/, NULL/*callback*/,
+			NULL/*user_data*/
+		);
+#endif
+
+		gtk_toolbar_set_style (self->profiles_toolbar,
+			GTK_TOOLBAR_ICONS
+		);
+
+		self->profiles_insert_button =
+			gtk_toolbar_insert_stock (self->profiles_toolbar,
+			GTK_STOCK_ADD,
+			_("Create new profile"),
+			NULL,
+			(GtkSignalFunc)profile_insert_cb /*cb*/,
+			(gpointer)self,
+			-1
+		);
+		self->profiles_delete_button =
+			gtk_toolbar_insert_stock (self->profiles_toolbar,
+			GTK_STOCK_REMOVE,
+			_("Delete this profile"),
+			NULL,
+			(GtkSignalFunc)profile_delete_cb /*cb*/,
+			(gpointer)self,
+			-1
+		);
+
+		gtk_widget_show (GTK_WIDGET (self->profiles_toolbar));
+
+		self->profiles_sw = GTK_SCROLLED_WINDOW (gtk_scrolled_window_new (NULL, NULL));
+		gtk_scrolled_window_set_policy (self->profiles_sw, GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
+		gtk_widget_show (GTK_WIDGET (self->profiles_sw));
+
+		self->profiles_model = GTK_TREE_STORE (gtk_tree_store_new (1, G_TYPE_STRING));
+
+		self->profiles_tv = GTK_TREE_VIEW (gtk_tree_view_new ());
+		gtk_tree_view_set_model (self->profiles_tv, GTK_TREE_MODEL (self->profiles_model));
+
+		gtk_tree_view_append_column (self->profiles_tv, 
+			tree_new_text_column ("Profile", 0
+		));
+
+		gtk_tree_view_set_headers_visible (self->profiles_tv, FALSE);
+
+		gtk_widget_show (GTK_WIDGET (self->profiles_tv));
+
+		gtk_container_add (GTK_CONTAINER (self->profiles_sw), GTK_WIDGET (self->profiles_tv));
+
+		gtk_box_pack_start (GTK_BOX (self->profiles_box), GTK_WIDGET (self->profiles_toolbar), FALSE, FALSE, 0);
+		gtk_box_pack_start (GTK_BOX (self->profiles_box), GTK_WIDGET (self->profiles_sw), TRUE, TRUE, 0);
+
+		gtk_box_pack_start (GTK_BOX (self->hbox), GTK_WIDGET (self->profiles_box), TRUE, TRUE, 0);
+		gtk_box_pack_start (GTK_BOX (self->hbox), GTK_WIDGET (self->sep1), FALSE, FALSE, 0);
+		gtk_box_pack_start (GTK_BOX (self->hbox), GTK_WIDGET (self->detail), TRUE, TRUE, 0);
+		gtk_box_set_spacing (GTK_BOX (self->hbox), 3);
+
+		gtk_widget_set_size_request (GTK_WIDGET (self->hbox), -1, 200);
+
+		/*self->profiles_insert_button;*/
+		gtk_widget_set_sensitive (self->profiles_delete_button, FALSE);
+
+		g_signal_connect_swapped (G_OBJECT (self->profiles_model),
+			"row-inserted", G_CALLBACK (self_row_inserted_cb),
+			self);
+
+		g_signal_connect_swapped (G_OBJECT (self->profiles_model),
+			"row-deleted", G_CALLBACK (self_row_inserted_cb),
+			self);
+	}
+
+	protected void row_inserted_cb (self, GtkTreePath *path, GtkTreeIter *iter, GtkTreeModel *model)
+	{
+		g_warning ("inserted");
+		self_rowcnt_updated_cb (self);
+	}
+
+	protected void row_deleted_cb (self, GtkTreePath *path, GtkTreeModel *model)
+	{
+		g_warning ("deleted");
+		self_rowcnt_updated_cb (self);
+	}
+
+	protected void rowcnt_updated_cb (self)
+	{
+		gboolean b;
+		b = gtk_tree_model_iter_n_children (GTK_TREE_MODEL (self->profiles_model), NULL) > 0;
+		gtk_widget_set_sensitive (GTK_WIDGET (self->profiles_delete_button), b);
+	}
+
+	public void profile_insert_cb(self)
+	{
+		self_new_dlg (self);
+	}
+
+	public void profile_delete_cb(self)
+	{
+		GtkTreeSelection *sels;
+		GList *g;
+		sels = gtk_tree_view_get_selection (self->profiles_tv);
+		if (!sels)
+			return;
+
+		g = NULL;
+
+		gtk_tree_selection_selected_foreach (sels, each_selstring_cb, (gpointer) &g);
+
+		if (!g) /* nothing selected */
+			return;
+
+		/* TODO really delete */
+
+		if (g)
+			stringlist_free (g);
+	}
+
+	protected void profiles_updated (self) /* profile list changed */
+	{
+		GtkTreeStore *store;
+		store = self->profiles_model;
+
+		gtk_tree_store_clear (store);
+	}
+
+	protected void new_dlg(self)
+	{
+		GtkDialog *dlg;
+		gchar *s;
+		GtkWindow *parent;
+		XfceMixerProfileboxDetail *detail;
+		parent =  GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (self)));
+
+		s = g_strdup_printf (
+			_("%s - New"),
+			gtk_window_get_title (parent)
+		);
+		dlg = GTK_DIALOG (gtk_dialog_new_with_buttons (
+			s, parent,
+			GTK_DIALOG_DESTROY_WITH_PARENT | GTK_DIALOG_MODAL,
+			GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
+			GTK_STOCK_OK, GTK_RESPONSE_OK,
+			NULL
+		));
+		g_free (s);
+
+		detail = xfce_mixer_profilebox_detail_new ();
+		gtk_widget_show (GTK_WIDGET (detail));
+		gtk_box_pack_start (GTK_BOX (dlg->vbox), GTK_WIDGET (detail), TRUE, TRUE, 0);
+
+		gtk_widget_set_size_request (GTK_WIDGET (detail), -1, 200);
+
+		xfce_mixer_profilebox_detail_fill (detail);
+
+		if (gtk_dialog_run (dlg) == GTK_RESPONSE_OK) {
+			/* TODO really insert */
+		}
+		gtk_widget_destroy (GTK_WIDGET (dlg));
+	}
+
+	public Xfce:Mixer:Profilebox *new (void)
+	{
+		return XFCE_MIXER_PROFILEBOX (GET_NEW);
+	}
+}
+
+%{
+static void profile_insert_cb (GtkWidget *w, gpointer user_data)
+{
+	XfceMixerProfilebox *pb;
+	pb = XFCE_MIXER_PROFILEBOX (user_data);
+	xfce_mixer_profilebox_profile_insert_cb (pb);
+}
+
+static void profile_delete_cb (GtkWidget *w, gpointer user_data)
+{
+	XfceMixerProfilebox *pb;
+	pb = XFCE_MIXER_PROFILEBOX (user_data);
+	xfce_mixer_profilebox_profile_delete_cb (pb);
+}
+
+%}

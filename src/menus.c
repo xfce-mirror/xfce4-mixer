@@ -1,8 +1,8 @@
 #include <gtk/gtk.h>
-/*#include <libxfce4util/i18n.h>*/
+#include <libxfce4util/i18n.h>
 #include "xfce-mixer-info.h"
+#include "xfce-mixer-profiledlg.h"
 #include "menu-callbacks.inc"
-
 
 static GtkItemFactoryEntry menubar_items[] =
 {
@@ -23,7 +23,7 @@ translate_menu (const char *msg)
 } 
 
 GtkMenuBar *
-xfce_mixer_create_main_menu (GtkAccelGroup *accel_group)
+xfce_mixer_create_main_menu (GtkWindow *win, GtkAccelGroup *accel_group)
 {
 	GtkMenuBar *menu;
 	GtkItemFactory *ifactory;
@@ -36,7 +36,7 @@ xfce_mixer_create_main_menu (GtkAccelGroup *accel_group)
 	);
 	
 	gtk_item_factory_create_items (ifactory, G_N_ELEMENTS (menubar_items),
-	                                       menubar_items, NULL);
+	                                       menubar_items, win);
 
 	menu = GTK_MENU_BAR (gtk_item_factory_get_widget (ifactory, "<menu>"));
 

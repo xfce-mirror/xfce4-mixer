@@ -31,7 +31,9 @@ class Xfce:Mixer:Window from Gtk:Window {
 		gtk_widget_show (GTK_WIDGET (self->box));
 
 		self->accelgroup = GTK_ACCEL_GROUP (gtk_accel_group_new ());
-		self->menubar = xfce_mixer_create_main_menu (self->accelgroup);
+		self->menubar = xfce_mixer_create_main_menu (
+			GTK_WINDOW (self), self->accelgroup
+		);
 
 		gtk_window_add_accel_group (GTK_WINDOW (self), self->accelgroup);
 

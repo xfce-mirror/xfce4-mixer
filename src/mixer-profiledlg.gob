@@ -1,0 +1,33 @@
+%{
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+%} 
+%a{
+#include <gtk/gtk.h>
+#include "xfce-mixer-profilebox.h"
+%}
+
+class Xfce:Mixer:Profiledlg from Gtk:Dialog {
+	protected XfceMixerProfilebox *pbox = NULL;
+
+	init (self)
+	{
+		self->pbox = xfce_mixer_profilebox_new ();
+		gtk_widget_show (GTK_WIDGET (self->pbox));
+		gtk_box_pack_start (GTK_BOX (GTK_DIALOG (self)->vbox), 
+			GTK_WIDGET (self->pbox), TRUE, TRUE, 0
+		);
+
+		gtk_dialog_add_buttons (GTK_DIALOG (self),
+			GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
+			GTK_STOCK_OK, GTK_RESPONSE_OK,
+			NULL);
+	}
+
+	public Xfce:Mixer:Profiledlg *new (void)
+	{
+		return XFCE_MIXER_PROFILEDLG (GET_NEW);
+	}
+}
+
