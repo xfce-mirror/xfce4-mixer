@@ -497,9 +497,24 @@ mixer_set_size (Control *control, int size)
 {
 	t_mixer	*mixer = (t_mixer *)control->data;
 	
+	int	slider_width;
+	int	all;
+	int	r;
+	
 	/* size: 0..3(HUGE), with 4- taken as huge too */
 
+	slider_width = 6 + 2 * size;
+	
+	if (slider_width < 0) slider_width = 1;
+#if 0
 	gtk_widget_set_size_request(GTK_WIDGET(mixer->mixer), icon_size[size], icon_size[size]);
+	gtk_widget_set_size_request(GTK_WIDGET(mixer->status), 6 + 2 * size, icon_size[size]);
+#endif
+	all = icon_size[size];
+	r = all - slider_width;
+	if (r < 0) r = 1;
+		
+	gtk_widget_set_size_request(GTK_WIDGET(mixer->mixer), r, r);
 	gtk_widget_set_size_request(GTK_WIDGET(mixer->status), 6 + 2 * size, icon_size[size]);
 
 	gtk_widget_queue_resize (GTK_WIDGET (mixer->status));
@@ -513,13 +528,18 @@ gboolean
 create_mixer_control (Control * control)
 {
 	t_mixer *mixer = NULL;
+	GtkWidget *alignment;
 	
 	if (!tooltips) {
 		tooltips = gtk_tooltips_new();
 	}
 	
 	mixer = mixer_new ();
-	gtk_container_add (GTK_CONTAINER (control->base), GTK_WIDGET(mixer->hbox));
+
+	alignment = gtk_alignment_new (0.5, 0.5, 0.0, 0.0); /* xalign,yalign,xscale,yscale */
+	gtk_widget_show (alignment);
+	gtk_container_add (GTK_CONTAINER (alignment), GTK_WIDGET(mixer->hbox));
+	gtk_container_add (GTK_CONTAINER (control->base), alignment);
 
 	control->data = (gpointer) mixer;
 	control->with_popup = FALSE;
