@@ -7,7 +7,7 @@ dnl Checks for libraries.
 
 
 AM_CONFIG_HEADER([config.h])
-AM_INIT_AUTOMAKE([xfce4-mixer], [4.1.99.3])
+AM_INIT_AUTOMAKE([xfce4-mixer], [4.2.0])
 AM_MAINTAINER_MODE
 
 dnl Check for UNIX variants
@@ -72,12 +72,12 @@ BM_I18N([xfce4-mixer], [ar az be bg ca de en_GB es es_MX et eu fa fi fr gu he
 			zh_CN zh_TW])
 
 BM_DEPEND([XML], [libxml-2.0], [2.4.0])
-BM_DEPEND([XFCE4_UTIL], [libxfce4util-1.0], [4.1.99])
-BM_DEPEND([XFCE4_GUI], [libxfcegui4-1.0], [4.1.99])
+BM_DEPEND([XFCE4_UTIL], [libxfce4util-1.0], [4.2.0])
+BM_DEPEND([XFCE4_GUI], [libxfcegui4-1.0], [4.2.0])
 BM_DEPEND([GTK], [gtk+-2.0], [2.2.0])
-BM_DEPEND([XFCE_MCS_CLIENT], [libxfce4mcs-client-1.0], [4.1.99])
-XFCE_PANEL_PLUGIN([XFCE4_PANEL], [4.1.99])
-XFCE_MCS_PLUGIN([XFCE_MCS_MANAGER], [4.1.99])
+BM_DEPEND([XFCE_MCS_CLIENT], [libxfce4mcs-client-1.0], [4.2.0])
+XFCE_PANEL_PLUGIN([XFCE4_PANEL], [4.2.0])
+XFCE_MCS_PLUGIN([XFCE_MCS_MANAGER], [4.2.0])
 
 AC_MSG_CHECKING([whether to build big mixer window])
 AC_ARG_ENABLE([big-mixer],
