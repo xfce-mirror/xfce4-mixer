@@ -1,13 +1,14 @@
+# translation of tr.po to Turkish
 # translation of xfce4-mixer.po to Turkish
 # Copyright (C) 2003 Free Software Foundation, Inc.
 # Erçin EKER <erc.caldera@gmx.net>, 2003
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-mixer\n"
+"Project-Id-Version: tr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2003-06-05 13:30+0200\n"
-"PO-Revision-Date: 2003-06-05 01:10+0300\n"
+"PO-Revision-Date: 2003-06-11 17:15+0300\n"
 "Last-Translator: Erçin EKER <erc.caldera@gmx.net>\n"
 "Language-Team: Turkish <>\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +20,6 @@ msgid "No working sound"
 msgstr "Ses çalışmıyor"
 
 #: panel-plugin/mixer.c:263
-#, fuzzy, c-format
 msgid "Volume: %d%%"
 msgstr "Ses yönetimi - %d%%"
 
@@ -28,31 +28,26 @@ msgid "Volume Control"
 msgstr "Ses yönetimi"
 
 #: panel-plugin/vc_alsa.c:88
-#, fuzzy, c-format
 msgid "alsa: Mixer %s open error: %s\n"
-msgstr "Karıştırıcı %s açma hatası: %s\n"
+msgstr "alsa: Karıştırıcı %s açma hatası: %s\n"
 
 #: panel-plugin/vc_alsa.c:93
-#, fuzzy, c-format
 msgid "alsa: Mixer attach %s error: %s\n"
-msgstr "Karıştırıcı iliştirme %s hatası: %s"
+msgstr "alsa: Karıştırıcı iliştirme %s hatası: %s\n"
 
 #: panel-plugin/vc_alsa.c:101
-#, fuzzy, c-format
 msgid "alsa: Mixer register error: %s"
-msgstr "Karıştırıcı kayıt hatası: %s"
+msgstr "alsa: Karıştırıcı kayıt hatası: %s"
 
 #: panel-plugin/vc_alsa.c:110
-#, fuzzy, c-format
 msgid "alsa: Mixer load error: %s"
-msgstr "Karıştırıcı yükleme hatası: %s"
+msgstr "alsa: Karıştırıcı yükleme hatası: %s"
 
 #: panel-plugin/vc_alsa.c:120
-#, fuzzy, c-format
 msgid "alsa: Unable to find simple control '%s',%i\n"
-msgstr "Basit yönetim bulunamıyor '%s', %i\n"
+msgstr "alsa: Basit yönetim bulunamıyor '%s', %i\n"
 
 #: panel-plugin/vc_oss.c:132
-#, fuzzy
 msgid "oss: No master"
-msgstr "Master yok"
+msgstr "oss: Master yok"
+
