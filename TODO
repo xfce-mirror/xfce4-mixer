@@ -6,6 +6,4 @@ device_changed() {
 	vc_profile_item_producer_produce(current_profile);
 }
 
-
-save window position
 save keyboard shortcuts
