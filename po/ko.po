@@ -31,27 +31,27 @@ msgstr "볼륨 제어"
 
 #: lib/trans.c:6
 msgid "Vol"
-msgstr ""
+msgstr "볼륨"
 
 #. Master
 #: lib/trans.c:7
 msgid "Pcm"
-msgstr ""
+msgstr "변조기"
 
 #. PCM output
 #: lib/trans.c:8
 msgid "Spkr"
-msgstr ""
+msgstr "스피커"
 
 #. Internal speaker?
 #: lib/trans.c:9
 msgid "Line"
-msgstr ""
+msgstr "라인"
 
 #. Line in
 #: lib/trans.c:10
 msgid "Mic"
-msgstr ""
+msgstr "마이크"
 
 #. Mic in
 #: lib/trans.c:11
@@ -61,15 +61,15 @@ msgstr ""
 #. CD in
 #: lib/trans.c:12
 msgid "Bass"
-msgstr ""
+msgstr "저음"
 
 #: lib/trans.c:13
 msgid "Trebl"
-msgstr ""
+msgstr "고음"
 
 #: lib/trans.c:14
 msgid "Synth"
-msgstr ""
+msgstr "합성음"
 
 #: lib/trans.c:15
 msgid "Mix"
@@ -77,63 +77,63 @@ msgstr ""
 
 #: lib/trans.c:16
 msgid "Pcm2"
-msgstr ""
+msgstr "변조기2"
 
 #: lib/trans.c:17
 msgid "Rec"
-msgstr ""
+msgstr "녹음"
 
 #: lib/trans.c:18
 msgid "IGain"
-msgstr ""
+msgstr "입력이득"
 
 #: lib/trans.c:19
 msgid "OGain"
-msgstr ""
+msgstr "출력이득"
 
 #: lib/trans.c:20
 msgid "Line1"
-msgstr ""
+msgstr "라인1"
 
 #: lib/trans.c:21
 msgid "Line2"
-msgstr ""
+msgstr "라인2"
 
 #: lib/trans.c:22
 msgid "Line3"
-msgstr ""
+msgstr "라인3"
 
 #: lib/trans.c:23
 msgid "Digital1"
-msgstr ""
+msgstr "디지털1"
 
 #: lib/trans.c:24
 msgid "Digital2"
-msgstr ""
+msgstr "디지털2"
 
 #: lib/trans.c:25
 msgid "Digital3"
-msgstr ""
+msgstr "디지털3"
 
 #: lib/trans.c:26
 msgid "PhoneIn"
-msgstr ""
+msgstr "단음 입력"
 
 #: lib/trans.c:27
 msgid "PhoneOut"
-msgstr ""
+msgstr "단음 출력"
 
 #: lib/trans.c:28
 msgid "Video"
-msgstr ""
+msgstr "비디오"
 
 #: lib/trans.c:29
 msgid "Radio"
-msgstr ""
+msgstr "라디오"
 
 #: lib/trans.c:30
 msgid "Monitor"
-msgstr ""
+msgstr "감시"
 
 #: lib/vc_alsa.c:94
 #, c-format
