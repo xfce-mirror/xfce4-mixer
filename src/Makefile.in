@@ -166,7 +166,7 @@ xfce4_mixer_CSOURCES = xfce-mixer-control.c xfce-mixer-slider.c \
 	xfce-mixer-slider-tiny.c \
 	xfce-mixer-profile.c xfce-mixer-control-factory.c \
 	xfce-mixer-view.c xfce-mixer-view-tiny.c main.c \
-	vc.c vc_alsa.c vc_oss.c \
+	vc.c vc_alsa.c vc_oss.c vc_sun.c \
 	xfce-mixer-cache-vc.c disclosure-widget.c \
 	menus.c menu-callbacks.inc xfce-mixer-window.c \
 	xfce-mixer-switch.c xfce-mixer-info.c xfce-mixer-control-vc.c \
@@ -217,6 +217,7 @@ am__objects_1 = xfce4_mixer-xfce-mixer-control.$(OBJEXT) \
 	xfce4_mixer-xfce-mixer-view-tiny.$(OBJEXT) \
 	xfce4_mixer-main.$(OBJEXT) xfce4_mixer-vc.$(OBJEXT) \
 	xfce4_mixer-vc_alsa.$(OBJEXT) xfce4_mixer-vc_oss.$(OBJEXT) \
+	xfce4_mixer-vc_sun.$(OBJEXT) \
 	xfce4_mixer-xfce-mixer-cache-vc.$(OBJEXT) \
 	xfce4_mixer-disclosure-widget.$(OBJEXT) \
 	xfce4_mixer-menus.$(OBJEXT) \
@@ -241,6 +242,7 @@ am__depfiles_maybe = depfiles
 @AMDEP_TRUE@	./$(DEPDIR)/xfce4_mixer-vc.Po \
 @AMDEP_TRUE@	./$(DEPDIR)/xfce4_mixer-vc_alsa.Po \
 @AMDEP_TRUE@	./$(DEPDIR)/xfce4_mixer-vc_oss.Po \
+@AMDEP_TRUE@	./$(DEPDIR)/xfce4_mixer-vc_sun.Po \
 @AMDEP_TRUE@	./$(DEPDIR)/xfce4_mixer-xfce-mixer-cache-vc.Po \
 @AMDEP_TRUE@	./$(DEPDIR)/xfce4_mixer-xfce-mixer-control-factory.Po \
 @AMDEP_TRUE@	./$(DEPDIR)/xfce4_mixer-xfce-mixer-control-vc.Po \
@@ -320,6 +322,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/xfce4_mixer-vc.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/xfce4_mixer-vc_alsa.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/xfce4_mixer-vc_oss.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/xfce4_mixer-vc_sun.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/xfce4_mixer-xfce-mixer-cache-vc.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/xfce4_mixer-xfce-mixer-control-factory.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/xfce4_mixer-xfce-mixer-control-vc.Po@am__quote@
@@ -729,6 +732,39 @@ xfce4_mixer-vc_oss.lo: vc_oss.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/xfce4_mixer-vc_oss.Plo' tmpdepfile='$(DEPDIR)/xfce4_mixer-vc_oss.TPlo' @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(xfce4_mixer_CFLAGS) $(CFLAGS) -c -o xfce4_mixer-vc_oss.lo `test -f 'vc_oss.c' || echo '$(srcdir)/'`vc_oss.c
+
+xfce4_mixer-vc_sun.o: vc_sun.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(xfce4_mixer_CFLAGS) $(CFLAGS) -MT xfce4_mixer-vc_sun.o -MD -MP -MF "$(DEPDIR)/xfce4_mixer-vc_sun.Tpo" \
+@am__fastdepCC_TRUE@	  -c -o xfce4_mixer-vc_sun.o `test -f 'vc_sun.c' || echo '$(srcdir)/'`vc_sun.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/xfce4_mixer-vc_sun.Tpo" "$(DEPDIR)/xfce4_mixer-vc_sun.Po"; \
+@am__fastdepCC_TRUE@	else rm -f "$(DEPDIR)/xfce4_mixer-vc_sun.Tpo"; exit 1; \
+@am__fastdepCC_TRUE@	fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='vc_sun.c' object='xfce4_mixer-vc_sun.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/xfce4_mixer-vc_sun.Po' tmpdepfile='$(DEPDIR)/xfce4_mixer-vc_sun.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(xfce4_mixer_CFLAGS) $(CFLAGS) -c -o xfce4_mixer-vc_sun.o `test -f 'vc_sun.c' || echo '$(srcdir)/'`vc_sun.c
+
+xfce4_mixer-vc_sun.obj: vc_sun.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(xfce4_mixer_CFLAGS) $(CFLAGS) -MT xfce4_mixer-vc_sun.obj -MD -MP -MF "$(DEPDIR)/xfce4_mixer-vc_sun.Tpo" \
+@am__fastdepCC_TRUE@	  -c -o xfce4_mixer-vc_sun.obj `if test -f 'vc_sun.c'; then $(CYGPATH_W) 'vc_sun.c'; else $(CYGPATH_W) '$(srcdir)/vc_sun.c'; fi`; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/xfce4_mixer-vc_sun.Tpo" "$(DEPDIR)/xfce4_mixer-vc_sun.Po"; \
+@am__fastdepCC_TRUE@	else rm -f "$(DEPDIR)/xfce4_mixer-vc_sun.Tpo"; exit 1; \
+@am__fastdepCC_TRUE@	fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='vc_sun.c' object='xfce4_mixer-vc_sun.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/xfce4_mixer-vc_sun.Po' tmpdepfile='$(DEPDIR)/xfce4_mixer-vc_sun.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(xfce4_mixer_CFLAGS) $(CFLAGS) -c -o xfce4_mixer-vc_sun.obj `if test -f 'vc_sun.c'; then $(CYGPATH_W) 'vc_sun.c'; else $(CYGPATH_W) '$(srcdir)/vc_sun.c'; fi`
+
+xfce4_mixer-vc_sun.lo: vc_sun.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(xfce4_mixer_CFLAGS) $(CFLAGS) -MT xfce4_mixer-vc_sun.lo -MD -MP -MF "$(DEPDIR)/xfce4_mixer-vc_sun.Tpo" \
+@am__fastdepCC_TRUE@	  -c -o xfce4_mixer-vc_sun.lo `test -f 'vc_sun.c' || echo '$(srcdir)/'`vc_sun.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/xfce4_mixer-vc_sun.Tpo" "$(DEPDIR)/xfce4_mixer-vc_sun.Plo"; \
+@am__fastdepCC_TRUE@	else rm -f "$(DEPDIR)/xfce4_mixer-vc_sun.Tpo"; exit 1; \
+@am__fastdepCC_TRUE@	fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='vc_sun.c' object='xfce4_mixer-vc_sun.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/xfce4_mixer-vc_sun.Plo' tmpdepfile='$(DEPDIR)/xfce4_mixer-vc_sun.TPlo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(xfce4_mixer_CFLAGS) $(CFLAGS) -c -o xfce4_mixer-vc_sun.lo `test -f 'vc_sun.c' || echo '$(srcdir)/'`vc_sun.c
 
 xfce4_mixer-xfce-mixer-cache-vc.o: xfce-mixer-cache-vc.c
 @am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(xfce4_mixer_CFLAGS) $(CFLAGS) -MT xfce4_mixer-xfce-mixer-cache-vc.o -MD -MP -MF "$(DEPDIR)/xfce4_mixer-xfce-mixer-cache-vc.Tpo" \

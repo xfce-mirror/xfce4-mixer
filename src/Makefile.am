@@ -7,7 +7,7 @@ xfce4_mixer_CSOURCES = xfce-mixer-control.c xfce-mixer-slider.c \
 	xfce-mixer-slider-tiny.c \
 	xfce-mixer-profile.c xfce-mixer-control-factory.c \
 	xfce-mixer-view.c xfce-mixer-view-tiny.c main.c \
-	vc.c vc_alsa.c vc_oss.c \
+	vc.c vc_alsa.c vc_oss.c vc_sun.c \
 	xfce-mixer-cache-vc.c disclosure-widget.c \
 	menus.c menu-callbacks.inc xfce-mixer-window.c \
 	xfce-mixer-switch.c xfce-mixer-info.c xfce-mixer-control-vc.c \
