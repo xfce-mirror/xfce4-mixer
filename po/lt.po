@@ -10,12 +10,12 @@ msgstr ""
 "Project-Id-Version: xfce4-mixer 4.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-10-02 10:36+0200\n"
-"PO-Revision-Date: 2004-06-11 20:49+0300\n"
+"PO-Revision-Date: 2004-10-29 22:35+0300\n"
 "Last-Translator:  <>\n"
 "Language-Team:  <komp_lt@konferencijos.lt>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-13\n"
-"Content-Transfer-Encoding: \n"
+"Content-Transfer-Encoding: "
 
 #: mixer-settingsbox.gob:97
 msgid "Device"
@@ -31,7 +31,6 @@ msgid "Useful Controls"
 msgstr "Naudingi valdikliai"
 
 #: lib/trans.c:6
-#, fuzzy
 msgid "Vol"
 msgstr "Vol"
 
@@ -42,13 +41,11 @@ msgstr "Pcm"
 
 #. PCM output
 #: lib/trans.c:8
-#, fuzzy
 msgid "Spkr"
 msgstr "Spkr"
 
 #. Internal speaker?
 #: lib/trans.c:9
-#, fuzzy
 msgid "Line"
 msgstr "Line"
 
@@ -154,7 +151,6 @@ msgid "Radio"
 msgstr "Radio"
 
 #: lib/trans.c:30
-#, fuzzy
 msgid "Monitor"
 msgstr "Stebëti"
 
@@ -201,14 +197,12 @@ msgid "Sound"
 msgstr "Garsas"
 
 #: mixer-view.gob:258
-#, fuzzy
 msgid "Show Switches"
-msgstr "Rodyti jungtukas"
+msgstr "Rodyti Jungiklius"
 
 #: mixer-view.gob:259
-#, fuzzy
 msgid "Hide Switches"
-msgstr "Slëpti jungtukas"
+msgstr "Slëpti Jungiklius"
 
 #: src/main.c:69
 msgid "No working sound"
@@ -236,7 +230,7 @@ msgid "Really delete those %d profiles?"
 msgstr "Ar tikrai iðtrinti ðiuos profilius %d profilius?"
 
 #: mixer-profilebox.gob:377
-#, fuzzy, c-format
+#, c-format
 msgid "Really delete profile \"%s\"?"
 msgstr "Ar tikrai iðtrinti ðá profilá \"%s\"?"
 
@@ -263,31 +257,29 @@ msgstr "Tipas"
 
 #: mixer-profilebox-detail.gob:166
 msgid "Up"
-msgstr ""
+msgstr "Á virðø"
 
 #: mixer-profilebox-detail.gob:169
 msgid "Down"
-msgstr ""
+msgstr "Þemyn"
 
 #: mixer-profilebox-detail.gob:176
 msgid "Move Entry Up"
-msgstr ""
+msgstr "Perkelti Áraðà Aukðtyn"
 
 #: mixer-profilebox-detail.gob:179
 msgid "Move Entry Down"
-msgstr ""
+msgstr "Perkelti Áraðà Þemyn"
 
 #: mixer-profilebox-detail.gob:188
 msgid "Profile Name:"
 msgstr "Profilio pavadinimas:"
 
 #: mixer-profilebox-detail.gob:370 mixer-profilebox-detail.gob:435
-#, fuzzy
 msgid "<unknown>"
 msgstr "<neþinomas>"
 
 #: mixer-profilebox-detail.gob:372 mixer-profilebox-detail.gob:437
-#, fuzzy
 msgid "<slider>"
 msgstr "<ðliauþiklis>"
 
@@ -305,7 +297,7 @@ msgid "%s - Info"
 msgstr "%s - Info"
 
 #: src/menu-callbacks.inc:38
-#, fuzzy, c-format
+#, c-format
 msgid "%s - Profiles"
 msgstr "%s - Profiliai"
 
@@ -319,3 +311,4 @@ msgstr ""
 "Tai xfce4-mikseris, garso valdymo programa.\n"
 "Ði programa licencijuota pagal GPL-2 Licencijà.\n"
 "Nesuteikiama jokia garantija."
+
