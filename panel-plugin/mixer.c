@@ -77,6 +77,7 @@ typedef struct
 
 typedef struct
 {
+    mixer_window_t	*mw;
     GtkWidget		*eventbox;
     GtkBox		*hbox;
     GtkWidget		*mixer;           /* our XfceMixer widget */
@@ -208,6 +209,7 @@ mixer_new (void)
     
     mixer = g_new0 (t_mixer, 1);
 
+    mixer->mw = NULL;
     mixer->broken = TRUE;
     
     mixer->options.command = NULL; /*g_strdup("aumix");*/
@@ -370,15 +372,25 @@ xfce_mixer_status_button_cb (GtkWidget * widget, GdkEventButton *b, t_mixer *mix
 }
 
 static void
+xfce_mixer_window_destroy_cb(GtkWindow *w, t_mixer *m)
+{
+	if ((GtkWindow *)(m->mw->window) == w) m->mw = NULL;
+}
+
+static void
 xfce_mixer_launch_button_cb(GtkWidget *button, t_mixer *mixer) /* verified prototype: clicked */
 {
-	mixer_window_t * mw;
 	if (!mixer->options.command || !mixer->options.command[0]) {
 		/* empty: use internal */
+
+		if (!mixer->mw) {		
+			mixer->mw = mixer_window_new();
+			g_signal_connect(GTK_WIDGET (mixer->mw->window), "destroy", G_CALLBACK(xfce_mixer_window_destroy_cb), mixer);
+			gtk_widget_show (GTK_WIDGET (mixer->mw->window));
+		}
 		
-		mw = mixer_window_new();
-		if (mw) {
-			gtk_widget_show (GTK_WIDGET (mw->window));
+		if (mixer->mw) {
+			gtk_window_present (GTK_WINDOW (mixer->mw->window));
 		}
 	} else {
 		exec_cmd(mixer->options.command, mixer->options.use_terminal,
