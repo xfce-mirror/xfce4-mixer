@@ -141,7 +141,7 @@ vc_reinit_device()
 static int
 init(void)
 {
-	set_device(dev_name);
+	vc_set_device(dev_name);
 	return 1;
 }
 
