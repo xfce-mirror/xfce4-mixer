@@ -119,7 +119,7 @@ msgstr ""
 
 #: mixer-profilebox.gob:88
 msgid "Device:"
-msgstr "機器"
+msgstr "機器:"
 
 #: mixer-profilebox.gob:142
 msgid "Create new profile"
