@@ -58,7 +58,7 @@
 #define MAX_MIXERS 10
 #define MIXER_BASE "/dev/audioctl"
 
-static char mixer_device[PATH_MAX] = MIXER_BASE;
+static char mixer_device[PATH_MAX + 1] = MIXER_BASE;
 static int fd = -1;
 
 static int init(void)

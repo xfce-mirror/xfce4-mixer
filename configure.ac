@@ -7,7 +7,7 @@ dnl Checks for libraries.
 
 
 AM_CONFIG_HEADER([config.h])
-AM_INIT_AUTOMAKE([xfce4-mixer], [4.1.99.1])
+AM_INIT_AUTOMAKE([xfce4-mixer], [4.1.99.2])
 AM_MAINTAINER_MODE
 
 dnl Check for UNIX variants
@@ -32,23 +32,36 @@ AC_PROG_LIBTOOL
 
 dnl Check what sound system to use
 AC_ARG_WITH([sound], [
-AC_HELP_STRING([--with-sound=alsa|oss], [Check what sound system to use (defaults to OSS)])], [], [with_sound=oss])
+AC_HELP_STRING([--with-sound=auto|alsa|oss|sun], [Check what sound system to use (defaults to auto)])], [],[with_sound=auto])
+
+if test x"$with_sound" != x"alsa" -a x"$with_sound" != x"oss" -a x"$with_sound" != x"sun"; then
+  if test x`uname -s` != x"SunOS"; then
+    with_sound=oss
+  else
+    with_sound=sun
+  fi
+fi
+
+build_sound_system="$with_sound"
 
 AC_MSG_CHECKING([what sound system to use])
 if test x"$with_sound" = x"oss"; then
   AC_DEFINE([USE_OSS], [1], [Define for OSS sound system])
-  AC_MSG_RESULT([OSS])
+  AC_MSG_RESULT([oss])
 
   dnl Check for OSS audio includes and library
   AC_CHECK_LIB([ossaudio], [_oss_ioctl])
 elif test x"$with_sound" = x"alsa"; then
   AC_DEFINE([USE_ALSA], [1], [Define for ALSA sound system])
-  AC_MSG_RESULT([ALSA])
+  AC_MSG_RESULT([alsa])
 
   dnl Check for ALSA library
   BM_DEPEND([ALSA], [alsa], [0.9.0])
   CFLAGS="$CFLAGS $ALSA_CFLAGS"
   LIBS="$LIBS $ALSA_LIBS"
+elif test x"$with_sound" = x"sun"; then
+  AC_DEFINE([USE_SUN], [1], [Define for Sun sound system])
+  AC_MSG_RESULT([sun])
 else
   AC_MSG_ERROR([Unknown sound system "$with_sound"])
 fi
@@ -72,6 +85,7 @@ AC_ARG_ENABLE([big-mixer],
 [], [enable_big_mixer=yes])
 AM_CONDITIONAL([BUILD_BIG_MIXER], [test x"$enable_big_mixer" = x"yes"])
 AC_MSG_RESULT([$enable_big_mixer])
+build_big_mixer="$enable_big_mixer"
 
 dnl Check for debugging support
 BM_DEBUG_SUPPORT
@@ -93,3 +107,10 @@ panel-plugin/Makefile
 settings/Makefile
 po/Makefile.in
 ])
+
+
+echo
+echo "Build Configuration:"
+echo " Sound System:  $build_sound_system"
+echo " Big Mixer:     $build_big_mixer"
+echo

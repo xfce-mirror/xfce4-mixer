@@ -108,6 +108,9 @@
 /* Define for OSS sound system */
 #undef USE_OSS
 
+/* Define for Sun sound system */
+#undef USE_SUN
+
 /* Version number of package */
 #undef VERSION
 
