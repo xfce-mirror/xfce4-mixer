@@ -1,0 +1,19 @@
+This is a mixer plugin for the panel.
+
+It supports the following audio systems:
+	oss
+	alsa
+	alsa (fallback via amixer)
+
+Tuning the volume can be done by clicking in the indicator or by using the 
+mouse wheel.
+
+Installation: 
+	tar zxvf xfce-mixer-<whatever>.tar.gz
+
+	./configure # .........
+	make
+	make install
+
+Cheers
+	Danny
