@@ -21,6 +21,7 @@ int main()
 	}
 	select_vc_direct (*v);
 	
+/*	vc_get_volume (NULL);
 	vc_get_volume (NULL);
 	vc_get_volume (NULL);
 	vc_get_volume (NULL);
@@ -28,14 +29,14 @@ int main()
 	vc_get_volume (NULL);
 	vc_get_volume (NULL);
 	vc_get_volume (NULL);
-	vc_get_volume (NULL);
-	vc_get_volume (NULL);
+	vc_get_volume (NULL);*/
 	
 	vc_set_device ("/dev/mixer1");
 
+/*	vc_get_volume (NULL);
 	vc_get_volume (NULL);
 	vc_get_volume (NULL);
 	vc_get_volume (NULL);
-	vc_get_volume (NULL);
+*/
 	vc_set_volume (NULL, 50);
 }
