@@ -113,7 +113,7 @@ class Xfce:Mixer:Window from Gtk:Window {
 				g_object_unref (G_OBJECT (pb));
 			}
 
-			g_object_unref (G_OBJECT (it));
+			/*g_object_unref (G_OBJECT (it));*/
 		}
 		/*g_object_unref (G_OBJECT (screen));*/
 	}
