@@ -275,11 +275,11 @@ static GList *vc_get_device_list()
 	
 	l = NULL;
 	
-	dir = g_dir_open ("/dev/sound");
+	dir = g_dir_open ("/dev/sound", 0, NULL);
 
 	if (dir) {
 		while ((d = g_dir_read_name (dir))) {
-			if (!strncmp(d, "mixer")) {
+			if (!strncmp(d, "mixer", 5)) {
 				l = g_list_append (l, g_strdup_printf("/dev/sound/%s", d));
 			}
 		}
@@ -287,11 +287,11 @@ static GList *vc_get_device_list()
 		g_dir_close (dir);
 	}
 	
-	dir = g_dir_open ("/dev");
+	dir = g_dir_open ("/dev", 0, NULL);
 
 	if (dir) {
 		while ((d = g_dir_read_name (dir))) {
-			if (!strncmp(d, "mixer")) {
+			if (!strncmp(d, "mixer", 5)) {
 				l = g_list_append (l, g_strdup_printf("/dev/%s", d));
 			}
 		}
