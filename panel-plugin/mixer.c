@@ -250,23 +250,22 @@ mixer_new (void)
 static gboolean
 update_volume_display(t_mixer *mixer)
 {
-	gchar *caption;
+	gchar caption[128];
 
-	caption = g_strdup_printf(_("Volume: %d%%"), mixer->c_volume);
+	g_snprintf(caption, sizeof(caption), _("Volume: %d%%"),
+			mixer->c_volume);
 	gtk_tooltips_set_tip(tooltips, GTK_WIDGET(mixer->hbox), caption,
 			NULL);
 	gtk_tooltips_set_tip(tooltips, GTK_WIDGET(mixer->mixer), caption,
 			NULL);
 	gtk_tooltips_set_tip(tooltips, GTK_WIDGET(mixer->eventbox), caption,
 			NULL);
-	g_free(caption);
 
 	gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(mixer->status),
 			mixer->c_volume / 100.0);
 	
 	return(FALSE);
 }
-
 
 static gboolean
 check_volume (t_mixer *mixer)
@@ -279,11 +278,11 @@ check_volume (t_mixer *mixer)
 	volume = get_master_volume();
 	if (volume != mixer->c_volume) {
 		mixer->c_volume = volume; /* atomic? lol */
-		g_idle_add((GSourceFunc) update_volume_display, mixer);
+		update_volume_display(mixer);
 	}
 
 	/* keep timeout running */
-	return TRUE;
+	return(TRUE);
 }
 
 static gboolean
@@ -514,6 +513,7 @@ mixer_stuff_toggled_cb(GtkToggleButton *tb, t_mixer *mixer) /* verified prototyp
 	mixer_revert_make_sensitive_cb(mixer->revert_b, NULL);
 }
  
+#if 0
 static gboolean
 mixer_command_entry_lost_focus_cb(GtkWidget *w, GdkEvent *event, t_mixer *mixer) /* verified prototype: focus-out-event */
 {
@@ -521,6 +521,7 @@ mixer_command_entry_lost_focus_cb(GtkWidget *w, GdkEvent *event, t_mixer *mixer)
 	return TRUE;
 	/* FALSE;*/ /* needed? */
 }
+#endif
 
 static void
 mixer_do_options(t_mixer *mixer, int mode) /* 0: load; 1: store; 2: connect revert */
