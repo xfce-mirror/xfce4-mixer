@@ -29,14 +29,12 @@ xfce4_mixer_CFLAGS =							\
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"                           \
 	@XFCE_MCS_CLIENT_CFLAGS@ \
 	@XFCE4_UTIL_CFLAGS@						\
-	@XFCE4_GUI_CFLAGS@ \
 	@GTK_CFLAGS@ \
 	@XML_CFLAGS@
 	
 xfce4_mixer_LDADD = 							\
 	@XFCE_MCS_CLIENT_LIBS@ \
 	@XFCE4_UTIL_LIBS@						\
-	@XFCE4_GUI_LIBS@ \
 	@GTK_LIBS@ \
 	@XML_LIBS@ \
 	$(top_builddir)/lib/libxfce4mixer.la
