@@ -1,3 +1,21 @@
+2003-09-22 22:44  huysmans
+
+	* po/: pt_PT.gmo, pt_PT.po: Update version numbers and po files for
+	release
+
+2003-09-22 00:43  xfce
+
+	* configure, configure.ac: Update version number to 4.0.0
+
+2003-09-15 23:07  huysmans
+
+	* configure, configure.ac, po/pt_PT.gmo, po/pt_PT.po: Big portugese
+	translation update
+
+2003-09-10 09:57  huysmans
+
+	* ChangeLog: Update ChangeLogs
+
 2003-09-10 09:49  huysmans
 
 	* configure, configure.ac, po/zh_TW.po: Update version numbers and
