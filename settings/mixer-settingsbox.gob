@@ -11,6 +11,7 @@
 #include "stringlist.inc"
 #include "mixer-mcs-names.h"
 #include "string_option_menu.h"
+/*#include "btd.i"*/
 
 #define SHOW_DEFAULT_DEVICE_ENTRY
 #define SETTINGS_LIST_SEP "@"
@@ -100,6 +101,8 @@ class Xfce:Mixer:Settingsbox from Gtk:VBox {
 
 		self->dev_label = GTK_LABEL (gtk_label_new (_("None")));
 		/*gtk_widget_show (GTK_WIDGET (self->dev_label));*/
+
+		/*debug_bindtextdomain();*/
 
 		self->useful_frame = xfce_framebox_new ( _("Useful Controls"), TRUE);
 		gtk_widget_show (GTK_WIDGET (self->useful_frame));

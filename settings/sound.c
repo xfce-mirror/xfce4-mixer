@@ -97,16 +97,14 @@ static void     run_dialog(McsPlugin *plugin)
 		return;
 	}
 	
-	xfce_textdomain(GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");
-
-	dialog = gtk_dialog_new_with_buttons(dgettext(GETTEXT_PACKAGE, "Sound"), NULL,
+	dialog = gtk_dialog_new_with_buttons(_("Sound"), NULL,
                          GTK_DIALOG_NO_SEPARATOR,
                          GTK_STOCK_CLOSE, GTK_RESPONSE_OK,
 			NULL);
 
 	sb = xfce_mixer_settingsbox_new ();
 	gtk_widget_show (GTK_WIDGET (sb));
-	header = xfce_create_header (plugin->icon, dgettext(GETTEXT_PACKAGE, "Sound"));
+	header = xfce_create_header (plugin->icon, _("Sound"));
 	gtk_widget_show (header);
 	gtk_box_pack_start (GTK_BOX (GTK_DIALOG (dialog)->vbox), GTK_WIDGET (header), FALSE, FALSE, 0);
 	gtk_box_pack_start (GTK_BOX (GTK_DIALOG (dialog)->vbox), GTK_WIDGET (sb), TRUE, FALSE, 6);
