@@ -25,8 +25,7 @@
 
 #define USE_LOCKING 1 /* change that when nfs makes trouble */
 /*
-TODO: 
-<benny> quite simple: 1) parse the input file (don't trust on g_file_test() or access() results, check the fopen result to see if the file exists)...
+<benny> 1) parse the input file (don't trust on g_file_test() or access() results, check the fopen result to see if the file exists)...
 <benny> 2) fopen(target + ".tmp." + getpid(), "w")
 <benny> 3) write the new config
 <benny> 4) fclose(target)
@@ -41,7 +40,12 @@ TODO:
 
 
 static void 
-migrate_errno_print(gchar const *oldpath, gchar const *newpath, int errno, gboolean newfile_culprit)
+migrate_errno_print(
+	gchar const *oldpath, gchar const *newpath, 
+	int errno,
+	gboolean newfile_culprit,
+	gchar const *func
+)
 {
 	char tmp[2049];
 	gchar *whichfile;
@@ -51,9 +55,9 @@ migrate_errno_print(gchar const *oldpath, gchar const *newpath, int errno, gbool
 		else
 			whichfile = "new file";
 			
-		g_warning("could not migrate \"%s\" to \"%s\" because: %s (%s)", oldpath, newpath, tmp, whichfile);
+		g_warning("could not migrate \"%s\" to \"%s\" because: %s: %s (%s)", oldpath, newpath, tmp, func, whichfile);
 	} else {
-		g_warning("could not migrate \"%s\" to \"%s\" because something went wrong (%s)", oldpath, newpath, whichfile);
+		g_warning("could not migrate \"%s\" to \"%s\" because something went wrong (%s: %s)", oldpath, newpath, func, whichfile);
 	}
 }
 
@@ -96,7 +100,7 @@ rename_tmp_file(gchar const *origfilename)
 	}
 	rc = rename(nfilename, origfilename);
 	if (rc == -1) {
-		migrate_errno_print(nfilename, origfilename, errno, TRUE);
+		migrate_errno_print(nfilename, origfilename, errno, TRUE, "rename");
 		unlink (nfilename);
 	}
 	return rc;
