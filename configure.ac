@@ -21,7 +21,9 @@ AC_PROG_INSTALL
 
 dnl Checks for header files.
 AC_HEADER_STDC
-AC_CHECK_HEADERS([fcntl.h limits.h sys/ioctl.h errno.h sys/stat.h sys/types.h])
+
+dnl oss: machine/soundcard.h soundcard.h sys/soundcard.h
+AC_CHECK_HEADERS([fcntl.h limits.h sys/ioctl.h errno.h sys/stat.h sys/types.h machine/soundcard.h soundcard.h sys/soundcard.h])
 
 AC_DISABLE_STATIC
 
@@ -38,7 +40,6 @@ if test x"$with_sound" = x"oss"; then
   AC_MSG_RESULT([OSS])
 
   dnl Check for OSS audio includes and library
-  AC_CHECK_HEADERS([machine/soundcard.h soundcard.h sys/soundcard.h])
   AC_CHECK_LIB([ossaudio], [_oss_ioctl])
 elif test x"$with_sound" = x"alsa"; then
   AC_DEFINE([USE_ALSA], [1], [Define for ALSA sound system])
