@@ -13,6 +13,7 @@ extern "C" {
 
 #include <gtk/gtk.h>
 #include "xfce-mixer-control.h"
+#include "xfce-mixer-cache-vc.h"
 
 
 /*
@@ -38,6 +39,7 @@ struct _XfceMixerSelect {
 	/*< private >*/
 	GtkOptionMenu * om; /* protected */
 	GtkLabel * label; /* protected */
+	GList * choices; /* protected */
 };
 
 /*

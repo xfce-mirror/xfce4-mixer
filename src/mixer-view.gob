@@ -7,12 +7,34 @@
 
 #define TRACEY printf
 
-gboolean idle_cb (gpointer data)
+static gboolean 
+idle_cb (gpointer data)
 {       
 	GtkWindow *win = GTK_WINDOW (data);
 	gtk_window_resize (GTK_WINDOW (win), 1, 1);
 
 	return FALSE;   
+}
+
+static void
+my_table_allocator (GtkTable *t, gint *tc, gint *tr, XfceMixerControl *c)
+{
+	if (!tc || !tr)
+		return;
+
+	gtk_table_attach_defaults (t,
+				GTK_WIDGET (c),
+				*tc, (*tc) + 1,
+				*tr, (*tr) + 1
+			);
+
+	/*gtk_misc_set_alignment (, 0.0, 0.5);*/
+
+	(*tc) ++;
+	if ((*tc) >= SWITCH_COLUMNS) {
+		*tc = 0;
+		(*tr)++;
+	}
 }
 
 %}
@@ -52,15 +74,19 @@ static void control_list_free(GList *go)
 class Xfce:Mixer:View from Gtk:VBox {
 	protected GtkWidget *swsliders;
 	protected GtkBox *sliders;
+	protected GtkTable *selects;
 	protected GtkTable *switches;
 	protected gint switches_r = 0;
 	protected gint switches_c = 0;
+	protected gint selects_r = 0;
+	protected gint selects_c = 0;
 	protected GtkWidget *disclosure
 		destroy {
 			self_free_disclosure (self);
 		};
 
 	protected GtkBox *vbox;
+	protected GtkBox *tables;
 	protected GList *controls = NULL
 		destroywith control_list_free;
 	protected t_mixer_control_factory_kind kind;
@@ -103,13 +129,16 @@ class Xfce:Mixer:View from Gtk:VBox {
 		self->controls = NULL;
 		self->switches_r = 0;
 		self->switches_c = 0;
+		self->selects_r = 0;
+		self->selects_c = 0;
 		self_switches_updated (self);
 	}
 
 	protected void switches_updated (self)
 	{
 		gboolean has_sw;
-		has_sw = (self->switches_r > 0) || (self->switches_c > 0);
+		has_sw = (self->switches_r > 0) || (self->switches_c > 0)
+		|| (self->selects_r > 0) || (self->selects_c > 0);
 		if (!self->disclosure)
 			return;
 
@@ -153,8 +182,15 @@ class Xfce:Mixer:View from Gtk:VBox {
 		gtk_widget_show (self->swsliders);
 
 		gtk_widget_show (GTK_WIDGET (self->sliders));
+
 		self->switches = GTK_TABLE (gtk_table_new (SWITCH_ROWS, SWITCH_COLUMNS, FALSE));
-/*		gtk_widget_show (GTK_WIDGET (self->switches));*/
+		self->selects = GTK_TABLE (gtk_table_new (1, SWITCH_COLUMNS, FALSE));
+		gtk_widget_show (GTK_WIDGET (self->switches));
+		gtk_widget_show (GTK_WIDGET (self->selects));
+
+		self->tables = GTK_BOX (gtk_vbox_new (FALSE, 5));
+		gtk_box_pack_start (self->tables, GTK_WIDGET (self->switches), FALSE, FALSE, 0);
+		gtk_box_pack_start (self->tables, GTK_WIDGET (self->selects), FALSE, FALSE, 0);
 
 		self->disclosure = cddb_disclosure_new (
 			"Show Switches",
@@ -168,11 +204,11 @@ class Xfce:Mixer:View from Gtk:VBox {
 
 		/*self->disclosure = gtk_vbox_new (FALSE, 0);*/ /* todo */
 		gtk_widget_show (GTK_WIDGET (self->disclosure));
-		cddb_disclosure_set_container (CDDB_DISCLOSURE (self->disclosure), GTK_WIDGET (self->switches));
+		cddb_disclosure_set_container (CDDB_DISCLOSURE (self->disclosure), GTK_WIDGET (self->tables));
 
 		gtk_box_pack_start (self->vbox, GTK_WIDGET (self->swsliders), TRUE, TRUE, 0);
 		gtk_box_pack_start (self->vbox, GTK_WIDGET (self->disclosure), FALSE, FALSE, 0);
-		gtk_box_pack_start (self->vbox, GTK_WIDGET (self->switches), TRUE, TRUE, 0);
+		gtk_box_pack_start (self->vbox, GTK_WIDGET (self->tables), TRUE, TRUE, 0);
 
 		/*gtk_container_add (GTK_CONTAINER (self), GTK_WIDGET (self->vbox));*/
 		gtk_box_pack_start (GTK_BOX (self), GTK_WIDGET (self->vbox), TRUE, TRUE, 0);
@@ -195,6 +231,7 @@ class Xfce:Mixer:View from Gtk:VBox {
 		if (name) {
 			if (g_str_equal (name, "sliders")) return GTK_CONTAINER (self->sliders);
 			else if (g_str_equal (name, "switches")) return GTK_CONTAINER (self->switches);
+			else if (g_str_equal (name, "selects")) return GTK_CONTAINER (self->selects);
 		}
 		return GTK_CONTAINER (self->vbox);
 	}
@@ -212,18 +249,10 @@ class Xfce:Mixer:View from Gtk:VBox {
 
 			gtk_box_pack_start (box, GTK_WIDGET (c), FALSE, FALSE, 3);
 		} else if ((gpointer)cont == (gpointer)self->switches) {
-			gtk_table_attach_defaults (
-				GTK_TABLE (self->switches),
-				GTK_WIDGET (c),
-				self->switches_c, self->switches_c + 1,
-				self->switches_r, self->switches_r + 1
-			);
-
-			self->switches_c ++;
-			if (self->switches_c >= SWITCH_COLUMNS) {
-				self->switches_c = 0;
-				self->switches_r++;
-			}
+			my_table_allocator (GTK_TABLE (self->switches), &self->switches_c, &self->switches_r, c);
+			self_switches_updated (self);
+		} else if ((gpointer)cont == (gpointer)self->selects) {
+			my_table_allocator (GTK_TABLE (self->selects), &self->selects_c, &self->selects_r, c);
 			self_switches_updated (self);
 		}
 	}

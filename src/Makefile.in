@@ -170,7 +170,7 @@ xfce4_mixer_CSOURCES = xfce-mixer-control.c xfce-mixer-slider.c \
 	xfce-mixer-cache-vc.c disclosure-widget.c \
 	menus.c menu-callbacks.inc xfce-mixer-window.c \
 	xfce-mixer-switch.c xfce-mixer-info.c xfce-mixer-control-vc.c \
-	xfce-mixer-select.c
+	xfce-mixer-select.c string_option_menu.c
 
 
 xfce4_mixer_SOURCES = $(xfce4_mixer_CSOURCES) mixer-control.gob \
@@ -193,7 +193,7 @@ OBJECTS = xfce-mixer-control.o xfce-mixer-slider.o xfce-mixer-profile.o \
 	xfce-mixer-slider-tiny.o xfce-mixer-view.o xfce-mixer-view-tiny.o \
 	xfce-mixer-control-factory.o vc.o vc_alsa.o disclosure-widget.o \
 	xfce-mixer-window.o xfce-mixer-switch.o xfce-mixer-info.o \
-	xfce-mixer-control-vc.o
+	xfce-mixer-control-vc.o string_option_menu.o
 
 
 
@@ -224,7 +224,8 @@ am__objects_1 = xfce4_mixer-xfce-mixer-control.$(OBJEXT) \
 	xfce4_mixer-xfce-mixer-switch.$(OBJEXT) \
 	xfce4_mixer-xfce-mixer-info.$(OBJEXT) \
 	xfce4_mixer-xfce-mixer-control-vc.$(OBJEXT) \
-	xfce4_mixer-xfce-mixer-select.$(OBJEXT)
+	xfce4_mixer-xfce-mixer-select.$(OBJEXT) \
+	xfce4_mixer-string_option_menu.$(OBJEXT)
 am_xfce4_mixer_OBJECTS = $(am__objects_1)
 xfce4_mixer_OBJECTS = $(am_xfce4_mixer_OBJECTS)
 xfce4_mixer_DEPENDENCIES =
@@ -236,6 +237,7 @@ am__depfiles_maybe = depfiles
 @AMDEP_TRUE@DEP_FILES = ./$(DEPDIR)/xfce4_mixer-disclosure-widget.Po \
 @AMDEP_TRUE@	./$(DEPDIR)/xfce4_mixer-main.Po \
 @AMDEP_TRUE@	./$(DEPDIR)/xfce4_mixer-menus.Po \
+@AMDEP_TRUE@	./$(DEPDIR)/xfce4_mixer-string_option_menu.Po \
 @AMDEP_TRUE@	./$(DEPDIR)/xfce4_mixer-vc.Po \
 @AMDEP_TRUE@	./$(DEPDIR)/xfce4_mixer-vc_alsa.Po \
 @AMDEP_TRUE@	./$(DEPDIR)/xfce4_mixer-vc_oss.Po \
@@ -314,6 +316,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/xfce4_mixer-disclosure-widget.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/xfce4_mixer-main.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/xfce4_mixer-menus.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/xfce4_mixer-string_option_menu.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/xfce4_mixer-vc.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/xfce4_mixer-vc_alsa.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/xfce4_mixer-vc_oss.Po@am__quote@
@@ -990,6 +993,39 @@ xfce4_mixer-xfce-mixer-select.lo: xfce-mixer-select.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/xfce4_mixer-xfce-mixer-select.Plo' tmpdepfile='$(DEPDIR)/xfce4_mixer-xfce-mixer-select.TPlo' @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(xfce4_mixer_CFLAGS) $(CFLAGS) -c -o xfce4_mixer-xfce-mixer-select.lo `test -f 'xfce-mixer-select.c' || echo '$(srcdir)/'`xfce-mixer-select.c
+
+xfce4_mixer-string_option_menu.o: string_option_menu.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(xfce4_mixer_CFLAGS) $(CFLAGS) -MT xfce4_mixer-string_option_menu.o -MD -MP -MF "$(DEPDIR)/xfce4_mixer-string_option_menu.Tpo" \
+@am__fastdepCC_TRUE@	  -c -o xfce4_mixer-string_option_menu.o `test -f 'string_option_menu.c' || echo '$(srcdir)/'`string_option_menu.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/xfce4_mixer-string_option_menu.Tpo" "$(DEPDIR)/xfce4_mixer-string_option_menu.Po"; \
+@am__fastdepCC_TRUE@	else rm -f "$(DEPDIR)/xfce4_mixer-string_option_menu.Tpo"; exit 1; \
+@am__fastdepCC_TRUE@	fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='string_option_menu.c' object='xfce4_mixer-string_option_menu.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/xfce4_mixer-string_option_menu.Po' tmpdepfile='$(DEPDIR)/xfce4_mixer-string_option_menu.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(xfce4_mixer_CFLAGS) $(CFLAGS) -c -o xfce4_mixer-string_option_menu.o `test -f 'string_option_menu.c' || echo '$(srcdir)/'`string_option_menu.c
+
+xfce4_mixer-string_option_menu.obj: string_option_menu.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(xfce4_mixer_CFLAGS) $(CFLAGS) -MT xfce4_mixer-string_option_menu.obj -MD -MP -MF "$(DEPDIR)/xfce4_mixer-string_option_menu.Tpo" \
+@am__fastdepCC_TRUE@	  -c -o xfce4_mixer-string_option_menu.obj `if test -f 'string_option_menu.c'; then $(CYGPATH_W) 'string_option_menu.c'; else $(CYGPATH_W) '$(srcdir)/string_option_menu.c'; fi`; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/xfce4_mixer-string_option_menu.Tpo" "$(DEPDIR)/xfce4_mixer-string_option_menu.Po"; \
+@am__fastdepCC_TRUE@	else rm -f "$(DEPDIR)/xfce4_mixer-string_option_menu.Tpo"; exit 1; \
+@am__fastdepCC_TRUE@	fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='string_option_menu.c' object='xfce4_mixer-string_option_menu.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/xfce4_mixer-string_option_menu.Po' tmpdepfile='$(DEPDIR)/xfce4_mixer-string_option_menu.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(xfce4_mixer_CFLAGS) $(CFLAGS) -c -o xfce4_mixer-string_option_menu.obj `if test -f 'string_option_menu.c'; then $(CYGPATH_W) 'string_option_menu.c'; else $(CYGPATH_W) '$(srcdir)/string_option_menu.c'; fi`
+
+xfce4_mixer-string_option_menu.lo: string_option_menu.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(xfce4_mixer_CFLAGS) $(CFLAGS) -MT xfce4_mixer-string_option_menu.lo -MD -MP -MF "$(DEPDIR)/xfce4_mixer-string_option_menu.Tpo" \
+@am__fastdepCC_TRUE@	  -c -o xfce4_mixer-string_option_menu.lo `test -f 'string_option_menu.c' || echo '$(srcdir)/'`string_option_menu.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/xfce4_mixer-string_option_menu.Tpo" "$(DEPDIR)/xfce4_mixer-string_option_menu.Plo"; \
+@am__fastdepCC_TRUE@	else rm -f "$(DEPDIR)/xfce4_mixer-string_option_menu.Tpo"; exit 1; \
+@am__fastdepCC_TRUE@	fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='string_option_menu.c' object='xfce4_mixer-string_option_menu.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/xfce4_mixer-string_option_menu.Plo' tmpdepfile='$(DEPDIR)/xfce4_mixer-string_option_menu.TPlo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(xfce4_mixer_CFLAGS) $(CFLAGS) -c -o xfce4_mixer-string_option_menu.lo `test -f 'string_option_menu.c' || echo '$(srcdir)/'`string_option_menu.c
 
 mostlyclean-libtool:
 	-rm -f *.lo

@@ -49,7 +49,7 @@ XfceMixerControl *xfce_mixer_control_factory_new_from_profile_item(
 				break;
 			case 'C':
 				c = xfce_mixer_select_new (); 
-				if (c) new_loc = g_strdup ("switches"); /* or own? */
+				if (c) new_loc = g_strdup ("selects");
 				break;
 			}
 		}

@@ -454,6 +454,22 @@ xfce_mixer_profile_update_control (XfceMixerProfile *profile, t_mixer_profile_it
 	}
 }
 
+/*
+TODO sort defaults like:
+	sliders first
+	onoff second
+	choices last.
+	
+typedef struct {
+	GList *s;
+	GList *o;
+	GList *c;
+} t_default_list;
+static void default_list_new ()
+{
+}
+*/
+
 static void 
 xfce_mixer_profile_fill_default (gpointer data, gpointer user_data)
 {

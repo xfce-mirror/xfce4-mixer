@@ -42,11 +42,15 @@ struct _XfceMixerView {
 	/*< private >*/
 	GtkWidget * swsliders; /* protected */
 	GtkBox * sliders; /* protected */
+	GtkTable * selects; /* protected */
 	GtkTable * switches; /* protected */
 	gint switches_r; /* protected */
 	gint switches_c; /* protected */
+	gint selects_r; /* protected */
+	gint selects_c; /* protected */
 	GtkWidget * disclosure; /* protected */
 	GtkBox * vbox; /* protected */
+	GtkBox * tables; /* protected */
 	GList * controls; /* protected */
 	t_mixer_control_factory_kind kind; /* protected */
 	XfceMixerProfile * profile; /* protected */
