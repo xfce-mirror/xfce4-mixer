@@ -28,7 +28,7 @@ typedef struct
 	guint timer;
 } t_mixer;
 
-GtkTooltips *tooltips;
+GtkTooltips *tooltips = NULL;
 
 static void
 swap_pixbuf_ptrs (GdkPixbuf **a, GdkPixbuf **b)
@@ -126,7 +126,6 @@ mixer_prefs_master_changed_cb (XfceMixerPreferences *prefs, gpointer whatsthat, 
 	}
 }
 
-
 static void
 mixer_value_changed_cb (GtkWidget *w, gpointer whatsthat, gpointer user_data)
 {
@@ -165,7 +164,10 @@ mixer_new(void)
 	GdkPixbuf *pb;
 	GtkWidget *align;
 	
-	mixer = g_new (t_mixer, 1);
+	mixer = g_new0 (t_mixer, 1);
+
+	mixer->prefs = XFCE_MIXER_PREFERENCES (xfce_mixer_preferences_new ());
+
 	mixer->box = gtk_hbox_new (FALSE, 0);
 	mixer->broken = FALSE; 
 	gtk_widget_show (mixer->box);
@@ -176,7 +178,8 @@ mixer_new(void)
 	gtk_button_set_relief (GTK_BUTTON(mixer->ib), GTK_RELIEF_NONE);
 	gtk_widget_show (GTK_WIDGET (mixer->ib));
 	
-	g_signal_connect (G_OBJECT (mixer->ib), "clicked", G_CALLBACK (xfce_mixer_launch_cb), mixer);
+	g_signal_connect (G_OBJECT (mixer->ib), 
+		"clicked", G_CALLBACK (xfce_mixer_launch_cb), mixer);
 
 	gtk_box_pack_start (GTK_BOX (mixer->box), GTK_WIDGET (mixer->ib), TRUE, TRUE, 0);
 
@@ -200,8 +203,6 @@ mixer_new(void)
 	gtk_widget_set_size_request (align, border_width, -1);
 	gtk_box_pack_start (GTK_BOX (mixer->box), align, FALSE, FALSE, 0);	
 	
-	mixer->prefs = XFCE_MIXER_PREFERENCES (xfce_mixer_preferences_new ());
-	/*g_object_ref (G_OBJECT (mixer->prefs)); <- do that ? */
 
 	g_signal_connect (G_OBJECT (mixer->prefs), "notify::master",
 		G_CALLBACK (mixer_prefs_master_changed_cb), mixer 
@@ -227,15 +228,13 @@ static gboolean
 mixer_control_new (Control *ctrl)
 {
 	t_mixer *mixer;
-	
 	mixer = mixer_new ();
 	gtk_container_add (GTK_CONTAINER(ctrl->base), mixer->box);
-	
 	ctrl->data = (gpointer) mixer;
 	ctrl->with_popup = FALSE;
 
 	gtk_widget_set_size_request (ctrl->base, -1, -1);
-	
+
 	return TRUE;	
 }
 
@@ -253,7 +252,8 @@ mixer_control_free (Control *ctrl)
 			g_source_remove (mixer->timer);
 			mixer->timer = 0;
 		}
-		g_object_unref (G_OBJECT (mixer->prefs));
+		if (mixer->prefs)
+			g_object_unref (G_OBJECT (mixer->prefs));
 		mixer->prefs = NULL;
 	}
 	g_free (mixer);
@@ -264,7 +264,9 @@ mixer_read_config (Control *ctrl, xmlNodePtr parent)
 {
 	t_mixer *mixer;
 	mixer = (t_mixer *) ctrl->data;
-	
+	if (!mixer->prefs)
+		return;
+		
 	xfce_mixer_preferences_load (mixer->prefs, parent);
 }
 
@@ -274,6 +276,9 @@ mixer_write_config (Control *ctrl, xmlNodePtr parent)
 	t_mixer *mixer;
 	mixer = (t_mixer *) ctrl->data;
 	
+	if (!mixer->prefs)
+		return;
+		
 	xfce_mixer_preferences_save (mixer->prefs, parent);
 }
 
@@ -282,6 +287,7 @@ mixer_attach_callback(Control *ctrl, const gchar *signal, GCallback cb,
                 gpointer data)
 {
 	t_mixer *mixer;
+
 	mixer = (t_mixer *) ctrl->data;
 	
 	g_signal_connect(mixer->ib, signal, cb, data);
@@ -319,7 +325,6 @@ mixer_set_size(Control *ctrl, int size)
 #endif
 
 	gtk_widget_queue_resize (GTK_WIDGET (mixer->slider));
-
 }
 
 static void
@@ -362,14 +367,14 @@ mixer_set_theme(Control * control, const char *theme)
 	g_object_unref(pb);
 }
 
-
 /* initialization */
 G_MODULE_EXPORT void
 xfce_control_class_init(ControlClass *cc)
 {
 	xfce_textdomain(GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");
 
-	tooltips = gtk_tooltips_new ();
+	if (!tooltips)
+		tooltips = gtk_tooltips_new ();
 	register_vcs ();
 
 	/* these are required */
@@ -390,7 +395,6 @@ xfce_control_class_init(ControlClass *cc)
          * set it to something else.
          */
 	cc->set_size            = mixer_set_size;
-	
 	cc->set_theme		= mixer_set_theme;
 
 	/* unused in the sample:

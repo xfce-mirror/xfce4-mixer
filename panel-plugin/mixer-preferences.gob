@@ -26,7 +26,7 @@ extern xmlDocPtr xmlconfig;
 #include "xfce-mixer-pxml.h"
 %}
 
-class Xfce:Mixer:Preferences from Gtk:Object {
+class Xfce:Mixer:Preferences from G:Object {
 	public gchar *device = NULL
 		destroywith g_free;
 

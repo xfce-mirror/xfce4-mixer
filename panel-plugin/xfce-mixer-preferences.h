@@ -44,7 +44,7 @@ typedef struct _XfceMixerPreferencesPrivate XfceMixerPreferencesPrivate;
 typedef struct _XfceMixerPreferences XfceMixerPreferences;
 #endif
 struct _XfceMixerPreferences {
-	GtkObject __parent__;
+	GObject __parent__;
 	/*< public >*/
 	gchar * device;
 	gchar * execu;
@@ -62,7 +62,7 @@ struct _XfceMixerPreferences {
  */
 typedef struct _XfceMixerPreferencesClass XfceMixerPreferencesClass;
 struct _XfceMixerPreferencesClass {
-	GtkObjectClass __parent__;
+	GObjectClass __parent__;
 };
 
 
