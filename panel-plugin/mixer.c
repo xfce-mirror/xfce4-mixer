@@ -200,7 +200,7 @@ mixer_new (void)
     
     t_mixer *mixer;
     
-    mixer = g_new (t_mixer, 1);
+    mixer = g_new0(t_mixer, 1);
 
     mixer->broken = TRUE;
     
@@ -387,11 +387,15 @@ mixer_set_theme(Control * control, const char *theme)
 static void
 free_optionsdialog(t_mixer *mixer)
 {
-	if (mixer->revert.command) g_free(mixer->revert.command); 
-	mixer->revert.command = NULL;
-	if (mixer->options.command) g_free(mixer->options.command); 
-	mixer->options.command = NULL;
-	/*g_free();*/
+	if (mixer->revert.command) {
+		g_free(mixer->revert.command); 
+		mixer->revert.command = NULL;
+	}
+
+	if (mixer->options.command) {
+		g_free(mixer->options.command); 
+		mixer->options.command = NULL;
+	}
 }
 
 static void
@@ -399,15 +403,16 @@ mixer_free (Control * control)
 {
     t_mixer *mixer = control->data;
 
-    g_return_if_fail (mixer != NULL);
+    g_return_if_fail(mixer != NULL);
     
     if (mixer->timeout_id != 0) {
-	    g_source_remove (mixer->timeout_id); mixer->timeout_id = 0;
+	    g_source_remove(mixer->timeout_id);
+	    mixer->timeout_id = 0;
     }
     
     free_optionsdialog(mixer);
 
-    g_free (mixer);
+    g_free(mixer);
 }
 
 static void
