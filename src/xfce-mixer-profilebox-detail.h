@@ -46,6 +46,8 @@ struct _XfceMixerProfileboxDetail {
 	XfceMixerProfile * profile; /* protected */
 	gchar * valids; /* protected */
 	GHashTable * presents; /* protected */
+	GtkButton * detail_up_button; /* protected */
+	GtkButton * detail_down_button; /* protected */
 };
 
 /*

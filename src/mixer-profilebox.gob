@@ -227,9 +227,13 @@ class Xfce:Mixer:Profilebox from Gtk:VBox {
 
 	protected void profiles_changed_cb (self, GObject *obj)
 	{
-		g_warning ("profiles_changed_cb start !!!!");
 		self_profiles_updated (self);
-		g_warning ("profiles_changed_cb end");
+	}
+
+	public void save(self)
+	{
+		if (self->detail)
+			xfce_mixer_profilebox_detail_save (self->detail);
 	}
 
 	protected void sel_changed_cb (self, GtkTreeSelection *sel)
@@ -240,9 +244,8 @@ class Xfce:Mixer:Profilebox from Gtk:VBox {
 		gchar *s;
 		XfceMixerProfile *p;
 
-		g_warning ("sel_changed_cb start");
-
-		/* TODO save current "detail" */
+		/* save current "detail" */
+		xfce_mixer_profilebox_detail_save (self->detail);
 
 		issel = gtk_tree_selection_get_selected (sel, &model, &iter);
 
@@ -255,12 +258,12 @@ class Xfce:Mixer:Profilebox from Gtk:VBox {
 			xfce_mixer_profile_set_title (p, s);
 
 			g_free (s);
+
 			xfce_mixer_profilebox_detail_set_profile (self->detail, p);
 		} else {
 			xfce_mixer_profilebox_detail_set_profile (self->detail, NULL);
 		}
 
-		g_warning ("sel_changed_cb end");
 	}
 
 	/*
@@ -306,11 +309,7 @@ class Xfce:Mixer:Profilebox from Gtk:VBox {
 		if (self->profiles_updated_lock)
 			return;
 
-		g_warning ("row_inserted_cb start");
-
 		self_rowcnt_updated_cb (self);
-
-		g_warning ("row_inserted_cb end");
 	}
 
 	protected void row_deleted_cb (self, GtkTreePath *path, GtkTreeModel *model)
@@ -320,7 +319,6 @@ class Xfce:Mixer:Profilebox from Gtk:VBox {
 
 		xfce_mixer_profilebox_detail_set_profile (self->detail, NULL);
 
-		g_warning ("deleted");
 		self_rowcnt_updated_cb (self);
 	}
 
@@ -336,7 +334,6 @@ class Xfce:Mixer:Profilebox from Gtk:VBox {
 	public void profile_insert_cb(self)
 	{
 
-		g_warning ("insert p");
 		self_new_dlg (self);
 	}
 
@@ -358,8 +355,6 @@ class Xfce:Mixer:Profilebox from Gtk:VBox {
 		gchar *s;
 		GtkResponseType rc;
 		GtkWindow *parent;
-
-		g_warning ("profile_delete_cb start");
 
 		parent = GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (self)));
 
@@ -404,7 +399,6 @@ class Xfce:Mixer:Profilebox from Gtk:VBox {
 
 		if (g)
 			stringlist_free (g);
-		g_warning ("profile_delete_cb end");
 	}
 
 	protected void profiles_updated (self) /* profile list changed */
@@ -517,12 +511,15 @@ class Xfce:Mixer:Profilebox from Gtk:VBox {
 		p = XFCE_MIXER_PROFILE (xfce_mixer_profile_new (""));
 		xfce_mixer_profilebox_detail_set_profile (detail, p);
 
+		xfce_mixer_profilebox_detail_check_all (detail);
+
 		retry = TRUE;
 		while (retry) {
 			gtk_window_present (GTK_WINDOW (dlg));
 			if (gtk_dialog_run (dlg) != GTK_RESPONSE_OK)
 				break;
 
+			xfce_mixer_profilebox_detail_save (detail);
 			retry = FALSE;
 			name = xfce_mixer_profilebox_detail_get_name (detail);
 			if (!name || !name[0]) {

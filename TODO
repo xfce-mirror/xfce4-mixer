@@ -1,8 +1,3 @@
-FIXED? fix bug occuring when entering profile manager, creating, leaving manager, entering manager, deleting profile
-profile manager: mixer-profilebox-detail.gob:
-	DONE: load
-	save (just auto-create profile/save profile)
-
 per-profile window size ?
 
 device_changed() {
@@ -13,3 +8,4 @@ device_changed() {
 
 DONE: save keyboard shortcuts
 gtk_settings ?
+restore last used profile on restart

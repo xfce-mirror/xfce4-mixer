@@ -67,9 +67,9 @@ void xfce_mixer_cache_vc_foreach (GFunc func, gpointer user_data)
 	g = vc_cache;
 	while (g) {
 		vci = (volcontrol_t *)g->data;
-		if (vci) {
+		if (vci)
 			(*func) ((gpointer) vci, user_data);
-		}
+
 		g = g_list_next (g);
 	}
 }

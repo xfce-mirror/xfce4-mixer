@@ -408,7 +408,6 @@ class Xfce:Mixer:View from Gtk:VBox {
 		if (!p || !p->vcname)
 			return;
 
-		/*TRACEY ("profile_item_updated for %s\n", p->vcname);*/
 		found = FALSE;
 
 		while (g) {

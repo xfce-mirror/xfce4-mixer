@@ -549,7 +549,7 @@ xfce_mixer_profile_clear (XfceMixerProfile *profile)
 
 void xfce_mixer_profile_load(XfceMixerProfile *profile, XfceMixerPxml *xml)
 {
-		/* TODO read data etc */
+		/* read data etc */
 		gchar *vcname;
 		gchar *location;
 		gchar *sorderno;

@@ -67,6 +67,7 @@ struct _XfceMixerProfileboxClass {
  * Public methods
  */
 GType	xfce_mixer_profilebox_get_type	(void);
+void 	xfce_mixer_profilebox_save	(XfceMixerProfilebox * self);
 void 	xfce_mixer_profilebox_profile_insert_cb	(XfceMixerProfilebox * self);
 void 	xfce_mixer_profilebox_delete_profile	(XfceMixerProfilebox * self,
 					gchar const * name);
