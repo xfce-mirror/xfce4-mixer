@@ -153,12 +153,38 @@ static snd_mixer_elem_t * find_control(char const *which)
 	snd_mixer_elem_t *elem = NULL;
 
 	snd_mixer_selem_id_t	*sid;
+	int		idx;
+	gchar		**g;
+	char const	*name;
 
 	snd_mixer_selem_id_alloca(&sid);
-	snd_mixer_selem_id_set_index(sid, 0);
-	snd_mixer_selem_id_set_name(sid, which);
+	
+
+	if (!which) {
+		return NULL;
+	}
+	
+	g = g_strsplit (which, ",", 2);
+	if (g) {
+		name = g[0];
+		if (g[1] && *g[1]) {
+			idx = atoi (g[1]);
+		} else {
+			idx = 0;
+		}
+	} else {
+		name = which;
+		idx = 0;
+	}
+	
+	snd_mixer_selem_id_set_index(sid, idx);
+	snd_mixer_selem_id_set_name(sid, name);
 
 	elem = snd_mixer_find_selem(handle, sid);
+
+	if (g) {
+		g_strfreev (g);
+	}
 	
 	return elem;
 }
@@ -246,6 +272,7 @@ static GList *vc_get_control_list(void)
 	snd_mixer_elem_t *e; /* end */
 	snd_mixer_elem_t *i; /* item */
 	char const *n; /* name */
+	unsigned int id;
 	
 	g = NULL;
 #if 0
@@ -263,9 +290,10 @@ static GList *vc_get_control_list(void)
 	i = b;
 	while (i) {
 		n = snd_mixer_selem_get_name (i);
+		id = snd_mixer_selem_get_index (i);
 
 		c = g_new0(volcontrol_t, 1);
-		c->name = g_strdup(n);	
+		c->name = g_strdup_printf("%s,%u", n, id);
 
 		g = g_list_append (g, c);
 	

@@ -9,7 +9,7 @@
 
 typedef struct tagSCT {
 	GtkBox *vbox;
-	GtkButton *label;
+	GtkWidget *label;
 	GtkBox *hbox;
 	GtkScale *scale;
 	

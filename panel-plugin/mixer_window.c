@@ -22,7 +22,6 @@
 #include "vc.h"
 #include "mixer_window.h"
 
-#undef USE_NEW_GTK_2_2
 #undef OLD_STYLE_WIDTH
 
 #ifndef OLD_STYLE_WIDTH
@@ -102,8 +101,11 @@ mixer_slider_control_t *mixer_window_slider_control_new(mixer_window_t *w, char 
 		
 		gtk_widget_show (GTK_WIDGET (s->scale));
 		
-		s->label = GTK_BUTTON (gtk_button_new_with_label (name));
+		/*s->label = GTK_BUTTON (gtk_button_new_with_label (name));
 		gtk_button_set_relief (GTK_BUTTON (s->label), GTK_RELIEF_NONE);
+		*/
+		
+		s->label = gtk_label_new (name);
 		
 		gtk_widget_show (GTK_WIDGET (s->label));
 		
@@ -168,7 +170,7 @@ gboolean mixer_window_map_cb(GtkWidget *widget, gpointer user_data)
 	mixer_window_t * a;
 /*	s = gdk_drawable_get_screen (GTK_DRAWABLE (widget));*/
 
-#ifdef USE_NEW_GTK_2_2
+#if GTK_MINOR_VERSION >= 2
 	s = gtk_widget_get_screen (widget);
 #else
 	s = gdk_drawable_get_screen (GDK_DRAWABLE (widget->window));
