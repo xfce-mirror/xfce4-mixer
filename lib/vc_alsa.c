@@ -398,7 +398,7 @@ static int alsa_cb(snd_mixer_t *ctl, unsigned int mask, snd_mixer_elem_t *elem)
 {
 	const char *which;
 	g_warning ("alsa_cb\n");
-	if (elem) {
+	if (elem && snd_mixer_elem_get_type (elem) == SND_MIXER_ELEM_SIMPLE) {
 		which = snd_mixer_selem_get_name (elem);
 	} else {
 		which = NULL;
