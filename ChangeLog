@@ -1,3 +1,72 @@
+2004-10-30 16:42  jasper
+
+	* po/: ar.gmo, ar.po, az.gmo, az.po, be.gmo, be.po, bg.gmo, bg.po,
+	  ca.gmo, ca.po, de.gmo, de.po, es.gmo, es.po, es_MX.gmo, es_MX.po,
+	  et.gmo, et.po, eu.gmo, eu.po, fa.gmo, fa.po, fi.gmo, fi.po,
+	  fr.gmo, fr.po, gu.gmo, gu.po, he.gmo, he.po, hu.gmo, hu.po,
+	  it.gmo, it.po, ja.gmo, ja.po, ko.gmo, ko.po, ms.gmo, ms.po,
+	  nl.gmo, nl.po, no.gmo, no.po, pa.gmo, pa.po, pt_BR.gmo, pt_BR.po,
+	  pt_PT.gmo, pt_PT.po, ru.gmo, ru.po, sk.gmo, sk.po, tr.gmo, tr.po,
+	  vi.gmo, vi.po, zh_CN.gmo, zh_CN.po, zh_TW.gmo, zh_TW.po: Update a
+	  few nl translations
+
+2004-10-30 16:00  pollux
+
+	* po/: lt.gmo, lt.po: update LT translations
+
+2004-10-29 22:11  dannym
+
+	* panel-plugin/mixer-control.gob,
+	  panel-plugin/mixer-preferences.gob, panel-plugin/mixer-pxml.gob,
+	  panel-plugin/xfce-mixer-control.c,
+	  panel-plugin/xfce-mixer-prefbox.c,
+	  panel-plugin/xfce-mixer-preferences-private.h,
+	  panel-plugin/xfce-mixer-preferences.c,
+	  panel-plugin/xfce-mixer-pxml.c,
+	  panel-plugin/xfce-mixer-slider-tiny.c, po/xfce4-mixer.pot,
+	  settings/mixer-settingsbox.gob,
+	  settings/xfce-mixer-settingsbox.c, src/mixer-control.gob,
+	  src/mixer-mcs-client.gob, src/mixer-profilebox-detail.gob,
+	  src/mixer-profiles.gob, src/mixer-pxml.gob, src/mixer-window.gob,
+	  src/xfce-mixer-control.c, src/xfce-mixer-mcs-client.c,
+	  src/xfce-mixer-profilebox-detail.c, src/xfce-mixer-profiles.c,
+	  src/xfce-mixer-pxml.c, src/xfce-mixer-window.c,
+	  src/xfce-mixer-window.h: fixed a few remaining bugs:	   - free
+	  window state properly    - remove timer before its too late
+	  - prevent strict aliasing rules from kicking in by preventing
+	  useless casting
+
+2004-10-29 21:59  dannym
+
+	* mfclean: makefile temp files cleaner
+
+2004-10-29 21:20  dannym
+
+	* src/main.c: fix destroy order
+
+2004-10-29 21:08  dannym
+
+	* src/xfce-mixer-control-factory.c: shut gcc up
+
+2004-10-29 17:37  benny
+
+	* lib/vc_sun.c: Check AUDIODEV environment variable to support
+	  SunRay devices.
+
+2004-10-28 13:55  pollux
+
+	* po/he.gmo, po/he.po, settings/xfce-mixer-settings.desktop: update
+	  HE translations
+
+2004-10-27 15:43  jasper
+
+	* panel-plugin/plugin.c: Probably could be smarter than this, but
+	  at least it should solve bug #357
+
+2004-10-23 16:45  olivier
+
+	* ChangeLog: Update ChangeLog
+
 2004-10-22 22:38  olivier
 
 	* ChangeLog, configure, configure.ac, ltmain.sh: Updated versions
