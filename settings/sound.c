@@ -107,6 +107,14 @@ static void     run_dialog(McsPlugin *plugin)
 
 static gboolean save_settings(McsPlugin *plugin)
 {
-	return TRUE;
+	gboolean result;
+	gchar *file;
+               
+	file = xfce_get_userfile(RCDIR, RCFILE, NULL);
+	result = mcs_manager_save_channel_to_file(plugin->manager, CHANNEL,
+	  file);
+	g_free(file);
+
+	return(result);
 }
 
