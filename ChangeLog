@@ -1,3 +1,104 @@
+2003-07-30 10:16  huysmans
+
+	* configure, configure.ac, po/ca.gmo, po/ca.po, po/de.gmo,
+	po/de.po, po/fr.gmo, po/fr.po, po/hu.gmo, po/hu.po, po/it.gmo,
+	po/it.po, po/nl.gmo, po/nl.po, po/ru.gmo, po/ru.po, po/tr.gmo,
+	po/tr.po, po/xfce4-mixer.pot, po/zh_CN.gmo, po/zh_CN.po: Update
+	version numbers and po files for release
+
+2003-07-30 00:30  dannym
+
+	* panel-plugin/mixer_window.c: fixed source of a warning with
+	--enable-debug=full
+
+2003-07-30 00:28  dannym
+
+	* panel-plugin/mixer.c: bugfix for when the internal mixer window
+	is left open and USR1 is sent to the panel
+
+2003-07-30 00:07  dannym
+
+	* panel-plugin/mixer.c: free_optionsdialog bugfix
+
+2003-07-29 23:41  dannym
+
+	* panel-plugin/mixer.c: centered, resized icon
+
+2003-07-29 23:20  dannym
+
+	* panel-plugin/mixer.c: bugfix for treeview handling
+
+2003-07-29 21:37  dannym
+
+	* panel-plugin/mixer.c: temporarily removed device entry box for rc
+
+2003-07-29 08:28  huysmans
+
+	* po/: ru.gmo, ru.po: Update russian translations
+
+2003-07-28 00:45  dannym
+
+	* panel-plugin/test_vc.c: test vc stuff
+
+2003-07-28 00:34  dannym
+
+	* panel-plugin/vc.c: more debugging messages
+
+2003-07-28 00:24  dannym
+
+	* panel-plugin/vc_oss.c: init() cleanup
+
+2003-07-28 00:22  dannym
+
+	* panel-plugin/vc_oss.c: find_master in init()
+
+2003-07-28 00:19  dannym
+
+	* panel-plugin/test_vc.c: testing
+
+2003-07-28 00:15  dannym
+
+	* panel-plugin/test_vc.c: testing...
+
+2003-07-28 00:08  dannym
+
+	* panel-plugin/test_vc.c:
+	-------------------------------------------------------------------
+	--- test program for the vc stuff (oss so far)
+
+2003-07-27 23:59  dannym
+
+	* panel-plugin/vc_oss.c: mixer_handle + multiple devices
+
+2003-07-27 23:33  dannym
+
+	* panel-plugin/vc_oss.c: bugfix in list device function
+
+2003-07-27 23:26  dannym
+
+	* panel-plugin/: mixer.c, vc.c, vc.h, vc_alsa.c,
+	vc_alsa_fallback.c, vc_oss.c: Bugfix *sweatdrops*
+
+2003-07-27 22:40  dannym
+
+	* panel-plugin/: mixer.c, vc.c, vc.h, vc_alsa.c,
+	vc_alsa_fallback.c, vc_oss.c: bugfix set_device
+
+2003-07-27 21:56  dannym
+
+	* panel-plugin/: vc_oss.c, vc_alsa.c, vc_alsa_fallback.c:
+	close_device
+
+2003-07-27 21:38  dannym
+
+	* panel-plugin/: mixer.c, vc.c, vc.h:
+	-------------------------------------------------------------------
+	--- set_device by Toby :)
+
+2003-07-19 11:30  huysmans
+
+	* ChangeLog: Update ChangeLogs
+
 2003-07-19 11:08  huysmans
 
 	* config.h.in, configure, configure.ac, po/ca.gmo, po/ca.po,
