@@ -29,6 +29,9 @@ extern "C" {
 
 #define XFCE_MIXER_WINDOW_GET_CLASS(obj)	G_TYPE_INSTANCE_GET_CLASS((obj), xfce_mixer_window_get_type(), XfceMixerWindowClass)
 
+/* Private structure type */
+typedef struct _XfceMixerWindowPrivate XfceMixerWindowPrivate;
+
 /*
  * Main object structure
  */
@@ -47,6 +50,7 @@ struct _XfceMixerWindow {
 	GtkMenuBar * menubar; /* protected */
 	GtkAccelGroup * accelgroup; /* protected */
 	gchar * fname; /* protected */
+	XfceMixerWindowPrivate *_priv;
 };
 
 /*

@@ -13,8 +13,10 @@
 %}
 %{
 #include <gtk/gtk.h>
+#include <gdk/gdkx.h>
 #include <libxfce4util/i18n.h>
 #include <libxfce4util/util.h>
+#include <libxfcegui4/netk-window.h>
 #include "menus.h"
 #include "main.h"
 #include "stringlist.inc"
@@ -36,6 +38,8 @@ class Xfce:Mixer:Window from Gtk:Window {
 
 	protected gchar *fname = NULL
 		destroywith g_free; /* name of the xml config file containing the window position */
+
+	private gboolean sticky = FALSE;
 
 	protected void set_profile(self, XfceMixerProfile *p)
 	{
@@ -102,11 +106,22 @@ class Xfce:Mixer:Window from Gtk:Window {
 
 		self_update_profiles_menu (self);
 
-		g_signal_connect_swapped (G_OBJECT (self), "destroy",
-			G_CALLBACK(self_destroy_cb), self);
+		g_signal_connect_swapped (G_OBJECT (self), "delete-event",
+			G_CALLBACK(self_delete_event_cb), self);
+
+		g_signal_connect_swapped (G_OBJECT (self), "window-state-event",
+			G_CALLBACK(self_window_state_event_cb), self);
 
 		self->fname = xfce_get_userfile ("xfce4-mixer", "config.xml", NULL);
 		self_load_window_state (self);
+	}
+
+	protected gboolean window_state_event_cb (self, GdkEvent *event, GtkWidget *widget)
+	{
+		if (event->window_state.type == GDK_WINDOW_STATE) {
+			selfp->sticky = event->window_state.new_window_state & GDK_WINDOW_STATE_STICKY;
+		}
+		return FALSE;
 	}
 
 	/* TODO handle screen-changed */
@@ -142,6 +157,7 @@ class Xfce:Mixer:Window from Gtk:Window {
 		XfceMixerPxml *xml;
 		gint x, y;
 		gint width, height;
+		gint isticky;
 
 		xml = xfce_mixer_pxml_new (MIXER_ROOT);
 		g_object_set (G_OBJECT (xml), "fname", self->fname, NULL);
@@ -162,22 +178,51 @@ class Xfce:Mixer:Window from Gtk:Window {
 			}
 		}
 
+		/* if sticky: gtk_window_stick (GTK_WINDOW (self)); */
+		/* sticking must be done before realizing */
+
+		self_xml_goto_device (self, xml);
+		if (xfce_mixer_pxml_goto_child_tag (xml, "state")) {
+			if (xfce_mixer_pxml_get_prop_int (xml, "sticky", &isticky)) {
+				if (isticky)
+					gtk_window_stick (GTK_WINDOW (self));
+				else
+					gtk_window_unstick (GTK_WINDOW (self));
+			}
+		}
+
 		g_object_unref (G_OBJECT (xml));
 	}
 
 	protected void save_window_state(self)
 	{
 		XfceMixerPxml *xml;
-		GtkRequisition req;
 		gint x, y;
+		gint width, height;
+		NetkWindow *win;
+		gulong xwindow;
+
+		xwindow = GDK_WINDOW_XID (GTK_WIDGET (self)->window);
+
+		g_warning ("xwindow %ld", xwindow);
+
+		win = netk_window_get (xwindow);
+
+		if (!win) {
+			g_warning ("bleh");
+			return;
+		}
 
 		xml = xfce_mixer_pxml_new (MIXER_ROOT);
 		g_object_set (G_OBJECT (xml), "fname", self->fname, NULL);
 
-		gtk_widget_size_request (GTK_WIDGET (self), &req);
-		gtk_window_get_position (GTK_WINDOW (self), &x, &y);
+		netk_window_get_geometry (win, &x, &y, &width, &height);
 
-		g_warning ("save pos %d %d, size %d %d", x, y, req.width, req.height);
+		/* this function doesnt work like I want it to: */
+		/*gtk_widget_size_request (GTK_WIDGET (self), &req); */
+		/*gtk_window_get_position (GTK_WINDOW (self), &x, &y);*/
+
+		g_warning ("save pos %d %d, size %d %d", x, y, width, height);
 
 		self_xml_goto_device (self, xml);
 
@@ -194,17 +239,26 @@ class Xfce:Mixer:Window from Gtk:Window {
 			xfce_mixer_pxml_goto_node (xml, 
 				xfce_mixer_pxml_create_text_child (xml, "size", NULL)
 			);
-		xfce_mixer_pxml_set_prop_int (xml, "width", req.width);
-		xfce_mixer_pxml_set_prop_int (xml, "height", req.height);
+		xfce_mixer_pxml_set_prop_int (xml, "width", width);
+		xfce_mixer_pxml_set_prop_int (xml, "height", height);
 
-		/*xfce_mixer_pxml_set_file (xml, NULL);*/
+
+		self_xml_goto_device (self, xml);
+		if (!xfce_mixer_pxml_goto_child_tag (xml, "state"))
+			xfce_mixer_pxml_goto_node (xml, 
+				xfce_mixer_pxml_create_text_child (xml, "state", NULL)
+			);
+		xfce_mixer_pxml_set_prop_int (xml, "sticky", netk_window_is_sticky (win));
+		/*, selfp->sticky ? 1 : 0); */
 
 		g_object_unref (G_OBJECT (xml));
+		g_object_unref (G_OBJECT (win));
 	}
 
-	protected void destroy_cb(self, GtkWidget *widget)
+	protected gboolean delete_event_cb(self, GdkEvent *event, GtkWidget *widget)
 	{
 		self_save_window_state(self);
+		return FALSE;
 	}
 
 	protected void mcs_changed_cb(self, GtkWidget *widget)

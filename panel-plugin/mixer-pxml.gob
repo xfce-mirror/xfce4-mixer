@@ -240,7 +240,6 @@ class Xfce:Mixer:Pxml from G:Object {
 
 		if (self->root && !self_check_tag (self, self->root)) {
 			self->node = NULL;
-			g_warning ("ouch");
 		}
 	}
 
@@ -273,8 +272,8 @@ class Xfce:Mixer:Pxml from G:Object {
 
 		b = FALSE;
 		endptr = NULL;
-		*result = strtol (s, &endptr, 0);
-		b = (endptr == NULL);
+		*result = (gint)strtol (s, &endptr, 0);
+		b = (endptr == NULL) || ((*endptr) == 0);
 
 		g_free (s);
 		return b;
