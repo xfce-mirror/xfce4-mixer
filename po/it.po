@@ -32,7 +32,7 @@ msgstr "Controllo Volume"
 #: panel-plugin/vc_alsa.c:88
 #, c-format
 msgid "alsa: Mixer %s open error: %s\n"
-msgid "alsa: Errore apertura Mixer %s: %s\n"
+msgstr "alsa: Errore apertura Mixer %s: %s\n"
 
 #: panel-plugin/vc_alsa.c:93
 #, c-format
@@ -42,7 +42,7 @@ msgstr "alsa: Errore connessione Mixer %s: %s\n"
 #: panel-plugin/vc_alsa.c:101
 #, c-format
 msgid "alsa: Mixer register error: %s"
-msgid "alsa: Errore nella registrazione Mixer: %s"
+msgstr "alsa: Errore nella registrazione Mixer: %s"
 
 #: panel-plugin/vc_alsa.c:110
 #, c-format
