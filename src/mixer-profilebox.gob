@@ -69,6 +69,7 @@ class Xfce:Mixer:Profilebox from Gtk:VBox {
 	protected GtkBox *profiles_box;
 	protected GtkWidget *profiles_insert_button;
 	protected GtkWidget *profiles_delete_button;
+	protected gulong changed_handle;
 
 	protected GtkToolbar *profiles_toolbar;
 	protected Xfce:Mixer:Profilebox:Detail *detail = NULL;
@@ -202,15 +203,26 @@ class Xfce:Mixer:Profilebox from Gtk:VBox {
 			self
 		);
 
-		g_signal_connect_swapped (G_OBJECT (profiles), 
+		self->changed_handle = g_signal_connect_swapped (G_OBJECT (profiles), 
 			"profiles-changed",
 			G_CALLBACK (self_profiles_changed_cb), self);
+
+		g_signal_connect_swapped (G_OBJECT (self),
+			"destroy", G_CALLBACK (self_destroy_cb),
+			self
+		);
 
 		self_profiles_updated (self);
 
 		self_rowcnt_updated_cb (self);
 
 		/*self_load (self);*/
+
+	}
+
+	protected void destroy_cb (self, GtkWidget *w)
+	{
+		g_signal_handler_disconnect (G_OBJECT (profiles), self->changed_handle);
 	}
 
 	protected void profiles_changed_cb (self, GObject *obj)
@@ -305,6 +317,8 @@ class Xfce:Mixer:Profilebox from Gtk:VBox {
 	{
 		if (self->profiles_updated_lock)
 			return;
+
+		xfce_mixer_profilebox_detail_set_profile (self->detail, NULL);
 
 		g_warning ("deleted");
 		self_rowcnt_updated_cb (self);

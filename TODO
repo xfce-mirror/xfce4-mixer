@@ -1,4 +1,4 @@
-fix bug occuring when entering profile manager, creating, leaving manager, entering manager, deleting profile
+FIXED? fix bug occuring when entering profile manager, creating, leaving manager, entering manager, deleting profile
 profile manager: mixer-profilebox-detail.gob: load/save (just auto-create profile/save profile)
 
 

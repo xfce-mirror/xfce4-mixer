@@ -18,6 +18,7 @@ extern "C" {
 
 #line 6 "mixer-profilebox.gob"
 #line 21 "xfce-mixer-profilebox-private.h"
+void 	xfce_mixer_profilebox_destroy_cb	(XfceMixerProfilebox * self, GtkWidget * w);
 void 	xfce_mixer_profilebox_profiles_changed_cb	(XfceMixerProfilebox * self, GObject * obj);
 void 	xfce_mixer_profilebox_sel_changed_cb	(XfceMixerProfilebox * self, GtkTreeSelection * sel);
 gboolean 	xfce_mixer_profilebox_profile_exists	(XfceMixerProfilebox * self, gchar const * name);

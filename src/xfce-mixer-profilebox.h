@@ -47,6 +47,7 @@ struct _XfceMixerProfilebox {
 	GtkBox * profiles_box; /* protected */
 	GtkWidget * profiles_insert_button; /* protected */
 	GtkWidget * profiles_delete_button; /* protected */
+	gulong changed_handle; /* protected */
 	GtkToolbar * profiles_toolbar; /* protected */
 	XfceMixerProfileboxDetail * detail; /* protected */
 	GtkBox * hbox; /* protected */
