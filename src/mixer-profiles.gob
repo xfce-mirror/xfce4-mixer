@@ -60,7 +60,7 @@ class Xfce:Mixer:Profiles from G:Object {
 		self->fname = g_strdup (PROFILES_CONFIG_FILENAME);
 
 		self->xml = xfce_mixer_pxml_new (PROFILES_ROOT);
-		tpath = get_config_path (self->fname, CONFIG_LOAD);
+		tpath = my_config_get_path (self->fname, CONFIG_LOAD);
 		if (tpath) {
 			g_object_set (G_OBJECT (self->xml), "fname", tpath, NULL);
 			g_free (tpath);
@@ -133,7 +133,7 @@ class Xfce:Mixer:Profiles from G:Object {
 		xmlNodePtr parent;
 		self_clear (self);
 
-		tpath = get_config_path (self->fname, CONFIG_LOAD);
+		tpath = my_config_get_path (self->fname, CONFIG_LOAD);
 		if (tpath) {
 			g_object_set (G_OBJECT (self->xml), "fname", tpath, NULL);
 			g_free (tpath);
@@ -184,7 +184,7 @@ class Xfce:Mixer:Profiles from G:Object {
 		if (!self_get_modified (self))
 			return;
 
-		tpath = get_config_path (self->fname, CONFIG_SAVE);
+		tpath = my_config_get_path (self->fname, CONFIG_SAVE);
 		if (tpath) {
 			g_object_set (G_OBJECT (self->xml), "fname", tpath, NULL);
 			g_free (tpath);

@@ -10,6 +10,8 @@ typedef enum {
 	CONFIG_LOAD
 } ConfigAction;
 
-gchar *get_config_path(gchar const *relpath, ConfigAction action);
+gchar *my_config_get_path(gchar const *relpath, ConfigAction action);
+gchar *my_config_get_tmp_file_name(gchar const *origfilename);
+
 
 #endif

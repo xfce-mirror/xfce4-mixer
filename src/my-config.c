@@ -64,8 +64,8 @@ migrate_errno_print(
 	g_warning("could not migrate \"%s\" to \"%s\" because: %s: %s (%s)", oldpath, newpath, tmp, func, whichfile);
 }
 
-static gchar *
-get_tmp_file_name(gchar const *origfilename)
+gchar *
+my_config_get_tmp_file_name(gchar const *origfilename)
 {
 	gchar *nfilename;
 	pid_t	pid;
@@ -81,7 +81,7 @@ create_tmp_file(gchar const *origfilename)
 	int	handle;
 	gchar *nfilename;
 
-	nfilename = get_tmp_file_name (origfilename);
+	nfilename = my_config_get_tmp_file_name (origfilename);
 	if (!nfilename) {
 		errno = ENOENT;
 		return -1;
@@ -98,7 +98,7 @@ rename_tmp_file(gchar const *origfilename)
 {
 	gchar *nfilename;
 	int	rc;
-	nfilename = get_tmp_file_name (origfilename);
+	nfilename = my_config_get_tmp_file_name (origfilename);
 	if (!nfilename) {
 		errno = ENOENT;
 		return -1;
@@ -135,7 +135,7 @@ copy_from_old_config(gchar const *oldpath, gchar const *filename)
 		
 	withtemp = FALSE;
 	if (abspath) {
-		tmppath = get_tmp_file_name (abspath);
+		tmppath = my_config_get_tmp_file_name (abspath);
 		if (tmppath) {
 			g_free (abspath);
 			abspath = tmppath;
@@ -219,7 +219,7 @@ endme:
 }
 
 gchar *
-get_config_path(gchar const *relpath, ConfigAction save)
+my_config_get_path(gchar const *relpath, ConfigAction save)
 {
 	gchar *filename;
 	gchar *abspath;

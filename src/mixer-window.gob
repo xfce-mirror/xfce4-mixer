@@ -51,7 +51,7 @@ class Xfce:Mixer:Window from Gtk:Window {
 	protected void load_accelgroup(self)
 	{
 		gchar *tpath;
-		tpath = get_config_path (self->accelmap_fname, CONFIG_LOAD);
+		tpath = my_config_get_path (self->accelmap_fname, CONFIG_LOAD);
 		if (tpath) {
 			gtk_accel_map_load (tpath);
 			g_free (tpath);
@@ -61,7 +61,7 @@ class Xfce:Mixer:Window from Gtk:Window {
 	protected void save_accelgroup(self)
 	{
 		gchar *tpath;
-		tpath = get_config_path (self->accelmap_fname, CONFIG_SAVE);
+		tpath = my_config_get_path (self->accelmap_fname, CONFIG_SAVE);
 		if (tpath) {
 			gtk_accel_map_save (tpath);
 			g_free (tpath);
@@ -186,7 +186,7 @@ class Xfce:Mixer:Window from Gtk:Window {
 		s->height = -1;
 		s->sticky = FALSE;
 
-		tpath = get_config_path (self->fname, CONFIG_LOAD);
+		tpath = my_config_get_path (self->fname, CONFIG_LOAD);
 		if (tpath) {
 			xml = xfce_mixer_pxml_new (MIXER_ROOT);
 			g_object_set (G_OBJECT (xml), "fname", tpath, NULL);
@@ -247,7 +247,7 @@ class Xfce:Mixer:Window from Gtk:Window {
 		if (!s || !s->valid)
 			return;
 
-		tpath = get_config_path (self->fname, CONFIG_SAVE);
+		tpath = my_config_get_path (self->fname, CONFIG_SAVE);
 		if (tpath) {
 			xml = xfce_mixer_pxml_new (MIXER_ROOT);
 			g_object_set (G_OBJECT (xml), "fname", tpath, NULL);
