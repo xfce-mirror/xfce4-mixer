@@ -1,4 +1,6 @@
-/* Provides: A small mixer plugin for the panel.
+/* 
+ * A small mixer plugin for the panel.
+ *
  * Copyright (c) 2003 Danny Milosavljevic <danny_milo@yahoo.com>
  * Copyright (c) 2003 Benedikt Meurer <benedikt.meurer@unix-ag.uni-siegen.de>
  * All rights reserved.
