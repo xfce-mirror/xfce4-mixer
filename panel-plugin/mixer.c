@@ -385,7 +385,7 @@ xfce_mixer_status_button_cb (GtkWidget * widget, GdkEventButton *b, t_mixer *mix
 			   of the border of the progressbar yet ;) */
 			y = (sy + 2 - y) * 100 / sy;
 		} else y = 0;
-	}
+	} else return TRUE;
 	
 	vc_set_volume(NULL, y);
 		
