@@ -83,6 +83,8 @@ mcs_plugin_init(McsPlugin *plugin)
 	
 	register_vcs ();
 
+    save_settings (plugin);
+
 	return MCS_PLUGIN_INIT_OK;
 }
 
