@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ru\n"
-"POT-Creation-Date: 2003-07-30 09:35+0200\n"
+"POT-Creation-Date: 2003-08-02 11:41+0200\n"
 "PO-Revision-Date: 2003-07-18 01:28+0000\n"
 "Last-Translator: Poul Ionkin <wizzard@nmg.lv>\n"
 "Language-Team: Russian <none>\n"
@@ -15,48 +15,62 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.2beta2\n"
 
-#: panel-plugin/mixer.c:154
+#: panel-plugin/mixer.c:157
 msgid "No working sound"
 msgstr "Звук не работает"
 
-#: panel-plugin/mixer.c:293
+#: panel-plugin/mixer.c:296
 #, c-format
 msgid "Volume: %d%%"
 msgstr "Громкость: %d%%"
 
-#: panel-plugin/mixer.c:1001
+#: panel-plugin/mixer.c:1022
+msgid "Device:"
+msgstr ""
+
+#: panel-plugin/mixer.c:1110
 msgid "Use _internal mixer"
 msgstr "Использовать внутренний mixer"
 
-#: panel-plugin/mixer.c:1211
+#: panel-plugin/mixer.c:1307
 msgid "Volume Control"
 msgstr "Контроль звука"
 
-#: panel-plugin/vc_alsa.c:89
+#: panel-plugin/vc_alsa.c:90
 #, c-format
 msgid "alsa: Mixer %s open error: %s\n"
 msgstr "alsa: Mixer %s ошибка открытия: %s\n"
 
-#: panel-plugin/vc_alsa.c:94
+#: panel-plugin/vc_alsa.c:95
 #, c-format
 msgid "alsa: Mixer attach %s error: %s\n"
 msgstr "alsa: Подсоединение mixer %s ошибка: %s\n"
 
-#: panel-plugin/vc_alsa.c:102
+#: panel-plugin/vc_alsa.c:103
 #, c-format
 msgid "alsa: Mixer register error: %s"
 msgstr "alsa: Ошибка регистрации mixer: %s"
 
-#: panel-plugin/vc_alsa.c:111
+#: panel-plugin/vc_alsa.c:112
 #, c-format
 msgid "alsa: Mixer load error: %s"
 msgstr "alsa: Ошибка загрузки mixer: %s"
 
-#: panel-plugin/vc_alsa.c:121
+#: panel-plugin/vc_alsa.c:122
 #, c-format
 msgid "alsa: Unable to find simple control '%s',%i\n"
 msgstr "alsa: Unable to find simple control '%s',%i\n"
 
 #: panel-plugin/vc_oss.c:133
-msgid "oss: No master"
+#, fuzzy
+msgid "oss: No master volume"
 msgstr "oss: No master"
+
+#: panel-plugin/mvisible_opts.c:76
+msgid "Visible"
+msgstr ""
+
+#: panel-plugin/mvisible_opts.c:84
+#, fuzzy
+msgid "Control"
+msgstr "Контроль звука"

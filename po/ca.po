@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2003-07-30 09:35+0200\n"
+"POT-Creation-Date: 2003-08-02 11:41+0200\n"
 "PO-Revision-Date: 2003-07-15 22:21+0100\n"
 "Last-Translator: Carles Muñoz Gorriz <carlesmu@internautas.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,48 +14,62 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: panel-plugin/mixer.c:154
+#: panel-plugin/mixer.c:157
 msgid "No working sound"
 msgstr "El so no funciona"
 
-#: panel-plugin/mixer.c:293
+#: panel-plugin/mixer.c:296
 #, c-format
 msgid "Volume: %d%%"
 msgstr "Volum: %d%%"
 
-#: panel-plugin/mixer.c:1001
+#: panel-plugin/mixer.c:1022
+msgid "Device:"
+msgstr ""
+
+#: panel-plugin/mixer.c:1110
 msgid "Use _internal mixer"
 msgstr "utilitza el mesclador _intern"
 
-#: panel-plugin/mixer.c:1211
+#: panel-plugin/mixer.c:1307
 msgid "Volume Control"
 msgstr "Control de volum"
 
-#: panel-plugin/vc_alsa.c:89
+#: panel-plugin/vc_alsa.c:90
 #, c-format
 msgid "alsa: Mixer %s open error: %s\n"
 msgstr "alsa: Mesclador %s error al obrir: %s\n"
 
-#: panel-plugin/vc_alsa.c:94
+#: panel-plugin/vc_alsa.c:95
 #, c-format
 msgid "alsa: Mixer attach %s error: %s\n"
 msgstr "alsa: Error %s en l'adjunt del mesclador: %s\n"
 
-#: panel-plugin/vc_alsa.c:102
+#: panel-plugin/vc_alsa.c:103
 #, c-format
 msgid "alsa: Mixer register error: %s"
 msgstr "alsa: Error al registrar el mesclador: %s"
 
-#: panel-plugin/vc_alsa.c:111
+#: panel-plugin/vc_alsa.c:112
 #, c-format
 msgid "alsa: Mixer load error: %s"
 msgstr "alsa: Error en la càrrega del mesclador: %s"
 
-#: panel-plugin/vc_alsa.c:121
+#: panel-plugin/vc_alsa.c:122
 #, c-format
 msgid "alsa: Unable to find simple control '%s',%i\n"
 msgstr "alsa: No es pot trobar el control '%s',%i\n"
 
 #: panel-plugin/vc_oss.c:133
-msgid "oss: No master"
+#, fuzzy
+msgid "oss: No master volume"
 msgstr "oss: No hi és el mestre"
+
+#: panel-plugin/mvisible_opts.c:76
+msgid "Visible"
+msgstr ""
+
+#: panel-plugin/mvisible_opts.c:84
+#, fuzzy
+msgid "Control"
+msgstr "Control de volum"

@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2003-07-30 09:35+0200\n"
+"POT-Creation-Date: 2003-08-02 11:41+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,48 +15,60 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: panel-plugin/mixer.c:154
+#: panel-plugin/mixer.c:157
 msgid "No working sound"
 msgstr ""
 
-#: panel-plugin/mixer.c:293
+#: panel-plugin/mixer.c:296
 #, c-format
 msgid "Volume: %d%%"
 msgstr ""
 
-#: panel-plugin/mixer.c:1001
+#: panel-plugin/mixer.c:1022
+msgid "Device:"
+msgstr ""
+
+#: panel-plugin/mixer.c:1110
 msgid "Use _internal mixer"
 msgstr ""
 
-#: panel-plugin/mixer.c:1211
+#: panel-plugin/mixer.c:1307
 msgid "Volume Control"
 msgstr ""
 
-#: panel-plugin/vc_alsa.c:89
+#: panel-plugin/vc_alsa.c:90
 #, c-format
 msgid "alsa: Mixer %s open error: %s\n"
 msgstr ""
 
-#: panel-plugin/vc_alsa.c:94
+#: panel-plugin/vc_alsa.c:95
 #, c-format
 msgid "alsa: Mixer attach %s error: %s\n"
 msgstr ""
 
-#: panel-plugin/vc_alsa.c:102
+#: panel-plugin/vc_alsa.c:103
 #, c-format
 msgid "alsa: Mixer register error: %s"
 msgstr ""
 
-#: panel-plugin/vc_alsa.c:111
+#: panel-plugin/vc_alsa.c:112
 #, c-format
 msgid "alsa: Mixer load error: %s"
 msgstr ""
 
-#: panel-plugin/vc_alsa.c:121
+#: panel-plugin/vc_alsa.c:122
 #, c-format
 msgid "alsa: Unable to find simple control '%s',%i\n"
 msgstr ""
 
 #: panel-plugin/vc_oss.c:133
-msgid "oss: No master"
+msgid "oss: No master volume"
+msgstr ""
+
+#: panel-plugin/mvisible_opts.c:76
+msgid "Visible"
+msgstr ""
+
+#: panel-plugin/mvisible_opts.c:84
+msgid "Control"
 msgstr ""

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2003-07-30 09:35+0200\n"
+"POT-Creation-Date: 2003-08-02 11:41+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Jasper Huijsmans <huysmans@users.sourceforge.net>\n"
 "Language-Team: Dutch <NL@li.org>\n"
@@ -15,48 +15,62 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Report-Msgid-Bugs-To: \n"
 
-#: panel-plugin/mixer.c:154
+#: panel-plugin/mixer.c:157
 msgid "No working sound"
 msgstr "Geluid werkt niet"
 
-#: panel-plugin/mixer.c:293
+#: panel-plugin/mixer.c:296
 #, c-format
 msgid "Volume: %d%%"
 msgstr "Volume: %d%%"
 
-#: panel-plugin/mixer.c:1001
+#: panel-plugin/mixer.c:1022
+msgid "Device:"
+msgstr ""
+
+#: panel-plugin/mixer.c:1110
 msgid "Use _internal mixer"
 msgstr "_Interne mixer gebruiken"
 
-#: panel-plugin/mixer.c:1211
+#: panel-plugin/mixer.c:1307
 msgid "Volume Control"
 msgstr "Volumeregelaar"
 
-#: panel-plugin/vc_alsa.c:89
+#: panel-plugin/vc_alsa.c:90
 #, c-format
 msgid "alsa: Mixer %s open error: %s\n"
 msgstr "alsa: Fout bij openen mixer %s: %s\n"
 
-#: panel-plugin/vc_alsa.c:94
+#: panel-plugin/vc_alsa.c:95
 #, c-format
 msgid "alsa: Mixer attach %s error: %s\n"
 msgstr "alsa: Fout bij aankoppelen mixer %s: %s\n"
 
-#: panel-plugin/vc_alsa.c:102
+#: panel-plugin/vc_alsa.c:103
 #, c-format
 msgid "alsa: Mixer register error: %s"
 msgstr "alsa: Fout bij registreren mixer: %s"
 
-#: panel-plugin/vc_alsa.c:111
+#: panel-plugin/vc_alsa.c:112
 #, c-format
 msgid "alsa: Mixer load error: %s"
 msgstr "alsa: Fout bij laden mixer: %s"
 
-#: panel-plugin/vc_alsa.c:121
+#: panel-plugin/vc_alsa.c:122
 #, c-format
 msgid "alsa: Unable to find simple control '%s',%i\n"
 msgstr "alsa: Kan eenvoudige regelaar '%s',%i niet vinden\n"
 
 #: panel-plugin/vc_oss.c:133
-msgid "oss: No master"
+#, fuzzy
+msgid "oss: No master volume"
 msgstr "oss: Geen hoofdvolume"
+
+#: panel-plugin/mvisible_opts.c:76
+msgid "Visible"
+msgstr ""
+
+#: panel-plugin/mvisible_opts.c:84
+#, fuzzy
+msgid "Control"
+msgstr "Volumeregelaar"
