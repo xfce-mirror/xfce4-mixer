@@ -1,0 +1,77 @@
+# translation of az.po to Azerbaijani Turkish
+# Azerbaijani Turkish translation of xfce4-mixer.
+# Copyright (C) 2003 THE xfce4-mixer'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the xfce4-mixer package.
+# Mətin Əmirov <metin@karegen.com>, 2003.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: az\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2003-08-02 11:41+0200\n"
+"PO-Revision-Date: 2003-12-15 17:21+0200\n"
+"Last-Translator: Mətin Əmirov <metin@karegen.com>\n"
+"Language-Team: Azerbaijani Turkish <gnome@azitt.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.0.2\n"
+
+#: panel-plugin/mixer.c:157
+msgid "No working sound"
+msgstr "İşləyən səs yoxdur"
+
+#: panel-plugin/mixer.c:296
+#, c-format
+msgid "Volume: %d%%"
+msgstr "Səs: %d%%"
+
+#: panel-plugin/mixer.c:1022
+msgid "Device:"
+msgstr "Avadanlıq:"
+
+#: panel-plugin/mixer.c:1110
+msgid "Use _internal mixer"
+msgstr "_Daxili mikseri işlət"
+
+#: panel-plugin/mixer.c:1307
+msgid "Volume Control"
+msgstr "Səs İdarəsi"
+
+#: panel-plugin/vc_alsa.c:90
+#, c-format
+msgid "alsa: Mixer %s open error: %s\n"
+msgstr "alsa: Mikser %s açılma xətası: %s\n"
+
+#: panel-plugin/vc_alsa.c:95
+#, c-format
+msgid "alsa: Mixer attach %s error: %s\n"
+msgstr "alsa: Mikser %s ilişdirmə xətası: %s\n"
+
+#: panel-plugin/vc_alsa.c:103
+#, c-format
+msgid "alsa: Mixer register error: %s"
+msgstr "alsa: Mikser qeydi xətası: %s"
+
+#: panel-plugin/vc_alsa.c:112
+#, c-format
+msgid "alsa: Mixer load error: %s"
+msgstr "alsa:·Mikser·yüklənməsi·xətası:·%s"
+
+#: panel-plugin/vc_alsa.c:122
+#, c-format
+msgid "alsa: Unable to find simple control '%s',%i\n"
+msgstr "alsa: bəsit idarə tapıla bilmədi '%s',%i\n"
+
+#: panel-plugin/vc_oss.c:133
+msgid "oss: No master volume"
+msgstr "oss: Əsas səs mövcud deyil"
+
+#: panel-plugin/mvisible_opts.c:76
+msgid "Visible"
+msgstr "Görünən"
+
+#: panel-plugin/mvisible_opts.c:84
+msgid "Control"
+msgstr "Səs İdarəsi"
+
