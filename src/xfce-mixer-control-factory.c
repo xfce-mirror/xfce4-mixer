@@ -43,6 +43,7 @@ XfceMixerControl *xfce_mixer_control_factory_new_from_profile_item(
 			if (uct) {
 				b = g_strrstr (uc, uct) != NULL;
 				/*printf ("%s %s %d", uc , uct, (int)b );*/
+				g_free (uct);
 			}
 			g_free (uc);
 		}
