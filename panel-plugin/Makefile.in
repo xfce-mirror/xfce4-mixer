@@ -51,7 +51,7 @@ CONFIG_CLEAN_FILES =
 am__installdirs = "$(DESTDIR)$(plugindir)"
 pluginLTLIBRARIES_INSTALL = $(INSTALL)
 LTLIBRARIES = $(plugin_LTLIBRARIES)
-am_libmixer_la_OBJECTS = libmixer_la-main.lo libmixer_la-plugin.lo \
+am_libmixer_la_OBJECTS = libmixer_la-plugin.lo \
 	libmixer_la-string_option_menu.lo libmixer_la-test_vc.lo \
 	libmixer_la-xfce-mixer-cache-vc.lo \
 	libmixer_la-xfce-mixer-control.lo \
@@ -64,8 +64,7 @@ libmixer_la_OBJECTS = $(am_libmixer_la_OBJECTS)
 DEFAULT_INCLUDES = -I. -I$(srcdir) -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__depfiles_maybe = depfiles
-@AMDEP_TRUE@DEP_FILES = ./$(DEPDIR)/libmixer_la-main.Plo \
-@AMDEP_TRUE@	./$(DEPDIR)/libmixer_la-plugin.Plo \
+@AMDEP_TRUE@DEP_FILES = ./$(DEPDIR)/libmixer_la-plugin.Plo \
 @AMDEP_TRUE@	./$(DEPDIR)/libmixer_la-string_option_menu.Plo \
 @AMDEP_TRUE@	./$(DEPDIR)/libmixer_la-test_vc.Plo \
 @AMDEP_TRUE@	./$(DEPDIR)/libmixer_la-xfce-mixer-cache-vc.Plo \
@@ -95,7 +94,6 @@ ALSA_REQUIRED_VERSION = @ALSA_REQUIRED_VERSION@
 AMDEP_FALSE = @AMDEP_FALSE@
 AMDEP_TRUE = @AMDEP_TRUE@
 AMTAR = @AMTAR@
-AR = @AR@
 AUTOCONF = @AUTOCONF@
 AUTOHEADER = @AUTOHEADER@
 AUTOMAKE = @AUTOMAKE@
@@ -109,10 +107,6 @@ CCDEPMODE = @CCDEPMODE@
 CFLAGS = @CFLAGS@
 CPP = @CPP@
 CPPFLAGS = @CPPFLAGS@
-CXX = @CXX@
-CXXCPP = @CXXCPP@
-CXXDEPMODE = @CXXDEPMODE@
-CXXFLAGS = @CXXFLAGS@
 CYGPATH_W = @CYGPATH_W@
 DATADIRNAME = @DATADIRNAME@
 DEFS = @DEFS@
@@ -123,8 +117,6 @@ ECHO_N = @ECHO_N@
 ECHO_T = @ECHO_T@
 EGREP = @EGREP@
 EXEEXT = @EXEEXT@
-F77 = @F77@
-FFLAGS = @FFLAGS@
 GETTEXT_PACKAGE = @GETTEXT_PACKAGE@
 GMOFILES = @GMOFILES@
 GMSGFMT = @GMSGFMT@
@@ -186,16 +178,11 @@ XGETTEXT = @XGETTEXT@
 XML_CFLAGS = @XML_CFLAGS@
 XML_LIBS = @XML_LIBS@
 XML_REQUIRED_VERSION = @XML_REQUIRED_VERSION@
-ac_ct_AR = @ac_ct_AR@
 ac_ct_CC = @ac_ct_CC@
-ac_ct_CXX = @ac_ct_CXX@
-ac_ct_F77 = @ac_ct_F77@
 ac_ct_RANLIB = @ac_ct_RANLIB@
 ac_ct_STRIP = @ac_ct_STRIP@
 am__fastdepCC_FALSE = @am__fastdepCC_FALSE@
 am__fastdepCC_TRUE = @am__fastdepCC_TRUE@
-am__fastdepCXX_FALSE = @am__fastdepCXX_FALSE@
-am__fastdepCXX_TRUE = @am__fastdepCXX_TRUE@
 am__include = @am__include@
 am__leading_dot = @am__leading_dot@
 am__quote = @am__quote@
@@ -242,7 +229,6 @@ libmixer_la_SOURCES = \
 			delayer.inc					\
 			helpers_h.inc					\
 			helpers.inc					\
-			main.c						\
 			plugin.c					\
 			stringlist.inc					\
 			string_option_menu.c				\
@@ -347,7 +333,6 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmixer_la-main.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmixer_la-plugin.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmixer_la-string_option_menu.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmixer_la-test_vc.Plo@am__quote@
@@ -382,30 +367,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/$*.Plo' tmpdepfile='$(DEPDIR)/$*.TPlo' @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LTCOMPILE) -c -o $@ $<
-
-libmixer_la-main.o: main.c
-@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-main.o -MD -MP -MF "$(DEPDIR)/libmixer_la-main.Tpo" -c -o libmixer_la-main.o `test -f 'main.c' || echo '$(srcdir)/'`main.c; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-main.Tpo" "$(DEPDIR)/libmixer_la-main.Po"; else rm -f "$(DEPDIR)/libmixer_la-main.Tpo"; exit 1; fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='main.c' object='libmixer_la-main.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-main.Po' tmpdepfile='$(DEPDIR)/libmixer_la-main.TPo' @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-main.o `test -f 'main.c' || echo '$(srcdir)/'`main.c
-
-libmixer_la-main.obj: main.c
-@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-main.obj -MD -MP -MF "$(DEPDIR)/libmixer_la-main.Tpo" -c -o libmixer_la-main.obj `if test -f 'main.c'; then $(CYGPATH_W) 'main.c'; else $(CYGPATH_W) '$(srcdir)/main.c'; fi`; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-main.Tpo" "$(DEPDIR)/libmixer_la-main.Po"; else rm -f "$(DEPDIR)/libmixer_la-main.Tpo"; exit 1; fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='main.c' object='libmixer_la-main.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-main.Po' tmpdepfile='$(DEPDIR)/libmixer_la-main.TPo' @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-main.obj `if test -f 'main.c'; then $(CYGPATH_W) 'main.c'; else $(CYGPATH_W) '$(srcdir)/main.c'; fi`
-
-libmixer_la-main.lo: main.c
-@am__fastdepCC_TRUE@	if $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-main.lo -MD -MP -MF "$(DEPDIR)/libmixer_la-main.Tpo" -c -o libmixer_la-main.lo `test -f 'main.c' || echo '$(srcdir)/'`main.c; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-main.Tpo" "$(DEPDIR)/libmixer_la-main.Plo"; else rm -f "$(DEPDIR)/libmixer_la-main.Tpo"; exit 1; fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='main.c' object='libmixer_la-main.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-main.Plo' tmpdepfile='$(DEPDIR)/libmixer_la-main.TPlo' @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-main.lo `test -f 'main.c' || echo '$(srcdir)/'`main.c
 
 libmixer_la-plugin.o: plugin.c
 @am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-plugin.o -MD -MP -MF "$(DEPDIR)/libmixer_la-plugin.Tpo" -c -o libmixer_la-plugin.o `test -f 'plugin.c' || echo '$(srcdir)/'`plugin.c; \
