@@ -95,5 +95,6 @@ static void     run_dialog(McsPlugin *plugin)
 
 static gboolean save_settings(McsPlugin *plugin)
 {
+	return TRUE;
 }
 
