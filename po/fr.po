@@ -196,15 +196,15 @@ msgstr "Fichier/_Quitter"
 
 #: src/menus.c:12
 msgid "/_View"
-msgstr "/_Affichage"
+msgstr "/Afficha_ge"
 
 #: src/menus.c:13
 msgid "/View/sep"
-msgstr "/A_ffichage/sep"
+msgstr "/Affichage/sep"
 
 #: src/menus.c:14
 msgid "/View/_Manage"
-msgstr "/Affichage/_Gérer"
+msgstr "/Affichage/_Profil"
 
 #: src/menus.c:15
 msgid "/_Help"
