@@ -473,6 +473,16 @@ mixer_free (Control * control)
     
     free_optionsdialog_cb(NULL, NULL, mixer);
 
+    if (mixer->mw) {
+       g_signal_handlers_disconnect_by_func (
+           GTK_WIDGET (mixer->mw->window), 
+           G_CALLBACK(xfce_mixer_window_destroy_cb),
+           mixer
+       ); 
+       gtk_widget_destroy (GTK_WIDGET (mixer->mw->window));
+       mixer->mw = NULL;
+    }
+    
     if (mixer->options.l_visible) {
         vc_free_control_list (mixer->options.l_visible);
         mixer->options.l_visible = NULL;
