@@ -202,7 +202,7 @@ endme:
 					
 				abspath = xfce_resource_save_location (XFCE_RESOURCE_CONFIG, filename, TRUE);
 				if (abspath)
-					rename_tmp_file (abspath);
+					rename_tmp_file (abspath); /* return value -1, didnt work */
 				else {
 					migrate_errno_print (oldpath, "???", ENOENT, TRUE, "xfce_resource_save_location");
 				}
