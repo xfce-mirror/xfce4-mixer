@@ -97,6 +97,8 @@ static void     run_dialog(McsPlugin *plugin)
 		return;
 	}
 	
+    xfce_textdomain(GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");
+
 	dialog = gtk_dialog_new_with_buttons(_("Sound"), NULL,
                          GTK_DIALOG_NO_SEPARATOR,
                          GTK_STOCK_CLOSE, GTK_RESPONSE_OK,
