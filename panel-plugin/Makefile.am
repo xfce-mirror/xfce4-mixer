@@ -10,6 +10,7 @@ libmixer_la_LDFLAGS =							\
 
 libmixer_la_SOURCES =							\
 	mixer.c								\
+	mixer_window.c							\
 	vc.c								\
 	vc.h								\
 	vc_alsa_fallback.c						\
