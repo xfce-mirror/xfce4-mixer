@@ -1,3 +1,8 @@
+%{
+#ifdef HAVE_CONFIG_H
+#  include <config.h>
+#endif
+%}
 %a{
 #include <gtk/gtk.h>
 #include <libxfce4util/i18n.h>
@@ -18,6 +23,26 @@
 
 static void TRACE (gchar const *n)
 {
+}
+
+static gchar *fmt_device_cb(gchar const *c)
+{
+	gchar *s;
+	if(!c)
+		return NULL;
+
+#ifndef SHOW_DEFAULT_DEVICE_ENTRY
+	if (g_str_equal (c, "default"))
+		return NULL;
+#endif
+
+	if (g_str_has_prefix (c, "/dev/")) {
+		c = c + strlen("/dev/");
+	}
+
+	s = g_strdup (c);
+
+	return s;
 }
 
 %}
@@ -216,17 +241,12 @@ class Xfce:Mixer:Settingsbox from Gtk:VBox {
 		}
 		self->device_lst = vc_get_device_list ();
 
-#ifndef SHOW_DEFAULT_DEVICE_ENTRY
-		if (self->device_lst && self->device_lst->data) {
-			g_free (self->device_lst->data);
-			self->device_lst = g_list_remove (
-				self->device_lst,
-				self->device_lst->data
-			);
-		}
-#endif
 
-		fill_string_option_menu (self->devlist_om, self->device_lst);
+		fill_string_option_menu_2 (
+			self->devlist_om, 
+			self->device_lst,
+			fmt_device_cb
+		);
 
 
 		if (!self->device_lst)

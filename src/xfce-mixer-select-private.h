@@ -15,7 +15,7 @@ extern "C" {
 #include "xfce-mixer-control.h"
 #include "xfce-mixer-cache-vc.h"
 
-#line 2 "mixer-select.gob"
+#line 7 "mixer-select.gob"
 #line 20 "xfce-mixer-select-private.h"
 void 	xfce_mixer_select_changed_cb	(XfceMixerSelect * self, gpointer om);
 

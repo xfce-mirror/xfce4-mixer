@@ -1,3 +1,8 @@
+%{
+#ifdef HAVE_CONFIG_H
+#  include <config.h>
+#endif
+%}
 requires 2.0.0
 
 %{

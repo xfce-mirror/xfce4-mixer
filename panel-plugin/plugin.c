@@ -141,7 +141,8 @@ mixer_new(void)
 	GtkWidget *align;
 	
 	mixer = g_new (t_mixer, 1);
-	mixer->box = gtk_hbox_new (FALSE, 0); 
+	mixer->box = gtk_hbox_new (FALSE, 0);
+	mixer->broken = FALSE; 
 	gtk_widget_show (mixer->box);
 
 	pb = get_pixbuf_for (mixer->broken);

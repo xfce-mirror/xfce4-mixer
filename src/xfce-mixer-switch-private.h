@@ -14,7 +14,7 @@ extern "C" {
 #include <gtk/gtk.h>
 #include "xfce-mixer-control.h"
 
-#line 2 "mixer-switch.gob"
+#line 7 "mixer-switch.gob"
 #line 19 "xfce-mixer-switch-private.h"
 void 	xfce_mixer_switch_changed_cb	(XfceMixerSwitch * self, gpointer userdata);
 
