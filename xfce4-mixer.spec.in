@@ -1,4 +1,4 @@
-Summary: 	Volume control plugin for the XFce 4 panel
+Summary: 	Volume control plugin for the Xfce 4 panel
 Name: 		xfce4-mixer
 Version: 	@VERSION@
 Release: 	1
@@ -11,7 +11,7 @@ Requires:	xfce4-panel >= @XFCE4_PANEL_REQUIRED_VERSION@
 BuildRequires:	xfce4-panel >= @XFCE4_PANEL_REQUIRED_VERSION@
 
 %description
-xfce4-mixer is the volume control plugin for the XFce 4 panel. Includes a
+xfce4-mixer is the volume control plugin for the Xfce 4 panel. Includes a
 simple sound mixer.
 
 %prep
