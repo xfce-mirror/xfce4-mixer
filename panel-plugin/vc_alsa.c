@@ -147,26 +147,52 @@ static int init(void)
 	return USE_THAT;
 }
 
+static snd_mixer_elem_t * find_control(char const *which)
+{
+	snd_mixer_elem_t *elem = NULL;
+
+	snd_mixer_selem_id_t	*sid;
+
+	snd_mixer_selem_id_alloca(&sid);
+	snd_mixer_selem_id_set_index(sid, 0);
+	snd_mixer_selem_id_set_name(sid, which);
+
+	elem = snd_mixer_find_selem(handle, sid);
+	
+	return elem;
+}
 
 static int get_volume(char const *which)
 {
 	long pmin,pmax;
 	long lval;
 	snd_mixer_selem_channel_id_t chn;
+	snd_mixer_elem_t *xelem = NULL;
 
-	if (!handle || !elem) return 0;
+	if (!handle) return 0;
 
-	snd_mixer_selem_get_playback_volume_range(elem, &pmin, &pmax);
-	
+	if (which) {
+		xelem = find_control (which);
+	} else {
+		xelem = elem;
+	}
 
-	/* if (snd_mixer_selem_has_playback_volume(elem)) { */
+	if (!xelem) return 0;
+
+	snd_mixer_selem_get_playback_volume_range(xelem, &pmin, &pmax);
+
+	/* if (snd_mixer_selem_has_playback_volume(xelem)) { */
 	for (chn = 0; chn <= SND_MIXER_SCHN_LAST; chn++) {
-		if (!snd_mixer_selem_has_playback_channel(elem, chn)) continue;
+		if (!snd_mixer_selem_has_playback_channel(xelem, chn)) continue;
 	
-		snd_mixer_selem_get_playback_volume(elem, chn, &lval); 
+		snd_mixer_selem_get_playback_volume(xelem, chn, &lval); 
 
 		/*xfce_info("%ld,%ld,%ld,%ld", pmin,pmax,lval,(lval - pmin) * 100 / (pmax-pmin));*/
-		return (lval - pmin) * 100 / (pmax-pmin);
+		if (pmax > pmin) {
+			return (lval - pmin) * 100 / (pmax-pmin);
+		} else {
+			return lval;
+		}
 	}
 	return 0;
 }
@@ -176,19 +202,28 @@ static void set_volume(char const *which, int vol_p)
 	long pmin,pmax;
 	long lval;
 	snd_mixer_selem_channel_id_t chn;
+	snd_mixer_elem_t *xelem = NULL;
 	
-	if (!handle || !elem) return;
+	if (!handle) return;
+	
+	if (which) {
+		xelem = find_control (which);
+	} else {
+		xelem = elem;
+	}
+	
+	if (!xelem) return;
 
-	snd_mixer_selem_get_playback_volume_range(elem, &pmin, &pmax);
+	snd_mixer_selem_get_playback_volume_range(xelem, &pmin, &pmax);
 
 
 	/*vol_p = (lval - pmin) * 100 / (pmax - pmin);*/
 	lval = pmin + vol_p * (pmax - pmin) / 100;
 
 	for (chn = 0; chn <= SND_MIXER_SCHN_LAST; chn++) {
-		if (!snd_mixer_selem_has_playback_channel(elem, chn)) continue;
+		if (!snd_mixer_selem_has_playback_channel(xelem, chn)) continue;
 	
-		snd_mixer_selem_set_playback_volume(elem, chn, lval);
+		snd_mixer_selem_set_playback_volume(xelem, chn, lval);
 		/* lol*/
 		/*return;*/
 	}

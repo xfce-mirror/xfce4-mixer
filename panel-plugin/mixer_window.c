@@ -6,17 +6,62 @@
 #include "vc.h"
 #include "mixer_window.h"
 
+void change_vol_cb(GtkRange *range, gpointer data)
+{
+	mixer_slider_control_t *s;
+	int			vol;
+	
+	s = (mixer_slider_control_t *) data;
+	 
+	vol = (int)gtk_range_get_value(range);
+	
+	set_volume(s->name, vol);
+}
+
+static gchar*
+format_value_callback (GtkScale *scale, gdouble   value)
+{
+	return g_strdup_printf ("%d %%", (int)value);
+}
+
+void mixer_window_slider_control_refresh_value_p (mixer_window_t *w, mixer_slider_control_t *c)
+{
+	int	vol;
+	if (c) {
+		vol = get_volume (c->name);
+		gtk_range_set_value (GTK_RANGE (c->scale), (double) vol);
+	}
+}
+
+void mixer_window_slider_control_refresh_value (mixer_window_t *w, char const *name)
+{
+	mixer_slider_control_t *c = w->controls;
+	while (c) {
+		if (!strcmp(c->name, name)) {
+			mixer_window_slider_control_refresh_value_p (w, c);
+		}
+		c = c->next;
+	}
+}
+
 mixer_slider_control_t *mixer_window_slider_control_new(mixer_window_t *w, char const *name)
 {
 	mixer_slider_control_t *s;
 	s = g_new0 (mixer_slider_control_t, 1);
 	if (s) {
+		s->name = g_strdup(name);
+	
 		s->vbox = GTK_BOX (gtk_vbox_new (FALSE, 5));
 		
 		s->hbox = GTK_BOX (gtk_hbox_new (FALSE, 3));
 		gtk_widget_show (GTK_WIDGET(s->hbox));
 
 		s->scale = GTK_SCALE (gtk_vscale_new_with_range (0.0, 100.0, 1.0));
+
+		gtk_scale_set_digits (GTK_SCALE(s->scale), 0);
+		g_signal_connect (GTK_WIDGET(s->scale), "format-value", G_CALLBACK (format_value_callback), NULL);
+
+		g_signal_connect (GTK_WIDGET(s->scale), "value-changed", G_CALLBACK (change_vol_cb), (gpointer) s);
 		
 		gtk_widget_set_size_request (GTK_WIDGET (s->scale), -1, 120);
 		
@@ -24,10 +69,12 @@ mixer_slider_control_t *mixer_window_slider_control_new(mixer_window_t *w, char 
 		
 		gtk_widget_show (GTK_WIDGET (s->scale));
 		
-		s->label = GTK_LABEL (gtk_label_new_with_mnemonic (name));
+		s->label = GTK_BUTTON (gtk_button_new_with_label (name));
+		gtk_button_set_relief (GTK_BUTTON (s->label), GTK_RELIEF_NONE);
+		
 		gtk_widget_show (GTK_WIDGET (s->label));
 		
-		gtk_box_pack_start (GTK_BOX (s->vbox), GTK_WIDGET (s->label), TRUE, FALSE, 3);
+		gtk_box_pack_start (GTK_BOX (s->vbox), GTK_WIDGET (s->label), TRUE, TRUE, 3);
 		gtk_box_pack_start (GTK_BOX (s->vbox), GTK_WIDGET (s->hbox), TRUE, FALSE, 3);
 		
 		gtk_box_pack_start (GTK_BOX (s->hbox), GTK_WIDGET (s->scale), TRUE, FALSE, 3);
@@ -40,6 +87,9 @@ mixer_slider_control_t *mixer_window_slider_control_new(mixer_window_t *w, char 
 		if (w->last_control) w->last_control->next = s;
 		if (!w->controls) w->controls = s;
 		w->last_control = s;
+		
+		
+		mixer_window_slider_control_refresh_value_p (w, s);
 	}
 	return s;	
 }

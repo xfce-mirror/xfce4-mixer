@@ -144,6 +144,26 @@ init(void)
 }
 
 /*
+ * Purpose: Finds the given control by name
+ * Returns: the index required for the MIXER_WRITE ioctl or -1 on error
+ */
+static int
+find_control(char const *name)
+{
+	int	i;
+	for (i = 0; i < SOUND_MIXER_NRDEVICES; i++) {
+		if (devmask & (1 << i)) {
+			if (!strcmp (label[i], name)) {
+				return i;
+			}
+		}
+	}
+	
+	return -1;
+}
+
+
+/*
  * Sets volume in percent
  */
 static void
@@ -151,14 +171,20 @@ set_volume(char const *which, int percent)
 {
 	int vol;
 	int level;
+	int i;
 
-	g_return_if_fail(master_i != -1);
+	if (!which) {
+		i = master_i;
+	} else {
+		i = find_control (which);
+	}
+	g_return_if_fail(i != -1);
 	g_return_if_fail(mixer_handle != -1);
 
 	vol = (percent * MAX_AMP) / 100;
 	level = (vol << 8) | vol;
 
-	if (ioctl(mixer_handle, MIXER_WRITE(master_i), &level) < 0)
+	if (ioctl(mixer_handle, MIXER_WRITE(i), &level) < 0)
 		perror("oss: Unable to set master volume");
 }
 
