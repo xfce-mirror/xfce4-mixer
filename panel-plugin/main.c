@@ -1,3 +1,5 @@
+/* This is a *Test Program*. Do NOT link to panel plugin */
+
 #include <gtk/gtk.h>
 #include "xfce-mixer-prefbox.h"
 
@@ -16,7 +18,7 @@ int main(int argc, char *argv[])
 	
 	tooltips = gtk_tooltips_new ();
 	
-	w = xfce_mixer_prefbox_new ();
+	w = xfce_mixer_prefbox_new (NULL);
 	gtk_widget_show (w);
 
 	xfce_mixer_prefbox_fill_defaults (XFCE_MIXER_PREFBOX (w));
