@@ -6,8 +6,10 @@ panel-plugin/xfce-mixer-prefbox.c
 settings/sound.c
 settings/xfce-mixer-settingsbox.c
 src/disclosure-widget.c
-src/mcs_client.c
+src/xfce-mixer-view.c
+src/xfce-mixer-view-tiny.c
 src/main.c
+src/menus.c
 src/xfce-mixer-profilebox.c
 src/xfce-mixer-profilebox-detail.c
 src/menu-callbacks.inc

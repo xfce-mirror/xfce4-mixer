@@ -7,7 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer\n"
-"POT-Creation-Date: 2003-08-02 11:41+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-01-20 15:30+0100\n"
 "PO-Revision-Date: 2004-01-17 23:47-0200\n"
 "Last-Translator: Felix da Silva Costa <felix@online.eti.br>\n"
 "Language-Team: pt_BR <felix@online.eti.br>\n"
@@ -15,60 +16,182 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: panel-plugin/mixer.c:157
-msgid "No working sound"
-msgstr "Som não esta funcionando"
-
-#: panel-plugin/mixer.c:296
-#, c-format
-msgid "Volume: %d%%"
-msgstr "Volume: %d%%"
-
-#: panel-plugin/mixer.c:1022
-msgid "Device:"
+#: mixer-settingsbox.gob:98
+#, fuzzy
+msgid "Device"
 msgstr "Dispositivo:"
 
-#: panel-plugin/mixer.c:1110
-msgid "Use _internal mixer"
-msgstr "Use mixer _interno"
+#: mixer-settingsbox.gob:101
+msgid "None"
+msgstr ""
 
-#: panel-plugin/mixer.c:1307
-msgid "Volume Control"
-msgstr "Controle de volume"
+#. gtk_widget_show (GTK_WIDGET (self->dev_label));
+#: mixer-settingsbox.gob:104
+#, fuzzy
+msgid "Useful Controls"
+msgstr "Controle"
 
-#: panel-plugin/vc_alsa.c:90
+#: lib/vc_alsa.c:94
 #, c-format
 msgid "alsa: Mixer %s open error: %s\n"
 msgstr "alsa: Mixer %s erro ao abrir: %s\n"
 
-#: panel-plugin/vc_alsa.c:95
+#: lib/vc_alsa.c:99
 #, c-format
 msgid "alsa: Mixer attach %s error: %s\n"
 msgstr "alsa: Erro %s ao atachar Mixer: %s\n"
 
-#: panel-plugin/vc_alsa.c:103
+#: lib/vc_alsa.c:107
 #, c-format
 msgid "alsa: Mixer register error: %s"
 msgstr "alsa: erro no registro do mixer: %s"
 
-#: panel-plugin/vc_alsa.c:112
-#, c-format
-msgid "alsa: Mixer load error: %s"
+#: lib/vc_alsa.c:116
+#, fuzzy, c-format
+msgid "alsa: Mixer load error: %s: %s"
 msgstr "alsa: Erro ao carregar mixer: %s"
 
-#: panel-plugin/vc_alsa.c:122
+#: lib/vc_alsa.c:126
 #, c-format
 msgid "alsa: Unable to find simple control '%s',%i\n"
 msgstr "alsa: Não foi possível encontrar o controle simples '%s',%i\n"
 
-#: panel-plugin/vc_oss.c:133
+#: lib/vc_oss.c:134
 msgid "oss: No master volume"
 msgstr "oss: sem volume mestre"
 
-#: panel-plugin/mvisible_opts.c:76
-msgid "Visible"
-msgstr "Visível"
+#: panel-plugin/plugin.c:94
+#, c-format
+msgid "Volume: %d%%"
+msgstr "Volume: %d%%"
 
-#: panel-plugin/mvisible_opts.c:84
+#: panel-plugin/plugin.c:375
+msgid "Volume Control"
+msgstr "Controle de volume"
+
+#: settings/sound.c:72 settings/sound.c:90
+msgid "Sound"
+msgstr ""
+
+#: mixer-view.gob:203
+msgid "Show Switches"
+msgstr ""
+
+#: mixer-view.gob:204
+msgid "Hide Switches"
+msgstr ""
+
+#: src/main.c:50
+msgid "No working sound"
+msgstr "Som não esta funcionando"
+
+#: src/menus.c:9
+msgid "/_File"
+msgstr ""
+
+#: src/menus.c:10
+msgid "/File/_Options"
+msgstr ""
+
+#: src/menus.c:11
+msgid "/File/_Exit"
+msgstr ""
+
+#: src/menus.c:12
+msgid "/_View"
+msgstr ""
+
+#: src/menus.c:13
+msgid "/View/sep"
+msgstr ""
+
+#: src/menus.c:14
+msgid "/View/_Manage"
+msgstr ""
+
+#: src/menus.c:15
+msgid "/_Help"
+msgstr ""
+
+#: src/menus.c:16
+msgid "/Help/_Info"
+msgstr ""
+
+#: mixer-profilebox.gob:88
+msgid "Device:"
+msgstr "Dispositivo:"
+
+#: mixer-profilebox.gob:142
+msgid "Create new profile"
+msgstr ""
+
+#: mixer-profilebox.gob:151
+msgid "Delete this profile"
+msgstr ""
+
+#: mixer-profilebox.gob:340
+#, c-format
+msgid "Really delete those %d profiles?"
+msgstr ""
+
+#: mixer-profilebox.gob:343
+#, c-format
+msgid "Really delete profile \"%s\"?"
+msgstr ""
+
+#: mixer-profilebox.gob:428
+#, c-format
+msgid "%s - New"
+msgstr ""
+
+#: mixer-profilebox.gob:462
+msgid "A profile needs a name"
+msgstr ""
+
+#: mixer-profilebox.gob:479
+msgid "A profile with that name already exists"
+msgstr ""
+
+#: mixer-profilebox-detail.gob:76
 msgid "Control"
 msgstr "Controle"
+
+#: mixer-profilebox-detail.gob:79
+msgid "Type"
+msgstr ""
+
+#: mixer-profilebox-detail.gob:92
+msgid "Profile Name:"
+msgstr ""
+
+#: mixer-profilebox-detail.gob:180
+msgid "<unknown>"
+msgstr ""
+
+#: mixer-profilebox-detail.gob:182
+msgid "<slider>"
+msgstr ""
+
+#: mixer-profilebox-detail.gob:183
+msgid "<onoff>"
+msgstr ""
+
+#: mixer-profilebox-detail.gob:184
+msgid "<select>"
+msgstr ""
+
+#: src/menu-callbacks.inc:16
+#, c-format
+msgid "%s - Info"
+msgstr ""
+
+#: src/menu-callbacks.inc:38
+#, c-format
+msgid "%s - Profiles"
+msgstr ""
+
+#~ msgid "Use _internal mixer"
+#~ msgstr "Use mixer _interno"
+
+#~ msgid "Visible"
+#~ msgstr "Visível"

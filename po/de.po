@@ -6,47 +6,48 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-01-06 20:38+0100\n"
-"PO-Revision-Date: 2003-11-23 05:05-0000\n"
+"POT-Creation-Date: 2004-01-20 15:30+0100\n"
+"PO-Revision-Date: 2004-01-20 15:30+0100\n"
 "Last-Translator: Artjom Simon <hoek@linuxartist.org>\n"
 "Language-Team: German <xfce4-dev@xfce.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: mixer-settingsbox.gob:71 mixer-settingsbox.gob:88
+#: mixer-settingsbox.gob:98
 msgid "Device"
 msgstr "Gerät"
 
-#: mixer-settingsbox.gob:91
+#: mixer-settingsbox.gob:101
 msgid "None"
 msgstr "Nichts"
 
-#: mixer-settingsbox.gob:94
+#. gtk_widget_show (GTK_WIDGET (self->dev_label));
+#: mixer-settingsbox.gob:104
 msgid "Useful Controls"
 msgstr "Nützliche Regler"
 
-#: lib/vc_alsa.c:89
+#: lib/vc_alsa.c:94
 #, c-format
 msgid "alsa: Mixer %s open error: %s\n"
 msgstr "ALSA: Fehler beim Öffnen von Mixer %s: %s\n"
 
-#: lib/vc_alsa.c:94
+#: lib/vc_alsa.c:99
 #, c-format
 msgid "alsa: Mixer attach %s error: %s\n"
 msgstr "ALSA: Mixer %s: Fehler beim Verbinden: %s\n"
 
-#: lib/vc_alsa.c:102
+#: lib/vc_alsa.c:107
 #, c-format
 msgid "alsa: Mixer register error: %s"
 msgstr "ALSA: Mixer %s: Fehler beim Registrieren: %s"
 
-#: lib/vc_alsa.c:111
+#: lib/vc_alsa.c:116
 #, fuzzy, c-format
 msgid "alsa: Mixer load error: %s: %s"
 msgstr "ALSA: Mixer %s: Fehler beim Laden: %s"
 
-#: lib/vc_alsa.c:121
+#: lib/vc_alsa.c:126
 #, c-format
 msgid "alsa: Unable to find simple control '%s',%i\n"
 msgstr "ALSA: Regler '%s',%i nicht gefunden\n"
@@ -55,12 +56,12 @@ msgstr "ALSA: Regler '%s',%i nicht gefunden\n"
 msgid "oss: No master volume"
 msgstr "OSS: Kein Master"
 
-#: panel-plugin/plugin.c:82
+#: panel-plugin/plugin.c:94
 #, c-format
 msgid "Volume: %d%%"
 msgstr "Lautstärke: %d %%"
 
-#: panel-plugin/plugin.c:326
+#: panel-plugin/plugin.c:375
 msgid "Volume Control"
 msgstr "Lautstärkenregler"
 
@@ -68,9 +69,124 @@ msgstr "Lautstärkenregler"
 msgid "Sound"
 msgstr "Sound"
 
-#: src/main.c:28
+#: mixer-view.gob:203
+msgid "Show Switches"
+msgstr "Schalter anzeigen"
+
+#: mixer-view.gob:204
+msgid "Hide Switches"
+msgstr "Schalter ausblenden"
+
+#: src/main.c:50
 msgid "No working sound"
 msgstr "Keine funktionierende Soundkonfiguration gefunden"
+
+#: src/menus.c:9
+msgid "/_File"
+msgstr "/_Datei"
+
+#: src/menus.c:10
+msgid "/File/_Options"
+msgstr "/Datei/_Optionen"
+
+#: src/menus.c:11
+msgid "/File/_Exit"
+msgstr "/Datei/_Beenden"
+
+#: src/menus.c:12
+msgid "/_View"
+msgstr "/_Ansicht"
+
+#: src/menus.c:13
+msgid "/View/sep"
+msgstr "/Ansicht/sep"
+
+#: src/menus.c:14
+msgid "/View/_Manage"
+msgstr "/Ansicht/An_passen"
+
+#: src/menus.c:15
+msgid "/_Help"
+msgstr "/_Hilfe"
+
+#: src/menus.c:16
+msgid "/Help/_Info"
+msgstr "/Hilfe/_Info"
+
+#: mixer-profilebox.gob:88
+#, fuzzy
+msgid "Device:"
+msgstr "Gerät:"
+
+#: mixer-profilebox.gob:142
+msgid "Create new profile"
+msgstr "Neues Profil anlegen"
+
+#: mixer-profilebox.gob:151
+msgid "Delete this profile"
+msgstr "Dieses Profil löschen"
+
+#: mixer-profilebox.gob:340
+#, c-format
+msgid "Really delete those %d profiles?"
+msgstr "Diese %d profile wirklich löschen?"
+
+#: mixer-profilebox.gob:343
+#, c-format
+msgid "Really delete profile \"%s\"?"
+msgstr "Profil \"%s\" wirklich löschen?"
+
+#: mixer-profilebox.gob:428
+#, c-format
+msgid "%s - New"
+msgstr "%s - Neu"
+
+#: mixer-profilebox.gob:462
+msgid "A profile needs a name"
+msgstr "Jedes Profil benötigt einen Namen"
+
+#: mixer-profilebox.gob:479
+msgid "A profile with that name already exists"
+msgstr "Ein Profil mit demselben Namen existiert bereits"
+
+#: mixer-profilebox-detail.gob:76
+#, fuzzy
+msgid "Control"
+msgstr "Lautstärkenregler"
+
+#: mixer-profilebox-detail.gob:79
+msgid "Type"
+msgstr "Art"
+
+#: mixer-profilebox-detail.gob:92
+msgid "Profile Name:"
+msgstr "Profilname:"
+
+#: mixer-profilebox-detail.gob:180
+msgid "<unknown>"
+msgstr "<unbekannt>"
+
+#: mixer-profilebox-detail.gob:182
+msgid "<slider>"
+msgstr "<Regler>"
+
+#: mixer-profilebox-detail.gob:183
+msgid "<onoff>"
+msgstr "<ein/aus>"
+
+#: mixer-profilebox-detail.gob:184
+msgid "<select>"
+msgstr "<Umschalter>"
+
+#: src/menu-callbacks.inc:16
+#, c-format
+msgid "%s - Info"
+msgstr "%s - Info"
+
+#: src/menu-callbacks.inc:38
+#, c-format
+msgid "%s - Profiles"
+msgstr "%s - Profile"
 
 #~ msgid "Use _internal mixer"
 #~ msgstr "_Internen Mixer verwenden"
