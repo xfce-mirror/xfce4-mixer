@@ -139,6 +139,39 @@ void control_glist_foreach_cb(gpointer data, gpointer user_data)
 	}
 }
 
+static void 
+freedom_for_each_control_cb(mixer_slider_control_t *s)
+{
+	if (s && s->name) {
+		g_free (s->name);
+		s->name = NULL;
+	}
+	
+}
+
+static void 
+mixer_window_free_controls (mixer_slider_control_t *s)
+{
+	mixer_slider_control_t *n;
+	while (s) {
+		n = s->next;
+		freedom_for_each_control_cb (s);
+	
+		s = n;
+	}
+}
+
+void window_destroy_cb(GtkWidget *wi, gpointer user_data)
+{
+	mixer_window_t * w;
+	w = (mixer_window_t *)user_data;
+	
+	if (w->controls) {
+		mixer_window_free_controls (w->controls);
+		w->controls = NULL;
+	}
+}
+
 mixer_window_t *mixer_window_new(gboolean from_glist, GList *src)
 {
 	GList *g;
@@ -188,6 +221,8 @@ mixer_window_t *mixer_window_new(gboolean from_glist, GList *src)
 			
 			vc_set_volume_callback (vc_cb, w);
 		}
+		
+		g_signal_connect (G_OBJECT (w->window), "destroy", G_CALLBACK (window_destroy_cb), w);
 	}
 	
 	return w;
