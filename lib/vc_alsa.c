@@ -207,6 +207,7 @@ static int vc_get_volume(char const *which)
 {
 	long pmin,pmax;
 	long lval;
+	int pb;
 	snd_mixer_selem_channel_id_t chn;
 	snd_mixer_elem_t *xelem = NULL;
 
@@ -228,6 +229,12 @@ static int vc_get_volume(char const *which)
 		if (!snd_mixer_selem_has_playback_channel(xelem, chn)) continue;
 	
 		snd_mixer_selem_get_playback_volume(xelem, chn, &lval); 
+
+		pb = TRUE;
+		snd_mixer_selem_get_playback_switch (xelem, chn, &pb);
+		if (!pb) {
+			return 0;
+		}
 
 		/*error("%ld,%ld,%ld,%ld", pmin,pmax,lval,(lval - pmin) * 100 / (pmax-pmin));*/
 		if (pmax > pmin) {
@@ -277,9 +284,6 @@ static void vc_set_volume(char const *which, int vol_p)
 			snd_mixer_selem_set_playback_switch (xelem, chn, 1);
 			snd_mixer_selem_set_playback_volume(xelem, chn, lval);
 		}
-	
-		/* lol*/
-		/*return;*/
 	}
 }
 
