@@ -1,3 +1,59 @@
+2003-08-26 09:22  huysmans
+
+	* po/: ca.po, lt.gmo, lt.po, zh_CN.po: Update version numbers and
+	po files for release
+
+2003-08-17 13:36  huysmans
+
+	* configure, configure.ac, po/lt.gmo, po/lt.po: Add lithuanian
+	translations
+
+2003-08-10 21:54  huysmans
+
+	* po/: zh_CN.gmo, zh_CN.po: Update chinese translations
+
+2003-08-07 23:57  huysmans
+
+	* po/: ca.gmo, ca.po, de.gmo, fr.gmo, hu.gmo, it.gmo, nl.gmo,
+	ru.gmo, tr.gmo, zh_CN.gmo: Update catalan translations
+
+2003-08-04 18:38  dannym
+
+	* po/de.po: Bernhard Walle's translations
+
+2003-08-02 11:41  dannym
+
+	* po/: ca.po, de.po, fr.po, hu.po, it.po, nl.po, ru.po, tr.po,
+	xfce4-mixer.pot, zh_CN.po: added translateable strings for
+	"Visible", "Control" (for the tree)
+
+2003-08-01 14:38  dannym
+
+	* po/POTFILES.in: added mvisible_opts.c to translateable files
+
+2003-08-01 14:36  dannym
+
+	* panel-plugin/mvisible_opts.c: ups
+
+2003-08-01 14:34  dannym
+
+	* panel-plugin/mvisible_opts.c: translateable "Control" and
+	"Visible"
+
+2003-07-30 22:34  dannym
+
+	* panel-plugin/: string_option_menu.c, string_option_menu.h: small
+	nice helpers
+
+2003-07-30 22:30  dannym
+
+	* panel-plugin/: vc_alsa.c, vc_oss.c: device listing, alsa fixups
+	for proper (hopefully) device selection...
+
+2003-07-30 13:31  huysmans
+
+	* ChangeLog: Update changlogs
+
 2003-07-30 10:16  huysmans
 
 	* configure, configure.ac, po/ca.gmo, po/ca.po, po/de.gmo,
