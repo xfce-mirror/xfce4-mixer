@@ -3,6 +3,7 @@
 #include "xfce-mixer-slider.h"
 #include "xfce-mixer-slider-tiny.h"
 #include "xfce-mixer-switch.h"
+#include "xfce-mixer-select.h"
 #include "xfce-mixer-profile.h"
 #include "xfce-mixer-control-factory.h"
 #include "xfce-mixer-cache-vc.h"
@@ -45,6 +46,10 @@ XfceMixerControl *xfce_mixer_control_factory_new_from_profile_item(
 			case 'O': 
 				c = xfce_mixer_switch_new (); 
 				if (c) new_loc = g_strdup ("switches");
+				break;
+			case 'C':
+				c = xfce_mixer_select_new (); 
+				if (c) new_loc = g_strdup ("switches"); /* or own? */
 				break;
 			}
 		}

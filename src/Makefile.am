@@ -10,12 +10,13 @@ xfce4_mixer_CSOURCES = xfce-mixer-control.c xfce-mixer-slider.c \
 	vc.c vc_alsa.c vc_oss.c \
 	xfce-mixer-cache-vc.c disclosure-widget.c \
 	menus.c menu-callbacks.inc xfce-mixer-window.c \
-	xfce-mixer-switch.c xfce-mixer-info.c xfce-mixer-control-vc.c
+	xfce-mixer-switch.c xfce-mixer-info.c xfce-mixer-control-vc.c \
+	xfce-mixer-select.c
 
 xfce4_mixer_SOURCES = $(xfce4_mixer_CSOURCES) mixer-control.gob \
 	mixer-slider.gob mixer-view.gob mixer-view-tiny.gob \
 	mixer-slider-tiny.gob mixer-window.gob mixer-switch.gob \
-	mixer-info.gob
+	mixer-info.gob mixer-select.gob
 
 xfce4_mixer_CFLAGS =							\
 	@XFCE4_UTIL_CFLAGS@						\

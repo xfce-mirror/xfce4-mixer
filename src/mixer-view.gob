@@ -55,7 +55,11 @@ class Xfce:Mixer:View from Gtk:VBox {
 	protected GtkTable *switches;
 	protected gint switches_r = 0;
 	protected gint switches_c = 0;
-	protected GtkWidget *disclosure;
+	protected GtkWidget *disclosure
+		destroy {
+			self_free_disclosure (self);
+		};
+
 	protected GtkBox *vbox;
 	protected GList *controls = NULL
 		destroywith control_list_free;
@@ -65,6 +69,11 @@ class Xfce:Mixer:View from Gtk:VBox {
 		destroy {
 			self_set_profile (self, NULL);
 		};
+
+	private void free_disclosure (self)
+	{
+		self->disclosure = NULL;
+	}
 
 	protected Xfce:Mixer:Control *add_control(self, Xfce:Mixer:Control *c)
 	{
@@ -101,6 +110,9 @@ class Xfce:Mixer:View from Gtk:VBox {
 	{
 		gboolean has_sw;
 		has_sw = (self->switches_r > 0) || (self->switches_c > 0);
+		if (!self->disclosure)
+			return;
+
 		if (has_sw)
 			gtk_widget_show (GTK_WIDGET (self->disclosure));
 		else
