@@ -274,10 +274,6 @@ class Xfce:Mixer:View from Gtk:VBox {
 
 	public void set_profile (self, Xfce:Mixer:Profile *p)
 	{
-		GList *g, *go;
-		t_mixer_profile_item *item;
-		XfceMixerControl *c;
-
 		if (p)
 			g_object_ref (G_OBJECT (p));
 

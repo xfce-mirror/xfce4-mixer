@@ -25,6 +25,13 @@ class Xfce:Mixer:Pxml from G:Object {
 	protected gchar *root = NULL
 		destroywith g_free;
 
+	protected gboolean foreignDoc = TRUE;
+
+	protected xmlDocPtr document = NULL
+		destroy {
+			self_free_document (self);
+		};
+
 	protected gchar * fname = NULL
 		destroy {
 			self_set_file (self, NULL);
@@ -42,12 +49,19 @@ class Xfce:Mixer:Pxml from G:Object {
 	};
 
 	public xmlNodePtr node = NULL;
-	protected xmlDocPtr document = NULL
-		destroywith xmlFreeDoc;
 
 	public void set_document (self, xmlDocPtr doc)
 	{
+		self->foreignDoc = TRUE;
 		self->document = doc;
+	}
+
+	protected void free_document (self)
+	{
+		if (!self->foreignDoc && self->document) {
+			xmlFreeDoc (self->document);
+		}
+		self->document = NULL;
 	}
 
 	protected void set_file (self, gchar const *fnamen)
@@ -74,6 +88,7 @@ class Xfce:Mixer:Pxml from G:Object {
 			if (g_file_test (self->fname, G_FILE_TEST_EXISTS)) {
 				/* TODO backup */
 				self->document = xmlParseFile (self->fname);
+				self->foreignDoc = FALSE;
 			} else {
 				/* create directory */
 				dir = g_path_get_dirname (self->fname);
@@ -90,6 +105,7 @@ class Xfce:Mixer:Pxml from G:Object {
 			if (!self->document && self->root) {
 				self->document = xmlNewDoc ("1.0");
 				self->document->children = xmlNewDocRawNode (self->document, NULL, self->root, NULL);
+				self->foreignDoc = FALSE;
 				xmlDocSetRootElement (self->document, self->document->children);
 			}
 

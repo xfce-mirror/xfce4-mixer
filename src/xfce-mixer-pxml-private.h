@@ -19,6 +19,7 @@ extern "C" {
 
 #line 16 "mixer-pxml.gob"
 #line 22 "xfce-mixer-pxml-private.h"
+void 	xfce_mixer_pxml_free_document	(XfceMixerPxml * self);
 void 	xfce_mixer_pxml_set_file	(XfceMixerPxml * self, gchar const * fnamen);
 
 #ifdef __cplusplus
