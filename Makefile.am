@@ -2,6 +2,11 @@
 
 SUBDIRS = panel-plugin po
 
+EXTRA_DIST =								\
+	NOTES								\
+	README								\
+	TODO
+
 distclean-local:
 	rm -rf *.cache *~
 
