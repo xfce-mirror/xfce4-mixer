@@ -497,10 +497,11 @@ mixer_stuff_toggled_cb(GtkToggleButton *tb, t_mixer *mixer)
 	mixer_revert_make_sensitive(mixer->revert_b);
 }
  
-static void 
+static gboolean
 mixer_command_entry_lost_focus(t_mixer *mixer)
 {
 	mixer_revert_make_sensitive(mixer->revert_b);
+	return FALSE; /* needed? */
 }
 
 static void
