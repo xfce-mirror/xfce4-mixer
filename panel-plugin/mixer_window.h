@@ -21,6 +21,7 @@ typedef struct tagSCT {
 
 typedef struct {
 	mixer_slider_control_t *controls, *last_control;
+	GtkScrolledWindow *scroller; /* scrolled_window */
 	GtkBox *hbox;
 	GtkWindow *window;
 } mixer_window_t;

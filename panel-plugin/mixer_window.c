@@ -75,12 +75,12 @@ mixer_slider_control_t *mixer_window_slider_control_new(mixer_window_t *w, char 
 		
 		gtk_widget_show (GTK_WIDGET (s->label));
 		
-		gtk_box_pack_start (GTK_BOX (s->vbox), GTK_WIDGET (s->label), TRUE, TRUE, 3);
-		gtk_box_pack_start (GTK_BOX (s->vbox), GTK_WIDGET (s->hbox), TRUE, FALSE, 3);
+		gtk_box_pack_start (GTK_BOX (s->vbox), GTK_WIDGET (s->label), FALSE, TRUE, 3);
+		gtk_box_pack_start (GTK_BOX (s->vbox), GTK_WIDGET (s->hbox), FALSE, FALSE, 3);
 		
 		gtk_box_pack_start (GTK_BOX (s->hbox), GTK_WIDGET (s->scale), TRUE, FALSE, 3);
 
-		gtk_box_pack_start (GTK_BOX (w->hbox), GTK_WIDGET (s->vbox), TRUE, FALSE, 3);
+		gtk_box_pack_start (GTK_BOX (w->hbox), GTK_WIDGET (s->vbox), FALSE, FALSE, 3);
 
 		/* put into linked list: */
 		s->prev = w->last_control;
@@ -125,9 +125,18 @@ mixer_window_t *mixer_window_new()
 		w->hbox = GTK_BOX (gtk_hbox_new (FALSE /* TRUE */, 5));
 		gtk_widget_show (GTK_WIDGET (w->hbox));
 
+		w->scroller = GTK_SCROLLED_WINDOW (gtk_scrolled_window_new (NULL, NULL));
+		gtk_scrolled_window_set_policy (w->scroller, GTK_POLICY_AUTOMATIC, GTK_POLICY_NEVER);
+		gtk_widget_set_size_request (GTK_WIDGET (w->window), 400, -1);
+		gtk_widget_show (GTK_WIDGET (w->scroller));
+
 		gtk_window_set_title (GTK_WINDOW (w->window),  _("Volume Control"));
 		
-		gtk_container_add (GTK_CONTAINER (w->window), GTK_WIDGET (w->hbox));
+		/*gtk_container_add (GTK_CONTAINER (w->scroller), GTK_WIDGET (w->hbox));*/
+		
+		gtk_scrolled_window_add_with_viewport (w->scroller, GTK_WIDGET (w->hbox));
+	
+		gtk_container_add (GTK_CONTAINER (w->window), GTK_WIDGET (w->scroller));
 		
 		w->controls = NULL;
 		w->last_control = NULL;
