@@ -111,7 +111,7 @@ find_master(void)
 }
 
 static void
-set_device(const gchar *name)
+vc_set_device(const gchar *name)
 {
 	if (mixer_handle != -1) {
 		(void)close(mixer_handle);
