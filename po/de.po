@@ -1,13 +1,13 @@
-# SOME DESCRIPTIVE TITLE.
+# Xfce German translation
 # Copyright (C) 2003 XFce development team
 # Benedikt Meurer <benedikt.meurer@unix-ag.org>, 2003.
-#
+
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-11-18 23:22+0100\n"
-"PO-Revision-Date: 2004-09-18 00:10+0100\n"
+"PO-Revision-Date: 2004-11-22 16:21+0100\n"
 "Last-Translator: Moritz Heiber <moe@xfce.org>\n"
 "Language-Team: German <xfce4-dev@xfce.org>\n"
 "MIME-Version: 1.0\n"
@@ -280,9 +280,9 @@ msgstr "Ein Profil mit demselben Namen existiert bereits"
 
 #: src/mixer-profiles.gob:262 src/mixer-profiles.gob:269
 #: mixer-profiles.gob:262 mixer-profiles.gob:269
-#, fuzzy, c-format
+#, c-format
 msgid "profile%d"
-msgstr "Profil"
+msgstr "Profil%d"
 
 #: src/mixer-view.gob:258 mixer-view.gob:258
 msgid "Show Switches"
@@ -291,9 +291,3 @@ msgstr "Schalter anzeigen"
 #: src/mixer-view.gob:259 mixer-view.gob:259
 msgid "Hide Switches"
 msgstr "Schalter ausblenden"
-
-#~ msgid "%s - Info"
-#~ msgstr "%s - Info"
-
-#~ msgid "%s - Profiles"
-#~ msgstr "%s - Profile"
