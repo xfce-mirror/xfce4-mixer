@@ -35,12 +35,12 @@ msgstr "볼륨 제어"
 #: panel-plugin/vc_alsa.c:89
 #, c-format
 msgid "alsa: Mixer %s open error: %s\n"
-msgstr "alsa: 믹서 %s 열기 오류 : %s\n"
+msgstr "alsa: 믹서 %s 열기 오류 : %s"
 
 #: panel-plugin/vc_alsa.c:94
 #, c-format
 msgid "alsa: Mixer attach %s error: %s\n"
-msgstr "alsa: 믹서 추가 %s 오류 : %s\n"
+msgstr "alsa: 믹서 추가 %s 오류 : %s"
 
 #: panel-plugin/vc_alsa.c:102
 #, c-format
