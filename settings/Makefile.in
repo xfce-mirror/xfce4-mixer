@@ -218,7 +218,8 @@ sound_settings_la_LDFLAGS = \
 sound_settings_la_SOURCES = \
 	sound.c								\
 	xfce-mixer-settingsbox.c xfce-mixer-settingsbox.h xfce-mixer-settingsbox-private.h \
-	string_option_menu.c
+	string_option_menu.c string_option_menu.h \
+	helpers3.inc stringlist.inc 
 
 sound_settings_la_CFLAGS = \
 	@XFCE_MCS_MANAGER_CFLAGS@					\
