@@ -91,7 +91,7 @@ class Xfce:Mixer:Mcs:Client from G:Object {
 	signal first NONE (NONE)
 	void changed(self)
 	{
-		g_warning ("changed");
+		/*g_warning ("changed");*/
 	}
 
 	init(self)
