@@ -129,7 +129,7 @@ reinit_device()
 	find_master();
 
 	if (master_i == -1) {
-		g_warning(_("No master"));
+		g_warning(_("oss: No master"));
 		return -1;
 	}
 	
@@ -159,7 +159,7 @@ set_master_volume(int percent)
 	level = (vol << 8) | vol;
 
 	if (ioctl(mixer_handle, MIXER_WRITE(master_i), &level) < 0)
-		perror("Unable to set master volume");
+		perror("oss: Unable to set master volume");
 }
 
 #define LEFT(lvl)	((lvl) & 0x7f)
@@ -179,7 +179,7 @@ get_master_volume(void)
 	level = 0;
 
 	if (ioctl(mixer_handle, MIXER_READ(master_i), &level) == -1) {
-		perror("Unable to get master volume");
+		perror("oss: Unable to get master volume");
 		return(0);
 	}
 

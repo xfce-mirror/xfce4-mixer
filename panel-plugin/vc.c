@@ -53,6 +53,7 @@ void register_vc(volchanger_t *vc)
 		if (vcs[i] == NULL) {
 			vcs[i] = vc;
 			if (!sel) { sel = vc; }
+			break;
 		}
 	}
 }
@@ -64,6 +65,7 @@ void unregister_vc(volchanger_t *vc)
 		if (vcs[i] == vc) {
 			vcs[i] = NULL;
 			if (sel == vc) { sel = NULL; }
+			break;
 		}
 	}
 }
