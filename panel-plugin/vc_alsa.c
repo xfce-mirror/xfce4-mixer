@@ -84,14 +84,15 @@ static void find_master(void)
 		handle = NULL;
 	}
 	
-	if ((err = snd_mixer_open(&handle, 0)) < 0) {
+	if ((err = snd_mixer_open(&handle, 0)) < 0 || !handle) {
 		error(_("alsa: Mixer %s open error: %s\n"), card, snd_strerror(err));
 		return;
 	}
 	
 	if ((err = snd_mixer_attach(handle, card)) < 0) {
 		error(_("alsa: Mixer attach %s error: %s"), card, snd_strerror(err));
-		/*snd_mixer_close(handle); <-- alsa 0.9.2 fails assert(hctl) if I do that... weeeeird... */
+		snd_mixer_close(handle); /* <-- alsa 0.9.3a fails assert(hctl) if I do that... weeeeird... */
+		handle = NULL;
 		return;
 	}
 	if ((err = snd_mixer_selem_register(handle, NULL, NULL)) < 0) {
@@ -99,6 +100,7 @@ static void find_master(void)
 		xfce_info(_("alsa: Mixer register error: %s"), snd_strerror(err));  
 #endif
 		snd_mixer_close(handle);
+		handle = NULL;
 		return;
 	}
         err = snd_mixer_load(handle);
