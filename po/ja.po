@@ -6,10 +6,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-mixer 4.2.0\n"
+"Project-Id-Version: xfce4-mixer 4.2.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-02-16 09:43+0900\n"
-"PO-Revision-Date: 2005-02-22 02:23+0900\n"
+"PO-Revision-Date: 2005-03-11 07:10+0900\n"
 "Last-Translator: Daichi Kawahata <daichik@users.sourceforge.net>\n"
 "Language-Team: xfce-users-jp <xfce-users-jp@ml.fdiary.net>\n"
 "MIME-Version: 1.0\n"
@@ -130,7 +130,7 @@ msgstr "alsa: ミキサー %s を開けません エラー: %s\n"
 #: lib/vc_alsa.c:99
 #, c-format
 msgid "alsa: Mixer attach %s error: %s\n"
-msgstr "alsa: ミキサー付随 %s エラー: %s\n"
+msgstr "alsa: ミキサー %s アタッチ・エラー: %s\n"
 
 #: lib/vc_alsa.c:107
 #, c-format
@@ -288,12 +288,12 @@ msgstr "プロファイル"
 #: src/mixer-profilebox.gob:374 mixer-profilebox.gob:374
 #, c-format
 msgid "Really delete those %d profiles?"
-msgstr "本当にこれら %d 件のプロファイルを削除していいですか?"
+msgstr "本当にこれら %d 件のプロファイルを削除していいですか？"
 
 #: src/mixer-profilebox.gob:377 mixer-profilebox.gob:377
 #, c-format
 msgid "Really delete profile \"%s\"?"
-msgstr "本当にプロファイル \"%s\" を削除していいですか?"
+msgstr "本当にプロファイル \"%s\" を削除していいですか？"
 
 #: src/mixer-profilebox.gob:491 mixer-profilebox.gob:491
 #, c-format
@@ -321,11 +321,3 @@ msgstr "スイッチを表示する"
 #: src/mixer-view.gob:259 mixer-view.gob:259
 msgid "Hide Switches"
 msgstr "スイッチを隠す"
-
-#: settings/xfce-mixer-settings.desktop.in.h:1
-msgid "Mixer Settings"
-msgstr "ミキサー設定"
-
-#: settings/xfce-mixer-settings.desktop.in.h:2
-msgid "Xfce 4 Mixer Settings"
-msgstr "Xfce 4 ミキサー設定"
