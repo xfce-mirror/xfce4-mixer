@@ -46,7 +46,7 @@ void xfce_mixer_cache_vc_refresh (void)
 	
 	if (!vc_atexit) {
 		vc_atexit = TRUE;
-		atexit (xfce_mixer_cache_vc_free);
+		g_atexit (xfce_mixer_cache_vc_free);
 	}
 }
 
@@ -67,9 +67,9 @@ void xfce_mixer_cache_vc_foreach (GFunc func, gpointer user_data)
 	g = vc_cache;
 	while (g) {
 		vci = (volcontrol_t *)g->data;
-		if (vci) {
+		if (vci)
 			(*func) ((gpointer) vci, user_data);
-		}
+
 		g = g_list_next (g);
 	}
 }
@@ -113,3 +113,38 @@ gchar xfce_mixer_cache_vc_get_type (gchar const *vcname) /* 'S'lider, 'C'hoice, 
 
 	return 'D';
 }
+
+GList *xfce_mixer_cache_vc_get_choices (gchar const *vcname)
+{
+	GList *g;
+	GList *gn;
+	volcontrol_t *vci;
+	if (!vcname)
+		return NULL;
+		
+	if (!vc_cache)
+		xfce_mixer_cache_vc_refresh ();
+
+	if (!vc_cache)
+		return NULL;
+
+	g = vc_cache;
+	while (g) {
+		vci = (volcontrol_t *)g->data;
+		if (g_str_equal (vci->name, vcname)) {
+			g = vci->choices;
+			gn = NULL;
+			
+			while (g) {
+				gn = g_list_append (gn, g_strdup ((gchar *)g->data));
+				g = g_list_next (g);
+			}
+			
+			return gn;
+		}
+	
+		g = g_list_next (g);
+	}
+	return NULL;
+}
+

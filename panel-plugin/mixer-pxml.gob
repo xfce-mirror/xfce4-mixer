@@ -70,8 +70,6 @@ class Xfce:Mixer:Pxml from G:Object {
 		gchar *dir;
 		self->node = NULL;
 
-		/*g_warning ("here %X %X", self->fname, self->document);*/
-
 		if (self->fname && self->document) {
 			/* store blahblah if required */
 			xmlSaveFormatFile (self->fname, self->document, 1);
