@@ -1,3 +1,40 @@
+2003-07-18 17:58  huysmans
+
+	* panel-plugin/mixer.c: Change panel API again to prevent old
+	plugins to crah the panel
+
+2003-07-18 12:57  huysmans
+
+	* po/: hu.gmo, hu.po: Update hungarian translations
+
+2003-07-18 09:46  huysmans
+
+	* po/: tr.gmo, tr.po: Update turkish translations
+
+2003-07-16 20:01  huysmans
+
+	* po/: nl.gmo, nl.po: Update dutch translations
+
+2003-07-16 11:57  huysmans
+
+	* configure, configure.ac, po/ca.po, po/hu.gmo, po/hu.po: Add
+	hungarian translations
+
+2003-07-16 10:22  huysmans
+
+	* po/: ca.gmo, ca.po: Update catalan translations
+
+2003-07-15 19:21  dannym
+
+	* panel-plugin/: scroller_size.c, scroller_size.h: Moved the
+	scroll-window be as big as possible, but without leaving empty
+	space in the window, and smaller than the whole screen, to a
+	function. TODO: mcs desktop borders
+
+2003-07-13 10:43  huysmans
+
+	* ChangeLog: Update ChangeLogs for release
+
 2003-07-12 15:34  huysmans
 
 	* ChangeLog: Update ChangeLog before release

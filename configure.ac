@@ -56,7 +56,7 @@ dnl Check for i18n support
 BM_I18N([xfce4-mixer], [ca de fr hu it nl ru tr zh_CN])
 
 dnl configure the panel plugin
-XFCE_PANEL_PLUGIN([XFCE4_PANEL], [3.91.2])
+XFCE_PANEL_PLUGIN([XFCE4_PANEL], [3.99.2])
 
 dnl Check for startup notification
 BM_DEPEND_CHECK(LIBSTARTUP_NOTIFICATION, libstartup-notification-1.0, 0.4,
