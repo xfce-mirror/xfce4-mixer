@@ -1,0 +1,13 @@
+#!/bin/sh
+
+for s in *.gob
+do
+	gob2 "$s" || {
+		X="$?"
+
+		echo "-- in file $s">&2
+
+		exit "$X"
+	}
+done
+exit 0

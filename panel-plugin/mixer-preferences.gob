@@ -1,0 +1,257 @@
+%a{
+#include <gtk/gtk.h>
+#include "xfce-mixer-pxml.h"
+%}
+%h{
+#include "helpers_h.inc"
+%}
+%{
+#include <libxfcegui4/xfce_framebox.h>
+#include <libxfce4util/i18n.h>
+#include "xfce-mixer-cache-vc.h"
+#include "vc.h"
+#include "helpers.inc"
+
+#define MIXER_ROOT "Mixer"
+
+%}
+
+class Xfce:Mixer:Preferences from G:Object {
+	public gchar *device = NULL
+		destroywith g_free;
+
+	private gchar *master = NULL
+		destroywith g_free;
+
+	protected gchar *probably_master = NULL
+		destroywith g_free;
+
+	public gchar *execu = NULL
+		destroywith g_free;
+
+	public gboolean in_terminal = FALSE;
+	public gboolean startup_nf = FALSE;
+
+	protected GList *master_lst = NULL
+		destroywith stringlist_free;
+
+	protected XfceMixerPxml *xml = NULL
+		unrefwith g_object_unref;
+
+	property STRING device
+		(nick = "The device to use for this item",
+		blurb = "The sound device to use for this item")
+	set {
+		if (self->device) {
+			g_free (self->device);
+			self->device = NULL;
+		}
+		self->device = g_strdup (g_value_get_string (VAL));
+
+		self_fill_probably_master (self);
+
+		if (self->_priv->master && !xfce_mixer_cache_vc_valid (self->_priv->master)) {
+			g_object_set (G_OBJECT (self), "master", NULL, NULL);
+		}
+	}
+	get {
+		g_value_set_string (VAL, self->device);
+	};
+
+	property STRING master
+		(nick = "master control name",
+		blurb = "The vcname of the master control for the plugin")
+	set {
+		if (self->_priv->master) {
+			g_free (self->_priv->master);
+			self->_priv->master = NULL;
+		}
+		if (VAL)
+			self->_priv->master = g_strdup (g_value_get_string (VAL));
+		else
+			self->_priv->master = NULL;
+	}
+	get {
+		if (!self->_priv->master)
+			g_value_set_string (VAL, self->probably_master);
+		else
+			g_value_set_string (VAL, self->_priv->master);
+	};
+
+	property STRING execu
+		(nick = "program to start on click",
+		blurb = "The command line to start when the plugin is clicked")
+	set {
+		if (self->execu) {
+			g_free (self->execu);
+			self->execu = NULL;
+		}
+		self->execu = g_strdup (g_value_get_string (VAL));
+	}
+	get {
+		g_value_set_string (VAL, self->execu);
+	};
+
+	property BOOLEAN in_terminal
+		(nick = "start the program in a terminal",
+		blurb = "start the program in a terminal", link);
+		
+	property BOOLEAN startup_nf
+		(nick = "use startup notification",
+		blurb = "use startup notification", link);
+
+	public XfceMixerPreferences *new(void)
+	{
+		return XFCE_MIXER_PREFERENCES (GET_NEW);
+	}
+
+	protected void fill_probably_master (self)
+	{
+		if (self->probably_master) {
+			g_free (self->probably_master);
+			self->probably_master = NULL;
+		}
+		if (self->master_lst) {
+			stringlist_free (self->master_lst);
+			self->master_lst = NULL;
+		}
+		xfce_mixer_cache_vc_foreach (master_enum_cb, &self->master_lst);
+
+		self->probably_master = self_find_probably_master (self);
+	}
+
+	protected gchar *find_probably_master (self)
+	{
+		/* search om, find "Master", return index or -1 */
+		gchar *r_s;
+		gchar *master_s;
+		gchar *master1_s;
+		gchar *pcm_s;
+		GList *g;
+		gchar *s;
+		master_s = NULL;
+		master1_s = NULL;
+		pcm_s = NULL;
+		r_s = NULL;
+
+		g = self->master_lst;
+		while (g) {
+			s = (gchar *)g->data;
+			if (s) {
+				if (g_str_has_prefix (s, "Master,")) master_s = s;
+				else if (g_str_has_prefix (s, "Master")) {
+					if (!master1_s) 
+						master1_s = s;
+				}
+				else if (g_str_has_prefix (s, "PCM")) {
+					pcm_s = s;
+				}
+			}
+			g = g_list_next (g);
+		}
+
+		if (master_s)
+			r_s = master_s;
+		else if (master1_s)
+			r_s = master1_s;
+		else if (pcm_s)
+			r_s = pcm_s;
+
+		if (!r_s)
+			return NULL;
+
+		return g_strdup (r_s);
+	}
+
+	init (self)
+	{
+		self->xml = XFCE_MIXER_PXML (xfce_mixer_pxml_new (MIXER_ROOT));
+		self_fill_probably_master (self);
+	}
+
+	public void load (self, xmlNodePtr parent)
+	{
+		gchar *value;
+		gchar *tmp;
+		gint n, n2;
+		if (!parent)
+			return;
+
+		xfce_mixer_pxml_goto_node (self->xml, parent);
+		if (!xfce_mixer_pxml_has_children (self->xml))
+			return;
+
+		xfce_mixer_pxml_goto_children (self->xml);
+
+		if (!xfce_mixer_pxml_check_tag (self->xml, MIXER_ROOT))
+			return;
+
+		xfce_mixer_pxml_goto_children (self->xml);
+
+		while (self->xml->node) {
+			value = MYDATA (self->xml->node);
+			if (xfce_mixer_pxml_check_tag (self->xml, "Device")) {
+				g_object_set (G_OBJECT (self), "device", value, NULL);
+			} else if (xfce_mixer_pxml_check_tag (self->xml, "Command")) {
+
+				tmp = xfce_mixer_pxml_get_prop (self->xml, "term");
+				n = 0;
+				if (tmp) {
+					n = atoi (tmp);
+					g_free (tmp);
+				}
+				
+				tmp = xfce_mixer_pxml_get_prop (self->xml, "sn");
+				n2 = 0;
+				if (tmp) {
+					n2 = atoi (tmp);
+					g_free (tmp);
+				}
+				
+				g_object_set (G_OBJECT (self), 
+					"execu", value, 
+					"in_terminal", (gboolean) n,
+					"startup_nf", (gboolean) n2,
+				NULL);
+			} else if (xfce_mixer_pxml_check_tag (self->xml, "Master")) {
+				g_object_set (G_OBJECT (self), "master", value, NULL);
+			}
+
+			if (value) {
+				g_free (value);
+				value = NULL;
+			}
+
+			xfce_mixer_pxml_goto_next (self->xml);
+		}
+
+	}
+
+	public void save (self, xmlNodePtr parent)
+	{
+		xmlNodePtr root;
+		xmlNodePtr cnode;
+		char value[MAXSTRLEN + 1];
+
+		xfce_mixer_pxml_goto_node (self->xml, parent);
+
+		root = xfce_mixer_pxml_create_text_child (self->xml, MIXER_ROOT, NULL);
+		xfce_mixer_pxml_goto_node (self->xml, root);
+		/* "Controls" -> old */
+		xfce_mixer_pxml_create_text_child (self->xml, "Device", self->device);
+		cnode = xfce_mixer_pxml_create_text_child (self->xml, "Command", self->execu);
+		xfce_mixer_pxml_goto_node (self->xml, cnode);
+
+		snprintf (value, 2, "%d", self->in_terminal);
+		xfce_mixer_pxml_set_prop (self->xml, "term", value);
+
+		snprintf (value, 2, "%d", self->startup_nf);
+		xfce_mixer_pxml_set_prop (self->xml, "sn", value);
+
+		/* unused: prop "internal" */
+
+		xfce_mixer_pxml_goto_node (self->xml, root);
+
+		xfce_mixer_pxml_create_text_child (self->xml, "Master", self->_priv->master);
+	}
+}

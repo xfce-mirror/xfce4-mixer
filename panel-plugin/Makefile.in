@@ -224,7 +224,7 @@ CCLD = $(CC)
 LINK = $(LIBTOOL) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(AM_LDFLAGS) $(LDFLAGS) -o $@
 DIST_SOURCES = $(libmixer_la_SOURCES)
-DIST_COMMON = $(srcdir)/Makefile.in Makefile.am compile
+DIST_COMMON = $(srcdir)/Makefile.in Makefile.am
 SOURCES = $(libmixer_la_SOURCES)
 
 all: all-am

@@ -1,0 +1,276 @@
+%a{
+#include <gtk/gtk.h>
+#include <libxfcegui4/xfce_framebox.h>
+#include <libxfce4util/i18n.h>
+#include "xfce-mixer-preferences.h"
+#include "vc.h"
+#include "xfce-mixer-cache-vc.h"
+#include "xfce-mixer-pxml.h"
+%}
+%h{
+#include "helpers_h.inc"
+%}
+
+%{
+#include "string_option_menu.h"
+
+#define FHELPERS1
+#include "helpers.inc"
+
+%}
+
+class Xfce:Mixer:Prefbox from Gtk:VBox {
+	protected GtkCombo *device_cb;
+	protected GtkOptionMenu *master_om;
+	protected GList *master_lst = NULL
+		destroywith stringlist_free;
+
+	protected GtkCombo *execu_cb;
+	protected GtkCheckButton *startup_nf_c;
+	protected GtkCheckButton *in_terminal_c;
+	private delayer_t device_entry_delayer = 0
+		destroy { delayer_free (VAR); };
+
+	public void fill_defaults(self)
+	{
+		gtk_entry_set_text (GTK_ENTRY (self->execu_cb->entry), "xfce4-mixer");
+		gtk_entry_set_text (GTK_ENTRY (self->device_cb->entry), "");
+		emit self_device_changed (self);
+
+		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (self->startup_nf_c), FALSE);
+		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (self->in_terminal_c), FALSE);
+	}
+
+	protected void fill_device_list(self)
+	{
+		GList *gl;
+
+		gl = vc_get_device_list ();
+		if (gl) {
+			gtk_combo_set_popdown_strings (GTK_COMBO (self->device_cb), gl);
+			vc_free_device_list (gl);
+		} else {
+			/* TODO: clear popdown list O_o */
+			/* gtk_combo_set_popdown_strings (, NUL); issues warning */
+		}
+	}
+
+	protected void fill_master_list(self)
+	{
+		stringlist_free (self->master_lst);
+		self->master_lst = NULL;
+		xfce_mixer_cache_vc_foreach (master_enum_cb, &self->master_lst);
+
+		fill_string_option_menu (self->master_om, self->master_lst);
+	}
+
+	protected gchar *find_name_by_master_i (self, gint master_i)
+	{
+		gint i;
+		GList *g;
+		gchar *s;
+
+		if (master_i == -1)
+			return NULL;
+
+		i = 0;
+		g = self->master_lst;
+		while (g) {
+			s = (gchar *)g->data;
+			if (s) {
+				if (i == master_i)
+					return g_strdup (s);
+			}
+
+			g = g_list_next (g);
+			++i;
+		}
+		return NULL;
+	}
+
+	protected gint find_master_by_name (self, gchar const *name)
+	{
+		gint i;
+		gint master_i;
+		GList *g;
+		gchar *s;
+
+		master_i = -1;
+		if (!name) {
+			return master_i;
+		}
+
+		i = 0;
+		g = self->master_lst;
+
+		while (g) {
+			s = (gchar *)g->data;
+			if (s) {
+				if (g_str_equal (s, name))
+					master_i = i;
+			}
+
+			g = g_list_next (g);
+			++i;
+		}
+
+		return master_i;
+	}
+
+
+	signal first NONE (NONE)
+	void device_changed (self)
+	{
+		gint omi;
+		gchar const *txt;
+		gchar *master;
+
+		txt = gtk_entry_get_text (GTK_ENTRY (self->device_cb->entry));
+		if (txt)
+			vc_set_device (txt);
+
+		omi = gtk_option_menu_get_history (self->master_om);
+		master = self_find_name_by_master_i (self, omi);
+
+		self_fill_master_list (self);
+		omi = -1;
+		if (master) {
+			omi = self_find_master_by_name (self, master);
+			g_free (master);
+		}
+
+		/*if (omi == -1)
+			omi = self_find_master (self);
+		*/
+
+		gtk_option_menu_set_history (self->master_om, omi);
+
+	}
+
+	init(self)
+	{
+		GtkWidget *cbb;
+		GtkWidget *click_b;
+		GtkWidget *dentry;
+
+		gtk_box_set_spacing (GTK_BOX (self), 5);
+		self->device_cb = GTK_COMBO (gtk_combo_new ());
+		self->master_om = GTK_OPTION_MENU (gtk_option_menu_new ());
+		self->execu_cb = GTK_COMBO (gtk_combo_new ());
+		self->startup_nf_c = GTK_CHECK_BUTTON (gtk_check_button_new_with_mnemonic (P_("Use startup _notification")));
+		gtk_widget_show (GTK_WIDGET (self->startup_nf_c));
+
+		self->in_terminal_c = GTK_CHECK_BUTTON (gtk_check_button_new_with_mnemonic (P_("Run in _terminal")));
+		gtk_widget_show (GTK_WIDGET (self->in_terminal_c));
+
+		gtk_container_set_border_width (GTK_CONTAINER (self), 5);
+		gtk_box_pack_start (GTK_BOX (self), twocol_label ("Device:", GTK_WIDGET (self->device_cb)), FALSE, FALSE, 0);
+		gtk_box_pack_start (GTK_BOX (self), twocol_label ("Wannabe Master:", GTK_WIDGET (self->master_om)), FALSE, FALSE, 0);
+
+		gtk_box_pack_start (GTK_BOX (self), headline ("When clicked", &click_b), FALSE, FALSE, 0);
+		gtk_box_pack_start (GTK_BOX (click_b), twocol_label (P_("Command:"), GTK_WIDGET (self->execu_cb)), FALSE, FALSE, 0);
+
+		cbb = gtk_vbox_new (TRUE, 1);
+		gtk_box_pack_start (GTK_BOX (cbb), GTK_WIDGET (self->in_terminal_c), FALSE, FALSE, 0);
+		gtk_box_pack_start (GTK_BOX (cbb), GTK_WIDGET (self->startup_nf_c), FALSE, FALSE, 0);
+
+		gtk_widget_show (GTK_WIDGET (cbb));
+
+		gtk_box_pack_start (GTK_BOX (click_b), GTK_WIDGET (cbb), FALSE, FALSE, 0);
+
+		gtk_entry_set_max_length (GTK_ENTRY (self->device_cb->entry), 50);
+
+		gtk_combo_set_value_in_list (GTK_COMBO (self->device_cb), FALSE, TRUE);
+		gtk_combo_set_value_in_list (GTK_COMBO (self->execu_cb), FALSE, TRUE);
+
+		self_fill_device_list (self);
+
+		emit self_device_changed (self);
+
+		dentry = GTK_WIDGET (self->device_cb->entry);
+		g_signal_connect_swapped (G_OBJECT (dentry), "changed", G_CALLBACK (self_device_changed_cb), self);
+
+	}
+
+	protected gboolean device_changed_delayed_cb (self)
+	{
+		/*printf ("delayed\n");*/
+		emit self_device_changed (self);
+		return FALSE;
+	}
+
+	protected void device_changed_cb (self, GtkEditable *e)
+	{
+		delayer_restart (
+			&self->_priv->device_entry_delayer, 
+			500, (GSourceFunc) (self_device_changed_delayed_cb), 
+			self
+		);
+	}
+
+	public GtkWidget *new(void)
+	{
+		return GTK_WIDGET (GET_NEW);
+	}
+
+	public void fill_preferences(self, XfceMixerPreferences *p)
+	{
+		gint omi;
+		gchar *s;
+		if (!p) {
+			self_fill_defaults (self);
+			return;
+		}
+
+		gtk_entry_set_text (GTK_ENTRY (self->execu_cb->entry), nvl (p->execu, "xfce4-mixer"));
+		gtk_entry_set_text (GTK_ENTRY (self->device_cb->entry), nvl (p->device, ""));
+
+		g_object_get (G_OBJECT (p), "master", &s, NULL);
+		omi = self_find_master_by_name (self, s);
+		g_free (s);
+		s = NULL;
+
+		gtk_option_menu_set_history (self->master_om, omi);
+
+		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (self->startup_nf_c), p->startup_nf);
+		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (self->in_terminal_c), p->in_terminal);
+
+		emit self_device_changed (self);
+	}
+
+	public void save_preferences (self, XfceMixerPreferences *p)
+	{
+		gint omi;
+		gchar const *execu;
+		gchar const *device;
+		gchar *master;
+		gboolean startup_nf;
+		gboolean in_terminal;
+
+		if (!p)
+			return;
+
+		execu = gtk_entry_get_text (GTK_ENTRY (self->execu_cb->entry));
+		device = gtk_entry_get_text (GTK_ENTRY (self->device_cb->entry));
+		emit self_device_changed (self);
+
+		omi = gtk_option_menu_get_history (self->master_om);
+		master = self_find_name_by_master_i (self, omi);
+
+		startup_nf = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (self->startup_nf_c));
+		in_terminal = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (self->in_terminal_c));
+
+		g_object_set (G_OBJECT (p),
+			"device", device,
+			"execu", execu,
+			"master", master,
+			"startup_nf", startup_nf,
+			"in_terminal", in_terminal,
+			NULL
+		);
+		
+		if (master)
+			g_free (master);
+	}
+}
+
