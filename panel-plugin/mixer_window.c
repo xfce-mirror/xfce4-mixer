@@ -15,18 +15,13 @@
 #include <memory.h>
 #endif
 
+#include <X11/Xlib.h>
 #include <gtk/gtk.h>
 #include <gdk/gdkx.h>
 #include <libxfce4util/i18n.h>
 
 #include "vc.h"
 #include "mixer_window.h"
-
-#undef OLD_STYLE_WIDTH
-
-#ifndef OLD_STYLE_WIDTH
-#include <libxfcegui4/xinerama.h>
-#endif
 
 void change_vol_cb(GtkRange *range, gpointer data)
 {
@@ -101,11 +96,8 @@ mixer_slider_control_t *mixer_window_slider_control_new(mixer_window_t *w, char 
 		
 		gtk_widget_show (GTK_WIDGET (s->scale));
 		
-		/*s->label = GTK_BUTTON (gtk_button_new_with_label (name));
+		s->label = GTK_BUTTON (gtk_button_new_with_label (name));
 		gtk_button_set_relief (GTK_BUTTON (s->label), GTK_RELIEF_NONE);
-		*/
-		
-		s->label = gtk_label_new (name);
 		
 		gtk_widget_show (GTK_WIDGET (s->label));
 		
@@ -147,54 +139,6 @@ void control_glist_foreach_cb(gpointer data, gpointer user_data)
 	}
 }
 
-int my_screen_get_width (GdkScreen *s)
-{
-#ifdef OLD_STYLE_WIDTH
-	return gdk_screen_get_width (s);
-#else
-	/*MyDisplayWidth () - MyDisplayX(dpy, s, );*/
-	
-	return MyDisplayFullWidth (GDK_SCREEN_XDISPLAY (s), GDK_SCREEN_XNUMBER (s));
-#endif
-
-}
-
-
-gboolean mixer_window_map_cb(GtkWidget *widget, gpointer user_data)
-{
-	int		w, h, mw;
-	/*if (gtk_widget_get_size (*/
-	/*gtk_widget_get_child_requisition ()*/
-	
-	GdkScreen	*s;
-	mixer_window_t * a;
-/*	s = gdk_drawable_get_screen (GTK_DRAWABLE (widget));*/
-
-#if GTK_MINOR_VERSION >= 2
-	s = gtk_widget_get_screen (widget);
-#else
-	s = gdk_drawable_get_screen (GDK_DRAWABLE (widget->window));
-	/*s = gdk_get_default_screen ();*/
-#endif
-	
-
-	mw = my_screen_get_width (s) * 3 / 4;
-
-	a = (mixer_window_t *) user_data;
-	
-	w = 0;
-	h = 0;
-	gtk_window_get_size (GTK_WINDOW (widget), &w, &h);
-
-	if (w > mw && w > 0) {
-		/* set_size_request */
-		w = mw;
-		gtk_scrolled_window_set_policy (a->scroller, GTK_POLICY_AUTOMATIC, GTK_POLICY_NEVER);
-		gtk_window_resize (GTK_WINDOW (widget), w, h);
-	}
-	return FALSE;
-}
-
 mixer_window_t *mixer_window_new(gboolean from_glist, GList *src)
 {
 	GList *g;
@@ -212,8 +156,7 @@ mixer_window_t *mixer_window_new(gboolean from_glist, GList *src)
 
 		w->scroller = GTK_SCROLLED_WINDOW (gtk_scrolled_window_new (NULL, NULL));
 		gtk_scrolled_window_set_policy (w->scroller, GTK_POLICY_NEVER, GTK_POLICY_NEVER);
-		/*XXXgtk_widget_set_size_request (GTK_WIDGET (w->window), 400, -1);*/
-		/*gtk_window_set_default_size (GTK_WINDOW (w->window), 400, -1);*/
+                gtk_window_set_position (GTK_WINDOW (w->window), GTK_WIN_POS_MOUSE);
 			
 		gtk_widget_show (GTK_WIDGET (w->scroller));
 
@@ -245,9 +188,6 @@ mixer_window_t *mixer_window_new(gboolean from_glist, GList *src)
 			
 			vc_set_volume_callback (vc_cb, w);
 		}
-
-
-		g_signal_connect (G_OBJECT (w->window), "map", G_CALLBACK(mixer_window_map_cb), w);
 	}
 	
 	return w;
