@@ -24,7 +24,7 @@
 #ifdef HAVE_CONFIG_H
 #  include <config.h>
 #endif
-#include <libxfce4util/i18n.h>
+#include <libxfce4util/libxfce4util.h>
 
 #line 30 "xfce-mixer-info.c"
 

@@ -40,7 +40,7 @@
 #line 12 "mixer-preferences.gob"
 
 #include <libxfcegui4/xfce_framebox.h>
-#include <libxfce4util/i18n.h>
+#include <libxfce4util/libxfce4util.h>
 #include <panel/global.h>
 #include "xfce-mixer-cache-vc.h"
 #include "vc.h"

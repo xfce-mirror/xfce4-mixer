@@ -1,5 +1,5 @@
 #include <gtk/gtk.h>
-#include <libxfce4util/i18n.h>
+#include <libxfce4util/libxfce4util.h>
 #include "xfce-mixer-info.h"
 #include "xfce-mixer-profiledlg.h"
 #include "menu-callbacks.inc"

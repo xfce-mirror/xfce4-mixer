@@ -34,7 +34,7 @@
 #line 6 "mixer-settingsbox.gob"
 
 #include <gtk/gtk.h>
-#include <libxfce4util/i18n.h>
+#include <libxfce4util/libxfce4util.h>
 #include <libxfcegui4/xfce_framebox.h>
 #include <libxfce4mcs/mcs-manager.h>
 
@@ -52,10 +52,6 @@
 #define SETTINGS_LIST_SEP "@"
 #define CHANNEL "sound"
 /*#define TRACE g_warning(s)*/
-
-static void TRACE (gchar const *n)
-{
-}
 
 static gchar *fmt_device_cb(gchar const *c)
 {

@@ -33,8 +33,7 @@
 
 #line 6 "mixer-profiles.gob"
 
-#include <libxfce4util/util.h>
-#include <libxfce4util/i18n.h>
+#include <libxfce4util/libxfce4util.h>
 #define emit
 #define PROFILES_ROOT "Profiles"
 #ifndef MAX_PATH

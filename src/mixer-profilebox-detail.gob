@@ -9,7 +9,7 @@
 #include "xfce-mixer-profile.h"
 %}
 %{
-#include <libxfce4util/i18n.h>
+#include <libxfce4util/libxfce4util.h>
 #include "xfce-mixer-cache-vc.h"
 #include "xfce-mixer-mcs-client.h"
 #include "helpers3.inc"

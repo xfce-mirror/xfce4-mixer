@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2003 Danny Milosavljevic <danny_milo@yahoo.com>
- * Copyright (c) 2003 Benedikt Meurer <benedikt.meurer@unix-ag.uni-siegen.de>
+ * Copyright (c) 2003 Benedikt Meurer <benny@xfce.org>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -95,7 +95,7 @@ void vc_close_device();
 char const *vc_get_device ();
 GList *vc_get_device_list();
 void vc_free_device_list(GList *device_list);
-#else
+#elif defined(__GNUC__)
 #define REGISTER_VC_PLUGIN(a) \
 static volchanger_t vc = { \
         name: #a, \
@@ -125,6 +125,35 @@ int register_##a(void) \
 	} \
         return 0; \
 }
+#else
+#define REGISTER_VC_PLUGIN(a) \
+static volchanger_t vc = { \
+        #a, \
+        vc_set_device, \
+        vc_reinit_device, \
+        vc_get_volume, \
+        vc_set_volume, \
+        vc_get_control_list, \
+        vc_set_volume_callback, \
+        vc_close_device, \
+        vc_get_device_list \
+        vc_get_select, \
+        vc_get_switch, \
+        vc_set_switch, \
+        vc_get_device, \
+        vc_handle_events \
+}; \
+\
+int register_##a( ) \
+{ \
+	if (init()) { \
+	        register_vc(&vc); \
+	} \
+	else { \
+		g_warning("Init of \"%s\" failed", #a); \
+	} \
+        return 0; \
+};
 #endif
 
 #endif /* ndef __VC_H */

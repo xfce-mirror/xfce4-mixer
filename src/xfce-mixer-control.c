@@ -36,7 +36,7 @@
 #endif
 #include <stdio.h>
 #include <stdlib.h>
-#include <libxfce4util/i18n.h>
+#include <libxfce4util/libxfce4util.h>
 #define emit 
 
 #line 43 "xfce-mixer-control.c"

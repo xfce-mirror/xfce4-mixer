@@ -103,7 +103,7 @@ static void vc_set_volume(char const *which, int vol_p)
 
 static GList *vc_get_control_list()
 {
-/*
+#if 0
 GList *g;
 g = NULL;
 
@@ -117,7 +117,7 @@ for each control do {
 return g;
 
 someone with netbsd fill that in please
-*/
+#endif
 
 	return NULL;
 }
