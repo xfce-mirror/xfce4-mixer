@@ -175,15 +175,15 @@ msgstr "볼륨 제어"
 
 #: settings/sound.c:80 settings/sound.c:102 settings/sound.c:109
 msgid "Sound"
-msgstr ""
+msgstr "소리"
 
 #: mixer-view.gob:258
 msgid "Show Switches"
-msgstr ""
+msgstr "스위치 보이기"
 
 #: mixer-view.gob:259
 msgid "Hide Switches"
-msgstr ""
+msgstr "스위치 숨기기"
 
 #: src/main.c:69
 msgid "No working sound"
