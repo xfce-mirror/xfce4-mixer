@@ -25,10 +25,6 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef HAVE_LIBSTARTUP_NOTIFICATION 
-#define HAVE_LIBSTARTUP_NOTIFICATION 1 /* FIXME: benny: any automake help on this? ;) */
-#endif
-
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
@@ -102,6 +98,11 @@ typedef struct
         
 }
 t_mixer;
+
+static char *P_(char *s) /* get translation from the panel's domain */
+{
+	return dgettext("xfce4-panel", s);
+}
 
 static int find_working_sound(void)
 {
@@ -484,6 +485,10 @@ create_mixer_control (Control * control)
 static void
 create_options_backup(t_mixer *mixer)
 {
+	if (mixer->revert.command) {
+		g_free(mixer->revert.command);
+		mixer->revert.command = NULL;
+	}
 	mixer->revert.command = g_strdup(mixer->options.command); 
 	mixer->revert.use_sn = mixer->options.use_sn;
 	mixer->revert.use_terminal = mixer->options.use_terminal;
@@ -496,6 +501,11 @@ mixer_options_get(GtkContainer *c, int index)
 	GList	*iter;
 	int	pos = 0;
 	GtkWidget *w = NULL;
+	
+	if (!c) {
+		return NULL;
+	}
+	
 	list = gtk_container_get_children(GTK_CONTAINER(c));
 	if (!list) {
 		return NULL;
@@ -651,11 +661,10 @@ mixer_revert_options_cb(GtkWidget *button, t_mixer *mixer) /* verified prototype
 #if 0
 static GtkWidget *
 my_create_command_option(GtkSizeGroup *sg)
-{
+{ /* nasty NASTY side effects ! */
 	return create_command_option(w);
 }
 #else
-/* this is for checking if that helps against Fuzzbox/Francois' reported bug */
 
 /*  Change the command 
  *  ------------------
@@ -669,7 +678,7 @@ command_browse_cb (GtkWidget * b, GtkEntry * entry)
 	entry = GTK_ENTRY(mixer_options_get(GTK_CONTAINER(h1), 1));
 */	
     char *file =
-        select_file_name (_("Select command"), gtk_entry_get_text (entry),
+        select_file_name (P_("Select command"), gtk_entry_get_text (entry),
                           gtk_widget_get_toplevel(GTK_WIDGET(entry)));
 
     if (file)
@@ -701,7 +710,7 @@ my_create_command_option(GtkSizeGroup *sg)
     gtk_widget_show (hbox);
     gtk_box_pack_start (GTK_BOX (vbox), hbox, FALSE, TRUE, 0);
 
-    label = gtk_label_new (_("Command:"));
+    label = gtk_label_new (P_("Command:"));
     gtk_misc_set_alignment (GTK_MISC (label), 0, 0.5);
     gtk_size_group_add_widget (sg, label);
     gtk_widget_show (label);
@@ -733,12 +742,12 @@ my_create_command_option(GtkSizeGroup *sg)
     gtk_box_pack_start (GTK_BOX (hbox2), vbox2, FALSE, TRUE, 0);
 
     term_checkbutton =
-        gtk_check_button_new_with_mnemonic (_("Run in _terminal"));
+        gtk_check_button_new_with_mnemonic (P_("Run in _terminal"));
     gtk_widget_show (term_checkbutton);
     gtk_box_pack_start (GTK_BOX (vbox2), term_checkbutton, FALSE, FALSE, 0);
 
     sn_checkbutton =
-        gtk_check_button_new_with_mnemonic (_("Use startup _notification"));
+        gtk_check_button_new_with_mnemonic (P_("Use startup _notification"));
     gtk_widget_show (sn_checkbutton);
     gtk_box_pack_start (GTK_BOX (vbox2), sn_checkbutton, FALSE, FALSE, 0);
 #ifdef HAVE_LIBSTARTUP_NOTIFICATION
