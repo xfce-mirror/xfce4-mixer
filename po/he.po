@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: he\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-08-26 00:04+0200\n"
+"POT-Creation-Date: 2004-10-23 19:07+0200\n"
 "PO-Revision-Date: 2004-10-26 17:41+0200\n"
 "Last-Translator: Yuval Tanny <tanai@int.gov.il>\n"
 "Language-Team: \n"
@@ -171,11 +171,11 @@ msgstr "oss:אין עוצמת צליל ראשית"
 msgid "Volume: %d%%"
 msgstr "עוצמת צליל: %d%%"
 
-#: panel-plugin/plugin.c:387 mixer-window.gob:110
+#: panel-plugin/plugin.c:387 mixer-window.gob:169
 msgid "Volume Control"
 msgstr "בקרת עוצמת צליל"
 
-#: settings/sound.c:69 settings/sound.c:87
+#: settings/sound.c:80 settings/sound.c:102 settings/sound.c:109
 msgid "Sound"
 msgstr "צליל"
 
@@ -294,4 +294,3 @@ msgstr ""
 "זה הוא מיקסר צליל xfce4, תוכנת בקרת צליל.\n"
 "תוכנה זו מופצת תחת רישיוןה GPL-2 שאפשר למצוא בתיקיית הקוד מקור.\n"
 "אין שום אחריות בכל מקרה."
-

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer-fa\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-09-21 00:02+0200\n"
+"POT-Creation-Date: 2004-10-23 19:07+0200\n"
 "PO-Revision-Date: 2004-09-28 20:08+0330\n"
 "Last-Translator: Abbas Izad <abbasizad@hotmail.com>\n"
 "Language-Team: Persian\n"
@@ -172,7 +172,7 @@ msgstr "oss: هیچ حجم برتر"
 msgid "Volume: %d%%"
 msgstr "حجم: %d%%"
 
-#: panel-plugin/plugin.c:387 mixer-window.gob:143
+#: panel-plugin/plugin.c:387 mixer-window.gob:169
 msgid "Volume Control"
 msgstr "کنترل حجم"
 
@@ -295,4 +295,3 @@ msgstr ""
 "این میکسر xfce4، برنامه‌ی کنترل حجم است.\n"
 "آن تحت مجوز GPL-2 پخش شده است که آن را در شاخه‌ی متن کد پیدا میکنید.\n"
 "هیچ ضمانتی وجود ندارد. "
-
