@@ -145,4 +145,3 @@ get_config_path(gchar const *relpath, ConfigAction save)
 	return abspath;
 }
 
-#endif
