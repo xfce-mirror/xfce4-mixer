@@ -43,7 +43,7 @@
 #include <string.h>
 #endif
 
-#include <xfce4/libxfcegui4/dialogs.h>
+#include <libxfcegui4/dialogs.h>
 #include <libxfce4util/i18n.h>
 
 #include <alsa/asoundlib.h>
