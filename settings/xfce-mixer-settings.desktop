@@ -2,7 +2,7 @@
 Encoding=UTF-8
 Name=Xfce 4 Mixer Settings
 Name[fr]=Paramètres du mixer de Xfce 4
-Name[nl]=Xfce 4 Volumeregelaar
+Name[nl]=Instellingen Xfce 4 Volumeregelaar
 Comment=Mixer Settings
 Comment[fr]=Paramétrage du mixer
 Comment[nl]=Instellingen voor volume
@@ -13,4 +13,4 @@ Type=Application
 Categories=X-XFCE;Settings;DesktopSettings;
 OnlyShowIn=XFCE;
 GenericName=Mixer Settings
-GenericName[nl]=Instellingen volumeregelaar
+GenericName[nl]=Instellingen Volumeregelaar
