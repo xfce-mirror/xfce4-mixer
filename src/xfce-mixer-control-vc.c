@@ -27,8 +27,9 @@ void value_changed_cb(XfceMixerControl *control, gpointer whatsthat, gpointer us
 	}
 	
 	/*if (XFCE_IS_MIXER_SLIDER (control)) {*/
-		if (control->value && (sscanf (control->value, "%d", &v) > 0)) {	
-			vc_set_volume (control->vcname, v);
+		if (control->value && (sscanf (control->value, "%d", &v) > 0)) {
+			if (v != vc_get_volume (control->vcname))
+				vc_set_volume (control->vcname, v);
 		}
 	/*}*/
 }

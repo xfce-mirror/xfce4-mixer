@@ -63,6 +63,8 @@ GType	xfce_mixer_window_get_type	(void);
 GtkWidget * 	xfce_mixer_window_new	(void);
 void 	xfce_mixer_window_refresh	(XfceMixerWindow * self);
 void 	xfce_mixer_window_reset_profile	(XfceMixerWindow * self);
+void 	xfce_mixer_window_refresh_value	(XfceMixerWindow * self,
+					gchar const * vcname);
 
 #ifdef __cplusplus
 }

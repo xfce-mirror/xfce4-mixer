@@ -18,7 +18,6 @@ extern "C" {
 #include "disclosure-widget.h"
 
 
-
 /*
  * Type checking and casting macros
  */
@@ -81,6 +80,8 @@ void 	xfce_mixer_view_set_profile	(XfceMixerView * self,
 					XfceMixerProfile * p);
 XfceMixerProfile const * 	xfce_mixer_view_get_profile	(XfceMixerView * self);
 void 	xfce_mixer_view_profile_cleared	(XfceMixerView * self);
+void 	xfce_mixer_view_refresh_value	(XfceMixerView * self,
+					gchar const * vcname);
 void 	xfce_mixer_view_profile_item_updated	(XfceMixerView * self,
 					t_mixer_profile_item * p);
 

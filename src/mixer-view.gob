@@ -50,10 +50,11 @@ my_table_allocator (GtkTable *t, gint *tc, gint *tr, XfceMixerControl *c)
 #include "xfce-mixer-control-factory.h"
 #include "xfce-mixer-profile.h"
 #include "disclosure-widget.h"
-
 %}
 
 %{
+#include "xfce-mixer-control-vc.h"
+
 static void control_list_free(GList *go)
 {
 	XfceMixerControl *c;
@@ -345,6 +346,20 @@ class Xfce:Mixer:View from Gtk:VBox {
 	public virtual void profile_cleared (self)
 	{
 		self_view_cleared (self);
+	}
+
+	public void refresh_value (self, gchar const *vcname)
+	{
+		GList *g;
+		XfceMixerControl *c;
+		g = self->controls;
+		while (g) {
+			c = XFCE_MIXER_CONTROL (g->data);
+			if ((!vcname) || (vcname && c->vcname && g_str_equal (c->vcname, vcname))) {
+				xfce_mixer_control_vc_feed_value (c);
+			}
+			g = g_list_next (g);
+		}
 	}
 
 	public virtual void profile_item_updated (self, t_mixer_profile_item *p)

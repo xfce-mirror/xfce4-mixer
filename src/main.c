@@ -1,6 +1,9 @@
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
+
+#define UPDATE_TIMEOUT 1000
+
 #include <gtk/gtk.h>
 #include <libxfce4util/i18n.h>
 #include "xfce-mixer-profile.h"
@@ -15,6 +18,21 @@ static GtkWidget *mixer_window;
 XfceMixerMcsClient *mcsc = NULL;
 gchar *device = NULL;
 
+static void vol_changed_cb (char const *vcname, void *privdata)
+{
+	if (mixer_window) {
+		xfce_mixer_window_refresh_value (XFCE_MIXER_WINDOW (mixer_window), vcname);
+	}
+}
+
+static gboolean
+timer_vc_cb (gpointer data)
+{
+	vc_handle_events ();
+	vol_changed_cb (NULL, NULL);
+	return TRUE;
+}
+
 static void
 my_main_quit(GtkWidget *w, gpointer user_data)
 {
@@ -26,6 +44,7 @@ int main(int argc, char * argv[])
 {
 	int rc;
 	gchar const *dd;
+	guint src;
 	rc = register_vcs ();
 	if (rc < -1) {
 		g_warning (_ ("No working sound"));
@@ -45,15 +64,22 @@ int main(int argc, char * argv[])
 		else
 			device = NULL;
 	}
+	
   
 	mixer_window = xfce_mixer_window_new ();
 	mcsc = XFCE_MIXER_WINDOW (mixer_window)->mcsc;
 	xfce_mixer_profile_fill_defaults (XFCE_MIXER_WINDOW (mixer_window)->profile);
+
+	vc_set_volume_callback (vol_changed_cb, mixer_window);
 	
 	g_signal_connect (G_OBJECT (mixer_window), "destroy", G_CALLBACK (my_main_quit), NULL);
 	gtk_widget_show (GTK_WIDGET (mixer_window));
+	
+	src = g_timeout_add (UPDATE_TIMEOUT, (GSourceFunc) timer_vc_cb, NULL);
 
 	gtk_main ();
+	
+	g_source_remove (src);
 	g_free (device);
 	
 	return 0;
