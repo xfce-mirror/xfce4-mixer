@@ -1,3 +1,28 @@
+2003-09-10 09:49  huysmans
+
+	* configure, configure.ac, po/zh_TW.po: Update version numbers and
+	po files for release
+
+2003-09-02 09:17  huysmans
+
+	* configure, configure.ac, po/ms.gmo, po/ms.po: Add malaysian
+	translations
+
+2003-08-30 14:49  huysmans
+
+	* aclocal.m4, configure, configure.ac, po/zh_TW.Big5.gmo,
+	po/zh_TW.Big5.po, po/zh_TW.gmo, po/zh_TW.po: Rename zh_TW.Big5 ->
+	zh_TW
+
+2003-08-30 10:59  huysmans
+
+	* po/: zh_TW.Big5.gmo, zh_TW.Big5.po: Add traditional chinese
+	translations
+
+2003-08-26 09:38  huysmans
+
+	* ChangeLog: Update changelogs
+
 2003-08-26 09:22  huysmans
 
 	* po/: ca.po, lt.gmo, lt.po, zh_CN.po: Update version numbers and
