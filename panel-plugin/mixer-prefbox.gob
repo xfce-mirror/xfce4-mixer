@@ -36,7 +36,10 @@ class Xfce:Mixer:Prefbox from Gtk:VBox {
 	protected GtkCombo *device_cb;
 	protected GtkOptionMenu *master_om;
 	protected GList *master_lst = NULL
-		destroywith stringlist_free;
+		destroy {
+			stringlist_free(VAR);
+			VAR = NULL;
+		};
 
 	protected GtkCombo *execu_cb;
 	/*protected GtkEntry *execu_entry;*/

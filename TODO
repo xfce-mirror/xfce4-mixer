@@ -12,3 +12,5 @@ set currently used profile as selected in the manager
 save/restore volume ! (nestu)
 
 get rid of minimum window size when reducing number of controls (by switching profile, refreshing profile)
+
+xfce-mcs-manager --no-daemon-debug

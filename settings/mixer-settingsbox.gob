@@ -55,7 +55,10 @@ class Xfce:Mixer:Settingsbox from Gtk:VBox {
 	protected GtkBox *right_box = NULL;
 /*	protected GtkWidget *sep = NULL;*/
 	protected GList *device_lst = NULL
-		destroywith stringlist_free;
+		destroy {
+			stringlist_free(VAR);
+			VAR = NULL;
+		};
 	protected gchar *sel_device = NULL
 		destroywith g_free;
 

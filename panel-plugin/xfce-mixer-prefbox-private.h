@@ -13,7 +13,7 @@ extern "C" {
 
 #include <gtk/gtk.h>
 #include <libxfcegui4/xfce_framebox.h>
-#include <libxfce4util/i18n.h>
+#include <libxfce4util/libxfce4util.h>
 #include "xfce-mixer-preferences.h"
 #include "vc.h"
 #include "xfce-mixer-cache-vc.h"
@@ -28,7 +28,7 @@ GtkWidget *gtk_list_item_new_with_label (const gchar *label);
 #line 6 "mixer-prefbox.gob"
 #line 30 "xfce-mixer-prefbox-private.h"
 struct _XfceMixerPrefboxPrivate {
-#line 45 "mixer-prefbox.gob"
+#line 48 "mixer-prefbox.gob"
 	delayer_t device_entry_delayer;
 #line 34 "xfce-mixer-prefbox-private.h"
 };

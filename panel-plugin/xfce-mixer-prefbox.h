@@ -13,7 +13,7 @@ extern "C" {
 
 #include <gtk/gtk.h>
 #include <libxfcegui4/xfce_framebox.h>
-#include <libxfce4util/i18n.h>
+#include <libxfce4util/libxfce4util.h>
 #include "xfce-mixer-preferences.h"
 #include "vc.h"
 #include "xfce-mixer-cache-vc.h"

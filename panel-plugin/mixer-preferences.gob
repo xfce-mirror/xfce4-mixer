@@ -43,7 +43,10 @@ class Xfce:Mixer:Preferences from G:Object {
 	public gboolean startup_nf = FALSE;
 
 	protected GList *master_lst = NULL
-		destroywith stringlist_free;
+		destroy {
+			stringlist_free(VAR);
+			VAR = NULL;
+		};
 
 	protected XfceMixerPxml *xml = NULL
 		unrefwith g_object_unref;

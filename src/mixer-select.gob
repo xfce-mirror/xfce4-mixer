@@ -18,7 +18,10 @@ class Xfce:Mixer:Select from Xfce:Mixer:Control {
 	protected GtkOptionMenu *om = NULL;
 	protected GtkLabel *label = NULL;
 	protected GList *choices = NULL
-		destroywith stringlist_free;
+		destroy {
+			stringlist_free(VAR);
+			VAR = NULL;
+		};
 
 	protected void changed_cb(self, gpointer om)
 	{
