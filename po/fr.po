@@ -184,35 +184,35 @@ msgstr "Le son de fonctionne pas"
 
 #: src/menus.c:9
 msgid "/_File"
-msgstr ""
+msgstr "/_Fichier"
 
 #: src/menus.c:10
 msgid "/File/_Options"
-msgstr ""
+msgstr "/Fichier/_Options"
 
 #: src/menus.c:11
 msgid "/File/_Exit"
-msgstr ""
+msgstr "Fichier/_Quitter"
 
 #: src/menus.c:12
 msgid "/_View"
-msgstr ""
+msgstr "/_Affichage"
 
 #: src/menus.c:13
 msgid "/View/sep"
-msgstr ""
+msgstr "/A_ffichage/sep"
 
 #: src/menus.c:14
 msgid "/View/_Manage"
-msgstr ""
+msgstr "/Affichage/_Gérer"
 
 #: src/menus.c:15
 msgid "/_Help"
-msgstr ""
+msgstr "/_Aide"
 
 #: src/menus.c:16
 msgid "/Help/_Info"
-msgstr ""
+msgstr "/Aide/_Information"
 
 #: src/mixer-info.gob:28 mixer-info.gob:28
 msgid ""
@@ -325,12 +325,3 @@ msgstr "Afficher les interrupteurs"
 #: src/mixer-view.gob:259 mixer-view.gob:259
 msgid "Hide Switches"
 msgstr "Masquer les interrupteurs"
-
-#~ msgid "%s - Info"
-#~ msgstr "%s - Information"
-
-#~ msgid "%s - Profiles"
-#~ msgstr "%s - Profiles"
-
-#~ msgid "Use _internal mixer"
-#~ msgstr "Utiliser le mixer _interne"
