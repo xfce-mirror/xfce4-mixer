@@ -1,142 +1,139 @@
-# Portuguese translation of PACKAGE.
-# Copyright (C) 2003 THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# Nuno Donato <nunodonato@sapo.pt>, 2003.
-# , fuzzy
+# Portuguese translation of xfce4-mixer.
+# Copyright (C) 2003 THE xfce4-mixer'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the xfce4-mixer package.
+# Nuno Donato <nunodonato@gmail.com>, 2004.
 # 
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: xfce4-mixer 4.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-09-21 00:02+0200\n"
-"PO-Revision-Date: 2003-09-12 01:29+0100\n"
-"Last-Translator: Nuno Donato <nunodonato@sapo.pt>\n"
+"PO-Revision-Date: 2004-10-09 21:49+0100\n"
+"Last-Translator: Nuno Donato <nunodonato@gmail.com>\n"
 "Language-Team: Portuguese <pt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"Content-Transfer-Encoding: 8bit"
 
 #: mixer-settingsbox.gob:97
-#, fuzzy
 msgid "Device"
 msgstr "Dispositivo:"
 
 #: mixer-settingsbox.gob:100
 msgid "None"
-msgstr ""
+msgstr "Nenhum"
 
 #. gtk_widget_show (GTK_WIDGET (self->dev_label));
 #: mixer-settingsbox.gob:103
-#, fuzzy
 msgid "Useful Controls"
-msgstr "Controlo"
+msgstr "Controlos Úteis"
 
 #: lib/trans.c:6
 msgid "Vol"
-msgstr ""
+msgstr "Vol"
 
 #. Master
 #: lib/trans.c:7
 msgid "Pcm"
-msgstr ""
+msgstr "Pcm"
 
 #. PCM output
 #: lib/trans.c:8
 msgid "Spkr"
-msgstr ""
+msgstr "Sprk"
 
 #. Internal speaker?
 #: lib/trans.c:9
 msgid "Line"
-msgstr ""
+msgstr "Linha"
 
 #. Line in
 #: lib/trans.c:10
 msgid "Mic"
-msgstr ""
+msgstr "Mic"
 
 #. Mic in
 #: lib/trans.c:11
 msgid "CD"
-msgstr ""
+msgstr "CD"
 
 #. CD in
 #: lib/trans.c:12
 msgid "Bass"
-msgstr ""
+msgstr "Bass"
 
 #: lib/trans.c:13
 msgid "Trebl"
-msgstr ""
+msgstr "Trebl"
 
 #: lib/trans.c:14
 msgid "Synth"
-msgstr ""
+msgstr "Synth"
 
 #: lib/trans.c:15
 msgid "Mix"
-msgstr ""
+msgstr "Mix"
 
 #: lib/trans.c:16
 msgid "Pcm2"
-msgstr ""
+msgstr "Pcm2"
 
 #: lib/trans.c:17
 msgid "Rec"
-msgstr ""
+msgstr "Rec"
 
 #: lib/trans.c:18
 msgid "IGain"
-msgstr ""
+msgstr "IGain"
 
 #: lib/trans.c:19
 msgid "OGain"
-msgstr ""
+msgstr "OGain"
 
 #: lib/trans.c:20
 msgid "Line1"
-msgstr ""
+msgstr "Line1"
 
 #: lib/trans.c:21
 msgid "Line2"
-msgstr ""
+msgstr "Line2"
 
 #: lib/trans.c:22
 msgid "Line3"
-msgstr ""
+msgstr "Line3"
 
 #: lib/trans.c:23
 msgid "Digital1"
-msgstr ""
+msgstr "Digital1"
 
 #: lib/trans.c:24
 msgid "Digital2"
-msgstr ""
+msgstr "Digital2"
 
 #: lib/trans.c:25
 msgid "Digital3"
-msgstr ""
+msgstr "Digital3"
 
 #: lib/trans.c:26
 msgid "PhoneIn"
-msgstr ""
+msgstr "PhoneIn"
 
 #: lib/trans.c:27
 msgid "PhoneOut"
-msgstr ""
+msgstr "PhoneOut"
 
 #: lib/trans.c:28
 msgid "Video"
-msgstr ""
+msgstr "Video"
 
 #: lib/trans.c:29
 msgid "Radio"
-msgstr ""
+msgstr "Radio"
 
 #: lib/trans.c:30
 msgid "Monitor"
-msgstr ""
+msgstr "Monitor"
 
 #: lib/vc_alsa.c:94
 #, c-format
@@ -154,9 +151,9 @@ msgid "alsa: Mixer register error: %s\n"
 msgstr "alsa: Erro ao registar misturador: %s\n"
 
 #: lib/vc_alsa.c:116
-#, fuzzy, c-format
+#, c-format
 msgid "alsa: Mixer load error: %s: %s\n"
-msgstr "alsa: Erro ao carregar misturador: %s\n"
+msgstr "alsa: Erro ao carregar misturador: %s: %s\n"
 
 #: lib/vc_alsa.c:126
 #, c-format
@@ -165,7 +162,7 @@ msgstr "alsa: Incapaz de encontrar controlo simples '%s',%i\n"
 
 #: lib/vc_oss.c:131
 msgid "oss: No master volume"
-msgstr "oss: Sem volume mestre"
+msgstr "oss: Sem volume principal"
 
 #: panel-plugin/plugin.c:95
 #, c-format
@@ -178,114 +175,112 @@ msgstr "Controlo de Volume"
 
 #: settings/sound.c:80 settings/sound.c:102 settings/sound.c:109
 msgid "Sound"
-msgstr ""
+msgstr "Som"
 
 #: mixer-view.gob:258
 msgid "Show Switches"
-msgstr ""
+msgstr "Mostrar Controlos"
 
 #: mixer-view.gob:259
 msgid "Hide Switches"
-msgstr ""
+msgstr "Esconder Controlos"
 
 #: src/main.c:69
 msgid "No working sound"
 msgstr "Sem som"
 
 #: mixer-profilebox.gob:88
-#, fuzzy
 msgid "Device:"
 msgstr "Dispositivo:"
 
 #: mixer-profilebox.gob:142
 msgid "Create new profile"
-msgstr ""
+msgstr "Criar novo perfil"
 
 #: mixer-profilebox.gob:151
 msgid "Delete this profile"
-msgstr ""
+msgstr "Apagar este perfil"
 
 #: mixer-profilebox.gob:170
 msgid "Profile"
-msgstr ""
+msgstr "Perfil"
 
 #: mixer-profilebox.gob:374
 #, c-format
 msgid "Really delete those %d profiles?"
-msgstr ""
+msgstr "Tem a certeza que quer apagar aqueles %d perfis?"
 
 #: mixer-profilebox.gob:377
 #, c-format
 msgid "Really delete profile \"%s\"?"
-msgstr ""
+msgstr "Tem a certeza que quer apagar o perfil \"%s\"?"
 
 #: mixer-profilebox.gob:491
 #, c-format
 msgid "%s - New"
-msgstr ""
+msgstr "%s - Novo"
 
 #: mixer-profilebox.gob:528
 msgid "A profile needs a name"
-msgstr ""
+msgstr "Um perfil precisa de um nome"
 
 #: mixer-profilebox.gob:542
 msgid "A profile with that name already exists"
-msgstr ""
+msgstr "Já existe um perfil com esse nome"
 
 #: mixer-profilebox-detail.gob:151
-#, fuzzy
 msgid "Control"
 msgstr "Controlo de Volume"
 
 #: mixer-profilebox-detail.gob:154
 msgid "Type"
-msgstr ""
+msgstr "Tipo"
 
 #: mixer-profilebox-detail.gob:166
 msgid "Up"
-msgstr ""
+msgstr "Subir"
 
 #: mixer-profilebox-detail.gob:169
 msgid "Down"
-msgstr ""
+msgstr "Descer"
 
 #: mixer-profilebox-detail.gob:176
 msgid "Move Entry Up"
-msgstr ""
+msgstr "Mover a entrada para cima"
 
 #: mixer-profilebox-detail.gob:179
 msgid "Move Entry Down"
-msgstr ""
+msgstr "Mover a entrada para baixo"
 
 #: mixer-profilebox-detail.gob:188
 msgid "Profile Name:"
-msgstr ""
+msgstr "Nome do Perfil:"
 
 #: mixer-profilebox-detail.gob:370 mixer-profilebox-detail.gob:435
 msgid "<unknown>"
-msgstr ""
+msgstr "<desconhecido>"
 
 #: mixer-profilebox-detail.gob:372 mixer-profilebox-detail.gob:437
 msgid "<slider>"
-msgstr ""
+msgstr "<slider>"
 
 #: mixer-profilebox-detail.gob:373 mixer-profilebox-detail.gob:438
 msgid "<onoff>"
-msgstr ""
+msgstr "<onoff>"
 
 #: mixer-profilebox-detail.gob:374 mixer-profilebox-detail.gob:439
 msgid "<select>"
-msgstr ""
+msgstr "<seleccionar>"
 
 #: src/menu-callbacks.inc:16
 #, c-format
 msgid "%s - Info"
-msgstr ""
+msgstr "%s - Informação"
 
 #: src/menu-callbacks.inc:38
 #, c-format
 msgid "%s - Profiles"
-msgstr ""
+msgstr "%s - Perfis"
 
 #: mixer-info.gob:28
 msgid ""
@@ -293,7 +288,9 @@ msgid ""
 "It is released under the GPL-2 License which you find in the source "
 "directory.\n"
 "No warranty in any way."
-msgstr ""
+msgstr "Isto é o xfce4 mixer, um programa para controlar o volume.\n"
+"É lançado com a Lcença GPL 2 que pode encontrar no directório fonte.\n"
+"Não existem quaisquer garantias."
 
 #~ msgid "Use _internal mixer"
 #~ msgstr "Usar misturador interno"
