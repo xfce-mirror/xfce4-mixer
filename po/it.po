@@ -1,24 +1,22 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# dave@gufi.org 2003
+# Davide D'Amico <dave@gufi.org>, 2003.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-03-02 22:27+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Project-Id-Version: XFce4\n"
+"POT-Creation-Date: 2004-01-21 12:54+0100\n"
+"PO-Revision-Date: 2004-03-11 13:41+0100\n"
+"Last-Translator: Alex Dupre <ale@FreeBSD.org>\n"
+"Language-Team: GUFI <traduzioni@gufi.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: panel-plugin/mixer.c:154
 msgid "No working sound"
-msgstr "Nessun sottosistema audio funzionante"
+msgstr "Audio non funzionante"
 
 #: panel-plugin/mixer.c:293
 #, c-format
@@ -27,40 +25,40 @@ msgstr "Volume: %d%%"
 
 #: panel-plugin/mixer.c:1001
 msgid "Use _internal mixer"
-msgstr ""
+msgstr "Usa mixer _interno"
 
-#: panel-plugin/mixer.c:1211 panel-plugin/mixer_window.c:196
+#: panel-plugin/mixer.c:1211
+#: panel-plugin/mixer_window.c:196
 msgid "Volume Control"
 msgstr "Controllo Volume"
 
 #: panel-plugin/mvisible_opts.c:76
 msgid "Visible"
-msgstr ""
+msgstr "Visibile"
 
 #: panel-plugin/mvisible_opts.c:84
-#, fuzzy
 msgid "Control"
-msgstr "Controllo Volume"
+msgstr "Controllo"
 
 #: panel-plugin/vc_alsa.c:90
 #, c-format
 msgid "alsa: Mixer %s open error: %s\n"
-msgstr "alsa: Errore apertura Mixer %s: %s\n"
+msgstr "alsa: Errore di apertura mixer %s: %s\n"
 
 #: panel-plugin/vc_alsa.c:95
 #, c-format
 msgid "alsa: Mixer attach %s error: %s\n"
-msgstr "alsa: Errore connessione Mixer %s: %s\n"
+msgstr "alsa: Errore di connessione mixer %s: %s\n"
 
 #: panel-plugin/vc_alsa.c:103
 #, c-format
 msgid "alsa: Mixer register error: %s"
-msgstr "alsa: Errore nella registrazione Mixer: %s"
+msgstr "alsa: Errore di registrazione mixer: %s"
 
 #: panel-plugin/vc_alsa.c:112
 #, c-format
 msgid "alsa: Mixer load error: %s"
-msgstr "alsa: Errore nel caricamento Mixer: %s"
+msgstr "alsa: Errore di caricamento mixer: %s"
 
 #: panel-plugin/vc_alsa.c:122
 #, c-format
@@ -68,6 +66,6 @@ msgid "alsa: Unable to find simple control '%s',%i\n"
 msgstr "alsa: Impossibile trovare il controllo base '%s',%i\n"
 
 #: panel-plugin/vc_oss.c:133
-#, fuzzy
 msgid "oss: No master volume"
-msgstr "oss: Nessun master"
+msgstr "oss: Nessun volume principale"
+
