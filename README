@@ -1,2 +1,26 @@
+This is xfce4-mixer, a volume control application for the Xfce Desktop
+Environment. This software package contains both a volume control plugin
+for the Xfce Panel and a standalone mixer application.
 
-moo
+Currently, xfce4-mixer supports the following backends:
+
+ * OSS - Open Sound System
+   -----------------------
+   Supported on Linux, FreeBSD (newpcm), NetBSD (libossaudio) and several
+   other Unix-derivates.
+
+ * SUN - Sun Audio
+   ---------------
+   Supported on Sun Solaris.
+ 
+ * ALSA - Advanced Linux Sound Architecture
+   ----------------------------------------
+   Supported on newer Linux systems (2.4 and above).
+
+You can select between the different backends using the configure option
+--with-sound. If you don't specify this option, the configure script will
+try to auto-detect the best backend for your system. For example, to
+override the auto-detection and use ALSA, run configure like this:
+
+ ./configure --with-sound=alsa
+

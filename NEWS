@@ -1,0 +1,6 @@
+4.2.0
+-----
+* Complete rewrite of the mixer with settings manager dialog.
+* Support for mixer profiles.
+* Support for ALSA, OSS and Sun Audio.
+
