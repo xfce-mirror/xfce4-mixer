@@ -77,7 +77,7 @@ typedef struct
     gboolean		use_sn;
     gboolean		use_terminal;
     gboolean		use_internal;
-    GList		*visible_ctrls;
+/*    GList		*visible_ctrls;*/
     GList		*l_visible;
 } MixerOptions;
 
@@ -1009,6 +1009,9 @@ mixer_read_config(Control *control, xmlNodePtr node)
 	int	n;
 	t_mixer	*mixer;
 	xmlChar	*value;
+	xmlNodePtr node2;
+	GList	*g;
+	volchanger_t	*vc;
 
 	mixer = (t_mixer *)control->data;
 	
@@ -1047,6 +1050,21 @@ mixer_read_config(Control *control, xmlNodePtr node)
 				mixer->options.use_internal = (n == 1) ? TRUE: FALSE;
 				g_free(value);
 			}
+		} else 	if (xmlStrEqual (node->name, (const xmlChar *)"Controls")) {
+			g = NULL;
+			for (node2 = node->children; node2; node2 = node2->next) {
+				if (xmlStrEqual (node2->name, (const xmlChar *)"Control")) {
+					vc = g_new0 (volchanger_t, 1);
+					vc->name = (gchar *)MYDATA(node2);
+					g = g_list_append (g, vc);
+				}
+			}
+			
+			if (mixer->options.l_visible) {
+				free_control_list (mixer->options.l_visible);
+				mixer->options.l_visible = NULL;
+			}
+			mixer->options.l_visible = g;
 		}
 	}
 }
@@ -1054,12 +1072,30 @@ mixer_read_config(Control *control, xmlNodePtr node)
 static void
 mixer_write_config(Control *control, xmlNodePtr parent)
 {
-	xmlNodePtr root, node;
+	xmlNodePtr root, node, node2;
 	char value[MAXSTRLEN + 1];
+	GList *g;
+	volchanger_t	*vc;
 
 	t_mixer *mixer = (t_mixer *) control->data;
 
+	g_return_if_fail(mixer != NULL);
+
 	root = xmlNewTextChild (parent, NULL, MIXER_ROOT, NULL);
+
+	node = xmlNewTextChild (root, NULL, "Controls", NULL);
+	if (mixer->options.l_visible) {
+		g = mixer->options.l_visible;
+		while (g) {
+			vc = (volchanger_t *)g->data;
+			node2 = xmlNewTextChild (node, NULL, "Control", (const xmlChar *)vc->name);
+			xmlSetProp (node2, "id", (const xmlChar *)vc->name);
+
+			g = g_list_next (g);
+		}
+	}
+	
+	node = NULL;
 
 	if (mixer->options.command) {
 		node = xmlNewTextChild (root, NULL, "Command", mixer->options.command);
