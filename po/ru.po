@@ -1,21 +1,22 @@
+# translation of xfce4-mixer.po to Russian
 # translation of ru.po to Russian
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
 # Poul Ionkin <wizzard@nmg.lv>, 2003.
-# Anthony Ivanoff <a-i@bk.ru>, 2004.
+# Anthony Ivanoff <a-i@bk.ru>, 2004, 2005.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: ru\n"
+"Project-Id-Version: xfce4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-11-22 21:44+0100\n"
-"PO-Revision-Date: 2004-08-23 19:48+0600\n"
+"POT-Creation-Date: 2004-12-11 18:32+0100\n"
+"PO-Revision-Date: 2005-01-08 11:24+0500\n"
 "Last-Translator: Anthony Ivanoff <a-i@bk.ru>\n"
 "Language-Team: Russian\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.3.1\n"
+"X-Generator: KBabel 1.10\n"
 "Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
@@ -63,7 +64,7 @@ msgstr "Синт."
 
 #: lib/trans.c:15
 msgid "Mix"
-msgstr "Микс."
+msgstr "Микш."
 
 #: lib/trans.c:16
 msgid "Pcm2"
@@ -150,7 +151,7 @@ msgstr "alsa: Ошибка загрузки микшера %s: %s\n"
 msgid "alsa: Unable to find simple control '%s',%i\n"
 msgstr "alsa: Не найден элемент управления '%s' ,%i\n"
 
-#: lib/vc_oss.c:131
+#: lib/vc_oss.c:138
 msgid "oss: No master volume"
 msgstr "oss: Нет громкости"
 
@@ -163,20 +164,21 @@ msgstr "Громкость: %d%%"
 msgid "Volume Control"
 msgstr "Контроль звука"
 
-#: settings/mixer-settingsbox.gob:102 mixer-settingsbox.gob:102
+#: settings/mixer-settingsbox.gob:99 mixer-settingsbox.gob:99
 msgid "Device"
 msgstr "Устройство"
 
-#: settings/mixer-settingsbox.gob:105 mixer-settingsbox.gob:105
+#: settings/mixer-settingsbox.gob:102 mixer-settingsbox.gob:102
 msgid "None"
 msgstr "Нет"
 
 #. gtk_widget_show (GTK_WIDGET (self->dev_label));
-#: settings/mixer-settingsbox.gob:108 mixer-settingsbox.gob:108
+#. debug_bindtextdomain();
+#: settings/mixer-settingsbox.gob:107 mixer-settingsbox.gob:107
 msgid "Useful Controls"
 msgstr "Контролируемые каналы"
 
-#: settings/sound.c:80 settings/sound.c:102 settings/sound.c:109
+#: settings/sound.c:80 settings/sound.c:100 settings/sound.c:107
 msgid "Sound"
 msgstr "Звук"
 
@@ -184,37 +186,37 @@ msgstr "Звук"
 msgid "No working sound"
 msgstr "Звук не работает"
 
-#: src/menus.c:9
-msgid "/_File"
-msgstr ""
-
-#: src/menus.c:10
-msgid "/File/_Options"
-msgstr ""
-
-#: src/menus.c:11
-msgid "/File/_Exit"
-msgstr ""
-
 #: src/menus.c:12
-msgid "/_View"
-msgstr ""
+msgid "/_File"
+msgstr "/Файл"
 
 #: src/menus.c:13
-msgid "/View/sep"
-msgstr ""
+msgid "/File/_Options"
+msgstr "/Файл/Параметры"
 
 #: src/menus.c:14
-msgid "/View/_Manage"
-msgstr ""
+msgid "/File/_Exit"
+msgstr "/Файл/Выход"
 
 #: src/menus.c:15
-msgid "/_Help"
-msgstr ""
+msgid "/_View"
+msgstr "/Вид"
 
 #: src/menus.c:16
+msgid "/View/sep"
+msgstr "/Вид/sep"
+
+#: src/menus.c:17
+msgid "/View/_Manage"
+msgstr "/Вид/Управление"
+
+#: src/menus.c:18
+msgid "/_Help"
+msgstr "/Помощь"
+
+#: src/menus.c:19
 msgid "/Help/_Info"
-msgstr ""
+msgstr "/Помощь/Информация"
 
 #: src/mixer-info.gob:28 mixer-info.gob:28
 msgid ""
@@ -317,9 +319,9 @@ msgstr "Профиль с таким именем уже существует"
 
 #: src/mixer-profiles.gob:262 src/mixer-profiles.gob:269
 #: mixer-profiles.gob:262 mixer-profiles.gob:269
-#, fuzzy, c-format
+#, c-format
 msgid "profile%d"
-msgstr "Профиль"
+msgstr "Профиль %d"
 
 #: src/mixer-view.gob:258 mixer-view.gob:258
 msgid "Show Switches"
@@ -329,8 +331,3 @@ msgstr "Показывать переключатели"
 msgid "Hide Switches"
 msgstr "Скрыть переключатели"
 
-#~ msgid "%s - Info"
-#~ msgstr "%s - Сведения"
-
-#~ msgid "%s - Profiles"
-#~ msgstr "%s - Профили"
