@@ -10,7 +10,7 @@ AC_INIT([configure])
 
 AM_CONFIG_HEADER([config.h])
 
-AM_INIT_AUTOMAKE([xfce4-mixer], [0.1])
+AM_INIT_AUTOMAKE([xfce4-mixer], [0.2])
 
 AM_MAINTAINER_MODE
 
@@ -56,7 +56,7 @@ dnl Check for i18n support
 BM_I18N([xfce4-mixer], [ca de it nl ru tr zh_CN])
 
 dnl configure the panel plugin
-XFCE_PANEL_PLUGIN([XFCE4_PANEL], [0.10.1])
+XFCE_PANEL_PLUGIN([XFCE4_PANEL], [3.91.2])
 
 dnl Check for startup notification
 BM_DEPEND_CHECK(LIBSTARTUP_NOTIFICATION, libstartup-notification-1.0, 0.4,

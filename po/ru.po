@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer\n"
-"POT-Creation-Date: 2003-06-05 13:30+0200\n"
+"POT-Creation-Date: 2003-07-09 00:29+0200\n"
 "PO-Revision-Date: 2003-06-08 16:43+0300\n"
 "Last-Translator: Dan Korostelev <digger_temp@netman.ru>\n"
 "Language-Team: Russian <digger_temp@netman.ru>\n"
@@ -14,45 +14,48 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: panel-plugin/mixer.c:142
+#: panel-plugin/mixer.c:152
 msgid "No working sound"
 msgstr "Не работает звук"
 
-#: panel-plugin/mixer.c:263
+#: panel-plugin/mixer.c:287
 #, c-format
 msgid "Volume: %d%%"
 msgstr "Громкость: %d%%"
 
-#: panel-plugin/mixer.c:889
+#: panel-plugin/mixer.c:945
+msgid "Use _internal mixer"
+msgstr ""
+
+#: panel-plugin/mixer.c:1140
 msgid "Volume Control"
 msgstr "Управление громкостью"
 
-#: panel-plugin/vc_alsa.c:88
+#: panel-plugin/vc_alsa.c:89
 #, c-format
 msgid "alsa: Mixer %s open error: %s\n"
 msgstr "alsa: Ошибка открытия микшера %s: %s\n"
 
-#: panel-plugin/vc_alsa.c:93
+#: panel-plugin/vc_alsa.c:94
 #, c-format
 msgid "alsa: Mixer attach %s error: %s\n"
 msgstr "alsa: Ошибка присоединения микшера %s: %s\n"
 
-#: panel-plugin/vc_alsa.c:101
+#: panel-plugin/vc_alsa.c:102
 #, c-format
 msgid "alsa: Mixer register error: %s"
 msgstr "alsa: Ошибка регистрирования микшера: %s"
 
-#: panel-plugin/vc_alsa.c:110
+#: panel-plugin/vc_alsa.c:111
 #, c-format
 msgid "alsa: Mixer load error: %s"
 msgstr "alsa: Ошибка загрузки микшера: %s"
 
-#: panel-plugin/vc_alsa.c:120
+#: panel-plugin/vc_alsa.c:121
 #, c-format
 msgid "alsa: Unable to find simple control '%s',%i\n"
 msgstr ""
 
-#: panel-plugin/vc_oss.c:132
+#: panel-plugin/vc_oss.c:134
 msgid "oss: No master"
 msgstr ""
-

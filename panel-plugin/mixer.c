@@ -96,10 +96,10 @@ typedef struct
 
     /* settings */
     MixerOptions	options;
-    MixerOptions	revert;
+/*    MixerOptions	revert;*/
     GtkContainer	*settings_c; /* only a link */
     GtkSizeGroup	*sg; /* only a link */
-    GtkWidget		*revert_b; /* buttonm only a link */
+/*    GtkWidget		*revert_b; *//* buttonm only a link */
     GtkScrolledWindow	*s_visible;
     mvisible_opts_t	*t_visible;
     
@@ -210,7 +210,7 @@ xfce_mixer_new(gboolean *broken)
 }
 
 static void
-mixer_do_options(t_mixer *mixer, int mode); /* 0: load; 1: store; 2: connect revert, 3: sensitivize/desensitivize */
+mixer_do_options(t_mixer *mixer, int mode); /* 0: load; 1: store; 3: sensitivize/desensitivize */
 
 static void use_internal_changed_cb(t_mixer *m)
 {
@@ -441,21 +441,21 @@ mixer_set_theme(Control * control, const char *theme)
 static void
 free_optionsdialog(t_mixer *mixer)
 {
-	if (mixer->revert.command) {
+/*	if (mixer->revert.command) {
 		g_free(mixer->revert.command); 
 		mixer->revert.command = NULL;
 	}
-
+*/
 	if (mixer->options.command) {
 		g_free(mixer->options.command); 
 		mixer->options.command = NULL;
 	}
-	
+/*	
 	if (mixer->revert.l_visible) {
 		vc_free_control_list (mixer->revert.l_visible);
 		mixer->revert.l_visible = NULL;
 	}
-	
+*/	
 }
 
 static void
@@ -542,6 +542,7 @@ create_mixer_control (Control * control)
 	return TRUE;
 }
 
+#if 0
 static void
 create_options_backup(t_mixer *mixer)
 {
@@ -573,6 +574,7 @@ create_options_backup(t_mixer *mixer)
 		v = g_list_next (v);
 	}
 }
+#endif
 
 static GtkWidget *
 mixer_options_get(GtkContainer *c, int index)
@@ -599,17 +601,17 @@ mixer_options_get(GtkContainer *c, int index)
 	return w;
 }
 
-
+#if 0
 static void 
 mixer_revert_make_sensitive_cb(GtkWidget *w, gpointer data)  /* verified prototype: clicked */
 {
 	gtk_widget_set_sensitive (w, TRUE);
 }
+#endif
 
 static void 
 mixer_stuff_toggled_cb(GtkToggleButton *tb, t_mixer *mixer) /* verified prototype: toggled */
 {
-	mixer_revert_make_sensitive_cb(mixer->revert_b, NULL);
 	use_internal_changed_cb (mixer);
 }
  
@@ -624,7 +626,7 @@ mixer_command_entry_lost_focus_cb(GtkWidget *w, GdkEvent *event, t_mixer *mixer)
 #endif
 
 static void
-mixer_do_options(t_mixer *mixer, int mode) /* 0: load; 1: store; 2: connect revert, 3: sensitivize/desensitivize */
+mixer_do_options(t_mixer *mixer, int mode) /* 0: load; 1: store; 3: sensitivize/desensitivize */
 {
 	char const *temp;
 	GtkContainer *c;
@@ -660,12 +662,12 @@ mixer_do_options(t_mixer *mixer, int mode) /* 0: load; 1: store; 2: connect reve
 			2)),
 		0));
 	}
-	if (b_dotdotdot && mode == 2) {
+/*	if (b_dotdotdot && mode == 2) {
 		g_signal_connect(GTK_WIDGET(b_dotdotdot), "clicked",
 				G_CALLBACK(mixer_revert_make_sensitive_cb),
 				mixer->revert_b);
 	}
-
+*/
 	if (b_use_internal) {
 
 		switch (mode) {
@@ -816,6 +818,7 @@ mixer_fill_options(t_mixer *mixer)
 	use_internal_changed_cb(mixer);
 }
 
+#if 0
 static void
 mixer_revert_options_cb(GtkWidget *button, t_mixer *mixer) /* verified prototype: clicked */
 {
@@ -832,6 +835,7 @@ mixer_revert_options_cb(GtkWidget *button, t_mixer *mixer) /* verified prototype
 	create_options_backup(mixer);
 	gtk_widget_set_sensitive(mixer->revert_b, FALSE);
 }
+#endif
 
 #if 0
 static GtkWidget *
@@ -948,7 +952,7 @@ my_create_command_option(GtkSizeGroup *sg)
 
 #endif
 static void
-mixer_add_options(Control *control, GtkContainer *container, GtkWidget *revert, GtkWidget *done)
+mixer_add_options(Control *control, GtkContainer *container, GtkWidget *done)
 {
 	t_mixer		*mixer;
 	GtkWidget 	*vbox;
@@ -959,9 +963,7 @@ mixer_add_options(Control *control, GtkContainer *container, GtkWidget *revert, 
 	
 	mixer = (t_mixer *)control->data;
 
-	/*revert*/
-	mixer->dialog = gtk_widget_get_toplevel(revert);
-	mixer->revert_b = revert;
+	mixer->dialog = gtk_widget_get_toplevel(done);
 	
 	mixer->sg = gtk_size_group_new(GTK_SIZE_GROUP_HORIZONTAL);
 	vbox = my_create_command_option(mixer->sg);
@@ -999,10 +1001,9 @@ mixer_add_options(Control *control, GtkContainer *container, GtkWidget *revert, 
 	
 	mixer_fill_options(mixer);
 	mixer_do_options(mixer, 2);
-	create_options_backup(mixer);
+/*	create_options_backup(mixer);*/
 	
 	g_signal_connect(GTK_WIDGET(mixer->dialog), "destroy-event", G_CALLBACK(free_optionsdialog), mixer);
-	g_signal_connect(GTK_WIDGET(mixer->revert_b), "clicked", G_CALLBACK(mixer_revert_options_cb), mixer);
 	g_signal_connect(GTK_WIDGET(done), "clicked", G_CALLBACK(mixer_apply_options_cb), mixer);
 }
 

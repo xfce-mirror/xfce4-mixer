@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2003-06-05 13:30+0200\n"
+"POT-Creation-Date: 2003-07-09 00:29+0200\n"
 "PO-Revision-Date: 2003-07-05 17:26+0100\n"
 "Last-Translator: Carles Muñoz Gorriz <carlesmu@internautas.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,45 +14,48 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: panel-plugin/mixer.c:142
+#: panel-plugin/mixer.c:152
 msgid "No working sound"
 msgstr "El so no funciona"
 
-#: panel-plugin/mixer.c:263
+#: panel-plugin/mixer.c:287
 #, c-format
 msgid "Volume: %d%%"
 msgstr "Volum %d%%"
 
-#: panel-plugin/mixer.c:889
+#: panel-plugin/mixer.c:945
+msgid "Use _internal mixer"
+msgstr ""
+
+#: panel-plugin/mixer.c:1140
 msgid "Volume Control"
 msgstr "Control de volum"
 
-#: panel-plugin/vc_alsa.c:88
+#: panel-plugin/vc_alsa.c:89
 #, c-format
 msgid "alsa: Mixer %s open error: %s\n"
 msgstr "alsa: Mesclador %s error al obrir. %s\n"
 
-#: panel-plugin/vc_alsa.c:93
+#: panel-plugin/vc_alsa.c:94
 #, c-format
 msgid "alsa: Mixer attach %s error: %s\n"
 msgstr "alsa: Error %s en l'adjunt del mesclador. %s\n"
 
-#: panel-plugin/vc_alsa.c:101
+#: panel-plugin/vc_alsa.c:102
 #, c-format
 msgid "alsa: Mixer register error: %s"
 msgstr "alsa: Error al registrar el mesclador. %s"
 
-#: panel-plugin/vc_alsa.c:110
+#: panel-plugin/vc_alsa.c:111
 #, c-format
 msgid "alsa: Mixer load error: %s"
 msgstr "alsa: Error en la càrrega del mesclador. %s"
 
-#: panel-plugin/vc_alsa.c:120
+#: panel-plugin/vc_alsa.c:121
 #, c-format
 msgid "alsa: Unable to find simple control '%s',%i\n"
 msgstr "alsa: No es pot trobar el control '%s',%i\n"
 
-#: panel-plugin/vc_oss.c:132
+#: panel-plugin/vc_oss.c:134
 msgid "oss: No master"
 msgstr "oss: No hi és es mestre"
-
