@@ -1,11 +1,11 @@
 @SET_MAKE@
 
-EXTRA_DIST = \
+EXTRA_DIST = config.rpath  \
 	xfce4-mixer.spec \
 	autogen.sh \
 	NOTES
 
-SUBDIRS = lib src panel-plugin settings
+SUBDIRS = lib src panel-plugin settings po
 
 distclean-local:
 	rm -rf *.cache *~ *.spec

@@ -159,13 +159,13 @@ sharedstatedir = @sharedstatedir@
 sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 
-EXTRA_DIST = \
+EXTRA_DIST = config.rpath  \
 	xfce4-mixer.spec \
 	autogen.sh \
 	NOTES
 
 
-SUBDIRS = lib src panel-plugin settings
+SUBDIRS = lib src panel-plugin settings po
 
 ACLOCAL_AMFLAGS = -I m4
 subdir = .
@@ -180,11 +180,11 @@ RECURSIVE_TARGETS = info-recursive dvi-recursive pdf-recursive \
 	all-recursive install-data-recursive install-exec-recursive \
 	installdirs-recursive install-recursive uninstall-recursive \
 	check-recursive installcheck-recursive
-DIST_COMMON = README $(srcdir)/Makefile.in $(srcdir)/configure AUTHORS \
-	COPYING ChangeLog INSTALL Makefile.am NEWS TODO aclocal.m4 \
-	compile config.guess config.h.in config.sub configure \
-	configure.ac depcomp install-sh ltcf-c.sh ltmain.sh missing \
-	mkinstalldirs
+DIST_COMMON = README $(srcdir)/Makefile.in $(srcdir)/configure \
+	ABOUT-NLS AUTHORS COPYING ChangeLog INSTALL Makefile.am NEWS \
+	TODO aclocal.m4 compile config.guess config.h.in config.rpath \
+	config.sub configure configure.ac depcomp install-sh ltcf-c.sh \
+	ltmain.sh missing mkinstalldirs
 DIST_SUBDIRS = $(SUBDIRS)
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-recursive
@@ -204,7 +204,7 @@ $(top_builddir)/config.status: $(srcdir)/configure $(CONFIG_STATUS_DEPENDENCIES)
 $(srcdir)/configure: @MAINTAINER_MODE_TRUE@ $(srcdir)/configure.ac $(ACLOCAL_M4) $(CONFIGURE_DEPENDENCIES)
 	cd $(srcdir) && $(AUTOCONF)
 
-$(ACLOCAL_M4): @MAINTAINER_MODE_TRUE@ configure.ac m4/debug.m4 m4/depends.m4 m4/i18n.m4
+$(ACLOCAL_M4): @MAINTAINER_MODE_TRUE@ configure.ac m4/codeset.m4 m4/debug.m4 m4/depends.m4 m4/gettext.m4 m4/glibc21.m4 m4/i18n.m4 m4/iconv.m4 m4/intdiv0.m4 m4/inttypes-pri.m4 m4/inttypes.m4 m4/inttypes_h.m4 m4/isc-posix.m4 m4/lcmessage.m4 m4/lib-ld.m4 m4/lib-link.m4 m4/lib-prefix.m4 m4/nls.m4 m4/po.m4 m4/progtest.m4 m4/stdint_h.m4 m4/uintmax_t.m4 m4/ulonglong.m4
 	cd $(srcdir) && $(ACLOCAL) $(ACLOCAL_AMFLAGS)
 
 config.h: stamp-h1
