@@ -11,6 +11,7 @@ extern "C" {
 
 
 
+/* needs modified gob2 that adds config.h first */
 #include <gtk/gtk.h>
 #include <libxfce4util/libxfce4util.h>
 #include <libxfcegui4/xfce_framebox.h>

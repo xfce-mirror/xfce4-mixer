@@ -1,9 +1,5 @@
-%{
-#ifdef HAVE_CONFIG_H
-#  include <config.h>
-#endif
-%}
 %a{
+/* needs modified gob2 that adds config.h first */
 #include <gtk/gtk.h>
 #include <libxfce4util/libxfce4util.h>
 #include <libxfcegui4/xfce_framebox.h>
@@ -99,13 +95,15 @@ class Xfce:Mixer:Settingsbox from Gtk:VBox {
 		self->right_box = GTK_BOX (gtk_vbox_new (FALSE, 5));
 		gtk_widget_show (GTK_WIDGET (self->right_box));
 
-		self->dev_frame = xfce_framebox_new (_ ("Device"), TRUE);
+		printf("%s\n", GETTEXT_PACKAGE);
+
+		self->dev_frame = xfce_framebox_new ( dgettext(GETTEXT_PACKAGE, "Device"), TRUE);
 		gtk_widget_show (GTK_WIDGET (self->dev_frame));
 
 		self->dev_label = GTK_LABEL (gtk_label_new (_("None")));
 		/*gtk_widget_show (GTK_WIDGET (self->dev_label));*/
 
-		self->useful_frame = xfce_framebox_new (_ ("Useful Controls"), TRUE);
+		self->useful_frame = xfce_framebox_new ( dgettext(GETTEXT_PACKAGE, "Useful Controls"), TRUE);
 		gtk_widget_show (GTK_WIDGET (self->useful_frame));
 
 		self->useful_tv = GTK_TREE_VIEW (gtk_tree_view_new ());
