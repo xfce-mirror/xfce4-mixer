@@ -4,8 +4,9 @@
 #include "xfce-mixer-cache-vc.h"
 #include "vc.h"
 
+/* needs xfce_mixer_cache_vc_free to be called atexit */
+
 static GList *vc_cache;
-static gboolean vc_atexit = FALSE;
 
 /* TODO mcs */
 
@@ -30,7 +31,6 @@ gboolean xfce_mixer_cache_vc_valid (gchar const *vcname)
 	return FALSE;
 }
 
-/*atexit*/
 void xfce_mixer_cache_vc_free (void)
 {
 	if (vc_cache) {
@@ -43,11 +43,6 @@ void xfce_mixer_cache_vc_refresh (void)
 {
 	xfce_mixer_cache_vc_free ();
 	vc_cache = vc_get_control_list ();
-	
-	if (!vc_atexit) {
-		vc_atexit = TRUE;
-		atexit (xfce_mixer_cache_vc_free);
-	}
 }
 
 void xfce_mixer_cache_vc_foreach (GFunc func, gpointer user_data)

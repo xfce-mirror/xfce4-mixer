@@ -17,10 +17,8 @@ extern "C" {
 
 #line 6 "mixer-profilebox-detail.gob"
 #line 20 "xfce-mixer-profilebox-detail-private.h"
-void 	xfce_mixer_profilebox_detail_check_all	(XfceMixerProfileboxDetail * self);
 void 	xfce_mixer_profilebox_detail_up_clicked_cb	(XfceMixerProfileboxDetail * self, GtkButton * b);
 void 	xfce_mixer_profilebox_detail_down_clicked_cb	(XfceMixerProfileboxDetail * self, GtkButton * b);
-void 	xfce_mixer_profilebox_detail_save	(XfceMixerProfileboxDetail * self);
 void 	xfce_mixer_profilebox_detail_fill	(XfceMixerProfileboxDetail * self);
 void 	xfce_mixer_profilebox_detail_unfill	(XfceMixerProfileboxDetail * self);
 void 	xfce_mixer_profilebox_detail_each_profile_item_cb	(XfceMixerProfileboxDetail * self, t_mixer_profile_item * it);

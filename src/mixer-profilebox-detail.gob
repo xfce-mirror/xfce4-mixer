@@ -51,7 +51,7 @@ class Xfce:Mixer:Profilebox:Detail from Gtk:VBox {
 	protected GtkButton *detail_up_button;
 	protected GtkButton *detail_down_button;
 
-	protected void check_all (self)
+	public void check_all (self)
 	{
 		gboolean b;
 		GtkTreeIter iter;
@@ -235,7 +235,7 @@ class Xfce:Mixer:Profilebox:Detail from Gtk:VBox {
 		return gtk_entry_get_text (self->detail_name_entry);
 	}
 
-	protected void save (self)
+	public void save (self)
 	{
 		t_mixer_profile_item *it;
 		gint orderno;
@@ -350,7 +350,7 @@ class Xfce:Mixer:Profilebox:Detail from Gtk:VBox {
 		GtkTreeIter iter;
 		gchar tyc;
 		gchar *ty;
-		gchar const *loc;
+		/*gchar const *loc;*/
 
 		/* it is not NULL */
 

@@ -10,6 +10,7 @@
 #include "xfce-mixer-profiles.h"
 #include "xfce-mixer-window.h"
 #include "xfce-mixer-mcs-client.h"
+#include "xfce-mixer-cache-vc.h"
 #include "vcs.h"
 #include "main.h"
 
@@ -90,6 +91,8 @@ int main(int argc, char * argv[])
 	
 	g_source_remove (src);
 	g_free (device);
+	
+	xfce_mixer_cache_vc_free ();
 	
 	return 0;
 }

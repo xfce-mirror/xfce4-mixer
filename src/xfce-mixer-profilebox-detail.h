@@ -63,10 +63,12 @@ struct _XfceMixerProfileboxDetailClass {
  * Public methods
  */
 GType	xfce_mixer_profilebox_detail_get_type	(void);
+void 	xfce_mixer_profilebox_detail_check_all	(XfceMixerProfileboxDetail * self);
 void 	xfce_mixer_profilebox_detail_set_profile	(XfceMixerProfileboxDetail * self,
 					XfceMixerProfile * p);
 void 	xfce_mixer_profilebox_detail_clear	(XfceMixerProfileboxDetail * self);
 gchar const * 	xfce_mixer_profilebox_detail_get_name	(XfceMixerProfileboxDetail * self);
+void 	xfce_mixer_profilebox_detail_save	(XfceMixerProfileboxDetail * self);
 void 	xfce_mixer_profilebox_detail_filln	(XfceMixerProfileboxDetail * self,
 					char const * pname);
 void 	xfce_mixer_profilebox_detail_each_vccache_cb	(XfceMixerProfileboxDetail * self,
