@@ -94,7 +94,7 @@ create_tmp_file(gchar const *origfilename)
 }
 #endif
 
-static void
+static int
 rename_tmp_file(gchar const *origfilename)
 {
 	gchar *nfilename;
