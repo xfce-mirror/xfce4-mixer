@@ -22,6 +22,10 @@
 #ifdef SYS_TYPES_H
 #include <sys/types.h>
 #endif
+#ifdef HAVE_STRING_H
+#include <string.h>
+#endif
+
 
 #define USE_LOCKING 1 /* change that when nfs makes trouble */
 /*
@@ -71,7 +75,7 @@ get_tmp_file_name(gchar const *origfilename)
 	return nfilename;
 }
 
-
+#if 0
 static int 
 create_tmp_file(gchar const *origfilename)
 {
@@ -88,6 +92,7 @@ create_tmp_file(gchar const *origfilename)
 	g_free (nfilename);
 	return handle;
 }
+#endif
 
 static void
 rename_tmp_file(gchar const *origfilename)

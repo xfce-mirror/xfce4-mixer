@@ -84,7 +84,6 @@ class Xfce:Mixer:Window from Gtk:Window {
 	init(self)
 	{
 		XfceMixerProfile *p;
-		gchar *tpath;
 		self->box = GTK_BOX (gtk_vbox_new (FALSE, 0));
 		gtk_widget_show (GTK_WIDGET (self->box));
 
