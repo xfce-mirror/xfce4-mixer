@@ -1,6 +1,4 @@
-finish xfce-mixer-switch
-xfce-mixer-select
-
+profile manager: mixer-profilebox-detail.gob: load/save (just auto-create profile/save profile)
 
 device_changed() {
 	cache_vc->refresh();
@@ -8,15 +6,6 @@ device_changed() {
 	vc_profile_item_producer_produce(current_profile);
 }
 
-profile manager
-
-mcs settings
 
 save window position
-
-refresh mixer window after "mcs for selected device changed"
-
-not: use dbh ?
-
-GHashTable
-settings_hash
+save keyboard shortcuts
