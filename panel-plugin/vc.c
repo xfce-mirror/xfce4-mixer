@@ -181,7 +181,6 @@ volchanger_t **next_vc(volchanger_t **v)
 		return NULL;
 	}
 
-	++i;	
 	while (i < MAX_VC) {
 		if (vcs[i]) {
 			return &vcs[i];
