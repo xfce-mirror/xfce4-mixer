@@ -51,9 +51,27 @@ int main(int argc, char * argv[])
 	int rc;
 	gchar const *dd;
 	guint src;
+	gboolean versionOnly;
+	versionOnly = FALSE;
+
+	if (argc > 1 && (!strcmp(argv[1], "--version") || !strcmp(argv[1], "-V"))) {
+		versionOnly = TRUE;
+
+		g_print ("%s version %s using Xfce %s\n", 
+			PACKAGE, VERSION,  xfce_version_string());
+	}
+	
 	rc = register_vcs ();
 	if (rc < -1) {
 		g_warning (_ ("No working sound"));
+	}
+
+	if (versionOnly == TRUE) {
+		if (selected_vc() != NULL)
+			g_print ("  audio vc: %s\n", selected_vc()->name);
+		else
+			g_print ("  audio vc: none\n");
+		exit (0);
 	}
 
 	gtk_init (&argc, &argv);
