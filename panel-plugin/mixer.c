@@ -378,7 +378,7 @@ xfce_mixer_status_button_cb (GtkWidget * widget, GdkEventButton *b, t_mixer *mix
 		} else {
 			return TRUE;
 		}
-	} else {
+	} else if (b->button == 1) {
 		sy = widget->allocation.height;
 		if (sy != 0) {
 			/* this is a hack 'cause I dont know how to get the height 
