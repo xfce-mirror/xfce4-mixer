@@ -93,6 +93,20 @@ create_tmp_file(gchar const *origfilename)
 }
 #endif
 
+static void
+copy_permissions(gchar const *src, gchar const *dest)
+{
+	struct stat sb;
+	
+	if (!src || !dest)
+		return;
+		
+	lstat(src, &sb);
+	lchmod(dest, sb.st_mode);
+	
+	/* TODO acls, owner?, ... */
+}
+
 int
 my_config_commit_file(gchar const *origfilename)
 {
@@ -103,6 +117,7 @@ my_config_commit_file(gchar const *origfilename)
 		errno = ENOENT;
 		return -1;
 	}
+	copy_permissions (origfilename, nfilename);
 	rc = rename(nfilename, origfilename);
 	if (rc == -1) {
 		migrate_errno_print(nfilename, origfilename, errno, TRUE, "rename");
