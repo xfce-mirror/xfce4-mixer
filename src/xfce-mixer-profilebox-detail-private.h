@@ -19,6 +19,7 @@ extern "C" {
 #line 20 "xfce-mixer-profilebox-detail-private.h"
 void 	xfce_mixer_profilebox_detail_fill	(XfceMixerProfileboxDetail * self);
 void 	xfce_mixer_profilebox_detail_unfill	(XfceMixerProfileboxDetail * self);
+void 	xfce_mixer_profilebox_detail_each_profile_item_cb	(XfceMixerProfileboxDetail * self, t_mixer_profile_item * it);
 void 	xfce_mixer_profilebox_detail_rows_reordered_cb	(XfceMixerProfileboxDetail * self, GtkTreePath * arg1, GtkTreeIter * arg2, gpointer arg3, GtkTreeModel * model);
 
 #ifdef __cplusplus

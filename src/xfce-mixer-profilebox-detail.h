@@ -45,6 +45,7 @@ struct _XfceMixerProfileboxDetail {
 	gboolean dofill; /* protected */
 	XfceMixerProfile * profile; /* protected */
 	gchar * valids; /* protected */
+	GHashTable * presents; /* protected */
 };
 
 /*
@@ -67,7 +68,8 @@ gchar const * 	xfce_mixer_profilebox_detail_get_name	(XfceMixerProfileboxDetail 
 void 	xfce_mixer_profilebox_detail_filln	(XfceMixerProfileboxDetail * self,
 					char const * pname);
 void 	xfce_mixer_profilebox_detail_each_vccache_cb	(XfceMixerProfileboxDetail * self,
-					volcontrol_t * vci);
+					volcontrol_t * vci,
+					gboolean on_s);
 XfceMixerProfileboxDetail * 	xfce_mixer_profilebox_detail_new	(void);
 
 #ifdef __cplusplus

@@ -1,6 +1,9 @@
 FIXED? fix bug occuring when entering profile manager, creating, leaving manager, entering manager, deleting profile
-profile manager: mixer-profilebox-detail.gob: load/save (just auto-create profile/save profile)
+profile manager: mixer-profilebox-detail.gob:
+	DONE: load
+	save (just auto-create profile/save profile)
 
+per-profile window size ?
 
 device_changed() {
 	cache_vc->refresh();

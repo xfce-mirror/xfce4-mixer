@@ -19,6 +19,13 @@ static void each_vccache_cb (volcontrol_t *vci, gpointer userdata);
 
 extern XfceMixerMcsClient *mcsc;
 
+static gboolean 
+true_hfe_cb(gchar const *k, gint v, gpointer user_data)
+{
+	return TRUE;
+}
+
+
 %}
 
 class Xfce:Mixer:Profilebox:Detail from Gtk:VBox {
@@ -32,6 +39,8 @@ class Xfce:Mixer:Profilebox:Detail from Gtk:VBox {
 		unrefwith g_object_unref;
 	protected gchar *valids = NULL /* TODO autoupdate */
 		destroywith g_free;
+	protected GHashTable *presents = NULL
+		destroywith g_hash_table_destroy;
 
 	public void set_profile (self, XfceMixerProfile *p)
 	{
@@ -54,6 +63,8 @@ class Xfce:Mixer:Profilebox:Detail from Gtk:VBox {
 	{
 		GtkBox *nbox;
 		GtkWidget *dlabel;
+
+		self->presents = g_hash_table_new_full (g_str_hash, g_str_equal, g_free, NULL);
 
 		self->detail_box = GTK_BOX (self);
 		gtk_box_set_spacing (self->detail_box, 5);
@@ -111,12 +122,14 @@ class Xfce:Mixer:Profilebox:Detail from Gtk:VBox {
 			self);
 
 		gtk_entry_set_activates_default (self->detail_name_entry, TRUE);
+
 	}
 
 	public void clear(self)
 	{
 		gtk_entry_set_text (GTK_ENTRY (self->detail_name_entry), "");
 		gtk_tree_store_clear (self->detail_model);
+		g_hash_table_foreach_remove (self->presents, (GHRFunc)true_hfe_cb, self);
 	}
 
 	public gchar const *get_name(self)
@@ -126,8 +139,32 @@ class Xfce:Mixer:Profilebox:Detail from Gtk:VBox {
 
 	protected void fill (self)
 	{
+		GList *go;
+		GList *g;
+		t_mixer_profile_item *it;
+
 		self->dofill = TRUE;
-		gtk_tree_store_clear (self->detail_model);
+		self_clear (self);
+		/* 1. add profile data */
+		/* 2. add possible, but yet-to-be-used controls (which are not in profile) */
+
+		/* 1.: */
+		go = NULL;
+		if (self->profile)
+			go = xfce_mixer_profile_get_control_list (self->profile);
+
+		if (go) {
+			g = go;
+			for(; g; g = g_list_next (g)) {
+				it = (t_mixer_profile_item *)g->data;
+				if (!it)
+					continue;
+
+				self_each_profile_item_cb (self, it);
+			}
+			xfce_mixer_profile_free_control_list (self->profile, go);
+		}
+
 		if (self->valids)
 			g_free (self->valids);
 		self->valids = NULL;
@@ -138,8 +175,10 @@ class Xfce:Mixer:Profilebox:Detail from Gtk:VBox {
 
 		xfce_mixer_cache_vc_foreach ((GFunc)each_vccache_cb, self);
 		gtk_widget_set_sensitive (GTK_WIDGET (self), TRUE);
-		g_free (self->valids);
-		self->valids = NULL;
+		if (self->valids) {
+			g_free (self->valids);
+			self->valids = NULL;
+		}
 	}
 
 	protected void unfill (self)
@@ -151,11 +190,47 @@ class Xfce:Mixer:Profilebox:Detail from Gtk:VBox {
 
 	public void filln (self, char const *pname)
 	{
-		gtk_entry_set_text (GTK_ENTRY (self->detail_name_entry), pname);
 		self_fill (self);
+		gtk_entry_set_text (GTK_ENTRY (self->detail_name_entry), pname);
 	}
 
-	public void each_vccache_cb (self, volcontrol_t *vci)
+	protected void each_profile_item_cb (self, t_mixer_profile_item *it)
+	{
+		GtkTreeIter iter;
+		volcontrol_t *vci;
+		gchar tyc;
+		gchar *ty;
+
+		/* it is not NULL */
+
+		if (!it->vcname || !xfce_mixer_cache_vc_valid (it->vcname))
+			return;
+
+		if (self->presents && g_hash_table_lookup (self->presents, it->vcname)) {
+			/* already there. */
+			return;
+		}
+
+		tyc = xfce_mixer_cache_vc_get_type (it->vcname);
+
+		ty = _("<unknown>");
+		switch(tyc) {
+		case 'S': ty = _("<slider>"); break;
+		case 'O': ty = _("<onoff>"); break;
+		case 'C': ty = _("<select>"); break;
+		default:
+			return;
+		}
+
+		gtk_tree_store_append (self->detail_model, &iter, NULL);
+		gtk_tree_store_set (self->detail_model, &iter, 
+			0, TRUE,
+			1, vci->name, 
+			2, ty,
+		-1);
+	}
+
+	public void each_vccache_cb (self, volcontrol_t *vci, gboolean on_s)
 	{
 		GtkTreeIter iter;
 		gchar *ty;
@@ -173,7 +248,11 @@ class Xfce:Mixer:Profilebox:Detail from Gtk:VBox {
                         }   
                 }
 
-		if (!b) {
+		if (!b)
+			return;
+
+		if (self->presents && g_hash_table_lookup (self->presents, vci->name)) {
+			/* already there. */
 			return;
 		}
 
@@ -184,9 +263,11 @@ class Xfce:Mixer:Profilebox:Detail from Gtk:VBox {
 		case CT_SELECT: ty = _("<select>"); break;
 		}
 
+		b = on_s;
+
 		gtk_tree_store_append (self->detail_model, &iter, NULL);
 		gtk_tree_store_set (self->detail_model, &iter, 
-			0, TRUE,
+			0, b,
 			1, vci->name, 
 			2, ty,
 		-1);
@@ -211,7 +292,7 @@ static void each_vccache_cb (volcontrol_t *vci, gpointer userdata)
 	d = XFCE_MIXER_PROFILEBOX_DETAIL (userdata);
 
 	if (vci && vci->name) {
-		xfce_mixer_profilebox_detail_each_vccache_cb (d, vci);
+		xfce_mixer_profilebox_detail_each_vccache_cb (d, vci, FALSE);
 	}
 }
 %}
