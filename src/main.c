@@ -17,7 +17,7 @@ delayed_refresh_cb (gpointer user_data)
 {
 	if (mixer_window) {
 		xfce_mixer_window_refresh (XFCE_MIXER_WINDOW (mixer_window));
-/* TODO: fix that ! */
+/* TODO: fix that ! 
 		xfce_mixer_window_reset_profile (XFCE_MIXER_WINDOW (mixer_window));
 */
 	}
