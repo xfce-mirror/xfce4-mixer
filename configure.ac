@@ -10,7 +10,7 @@ AC_INIT([configure])
 
 AM_CONFIG_HEADER([config.h])
 
-AM_INIT_AUTOMAKE([xfce4-mixer], [4.0.0])
+AM_INIT_AUTOMAKE([xfce4-mixer], [4.0.1])
 
 AM_MAINTAINER_MODE
 
@@ -53,7 +53,7 @@ else
 fi
 
 dnl Check for i18n support
-BM_I18N([xfce4-mixer], [ca de fr hu it ko lt ms nl pt_PT ru ta tr vi zh_CN
+BM_I18N([xfce4-mixer], [ca de fr hi hu it ko lt ms nl pt_PT ru ta tr vi zh_CN
 	 zh_TW])
 
 dnl configure the panel plugin
