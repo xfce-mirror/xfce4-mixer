@@ -53,7 +53,7 @@ else
 fi
 
 dnl Check for i18n support
-BM_I18N([xfce4-mixer], [ar bg ca de es eu fa_IR fr hu it ja ko lt ms nl no pt_BR
+BM_I18N([xfce4-mixer], [ar az bg ca de es eu fa_IR fr hu it ja ko lt ms nl no pt_BR
 	 pt_PT ru sk tr zh_CN zh_TW])
 
 BM_DEPEND([XML], [libxml-2.0], [2.4.0])
