@@ -6,6 +6,6 @@ device_changed() {
 	vc_profile_item_producer_produce(current_profile);
 }
 
-DONE: save keyboard shortcuts
 gtk_settings ?
 restore last used profile on restart
+set currently used profile as selected in the manager

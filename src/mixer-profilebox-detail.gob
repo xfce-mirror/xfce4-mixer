@@ -88,10 +88,37 @@ class Xfce:Mixer:Profilebox:Detail from Gtk:VBox {
 
 	protected void up_clicked_cb (self, GtkButton *b)
 	{
+		GtkTreeSelection *sel;
+		GtkTreeIter iter;
+		GtkTreeModel *model;
+		gboolean b;
+		sel = gtk_tree_view_get_selection (self->detail_tv);
+		if (!sel)
+			return;
+
+		b = gtk_tree_selection_get_selected (sel, &model, &iter);
+		if (!b)
+			return;
+
+		g_warning ("move");
+		gtk_tree_store_move_before (self->detail_model, &iter, &iter);
 	}
 
 	protected void down_clicked_cb (self, GtkButton *b)
 	{
+		GtkTreeSelection *sel;
+		GtkTreeIter iter;
+		GtkTreeModel *model;
+		gboolean b;
+		sel = gtk_tree_view_get_selection (self->detail_tv);
+		if (!sel)
+			return;
+
+		b = gtk_tree_selection_get_selected (sel, &model, &iter);
+		if (!b)
+			return;
+
+		gtk_tree_store_move_after (self->detail_model, &iter, &iter);
 	}
 
 	init(self)
