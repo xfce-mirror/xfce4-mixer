@@ -38,7 +38,10 @@ class Xfce:Mixer:Profiles from G:Object {
 		};
 
 	protected GList *profiles = NULL
-		destroywith profiles_free;
+		destroy {
+			profiles_free(VAR);
+			VAR = NULL;
+		};
 
 	protected XfceMixerPxml *xml = NULL
 		unrefwith g_object_unref;

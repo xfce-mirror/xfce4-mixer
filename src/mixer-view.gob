@@ -100,7 +100,11 @@ class Xfce:Mixer:View from Gtk:VBox {
 	protected GtkBox *vbox;
 	protected GtkBox *tables;
 	protected GList *controls = NULL
-		destroywith control_list_free;
+		destroy {
+			control_list_free(VAR);
+			VAR = NULL;
+		};
+
 	protected t_mixer_control_factory_kind kind;
 
 	protected gboolean destruction = FALSE;
