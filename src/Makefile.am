@@ -5,18 +5,33 @@ INCLUDES = -I../include
 bin_PROGRAMS = xfce4-mixer
 
 #GOB2 = gob2
-xfce4_mixer_SOURCES = xfce-mixer-control.c xfce-mixer-slider.c \
-	xfce-mixer-slider-tiny.c \
-	xfce-mixer-profile.c xfce-mixer-control-factory.c \
-	xfce-mixer-view.c xfce-mixer-view-tiny.c main.c \
-	xfce-mixer-cache-vc.c disclosure-widget.c \
-	menus.c menu-callbacks.inc xfce-mixer-window.c \
-	xfce-mixer-switch.c xfce-mixer-info.c xfce-mixer-control-vc.c \
-	xfce-mixer-select.c string_option_menu.c \
-	xfce-mixer-mcs-client.c xfce-mixer-profiledlg.c \
-	xfce-mixer-profilebox.c xfce-mixer-profilebox-detail.c \
-	xfce-mixer-pxml.c xfce-mixer-profiles.c \
-	xfce_sizehook.c xfce_sizehook.h
+xfce4_mixer_SOURCES = \
+	xfce-mixer-control.c xfce-mixer-control.h xfce-mixer-control-private.h \
+	xfce-mixer-slider.c xfce-mixer-slider.h xfce-mixer-slider-private.h \
+	xfce-mixer-slider-tiny.c xfce-mixer-slider-tiny.h xfce-mixer-slider-tiny-private.h \
+	xfce-mixer-profile.c xfce-mixer-profile.h \
+	xfce-mixer-control-factory.c xfce-mixer-control-factory.h \
+	xfce-mixer-view.c xfce-mixer-view.h xfce-mixer-view-private.h \
+	xfce-mixer-view-tiny.c xfce-mixer-view-tiny.h \
+	main.c main.h \
+	xfce-mixer-cache-vc.c xfce-mixer-cache-vc.h \
+	disclosure-widget.c disclosure-widget.h \
+	menus.c menus.h \
+	menu-callbacks.inc \
+	xfce-mixer-window.c xfce-mixer-window.h xfce-mixer-window-private.h \
+	xfce-mixer-switch.c xfce-mixer-switch.h xfce-mixer-switch-private.h \
+	xfce-mixer-info.c xfce-mixer-info.h \
+	xfce-mixer-control-vc.c xfce-mixer-control-vc.h \
+	xfce-mixer-select.c xfce-mixer-select.h xfce-mixer-select-private.h \
+	string_option_menu.c string_option_menu.h \
+	xfce-mixer-mcs-client.c xfce-mixer-mcs-client.h xfce-mixer-mcs-client-private.h \
+	xfce-mixer-profiledlg.c xfce-mixer-profiledlg.h xfce-mixer-profiledlg-private.h \
+	xfce-mixer-profilebox.c xfce-mixer-profilebox.h xfce-mixer-profilebox-private.h \
+	xfce-mixer-profilebox-detail.c xfce-mixer-profilebox-detail.h xfce-mixer-profilebox-detail-private.h \
+	xfce-mixer-pxml.c xfce-mixer-pxml.h xfce-mixer-pxml-private.h \
+	xfce-mixer-profiles.c xfce-mixer-profiles.h xfce-mixer-profiles-private.h \
+	xfce_sizehook.c xfce_sizehook.h \
+	stringlist.inc
 
 xfce4_mixer_GSOURCES = mixer-control.gob \
 	mixer-slider.gob mixer-view.gob mixer-view-tiny.gob \
