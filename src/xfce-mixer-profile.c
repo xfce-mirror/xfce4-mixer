@@ -382,6 +382,8 @@ void xfce_mixer_profile_refresh_views (XfceMixerProfile *profile)
 {
 	GList *g;
 	XfceMixerView *view;
+	t_mixer_profile_item *item;
+	GList *g2;
 
 	g_return_if_fail (profile != NULL);
 	g_return_if_fail (XFCE_IS_MIXER_PROFILE (profile));
@@ -391,6 +393,13 @@ void xfce_mixer_profile_refresh_views (XfceMixerProfile *profile)
 			view = XFCE_MIXER_VIEW (g->data);
 			
 			xfce_mixer_view_profile_cleared (view);
+			g2 = profile->controls;
+			while (g2) {
+				item = (t_mixer_profile_item *) g2->data;
+			
+				xfce_mixer_view_profile_item_updated (view, item);
+				g2 = g_list_next (g2);
+			}
 			
 			g = g_list_next (g);
 		}

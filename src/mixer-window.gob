@@ -235,8 +235,8 @@ class Xfce:Mixer:Window from Gtk:Window {
 		if (self->view)
 			xfce_mixer_view_set_profile (self->view, self->profile);
 
-		/*if (self->profile)
-			xfce_mixer_profile_refresh_views (self->profile);*/
+		if (self->profile)
+			xfce_mixer_profile_refresh_views (self->profile);
 	}
 
 	public void refresh_value (self, gchar const *vcname)
