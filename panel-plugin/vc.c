@@ -141,7 +141,7 @@ GList *get_control_list()
 
 void free_control_list(GList *g)
 {
-	GList 			*f;
+/*	GList 			*f;*/
 	volcontrol_t		*c;
 	int			i = 0;
 	

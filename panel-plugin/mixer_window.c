@@ -1,7 +1,20 @@
 /* this is the mixer window which pops up when clicking the panel plugin */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <stdio.h>
 #include <glib.h>
+#ifdef HAVE_STRING_H
+#include <string.h>
+#else 
+#error ouch
+#endif
+#ifdef HAVE_MEMORY_H
+#include <memory.h>
+#endif
+
 #include <gtk/gtk.h>
 #include <libxfce4util/i18n.h>
 
@@ -20,11 +33,13 @@ void change_vol_cb(GtkRange *range, gpointer data)
 	set_volume(s->name, vol);
 }
 
+#if 0
 static gchar*
 format_value_callback (GtkScale *scale, gdouble   value)
 {
 	return g_strdup_printf ("%d %%", (int)value);
 }
+#endif
 
 void mixer_window_slider_control_refresh_value_p (mixer_window_t *w, mixer_slider_control_t *c)
 {
@@ -113,7 +128,7 @@ void control_glist_foreach_cb(gpointer data, gpointer user_data)
 	}
 }
 
-mixer_window_t *mixer_window_new()
+mixer_window_t *mixer_window_new(gboolean from_glist, GList *src)
 {
 	GList *g;
 	mixer_window_t * w;
@@ -144,10 +159,16 @@ mixer_window_t *mixer_window_new()
 
 		/* get the controls and fill them into the window */
 
-		g = get_control_list();
+		if (from_glist) {
+			g = src;
+		} else {
+			g = get_control_list();
+		}
 		if (g) {
 			g_list_foreach(g, control_glist_foreach_cb, w);
-			free_control_list (g);
+			if (!from_glist) {
+				free_control_list (g);
+			}
 		}
 	}
 	

@@ -26,7 +26,7 @@ typedef struct {
 	GtkWindow *window;
 } mixer_window_t;
 
-mixer_window_t *mixer_window_new(void);
+mixer_window_t *mixer_window_new(gboolean from_glist, GList *src);
 
 
 #endif /* ndef __MIXER_WINDOW_H */

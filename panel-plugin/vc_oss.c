@@ -240,10 +240,11 @@ get_control_list(void)
 			/* if in doubt, choose the first */
 
 			c = g_new0 (volcontrol_t, 1);
-			if (!c) return; /* error */
-			c->name = g_strdup(label[i]);
+			if (c) {
+				c->name = g_strdup(label[i]);
 			
-			g = g_list_append(g, c);
+				g = g_list_append(g, c);
+			}
 
 		}
 	}

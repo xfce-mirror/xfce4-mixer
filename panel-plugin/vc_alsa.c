@@ -238,8 +238,11 @@ static GList *get_control_list(void)
 	snd_mixer_elem_t *i; /* item */
 	char const *n; /* name */
 	
-	g = g_list_alloc ();
+	g = NULL;
+#if 0
+	g_list_alloc ();
 	if (!g) return NULL;
+#endif
 
 	b = snd_mixer_first_elem (handle);
 	e = snd_mixer_last_elem (handle);
@@ -251,7 +254,7 @@ static GList *get_control_list(void)
 		c = g_new0(volcontrol_t, 1);
 		c->name = g_strdup(n);	
 
-		g_list_append (g, c);
+		g = g_list_append (g, c);
 	
 		if (i == e)
 			break;
