@@ -1,13 +1,13 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Free Software Foundation, Inc.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# xfce4-mixer for XFce desktop environment.
+# Copyright (C) 2003 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the xfce4-mixer package.
+# Carles Muñoz Gorriz <carlesmu@internuatas.org>, 2003.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2003-06-05 13:30+0200\n"
-"PO-Revision-Date: 2003-05-19 12:45+0100\n"
+"PO-Revision-Date: 2003-07-05 17:26+0100\n"
 "Last-Translator: Carles Muñoz Gorriz <carlesmu@internautas.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -19,40 +19,40 @@ msgid "No working sound"
 msgstr "El so no funciona"
 
 #: panel-plugin/mixer.c:263
-#, fuzzy, c-format
+#, c-format
 msgid "Volume: %d%%"
-msgstr "Control de volum - %d%%"
+msgstr "Volum %d%%"
 
 #: panel-plugin/mixer.c:889
 msgid "Volume Control"
 msgstr "Control de volum"
 
 #: panel-plugin/vc_alsa.c:88
-#, fuzzy, c-format
+#, c-format
 msgid "alsa: Mixer %s open error: %s\n"
-msgstr "Mesclador: %s error al obrir. %s\n"
+msgstr "alsa: Mesclador %s error al obrir. %s\n"
 
 #: panel-plugin/vc_alsa.c:93
-#, fuzzy, c-format
+#, c-format
 msgid "alsa: Mixer attach %s error: %s\n"
-msgstr "Mesclador: Error en l'adjunt %s. %s"
+msgstr "alsa: Error %s en l'adjunt del mesclador. %s\n"
 
 #: panel-plugin/vc_alsa.c:101
-#, fuzzy, c-format
+#, c-format
 msgid "alsa: Mixer register error: %s"
-msgstr "Mesclador: Error al registrar. %s"
+msgstr "alsa: Error al registrar el mesclador. %s"
 
 #: panel-plugin/vc_alsa.c:110
-#, fuzzy, c-format
+#, c-format
 msgid "alsa: Mixer load error: %s"
-msgstr "Mesclador: Error en la càrrega. %s"
+msgstr "alsa: Error en la càrrega del mesclador. %s"
 
 #: panel-plugin/vc_alsa.c:120
-#, fuzzy, c-format
+#, c-format
 msgid "alsa: Unable to find simple control '%s',%i\n"
-msgstr "No es pot trobar el control '%s',%i\n"
+msgstr "alsa: No es pot trobar el control '%s',%i\n"
 
 #: panel-plugin/vc_oss.c:132
-#, fuzzy
 msgid "oss: No master"
-msgstr "No hi és es mestre"
+msgstr "oss: No hi és es mestre"
+
