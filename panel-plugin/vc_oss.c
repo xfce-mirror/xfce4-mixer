@@ -141,7 +141,7 @@ static int
 init(void)
 {
 	vc_set_device(dev_name);
-	find_master();
+	vc_reinit_device();
 	return 1;
 }
 
