@@ -3,10 +3,12 @@
 #include <gtk/gtk.h>
 #include "xfce-mixer-view.h"
 #include "xfce-mixer-profile.h"
+#include "xfce-mixer-mcs-client.h"
 %}
 %{
 #include <gtk/gtk.h>
 #include "menus.h"
+#define CHANNEL "sound"
 %}
 
 class Xfce:Mixer:Window from Gtk:Window {
@@ -15,6 +17,8 @@ class Xfce:Mixer:Window from Gtk:Window {
 	protected Gtk:Menu:Bar *menubar = NULL;
 	public Xfce:Mixer:Profile *profile = NULL;
 	protected Gtk:Accel:Group *accelgroup = NULL;
+	protected Xfce:Mixer:Mcs:Client *mcsc = NULL
+		unrefwith g_object_unref;
 
 	init(self)
 	{
@@ -48,6 +52,9 @@ class Xfce:Mixer:Window from Gtk:Window {
 		gtk_container_add (GTK_CONTAINER (self), GTK_WIDGET (self->box));
 
 		gtk_window_set_title (GTK_WINDOW (self), "Volume Control");
+
+		self->mcsc = xfce_mixer_mcs_client_new ();
+		g_object_set (self->mcsc, "channel", CHANNEL, NULL);
 	}
 
 	public GtkWidget *new(void)

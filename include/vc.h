@@ -50,6 +50,10 @@ typedef struct {
         void (*vc_set_volume_callback)(volchanger_callback_t cb, void *privdata);
         void (*vc_close_device)(void);
         GList *(*vc_get_device_list)(void);
+	void (*vc_set_select)(char const *which, gchar const *v);
+	gchar *(*vc_get_select)(char const *which);
+	gboolean (*vc_get_switch)(char const *which);
+	void (*vc_set_switch)(char const *which, gboolean b);
 } volchanger_t;
 
 typedef struct {
@@ -75,6 +79,11 @@ volchanger_t **next_vc(volchanger_t **);
 /* these operate on the selected_vc: */
 int vc_get_volume(char const *which);
 void vc_set_volume(char const *which, int v);
+void vc_set_select(char const *which, gchar const *v);
+gchar *vc_get_select(char const *which);
+void vc_set_switch(char const *which, gboolean v);
+gboolean vc_get_switch(char const *which);
+
 GList *vc_get_control_list();
 void vc_free_control_list(GList *g);
 void vc_set_volume_callback (volchanger_callback_t cb, void *data);
@@ -93,7 +102,11 @@ static volchanger_t vc = { \
         vc_get_control_list: vc_get_control_list, \
         vc_set_volume_callback: vc_set_volume_callback, \
         vc_close_device: vc_close_device, \
-        vc_get_device_list: vc_get_device_list \
+        vc_get_device_list: vc_get_device_list, \
+        vc_set_select: vc_set_select, \
+        vc_get_select: vc_get_select, \
+        vc_get_switch: vc_get_switch, \
+        vc_set_switch: vc_set_switch, \
 }; \
 \
 int register_##a(void) \

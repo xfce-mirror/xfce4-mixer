@@ -155,6 +155,46 @@ void vc_set_volume(char const *which, int v)
 	(*s->vc_set_volume)(which, v);
 }
 
+void vc_set_select(char const *which, gchar const *v)
+{
+	volchanger_t *s = selected_vc();
+	if (!s  || !s->vc_set_select) {
+		return;
+	}
+	
+	(*s->vc_set_select)(which, v);
+}
+
+gchar *vc_get_select(char const *which)
+{
+	volchanger_t *s = selected_vc();
+	if (!s  || !s->vc_get_select) {
+		return NULL;
+	}
+	
+	return (*s->vc_get_select)(which);
+}
+
+void vc_set_switch(char const *which, gboolean v)
+{
+	volchanger_t *s = selected_vc();
+	if (!s  || !s->vc_set_switch) {
+		return;
+	}
+	
+	(*s->vc_set_switch)(which, v);
+}
+
+gboolean vc_get_switch(char const *which)
+{
+	volchanger_t *s = selected_vc();
+	if (!s  || !s->vc_get_switch) {
+		return FALSE;
+	}
+	
+	return (*s->vc_get_switch)(which);
+}
+
 GList *vc_get_control_list()
 {
 	volchanger_t *s = selected_vc();

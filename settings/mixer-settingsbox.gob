@@ -48,7 +48,7 @@ class Xfce:Mixer:Settingsbox from Gtk:VBox {
 		self_devicelst_updated (self);
 	}
 
-	public void save (self) /* load from manager */
+	public void save (self) /* save to manager */
 	{
 		if (!self->manager)
 			return;
@@ -223,6 +223,8 @@ class Xfce:Mixer:Settingsbox from Gtk:VBox {
 		TRACE ("fill right_box soon");
 		self_fill_right_box (self);
 		TRACE ("leave device_changed_cb");
+
+		mcs_manager_notify (self->manager, CHANNEL);
 	}
 
 	public void devicelst_updated (self)

@@ -14,6 +14,7 @@ extern "C" {
 #include <gtk/gtk.h>
 #include "xfce-mixer-view.h"
 #include "xfce-mixer-profile.h"
+#include "xfce-mixer-mcs-client.h"
 
 
 /*
@@ -43,6 +44,7 @@ struct _XfceMixerWindow {
 	/*< private >*/
 	GtkMenuBar * menubar; /* protected */
 	GtkAccelGroup * accelgroup; /* protected */
+	XfceMixerMcsClient * mcsc; /* protected */
 };
 
 /*

@@ -148,4 +148,13 @@ mcs_dialog (const char *channel)
 			 CHANNEL);
 }
 
+gboolean mcs_mixer_is_useful_control (gchar const *device, gchar const *vcname)
+{
+	if (!client)
+		return TRUE;
+
+			
+	return TRUE;
+}
+
 /* TODO: call delayer_free */

@@ -139,6 +139,24 @@ static GList *vc_get_device_list()
 	return g;
 }
 
+static void vc_set_select(char const *which, gchar const *v)
+{
+} 
+
+static gchar *vc_get_select(char const *which)
+{  
+	return NULL;
+}
+
+static void vc_set_switch(char const *which, gboolean v)
+{
+}
+  
+static gboolean vc_get_switch(char const *which)
+{
+	return FALSE;
+}
+
 REGISTER_VC_PLUGIN(sun);
 
 #endif /* !USE_SUN */

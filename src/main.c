@@ -12,22 +12,9 @@ GtkTooltips *tooltips;
 
 static GtkWidget *mixer_window;
 
-gboolean
-delayed_refresh_cb (gpointer user_data)
-{
-	if (mixer_window) {
-		xfce_mixer_window_refresh (XFCE_MIXER_WINDOW (mixer_window));
-/* TODO: fix that ! 
-		xfce_mixer_window_reset_profile (XFCE_MIXER_WINDOW (mixer_window));
-*/
-	}
-	return FALSE;
-}
-
 static void
 my_main_quit(GtkWidget *w, gpointer user_data)
 {
-	mcs_stop_watch ();
 	mixer_window = NULL;
 	gtk_main_quit ();
 }
@@ -51,8 +38,6 @@ int main(int argc, char * argv[])
 	g_signal_connect (G_OBJECT (mixer_window), "destroy", G_CALLBACK (my_main_quit), NULL);
 	gtk_widget_show (GTK_WIDGET (mixer_window));
 
-	mcs_watch_xfce_channel ();
-		
 	gtk_main ();
 	return 0;
 }
