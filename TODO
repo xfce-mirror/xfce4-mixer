@@ -9,3 +9,6 @@ device_changed() {
 gtk_settings ?
 restore last used profile on restart
 set currently used profile as selected in the manager
+save/restore volume ! (nestu)
+
+get rid of minimum window size when reducing number of controls (by switching profile, refreshing profile)
