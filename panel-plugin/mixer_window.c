@@ -148,16 +148,16 @@ mixer_window_t *mixer_window_new(gboolean from_glist, GList *src)
 	
 	if (w) {
 		w->window = GTK_WINDOW (gtk_window_new (GTK_WINDOW_TOPLEVEL));
-		
+		gtk_widget_set_size_request (GTK_WIDGET (w->window), 350, -1);
+
 		gtk_container_set_border_width (GTK_CONTAINER (w->window), 5);
 		
 		w->hbox = GTK_BOX (gtk_hbox_new (FALSE /* TRUE */, 5));
 		gtk_widget_show (GTK_WIDGET (w->hbox));
 
 		w->scroller = GTK_SCROLLED_WINDOW (gtk_scrolled_window_new (NULL, NULL));
-		gtk_scrolled_window_set_policy (w->scroller, GTK_POLICY_NEVER, GTK_POLICY_NEVER);
-                gtk_window_set_position (GTK_WINDOW (w->window), GTK_WIN_POS_MOUSE);
-			
+		gtk_scrolled_window_set_policy (w->scroller, GTK_POLICY_AUTOMATIC, GTK_POLICY_NEVER);
+
 		gtk_widget_show (GTK_WIDGET (w->scroller));
 
 		gtk_window_set_title (GTK_WINDOW (w->window),  _("Volume Control"));
