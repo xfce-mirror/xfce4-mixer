@@ -78,7 +78,7 @@ typedef struct
 {
     GtkWidget		*eventbox;
     GtkBox		*hbox;
-    GtkWidget		*mixer;           /* our XfceClock widget */
+    GtkWidget		*mixer;           /* our XfceMixer widget */
     GtkProgressBar	*status;
     int			timeout_id;
     gboolean		broken;
@@ -89,12 +89,12 @@ typedef struct
     /* settings */
     MixerOptions	options;
     MixerOptions	revert;
-    GtkContainer	*settings_c;
-    GtkSizeGroup	*sg;
-    GtkWidget		*revert_b; /* button */
+    GtkContainer	*settings_c; /* only a link */
+    GtkSizeGroup	*sg; /* only a link */
+    GtkWidget		*revert_b; /* buttonm only a link */
     
     int			settings_action; /* < 0: get; > 0: set control-used data */
-    GtkWidget		*dialog; /* settings dialog */
+    GtkWidget		*dialog; /* settings dialog, only a link */
         
 }
 t_mixer;
@@ -377,11 +377,22 @@ mixer_set_theme(Control * control, const char *theme)
 
 
 static void
+free_optionsdialog(t_mixer *mixer)
+{
+	if (mixer->revert.command) g_free(mixer->revert.command); 
+	mixer->revert.command = NULL;
+	if (mixer->options.command) g_free(mixer->options.command); 
+	mixer->options.command = NULL;
+	/*g_free();*/
+}
+
+static void
 mixer_free (Control * control)
 {
     t_mixer *mixer = control->data;
 
     g_return_if_fail (mixer != NULL);
+    free_optionsdialog(mixer);
 
     g_free (mixer);
 }
@@ -475,15 +486,6 @@ mixer_options_get(GtkContainer *c, int index)
 	return w;
 }
 
-static void
-free_optionsdialog(t_mixer *mixer)
-{
-	if (mixer->revert.command) g_free(mixer->revert.command); 
-	mixer->revert.command = NULL;
-	if (mixer->options.command) g_free(mixer->options.command); 
-	mixer->options.command = NULL;
-	/*g_free();*/
-}
 
 static void 
 mixer_revert_make_sensitive(GtkWidget *w)
