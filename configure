@@ -5932,7 +5932,7 @@ cat >>confdefs.h <<\_ACEOF
 _ACEOF
 
 
-  ALL_LINGUAS="ca de tr zh_CN"
+  ALL_LINGUAS="ca de nl tr zh_CN"
 
 
 
@@ -7383,7 +7383,7 @@ echo "${ECHO_T}yes" >&6
   fi
 
 
-                              ac_config_files="$ac_config_files Makefile panel-plugin/Makefile po/Makefile.in"
+                                        ac_config_files="$ac_config_files Makefile panel-plugin/Makefile po/Makefile.in xfce4-mixer.spec"
 cat >confcache <<\_ACEOF
 # This file is a shell script that caches the results of configure
 # tests run on this system so they can be shared between configure
@@ -7950,6 +7950,7 @@ do
   "Makefile" ) CONFIG_FILES="$CONFIG_FILES Makefile" ;;
   "panel-plugin/Makefile" ) CONFIG_FILES="$CONFIG_FILES panel-plugin/Makefile" ;;
   "po/Makefile.in" ) CONFIG_FILES="$CONFIG_FILES po/Makefile.in" ;;
+  "xfce4-mixer.spec" ) CONFIG_FILES="$CONFIG_FILES xfce4-mixer.spec" ;;
   "depfiles" ) CONFIG_COMMANDS="$CONFIG_COMMANDS depfiles" ;;
   "default-1" ) CONFIG_COMMANDS="$CONFIG_COMMANDS default-1" ;;
   "config.h" ) CONFIG_HEADERS="$CONFIG_HEADERS config.h" ;;

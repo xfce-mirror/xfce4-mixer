@@ -5,7 +5,8 @@ SUBDIRS = panel-plugin po
 EXTRA_DIST =								\
 	NOTES								\
 	README								\
-	TODO
+	TODO								\
+	xfce4-mixer.spec
 
 distclean-local:
 	rm -rf *.cache *~

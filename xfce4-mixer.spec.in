@@ -1,0 +1,36 @@
+Summary: 	Volume control plugin for the XFce 4 panel
+Name: 		xfce4-mixer
+Version: 	@VERSION@
+Release: 	1
+License:	BSD
+URL: 		http://www.xfce.org/
+Source0: 	%{name}-%{version}.tar.gz
+Group: 		User Interface/Desktops
+BuildRoot: 	%{_tmppath}/%{name}-root
+Requires:	xfce4-panel >= @XFCE4_PANEL_REQUIRED_VERSION@
+BuildRequires:	xfce4-panel >= @XFCE4_PANEL_REQUIRED_VERSION@
+
+%description
+xfce4-mixer is the volume control plugin for the XFce 4 panel. Includes a
+simple sound mixer.
+
+%prep
+%setup -q
+
+%build
+%configure
+make
+
+%install
+rm -rf $RPM_BUILD_ROOT
+make install DESTDIR=$RPM_BUILD_ROOT mandir=%{_mandir}
+
+%clean
+rm -rf $RPM_BUILD_ROOT
+
+%files
+%defattr(-,root,root)
+%doc README TODO ChangeLog NOTES INSTALL COPYING AUTHORS
+${_libdir}/xfce4/panel-plugins/
+${_datadir}/locale/
+

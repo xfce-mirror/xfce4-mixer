@@ -5,7 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2003-04-26 11:41+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2003-06-05 13:30+0200\n"
 "PO-Revision-Date: 2003-05-19 12:45+0100\n"
 "Last-Translator: Carles Muñoz Gorriz <carlesmu@internautas.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -13,45 +14,45 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: panel-plugin/mixer.c:133
+#: panel-plugin/mixer.c:142
 msgid "No working sound"
 msgstr "El so no funciona"
 
-#: panel-plugin/mixer.c:253
-msgid "Volume control - %d%%"
+#: panel-plugin/mixer.c:263
+#, fuzzy, c-format
+msgid "Volume: %d%%"
 msgstr "Control de volum - %d%%"
 
-#: panel-plugin/mixer.c:711
+#: panel-plugin/mixer.c:889
 msgid "Volume Control"
 msgstr "Control de volum"
 
-#: panel-plugin/vc_alsa.c:87
-#, c-format
-msgid "Mixer %s open error: %s\n"
+#: panel-plugin/vc_alsa.c:88
+#, fuzzy, c-format
+msgid "alsa: Mixer %s open error: %s\n"
 msgstr "Mesclador: %s error al obrir. %s\n"
 
-#: panel-plugin/vc_alsa.c:92
+#: panel-plugin/vc_alsa.c:93
 #, fuzzy, c-format
-msgid "Mixer attach %s error: %s"
+msgid "alsa: Mixer attach %s error: %s\n"
 msgstr "Mesclador: Error en l'adjunt %s. %s"
 
-#: panel-plugin/vc_alsa.c:98
-#, c-format
-msgid "Mixer register error: %s"
+#: panel-plugin/vc_alsa.c:101
+#, fuzzy, c-format
+msgid "alsa: Mixer register error: %s"
 msgstr "Mesclador: Error al registrar. %s"
 
-#: panel-plugin/vc_alsa.c:106
-#, c-format
-msgid "Mixer load error: %s"
+#: panel-plugin/vc_alsa.c:110
+#, fuzzy, c-format
+msgid "alsa: Mixer load error: %s"
 msgstr "Mesclador: Error en la càrrega. %s"
 
-#: panel-plugin/vc_alsa.c:116
-#, c-format
-msgid "Unable to find simple control '%s',%i\n"
+#: panel-plugin/vc_alsa.c:120
+#, fuzzy, c-format
+msgid "alsa: Unable to find simple control '%s',%i\n"
 msgstr "No es pot trobar el control '%s',%i\n"
 
-#: panel-plugin/vc_oss.c:127
+#: panel-plugin/vc_oss.c:132
 #, fuzzy
-msgid "No master"
+msgid "oss: No master"
 msgstr "No hi és es mestre"
-
