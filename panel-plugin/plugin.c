@@ -63,15 +63,20 @@ xfce_mixer_launch_cb (GtkWidget *w, gpointer user_data)
 	gchar *tmp;
 	gboolean internal;
 	
-	
 	mixer = (t_mixer *) user_data;
-	internal = mixer && mixer->prefs && mixer->prefs->execu && 
+	if (!mixer || !mixer->prefs)
+		return;
+		
+	internal = mixer->prefs->execu && 
 	  g_str_has_prefix(mixer->prefs->execu, "xfce4-mixer");
 	  
 	if (mixer && mixer->prefs && mixer->prefs->device && internal) {
 		tmp = g_strdup_printf ("xfce4-mixer \"%s\"", mixer->prefs->device); /* TODO: pass device from cfg */
 	} else {
-		tmp = g_strdup (mixer->prefs->execu);
+		if (mixer->prefs->execu)
+			tmp = g_strdup (mixer->prefs->execu);
+		else
+			tmp = g_strdup ("xfce4-mixer");
 	}
 	/*g_spawn_command_line_async (tmp, NULL);*/
 	exec_cmd(tmp, mixer->prefs->in_terminal, mixer->prefs->startup_nf);
@@ -170,6 +175,7 @@ mixer_new(void)
 	gtk_box_pack_start (GTK_BOX (mixer->box), align, FALSE, FALSE, 0);	
 	
 	mixer->prefs = XFCE_MIXER_PREFERENCES (xfce_mixer_preferences_new ());
+	/*g_object_ref (G_OBJECT (mixer->prefs)); <- do that ? */
 
 	g_signal_connect (G_OBJECT (mixer->prefs), "notify::master",
 		G_CALLBACK (mixer_prefs_master_changed_cb), mixer 
