@@ -62,7 +62,7 @@ get_tmp_file_name(gchar const *origfilename)
 {
 	gchar *nfilename;
 	pid_t	pid;
-	pid = getpid();
+	pid = getpid ();
 	nfilename = g_strdup_printf("%s.tmp.%lu", origfilename, (gulong) pid);
 	return nfilename;
 }
@@ -106,11 +106,13 @@ static void
 copy_from_old_config(gchar const *oldpath, gchar const *filename)
 {
 	gchar *abspath;
+	gchar *tmppath;
 	int newfile;
 	int oldfile;
 	char buf[20000];
 	ssize_t rcnt;
 	ssize_t wcnt;
+	gboolean withtemp;
 
 	if (!oldpath)
 		return; /* no old file: nothing to migrate from */
@@ -119,6 +121,17 @@ copy_from_old_config(gchar const *oldpath, gchar const *filename)
 			
 	if (!abspath) /* no new file: nothing to migrate to */
 		return;
+		
+	withtemp = FALSE;
+	if (abspath) {
+		tmppath = get_tmp_file_name (abspath);
+		if (tmppath) {
+			g_free (abspath);
+			abspath = tmppath;
+			tmppath = NULL;
+			withtemp = TRUE;
+		}
+	}
 		
 	oldfile = -1;
 	newfile = -1;
@@ -130,15 +143,16 @@ copy_from_old_config(gchar const *oldpath, gchar const *filename)
 	}
 	
 #ifdef USE_LOCKING
-	lockf(oldfile, F_LOCK, 0);
+	/*lockf(oldfile, F_LOCK, 0);*/
 #endif
+	
 	newfile = open(abspath, O_CREAT|O_WRONLY, 0644);
 	if (newfile == -1) { /* new file couldnt be created, probably already exists */
 		migrate_errno_print (oldpath, abspath, errno, TRUE);
 		goto endme;
 	}
 #ifdef USE_LOCKING
-	lockf(newfile, F_LOCK, 0);
+	/*lockf(newfile, F_LOCK, 0);*/
 #endif
 	/* at this point both files are open and to be copied */
 	while ((rcnt = read (oldfile, buf, sizeof(buf))) > 0) {
@@ -169,6 +183,18 @@ endme:
 			
 			newfile = -1;
 			unlink (abspath);
+		} else {
+			if (withtemp) {
+				if (abspath)
+					g_free (abspath);
+					
+				abspath = xfce_resource_save_location (XFCE_RESOURCE_CONFIG, filename, TRUE);
+				if (abspath)
+					rename_tmp_file (abspath);
+				else {
+					migrate_errno_print (oldpath, "???", ENOENT, TRUE);
+				}
+			}
 		}
 	}
 		
@@ -177,7 +203,8 @@ endme:
 		close(oldfile); /* -1: dont care since we already read everything */
 	}
 		
-	g_free (abspath);
+	if (abspath)
+		g_free (abspath);
 }
 
 gchar *
