@@ -336,13 +336,21 @@ xfce_mixer_status_button_cb (GtkWidget * widget, GdkEventButton *b, t_mixer *mix
 
 	y = (int)b->y;
 	
-	sy = widget->allocation.height;
-	if (sy != 0) {
-		/* this is a hack 'cause I dont know how to get the height 
-		   of the border of the progressbar yet ;) */
-		y = (sy + 2 - y) * 100 / sy;
-	} else y = 0;
-
+	if (b->button == 3) {
+		if (b->type == GDK_BUTTON_PRESS) {
+			y = 0;
+		} else {
+			return TRUE;
+		}
+	} else {
+		sy = widget->allocation.height;
+		if (sy != 0) {
+			/* this is a hack 'cause I dont know how to get the height 
+			   of the border of the progressbar yet ;) */
+			y = (sy + 2 - y) * 100 / sy;
+		} else y = 0;
+	}
+	
 	set_master_volume(y);
 		
 	mixer->c_volume = get_master_volume();
