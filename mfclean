@@ -1,7 +1,0 @@
-#!/bin/sh
-
-rm -f Makefile.in settings/Makefile.in src/Makefile.in
-rm -f aclocal.m4 config.guess config.sub configure depcomp install-sh
-rm -f ltmain.sh
-rm -f include/Makefile.in lib/Makefile.in panel-plugin/Makefile.in
-
