@@ -12,7 +12,7 @@ xfce4_mixer_CSOURCES = xfce-mixer-control.c xfce-mixer-slider.c \
 	xfce-mixer-cache-vc.c disclosure-widget.c \
 	menus.c menu-callbacks.inc xfce-mixer-window.c \
 	xfce-mixer-switch.c xfce-mixer-info.c xfce-mixer-control-vc.c \
-	xfce-mixer-select.c string_option_menu.c
+	xfce-mixer-select.c string_option_menu.c mcs_client.c
 
 xfce4_mixer_SOURCES = $(xfce4_mixer_CSOURCES) mixer-control.gob \
 	mixer-slider.gob mixer-view.gob mixer-view-tiny.gob \
@@ -32,7 +32,7 @@ OBJECTS = xfce-mixer-control.o xfce-mixer-slider.o xfce-mixer-profile.o \
 	xfce-mixer-slider-tiny.o xfce-mixer-view.o xfce-mixer-view-tiny.o \
 	xfce-mixer-control-factory.o vc.o vc_alsa.o disclosure-widget.o \
 	xfce-mixer-window.o xfce-mixer-switch.o xfce-mixer-info.o \
-	xfce-mixer-control-vc.o string_option_menu.o
+	xfce-mixer-control-vc.o string_option_menu.o mcs_client.o
 
 #%.c %.h %-private.h: %.gob
 #	@GOB2@ $<

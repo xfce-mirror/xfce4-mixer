@@ -54,5 +54,11 @@ class Xfce:Mixer:Window from Gtk:Window {
 	{
 		return GTK_WIDGET (GET_NEW);
 	}
+
+	public void refresh (self)
+	{
+		if (self->profile)
+			xfce_mixer_profile_refresh_views (self->profile);
+	}
 }
 

@@ -59,6 +59,7 @@ struct _XfceMixerWindowClass {
  */
 GType	xfce_mixer_window_get_type	(void);
 GtkWidget * 	xfce_mixer_window_new	(void);
+void 	xfce_mixer_window_refresh	(XfceMixerWindow * self);
 
 #ifdef __cplusplus
 }

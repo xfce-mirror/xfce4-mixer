@@ -57,6 +57,8 @@ BM_I18N([xfce4-mixer], [ca de fr hu it lt ms nl pt_PT ru tr zh_CN zh_TW ko])
 BM_DEPEND([XFCE4_UTIL], [libxfce4util-1.0], [4.0.0])
 BM_DEPEND([GTK], [gtk+-2.0], [2.0.6])
 BM_DEPEND([XFCE_MCS_CLIENT], [libxfce4mcs-client-1.0], [4.0.0])
+dnl BM_DEPEND([DBH], [dbh-1.0], [1.0]) #.15
+
 XFCE_PANEL_PLUGIN([XFCE4_PANEL], [4.0.0])
 XFCE_MCS_PLUGIN([XFCE_MCS_MANAGER], [4.0.0])
 

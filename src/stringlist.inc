@@ -1,3 +1,6 @@
+
+#ifndef __stringlist_free
+#define __stringlist_free
 static void stringlist_free(GList *lst)
 {
 	GList *g;
@@ -13,3 +16,5 @@ static void stringlist_free(GList *lst)
 	if (lst)
 		g_list_free (lst);
 }
+
+#endif

@@ -18,6 +18,7 @@ extern "C" {
 #include "vc.h"
 #include "xfce-mixer-cache-vc.h"
 #include "xfce-mixer-pxml.h"
+#include "stringlist.inc"
 
 
 

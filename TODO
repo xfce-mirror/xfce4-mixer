@@ -8,11 +8,15 @@ device_changed() {
 	vc_profile_item_producer_produce(current_profile);
 }
 
-
 profile manager
 
 mcs settings
 
 save window position
 
-refresh mixer window after mcs for selected device changed
+refresh mixer window after "mcs for selected device changed"
+
+not: use dbh ?
+
+GHashTable
+settings_hash

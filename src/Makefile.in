@@ -171,7 +171,7 @@ xfce4_mixer_CSOURCES = xfce-mixer-control.c xfce-mixer-slider.c \
 	xfce-mixer-cache-vc.c disclosure-widget.c \
 	menus.c menu-callbacks.inc xfce-mixer-window.c \
 	xfce-mixer-switch.c xfce-mixer-info.c xfce-mixer-control-vc.c \
-	xfce-mixer-select.c string_option_menu.c
+	xfce-mixer-select.c string_option_menu.c mcs_client.c
 
 
 xfce4_mixer_SOURCES = $(xfce4_mixer_CSOURCES) mixer-control.gob \
@@ -195,7 +195,7 @@ OBJECTS = xfce-mixer-control.o xfce-mixer-slider.o xfce-mixer-profile.o \
 	xfce-mixer-slider-tiny.o xfce-mixer-view.o xfce-mixer-view-tiny.o \
 	xfce-mixer-control-factory.o vc.o vc_alsa.o disclosure-widget.o \
 	xfce-mixer-window.o xfce-mixer-switch.o xfce-mixer-info.o \
-	xfce-mixer-control-vc.o string_option_menu.o
+	xfce-mixer-control-vc.o string_option_menu.o mcs_client.o
 
 
 
@@ -228,7 +228,8 @@ am__objects_1 = xfce4_mixer-xfce-mixer-control.$(OBJEXT) \
 	xfce4_mixer-xfce-mixer-info.$(OBJEXT) \
 	xfce4_mixer-xfce-mixer-control-vc.$(OBJEXT) \
 	xfce4_mixer-xfce-mixer-select.$(OBJEXT) \
-	xfce4_mixer-string_option_menu.$(OBJEXT)
+	xfce4_mixer-string_option_menu.$(OBJEXT) \
+	xfce4_mixer-mcs_client.$(OBJEXT)
 am_xfce4_mixer_OBJECTS = $(am__objects_1)
 xfce4_mixer_OBJECTS = $(am_xfce4_mixer_OBJECTS)
 xfce4_mixer_LDFLAGS =
@@ -238,6 +239,7 @@ depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__depfiles_maybe = depfiles
 @AMDEP_TRUE@DEP_FILES = ./$(DEPDIR)/xfce4_mixer-disclosure-widget.Po \
 @AMDEP_TRUE@	./$(DEPDIR)/xfce4_mixer-main.Po \
+@AMDEP_TRUE@	./$(DEPDIR)/xfce4_mixer-mcs_client.Po \
 @AMDEP_TRUE@	./$(DEPDIR)/xfce4_mixer-menus.Po \
 @AMDEP_TRUE@	./$(DEPDIR)/xfce4_mixer-string_option_menu.Po \
 @AMDEP_TRUE@	./$(DEPDIR)/xfce4_mixer-xfce-mixer-cache-vc.Po \
@@ -314,6 +316,7 @@ distclean-compile:
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/xfce4_mixer-disclosure-widget.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/xfce4_mixer-main.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/xfce4_mixer-mcs_client.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/xfce4_mixer-menus.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/xfce4_mixer-string_option_menu.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/xfce4_mixer-xfce-mixer-cache-vc.Po@am__quote@
@@ -923,6 +926,39 @@ xfce4_mixer-string_option_menu.lo: string_option_menu.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/xfce4_mixer-string_option_menu.Plo' tmpdepfile='$(DEPDIR)/xfce4_mixer-string_option_menu.TPlo' @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(xfce4_mixer_CFLAGS) $(CFLAGS) -c -o xfce4_mixer-string_option_menu.lo `test -f 'string_option_menu.c' || echo '$(srcdir)/'`string_option_menu.c
+
+xfce4_mixer-mcs_client.o: mcs_client.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(xfce4_mixer_CFLAGS) $(CFLAGS) -MT xfce4_mixer-mcs_client.o -MD -MP -MF "$(DEPDIR)/xfce4_mixer-mcs_client.Tpo" \
+@am__fastdepCC_TRUE@	  -c -o xfce4_mixer-mcs_client.o `test -f 'mcs_client.c' || echo '$(srcdir)/'`mcs_client.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/xfce4_mixer-mcs_client.Tpo" "$(DEPDIR)/xfce4_mixer-mcs_client.Po"; \
+@am__fastdepCC_TRUE@	else rm -f "$(DEPDIR)/xfce4_mixer-mcs_client.Tpo"; exit 1; \
+@am__fastdepCC_TRUE@	fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='mcs_client.c' object='xfce4_mixer-mcs_client.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/xfce4_mixer-mcs_client.Po' tmpdepfile='$(DEPDIR)/xfce4_mixer-mcs_client.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(xfce4_mixer_CFLAGS) $(CFLAGS) -c -o xfce4_mixer-mcs_client.o `test -f 'mcs_client.c' || echo '$(srcdir)/'`mcs_client.c
+
+xfce4_mixer-mcs_client.obj: mcs_client.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(xfce4_mixer_CFLAGS) $(CFLAGS) -MT xfce4_mixer-mcs_client.obj -MD -MP -MF "$(DEPDIR)/xfce4_mixer-mcs_client.Tpo" \
+@am__fastdepCC_TRUE@	  -c -o xfce4_mixer-mcs_client.obj `if test -f 'mcs_client.c'; then $(CYGPATH_W) 'mcs_client.c'; else $(CYGPATH_W) '$(srcdir)/mcs_client.c'; fi`; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/xfce4_mixer-mcs_client.Tpo" "$(DEPDIR)/xfce4_mixer-mcs_client.Po"; \
+@am__fastdepCC_TRUE@	else rm -f "$(DEPDIR)/xfce4_mixer-mcs_client.Tpo"; exit 1; \
+@am__fastdepCC_TRUE@	fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='mcs_client.c' object='xfce4_mixer-mcs_client.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/xfce4_mixer-mcs_client.Po' tmpdepfile='$(DEPDIR)/xfce4_mixer-mcs_client.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(xfce4_mixer_CFLAGS) $(CFLAGS) -c -o xfce4_mixer-mcs_client.obj `if test -f 'mcs_client.c'; then $(CYGPATH_W) 'mcs_client.c'; else $(CYGPATH_W) '$(srcdir)/mcs_client.c'; fi`
+
+xfce4_mixer-mcs_client.lo: mcs_client.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(xfce4_mixer_CFLAGS) $(CFLAGS) -MT xfce4_mixer-mcs_client.lo -MD -MP -MF "$(DEPDIR)/xfce4_mixer-mcs_client.Tpo" \
+@am__fastdepCC_TRUE@	  -c -o xfce4_mixer-mcs_client.lo `test -f 'mcs_client.c' || echo '$(srcdir)/'`mcs_client.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/xfce4_mixer-mcs_client.Tpo" "$(DEPDIR)/xfce4_mixer-mcs_client.Plo"; \
+@am__fastdepCC_TRUE@	else rm -f "$(DEPDIR)/xfce4_mixer-mcs_client.Tpo"; exit 1; \
+@am__fastdepCC_TRUE@	fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='mcs_client.c' object='xfce4_mixer-mcs_client.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/xfce4_mixer-mcs_client.Plo' tmpdepfile='$(DEPDIR)/xfce4_mixer-mcs_client.TPlo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(xfce4_mixer_CFLAGS) $(CFLAGS) -c -o xfce4_mixer-mcs_client.lo `test -f 'mcs_client.c' || echo '$(srcdir)/'`mcs_client.c
 
 mostlyclean-libtool:
 	-rm -f *.lo

@@ -18,13 +18,14 @@ extern "C" {
 #include "vc.h"
 #include "xfce-mixer-cache-vc.h"
 #include "xfce-mixer-pxml.h"
+#include "stringlist.inc"
 
 #line 1 "mixer-prefbox.gob"
-#line 24 "xfce-mixer-prefbox-private.h"
+#line 25 "xfce-mixer-prefbox-private.h"
 struct _XfceMixerPrefboxPrivate {
-#line 31 "mixer-prefbox.gob"
+#line 32 "mixer-prefbox.gob"
 	delayer_t device_entry_delayer;
-#line 28 "xfce-mixer-prefbox-private.h"
+#line 29 "xfce-mixer-prefbox-private.h"
 };
 void 	xfce_mixer_prefbox_fill_device_list	(XfceMixerPrefbox * self);
 void 	xfce_mixer_prefbox_fill_master_list	(XfceMixerPrefbox * self);

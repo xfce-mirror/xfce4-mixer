@@ -266,7 +266,7 @@ mixer_set_size(Control *ctrl, int size)
 	if (r < 0) r = 1;
 		
 	gtk_widget_set_size_request(GTK_WIDGET(mixer->ib), r, r);
-	gtk_widget_set_size_request(GTK_WIDGET(mixer->slider), 6 + 2 * size, icon_size[size]);
+	gtk_widget_set_size_request(GTK_WIDGET(mixer->slider), 6 + 2 * size, r /*icon_size[size]*/);
 #endif
 
 	gtk_widget_queue_resize (GTK_WIDGET (mixer->slider));

@@ -17,6 +17,8 @@
 #define FHELPERS1
 #include "helpers.inc"
 
+#include "stringlist.inc"
+
 %}
 
 class Xfce:Mixer:Prefbox from Gtk:VBox {

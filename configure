@@ -11773,6 +11773,7 @@ echo "$as_me: error: Library requirements (libxfce4mcs-client-1.0 >= 4.0.0) not 
 
 
 
+
   succeeded=no
 
   if test -z "$PKG_CONFIG"; then
