@@ -7,7 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer\n"
-"POT-Creation-Date: 2003-08-02 11:41+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-01-21 12:36+0100\n"
 "PO-Revision-Date: 2004-01-17 23:47-0200\n"
 "Last-Translator: Felix da Silva Costa <felix@online.eti.br>\n"
 "Language-Team: pt_BR <felix@online.eti.br>\n"
@@ -15,24 +16,20 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: panel-plugin/mixer.c:157
+#: panel-plugin/mixer.c:154
 msgid "No working sound"
 msgstr "Som não esta funcionando"
 
-#: panel-plugin/mixer.c:296
+#: panel-plugin/mixer.c:293
 #, c-format
 msgid "Volume: %d%%"
 msgstr "Volume: %d%%"
 
-#: panel-plugin/mixer.c:1022
-msgid "Device:"
-msgstr "Dispositivo:"
-
-#: panel-plugin/mixer.c:1110
+#: panel-plugin/mixer.c:1001
 msgid "Use _internal mixer"
 msgstr "Use mixer _interno"
 
-#: panel-plugin/mixer.c:1307
+#: panel-plugin/mixer.c:1211
 msgid "Volume Control"
 msgstr "Controle de volume"
 
@@ -72,3 +69,30 @@ msgstr "Visível"
 #: panel-plugin/mvisible_opts.c:84
 msgid "Control"
 msgstr "Controle"
+
+#: panel-plugin/trans.c:5
+msgid "Vol"
+msgstr ""
+
+#: panel-plugin/trans.c:6
+msgid "Pcm"
+msgstr ""
+
+#: panel-plugin/trans.c:7
+msgid "Spkr"
+msgstr ""
+
+#: panel-plugin/trans.c:8
+msgid "Line"
+msgstr ""
+
+#: panel-plugin/trans.c:9
+msgid "Mic"
+msgstr ""
+
+#: panel-plugin/trans.c:10
+msgid "CD"
+msgstr ""
+
+#~ msgid "Device:"
+#~ msgstr "Dispositivo:"

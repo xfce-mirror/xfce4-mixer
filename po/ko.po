@@ -7,7 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer\n"
-"POT-Creation-Date: 2003-11-11 16:08+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-01-21 12:36+0100\n"
 "PO-Revision-Date: 2003-08-02 03:36+0900\n"
 "Last-Translator: ByungHyun Choi<byunghyunchoi@rtlinux.or.kr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -70,3 +71,27 @@ msgstr ""
 #, fuzzy
 msgid "Control"
 msgstr "볼륨 제어"
+
+#: panel-plugin/trans.c:5
+msgid "Vol"
+msgstr ""
+
+#: panel-plugin/trans.c:6
+msgid "Pcm"
+msgstr ""
+
+#: panel-plugin/trans.c:7
+msgid "Spkr"
+msgstr ""
+
+#: panel-plugin/trans.c:8
+msgid "Line"
+msgstr ""
+
+#: panel-plugin/trans.c:9
+msgid "Mic"
+msgstr ""
+
+#: panel-plugin/trans.c:10
+msgid "CD"
+msgstr ""

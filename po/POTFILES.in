@@ -4,3 +4,4 @@ panel-plugin/vc_alsa.c
 panel-plugin/vc_alsa_fallback.c
 panel-plugin/vc_oss.c
 panel-plugin/mvisible_opts.c
+panel-plugin/trans.c

@@ -96,7 +96,7 @@ mixer_slider_control_t *mixer_window_slider_control_new(mixer_window_t *w, char 
 		
 		gtk_widget_show (GTK_WIDGET (s->scale));
 		
-		s->label = GTK_WIDGET (gtk_button_new_with_label (name));
+		s->label = GTK_WIDGET (gtk_button_new_with_label (_(name)));
 		gtk_button_set_relief (GTK_BUTTON (s->label), GTK_RELIEF_NONE);
 		
 		gtk_widget_show (GTK_WIDGET (s->label));

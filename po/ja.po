@@ -7,7 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2003-08-02 11:41+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-01-21 12:36+0100\n"
 "PO-Revision-Date: 2003-12-09 17:30+0900\n"
 "Last-Translator: Zhao Ji <zhao-ji@awz.ne.jp>\n"
 "Language-Team: xfce-users-jp <xfce-users-jp@ml.fdiary.net>\n"
@@ -15,24 +16,20 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: panel-plugin/mixer.c:157
+#: panel-plugin/mixer.c:154
 msgid "No working sound"
 msgstr "サウンド機能が動作していません"
 
-#: panel-plugin/mixer.c:296
+#: panel-plugin/mixer.c:293
 #, c-format
 msgid "Volume: %d%%"
 msgstr "音量"
 
-#: panel-plugin/mixer.c:1022
-msgid "Device:"
-msgstr "機器"
-
-#: panel-plugin/mixer.c:1110
+#: panel-plugin/mixer.c:1001
 msgid "Use _internal mixer"
 msgstr "内部(_i)ミキサー使用"
 
-#: panel-plugin/mixer.c:1307
+#: panel-plugin/mixer.c:1211
 msgid "Volume Control"
 msgstr "音量調節"
 
@@ -72,3 +69,30 @@ msgstr "見せる"
 #: panel-plugin/mvisible_opts.c:84
 msgid "Control"
 msgstr "コントロール"
+
+#: panel-plugin/trans.c:5
+msgid "Vol"
+msgstr ""
+
+#: panel-plugin/trans.c:6
+msgid "Pcm"
+msgstr ""
+
+#: panel-plugin/trans.c:7
+msgid "Spkr"
+msgstr ""
+
+#: panel-plugin/trans.c:8
+msgid "Line"
+msgstr ""
+
+#: panel-plugin/trans.c:9
+msgid "Mic"
+msgstr ""
+
+#: panel-plugin/trans.c:10
+msgid "CD"
+msgstr ""
+
+#~ msgid "Device:"
+#~ msgstr "機器"

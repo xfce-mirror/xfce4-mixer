@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: az\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-08-02 11:41+0200\n"
+"POT-Creation-Date: 2004-01-21 12:36+0100\n"
 "PO-Revision-Date: 2003-12-15 17:21+0200\n"
 "Last-Translator: Mətin Əmirov <metin@karegen.com>\n"
 "Language-Team: Azerbaijani Turkish <gnome@azitt.com>\n"
@@ -17,24 +17,20 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.0.2\n"
 
-#: panel-plugin/mixer.c:157
+#: panel-plugin/mixer.c:154
 msgid "No working sound"
 msgstr "İşləyən səs yoxdur"
 
-#: panel-plugin/mixer.c:296
+#: panel-plugin/mixer.c:293
 #, c-format
 msgid "Volume: %d%%"
 msgstr "Səs: %d%%"
 
-#: panel-plugin/mixer.c:1022
-msgid "Device:"
-msgstr "Avadanlıq:"
-
-#: panel-plugin/mixer.c:1110
+#: panel-plugin/mixer.c:1001
 msgid "Use _internal mixer"
 msgstr "_Daxili mikseri işlət"
 
-#: panel-plugin/mixer.c:1307
+#: panel-plugin/mixer.c:1211
 msgid "Volume Control"
 msgstr "Səs İdarəsi"
 
@@ -75,3 +71,29 @@ msgstr "Görünən"
 msgid "Control"
 msgstr "Səs İdarəsi"
 
+#: panel-plugin/trans.c:5
+msgid "Vol"
+msgstr ""
+
+#: panel-plugin/trans.c:6
+msgid "Pcm"
+msgstr ""
+
+#: panel-plugin/trans.c:7
+msgid "Spkr"
+msgstr ""
+
+#: panel-plugin/trans.c:8
+msgid "Line"
+msgstr ""
+
+#: panel-plugin/trans.c:9
+msgid "Mic"
+msgstr ""
+
+#: panel-plugin/trans.c:10
+msgid "CD"
+msgstr ""
+
+#~ msgid "Device:"
+#~ msgstr "Avadanlıq:"

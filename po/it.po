@@ -7,14 +7,14 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2003-11-11 16:08+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-01-21 12:36+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Report-Msgid-Bugs-To: \n"
 
 #: panel-plugin/mixer.c:154
 msgid "No working sound"
@@ -71,3 +71,27 @@ msgstr ""
 #, fuzzy
 msgid "Control"
 msgstr "Controllo Volume"
+
+#: panel-plugin/trans.c:5
+msgid "Vol"
+msgstr ""
+
+#: panel-plugin/trans.c:6
+msgid "Pcm"
+msgstr ""
+
+#: panel-plugin/trans.c:7
+msgid "Spkr"
+msgstr ""
+
+#: panel-plugin/trans.c:8
+msgid "Line"
+msgstr ""
+
+#: panel-plugin/trans.c:9
+msgid "Mic"
+msgstr ""
+
+#: panel-plugin/trans.c:10
+msgid "CD"
+msgstr ""
