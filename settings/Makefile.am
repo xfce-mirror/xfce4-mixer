@@ -10,9 +10,8 @@ sound_settings_la_LDFLAGS =						\
 	-module
 
 sound_settings_la_SOURCES =						\
-	sound-icon.h							\
-	sound.c	\
-	xfce-mixer-settingsbox.c \
+	sound.c								\
+	xfce-mixer-settingsbox.c 					\
 	string_option_menu.c
 
 sound_settings_la_CFLAGS =						\
@@ -22,22 +21,15 @@ sound_settings_la_CFLAGS =						\
 sound_settings_la_LIBADD =						\
 	$(top_builddir)/lib/libxfce4mixer.la
 
-
-sound.c: sound-icon.h
-
-
-sound-icon.h: Makefile $(srcdir)/sound.png
-	gdk-pixbuf-csource --raw --build-list				\
-	sound_icon_data $(srcdir)/sound.png > sound-icon.h
-
-noinst_DATA =								\
-	sound-icon.h
-
-EXTRA_DIST =								\
-	sound.png								\
-	xfce-mixer-settings.desktop
-
 sound_settings_la_DEPENDENCIES = $(top_builddir)/lib/libxfce4mixer.la
 
-appsdir = $(datadir)/applications
-apps_DATA = xfce-mixer-settings.desktop
+desktopdir = $(datadir)/applications
+desktop_DATA = xfce-mixer-settings.desktop
+
+iconsdir = $(datadir)/icons/hicolor/48x48/apps
+icons_DATA = xfce4-mixer.png
+
+EXTRA_DIST =								\
+	$(desktop_DATA)							\
+	$(icons_DATA)
+

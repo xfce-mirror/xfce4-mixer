@@ -21,7 +21,6 @@
 #include <libxfce4util/libxfce4util.h>
 #include <libxfcegui4/libxfcegui4.h>
 #include <xfce-mcs-manager/manager-plugin.h>
-#include "sound-icon.h"
 #include "xfce-mixer-settingsbox.h"
 #include "vcs.h"
 
@@ -69,7 +68,7 @@ mcs_plugin_init(McsPlugin *plugin)
 	plugin->plugin_name = g_strdup ("sound");
 	plugin->caption = g_strdup ( _("Sound"));
 	plugin->run_dialog = run_dialog;
-	plugin->icon = xfce_inline_icon_at_size(sound_icon_data, 48, 48);
+	plugin->icon = xfce_themed_icon_load ("xfce4-mixer", 48);
 	
 	register_vcs ();
 

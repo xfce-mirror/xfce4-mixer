@@ -49,7 +49,7 @@ am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
 CONFIG_HEADER = $(top_builddir)/config.h
 CONFIG_CLEAN_FILES =
-am__installdirs = "$(DESTDIR)$(sounddir)" "$(DESTDIR)$(appsdir)"
+am__installdirs = "$(DESTDIR)$(sounddir)" "$(DESTDIR)$(desktopdir)" "$(DESTDIR)$(iconsdir)"
 soundLTLIBRARIES_INSTALL = $(INSTALL)
 LTLIBRARIES = $(sound_LTLIBRARIES)
 am_sound_settings_la_OBJECTS = sound_settings_la-sound.lo \
@@ -72,8 +72,9 @@ LINK = $(LIBTOOL) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(AM_LDFLAGS) $(LDFLAGS) -o $@
 SOURCES = $(sound_settings_la_SOURCES)
 DIST_SOURCES = $(sound_settings_la_SOURCES)
-appsDATA_INSTALL = $(INSTALL_DATA)
-DATA = $(apps_DATA) $(noinst_DATA)
+desktopDATA_INSTALL = $(INSTALL_DATA)
+iconsDATA_INSTALL = $(INSTALL_DATA)
+DATA = $(desktop_DATA) $(icons_DATA)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -227,9 +228,8 @@ sound_settings_la_LDFLAGS = \
 	-module
 
 sound_settings_la_SOURCES = \
-	sound-icon.h							\
-	sound.c	\
-	xfce-mixer-settingsbox.c \
+	sound.c								\
+	xfce-mixer-settingsbox.c 					\
 	string_option_menu.c
 
 sound_settings_la_CFLAGS = \
@@ -239,16 +239,15 @@ sound_settings_la_CFLAGS = \
 sound_settings_la_LIBADD = \
 	$(top_builddir)/lib/libxfce4mixer.la
 
-noinst_DATA = \
-	sound-icon.h
-
-EXTRA_DIST = \
-	sound.png								\
-	xfce-mixer-settings.desktop
-
 sound_settings_la_DEPENDENCIES = $(top_builddir)/lib/libxfce4mixer.la
-appsdir = $(datadir)/applications
-apps_DATA = xfce-mixer-settings.desktop
+desktopdir = $(datadir)/applications
+desktop_DATA = xfce-mixer-settings.desktop
+iconsdir = $(datadir)/icons/hicolor/48x48/apps
+icons_DATA = xfce4-mixer.png
+EXTRA_DIST = \
+	$(desktop_DATA)							\
+	$(icons_DATA)
+
 all: all-am
 
 .SUFFIXES:
@@ -427,22 +426,39 @@ clean-libtool:
 distclean-libtool:
 	-rm -f libtool
 uninstall-info-am:
-install-appsDATA: $(apps_DATA)
+install-desktopDATA: $(desktop_DATA)
 	@$(NORMAL_INSTALL)
-	test -z "$(appsdir)" || $(mkdir_p) "$(DESTDIR)$(appsdir)"
-	@list='$(apps_DATA)'; for p in $$list; do \
+	test -z "$(desktopdir)" || $(mkdir_p) "$(DESTDIR)$(desktopdir)"
+	@list='$(desktop_DATA)'; for p in $$list; do \
 	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
 	  f="`echo $$p | sed -e 's|^.*/||'`"; \
-	  echo " $(appsDATA_INSTALL) '$$d$$p' '$(DESTDIR)$(appsdir)/$$f'"; \
-	  $(appsDATA_INSTALL) "$$d$$p" "$(DESTDIR)$(appsdir)/$$f"; \
+	  echo " $(desktopDATA_INSTALL) '$$d$$p' '$(DESTDIR)$(desktopdir)/$$f'"; \
+	  $(desktopDATA_INSTALL) "$$d$$p" "$(DESTDIR)$(desktopdir)/$$f"; \
 	done
 
-uninstall-appsDATA:
+uninstall-desktopDATA:
 	@$(NORMAL_UNINSTALL)
-	@list='$(apps_DATA)'; for p in $$list; do \
+	@list='$(desktop_DATA)'; for p in $$list; do \
 	  f="`echo $$p | sed -e 's|^.*/||'`"; \
-	  echo " rm -f '$(DESTDIR)$(appsdir)/$$f'"; \
-	  rm -f "$(DESTDIR)$(appsdir)/$$f"; \
+	  echo " rm -f '$(DESTDIR)$(desktopdir)/$$f'"; \
+	  rm -f "$(DESTDIR)$(desktopdir)/$$f"; \
+	done
+install-iconsDATA: $(icons_DATA)
+	@$(NORMAL_INSTALL)
+	test -z "$(iconsdir)" || $(mkdir_p) "$(DESTDIR)$(iconsdir)"
+	@list='$(icons_DATA)'; for p in $$list; do \
+	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+	  f="`echo $$p | sed -e 's|^.*/||'`"; \
+	  echo " $(iconsDATA_INSTALL) '$$d$$p' '$(DESTDIR)$(iconsdir)/$$f'"; \
+	  $(iconsDATA_INSTALL) "$$d$$p" "$(DESTDIR)$(iconsdir)/$$f"; \
+	done
+
+uninstall-iconsDATA:
+	@$(NORMAL_UNINSTALL)
+	@list='$(icons_DATA)'; for p in $$list; do \
+	  f="`echo $$p | sed -e 's|^.*/||'`"; \
+	  echo " rm -f '$(DESTDIR)$(iconsdir)/$$f'"; \
+	  rm -f "$(DESTDIR)$(iconsdir)/$$f"; \
 	done
 
 ID: $(HEADERS) $(SOURCES) $(LISP) $(TAGS_FILES)
@@ -522,7 +538,7 @@ check-am: all-am
 check: check-am
 all-am: Makefile $(LTLIBRARIES) $(DATA)
 installdirs:
-	for dir in "$(DESTDIR)$(sounddir)" "$(DESTDIR)$(appsdir)"; do \
+	for dir in "$(DESTDIR)$(sounddir)" "$(DESTDIR)$(desktopdir)" "$(DESTDIR)$(iconsdir)"; do \
 	  test -z "$$dir" || $(mkdir_p) "$$dir"; \
 	done
 install: install-am
@@ -570,7 +586,8 @@ info: info-am
 
 info-am:
 
-install-data-am: install-appsDATA install-soundLTLIBRARIES
+install-data-am: install-desktopDATA install-iconsDATA \
+	install-soundLTLIBRARIES
 
 install-exec-am:
 
@@ -598,29 +615,24 @@ ps: ps-am
 
 ps-am:
 
-uninstall-am: uninstall-appsDATA uninstall-info-am \
-	uninstall-soundLTLIBRARIES
+uninstall-am: uninstall-desktopDATA uninstall-iconsDATA \
+	uninstall-info-am uninstall-soundLTLIBRARIES
 
 .PHONY: CTAGS GTAGS all all-am check check-am clean clean-generic \
 	clean-libtool clean-soundLTLIBRARIES ctags distclean \
 	distclean-compile distclean-generic distclean-libtool \
 	distclean-tags distdir dvi dvi-am html html-am info info-am \
-	install install-am install-appsDATA install-data \
-	install-data-am install-exec install-exec-am install-info \
-	install-info-am install-man install-soundLTLIBRARIES \
-	install-strip installcheck installcheck-am installdirs \
-	maintainer-clean maintainer-clean-generic mostlyclean \
-	mostlyclean-compile mostlyclean-generic mostlyclean-libtool \
-	pdf pdf-am ps ps-am tags uninstall uninstall-am \
-	uninstall-appsDATA uninstall-info-am \
+	install install-am install-data install-data-am \
+	install-desktopDATA install-exec install-exec-am \
+	install-iconsDATA install-info install-info-am install-man \
+	install-soundLTLIBRARIES install-strip installcheck \
+	installcheck-am installdirs maintainer-clean \
+	maintainer-clean-generic mostlyclean mostlyclean-compile \
+	mostlyclean-generic mostlyclean-libtool pdf pdf-am ps ps-am \
+	tags uninstall uninstall-am uninstall-desktopDATA \
+	uninstall-iconsDATA uninstall-info-am \
 	uninstall-soundLTLIBRARIES
 
-
-sound.c: sound-icon.h
-
-sound-icon.h: Makefile $(srcdir)/sound.png
-	gdk-pixbuf-csource --raw --build-list				\
-	sound_icon_data $(srcdir)/sound.png > sound-icon.h
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.
 .NOEXPORT:
