@@ -46,14 +46,14 @@
 static void 
 migrate_errno_print(
 	gchar const *oldpath, gchar const *newpath, 
-	int errno,
+	int xerrno,
 	gboolean newfile_culprit,
 	gchar const *func
 )
 {
 	char tmp[2049];
 	gchar *whichfile;
-	if (strerror_r (errno, tmp, sizeof(tmp)) != -1) {
+	if (strerror_r (xerrno, tmp, sizeof(tmp)) != -1) {
 		if (!newfile_culprit)
 			whichfile = "old file";
 		else
