@@ -250,7 +250,7 @@ update_volume_display(t_mixer *mixer)
 {
 	gchar *caption;
 
-	caption = g_strdup_printf(_("Volume - %d%%"), mixer->c_volume);
+	caption = g_strdup_printf(_("Volume: %d%%"), mixer->c_volume);
 	gtk_tooltips_set_tip(tooltips, GTK_WIDGET(mixer->hbox), caption,
 			NULL);
 	gtk_tooltips_set_tip(tooltips, GTK_WIDGET(mixer->mixer), caption,
