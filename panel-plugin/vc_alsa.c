@@ -221,10 +221,18 @@ static void vc_set_volume(char const *which, int vol_p)
 	/*vol_p = (lval - pmin) * 100 / (pmax - pmin);*/
 	lval = pmin + vol_p * (pmax - pmin) / 100;
 
+
 	for (chn = 0; chn <= SND_MIXER_SCHN_LAST; chn++) {
 		if (!snd_mixer_selem_has_playback_channel(xelem, chn)) continue;
+
+		if (lval == pmin) { /* mute */
+			snd_mixer_selem_set_playback_switch (xelem, chn, 0);
+			return;
+		} else { /* unmute, just in case. */
+			snd_mixer_selem_set_playback_switch (xelem, chn, 1);
+			snd_mixer_selem_set_playback_volume(xelem, chn, lval);
+		}
 	
-		snd_mixer_selem_set_playback_volume(xelem, chn, lval);
 		/* lol*/
 		/*return;*/
 	}
@@ -277,6 +285,7 @@ static void *mydata = NULL;
 static int alsa_cb(snd_mixer_t *ctl, unsigned int mask, snd_mixer_elem_t *elem)
 {
 	const char *which;
+	g_warning ("alsa_cb\n");
 	if (elem) {
 		which = snd_mixer_selem_get_name (elem);
 	} else {
@@ -295,7 +304,7 @@ static void vc_set_volume_callback(volchanger_callback_t cb, void *data)
 
 	mycb = cb;
 	mydata = data;
-	
+
 	snd_mixer_set_callback_private (handle, data);
 	snd_mixer_set_callback (handle, alsa_cb);
 }
