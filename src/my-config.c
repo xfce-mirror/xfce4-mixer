@@ -27,7 +27,7 @@
 #endif
 
 
-#define USE_LOCKING 1 /* change that when nfs makes trouble */
+#undef USE_LOCKING /* change that to undef when nfs makes trouble */
 /*
 <benny> 1) parse the input file (don't trust on g_file_test() or access() results, check the fopen result to see if the file exists)...
 <benny> 2) fopen(target + ".tmp." + getpid(), "w")
@@ -189,7 +189,7 @@ copy_from_old_config(gchar const *oldpath, gchar const *filename)
 	
 endme:
 	if (newfile != -1) { /* open: close down */
-		flock(newfile, LOCK_UN);
+		/*flock(newfile, LOCK_UN);*/
 		if (close(newfile) == -1) { /* didnt work, something went wrong when flushing, probably, so revert. */
 			migrate_errno_print (oldpath, abspath, errno, TRUE, "close");
 			
@@ -211,7 +211,7 @@ endme:
 	}
 		
 	if (oldfile != -1) {
-		flock(oldfile, LOCK_UN);
+		/*flock(oldfile, LOCK_UN);*/
 		close(oldfile); /* -1: dont care since we already read everything */
 	}
 		
