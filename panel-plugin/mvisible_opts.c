@@ -11,6 +11,8 @@
 
 #include <glib.h>
 #include <gtk/gtk.h>
+#include <libxfce4util/i18n.h>
+
 #include "mvisible_opts.h"
 
 mvisible_opts_t *mvisible_opts_new()
