@@ -60,7 +60,6 @@ mcs_plugin_init(McsPlugin *plugin)
 {
 	gchar *path, *file;
 	
-	printf("%s\n", PACKAGE_LOCALE_DIR);
 	xfce_textdomain(GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");
 	
 	path = g_build_filename ("xfce4", RCDIR, RCFILE, NULL);
@@ -98,7 +97,7 @@ static void     run_dialog(McsPlugin *plugin)
 		return;
 	}
 	
-    /*xfce_textdomain(GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");*/
+	xfce_textdomain(GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");
 
 	dialog = gtk_dialog_new_with_buttons(dgettext(GETTEXT_PACKAGE, "Sound"), NULL,
                          GTK_DIALOG_NO_SEPARATOR,

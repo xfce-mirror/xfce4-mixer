@@ -97,13 +97,13 @@ class Xfce:Mixer:Settingsbox from Gtk:VBox {
 
 		printf("%s\n", GETTEXT_PACKAGE);
 
-		self->dev_frame = xfce_framebox_new ( dgettext(GETTEXT_PACKAGE, "Device"), TRUE);
+		self->dev_frame = xfce_framebox_new ( _("Device"), TRUE);
 		gtk_widget_show (GTK_WIDGET (self->dev_frame));
 
 		self->dev_label = GTK_LABEL (gtk_label_new (_("None")));
 		/*gtk_widget_show (GTK_WIDGET (self->dev_label));*/
 
-		self->useful_frame = xfce_framebox_new ( dgettext(GETTEXT_PACKAGE, "Useful Controls"), TRUE);
+		self->useful_frame = xfce_framebox_new ( _("Useful Controls"), TRUE);
 		gtk_widget_show (GTK_WIDGET (self->useful_frame));
 
 		self->useful_tv = GTK_TREE_VIEW (gtk_tree_view_new ());
