@@ -50,6 +50,7 @@ my_table_allocator (GtkTable *t, gint *tc, gint *tr, XfceMixerControl *c)
 #include "xfce-mixer-control.h"
 #include "xfce-mixer-control-factory.h"
 #include "xfce-mixer-profile.h"
+#include "xfce-mixer-pxml.h"
 #include "disclosure-widget.h"
 %}
 
@@ -109,6 +110,41 @@ class Xfce:Mixer:View from Gtk:VBox {
 	private void free_disclosure (self)
 	{
 		self->disclosure = NULL;
+	}
+
+	public void save_state (self, XfceMixerPxml *xml)
+	{
+		gint act;
+		if (!self->disclosure)
+			return;
+
+		act = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (self->disclosure)) ? 1 : 0;
+
+		if (!xfce_mixer_pxml_goto_child_tag (xml, "disclosure")) 
+			xfce_mixer_pxml_goto_node (xml, 
+				xfce_mixer_pxml_create_text_child (xml, "disclosure", NULL)
+			);
+
+		xfce_mixer_pxml_set_prop_int (xml, "expanded", act);
+	}
+
+	public void load_state (self, XfceMixerPxml *xml)
+	{
+		gint act;
+		if (!self->disclosure)
+			return;
+
+		if (xfce_mixer_pxml_goto_child_tag (xml, "disclosure")) {
+			if (xfce_mixer_pxml_get_prop_int (xml, "expanded", &act)) {
+				gtk_toggle_button_set_active (
+					GTK_TOGGLE_BUTTON (self->disclosure),
+					act != 0 ? TRUE: FALSE
+				);
+				if (act) {
+				} else {
+				}
+			}
+		}
 	}
 
 	protected Xfce:Mixer:Control *add_control(self, Xfce:Mixer:Control *c)

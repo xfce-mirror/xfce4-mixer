@@ -182,6 +182,10 @@ class Xfce:Mixer:Window from Gtk:Window {
 			}
 		}
 
+		self_xml_goto_device (self, xml);
+		if (self->view)
+			xfce_mixer_view_load_state (self->view, xml);
+
 		g_object_unref (G_OBJECT (xml));
 
 		xfce_hook_window_state_swapped
@@ -230,6 +234,10 @@ class Xfce:Mixer:Window from Gtk:Window {
 				xfce_mixer_pxml_create_text_child (xml, "state", NULL)
 			);
 		xfce_mixer_pxml_set_prop_int (xml, "sticky", s->sticky ? 1 : 0);
+
+		self_xml_goto_device (self, xml);
+		if (self->view)
+			xfce_mixer_view_save_state (self->view, xml);
 
 		/* netk_window_is_sticky (win)); */
 		/*, selfp->sticky ? 1 : 0); */

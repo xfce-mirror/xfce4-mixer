@@ -15,6 +15,7 @@ extern "C" {
 #include "xfce-mixer-control.h"
 #include "xfce-mixer-control-factory.h"
 #include "xfce-mixer-profile.h"
+#include "xfce-mixer-pxml.h"
 #include "disclosure-widget.h"
 
 
@@ -75,6 +76,10 @@ struct _XfceMixerViewClass {
  * Public methods
  */
 GType	xfce_mixer_view_get_type	(void);
+void 	xfce_mixer_view_save_state	(XfceMixerView * self,
+					XfceMixerPxml * xml);
+void 	xfce_mixer_view_load_state	(XfceMixerView * self,
+					XfceMixerPxml * xml);
 XfceMixerView * 	xfce_mixer_view_new	(void);
 void 	xfce_mixer_view_profile_changed	(XfceMixerView * self);
 GtkContainer * 	xfce_mixer_view_find_container	(XfceMixerView * self,

@@ -15,10 +15,11 @@ extern "C" {
 #include "xfce-mixer-control.h"
 #include "xfce-mixer-control-factory.h"
 #include "xfce-mixer-profile.h"
+#include "xfce-mixer-pxml.h"
 #include "disclosure-widget.h"
 
 #line 48 "mixer-view.gob"
-#line 22 "xfce-mixer-view-private.h"
+#line 23 "xfce-mixer-view-private.h"
 XfceMixerControl * 	xfce_mixer_view_add_control	(XfceMixerView * self, XfceMixerControl * c);
 void 	xfce_mixer_view_del_control	(XfceMixerView * self, XfceMixerControl * c);
 void 	xfce_mixer_view_clear_controls	(XfceMixerView * self);
