@@ -94,6 +94,7 @@ mixer_slider_control_t *mixer_window_slider_control_new(mixer_window_t *w, char 
 		gtk_scale_set_digits (GTK_SCALE(s->scale), 0);
 		/*g_signal_connect (GTK_WIDGET(s->scale), "format-value", G_CALLBACK (format_value_callback), NULL);*/
 
+		gtk_scale_set_draw_value (GTK_SCALE(s->scale), FALSE);
 		
 		gtk_widget_set_size_request (GTK_WIDGET (s->scale), -1, 150); /*120);*/
 		
