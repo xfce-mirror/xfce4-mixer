@@ -201,6 +201,9 @@ mixer_window_t *mixer_window_new(gboolean from_glist, GList *src)
 	
 	if (w) {
 		w->window = GTK_WINDOW (gtk_window_new (GTK_WINDOW_TOPLEVEL));
+		
+		gtk_container_set_border_width (GTK_CONTAINER (w->window), 5);
+		
 		w->hbox = GTK_BOX (gtk_hbox_new (FALSE /* TRUE */, 5));
 		gtk_widget_show (GTK_WIDGET (w->hbox));
 
