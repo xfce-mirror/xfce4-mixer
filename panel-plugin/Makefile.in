@@ -58,7 +58,6 @@ CYGPATH_W = @CYGPATH_W@
 DATADIRNAME = @DATADIRNAME@
 DEFS = @DEFS@
 DEPDIR = @DEPDIR@
-ECHO = @ECHO@
 ECHO_C = @ECHO_C@
 ECHO_N = @ECHO_N@
 ECHO_T = @ECHO_T@
@@ -161,16 +160,16 @@ libmixer_la_LDFLAGS = \
 
 
 libmixer_la_SOURCES = \
-	mixer.c								\
-	mixer_window.c							\
-	mixer_window.h							\
-	vc.c								\
-	vc.h								\
-	vc_alsa_fallback.c						\
-	vc_alsa.c							\
-	vc_oss.c							\
+        mixer.c								\
+        mixer_window.c							\
+        mixer_window.h							\
 	mvisible_opts.c							\
-	mvisible_opts.h
+	mvisible_opts.h							\
+        vc_alsa.c							\
+        vc_alsa_fallback.c						\
+        vc.c								\
+        vc.h								\
+        vc_oss.c
 
 
 libmixer_la_CFLAGS = \
@@ -192,9 +191,9 @@ LTLIBRARIES = $(plugin_LTLIBRARIES)
 
 libmixer_la_DEPENDENCIES =
 am_libmixer_la_OBJECTS = libmixer_la-mixer.lo \
-	libmixer_la-mixer_window.lo libmixer_la-vc.lo \
-	libmixer_la-vc_alsa_fallback.lo libmixer_la-vc_alsa.lo \
-	libmixer_la-vc_oss.lo libmixer_la-mvisible_opts.lo
+	libmixer_la-mixer_window.lo libmixer_la-mvisible_opts.lo \
+	libmixer_la-vc_alsa.lo libmixer_la-vc_alsa_fallback.lo \
+	libmixer_la-vc.lo libmixer_la-vc_oss.lo
 libmixer_la_OBJECTS = $(am_libmixer_la_OBJECTS)
 
 DEFAULT_INCLUDES =  -I. -I$(srcdir) -I$(top_builddir)
@@ -374,71 +373,38 @@ libmixer_la-mixer_window.lo: mixer_window.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-mixer_window.lo `test -f 'mixer_window.c' || echo '$(srcdir)/'`mixer_window.c
 
-libmixer_la-vc.o: vc.c
-@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-vc.o -MD -MP -MF "$(DEPDIR)/libmixer_la-vc.Tpo" \
-@am__fastdepCC_TRUE@	  -c -o libmixer_la-vc.o `test -f 'vc.c' || echo '$(srcdir)/'`vc.c; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-vc.Tpo" "$(DEPDIR)/libmixer_la-vc.Po"; \
-@am__fastdepCC_TRUE@	else rm -f "$(DEPDIR)/libmixer_la-vc.Tpo"; exit 1; \
+libmixer_la-mvisible_opts.o: mvisible_opts.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-mvisible_opts.o -MD -MP -MF "$(DEPDIR)/libmixer_la-mvisible_opts.Tpo" \
+@am__fastdepCC_TRUE@	  -c -o libmixer_la-mvisible_opts.o `test -f 'mvisible_opts.c' || echo '$(srcdir)/'`mvisible_opts.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-mvisible_opts.Tpo" "$(DEPDIR)/libmixer_la-mvisible_opts.Po"; \
+@am__fastdepCC_TRUE@	else rm -f "$(DEPDIR)/libmixer_la-mvisible_opts.Tpo"; exit 1; \
 @am__fastdepCC_TRUE@	fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='vc.c' object='libmixer_la-vc.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-vc.Po' tmpdepfile='$(DEPDIR)/libmixer_la-vc.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='mvisible_opts.c' object='libmixer_la-mvisible_opts.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-mvisible_opts.Po' tmpdepfile='$(DEPDIR)/libmixer_la-mvisible_opts.TPo' @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-vc.o `test -f 'vc.c' || echo '$(srcdir)/'`vc.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-mvisible_opts.o `test -f 'mvisible_opts.c' || echo '$(srcdir)/'`mvisible_opts.c
 
-libmixer_la-vc.obj: vc.c
-@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-vc.obj -MD -MP -MF "$(DEPDIR)/libmixer_la-vc.Tpo" \
-@am__fastdepCC_TRUE@	  -c -o libmixer_la-vc.obj `if test -f 'vc.c'; then $(CYGPATH_W) 'vc.c'; else $(CYGPATH_W) '$(srcdir)/vc.c'; fi`; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-vc.Tpo" "$(DEPDIR)/libmixer_la-vc.Po"; \
-@am__fastdepCC_TRUE@	else rm -f "$(DEPDIR)/libmixer_la-vc.Tpo"; exit 1; \
+libmixer_la-mvisible_opts.obj: mvisible_opts.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-mvisible_opts.obj -MD -MP -MF "$(DEPDIR)/libmixer_la-mvisible_opts.Tpo" \
+@am__fastdepCC_TRUE@	  -c -o libmixer_la-mvisible_opts.obj `if test -f 'mvisible_opts.c'; then $(CYGPATH_W) 'mvisible_opts.c'; else $(CYGPATH_W) '$(srcdir)/mvisible_opts.c'; fi`; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-mvisible_opts.Tpo" "$(DEPDIR)/libmixer_la-mvisible_opts.Po"; \
+@am__fastdepCC_TRUE@	else rm -f "$(DEPDIR)/libmixer_la-mvisible_opts.Tpo"; exit 1; \
 @am__fastdepCC_TRUE@	fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='vc.c' object='libmixer_la-vc.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-vc.Po' tmpdepfile='$(DEPDIR)/libmixer_la-vc.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='mvisible_opts.c' object='libmixer_la-mvisible_opts.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-mvisible_opts.Po' tmpdepfile='$(DEPDIR)/libmixer_la-mvisible_opts.TPo' @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-vc.obj `if test -f 'vc.c'; then $(CYGPATH_W) 'vc.c'; else $(CYGPATH_W) '$(srcdir)/vc.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-mvisible_opts.obj `if test -f 'mvisible_opts.c'; then $(CYGPATH_W) 'mvisible_opts.c'; else $(CYGPATH_W) '$(srcdir)/mvisible_opts.c'; fi`
 
-libmixer_la-vc.lo: vc.c
-@am__fastdepCC_TRUE@	if $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-vc.lo -MD -MP -MF "$(DEPDIR)/libmixer_la-vc.Tpo" \
-@am__fastdepCC_TRUE@	  -c -o libmixer_la-vc.lo `test -f 'vc.c' || echo '$(srcdir)/'`vc.c; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-vc.Tpo" "$(DEPDIR)/libmixer_la-vc.Plo"; \
-@am__fastdepCC_TRUE@	else rm -f "$(DEPDIR)/libmixer_la-vc.Tpo"; exit 1; \
+libmixer_la-mvisible_opts.lo: mvisible_opts.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-mvisible_opts.lo -MD -MP -MF "$(DEPDIR)/libmixer_la-mvisible_opts.Tpo" \
+@am__fastdepCC_TRUE@	  -c -o libmixer_la-mvisible_opts.lo `test -f 'mvisible_opts.c' || echo '$(srcdir)/'`mvisible_opts.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-mvisible_opts.Tpo" "$(DEPDIR)/libmixer_la-mvisible_opts.Plo"; \
+@am__fastdepCC_TRUE@	else rm -f "$(DEPDIR)/libmixer_la-mvisible_opts.Tpo"; exit 1; \
 @am__fastdepCC_TRUE@	fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='vc.c' object='libmixer_la-vc.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-vc.Plo' tmpdepfile='$(DEPDIR)/libmixer_la-vc.TPlo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='mvisible_opts.c' object='libmixer_la-mvisible_opts.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-mvisible_opts.Plo' tmpdepfile='$(DEPDIR)/libmixer_la-mvisible_opts.TPlo' @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-vc.lo `test -f 'vc.c' || echo '$(srcdir)/'`vc.c
-
-libmixer_la-vc_alsa_fallback.o: vc_alsa_fallback.c
-@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-vc_alsa_fallback.o -MD -MP -MF "$(DEPDIR)/libmixer_la-vc_alsa_fallback.Tpo" \
-@am__fastdepCC_TRUE@	  -c -o libmixer_la-vc_alsa_fallback.o `test -f 'vc_alsa_fallback.c' || echo '$(srcdir)/'`vc_alsa_fallback.c; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-vc_alsa_fallback.Tpo" "$(DEPDIR)/libmixer_la-vc_alsa_fallback.Po"; \
-@am__fastdepCC_TRUE@	else rm -f "$(DEPDIR)/libmixer_la-vc_alsa_fallback.Tpo"; exit 1; \
-@am__fastdepCC_TRUE@	fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='vc_alsa_fallback.c' object='libmixer_la-vc_alsa_fallback.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-vc_alsa_fallback.Po' tmpdepfile='$(DEPDIR)/libmixer_la-vc_alsa_fallback.TPo' @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-vc_alsa_fallback.o `test -f 'vc_alsa_fallback.c' || echo '$(srcdir)/'`vc_alsa_fallback.c
-
-libmixer_la-vc_alsa_fallback.obj: vc_alsa_fallback.c
-@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-vc_alsa_fallback.obj -MD -MP -MF "$(DEPDIR)/libmixer_la-vc_alsa_fallback.Tpo" \
-@am__fastdepCC_TRUE@	  -c -o libmixer_la-vc_alsa_fallback.obj `if test -f 'vc_alsa_fallback.c'; then $(CYGPATH_W) 'vc_alsa_fallback.c'; else $(CYGPATH_W) '$(srcdir)/vc_alsa_fallback.c'; fi`; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-vc_alsa_fallback.Tpo" "$(DEPDIR)/libmixer_la-vc_alsa_fallback.Po"; \
-@am__fastdepCC_TRUE@	else rm -f "$(DEPDIR)/libmixer_la-vc_alsa_fallback.Tpo"; exit 1; \
-@am__fastdepCC_TRUE@	fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='vc_alsa_fallback.c' object='libmixer_la-vc_alsa_fallback.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-vc_alsa_fallback.Po' tmpdepfile='$(DEPDIR)/libmixer_la-vc_alsa_fallback.TPo' @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-vc_alsa_fallback.obj `if test -f 'vc_alsa_fallback.c'; then $(CYGPATH_W) 'vc_alsa_fallback.c'; else $(CYGPATH_W) '$(srcdir)/vc_alsa_fallback.c'; fi`
-
-libmixer_la-vc_alsa_fallback.lo: vc_alsa_fallback.c
-@am__fastdepCC_TRUE@	if $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-vc_alsa_fallback.lo -MD -MP -MF "$(DEPDIR)/libmixer_la-vc_alsa_fallback.Tpo" \
-@am__fastdepCC_TRUE@	  -c -o libmixer_la-vc_alsa_fallback.lo `test -f 'vc_alsa_fallback.c' || echo '$(srcdir)/'`vc_alsa_fallback.c; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-vc_alsa_fallback.Tpo" "$(DEPDIR)/libmixer_la-vc_alsa_fallback.Plo"; \
-@am__fastdepCC_TRUE@	else rm -f "$(DEPDIR)/libmixer_la-vc_alsa_fallback.Tpo"; exit 1; \
-@am__fastdepCC_TRUE@	fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='vc_alsa_fallback.c' object='libmixer_la-vc_alsa_fallback.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-vc_alsa_fallback.Plo' tmpdepfile='$(DEPDIR)/libmixer_la-vc_alsa_fallback.TPlo' @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-vc_alsa_fallback.lo `test -f 'vc_alsa_fallback.c' || echo '$(srcdir)/'`vc_alsa_fallback.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-mvisible_opts.lo `test -f 'mvisible_opts.c' || echo '$(srcdir)/'`mvisible_opts.c
 
 libmixer_la-vc_alsa.o: vc_alsa.c
 @am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-vc_alsa.o -MD -MP -MF "$(DEPDIR)/libmixer_la-vc_alsa.Tpo" \
@@ -473,6 +439,72 @@ libmixer_la-vc_alsa.lo: vc_alsa.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-vc_alsa.lo `test -f 'vc_alsa.c' || echo '$(srcdir)/'`vc_alsa.c
 
+libmixer_la-vc_alsa_fallback.o: vc_alsa_fallback.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-vc_alsa_fallback.o -MD -MP -MF "$(DEPDIR)/libmixer_la-vc_alsa_fallback.Tpo" \
+@am__fastdepCC_TRUE@	  -c -o libmixer_la-vc_alsa_fallback.o `test -f 'vc_alsa_fallback.c' || echo '$(srcdir)/'`vc_alsa_fallback.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-vc_alsa_fallback.Tpo" "$(DEPDIR)/libmixer_la-vc_alsa_fallback.Po"; \
+@am__fastdepCC_TRUE@	else rm -f "$(DEPDIR)/libmixer_la-vc_alsa_fallback.Tpo"; exit 1; \
+@am__fastdepCC_TRUE@	fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='vc_alsa_fallback.c' object='libmixer_la-vc_alsa_fallback.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-vc_alsa_fallback.Po' tmpdepfile='$(DEPDIR)/libmixer_la-vc_alsa_fallback.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-vc_alsa_fallback.o `test -f 'vc_alsa_fallback.c' || echo '$(srcdir)/'`vc_alsa_fallback.c
+
+libmixer_la-vc_alsa_fallback.obj: vc_alsa_fallback.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-vc_alsa_fallback.obj -MD -MP -MF "$(DEPDIR)/libmixer_la-vc_alsa_fallback.Tpo" \
+@am__fastdepCC_TRUE@	  -c -o libmixer_la-vc_alsa_fallback.obj `if test -f 'vc_alsa_fallback.c'; then $(CYGPATH_W) 'vc_alsa_fallback.c'; else $(CYGPATH_W) '$(srcdir)/vc_alsa_fallback.c'; fi`; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-vc_alsa_fallback.Tpo" "$(DEPDIR)/libmixer_la-vc_alsa_fallback.Po"; \
+@am__fastdepCC_TRUE@	else rm -f "$(DEPDIR)/libmixer_la-vc_alsa_fallback.Tpo"; exit 1; \
+@am__fastdepCC_TRUE@	fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='vc_alsa_fallback.c' object='libmixer_la-vc_alsa_fallback.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-vc_alsa_fallback.Po' tmpdepfile='$(DEPDIR)/libmixer_la-vc_alsa_fallback.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-vc_alsa_fallback.obj `if test -f 'vc_alsa_fallback.c'; then $(CYGPATH_W) 'vc_alsa_fallback.c'; else $(CYGPATH_W) '$(srcdir)/vc_alsa_fallback.c'; fi`
+
+libmixer_la-vc_alsa_fallback.lo: vc_alsa_fallback.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-vc_alsa_fallback.lo -MD -MP -MF "$(DEPDIR)/libmixer_la-vc_alsa_fallback.Tpo" \
+@am__fastdepCC_TRUE@	  -c -o libmixer_la-vc_alsa_fallback.lo `test -f 'vc_alsa_fallback.c' || echo '$(srcdir)/'`vc_alsa_fallback.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-vc_alsa_fallback.Tpo" "$(DEPDIR)/libmixer_la-vc_alsa_fallback.Plo"; \
+@am__fastdepCC_TRUE@	else rm -f "$(DEPDIR)/libmixer_la-vc_alsa_fallback.Tpo"; exit 1; \
+@am__fastdepCC_TRUE@	fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='vc_alsa_fallback.c' object='libmixer_la-vc_alsa_fallback.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-vc_alsa_fallback.Plo' tmpdepfile='$(DEPDIR)/libmixer_la-vc_alsa_fallback.TPlo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-vc_alsa_fallback.lo `test -f 'vc_alsa_fallback.c' || echo '$(srcdir)/'`vc_alsa_fallback.c
+
+libmixer_la-vc.o: vc.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-vc.o -MD -MP -MF "$(DEPDIR)/libmixer_la-vc.Tpo" \
+@am__fastdepCC_TRUE@	  -c -o libmixer_la-vc.o `test -f 'vc.c' || echo '$(srcdir)/'`vc.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-vc.Tpo" "$(DEPDIR)/libmixer_la-vc.Po"; \
+@am__fastdepCC_TRUE@	else rm -f "$(DEPDIR)/libmixer_la-vc.Tpo"; exit 1; \
+@am__fastdepCC_TRUE@	fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='vc.c' object='libmixer_la-vc.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-vc.Po' tmpdepfile='$(DEPDIR)/libmixer_la-vc.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-vc.o `test -f 'vc.c' || echo '$(srcdir)/'`vc.c
+
+libmixer_la-vc.obj: vc.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-vc.obj -MD -MP -MF "$(DEPDIR)/libmixer_la-vc.Tpo" \
+@am__fastdepCC_TRUE@	  -c -o libmixer_la-vc.obj `if test -f 'vc.c'; then $(CYGPATH_W) 'vc.c'; else $(CYGPATH_W) '$(srcdir)/vc.c'; fi`; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-vc.Tpo" "$(DEPDIR)/libmixer_la-vc.Po"; \
+@am__fastdepCC_TRUE@	else rm -f "$(DEPDIR)/libmixer_la-vc.Tpo"; exit 1; \
+@am__fastdepCC_TRUE@	fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='vc.c' object='libmixer_la-vc.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-vc.Po' tmpdepfile='$(DEPDIR)/libmixer_la-vc.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-vc.obj `if test -f 'vc.c'; then $(CYGPATH_W) 'vc.c'; else $(CYGPATH_W) '$(srcdir)/vc.c'; fi`
+
+libmixer_la-vc.lo: vc.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-vc.lo -MD -MP -MF "$(DEPDIR)/libmixer_la-vc.Tpo" \
+@am__fastdepCC_TRUE@	  -c -o libmixer_la-vc.lo `test -f 'vc.c' || echo '$(srcdir)/'`vc.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-vc.Tpo" "$(DEPDIR)/libmixer_la-vc.Plo"; \
+@am__fastdepCC_TRUE@	else rm -f "$(DEPDIR)/libmixer_la-vc.Tpo"; exit 1; \
+@am__fastdepCC_TRUE@	fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='vc.c' object='libmixer_la-vc.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-vc.Plo' tmpdepfile='$(DEPDIR)/libmixer_la-vc.TPlo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-vc.lo `test -f 'vc.c' || echo '$(srcdir)/'`vc.c
+
 libmixer_la-vc_oss.o: vc_oss.c
 @am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-vc_oss.o -MD -MP -MF "$(DEPDIR)/libmixer_la-vc_oss.Tpo" \
 @am__fastdepCC_TRUE@	  -c -o libmixer_la-vc_oss.o `test -f 'vc_oss.c' || echo '$(srcdir)/'`vc_oss.c; \
@@ -505,39 +537,6 @@ libmixer_la-vc_oss.lo: vc_oss.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-vc_oss.Plo' tmpdepfile='$(DEPDIR)/libmixer_la-vc_oss.TPlo' @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-vc_oss.lo `test -f 'vc_oss.c' || echo '$(srcdir)/'`vc_oss.c
-
-libmixer_la-mvisible_opts.o: mvisible_opts.c
-@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-mvisible_opts.o -MD -MP -MF "$(DEPDIR)/libmixer_la-mvisible_opts.Tpo" \
-@am__fastdepCC_TRUE@	  -c -o libmixer_la-mvisible_opts.o `test -f 'mvisible_opts.c' || echo '$(srcdir)/'`mvisible_opts.c; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-mvisible_opts.Tpo" "$(DEPDIR)/libmixer_la-mvisible_opts.Po"; \
-@am__fastdepCC_TRUE@	else rm -f "$(DEPDIR)/libmixer_la-mvisible_opts.Tpo"; exit 1; \
-@am__fastdepCC_TRUE@	fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='mvisible_opts.c' object='libmixer_la-mvisible_opts.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-mvisible_opts.Po' tmpdepfile='$(DEPDIR)/libmixer_la-mvisible_opts.TPo' @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-mvisible_opts.o `test -f 'mvisible_opts.c' || echo '$(srcdir)/'`mvisible_opts.c
-
-libmixer_la-mvisible_opts.obj: mvisible_opts.c
-@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-mvisible_opts.obj -MD -MP -MF "$(DEPDIR)/libmixer_la-mvisible_opts.Tpo" \
-@am__fastdepCC_TRUE@	  -c -o libmixer_la-mvisible_opts.obj `if test -f 'mvisible_opts.c'; then $(CYGPATH_W) 'mvisible_opts.c'; else $(CYGPATH_W) '$(srcdir)/mvisible_opts.c'; fi`; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-mvisible_opts.Tpo" "$(DEPDIR)/libmixer_la-mvisible_opts.Po"; \
-@am__fastdepCC_TRUE@	else rm -f "$(DEPDIR)/libmixer_la-mvisible_opts.Tpo"; exit 1; \
-@am__fastdepCC_TRUE@	fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='mvisible_opts.c' object='libmixer_la-mvisible_opts.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-mvisible_opts.Po' tmpdepfile='$(DEPDIR)/libmixer_la-mvisible_opts.TPo' @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-mvisible_opts.obj `if test -f 'mvisible_opts.c'; then $(CYGPATH_W) 'mvisible_opts.c'; else $(CYGPATH_W) '$(srcdir)/mvisible_opts.c'; fi`
-
-libmixer_la-mvisible_opts.lo: mvisible_opts.c
-@am__fastdepCC_TRUE@	if $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-mvisible_opts.lo -MD -MP -MF "$(DEPDIR)/libmixer_la-mvisible_opts.Tpo" \
-@am__fastdepCC_TRUE@	  -c -o libmixer_la-mvisible_opts.lo `test -f 'mvisible_opts.c' || echo '$(srcdir)/'`mvisible_opts.c; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-mvisible_opts.Tpo" "$(DEPDIR)/libmixer_la-mvisible_opts.Plo"; \
-@am__fastdepCC_TRUE@	else rm -f "$(DEPDIR)/libmixer_la-mvisible_opts.Tpo"; exit 1; \
-@am__fastdepCC_TRUE@	fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='mvisible_opts.c' object='libmixer_la-mvisible_opts.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-mvisible_opts.Plo' tmpdepfile='$(DEPDIR)/libmixer_la-mvisible_opts.TPlo' @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-mvisible_opts.lo `test -f 'mvisible_opts.c' || echo '$(srcdir)/'`mvisible_opts.c
 
 mostlyclean-libtool:
 	-rm -f *.lo

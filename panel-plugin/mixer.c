@@ -109,9 +109,11 @@ typedef struct
 }
 t_mixer;
 
-static char *P_(char *s) /* get translation from the panel's domain */
+/* get translation from the panel's domain */
+static gchar *
+P_(gchar *s)
 {
-	return dgettext("xfce4-panel", s);
+	return(dgettext("xfce4-panel", s));
 }
 
 static int find_working_sound(void)
@@ -228,7 +230,7 @@ mixer_new (void)
     mixer->mw = NULL;
     mixer->broken = TRUE;
     
-    mixer->options.command = NULL; /*g_strdup("aumix");*/
+    mixer->options.command = NULL;
     mixer->options.use_sn = TRUE;
     mixer->options.use_internal = TRUE;
     mixer->options.use_terminal = FALSE;
@@ -1078,6 +1080,7 @@ mixer_write_config(Control *control, xmlNodePtr parent)
 G_MODULE_EXPORT void
 xfce_control_class_init (ControlClass * cc)
 {
+#if 0
 #ifdef ENABLE_NLS
     /* This is required for UTF-8 at least - Please don't remove it */
     bindtextdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR);
@@ -1085,6 +1088,9 @@ xfce_control_class_init (ControlClass * cc)
     bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
 #endif
     textdomain (GETTEXT_PACKAGE);
+#endif
+#else
+    xfce_textdomain(GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");
 #endif
 
     cc->name = "mixer";

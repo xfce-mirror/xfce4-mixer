@@ -12,6 +12,8 @@ libmixer_la_SOURCES =							\
         mixer.c								\
         mixer_window.c							\
         mixer_window.h							\
+	mvisible_opts.c							\
+	mvisible_opts.h							\
         vc_alsa.c							\
         vc_alsa_fallback.c						\
         vc.c								\
