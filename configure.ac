@@ -21,7 +21,7 @@ AC_PROG_INSTALL
 
 dnl Checks for header files.
 AC_HEADER_STDC
-AC_CHECK_HEADERS([fcntl.h limits.h sys/ioctl.h])
+AC_CHECK_HEADERS([fcntl.h limits.h sys/ioctl.h errno.h])
 
 AC_DISABLE_STATIC
 

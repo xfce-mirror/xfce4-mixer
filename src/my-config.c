@@ -15,10 +15,61 @@
 #ifdef HAVE_UNISTD_H
 #include <unistd.h>
 #endif
-/*#ifdef HAVE_SYS_FILE_H not present */
-#include <sys/file.h>
-/*#endif*/
+#ifdef HAVE_ERRNO_H
 #include <errno.h>
+#endif
+#ifdef SYS_TYPES_H
+#include <sys/types.h>
+#endif
+
+#define USE_LOCKING 1 /* change that when nfs makes trouble */
+/*
+TODO: 
+<benny> quite simple: 1) parse the input file (don't trust on g_file_test() or access() results, check the fopen result to see if the file exists)...
+<benny> 2) fopen(target + ".tmp." + getpid(), "w")
+<benny> 3) write the new config
+<benny> 4) fclose(target)
+<benny> (that is, whats returned from fopen above)
+<benny> 5) rename(target + ".tmp." + getpid(), target)
+<benny> (check the result of rename and issue a warning)
+<benny> 6) unlink(target + ".tmp." + getpid()) if rename failed
+<benny> 7) unlink(input) ... you could also do this right after the fopen(input, "r") to reduce the chance of a race cond
+
+<benny> well, xfce_rc_* does that automagically... if you decide that you don't want to use xfce_rc_*, then you're stuck to do it yourself :-P
+*/
+
+#if 0
+static gchar *
+get_tmp_file_name()
+{
+	gchar *nfilename;
+	pid_t	pid;
+	pid = getpid();
+	nfilename = g_strdup_printf("%s.tmp.%lu", origfilename, (gulong) pid);
+	return nfilename;
+}
+
+
+static int 
+create_tmp_file(gchar const *origfilename)
+{
+	int	handle;
+	gchar *nfilename;
+	if (!nfilename) {
+		errno = ENOENT;
+	}
+	
+	handle = open(nfilename, O_WRONLY|O_CREAT, 0644);
+	g_free (nfilename);
+	return handle;
+}
+
+static void
+rename_tmp_file()
+{
+}
+
+#endif
 
 static void 
 migrate_errno_print(gchar const *oldpath, gchar const *newpath, int errno, gboolean newfile_culprit)
@@ -64,15 +115,17 @@ copy_from_old_config(gchar const *oldpath, gchar const *filename)
 		goto endme;
 	}
 	
-	flock(oldfile, LOCK_EX);
-
+#ifdef USE_LOCKING
+	lockf(oldfile, F_LOCK, 0);
+#endif
 	newfile = open(abspath, O_CREAT|O_WRONLY, 0644);
 	if (newfile == -1) { /* new file couldnt be created, probably already exists */
 		migrate_errno_print (oldpath, abspath, errno, TRUE);
 		goto endme;
 	}
-	flock(newfile, LOCK_EX);
-	
+#ifdef USE_LOCKING
+	lockf(newfile, F_LOCK, 0);
+#endif
 	/* at this point both files are open and to be copied */
 	while ((rcnt = read (oldfile, buf, sizeof(buf))) > 0) {
 		wcnt = write (newfile, buf, rcnt);
