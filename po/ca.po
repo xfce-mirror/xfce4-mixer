@@ -59,4 +59,3 @@ msgstr "alsa: No es pot trobar el control '%s',%i\n"
 #: panel-plugin/vc_oss.c:134
 msgid "oss: No master"
 msgstr "oss: No hi és el mestre"
-
