@@ -59,9 +59,9 @@
 #define error printf
 #endif
 
-static char card[64] = "default";
 static snd_mixer_t	*handle = NULL;
 static snd_mixer_elem_t *elem = NULL;
+static char card[64] = "default";
 
 static void find_master(void)
 {

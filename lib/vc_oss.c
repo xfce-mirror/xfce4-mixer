@@ -158,7 +158,13 @@ find_control(char const *name)
 	int	i;
 	for (i = 0; i < SOUND_MIXER_NRDEVICES; i++) {
 		if (devmask & (1 << i)) {
-			if (!strcmp (label[i], name)) {
+			if (!strcmp (label[i], name) ||
+				(
+					!strncmp (label[i], name, strlen (name))
+				&&
+					label[i][strlen (name)] == ' '
+				)
+			) {
 				return i;
 			}
 		}
@@ -233,6 +239,8 @@ vc_get_control_list(void)
 	volcontrol_t *c;
 
 	GList *	g;
+	/*gchar *ss;*/
+	gchar *s;
 	
 	g = NULL;
 		
@@ -240,7 +248,18 @@ vc_get_control_list(void)
 		if (devmask & (1 << i)) {
 			c = g_new0 (volcontrol_t, 1);
 			if (c) {
-				c->name = g_strdup(label[i]);
+				s = g_strdup(label[i]);
+				/* trim */
+				g_strchomp (s);
+				/*if (ss != s) {
+					g_free (s);
+					s = ss;
+				}*/
+				/*while (s && s[0] && s[strlen(s) - 1] == ' ') {
+					s[strlen(s) - 1] = 0;
+				}*/
+				
+				c->name = s;
 			
 				g = g_list_append(g, c);
 			}
