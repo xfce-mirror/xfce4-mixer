@@ -14,9 +14,23 @@ int main()
 {
 	register_oss ();
 
-	select_vc_direct (*first_vc ());	
+	select_vc_direct (*first_vc ());
+
+	vc_get_volume (NULL);
+	vc_get_volume (NULL);
+	vc_get_volume (NULL);
+	vc_get_volume (NULL);
+	vc_get_volume (NULL);
+	vc_get_volume (NULL);
+	vc_get_volume (NULL);
+	vc_get_volume (NULL);
+	vc_get_volume (NULL);
 	
 	vc_set_device ("/dev/mixer1");
 
+	vc_get_volume (NULL);
+	vc_get_volume (NULL);
+	vc_get_volume (NULL);
+	vc_get_volume (NULL);
 	vc_set_volume (NULL, 50);
 }
