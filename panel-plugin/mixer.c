@@ -633,7 +633,7 @@ mixer_do_options(t_mixer *mixer, int mode) /* 0: load; 1: store; 2: connect sign
 		tv = GTK_TREE_VIEW (mixer_options_get (
 			GTK_CONTAINER(mixer_options_get (
 				c,
-			2)),
+			3)),
 		0));
 	}
 	if (b_use_internal) {
