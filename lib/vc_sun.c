@@ -260,23 +260,32 @@ static void vc_set_volume(char const *which, int vol_p)
     }
 }
 
+static volcontrol_t *create_volcontrol(char const *name)
+{
+	volcontrol_t *vc;
+	vc = g_new0 (volcontrol_t, 1);
+	vc->name = g_strdup (name);
+	vc->type = CT_SLIDER;
+	return vc;
+}
+
 /* returns list of volcontrol_t */
 static GList *vc_get_control_list()
 {
   GList *lp = NULL;
 
   /* output ports */
-  lp = g_list_append (lp, g_strdup ("Headphone"));
-  lp = g_list_append (lp, g_strdup ("Speaker"));
-  lp = g_list_append (lp, g_strdup ("Line Out"));
+  lp = g_list_append (lp, create_volcontrol ("Headphone"));
+  lp = g_list_append (lp, create_volcontrol ("Speaker"));
+  lp = g_list_append (lp, create_volcontrol ("Line Out"));
 
   /* input ports */
-  lp = g_list_append (lp, g_strdup ("Microphone"));
-  lp = g_list_append (lp, g_strdup ("Line In"));
-  lp = g_list_append (lp, g_strdup ("CD"));
-  lp = g_list_append (lp, g_strdup ("SPDIF In"));
-  lp = g_list_append (lp, g_strdup ("Aux1 In"));
-  lp = g_list_append (lp, g_strdup ("Aux2 In"));
+  lp = g_list_append (lp, create_volcontrol ("Microphone"));
+  lp = g_list_append (lp, create_volcontrol ("Line In"));
+  lp = g_list_append (lp, create_volcontrol ("CD"));
+  lp = g_list_append (lp, create_volcontrol ("SPDIF In"));
+  lp = g_list_append (lp, create_volcontrol ("Aux1 In"));
+  lp = g_list_append (lp, create_volcontrol ("Aux2 In"));
 
 	return lp;
 }
