@@ -95,8 +95,6 @@ class Xfce:Mixer:Settingsbox from Gtk:VBox {
 		self->right_box = GTK_BOX (gtk_vbox_new (FALSE, 5));
 		gtk_widget_show (GTK_WIDGET (self->right_box));
 
-		printf("%s\n", GETTEXT_PACKAGE);
-
 		self->dev_frame = xfce_framebox_new ( _("Device"), TRUE);
 		gtk_widget_show (GTK_WIDGET (self->dev_frame));
 
