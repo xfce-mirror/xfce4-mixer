@@ -1,0 +1,62 @@
+# Lithuania translation of xfce-mixer
+# Copyright (C) 2003 Free Software Foundation, Inc.
+# This file is distributed under the same license as the xfce-mixer package.
+# Mantas <zaz@xxx.lt>, 2003.
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce-mixer 3.99.2\n"
+"POT-Creation-Date: 2003-07-19 10:29+0200\n"
+"PO-Revision-Date: 2003-08-03 01:15+0300\n"
+"Last-Translator: Mantas <zaz@xxx.lt>\n"
+"Language-Team: Lithuania <zaz@xxx.lt>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-13\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: panel-plugin/mixer.c:152
+msgid "No working sound"
+msgstr "Garsas neveikia"
+
+#: panel-plugin/mixer.c:287
+#, c-format
+msgid "Volume: %d%%"
+msgstr "Garsas: %d%%"
+
+#: panel-plugin/mixer.c:945
+msgid "Use _internal mixer"
+msgstr "Naudoti v_idiná mikserá"
+
+#: panel-plugin/mixer.c:1140
+msgid "Volume Control"
+msgstr "Garso Valdymas"
+
+#: panel-plugin/vc_alsa.c:89
+#, c-format
+msgid "alsa: Mixer %s open error: %s\n"
+msgstr "alsa: Mikserio %s atidarymo klaida: %s\n"
+
+#: panel-plugin/vc_alsa.c:94
+#, c-format
+msgid "alsa: Mixer attach %s error: %s\n"
+msgstr "alsa: Mikserio prijungimo %s klaida: %s\n"
+
+#: panel-plugin/vc_alsa.c:102
+#, c-format
+msgid "alsa: Mixer register error: %s"
+msgstr "alsa: Mikserio registro klaida: %s"
+
+#: panel-plugin/vc_alsa.c:111
+#, c-format
+msgid "alsa: Mixer load error: %s"
+msgstr "alsa: Mikserio ákëlimo klaida: %s"
+
+#: panel-plugin/vc_alsa.c:121
+#, c-format
+msgid "alsa: Unable to find simple control '%s',%i\n"
+msgstr "alsa: Negalima surasti paprasto valdymo'%s',%i\n"
+
+#: panel-plugin/vc_oss.c:134
+msgid "oss: No master"
+msgstr "oss: Nëra pagrindinio ??"
+
