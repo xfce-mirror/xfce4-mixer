@@ -1,0 +1,294 @@
+# Danish translations for xfce4-mixer package.
+# Copyright (C) 2002-2005 Olivier Fourdan
+# This file is distributed under the same license as the xfce4-mixer package.
+# Jesper Berth <bigsanta@berthit.dk>, 2005.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4-mixer 4.2.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-08-25 23:03+0200\n"
+"PO-Revision-Date: 2005-02-21 19:17+0100\n"
+"Last-Translator: Jesper Berth <bigsanta@berthit.dk>\n"
+"Language-Team: Danish <dansk@klid.dk>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: mixer-settingsbox.gob:97
+msgid "Device"
+msgstr "Enhed"
+
+#: mixer-settingsbox.gob:100
+msgid "None"
+msgstr "Ingen"
+
+#. gtk_widget_show (GTK_WIDGET (self->dev_label));
+#: mixer-settingsbox.gob:103
+msgid "Useful Controls"
+msgstr ""
+
+#: lib/trans.c:6
+msgid "Vol"
+msgstr "Vol"
+
+#. Master
+#: lib/trans.c:7
+msgid "Pcm"
+msgstr "Pcm"
+
+#. PCM output
+#: lib/trans.c:8
+msgid "Spkr"
+msgstr "Spkr"
+
+#. Internal speaker?
+#: lib/trans.c:9
+msgid "Line"
+msgstr "Line"
+
+#. Line in
+#: lib/trans.c:10
+msgid "Mic"
+msgstr "Mic"
+
+#. Mic in
+#: lib/trans.c:11
+msgid "CD"
+msgstr "CD"
+
+#. CD in
+#: lib/trans.c:12
+msgid "Bass"
+msgstr "Bass"
+
+#: lib/trans.c:13
+msgid "Trebl"
+msgstr "Trebl"
+
+#: lib/trans.c:14
+msgid "Synth"
+msgstr "Synth"
+
+#: lib/trans.c:15
+msgid "Mix"
+msgstr "Mix"
+
+#: lib/trans.c:16
+msgid "Pcm2"
+msgstr "Pcm2"
+
+#: lib/trans.c:17
+msgid "Rec"
+msgstr "Rec"
+
+#: lib/trans.c:18
+msgid "IGain"
+msgstr "IGain"
+
+#: lib/trans.c:19
+msgid "OGain"
+msgstr "OGain"
+
+#: lib/trans.c:20
+msgid "Line1"
+msgstr "Line1"
+
+#: lib/trans.c:21
+msgid "Line2"
+msgstr "Line2"
+
+#: lib/trans.c:22
+msgid "Line3"
+msgstr "Line3"
+
+#: lib/trans.c:23
+msgid "Digital1"
+msgstr "Digital1"
+
+#: lib/trans.c:24
+msgid "Digital2"
+msgstr "Digital2"
+
+#: lib/trans.c:25
+msgid "Digital3"
+msgstr "Digital3"
+
+#: lib/trans.c:26
+msgid "PhoneIn"
+msgstr "PhoneIn"
+
+#: lib/trans.c:27
+msgid "PhoneOut"
+msgstr "PhoneOut"
+
+#: lib/trans.c:28
+msgid "Video"
+msgstr "Video"
+
+#: lib/trans.c:29
+msgid "Radio"
+msgstr "Radio"
+
+#: lib/trans.c:30
+msgid "Monitor"
+msgstr "Monitor"
+
+#: lib/vc_alsa.c:94
+#, c-format
+msgid "alsa: Mixer %s open error: %s\n"
+msgstr "alsa: Mixer %s åbne fejl: %s\n"
+
+#: lib/vc_alsa.c:99
+#, c-format
+msgid "alsa: Mixer attach %s error: %s\n"
+msgstr "alsa: Mixer vedlæg %s fejl: %s\n"
+
+#: lib/vc_alsa.c:107
+#, c-format
+msgid "alsa: Mixer register error: %s\n"
+msgstr "alsa: Mixer registrer %s fejl: %s\n"
+
+#: lib/vc_alsa.c:116
+#, c-format
+msgid "alsa: Mixer load error: %s: %s\n"
+msgstr "alsa: Mixer indlæs %s fejl: %s\n"
+
+#: lib/vc_alsa.c:126
+#, c-format
+msgid "alsa: Unable to find simple control '%s',%i\n"
+msgstr "alsa: Kunne ikke finde enkel kontrol '%s',%i\n"
+
+#: lib/vc_oss.c:131
+msgid "oss: No master volume"
+msgstr "oss: Ingen master volume"
+
+#: panel-plugin/plugin.c:95
+#, c-format
+msgid "Volume: %d%%"
+msgstr "Volume: %d%%"
+
+#: panel-plugin/plugin.c:387 mixer-window.gob:110
+msgid "Volume Control"
+msgstr "Volume Kontrol"
+
+#: settings/sound.c:69 settings/sound.c:87
+msgid "Sound"
+msgstr "Lyd"
+
+#: mixer-view.gob:258
+msgid "Show Switches"
+msgstr "Vis kontakter"
+
+#: mixer-view.gob:259
+msgid "Hide Switches"
+msgstr "Gem kontakter"
+
+#: src/main.c:69
+msgid "No working sound"
+msgstr "Ingen lyd"
+
+#: mixer-profilebox.gob:88
+msgid "Device:"
+msgstr "Enhed"
+
+#: mixer-profilebox.gob:142
+msgid "Create new profile"
+msgstr "Opret ny profil"
+
+#: mixer-profilebox.gob:151
+msgid "Delete this profile"
+msgstr "Slet denne profil"
+
+#: mixer-profilebox.gob:170
+msgid "Profile"
+msgstr "Profil"
+
+#: mixer-profilebox.gob:374
+#, c-format
+msgid "Really delete those %d profiles?"
+msgstr "Vil du virkelig slette disse %d profiler?"
+
+#: mixer-profilebox.gob:377
+#, c-format
+msgid "Really delete profile \"%s\"?"
+msgstr "Vil du virkelig slette profil \"%s\"?"
+
+#: mixer-profilebox.gob:491
+#, c-format
+msgid "%s - New"
+msgstr "%s - Ny"
+
+#: mixer-profilebox.gob:528
+msgid "A profile needs a name"
+msgstr "En profil skal have et navn"
+
+#: mixer-profilebox.gob:542
+msgid "A profile with that name already exists"
+msgstr "En profil med dette navn eksistere"
+
+#: mixer-profilebox-detail.gob:151
+msgid "Control"
+msgstr "Kontrol"
+
+#: mixer-profilebox-detail.gob:154
+msgid "Type"
+msgstr "Type"
+
+#: mixer-profilebox-detail.gob:166
+msgid "Up"
+msgstr "Op"
+
+#: mixer-profilebox-detail.gob:169
+msgid "Down"
+msgstr "Ned"
+
+#: mixer-profilebox-detail.gob:176
+msgid "Move Entry Up"
+msgstr "Flyt element op"
+
+#: mixer-profilebox-detail.gob:179
+msgid "Move Entry Down"
+msgstr "Flyt element ned"
+
+#: mixer-profilebox-detail.gob:188
+msgid "Profile Name:"
+msgstr "Profil navn"
+
+#: mixer-profilebox-detail.gob:370 mixer-profilebox-detail.gob:435
+msgid "<unknown>"
+msgstr "<ukendt>"
+
+#: mixer-profilebox-detail.gob:372 mixer-profilebox-detail.gob:437
+msgid "<slider>"
+msgstr "<slider>"
+
+#: mixer-profilebox-detail.gob:373 mixer-profilebox-detail.gob:438
+msgid "<onoff>"
+msgstr "<onoff>"
+
+#: mixer-profilebox-detail.gob:374 mixer-profilebox-detail.gob:439
+msgid "<select>"
+msgstr "<vælg>"
+
+#: src/menu-callbacks.inc:16
+#, c-format
+msgid "%s - Info"
+msgstr "%s - info"
+
+#: src/menu-callbacks.inc:38
+#, c-format
+msgid "%s - Profiles"
+msgstr "%s - Profiler"
+
+#: mixer-info.gob:28
+msgid ""
+"This is xfce4-mixer, a volume control program.\n"
+"It is released under the GPL-2 License which you find in the source "
+"directory.\n"
+"No warranty in any way."
+msgstr ""
+"Dette er xcfe4-mixer, et volume styrings program.\n"
+"Det er frigivet under GPL-2 Licens som du finder i kilde "
+"biblioteket.\n"
+"Der ydes ingen garanti."
