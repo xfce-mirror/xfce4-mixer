@@ -17,7 +17,6 @@ libmixer_la_SOURCES =							\
 	xfce-mixer-control-vc.c
 
 libmixer_la_CFLAGS =							\
-	-ansi \
 	@XFCE_MCS_CLIENT_CFLAGS@					\
 	@XFCE4_PANEL_CFLAGS@
 
