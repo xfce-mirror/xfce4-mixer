@@ -90,9 +90,10 @@ static void find_master(void)
 	}
 	
 	if ((err = snd_mixer_attach(handle, card)) < 0) {
-		error(_("alsa: Mixer attach %s error: %s"), card, snd_strerror(err));
+		error(_("alsa: Mixer attach %s error: %s\n"), card, snd_strerror(err));
 		snd_mixer_close(handle); /* <-- alsa 0.9.3a fails assert(hctl) if I do that... weeeeird... */
 		handle = NULL;
+		elem = NULL; /* just to be sure */
 		return;
 	}
 	if ((err = snd_mixer_selem_register(handle, NULL, NULL)) < 0) {
@@ -176,9 +177,10 @@ static void set_master_volume(int vol_p)
 	long lval;
 	snd_mixer_selem_channel_id_t chn;
 	
+	if (!handle || !elem) return;
+
 	snd_mixer_selem_get_playback_volume_range(elem, &pmin, &pmax);
 
-	if (!handle || !elem) return;
 
 	/*vol_p = (lval - pmin) * 100 / (pmax - pmin);*/
 	lval = pmin + vol_p * (pmax - pmin) / 100;
