@@ -245,6 +245,7 @@ static void vc_set_volume(char const *which, int vol_p)
 	long lval;
 	snd_mixer_selem_channel_id_t chn;
 	snd_mixer_elem_t *xelem = NULL;
+	double vold;
 	
 	if (!handle) return;
 	
@@ -260,8 +261,11 @@ static void vc_set_volume(char const *which, int vol_p)
 	pmin = 0;
 
 	/*vol_p = (lval - pmin) * 100 / (pmax - pmin);*/
-	lval = (long) pmin + (vol_p + 0.999999) * (pmax - pmin) / 100;
-
+	vold = vol_p;
+	if (vol_p != 0)
+		vold += 0.999999;
+		
+	lval = (long) pmin + (vold) * (pmax - pmin) / 100;
 
 	for (chn = 0; chn <= SND_MIXER_SCHN_LAST; chn++) {
 		if (!snd_mixer_selem_has_playback_channel(xelem, chn)) continue;
