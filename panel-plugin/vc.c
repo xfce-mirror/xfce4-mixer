@@ -91,6 +91,20 @@ void select_vc(char const *name)
 	sel = NULL;
 }
 
+void vc_set_device(char const *which)
+{
+	volchanger_t *s = selected_vc();
+	if (!s  || !s->vc_set_device) {
+		return;
+	}
+	
+	(*s->vc_set_device)(which);
+
+	if (s->vc_reinit_device) {
+		(*s->vc_reinit_device) ();
+	}
+}
+
 void select_vc_direct(volchanger_t *v)
 {
 	int	i;
@@ -147,6 +161,16 @@ GList *vc_get_control_list()
 	}
 	
 	return (*s->vc_get_control_list)();
+}
+
+void vc_close_device()
+{
+	volchanger_t *s = selected_vc();
+	if (!s  || !s->vc_close_device) {
+		return;
+	}
+	
+	(*s->vc_close_device)();
 }
 
 void vc_free_control_list(GList *g)

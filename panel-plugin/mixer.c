@@ -49,6 +49,7 @@
 #include <unistd.h>
 #endif
 
+#include <libxfce4util/debug.h>
 #include <libxfce4util/i18n.h>
 #include <libxfcegui4/xfce_iconbutton.h>
 
@@ -74,6 +75,7 @@ static GtkTooltips *tooltips = NULL;
 typedef struct
 {
     char		*command;
+    char		*device;
     gboolean		use_sn;
     gboolean		use_terminal;
     gboolean		use_internal;
@@ -96,10 +98,8 @@ typedef struct
 
     /* settings */
     MixerOptions	options;
-/*    MixerOptions	revert;*/
     GtkContainer	*settings_c; /* only a link */
     GtkSizeGroup	*sg; /* only a link */
-/*    GtkWidget		*revert_b; *//* buttonm only a link */
     GtkScrolledWindow	*s_visible;
     mvisible_opts_t	*t_visible;
     
@@ -210,7 +210,7 @@ xfce_mixer_new(gboolean *broken)
 }
 
 static void
-mixer_do_options(t_mixer *mixer, int mode); /* 0: load; 1: store; 3: sensitivize/desensitivize */
+mixer_do_options(t_mixer *mixer, int mode); /* 0: load; 1: store; 2: connect signals; 3: sensitivize/desensitivize */
 
 static void use_internal_changed_cb(t_mixer *m)
 {
@@ -231,6 +231,7 @@ mixer_new (void)
     mixer->broken = TRUE;
     
     mixer->options.command = NULL;
+    mixer->options.device = NULL;
     mixer->options.use_sn = TRUE;
     mixer->options.use_internal = TRUE;
     mixer->options.use_terminal = FALSE;
@@ -441,21 +442,15 @@ mixer_set_theme(Control * control, const char *theme)
 static void
 free_optionsdialog(t_mixer *mixer)
 {
-/*	if (mixer->revert.command) {
-		g_free(mixer->revert.command); 
-		mixer->revert.command = NULL;
-	}
-*/
 	if (mixer->options.command) {
 		g_free(mixer->options.command); 
 		mixer->options.command = NULL;
 	}
-/*	
-	if (mixer->revert.l_visible) {
-		vc_free_control_list (mixer->revert.l_visible);
-		mixer->revert.l_visible = NULL;
+
+	if (mixer->options.device) {
+	       g_free(mixer->options.device);
+	       mixer->options.device = NULL;
 	}
-*/	
 }
 
 static void
@@ -478,6 +473,8 @@ mixer_free (Control * control)
     }
 
     g_free(mixer);
+    
+    vc_close_device ();
 }
 
 static void
@@ -542,40 +539,6 @@ create_mixer_control (Control * control)
 	return TRUE;
 }
 
-#if 0
-static void
-create_options_backup(t_mixer *mixer)
-{
-	GList			*v;
-	volchanger_t		*vc, *vco;
-	
-	if (mixer->revert.command) {
-		g_free(mixer->revert.command);
-		mixer->revert.command = NULL;
-	}
-	mixer->revert.command = g_strdup(mixer->options.command); 
-	mixer->revert.use_sn = mixer->options.use_sn;
-	mixer->revert.use_terminal = mixer->options.use_terminal;
-	mixer->revert.use_internal = mixer->options.use_internal;
-	
-	if (mixer->revert.l_visible) {
-		vc_free_control_list (mixer->revert.l_visible);
-		mixer->revert.l_visible = NULL;
-	}
-	
-	v = mixer->options.l_visible;
-	while (v) {
-		vc = g_new0 (volchanger_t, 1);
-		vco = (volchanger_t *) v->data;
-		
-		vc->name = g_strdup (vco->name);
-		
-		mixer->revert.l_visible = g_list_append (mixer->revert.l_visible, vc);
-		v = g_list_next (v);
-	}
-}
-#endif
-
 static GtkWidget *
 mixer_options_get(GtkContainer *c, int index)
 {
@@ -601,14 +564,6 @@ mixer_options_get(GtkContainer *c, int index)
 	return w;
 }
 
-#if 0
-static void 
-mixer_revert_make_sensitive_cb(GtkWidget *w, gpointer data)  /* verified prototype: clicked */
-{
-	gtk_widget_set_sensitive (w, TRUE);
-}
-#endif
-
 static void 
 mixer_stuff_toggled_cb(GtkToggleButton *tb, t_mixer *mixer) /* verified prototype: toggled */
 {
@@ -619,21 +574,32 @@ mixer_stuff_toggled_cb(GtkToggleButton *tb, t_mixer *mixer) /* verified prototyp
 static gboolean
 mixer_command_entry_lost_focus_cb(GtkWidget *w, GdkEvent *event, t_mixer *mixer) /* verified prototype: focus-out-event */
 {
-	mixer_revert_make_sensitive_cb(mixer->revert_b, NULL);
 	return TRUE;
 	/* FALSE;*/ /* needed? */
 }
 #endif
 
+static gboolean
+mixer_device_entry_lost_focus_cb(GtkWidget *w, GdkEvent *event, t_mixer *mixer) /* verified prototype: focus-out-event */
+{
+	if (mixer->options.device) {
+		vc_set_device (mixer->options.device);
+	}
+	return TRUE;
+	/* FALSE;*/ /* needed? */
+}
+
 static void
-mixer_do_options(t_mixer *mixer, int mode) /* 0: load; 1: store; 3: sensitivize/desensitivize */
+mixer_do_options(t_mixer *mixer, int mode) /* 0: load; 1: store; 2: connect signals; 3: sensitivize/desensitivize */
 {
 	char const *temp;
 	GtkContainer *c;
 	GtkContainer *h1; /* hbox for entry */
-	GtkContainer *h2; /* hbox for vbox2 */
+	GtkContainer *h2; /* hbox for device */
+	GtkContainer *h3; /* hbox for vbox2 */
 	GtkContainer *v2; /* vbox for use_sn, use_terminal */
 	GtkEntry	*e_command = NULL;	
+	GtkEntry	*e_device = NULL;
 	GtkCheckButton	*b_use_sn = NULL;
 	GtkCheckButton	*b_use_term = NULL;
 	GtkCheckButton	*b_use_internal = NULL;
@@ -650,7 +616,9 @@ mixer_do_options(t_mixer *mixer, int mode) /* 0: load; 1: store; 3: sensitivize/
 		e_command = GTK_ENTRY(mixer_options_get(GTK_CONTAINER(h1), 1));
 		b_dotdotdot = GTK_BUTTON(mixer_options_get(GTK_CONTAINER(h1), 2));
 		h2 = GTK_CONTAINER(mixer_options_get(c, 1));
-		v2 = GTK_CONTAINER(mixer_options_get(h2, 1));
+		e_device = GTK_ENTRY(mixer_options_get(GTK_CONTAINER(h2), 1));
+		h3 = GTK_CONTAINER(mixer_options_get(c, 2));
+		v2 = GTK_CONTAINER(mixer_options_get(h3, 1));
 		
 		b_use_term = GTK_CHECK_BUTTON(mixer_options_get(v2, 0));
 		b_use_sn = GTK_CHECK_BUTTON(mixer_options_get(v2, 1));
@@ -662,12 +630,6 @@ mixer_do_options(t_mixer *mixer, int mode) /* 0: load; 1: store; 3: sensitivize/
 			2)),
 		0));
 	}
-/*	if (b_dotdotdot && mode == 2) {
-		g_signal_connect(GTK_WIDGET(b_dotdotdot), "clicked",
-				G_CALLBACK(mixer_revert_make_sensitive_cb),
-				mixer->revert_b);
-	}
-*/
 	if (b_use_internal) {
 
 		switch (mode) {
@@ -756,6 +718,31 @@ mixer_do_options(t_mixer *mixer, int mode) /* 0: load; 1: store; 3: sensitivize/
 			break;
 		}
 	}
+	if (e_device) {
+		switch (mode) {
+		case 1:
+			temp = gtk_entry_get_text(GTK_ENTRY(e_device));
+			if (temp && *temp) {
+				mixer->options.device = g_strdup(temp);
+			}
+			break;
+		case 0:
+			if (mixer->options.device) {
+				gtk_entry_set_text(GTK_ENTRY(e_device), g_strdup(mixer->options.device));
+			}
+			break;
+		case 2:
+			/* ??? no clue about that O_o byT */
+			g_signal_connect (e_device, "focus-out-event", G_CALLBACK(mixer_device_entry_lost_focus_cb), mixer);
+			break;
+			
+		case 3:
+			/* maybe we could add a use default device but only maybe!
+			gtk_widget_set_sensitive (GTK_WIDGET (e_device), !mixer->options.use_default);
+			*/
+			break;
+		}
+	}
 	
 	if (b_use_sn) {
 		switch (mode) {
@@ -819,25 +806,6 @@ mixer_fill_options(t_mixer *mixer)
 }
 
 #if 0
-static void
-mixer_revert_options_cb(GtkWidget *button, t_mixer *mixer) /* verified prototype: clicked */
-{
-	if (mixer->options.command) g_free(mixer->options.command);
-	mixer->options.command = NULL;
-	
-	mixer->options.command = mixer->revert.command;
-	mixer->options.use_sn = mixer->revert.use_sn;
-	mixer->options.use_terminal = mixer->revert.use_terminal;
-	mixer->options.use_internal = mixer->revert.use_internal;
-	mixer->revert.command = NULL;
-	
-	mixer_fill_options(mixer);
-	create_options_backup(mixer);
-	gtk_widget_set_sensitive(mixer->revert_b, FALSE);
-}
-#endif
-
-#if 0
 static GtkWidget *
 my_create_command_option(GtkSizeGroup *sg)
 { /* nasty NASTY side effects ! */
@@ -867,6 +835,24 @@ command_browse_cb (GtkWidget * b, GtkEntry * entry)
     }
 }
 
+/*  Change the device
+ *  TODO: can be merged with command_browse_cb eventually (byT)
+ *  ------------------
+ */
+static void
+device_browse_cb (GtkWidget * b, GtkEntry * entry)
+{
+    char *file =
+        select_file_name (P_("Select device"), gtk_entry_get_text (entry),
+                          gtk_widget_get_toplevel(GTK_WIDGET(entry)));
+
+    if (file)
+    {
+        gtk_entry_set_text (entry, file);
+        g_free (file);
+    }
+}
+
 static GtkWidget *
 my_create_command_option(GtkSizeGroup *sg)
 {
@@ -874,11 +860,14 @@ my_create_command_option(GtkSizeGroup *sg)
     GtkWidget *vbox2;
     GtkWidget *hbox;
     GtkWidget *hbox2;
+    GtkWidget *hbox3;
     GtkWidget *label;
     GtkWidget *image;
     
     GtkWidget *command_entry = NULL;
     GtkWidget *command_browse_button = NULL;
+    GtkWidget *device_entry = NULL;
+    GtkWidget *device_browse_button = NULL;
     GtkWidget *term_checkbutton = NULL;
     GtkWidget *sn_checkbutton = NULL;
     GtkWidget *internal_checkbutton = NULL;
@@ -905,26 +894,50 @@ my_create_command_option(GtkSizeGroup *sg)
     gtk_widget_show (command_browse_button);
     gtk_box_pack_start (GTK_BOX (hbox), command_browse_button, FALSE, FALSE, 0);
 
+    hbox2 = gtk_hbox_new (FALSE, 4);
+    gtk_widget_show (hbox2);
+    gtk_box_pack_start (GTK_BOX (vbox), hbox2, FALSE, TRUE, 0);
+    
+    label = gtk_label_new (P_("Device:"));
+    gtk_misc_set_alignment (GTK_MISC (label), 0, 0.5);
+    gtk_size_group_add_widget (sg, label);
+    gtk_widget_show (label);
+    gtk_box_pack_start (GTK_BOX (hbox2), label, FALSE, FALSE, 0);
+
+    device_entry = gtk_entry_new ();
+    gtk_widget_show (device_entry);
+    gtk_box_pack_start (GTK_BOX (hbox2), device_entry, TRUE, TRUE, 0);
+
+    device_browse_button = gtk_button_new ();
+    gtk_widget_show (device_browse_button);
+    gtk_box_pack_start (GTK_BOX (hbox2), device_browse_button, FALSE, FALSE, 0);
+    
+    image = gtk_image_new_from_stock(GTK_STOCK_OPEN, GTK_ICON_SIZE_BUTTON);
+    gtk_widget_show(image);
+    gtk_container_add(GTK_CONTAINER(device_browse_button), image);
+    
     image = gtk_image_new_from_stock(GTK_STOCK_OPEN, GTK_ICON_SIZE_BUTTON);
     gtk_widget_show(image);
     gtk_container_add(GTK_CONTAINER(command_browse_button), image);
     
     g_signal_connect (command_browse_button, "clicked",
                       G_CALLBACK (command_browse_cb), command_entry);
+    g_signal_connect (device_browse_button, "clicked",
+                      G_CALLBACK (device_browse_cb), device_entry);
 
     /* terminal */
-    hbox2 = gtk_hbox_new (FALSE, 4);
-    gtk_widget_show (hbox2);
-    gtk_box_pack_start (GTK_BOX (vbox), hbox2, FALSE, TRUE, 0);
+    hbox3 = gtk_hbox_new (FALSE, 4);
+    gtk_widget_show (hbox3);
+    gtk_box_pack_start (GTK_BOX (vbox), hbox3, FALSE, TRUE, 0);
 
     label = gtk_label_new ("");
     gtk_size_group_add_widget (sg, label);
     gtk_widget_show (label);
-    gtk_box_pack_start (GTK_BOX (hbox2), label, FALSE, FALSE, 0);
+    gtk_box_pack_start (GTK_BOX (hbox3), label, FALSE, FALSE, 0);
 
     vbox2 = gtk_vbox_new (FALSE, 0);
     gtk_widget_show (vbox2);
-    gtk_box_pack_start (GTK_BOX (hbox2), vbox2, FALSE, TRUE, 0);
+    gtk_box_pack_start (GTK_BOX (hbox3), vbox2, FALSE, TRUE, 0);
 
     term_checkbutton =
         gtk_check_button_new_with_mnemonic (P_("Run in _terminal"));
@@ -1029,6 +1042,16 @@ mixer_read_config(Control *control, xmlNodePtr node)
 	
 	if (!xmlStrEqual(node->name, (const xmlChar *)MIXER_ROOT))
 		return;
+		
+	value = xmlGetProp (node, "device");
+	if (value) {
+		mixer->options.device = g_strdup (value);
+		g_free (value);
+		TRACE("read device: '%s'", mixer->options.device);
+	} else {
+		TRACE("no device found in: '%s' :(", node->name);
+	}
+	
 	for (node = node->children; node; node = node->next) {
 		if (xmlStrEqual (node->name, (const xmlChar *)"Command")) {
 			value = MYDATA (node);
@@ -1072,7 +1095,7 @@ mixer_read_config(Control *control, xmlNodePtr node)
 				mixer->options.l_visible = NULL;
 			}
 			mixer->options.l_visible = g;
-		}
+		}	
 	}
 }
 
@@ -1089,7 +1112,12 @@ mixer_write_config(Control *control, xmlNodePtr parent)
 	g_return_if_fail(mixer != NULL);
 
 	root = xmlNewTextChild (parent, NULL, MIXER_ROOT, NULL);
-
+        
+	if (mixer->options.device) {
+	        xmlSetProp (root, "device", g_strdup(mixer->options.device));
+	}
+	    
+	
 	node = xmlNewTextChild (root, NULL, "Controls", NULL);
 	if (mixer->options.l_visible) {
 		g = mixer->options.l_visible;

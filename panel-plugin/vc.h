@@ -42,6 +42,7 @@ typedef struct {
         void (*vc_set_volume)(char const *which, int v);
         GList *(*vc_get_control_list)(void);
         void (*vc_set_volume_callback)(volchanger_callback_t cb, void *privdata);
+        void (*vc_close_device)(void);
 } volchanger_t;
 
 typedef struct {
@@ -66,6 +67,8 @@ void vc_set_volume(char const *which, int v);
 GList *vc_get_control_list();
 void vc_free_control_list(GList *g);
 void vc_set_volume_callback (volchanger_callback_t cb, void *data);
+void vc_set_device(char const *which);
+void vc_close_device();
 #else
 #define REGISTER_VC_PLUGIN(a) \
 static volchanger_t vc = { \
@@ -75,7 +78,8 @@ static volchanger_t vc = { \
         vc_set_volume: vc_set_volume, \
         vc_reinit_device: vc_reinit_device, \
         vc_get_control_list: vc_get_control_list, \
-        vc_set_volume_callback: vc_set_volume_callback \
+        vc_set_volume_callback: vc_set_volume_callback, \
+        vc_close_device: vc_close_device \
 }; \
 \
 int register_##a(void) \
