@@ -184,7 +184,7 @@ RECURSIVE_TARGETS = info-recursive dvi-recursive pdf-recursive \
 DIST_COMMON = README AUTHORS COPYING ChangeLog INSTALL Makefile.am \
 	Makefile.in TODO aclocal.m4 compile config.guess config.h.in \
 	config.sub configure configure.ac depcomp install-sh ltcf-c.sh \
-	ltconfig ltmain.sh missing mkinstalldirs xfce4-mixer.spec.in
+	ltmain.sh missing mkinstalldirs xfce4-mixer.spec.in
 DIST_SUBDIRS = $(SUBDIRS)
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-recursive
