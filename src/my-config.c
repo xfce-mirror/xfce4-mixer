@@ -101,8 +101,11 @@ copy_permissions(gchar const *src, gchar const *dest)
 	if (!src || !dest)
 		return;
 		
-	lstat(src, &sb);
-	lchmod(dest, sb.st_mode);
+	stat(src, &sb);
+	/*
+	not implemented: lchmod(dest, sb.st_mode);
+	*/
+	chmod(dest, sb.st_mode);
 	
 	/* TODO acls, owner?, ... */
 }
@@ -164,6 +167,10 @@ copy_from_old_config(gchar const *oldpath, gchar const *filename)
 	
 	oldfile = open(oldpath, O_RDONLY);
 	if (oldfile == -1) { /* no old file: nothing to migrate from */
+		if (errno == ENOENT) { /* thats ok ! */
+			goto endme;
+		}
+		
 		migrate_errno_print (oldpath, abspath, errno, FALSE, "open");
 		goto endme;
 	}
