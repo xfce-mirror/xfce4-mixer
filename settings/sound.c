@@ -98,6 +98,9 @@ static void     run_dialog(McsPlugin *plugin)
 	
 	g_signal_connect_swapped(dialog, "response", G_CALLBACK(response_cb), plugin);
 	g_signal_connect_swapped(dialog, "delete-event",G_CALLBACK(response_cb), plugin);
+	
+	sb->manager = plugin->manager;
+	xfce_mixer_settingsbox_load (sb);
 
 	gtk_widget_show_all (GTK_WIDGET (dialog));
 }

@@ -2,6 +2,7 @@
 #include <gtk/gtk.h>
 #include <libxfce4util/i18n.h>
 #include <libxfcegui4/xfce_framebox.h>
+#include <libxfce4mcs/mcs-manager.h>
 %}
 %{
 #include "helpers3.inc"
@@ -24,6 +25,14 @@ class Xfce:Mixer:Settingsbox from Gtk:VBox {
 	protected GtkWidget *sep = NULL;
 	protected GList *device_lst = NULL
 		destroywith stringlist_free;
+	public McsManager * manager = NULL;
+
+	public void load (self) /* load from manager */
+	{
+		if (!self->manager)
+			return;
+
+	}
 
 	init (self)
 	{
@@ -65,19 +74,20 @@ class Xfce:Mixer:Settingsbox from Gtk:VBox {
 
 		self->useful_tv = GTK_TREE_VIEW (gtk_tree_view_new ());
 
-		gtk_tree_view_append_column (self->useful_tv, 
-			tree_new_check_column ("", 0
-		));
-		gtk_tree_view_append_column (self->useful_tv, 
-			tree_new_text_column ("", 1
-		));
-
 		gtk_tree_view_set_headers_visible (self->useful_tv, FALSE);
 
 		gtk_widget_show (GTK_WIDGET (self->useful_tv));
 
 		self->useful_model = GTK_TREE_STORE (gtk_tree_store_new (2, G_TYPE_BOOLEAN, G_TYPE_STRING));
 		gtk_tree_view_set_model (self->useful_tv, GTK_TREE_MODEL (self->useful_model));
+
+		gtk_tree_view_append_column (self->useful_tv, 
+			tree_new_check_column ("", 0, GTK_TREE_MODEL (self->useful_model)
+		));
+		gtk_tree_view_append_column (self->useful_tv, 
+			tree_new_text_column ("", 1
+		));
+
 
 		self->useful_sc = GTK_SCROLLED_WINDOW (gtk_scrolled_window_new (NULL, NULL));
 		gtk_scrolled_window_set_policy (self->useful_sc, GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
@@ -159,7 +169,7 @@ class Xfce:Mixer:Settingsbox from Gtk:VBox {
 			if (vci && vci->name) {
 				gtk_tree_store_append (self->useful_model, &iter, NULL);
 				gtk_tree_store_set (self->useful_model, &iter, 
-/*					0, TRUE, */
+					0, TRUE,
 					1, vci->name, 
 				-1);
 

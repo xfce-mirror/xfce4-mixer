@@ -14,9 +14,10 @@ extern "C" {
 #include <gtk/gtk.h>
 #include <libxfce4util/i18n.h>
 #include <libxfcegui4/xfce_framebox.h>
+#include <libxfce4mcs/mcs-manager.h>
 
 #line 1 "mixer-settingsbox.gob"
-#line 20 "xfce-mixer-settingsbox-private.h"
+#line 21 "xfce-mixer-settingsbox-private.h"
 void 	xfce_mixer_settingsbox_device_changed_cb	(XfceMixerSettingsbox * self);
 void 	xfce_mixer_settingsbox_devicelst_updated	(XfceMixerSettingsbox * self);
 void 	xfce_mixer_settingsbox_apply_right_box	(XfceMixerSettingsbox * self);

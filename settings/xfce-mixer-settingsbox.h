@@ -14,6 +14,7 @@ extern "C" {
 #include <gtk/gtk.h>
 #include <libxfce4util/i18n.h>
 #include <libxfcegui4/xfce_framebox.h>
+#include <libxfce4mcs/mcs-manager.h>
 
 
 /*
@@ -36,6 +37,8 @@ typedef struct _XfceMixerSettingsbox XfceMixerSettingsbox;
 #endif
 struct _XfceMixerSettingsbox {
 	GtkVBox __parent__;
+	/*< public >*/
+	McsManager * manager;
 	/*< private >*/
 	GtkWidget * dev_frame; /* protected */
 	GtkLabel * dev_label; /* protected */
@@ -65,6 +68,7 @@ struct _XfceMixerSettingsboxClass {
  * Public methods
  */
 GType	xfce_mixer_settingsbox_get_type	(void);
+void 	xfce_mixer_settingsbox_load	(XfceMixerSettingsbox * self);
 XfceMixerSettingsbox * 	xfce_mixer_settingsbox_new	(void);
 
 #ifdef __cplusplus
