@@ -10,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-09-21 00:02+0200\n"
 "PO-Revision-Date: 2004-01-13 00:00+0100\n"
-"Last-Translator: Jaime Buffery <nestu@lunar-linux.org>\n"
+"Last-Translator: edscott <edscott@edscott.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,109 +31,109 @@ msgstr "Controles útiles"
 
 #: lib/trans.c:6
 msgid "Vol"
-msgstr ""
+msgstr "Vol"
 
 #. Master
 #: lib/trans.c:7
 msgid "Pcm"
-msgstr ""
+msgstr "Pcm"
 
 #. PCM output
 #: lib/trans.c:8
 msgid "Spkr"
-msgstr ""
+msgstr "Bocina"
 
 #. Internal speaker?
 #: lib/trans.c:9
 msgid "Line"
-msgstr ""
+msgstr "Línea"
 
 #. Line in
 #: lib/trans.c:10
 msgid "Mic"
-msgstr ""
+msgstr "Mic"
 
 #. Mic in
 #: lib/trans.c:11
 msgid "CD"
-msgstr ""
+msgstr "CD"
 
 #. CD in
 #: lib/trans.c:12
 msgid "Bass"
-msgstr ""
+msgstr "Bajo"
 
 #: lib/trans.c:13
 msgid "Trebl"
-msgstr ""
+msgstr "Alto"
 
 #: lib/trans.c:14
 msgid "Synth"
-msgstr ""
+msgstr "Sint."
 
 #: lib/trans.c:15
 msgid "Mix"
-msgstr ""
+msgstr "Mix"
 
 #: lib/trans.c:16
 msgid "Pcm2"
-msgstr ""
+msgstr "Pcm2"
 
 #: lib/trans.c:17
 msgid "Rec"
-msgstr ""
+msgstr "Grab"
 
 #: lib/trans.c:18
 msgid "IGain"
-msgstr ""
+msgstr "IGain"
 
 #: lib/trans.c:19
 msgid "OGain"
-msgstr ""
+msgstr "OGain"
 
 #: lib/trans.c:20
 msgid "Line1"
-msgstr ""
+msgstr "Línea1"
 
 #: lib/trans.c:21
 msgid "Line2"
-msgstr ""
+msgstr "Línea2"
 
 #: lib/trans.c:22
 msgid "Line3"
-msgstr ""
+msgstr "Línea3"
 
 #: lib/trans.c:23
 msgid "Digital1"
-msgstr ""
+msgstr "Digital1"
 
 #: lib/trans.c:24
 msgid "Digital2"
-msgstr ""
+msgstr "Digital2"
 
 #: lib/trans.c:25
 msgid "Digital3"
-msgstr ""
+msgstr "Digital3"
 
 #: lib/trans.c:26
 msgid "PhoneIn"
-msgstr ""
+msgstr "TelefonoIN"
 
 #: lib/trans.c:27
 msgid "PhoneOut"
-msgstr ""
+msgstr "TelefonoOUT"
 
 #: lib/trans.c:28
 msgid "Video"
-msgstr ""
+msgstr "Video"
 
 #: lib/trans.c:29
 msgid "Radio"
-msgstr ""
+msgstr "Radio"
 
 #: lib/trans.c:30
 msgid "Monitor"
-msgstr ""
+msgstr "Monitor"
 
 #: lib/vc_alsa.c:94
 #, c-format
@@ -179,110 +179,108 @@ msgstr "Sonido"
 
 #: mixer-view.gob:258
 msgid "Show Switches"
-msgstr ""
+msgstr "Mostrar controles"
 
 #: mixer-view.gob:259
 msgid "Hide Switches"
-msgstr ""
+msgstr "Ocultar controles"
 
 #: src/main.c:69
 msgid "No working sound"
 msgstr "No hay sonido funcionando"
 
 #: mixer-profilebox.gob:88
-#, fuzzy
 msgid "Device:"
 msgstr "Dispositivo:"
 
 #: mixer-profilebox.gob:142
 msgid "Create new profile"
-msgstr ""
+msgstr "Crear un nuevo esquema"
 
 #: mixer-profilebox.gob:151
 msgid "Delete this profile"
-msgstr ""
+msgstr "Borrar este esquema"
 
 #: mixer-profilebox.gob:170
 msgid "Profile"
-msgstr ""
+msgstr "Esquema"
 
 #: mixer-profilebox.gob:374
 #, c-format
 msgid "Really delete those %d profiles?"
-msgstr ""
+msgstr "¿De veras borrar %d esquemas?"
 
 #: mixer-profilebox.gob:377
 #, c-format
 msgid "Really delete profile \"%s\"?"
-msgstr ""
+msgstr "¿De veras borrar esquema \"%s\"?"
 
 #: mixer-profilebox.gob:491
 #, c-format
 msgid "%s - New"
-msgstr ""
+msgstr "%s - Nuevo"
 
 #: mixer-profilebox.gob:528
 msgid "A profile needs a name"
-msgstr ""
+msgstr "Un esquema requiere de nombre"
 
 #: mixer-profilebox.gob:542
 msgid "A profile with that name already exists"
-msgstr ""
+msgstr "Un esquema con ese nombre ya existe"
 
 #: mixer-profilebox-detail.gob:151
-#, fuzzy
 msgid "Control"
-msgstr "Control de Volumen"
+msgstr "Control"
 
 #: mixer-profilebox-detail.gob:154
 msgid "Type"
-msgstr ""
+msgstr "Tipo"
 
 #: mixer-profilebox-detail.gob:166
 msgid "Up"
-msgstr ""
+msgstr "Arriba"
 
 #: mixer-profilebox-detail.gob:169
 msgid "Down"
-msgstr ""
+msgstr "Abajo"
 
 #: mixer-profilebox-detail.gob:176
 msgid "Move Entry Up"
-msgstr ""
+msgstr "Mover arriba"
 
 #: mixer-profilebox-detail.gob:179
 msgid "Move Entry Down"
-msgstr ""
+msgstr "Mover abajo"
 
 #: mixer-profilebox-detail.gob:188
 msgid "Profile Name:"
-msgstr ""
+msgstr "Nombre de esquema:"
 
 #: mixer-profilebox-detail.gob:370 mixer-profilebox-detail.gob:435
 msgid "<unknown>"
-msgstr ""
+msgstr "<desconocido>"
 
 #: mixer-profilebox-detail.gob:372 mixer-profilebox-detail.gob:437
 msgid "<slider>"
-msgstr ""
+msgstr "<control>"
 
 #: mixer-profilebox-detail.gob:373 mixer-profilebox-detail.gob:438
 msgid "<onoff>"
-msgstr ""
+msgstr "<onoff>"
 
 #: mixer-profilebox-detail.gob:374 mixer-profilebox-detail.gob:439
 msgid "<select>"
-msgstr ""
+msgstr "<selectionar>"
 
 #: src/menu-callbacks.inc:16
 #, c-format
 msgid "%s - Info"
-msgstr ""
+msgstr "%s - Información"
 
 #: src/menu-callbacks.inc:38
 #, c-format
 msgid "%s - Profiles"
-msgstr ""
+msgstr "%s - Esquemas"
 
 #: mixer-info.gob:28
 msgid ""
