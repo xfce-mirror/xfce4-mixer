@@ -65,7 +65,7 @@ msgstr "alsa: قادر نبودن به یافتن کنترل ساده‌ی '%s',
 
 #: panel-plugin/vc_oss.c:133
 msgid "oss: No master volume"
-msgstr "oss: هیچ حجم ارباب"
+msgstr "oss: هیچ حجم برتر"
 
 #: panel-plugin/mvisible_opts.c:76
 msgid "Visible"
