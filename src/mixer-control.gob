@@ -1,0 +1,162 @@
+requires 2.0.0
+
+%{
+#include <stdio.h>
+#include <stdlib.h>
+#define emit 
+%}
+
+%a{
+#include <gtk/gtk.h>
+%}
+
+/*
+TODO:
+<rambokid> dannym: for a property named foo, which is readable, 
+a ::notify::foo signal is emitted after it changes.
+
+*/
+
+class Xfce:Mixer:Control from Gtk:VBox {
+	/**
+	 * calc_sanename:
+	 *
+	 * Calculates a nice, displayable string for the control, to be used 
+	 * in labels etc.
+	 *
+	 * Returns: a new string
+	 **/
+
+	public gchar *calc_sanename(self)
+	{ /* make this pretty */
+		gchar *tmp;
+
+		if (!self->vcname)
+			return g_strdup ("?");
+
+		if (g_str_has_suffix (self->vcname, ",0")) {
+			tmp = g_strdup (self->vcname);
+			if (tmp && strlen(tmp) >= 2)
+				tmp[strlen (tmp) - 2] = 0;
+
+			return tmp;
+		}
+
+		return g_strdup_printf("%s", self->vcname);
+	}
+
+	/* signal first NONE (NONE) */
+
+	virtual void
+	vcname_changed (self)
+	{
+	}
+
+	virtual void
+	value_changed (self)
+	{
+	}
+
+	virtual void
+	location_changed (self)
+	{
+	}
+
+	public gint calc_num_value (self)
+	{
+		gint v;
+
+		if (self->value && sscanf (self->value, "%d", &v) >=1) {
+		} else {
+			v = 0;
+		}
+
+		return v;
+	}
+
+	init (self)
+	{
+	}
+
+	public
+	GtkWidget *
+	new (void)
+	{
+		return (GtkWidget *)GET_NEW;
+	}
+
+	protected gchar *location = NULL
+		destroywith g_free;
+	protected int orderno = 0;
+	property INT orderno
+		(nick = "At which position the control is",
+		blurb = "This and location determine where the control is displayed",
+		minimum = 0,
+		default_value = 0,
+		export)
+		set {
+			self->orderno = g_value_get_int (VAL);
+			emit self_location_changed (self);
+		}
+		get {
+			g_value_set_int (VAL, self->orderno);
+		};
+
+	property STRING location
+		(nick = "Where this control is",
+		blurb = "This and orderno determine where the control is displayed",
+		export)
+		set {
+			if (self->location) {
+				g_free (self->location);
+				self->location = NULL;
+			}
+			self->location = g_strdup (g_value_get_string (VAL));
+			emit self_location_changed (self);
+		}
+		get {
+			g_value_set_string (VAL, self->location);
+		};
+
+	protected char *vcname = NULL
+		destroywith g_free;
+
+	protected char *value = NULL 
+		destroywith g_free;
+	property STRING value
+		(nick = "current value",
+		blurb = "The value shown in the control",
+		/* export get/set functions for this property */
+		export)
+		set {
+			if (self->value) {
+				g_free (self->value);
+				self->value = NULL;
+			}
+
+			self->value = g_strdup (g_value_get_string (VAL));
+			emit self_value_changed (self);
+		}
+		get {
+			g_value_set_string (VAL, self->value);
+		};
+
+	property STRING vcname
+		(nick = "vc name",
+		blurb = "The name of the control in the vc driver",
+		export)
+		set {
+			if (self->vcname) {
+				g_free (self->vcname);
+				self->vcname = NULL;
+			}
+			self->vcname = g_strdup (g_value_get_string (VAL));
+			emit self_vcname_changed (self);
+		}
+		get {
+			g_value_set_string (VAL, self->vcname);
+		};
+
+
+}
+

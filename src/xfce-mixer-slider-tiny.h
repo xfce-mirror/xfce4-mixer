@@ -34,9 +34,10 @@ typedef struct _XfceMixerSliderTiny XfceMixerSliderTiny;
 #endif
 struct _XfceMixerSliderTiny {
 	XfceMixerControl __parent__;
+	/*< public >*/
+	GtkEventBox * eb;
 	/*< private >*/
 	GtkProgressBar * progress; /* protected */
-	GtkEventBox * eb; /* protected */
 };
 
 /*
@@ -52,6 +53,9 @@ struct _XfceMixerSliderTinyClass {
  * Public methods
  */
 GType	xfce_mixer_slider_tiny_get_type	(void);
+gboolean 	xfce_mixer_slider_tiny_scroll_cb	(XfceMixerSliderTiny * self,
+					GdkEventScroll * event,
+					GtkWidget * w);
 XfceMixerControl * 	xfce_mixer_slider_tiny_new	(void);
 
 #ifdef __cplusplus

@@ -1,0 +1,324 @@
+
+%{
+#define emit
+#define SWITCH_ROWS 4
+#define SWITCH_COLUMNS 3
+#define SLIDER_HEIGHT 190
+
+#define TRACEY printf
+
+gboolean idle_cb (gpointer data)
+{       
+	GtkWindow *win = GTK_WINDOW (data);
+	gtk_window_resize (GTK_WINDOW (win), 1, 1);
+
+	return FALSE;   
+}
+
+%}
+
+%a{
+#include <gtk/gtk.h>
+#include "xfce-mixer-control.h"
+#include "xfce-mixer-control-factory.h"
+#include "xfce-mixer-profile.h"
+#include "disclosure-widget.h"
+
+%}
+
+%{
+static void control_list_free(GList *go)
+{
+	XfceMixerControl *c;
+	GList *g;
+	if (go) {
+		g = g_list_last (go);
+
+		while (g) {
+			if (g->data) {
+				c = XFCE_MIXER_CONTROL (g->data);
+				gtk_widget_destroy (GTK_WIDGET (c));
+				g_object_unref (G_OBJECT (c));
+			}
+			g = g_list_previous (g);
+		}
+
+		g_list_free (go);
+	}
+}
+
+%}
+
+class Xfce:Mixer:View from Gtk:VBox {
+	protected GtkWidget *swsliders;
+	protected GtkBox *sliders;
+	protected GtkTable *switches;
+	protected gint switches_r = 0;
+	protected gint switches_c = 0;
+	protected GtkWidget *disclosure;
+	protected GtkBox *vbox;
+	protected GList *controls = NULL
+		destroywith control_list_free;
+	protected t_mixer_control_factory_kind kind;
+
+	protected Xfce:Mixer:Profile *profile = NULL
+		destroy {
+			self_set_profile (self, NULL);
+		};
+
+	protected Xfce:Mixer:Control *add_control(self, Xfce:Mixer:Control *c)
+	{
+		g_object_ref (G_OBJECT (c));
+		gtk_object_sink (GTK_OBJECT (c));
+		self->controls = g_list_append (self->controls, c);
+		return c;
+	}
+
+	protected void del_control(self, Xfce:Mixer:Control *c)
+	{
+		if (g_list_index (self->controls, c) > -1) {
+			self->controls = g_list_remove (self->controls, c);
+			gtk_widget_destroy (GTK_WIDGET (c));
+			g_object_unref (c);
+		}
+	}
+
+	public Xfce:Mixer:View *new(void)
+	{
+		return XFCE_MIXER_VIEW (GET_NEW);
+	}
+
+	protected void clear_controls(self)
+	{
+		control_list_free (self->controls);
+		self->controls = NULL;
+	}
+
+	private void toggled_cb (self, gpointer user_data)
+	{ /* this function is a bit hacky, its for shrinking the window 
+             after the disclosure widget was closed 
+	  */ 
+		GtkWidget *win;
+		gboolean b;
+        
+		b = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (user_data));
+
+		if (!b) {
+			win = gtk_widget_get_toplevel (GTK_WIDGET (user_data));
+			g_timeout_add (250 /*500*/, idle_cb, win);
+		}
+	}
+
+	protected virtual void init_containers(self)
+	{
+		self->vbox = GTK_BOX (gtk_vbox_new (FALSE, 5));
+		gtk_widget_show (GTK_WIDGET (self->vbox));
+		self->sliders = GTK_BOX (gtk_hbox_new (FALSE, 5));
+		gtk_widget_set_size_request (GTK_WIDGET (self->sliders), -1, SLIDER_HEIGHT);
+
+		self->swsliders = gtk_scrolled_window_new (NULL, NULL);
+		gtk_scrolled_window_set_policy (
+			GTK_SCROLLED_WINDOW (self->swsliders), 
+			GTK_POLICY_AUTOMATIC, GTK_POLICY_NEVER
+		);
+		gtk_scrolled_window_add_with_viewport (
+			GTK_SCROLLED_WINDOW (self->swsliders),
+			GTK_WIDGET (self->sliders)
+		);
+		gtk_widget_show (self->swsliders);
+
+		gtk_widget_show (GTK_WIDGET (self->sliders));
+		self->switches = GTK_TABLE (gtk_table_new (SWITCH_ROWS, SWITCH_COLUMNS, FALSE));
+/*		gtk_widget_show (GTK_WIDGET (self->switches));*/
+
+		self->disclosure = cddb_disclosure_new (
+			"Show Switches",
+			"Hide Switches"
+		);
+
+		g_signal_connect_swapped (
+			G_OBJECT (self->disclosure), 
+			"toggled", G_CALLBACK (self_toggled_cb), self
+		);
+
+		/*self->disclosure = gtk_vbox_new (FALSE, 0);*/ /* todo */
+		gtk_widget_show (GTK_WIDGET (self->disclosure));
+		cddb_disclosure_set_container (CDDB_DISCLOSURE (self->disclosure), GTK_WIDGET (self->switches));
+
+		gtk_box_pack_start (self->vbox, GTK_WIDGET (self->swsliders), TRUE, TRUE, 0);
+		gtk_box_pack_start (self->vbox, GTK_WIDGET (self->disclosure), FALSE, FALSE, 0);
+		gtk_box_pack_start (self->vbox, GTK_WIDGET (self->switches), TRUE, TRUE, 0);
+
+		/*gtk_container_add (GTK_CONTAINER (self), GTK_WIDGET (self->vbox));*/
+		gtk_box_pack_start (GTK_BOX (self), GTK_WIDGET (self->vbox), TRUE, TRUE, 0);
+
+		gtk_widget_set_name (GTK_WIDGET (self->sliders), "sliders");
+		gtk_widget_set_name (GTK_WIDGET (self->switches), "switches");
+
+	}
+
+	init(self) {
+		self->kind = K_NORMAL;
+
+		self_init_containers (self);
+	}
+
+	public GtkContainer *find_container(self, gchar const *name)
+	{
+		if (name) {
+			if (g_str_equal (name, "sliders")) return GTK_CONTAINER (self->sliders);
+			else if (g_str_equal (name, "switches")) return GTK_CONTAINER (self->switches);
+		}
+		return GTK_CONTAINER (self->vbox);
+	}
+
+	protected void pack_control (self, Xfce:Mixer:Control *c, t_mixer_profile_item *p)
+	{
+		GtkContainer *cont;
+		GtkBox *box;
+		gtk_widget_show (GTK_WIDGET (c));
+
+		cont = self_find_container (self, p->location);
+
+		if (GTK_IS_BOX (cont)) {
+			box = GTK_BOX (cont);
+
+			gtk_box_pack_start (box, GTK_WIDGET (c), FALSE, FALSE, 3);
+		} else if ((gpointer)cont == (gpointer)self->switches) {
+			gtk_table_attach_defaults (
+				GTK_TABLE (self->switches),
+				GTK_WIDGET (c),
+				self->switches_c, self->switches_c + 1,
+				self->switches_r, self->switches_r + 1
+			);
+
+			self->switches_c ++;
+			if (self->switches_c >= SWITCH_COLUMNS) {
+				self->switches_c = 0;
+				self->switches_r++;
+			}
+		}
+	}
+
+	public void set_profile (self, Xfce:Mixer:Profile *p)
+	{
+		GList *g, *go;
+		t_mixer_profile_item *item;
+		XfceMixerControl *c;
+		if (self->profile) {
+			xfce_mixer_profile_unregister_view (self->profile, self);
+		}
+		self_clear_controls (self);
+
+		self->profile = p;
+
+		self_view_cleared (self);
+
+		if (p) {
+			/* sort by location, orderno */
+			/* create correct control */
+			/* self_add_control */
+			xfce_mixer_profile_register_view (self->profile, self);
+
+			go = xfce_mixer_profile_get_control_list (p);
+			g = go;
+			while (g) {
+				item = (t_mixer_profile_item *)g->data;
+
+				c = xfce_mixer_control_factory_new_from_profile_item (item, self->kind);
+				if (c) {
+					self_add_control (self, c);
+					self_pack_control (self, c, item);
+				}
+
+				g = g_list_next (g);
+			}
+			xfce_mixer_profile_free_control_list (p, go);
+		}
+	}
+
+	public Xfce:Mixer:Profile const *get_profile(self)
+	{
+		return (self->profile);
+	}
+
+	protected virtual void view_item_updated (self, XfceMixerControl *c, t_mixer_profile_item *p)
+	{
+		GtkBox *box;
+		GtkContainer *cont, *cont2;
+		if (p->orderno == -1) {
+			self_del_control (self, c);
+			return;
+		}
+
+		cont = self_find_container (self, p->location);
+		cont2 = NULL;
+
+		if (c) { /* was present before */
+			cont2 = self_find_container (self, c->location);
+			if (cont2 && cont2 == cont) { /* stayed in same container */
+				box = GTK_BOX (cont);
+				gtk_box_reorder_child (box, GTK_WIDGET (c), p->orderno);
+				return;
+			}
+		}
+
+		if (c) { /* was present before, and something is very different */
+			/* unpack */
+			self_del_control (self, c);
+		}
+
+		c = xfce_mixer_control_factory_new_from_profile_item (p, self->kind);
+		if (c) {
+			self_add_control (self, c);
+			self_pack_control (self, c, p);
+		}
+	}
+
+	protected virtual void view_cleared (self)
+	{
+		self_clear_controls (self);
+	}
+
+	public virtual void profile_cleared (self)
+	{
+		self_view_cleared (self);
+	}
+
+	public virtual void profile_item_updated (self, t_mixer_profile_item *p)
+	{
+		/* vcname: name of the add/del/upd'd control */
+		gchar *s;
+		GList *g;
+		XfceMixerControl *control;
+		gboolean found;
+
+		g = self->controls;
+		if (!p || !p->vcname)
+			return;
+
+		/*TRACEY ("profile_item_updated for %s\n", p->vcname);*/
+		found = FALSE;
+
+		while (g) {
+			control = XFCE_MIXER_CONTROL (g->data);
+			if (control) {
+				g_object_get (G_OBJECT (control), XFCE_MIXER_CONTROL_GET_PROP_VCNAME (&s), NULL );
+				if (s) {
+					if (g_str_equal (s, p->vcname)) {
+						/*TRACEY ("=> %s\n", s);*/
+						self_view_item_updated (self, control, p);
+						found = TRUE;
+					}
+					g_free (s);
+				}
+			}
+			g = g_list_next (g);
+		}
+
+		if (!found) {
+			self_view_item_updated (self, NULL, p);
+		}
+	}
+}
+

@@ -1,0 +1,58 @@
+
+%a{
+#include <gtk/gtk.h>
+#include "xfce-mixer-view.h"
+#include "xfce-mixer-profile.h"
+%}
+%{
+#include <gtk/gtk.h>
+#include "menus.h"
+%}
+
+class Xfce:Mixer:Window from Gtk:Window {
+	public Xfce:Mixer:View *view = NULL;
+	public Gtk:Box *box = NULL;
+	protected Gtk:Menu:Bar *menubar = NULL;
+	public Xfce:Mixer:Profile *profile = NULL;
+	protected Gtk:Accel:Group *accelgroup = NULL;
+
+	init(self)
+	{
+		self->box = GTK_BOX (gtk_vbox_new (FALSE, 0));
+		gtk_widget_show (GTK_WIDGET (self->box));
+
+		self->accelgroup = GTK_ACCEL_GROUP (gtk_accel_group_new ());
+		self->menubar = xfce_mixer_create_main_menu (self->accelgroup);
+
+		gtk_window_add_accel_group (GTK_WINDOW (self), self->accelgroup);
+
+		g_object_unref (G_OBJECT (self->accelgroup));
+
+		/*self->menubar = GTK_MENU_BAR (gtk_menu_bar_new ());*/
+		gtk_widget_show (GTK_WIDGET (self->menubar));
+
+		gtk_box_pack_start (self->box, GTK_WIDGET (self->menubar), FALSE, FALSE, 0);
+
+
+		self->profile = XFCE_MIXER_PROFILE (xfce_mixer_profile_new ("noname"));
+
+		self->view = xfce_mixer_view_new ();
+		gtk_widget_set_size_request (GTK_WIDGET (self->view), 600, -1);
+
+		xfce_mixer_view_set_profile (self->view, self->profile);
+
+		gtk_widget_show (GTK_WIDGET (self->view));
+
+		gtk_box_pack_start (self->box, GTK_WIDGET (self->view), TRUE, TRUE, 0);
+
+		gtk_container_add (GTK_CONTAINER (self), GTK_WIDGET (self->box));
+
+		gtk_window_set_title (GTK_WINDOW (self), "Volume Control");
+	}
+
+	public GtkWidget *new(void)
+	{
+		return GTK_WIDGET (GET_NEW);
+	}
+}
+
