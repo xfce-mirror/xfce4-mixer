@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-01-21 12:54+0100\n"
-"PO-Revision-Date: 2003-04-26 11:57--100\n"
+"PO-Revision-Date: 2004-06-11 16:06+0200\n"
 "Last-Translator: Yongtao Yang <yongtao.yang@telia.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -29,17 +29,17 @@ msgstr "有用的控制"
 
 #: lib/trans.c:6
 msgid "Vol"
-msgstr ""
+msgstr "音量"
 
 #. Master
 #: lib/trans.c:7
 msgid "Pcm"
-msgstr ""
+msgstr "脉码调制"
 
 #. PCM output
 #: lib/trans.c:8
 msgid "Spkr"
-msgstr ""
+msgstr "扬声器"
 
 #. Internal speaker?
 #: lib/trans.c:9
@@ -49,7 +49,7 @@ msgstr ""
 #. Line in
 #: lib/trans.c:10
 msgid "Mic"
-msgstr ""
+msgstr "麦克风"
 
 #. Mic in
 #: lib/trans.c:11
@@ -59,35 +59,35 @@ msgstr ""
 #. CD in
 #: lib/trans.c:12
 msgid "Bass"
-msgstr ""
+msgstr "低音部"
 
 #: lib/trans.c:13
 msgid "Trebl"
-msgstr ""
+msgstr "高音部"
 
 #: lib/trans.c:14
 msgid "Synth"
-msgstr ""
+msgstr "同步"
 
 #: lib/trans.c:15
 msgid "Mix"
-msgstr ""
+msgstr "混频"
 
 #: lib/trans.c:16
 msgid "Pcm2"
-msgstr ""
+msgstr "脉码调制2"
 
 #: lib/trans.c:17
 msgid "Rec"
-msgstr ""
+msgstr "录音"
 
 #: lib/trans.c:18
 msgid "IGain"
-msgstr ""
+msgstr "输入增益"
 
 #: lib/trans.c:19
 msgid "OGain"
-msgstr ""
+msgstr "输出增益"
 
 #: lib/trans.c:20
 msgid "Line1"
@@ -115,23 +115,23 @@ msgstr ""
 
 #: lib/trans.c:26
 msgid "PhoneIn"
-msgstr ""
+msgstr "电话输入"
 
 #: lib/trans.c:27
 msgid "PhoneOut"
-msgstr ""
+msgstr "电话输出"
 
 #: lib/trans.c:28
 msgid "Video"
-msgstr ""
+msgstr "视频"
 
 #: lib/trans.c:29
 msgid "Radio"
-msgstr ""
+msgstr "收音机"
 
 #: lib/trans.c:30
 msgid "Monitor"
-msgstr ""
+msgstr "监视"
 
 #: lib/vc_alsa.c:94
 #, c-format
@@ -177,94 +177,92 @@ msgstr "声音"
 
 #: mixer-view.gob:203
 msgid "Show Switches"
-msgstr ""
+msgstr "显示开关"
 
 #: mixer-view.gob:204
 msgid "Hide Switches"
-msgstr ""
+msgstr "隐藏开关"
 
 #: src/main.c:50
 msgid "No working sound"
 msgstr "声卡工作不正常"
 
 #: mixer-profilebox.gob:88
-#, fuzzy
 msgid "Device:"
 msgstr "设备："
 
 #: mixer-profilebox.gob:142
 msgid "Create new profile"
-msgstr ""
+msgstr "创建新的用户文件"
 
 #: mixer-profilebox.gob:151
 msgid "Delete this profile"
-msgstr ""
+msgstr "删除该用户文件"
 
 #: mixer-profilebox.gob:170
 msgid "Profile"
-msgstr ""
+msgstr "用户文件"
 
 #: mixer-profilebox.gob:340
 #, c-format
 msgid "Really delete those %d profiles?"
-msgstr ""
+msgstr "真的要删除这 %d 个用户文件吗? "
 
 #: mixer-profilebox.gob:343
 #, c-format
 msgid "Really delete profile \"%s\"?"
-msgstr ""
+msgstr "真的要删除用户文件 “%s” 吗?"
 
 #: mixer-profilebox.gob:428
 #, c-format
 msgid "%s - New"
-msgstr ""
+msgstr "%s - 新"
 
 #: mixer-profilebox.gob:462
 msgid "A profile needs a name"
-msgstr ""
+msgstr "用户文件需要名称"
 
 #: mixer-profilebox.gob:479
 msgid "A profile with that name already exists"
-msgstr ""
+msgstr "该用户文件名已经存在"
 
 #: mixer-profilebox-detail.gob:76
-#, fuzzy
 msgid "Control"
 msgstr "音量控制"
 
 #: mixer-profilebox-detail.gob:79
 msgid "Type"
-msgstr ""
+msgstr "类型"
 
 #: mixer-profilebox-detail.gob:92
 msgid "Profile Name:"
-msgstr ""
+msgstr "用户文件名："
 
 #: mixer-profilebox-detail.gob:180
 msgid "<unknown>"
-msgstr ""
+msgstr "<未知>"
 
 #: mixer-profilebox-detail.gob:182
 msgid "<slider>"
-msgstr ""
+msgstr "<滑块>"
 
 #: mixer-profilebox-detail.gob:183
 msgid "<onoff>"
-msgstr ""
+msgstr "<开关>"
 
 #: mixer-profilebox-detail.gob:184
 msgid "<select>"
-msgstr ""
+msgstr "<选择>"
 
 #: src/menu-callbacks.inc:16
 #, c-format
 msgid "%s - Info"
-msgstr ""
+msgstr "%s - 信息"
 
 #: src/menu-callbacks.inc:38
 #, c-format
 msgid "%s - Profiles"
-msgstr ""
+msgstr "%s - 用户文件"
 
 #: mixer-info.gob:28
 msgid ""
@@ -273,6 +271,9 @@ msgid ""
 "directory.\n"
 "No warranty in any way."
 msgstr ""
+"这是 xfce4-mixer，一个音量控制程序。\n"
+"它以 GPL-2 许可证发布，您可以在 source 目录下找到 GPL-2 许可证全文。\n"
+"无任何形式的保证。 "
 
 #~ msgid "Use _internal mixer"
 #~ msgstr "使用内置混频器(_I)"
