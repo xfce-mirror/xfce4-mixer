@@ -72,8 +72,14 @@ class Xfce:Mixer:Mcs:Client from G:Object {
 	protected gchar *channel = NULL
 		destroywith g_free;
 
-	protected McsClient *client = NULL
-		destroywith mcs_client_destroy;
+	protected McsClient *client = NULL destroy 
+		{
+			if (VAR) {
+				mcs_client_destroy(VAR);
+				VAR = NULL;
+			}
+		};
+
 	protected GHashTable *hash = NULL
 		destroywith g_hash_table_destroy;
 
