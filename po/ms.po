@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 3.99.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-01-20 15:58+0100\n"
+"POT-Creation-Date: 2004-01-20 23:55+0100\n"
 "PO-Revision-Date: 2003-08-31 14:41+0800\n"
 "Last-Translator: Harun Musa <mharun@gmx.net>\n"
 "Language-Team: Malay <translation-team-ms@list.sourceforge.net>\n"
@@ -42,13 +42,13 @@ msgstr "alsa: Mixer pada %s ralat: %s\n"
 
 #: lib/vc_alsa.c:107
 #, c-format
-msgid "alsa: Mixer register error: %s"
-msgstr "alsa: Mixer ralat pendaftar: %s"
+msgid "alsa: Mixer register error: %s\n"
+msgstr "alsa: Mixer ralat pendaftar: %s\n"
 
 #: lib/vc_alsa.c:116
 #, fuzzy, c-format
-msgid "alsa: Mixer load error: %s: %s"
-msgstr "alsa: Mixer ralat memuat: %s"
+msgid "alsa: Mixer load error: %s: %s\n"
+msgstr "alsa: Mixer ralat memuat: %s\n"
 
 #: lib/vc_alsa.c:126
 #, c-format

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-01-20 15:58+0100\n"
+"POT-Creation-Date: 2004-01-20 23:55+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Jasper Huijsmans <huysmans@users.sourceforge.net>\n"
 "Language-Team: Dutch <NL@li.org>\n"
@@ -41,13 +41,13 @@ msgstr "alsa: Fout bij aankoppelen mixer %s: %s\n"
 
 #: lib/vc_alsa.c:107
 #, c-format
-msgid "alsa: Mixer register error: %s"
-msgstr "alsa: Fout bij registreren mixer: %s"
+msgid "alsa: Mixer register error: %s\n"
+msgstr "alsa: Fout bij registreren mixer: %s\n"
 
 #: lib/vc_alsa.c:116
 #, fuzzy, c-format
-msgid "alsa: Mixer load error: %s: %s"
-msgstr "alsa: Fout bij laden mixer: %s"
+msgid "alsa: Mixer load error: %s: %s\n"
+msgstr "alsa: Fout bij laden mixer: %s\n"
 
 #: lib/vc_alsa.c:126
 #, c-format

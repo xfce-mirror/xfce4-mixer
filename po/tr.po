@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-01-20 15:58+0100\n"
+"POT-Creation-Date: 2004-01-20 23:55+0100\n"
 "PO-Revision-Date: 2003-12-13 20:07+0200\n"
 "Last-Translator: Erçin EKER <erc.caldera@gmx.net>\n"
 "Language-Team: Turkish <tr@li.org>\n"
@@ -42,13 +42,13 @@ msgstr "alsa: Karıştırıcı %s ekleme hatası: %s\n"
 
 #: lib/vc_alsa.c:107
 #, c-format
-msgid "alsa: Mixer register error: %s"
-msgstr "alsa: Karıştırıcı kayıt hatası: %s"
+msgid "alsa: Mixer register error: %s\n"
+msgstr "alsa: Karıştırıcı kayıt hatası: %s\n"
 
 #: lib/vc_alsa.c:116
 #, fuzzy, c-format
-msgid "alsa: Mixer load error: %s: %s"
-msgstr "alsa: Karıştırıcı yükleme hatası %s"
+msgid "alsa: Mixer load error: %s: %s\n"
+msgstr "alsa: Karıştırıcı yükleme hatası %s\n"
 
 #: lib/vc_alsa.c:126
 #, c-format

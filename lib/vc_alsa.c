@@ -104,7 +104,7 @@ static void find_master(void)
 	}
 	if ((err = snd_mixer_selem_register(handle, NULL, NULL)) < 0) {
 #ifdef DEBUG
-		error(_("alsa: Mixer register error: %s"), snd_strerror(err));  
+		error(_("alsa: Mixer register error: %s\n"), snd_strerror(err));  
 #endif
 		snd_mixer_close(handle);
 		handle = NULL;
@@ -113,7 +113,7 @@ static void find_master(void)
         err = snd_mixer_load(handle);
 	if (err < 0) {
 #ifdef DEBUG
-		error(_("alsa: Mixer load error: %s: %s"), card, snd_strerror(err));
+		error(_("alsa: Mixer load error: %s: %s\n"), card, snd_strerror(err));
 #endif
 		snd_mixer_close(handle);
 		return;

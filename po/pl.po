@@ -48,13 +48,13 @@ msgstr "alsa: Błąd podłączenia do miksera %s: %s\n"
 
 #: panel-plugin/vc_alsa.c:103
 #, c-format
-msgid "alsa: Mixer register error: %s"
-msgstr "alsa: Błąd rejestracji miksera: %s"
+msgid "alsa: Mixer register error: %s\n"
+msgstr "alsa: Błąd rejestracji miksera: %s\n"
 
 #: panel-plugin/vc_alsa.c:112
 #, c-format
-msgid "alsa: Mixer load error: %s"
-msgstr "alsa: Błąd uruchomienia miksera: %s"
+msgid "alsa: Mixer load error: %s\n"
+msgstr "alsa: Błąd uruchomienia miksera: %s\n"
 
 #: panel-plugin/vc_alsa.c:122
 #, c-format

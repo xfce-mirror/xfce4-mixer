@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-01-20 15:58+0100\n"
+"POT-Creation-Date: 2004-01-20 23:55+0100\n"
 "PO-Revision-Date: 2004-01-17 23:47-0200\n"
 "Last-Translator: Felix da Silva Costa <felix@online.eti.br>\n"
 "Language-Team: pt_BR <felix@online.eti.br>\n"
@@ -43,13 +43,13 @@ msgstr "alsa: Erro %s ao atachar Mixer: %s\n"
 
 #: lib/vc_alsa.c:107
 #, c-format
-msgid "alsa: Mixer register error: %s"
-msgstr "alsa: erro no registro do mixer: %s"
+msgid "alsa: Mixer register error: %s\n"
+msgstr "alsa: erro no registro do mixer: %s\n"
 
 #: lib/vc_alsa.c:116
 #, fuzzy, c-format
-msgid "alsa: Mixer load error: %s: %s"
-msgstr "alsa: Erro ao carregar mixer: %s"
+msgid "alsa: Mixer load error: %s: %s\n"
+msgstr "alsa: Erro ao carregar mixer: %s\n"
 
 #: lib/vc_alsa.c:126
 #, c-format

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-01-20 15:58+0100\n"
+"POT-Creation-Date: 2004-01-20 23:55+0100\n"
 "PO-Revision-Date: 2003-07-18 01:28+0000\n"
 "Last-Translator: Poul Ionkin <wizzard@nmg.lv>\n"
 "Language-Team: Russian <none>\n"
@@ -42,13 +42,13 @@ msgstr "alsa: Подсоединение mixer %s ошибка: %s\n"
 
 #: lib/vc_alsa.c:107
 #, c-format
-msgid "alsa: Mixer register error: %s"
-msgstr "alsa: Ошибка регистрации mixer: %s"
+msgid "alsa: Mixer register error: %s\n"
+msgstr "alsa: Ошибка регистрации mixer: %s\n"
 
 #: lib/vc_alsa.c:116
 #, fuzzy, c-format
-msgid "alsa: Mixer load error: %s: %s"
-msgstr "alsa: Ошибка загрузки mixer: %s"
+msgid "alsa: Mixer load error: %s: %s\n"
+msgstr "alsa: Ошибка загрузки mixer: %s\n"
 
 #: lib/vc_alsa.c:126
 #, c-format

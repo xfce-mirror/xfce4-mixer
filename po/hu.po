@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-01-20 15:58+0100\n"
+"POT-Creation-Date: 2004-01-20 23:55+0100\n"
 "PO-Revision-Date: 2003-07-16 16:20+0200\n"
 "Last-Translator: Egmont Koblinger <egmont@uhulinux.hu>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
@@ -45,13 +45,13 @@ msgstr "alsa: Hiba a keverő %s-re csatlakoztatása közben: %s\n"
 
 #: lib/vc_alsa.c:107
 #, c-format
-msgid "alsa: Mixer register error: %s"
-msgstr "alsa: Hiba a keverő regisztrálása közben: %s"
+msgid "alsa: Mixer register error: %s\n"
+msgstr "alsa: Hiba a keverő regisztrálása közben: %s\n"
 
 #: lib/vc_alsa.c:116
 #, fuzzy, c-format
-msgid "alsa: Mixer load error: %s: %s"
-msgstr "alsa: Hiba a keverő betöltése közben: %s"
+msgid "alsa: Mixer load error: %s: %s\n"
+msgstr "alsa: Hiba a keverő betöltése közben: %s\n"
 
 #: lib/vc_alsa.c:126
 #, c-format

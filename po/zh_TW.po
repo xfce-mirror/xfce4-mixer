@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-01-20 15:58+0100\n"
+"POT-Creation-Date: 2004-01-20 23:55+0100\n"
 "PO-Revision-Date: 2003-08-29 21:14+0800\n"
 "Last-Translator: umm <umm@pchome.com.tw>\n"
 "Language-Team:  <>\n"
@@ -41,13 +41,13 @@ msgstr "alsa: 混頻器附加 %s 錯誤： %s\n"
 
 #: lib/vc_alsa.c:107
 #, c-format
-msgid "alsa: Mixer register error: %s"
-msgstr "alsa: 混頻器註冊錯誤： &s"
+msgid "alsa: Mixer register error: %s\n"
+msgstr "alsa: 混頻器註冊錯誤： %s\n"
 
 #: lib/vc_alsa.c:116
 #, fuzzy, c-format
-msgid "alsa: Mixer load error: %s: %s"
-msgstr "alsa: 混頻器載入錯誤： %s"
+msgid "alsa: Mixer load error: %s: %s\n"
+msgstr "alsa: 混頻器載入錯誤： %s\n"
 
 #: lib/vc_alsa.c:126
 #, c-format

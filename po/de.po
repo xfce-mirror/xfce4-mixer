@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-01-20 15:58+0100\n"
+"POT-Creation-Date: 2004-01-20 23:55+0100\n"
 "PO-Revision-Date: 2004-01-20 15:30+0100\n"
 "Last-Translator: Artjom Simon <hoek@linuxartist.org>\n"
 "Language-Team: German <xfce4-dev@xfce.org>\n"
@@ -39,13 +39,13 @@ msgstr "ALSA: Mixer %s: Fehler beim Verbinden: %s\n"
 
 #: lib/vc_alsa.c:107
 #, c-format
-msgid "alsa: Mixer register error: %s"
-msgstr "ALSA: Mixer %s: Fehler beim Registrieren: %s"
+msgid "alsa: Mixer register error: %s\n"
+msgstr "ALSA: Mixer %s: Fehler beim Registrieren: %s\n"
 
 #: lib/vc_alsa.c:116
 #, fuzzy, c-format
-msgid "alsa: Mixer load error: %s: %s"
-msgstr "ALSA: Mixer %s: Fehler beim Laden: %s"
+msgid "alsa: Mixer load error: %s: %s\n"
+msgstr "ALSA: Mixer %s: Fehler beim Laden: %s\n"
 
 #: lib/vc_alsa.c:126
 #, c-format

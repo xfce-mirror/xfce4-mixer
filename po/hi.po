@@ -47,13 +47,13 @@ msgstr "अलसा (alsa) : मिक्सर अटैच %s त्रुट
 
 #: panel-plugin/vc_alsa.c:103
 #, c-format
-msgid "alsa: Mixer register error: %s"
-msgstr "अलसा (alsa) : मिक्सर रजिस्टर त्रुटि: %s"
+msgid "alsa: Mixer register error: %s\n"
+msgstr "अलसा (alsa) : मिक्सर रजिस्टर त्रुटि: %s\n"
 
 #: panel-plugin/vc_alsa.c:112
 #, c-format
-msgid "alsa: Mixer load error: %s"
-msgstr "अलसा (alsa) : मिक्सर लोड त्रुटि: %s"
+msgid "alsa: Mixer load error: %s\n"
+msgstr "अलसा (alsa) : मिक्सर लोड त्रुटि: %s\n"
 
 #: panel-plugin/vc_alsa.c:122
 #, c-format

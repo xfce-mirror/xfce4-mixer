@@ -50,13 +50,13 @@ msgstr "alsa: Mikser %s ilişdirmə xətası: %s\n"
 
 #: panel-plugin/vc_alsa.c:103
 #, c-format
-msgid "alsa: Mixer register error: %s"
-msgstr "alsa: Mikser qeydi xətası: %s"
+msgid "alsa: Mixer register error: %s\n"
+msgstr "alsa: Mikser qeydi xətası: %s\n"
 
 #: panel-plugin/vc_alsa.c:112
 #, c-format
-msgid "alsa: Mixer load error: %s"
-msgstr "alsa:·Mikser·yüklənməsi·xətası:·%s"
+msgid "alsa: Mixer load error: %s\n"
+msgstr "alsa:·Mikser·yüklənməsi·xətası:·%s\n"
 
 #: panel-plugin/vc_alsa.c:122
 #, c-format

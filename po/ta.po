@@ -47,13 +47,13 @@ msgstr "alsa: கலவை %s இணைப்பு பிழை: %s\n"
 
 #: panel-plugin/vc_alsa.c:103
 #, c-format
-msgid "alsa: Mixer register error: %s"
-msgstr "alsa: கலவை பதிவேடு பிழை: %s"
+msgid "alsa: Mixer register error: %s\n"
+msgstr "alsa: கலவை பதிவேடு பிழை: %s\n"
 
 #: panel-plugin/vc_alsa.c:112
 #, c-format
-msgid "alsa: Mixer load error: %s"
-msgstr "alsa: கலவை ஏற்றல் பிழை: %s"
+msgid "alsa: Mixer load error: %s\n"
+msgstr "alsa: கலவை ஏற்றல் பிழை: %s\n"
 
 #: panel-plugin/vc_alsa.c:122
 #, c-format

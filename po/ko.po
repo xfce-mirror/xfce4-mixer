@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-01-20 15:58+0100\n"
+"POT-Creation-Date: 2004-01-20 23:55+0100\n"
 "PO-Revision-Date: 2003-08-02 03:36+0900\n"
 "Last-Translator: ByungHyun Choi<byunghyunchoi@rtlinux.or.kr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,13 +42,13 @@ msgstr "alsa: 믹서 추가 %s 오류 : %s\n"
 
 #: lib/vc_alsa.c:107
 #, c-format
-msgid "alsa: Mixer register error: %s"
-msgstr "alsa: 믹서 등록 오류 : %s"
+msgid "alsa: Mixer register error: %s\n"
+msgstr "alsa: 믹서 등록 오류 : %s\n"
 
 #: lib/vc_alsa.c:116
 #, fuzzy, c-format
-msgid "alsa: Mixer load error: %s: %s"
-msgstr "alsa: 믹서 로드 오류 : %s"
+msgid "alsa: Mixer load error: %s: %s\n"
+msgstr "alsa: 믹서 로드 오류 : %s\n"
 
 #: lib/vc_alsa.c:126
 #, c-format

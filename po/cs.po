@@ -48,13 +48,13 @@ msgstr "alsa: Mixer attach %s error: %s\n"
 
 #: panel-plugin/vc_alsa.c:103
 #, c-format
-msgid "alsa: Mixer register error: %s"
-msgstr "alsa: Mixer register error: %s"
+msgid "alsa: Mixer register error: %s\n"
+msgstr "alsa: Mixer register error: %s\n"
 
 #: panel-plugin/vc_alsa.c:112
 #, c-format
-msgid "alsa: Mixer load error: %s"
-msgstr "alsa: Mixer load error: %s"
+msgid "alsa: Mixer load error: %s\n"
+msgstr "alsa: Mixer load error: %s\n"
 
 #: panel-plugin/vc_alsa.c:122
 #, c-format

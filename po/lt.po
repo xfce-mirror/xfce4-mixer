@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce-mixer 3.99.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-01-20 15:58+0100\n"
+"POT-Creation-Date: 2004-01-20 23:55+0100\n"
 "PO-Revision-Date: 2003-08-03 01:15+0300\n"
 "Last-Translator: Mantas <zaz@xxx.lt>\n"
 "Language-Team: Lithuania <zaz@xxx.lt>\n"
@@ -41,13 +41,13 @@ msgstr "alsa: Mikserio prijungimo %s klaida: %s\n"
 
 #: lib/vc_alsa.c:107
 #, c-format
-msgid "alsa: Mixer register error: %s"
-msgstr "alsa: Mikserio registro klaida: %s"
+msgid "alsa: Mixer register error: %s\n"
+msgstr "alsa: Mikserio registro klaida: %s\n"
 
 #: lib/vc_alsa.c:116
 #, fuzzy, c-format
-msgid "alsa: Mixer load error: %s: %s"
-msgstr "alsa: Mikserio ákëlimo klaida: %s"
+msgid "alsa: Mixer load error: %s: %s\n"
+msgstr "alsa: Mikserio ákëlimo klaida: %s\n"
 
 #: lib/vc_alsa.c:126
 #, c-format
