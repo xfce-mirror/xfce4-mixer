@@ -19,7 +19,7 @@ class Xfce:Mixer:Info from Gtk:Dialog {
 			)
 		);
 
-		txt = "This is xfce4-mixer, a volume control program\n"
+		txt = "This is xfce4-mixer, a volume control program.\n"
 			"It is released under the GPL-2 License which you find in the source directory.\n"
 			"No warranty in any way.";
 
