@@ -1,18 +1,20 @@
+# #-#-#-#-#  zh_CN.po (PACKAGE VERSION)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) 2003 XFce development team
-# Benedikt Meurer <benedikt.meurer@unix-ag.org>, 2003.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-09-21 00:02+0200\n"
-"PO-Revision-Date: 2004-06-11 16:06+0200\n"
+"PO-Revision-Date: 2004-09-28 01:05-0700\n"
 "Last-Translator: Yongtao Yang <yongtao.yang@telia.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Report-Msgid-Bugs-To: \n"
 
 #: mixer-settingsbox.gob:97
 msgid "Device"
@@ -236,19 +238,19 @@ msgstr "类型"
 
 #: mixer-profilebox-detail.gob:166
 msgid "Up"
-msgstr ""
+msgstr "向上"
 
 #: mixer-profilebox-detail.gob:169
 msgid "Down"
-msgstr ""
+msgstr "向下"
 
 #: mixer-profilebox-detail.gob:176
 msgid "Move Entry Up"
-msgstr ""
+msgstr "将条目上移"
 
 #: mixer-profilebox-detail.gob:179
 msgid "Move Entry Down"
-msgstr ""
+msgstr "将条目下移"
 
 #: mixer-profilebox-detail.gob:188
 msgid "Profile Name:"
@@ -290,9 +292,3 @@ msgstr ""
 "这是 xfce4-mixer，一个音量控制程序。\n"
 "它以 GPL-2 许可证发布，您可以在 source 目录下找到 GPL-2 许可证全文。\n"
 "无任何形式的保证。 "
-
-#~ msgid "Use _internal mixer"
-#~ msgstr "使用内置混频器(_I)"
-
-#~ msgid "Visible"
-#~ msgstr "可视"
