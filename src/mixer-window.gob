@@ -16,7 +16,6 @@
 #include <gdk/gdkx.h>
 #include <libxfce4util/i18n.h>
 #include <libxfce4util/util.h>
-#include <libxfcegui4/netk-window.h>
 #include "menus.h"
 #include "main.h"
 #include "stringlist.inc"
@@ -163,15 +162,15 @@ class Xfce:Mixer:Window from Gtk:Window {
 		g_object_set (G_OBJECT (xml), "fname", self->fname, NULL);
 
 		self_xml_goto_device (self, xml);
-		if (xfce_mixer_pxml_goto_child_tag (xml, "position")) {
+		if (xfce_mixer_pxml_goto_child_tag (xml, "size")) {
 			if (xfce_mixer_pxml_get_prop_int (xml, "width", &width)
 			&& xfce_mixer_pxml_get_prop_int (xml, "height", &height)) {
-				gtk_widget_set_size_request (GTK_WIDGET (self), width, height);
+				gtk_window_resize (GTK_WINDOW (self), width, height);
 			}
 		}
 
 		self_xml_goto_device (self, xml);
-		if (xfce_mixer_pxml_goto_child_tag (xml, "size")) {
+		if (xfce_mixer_pxml_goto_child_tag (xml, "position")) {
 			if (xfce_mixer_pxml_get_prop_int (xml, "x", &x) 
 			&& xfce_mixer_pxml_get_prop_int (xml, "y", &y)) {
 				gtk_window_move (GTK_WINDOW (self), x, y);
@@ -199,30 +198,19 @@ class Xfce:Mixer:Window from Gtk:Window {
 		XfceMixerPxml *xml;
 		gint x, y;
 		gint width, height;
-		NetkWindow *win;
-		gulong xwindow;
-
-		xwindow = GDK_WINDOW_XID (GTK_WIDGET (self)->window);
-
-		g_warning ("xwindow %ld", xwindow);
-
-		win = netk_window_get (xwindow);
-
-		if (!win) {
-			g_warning ("bleh");
-			return;
-		}
 
 		xml = xfce_mixer_pxml_new (MIXER_ROOT);
 		g_object_set (G_OBJECT (xml), "fname", self->fname, NULL);
 
-		netk_window_get_geometry (win, &x, &y, &width, &height);
+		/*netk_window_get_geometry (win, &x, &y, &width, &height);*/
 
 		/* this function doesnt work like I want it to: */
 		/*gtk_widget_size_request (GTK_WIDGET (self), &req); */
-		/*gtk_window_get_position (GTK_WINDOW (self), &x, &y);*/
+		/*gtk_widget_size_request (GTK_WIDGET (self), &req); */
+		gtk_window_get_position (GTK_WINDOW (self), &x, &y);
+		gtk_window_get_size (GTK_WINDOW (self), &width, &height);
 
-		g_warning ("save pos %d %d, size %d %d", x, y, width, height);
+		/*g_warning ("save pos %d %d, size %d %d", x, y, width, height);*/
 
 		self_xml_goto_device (self, xml);
 
@@ -248,11 +236,13 @@ class Xfce:Mixer:Window from Gtk:Window {
 			xfce_mixer_pxml_goto_node (xml, 
 				xfce_mixer_pxml_create_text_child (xml, "state", NULL)
 			);
-		xfce_mixer_pxml_set_prop_int (xml, "sticky", netk_window_is_sticky (win));
+		xfce_mixer_pxml_set_prop_int (xml, "sticky", selfp->sticky ? 1 : 0);
+
+		/* netk_window_is_sticky (win)); */
 		/*, selfp->sticky ? 1 : 0); */
 
 		g_object_unref (G_OBJECT (xml));
-		g_object_unref (G_OBJECT (win));
+		/*g_object_unref (G_OBJECT (win));*/
 	}
 
 	protected gboolean delete_event_cb(self, GdkEvent *event, GtkWidget *widget)

@@ -20,7 +20,7 @@ extern "C" {
 #line 7 "mixer-window.gob"
 #line 22 "xfce-mixer-window-private.h"
 struct _XfceMixerWindowPrivate {
-#line 42 "mixer-window.gob"
+#line 41 "mixer-window.gob"
 	gboolean sticky;
 #line 26 "xfce-mixer-window-private.h"
 };
