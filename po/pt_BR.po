@@ -7,7 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer\n"
-"POT-Creation-Date: 2003-08-02 11:41+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-03-02 22:27+0100\n"
 "PO-Revision-Date: 2004-01-17 23:47-0200\n"
 "Last-Translator: Felix da Silva Costa <felix@online.eti.br>\n"
 "Language-Team: pt_BR <felix@online.eti.br>\n"
@@ -15,26 +16,30 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: panel-plugin/mixer.c:157
+#: panel-plugin/mixer.c:154
 msgid "No working sound"
 msgstr "Som não esta funcionando"
 
-#: panel-plugin/mixer.c:296
+#: panel-plugin/mixer.c:293
 #, c-format
 msgid "Volume: %d%%"
 msgstr "Volume: %d%%"
 
-#: panel-plugin/mixer.c:1022
-msgid "Device:"
-msgstr "Dispositivo:"
-
-#: panel-plugin/mixer.c:1110
+#: panel-plugin/mixer.c:1001
 msgid "Use _internal mixer"
 msgstr "Use mixer _interno"
 
-#: panel-plugin/mixer.c:1307
+#: panel-plugin/mixer.c:1211 panel-plugin/mixer_window.c:196
 msgid "Volume Control"
 msgstr "Controle de volume"
+
+#: panel-plugin/mvisible_opts.c:76
+msgid "Visible"
+msgstr "Visível"
+
+#: panel-plugin/mvisible_opts.c:84
+msgid "Control"
+msgstr "Controle"
 
 #: panel-plugin/vc_alsa.c:90
 #, c-format
@@ -65,10 +70,5 @@ msgstr "alsa: Não foi possível encontrar o controle simples '%s',%i\n"
 msgid "oss: No master volume"
 msgstr "oss: sem volume mestre"
 
-#: panel-plugin/mvisible_opts.c:76
-msgid "Visible"
-msgstr "Visível"
-
-#: panel-plugin/mvisible_opts.c:84
-msgid "Control"
-msgstr "Controle"
+#~ msgid "Device:"
+#~ msgstr "Dispositivo:"

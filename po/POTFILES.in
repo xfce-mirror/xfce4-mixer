@@ -1,7 +1,10 @@
 panel-plugin/mixer.c
+panel-plugin/mixer_window.c
+panel-plugin/mvisible_opts.c
+panel-plugin/scroller_size.c
+panel-plugin/string_option_menu.c
+panel-plugin/test_vc.c
 panel-plugin/vc.c
 panel-plugin/vc_alsa.c
 panel-plugin/vc_alsa_fallback.c
 panel-plugin/vc_oss.c
-panel-plugin/mvisible_opts.c
-panel-plugin/trans.c

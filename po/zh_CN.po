@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-01-06 20:38+0100\n"
+"POT-Creation-Date: 2004-03-02 22:27+0100\n"
 "PO-Revision-Date: 2003-04-26 11:57--100\n"
 "Last-Translator: Benedikt Meurer <benedikt.meurer@unix-ag.uni-siegen.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,66 +14,69 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: mixer-settingsbox.gob:71 mixer-settingsbox.gob:88
-msgid "Device"
-msgstr "设备："
+#: panel-plugin/mixer.c:154
+msgid "No working sound"
+msgstr "声卡工作不正常"
 
-#: mixer-settingsbox.gob:91
-msgid "None"
-msgstr "无"
-
-#: mixer-settingsbox.gob:94
-msgid "Useful Controls"
-msgstr "有用的控制"
-
-#: lib/vc_alsa.c:89
-#, c-format
-msgid "alsa: Mixer %s open error: %s\n"
-msgstr "alsa: 混频器 %s 打开错误: %s\n"
-
-#: lib/vc_alsa.c:94
-#, c-format
-msgid "alsa: Mixer attach %s error: %s\n"
-msgstr "alsa: 混频器绑定 %s 错误: %s\n"
-
-#: lib/vc_alsa.c:102
-#, c-format
-msgid "alsa: Mixer register error: %s"
-msgstr "alsa: 混频器注册错误: %s"
-
-#: lib/vc_alsa.c:111
-#,  c-format
-msgid "alsa: Mixer load error: %s: %s"
-msgstr "alsa: 混频器加载错误: %s"
-
-#: lib/vc_alsa.c:121
-#, c-format
-msgid "alsa: Unable to find simple control '%s',%i\n"
-msgstr "alsa: 未找到简单控制 '%s', %i\n"
-
-#: lib/vc_oss.c:134
-msgid "oss: No master volume"
-msgstr "oss: 主控制器不存在"
-
-#: panel-plugin/plugin.c:82
+#: panel-plugin/mixer.c:293
 #, c-format
 msgid "Volume: %d%%"
 msgstr "音量控制 %d%%"
 
-#: panel-plugin/plugin.c:326
+#: panel-plugin/mixer.c:1001
+msgid "Use _internal mixer"
+msgstr "使用内置混频器(_I)"
+
+#: panel-plugin/mixer.c:1211 panel-plugin/mixer_window.c:196
 msgid "Volume Control"
 msgstr "音量控制"
 
-#: settings/sound.c:72 settings/sound.c:90
-msgid "Sound"
-msgstr "声音"
+#: panel-plugin/mvisible_opts.c:76
+msgid "Visible"
+msgstr "可视"
 
-#: src/main.c:28
-msgid "No working sound"
-msgstr "声卡工作不正常"
+#: panel-plugin/mvisible_opts.c:84
+#, fuzzy
+msgid "Control"
+msgstr "音量控制"
 
-#~ msgid "Use _internal mixer"
-#~ msgstr "使用内置混频器(_I)"
+#: panel-plugin/vc_alsa.c:90
+#, c-format
+msgid "alsa: Mixer %s open error: %s\n"
+msgstr "alsa: 混频器 %s 打开错误: %s\n"
 
-#~ msgid "Visible"
-#~ msgstr "可视"
+#: panel-plugin/vc_alsa.c:95
+#, c-format
+msgid "alsa: Mixer attach %s error: %s\n"
+msgstr "alsa: 混频器绑定 %s 错误: %s\n"
+
+#: panel-plugin/vc_alsa.c:103
+#, c-format
+msgid "alsa: Mixer register error: %s"
+msgstr "alsa: 混频器注册错误: %s"
+
+#: panel-plugin/vc_alsa.c:112
+#, fuzzy, c-format
+msgid "alsa: Mixer load error: %s"
+msgstr "alsa: 混频器加载错误: %s"
+
+#: panel-plugin/vc_alsa.c:122
+#, c-format
+msgid "alsa: Unable to find simple control '%s',%i\n"
+msgstr "alsa: 未找到简单控制 '%s', %i\n"
+
+#: panel-plugin/vc_oss.c:133
+msgid "oss: No master volume"
+msgstr "oss: 主控制器不存在"
+
+#~ msgid "Device"
+#~ msgstr "设备："
+
+#~ msgid "None"
+#~ msgstr "无"
+
+#~ msgid "Useful Controls"
+#~ msgstr "有用的控制"
+
+#~ msgid "Sound"
+#~ msgstr "声音"

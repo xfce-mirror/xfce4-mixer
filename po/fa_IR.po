@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-08-02 11:41+0200\n"
+"POT-Creation-Date: 2004-03-02 22:27+0100\n"
 "PO-Revision-Date: 2003-12-26 17:37+0330\n"
 "Last-Translator: Abbas Izad <abbasizad@hotmail.com>\n"
 "Language-Team: Persian <fa@li.org>\n"
@@ -17,26 +17,30 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.0.2\n"
 
-#: panel-plugin/mixer.c:157
+#: panel-plugin/mixer.c:154
 msgid "No working sound"
 msgstr "هیچ کارآرایی صوتی"
 
-#: panel-plugin/mixer.c:296
+#: panel-plugin/mixer.c:293
 #, c-format
 msgid "Volume: %d%%"
 msgstr "حجم: %d%%"
 
-#: panel-plugin/mixer.c:1022
-msgid "Device:"
-msgstr "دستگاه:"
-
-#: panel-plugin/mixer.c:1110
+#: panel-plugin/mixer.c:1001
 msgid "Use _internal mixer"
 msgstr "استفاده از میکسر ـدرونی"
 
-#: panel-plugin/mixer.c:1307
+#: panel-plugin/mixer.c:1211 panel-plugin/mixer_window.c:196
 msgid "Volume Control"
 msgstr "کنترل حجم"
+
+#: panel-plugin/mvisible_opts.c:76
+msgid "Visible"
+msgstr "مرئی"
+
+#: panel-plugin/mvisible_opts.c:84
+msgid "Control"
+msgstr "کنترل"
 
 #: panel-plugin/vc_alsa.c:90
 #, c-format
@@ -67,11 +71,5 @@ msgstr "alsa: قادر نبودن به یافتن کنترل ساده‌ی '%s',
 msgid "oss: No master volume"
 msgstr "oss: هیچ حجم برتر"
 
-#: panel-plugin/mvisible_opts.c:76
-msgid "Visible"
-msgstr "مرئی"
-
-#: panel-plugin/mvisible_opts.c:84
-msgid "Control"
-msgstr "کنترل"
-
+#~ msgid "Device:"
+#~ msgstr "دستگاه:"
