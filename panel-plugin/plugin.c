@@ -12,7 +12,7 @@
 #include "xfce-mixer-prefbox.h"
 #include "xfce-mixer-preferences.h"
 #include "xfce-mixer-control-vc.h"
-#include "vcreg.inc"
+#include "vcs.h"
 
 /* TODO: timeout -> update volume */
 
@@ -319,7 +319,7 @@ G_MODULE_EXPORT void
 xfce_control_class_init(ControlClass *cc)
 {
 	tooltips = gtk_tooltips_new ();
-	VC_INIT;
+	register_vcs ();
 
 	/* these are required */
 	cc->name                = "mixer";

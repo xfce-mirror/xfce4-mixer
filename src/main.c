@@ -4,8 +4,7 @@
 #include <gtk/gtk.h>
 #include "xfce-mixer-profile.h"
 #include "xfce-mixer-window.h"
-#include "vc.h"
-#include "vcreg.inc"
+#include "vcs.h"
 
 GtkTooltips *tooltips;
 
@@ -13,7 +12,7 @@ int main(int argc, char * argv[])
 {
 	GtkWidget *mixer_window;
 
-	VC_INIT;
+	register_vcs ();
 
 	gtk_init (&argc, &argv);
 	

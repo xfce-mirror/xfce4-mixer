@@ -25,7 +25,7 @@
 #include <xfce-mcs-manager/manager-plugin.h>
 #include "sound-icon.h"
 #include "xfce-mixer-settingsbox.h"
-#include "vcreg.inc"
+#include "vcs.h"
 
 static void     run_dialog(McsPlugin *);
 static gboolean save_settings(McsPlugin *);
@@ -68,8 +68,8 @@ mcs_plugin_init(McsPlugin *plugin)
 	plugin->run_dialog = run_dialog;
 	plugin->icon = inline_icon_at_size(sound_icon_data, 48, 48);
 	
-	VC_INIT;
-	
+	register_vcs ();
+
 	return MCS_PLUGIN_INIT_OK;
 }
 
