@@ -85,6 +85,13 @@ find_master(void)
 {
 	int i;
 	
+	/* TODO: cute error message
+	if (mixer_handle == -1) {
+		g_warning (_("No Volume Control found (oss)."));
+		return;
+	}
+	*/
+	
 	g_return_if_fail(mixer_handle != -1);
 
 	devmask = 0;
