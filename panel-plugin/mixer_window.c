@@ -59,7 +59,7 @@ mixer_slider_control_t *mixer_window_slider_control_new(mixer_window_t *w, char 
 		s->scale = GTK_SCALE (gtk_vscale_new_with_range (0.0, 100.0, 1.0));
 
 		gtk_scale_set_digits (GTK_SCALE(s->scale), 0);
-		g_signal_connect (GTK_WIDGET(s->scale), "format-value", G_CALLBACK (format_value_callback), NULL);
+		/*g_signal_connect (GTK_WIDGET(s->scale), "format-value", G_CALLBACK (format_value_callback), NULL);*/
 
 		g_signal_connect (GTK_WIDGET(s->scale), "value-changed", G_CALLBACK (change_vol_cb), (gpointer) s);
 		
