@@ -8,7 +8,10 @@
 #include "xfce-mixer-control-factory.h"
 #include "xfce-mixer-cache-vc.h"
 #include "xfce-mixer-control-vc.h"
+#include "xfce-mixer-mcs-client.h"
 #include "vc.h"
+
+extern XfceMixerMcsClient *mcsc;
 
 XfceMixerControl *xfce_mixer_control_factory_new_from_profile_item(
 	t_mixer_profile_item *item,
@@ -18,6 +21,9 @@ XfceMixerControl *xfce_mixer_control_factory_new_from_profile_item(
 	XfceMixerControl *c;
 	gchar ty;
 	gchar *new_loc;
+	gchar *uc;
+	gchar *uct;
+	gboolean b;
 	
 	new_loc = NULL;
 	
@@ -26,7 +32,24 @@ XfceMixerControl *xfce_mixer_control_factory_new_from_profile_item(
 		if (!xfce_mixer_cache_vc_valid (item->vcname)) {
 			return c;
 		}
+		b = TRUE;
+
+		if (mcsc)
+			uc = xfce_mixer_mcs_client_get_useful_controls (mcsc, 
+				vc_get_device ());
+			
+		if (mcsc && uc) {
+			uct = g_strdup_printf ("@%s@", item->vcname);
+			if (uct) {
+				b = g_strrstr (uc, uct) != NULL;
+				printf ("%s %s %d", uc , uct, (int)b );
+			}
+			g_free (uc);
+		}
 		
+		if (!b)
+			return c;
+			
 		ty = xfce_mixer_cache_vc_get_type (item->vcname); 
 		
 		if (ty != 'S' && k == K_TINY)

@@ -580,6 +580,11 @@ static gboolean vc_get_switch(char const *which)
 	return (i != 0);
 }
 
+static char const *vc_get_device()
+{
+	return card;
+}
+        
 REGISTER_VC_PLUGIN(alsa);
 
 #endif /* USE_ALSA */

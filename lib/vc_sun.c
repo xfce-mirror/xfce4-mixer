@@ -157,6 +157,11 @@ static gboolean vc_get_switch(char const *which)
 	return FALSE;
 }
 
+static char const *vc_get_device()
+{
+	return mixer_device;
+}
+
 REGISTER_VC_PLUGIN(sun);
 
 #endif /* !USE_SUN */

@@ -7,7 +7,7 @@
 #include <X11/Xatom.h>
 #include <gdk/gdkx.h>
 #include <libxfce4util/i18n.h>
-
+#include "mixer-mcs-names.h"
 #define emit
 
 /* event handling */
@@ -121,11 +121,33 @@ class Xfce:Mixer:Mcs:Client from G:Object {
 	public gchar *get_setting(self, gchar const *name)
 	{
 		gchar *s;
+		McsSetting *setting;
 		s = g_hash_table_lookup (self->hash, name);
-		if (!s)
+		if (!s) {
+			setting = NULL;
+			mcs_client_get_setting (self->client, name, self->channel, &setting); /* return val ? */
+
+			if (setting && setting->type == MCS_TYPE_STRING && setting->data.v_string) {
+				return g_strdup (setting->data.v_string);
+			}
+
 			return NULL;
+		}
 
 		return g_strdup (s);
+	}
+
+	public gchar *get_useful_controls (self, gchar const *device)
+	{
+		gchar *n;
+		gchar *s;
+		if (!device)
+			return NULL;
+
+		n = g_strdup_printf (MIXER_USEFUL_FMT, device);
+		s = self_get_setting (self, n);
+		g_free (n);
+		return s;
 	}
 
 	public XfceMixerMcsClient *new(void)

@@ -107,6 +107,16 @@ void vc_set_device(char const *which)
 	}
 }
 
+char const *vc_get_device()
+{
+	volchanger_t *s = selected_vc();
+	if (!s  || !s->vc_get_device) {
+		return NULL;
+	}
+	
+	return (*s->vc_get_device)();
+}
+
 void select_vc_direct(volchanger_t *v)
 {
 	int	i;

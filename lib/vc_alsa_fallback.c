@@ -128,7 +128,12 @@ static gboolean vc_get_switch(char const *which)
 {
 	return FALSE;
 }
-          
+
+static char const *vc_get_device()
+{
+	return NULL;
+}
+         
 REGISTER_VC_PLUGIN(alsa_fallback);
 
 #endif /* !USE_ALSA */

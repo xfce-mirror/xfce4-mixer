@@ -61,6 +61,8 @@ void 	xfce_mixer_mcs_client_update_setting	(XfceMixerMcsClient * self,
 					McsSetting * setting);
 gchar * 	xfce_mixer_mcs_client_get_setting	(XfceMixerMcsClient * self,
 					gchar const * name);
+gchar * 	xfce_mixer_mcs_client_get_useful_controls	(XfceMixerMcsClient * self,
+					gchar const * device);
 XfceMixerMcsClient * 	xfce_mixer_mcs_client_new	(void);
 
 /*

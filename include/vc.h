@@ -54,6 +54,7 @@ typedef struct {
 	gchar *(*vc_get_select)(char const *which);
 	gboolean (*vc_get_switch)(char const *which);
 	void (*vc_set_switch)(char const *which, gboolean b);
+	char const *(*vc_get_device)(void);
 } volchanger_t;
 
 typedef struct {
@@ -89,6 +90,7 @@ void vc_free_control_list(GList *g);
 void vc_set_volume_callback (volchanger_callback_t cb, void *data);
 void vc_set_device(char const *which);
 void vc_close_device();
+char const *vc_get_device ();
 GList *vc_get_device_list();
 void vc_free_device_list(GList *device_list);
 #else
@@ -107,6 +109,7 @@ static volchanger_t vc = { \
         vc_get_select: vc_get_select, \
         vc_get_switch: vc_get_switch, \
         vc_set_switch: vc_set_switch, \
+        vc_get_device: vc_get_device \
 }; \
 \
 int register_##a(void) \

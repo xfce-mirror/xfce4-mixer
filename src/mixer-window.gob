@@ -17,7 +17,7 @@ class Xfce:Mixer:Window from Gtk:Window {
 	protected Gtk:Menu:Bar *menubar = NULL;
 	public Xfce:Mixer:Profile *profile = NULL;
 	protected Gtk:Accel:Group *accelgroup = NULL;
-	protected Xfce:Mixer:Mcs:Client *mcsc = NULL
+	public Xfce:Mixer:Mcs:Client *mcsc = NULL
 		unrefwith g_object_unref;
 
 	init(self)

@@ -41,10 +41,10 @@ struct _XfceMixerWindow {
 	XfceMixerView * view;
 	GtkBox * box;
 	XfceMixerProfile * profile;
+	XfceMixerMcsClient * mcsc;
 	/*< private >*/
 	GtkMenuBar * menubar; /* protected */
 	GtkAccelGroup * accelgroup; /* protected */
-	XfceMixerMcsClient * mcsc; /* protected */
 };
 
 /*

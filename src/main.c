@@ -5,6 +5,7 @@
 #include <libxfce4util/i18n.h>
 #include "xfce-mixer-profile.h"
 #include "xfce-mixer-window.h"
+#include "xfce-mixer-mcs-client.h"
 #include "vcs.h"
 #include "main.h"
 #include "mcs_client.h"
@@ -12,6 +13,7 @@
 GtkTooltips *tooltips;
 
 static GtkWidget *mixer_window;
+XfceMixerMcsClient *mcsc = NULL;
 
 static void
 my_main_quit(GtkWidget *w, gpointer user_data)
@@ -37,6 +39,7 @@ int main(int argc, char * argv[])
 	}
 
 	mixer_window = xfce_mixer_window_new ();
+	mcsc = XFCE_MIXER_WINDOW (mixer_window)->mcsc;
 	xfce_mixer_profile_fill_defaults (XFCE_MIXER_WINDOW (mixer_window)->profile);
 	
 	g_signal_connect (G_OBJECT (mixer_window), "destroy", G_CALLBACK (my_main_quit), NULL);

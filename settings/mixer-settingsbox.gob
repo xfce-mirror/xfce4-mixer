@@ -8,6 +8,7 @@
 #include "helpers3.inc"
 #include "vc.h"
 #include "stringlist.inc"
+#include "mixer-mcs-names.h"
 
 #undef SHOW_DEFAULT_DEVICE_ENTRY
 #define SETTINGS_LIST_SEP "@"
@@ -272,7 +273,7 @@ class Xfce:Mixer:Settingsbox from Gtk:VBox {
 		if (!self->sel_device)
 			return NULL;
 
-		return g_strdup_printf ("Sound/Mixer/Useful:%s", self->sel_device);
+		return g_strdup_printf (MIXER_USEFUL_FMT, self->sel_device);
 	}
 
 	protected void fill_right_box (self)
