@@ -28,7 +28,6 @@
 
 #include <gtk/gtktogglebutton.h>
 /*#include <libgnome/gnome-i18n.h>*/
-#define _(x) (x)
 
 #include "disclosure-widget.h"
 
@@ -292,8 +291,8 @@ class_init (CDDBDisclosureClass *klass)
 
 	gtk_widget_class_install_style_property (widget_class,
 						 g_param_spec_int ("expander_size",
-								   _("Expander Size"),
-								   _("Size of the expander arrow"),
+								   "Expander Size",
+								   "Size of the expander arrow",
 								   0, G_MAXINT,
 								   10, G_PARAM_READABLE));
 }

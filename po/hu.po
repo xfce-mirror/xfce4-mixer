@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-01-06 19:55+0100\n"
+"POT-Creation-Date: 2004-01-06 20:02+0100\n"
 "PO-Revision-Date: 2003-07-16 16:20+0200\n"
 "Last-Translator: Egmont Koblinger <egmont@uhulinux.hu>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
@@ -73,14 +73,6 @@ msgstr "Hangerő-szabályozó"
 
 #: settings/sound.c:72 settings/sound.c:90
 msgid "Sound"
-msgstr ""
-
-#: src/disclosure-widget.c:295
-msgid "Expander Size"
-msgstr ""
-
-#: src/disclosure-widget.c:296
-msgid "Size of the expander arrow"
 msgstr ""
 
 #~ msgid "No working sound"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce-mixer 3.99.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-01-06 19:55+0100\n"
+"POT-Creation-Date: 2004-01-06 20:02+0100\n"
 "PO-Revision-Date: 2003-08-03 01:15+0300\n"
 "Last-Translator: Mantas <zaz@xxx.lt>\n"
 "Language-Team: Lithuania <zaz@xxx.lt>\n"
@@ -69,14 +69,6 @@ msgstr "Garso Valdymas"
 
 #: settings/sound.c:72 settings/sound.c:90
 msgid "Sound"
-msgstr ""
-
-#: src/disclosure-widget.c:295
-msgid "Expander Size"
-msgstr ""
-
-#: src/disclosure-widget.c:296
-msgid "Size of the expander arrow"
 msgstr ""
 
 #~ msgid "No working sound"
