@@ -126,4 +126,3 @@
 #undef _POSIX_SOURCE
 
 /* Define to empty if `const' does not conform to ANSI C. */
-#undef const

@@ -1,5 +1,8 @@
-
-
+%{
+#ifdef HAVE_CONFIG_H
+#  include <config.h>
+#endif
+%}
 %a{
 #include "xfce-mixer-control.h"
 %}

@@ -11,8 +11,10 @@ extern "C" {
 
 
 
+
 #include <gtk/gtk.h>
-#include <panel/global.h>  
+
+#include <panel/global.h>
 #include <panel/controls.h>
 #include <panel/icons.h>  
 #include <panel/plugins.h>

@@ -13,16 +13,16 @@ extern "C" {
 
 #include <gtk/gtk.h>
 
-#line 1 "mixer-preferences.gob"
+#line 6 "mixer-preferences.gob"
 #line 18 "xfce-mixer-preferences-private.h"
 
 
 #include "xfce-mixer-pxml.h"
 
-#line 18 "mixer-preferences.gob"
+#line 23 "mixer-preferences.gob"
 #line 24 "xfce-mixer-preferences-private.h"
 struct _XfceMixerPreferencesPrivate {
-#line 26 "mixer-preferences.gob"
+#line 31 "mixer-preferences.gob"
 	gchar * master;
 #line 28 "xfce-mixer-preferences-private.h"
 };

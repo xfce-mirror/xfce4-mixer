@@ -1,3 +1,8 @@
+%{
+#ifdef HAVE_CONFIG_H
+#  include <config.h>
+#endif
+%}
 %a{
 #include <gtk/gtk.h>
 %}
@@ -19,7 +24,7 @@
 #include "xfce-mixer-pxml.h"
 %}
 
-class Xfce:Mixer:Preferences from G:Object {
+class Xfce:Mixer:Preferences from Gtk:Object {
 	public gchar *device = NULL
 		destroywith g_free;
 
@@ -245,10 +250,10 @@ class Xfce:Mixer:Preferences from G:Object {
 		cnode = xfce_mixer_pxml_create_text_child (self->xml, "Command", self->execu);
 		xfce_mixer_pxml_goto_node (self->xml, cnode);
 
-		snprintf (value, 2, "%d", self->in_terminal);
+		g_snprintf (value, 2, "%d", self->in_terminal);
 		xfce_mixer_pxml_set_prop (self->xml, "term", value);
 
-		snprintf (value, 2, "%d", self->startup_nf);
+		g_snprintf (value, 2, "%d", self->startup_nf);
 		xfce_mixer_pxml_set_prop (self->xml, "sn", value);
 
 		/* unused: prop "internal" */

@@ -13,7 +13,7 @@ extern "C" {
 
 #include "xfce-mixer-control.h"
 
-#line 3 "mixer-slider-tiny.gob"
+#line 6 "mixer-slider-tiny.gob"
 #line 18 "xfce-mixer-slider-tiny-private.h"
 void 	xfce_mixer_slider_tiny_set_vval	(XfceMixerSliderTiny * self, gint vval);
 gboolean 	xfce_mixer_slider_tiny_button_cb	(XfceMixerSliderTiny * self, GdkEventButton * b, GtkWidget * widget);

@@ -19,10 +19,10 @@ extern "C" {
 #include "xfce-mixer-cache-vc.h"
 #include "xfce-mixer-pxml.h"
 
-#line 1 "mixer-prefbox.gob"
+#line 6 "mixer-prefbox.gob"
 #line 24 "xfce-mixer-prefbox-private.h"
 struct _XfceMixerPrefboxPrivate {
-#line 33 "mixer-prefbox.gob"
+#line 38 "mixer-prefbox.gob"
 	delayer_t device_entry_delayer;
 #line 28 "xfce-mixer-prefbox-private.h"
 };

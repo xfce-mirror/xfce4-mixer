@@ -1,6 +1,9 @@
 requires 2.0.0
 
 %{
+#ifdef HAVE_CONFIG_H
+#  include <config.h>
+#endif
 #include <stdio.h>
 #include <stdlib.h>
 #define emit 

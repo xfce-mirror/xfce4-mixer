@@ -138,6 +138,10 @@ do
 	echo "Running autoheader..."
 	autoheader
       fi
+# dannym
+grep -v "#undef const" config.h.in >config.h.in.new && mv config.h.in.new config.h.in
+# end dannym
+
       echo "Running automake --foreign $am_opt ..."
       automake --add-missing --foreign  --force --copy $am_opt
       echo "Running autoconf ..."
@@ -146,6 +150,7 @@ do
   fi
 done
 
+
 if test x$NOCONFIGURE = x; then
   echo Running $srcdir/configure $conf_flags "$@" ...
   $srcdir/configure $conf_flags "$@" \
@@ -153,3 +158,5 @@ if test x$NOCONFIGURE = x; then
 else
   echo Skipping configure process.
 fi
+
+
