@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-09-21 00:02+0200\n"
+"POT-Creation-Date: 2004-10-02 10:36+0200\n"
 "PO-Revision-Date: 2003-12-09 17:30+0900\n"
 "Last-Translator: Zhao Ji <zhao-ji@awz.ne.jp>\n"
 "Language-Team: xfce-users-jp <xfce-users-jp@ml.fdiary.net>\n"
@@ -171,7 +171,7 @@ msgstr "oss: マスター音量がありません"
 msgid "Volume: %d%%"
 msgstr "音量"
 
-#: panel-plugin/plugin.c:387 mixer-window.gob:143
+#: panel-plugin/plugin.c:387 mixer-window.gob:169
 msgid "Volume Control"
 msgstr "音量調節"
 

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: he\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-09-21 00:02+0200\n"
+"POT-Creation-Date: 2004-10-02 10:36+0200\n"
 "PO-Revision-Date: 2004-08-19 13:14+0300\n"
 "Last-Translator: Yuval Tanny <tanai@int.gov.il>\n"
 "Language-Team: Hebrew Team <xfce2004@yahoo.com>\n"
@@ -171,7 +171,7 @@ msgstr "oss:אין עוצמת צליל ראשית"
 msgid "Volume: %d%%"
 msgstr "עוצמת צליל: %d%%"
 
-#: panel-plugin/plugin.c:387 mixer-window.gob:143
+#: panel-plugin/plugin.c:387 mixer-window.gob:169
 msgid "Volume Control"
 msgstr "בקרת עוצמת צליל"
 

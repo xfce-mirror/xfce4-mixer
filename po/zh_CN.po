@@ -7,14 +7,14 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2004-09-21 00:02+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-10-02 10:36+0200\n"
 "PO-Revision-Date: 2004-09-28 01:05-0700\n"
 "Last-Translator: Yongtao Yang <yongtao.yang@telia.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Report-Msgid-Bugs-To: \n"
 
 #: mixer-settingsbox.gob:97
 msgid "Device"
@@ -169,7 +169,7 @@ msgstr "oss: 主控制器不存在"
 msgid "Volume: %d%%"
 msgstr "音量控制 %d%%"
 
-#: panel-plugin/plugin.c:387 mixer-window.gob:143
+#: panel-plugin/plugin.c:387 mixer-window.gob:169
 msgid "Volume Control"
 msgstr "音量控制"
 

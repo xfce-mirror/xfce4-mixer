@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-09-21 00:02+0200\n"
+"POT-Creation-Date: 2004-10-02 10:36+0200\n"
 "PO-Revision-Date: 2004-08-26 20:59+0200\n"
 "Last-Translator: Juraj Brosz <Juraj.Brosz@pobox.sk>\n"
 "Language-Team: Slovak <sk@li.org>\n"
@@ -169,7 +169,7 @@ msgstr ""
 msgid "Volume: %d%%"
 msgstr "Hlasitosť: %d%%"
 
-#: panel-plugin/plugin.c:387 mixer-window.gob:143
+#: panel-plugin/plugin.c:387 mixer-window.gob:169
 msgid "Volume Control"
 msgstr "Nastavenie hlasitosti"
 

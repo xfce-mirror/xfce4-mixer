@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.0.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-09-21 00:02+0200\n"
+"POT-Creation-Date: 2004-10-02 10:36+0200\n"
 "PO-Revision-Date: 2004-02-07 11:59+0800\n"
 "Last-Translator: Harun Musa <mharun@gmx.net>\n"
 "Language-Team: Malay <translation-team-ms@list.sourceforge.net>\n"
@@ -168,7 +168,7 @@ msgstr "oss: Tiada volume master"
 msgid "Volume: %d%%"
 msgstr "Volume: %d%%"
 
-#: panel-plugin/plugin.c:387 mixer-window.gob:143
+#: panel-plugin/plugin.c:387 mixer-window.gob:169
 msgid "Volume Control"
 msgstr "Kawalan Volume"
 

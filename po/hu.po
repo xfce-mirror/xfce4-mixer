@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-09-21 00:02+0200\n"
+"POT-Creation-Date: 2004-10-02 10:36+0200\n"
 "PO-Revision-Date: 2003-07-16 16:20+0200\n"
 "Last-Translator: Egmont Koblinger <egmont@uhulinux.hu>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
@@ -174,7 +174,7 @@ msgstr "oss: Nincsen master"
 msgid "Volume: %d%%"
 msgstr "Hangerő: %d%%"
 
-#: panel-plugin/plugin.c:387 mixer-window.gob:143
+#: panel-plugin/plugin.c:387 mixer-window.gob:169
 msgid "Volume Control"
 msgstr "Hangerő-szabályozó"
 

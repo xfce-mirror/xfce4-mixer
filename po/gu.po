@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-08-26 00:04+0200\n"
+"POT-Creation-Date: 2004-10-02 10:36+0200\n"
 "PO-Revision-Date: 2004-09-22 15:58+0530\n"
 "Last-Translator: Ankit Patel <ankit@redhat.com>\n"
 "Language-Team: Gujarati\n"
@@ -15,7 +15,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.3.1\n"
-"Plural-Forms: Plural-Forms: nplurals=2; plural=(n!=1);\n\n"
+"Plural-Forms: Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"\n"
 
 #: mixer-settingsbox.gob:97
 msgid "Device"
@@ -170,11 +171,11 @@ msgstr "oss: કોઈ મુખ્ય અવાજ નથી"
 msgid "Volume: %d%%"
 msgstr "અવાજ: %d%%"
 
-#: panel-plugin/plugin.c:387 mixer-window.gob:110
+#: panel-plugin/plugin.c:387 mixer-window.gob:169
 msgid "Volume Control"
 msgstr "અવાજ નિયંત્રક"
 
-#: settings/sound.c:69 settings/sound.c:87
+#: settings/sound.c:80 settings/sound.c:102 settings/sound.c:109
 msgid "Sound"
 msgstr "ધ્વનિ"
 
@@ -293,4 +294,3 @@ msgstr ""
 "આ xfce4-mixer, અવાજ નિયંત્રક કાર્યક્રમ છે.\n"
 "તે GPL-2 લાઈસન્સ હેઠળ પ્રકાશિત થયું છે કે જે તમે સ્રોત ડિરેક્ટરીમાં શોધી શકો છો.\n"
 "કોઈપણ રીતે કોઈ ચેતવણી નથી."
-
