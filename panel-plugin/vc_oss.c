@@ -122,7 +122,6 @@ vc_set_device(const gchar *name)
 
 	g_strlcpy(dev_name, name, sizeof(dev_name) - 1);
 	mixer_handle = open(dev_name, O_RDWR, 0);
-/*	find_master();*/
 }
 
 static int
@@ -142,6 +141,7 @@ static int
 init(void)
 {
 	vc_set_device(dev_name);
+	find_master();
 	return 1;
 }
 
