@@ -78,7 +78,7 @@ mcs_plugin_init(McsPlugin *plugin)
 	g_free(file);
 
 	plugin->plugin_name = g_strdup ("sound");
-	plugin->caption = g_strdup ( _("Sound"));
+	plugin->caption = g_strdup ( dgettext(GETTEXT_PACKAGE, "Sound"));
 	plugin->run_dialog = run_dialog;
 	plugin->icon = xfce_themed_icon_load ("xfce4-mixer", 48);
 	
@@ -107,7 +107,7 @@ static void     run_dialog(McsPlugin *plugin)
 
 	sb = xfce_mixer_settingsbox_new ();
 	gtk_widget_show (GTK_WIDGET (sb));
-	header = xfce_create_header (plugin->icon, _("Sound"));
+	header = xfce_create_header (plugin->icon, dgettext(GETTEXT_PACKAGE, "Sound"));
 	gtk_widget_show (header);
 	gtk_box_pack_start (GTK_BOX (GTK_DIALOG (dialog)->vbox), GTK_WIDGET (header), FALSE, FALSE, 0);
 	gtk_box_pack_start (GTK_BOX (GTK_DIALOG (dialog)->vbox), GTK_WIDGET (sb), TRUE, FALSE, 6);
