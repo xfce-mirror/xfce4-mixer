@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2003-07-12 14:04+0200\n"
-"PO-Revision-Date: 2003-07-05 17:26+0100\n"
+"PO-Revision-Date: 2003-07-15 22:21+0100\n"
 "Last-Translator: Carles Muñoz Gorriz <carlesmu@internautas.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -21,11 +21,11 @@ msgstr "El so no funciona"
 #: panel-plugin/mixer.c:287
 #, c-format
 msgid "Volume: %d%%"
-msgstr "Volum %d%%"
+msgstr "Volum: %d%%"
 
 #: panel-plugin/mixer.c:945
 msgid "Use _internal mixer"
-msgstr ""
+msgstr "utilitza el mesclador _intern"
 
 #: panel-plugin/mixer.c:1140
 msgid "Volume Control"
@@ -34,22 +34,22 @@ msgstr "Control de volum"
 #: panel-plugin/vc_alsa.c:89
 #, c-format
 msgid "alsa: Mixer %s open error: %s\n"
-msgstr "alsa: Mesclador %s error al obrir. %s\n"
+msgstr "alsa: Mesclador %s error al obrir: %s\n"
 
 #: panel-plugin/vc_alsa.c:94
 #, c-format
 msgid "alsa: Mixer attach %s error: %s\n"
-msgstr "alsa: Error %s en l'adjunt del mesclador. %s\n"
+msgstr "alsa: Error %s en l'adjunt del mesclador: %s\n"
 
 #: panel-plugin/vc_alsa.c:102
 #, c-format
 msgid "alsa: Mixer register error: %s"
-msgstr "alsa: Error al registrar el mesclador. %s"
+msgstr "alsa: Error al registrar el mesclador: %s"
 
 #: panel-plugin/vc_alsa.c:111
 #, c-format
 msgid "alsa: Mixer load error: %s"
-msgstr "alsa: Error en la càrrega del mesclador. %s"
+msgstr "alsa: Error en la càrrega del mesclador: %s"
 
 #: panel-plugin/vc_alsa.c:121
 #, c-format
@@ -58,4 +58,5 @@ msgstr "alsa: No es pot trobar el control '%s',%i\n"
 
 #: panel-plugin/vc_oss.c:134
 msgid "oss: No master"
-msgstr "oss: No hi és es mestre"
+msgstr "oss: No hi és el mestre"
+
