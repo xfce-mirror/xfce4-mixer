@@ -444,8 +444,8 @@ mixer_set_theme(Control * control, const char *theme)
 }
 
 
-static void
-free_optionsdialog(t_mixer *mixer)
+static gboolean
+free_optionsdialog_cb(GtkWidget *widget, GdkEvent *event, t_mixer *mixer)
 {
 	if (mixer->options.command) {
 		g_free(mixer->options.command); 
@@ -456,6 +456,7 @@ free_optionsdialog(t_mixer *mixer)
 	       g_free(mixer->options.device);
 	       mixer->options.device = NULL;
 	}
+	return FALSE;
 }
 
 static void
@@ -470,7 +471,7 @@ mixer_free (Control * control)
 	    mixer->timeout_id = 0;
     }
     
-    free_optionsdialog(mixer);
+    free_optionsdialog_cb(NULL, NULL, mixer);
 
     if (mixer->options.l_visible) {
         vc_free_control_list (mixer->options.l_visible);
@@ -1048,7 +1049,7 @@ mixer_create_options(Control *control, GtkContainer *container, GtkWidget *done)
 	mixer_do_options(mixer, 2);
 /*	create_options_backup(mixer);*/
 	
-	g_signal_connect(GTK_WIDGET(mixer->dialog), "destroy-event", G_CALLBACK(free_optionsdialog), mixer);
+	g_signal_connect(GTK_WIDGET(mixer->dialog), "destroy-event", G_CALLBACK(free_optionsdialog_cb), mixer);
 	g_signal_connect(GTK_WIDGET(done), "clicked", G_CALLBACK(mixer_apply_options_cb), mixer);
 }
 
