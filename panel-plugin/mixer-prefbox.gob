@@ -154,6 +154,7 @@ class Xfce:Mixer:Prefbox from Gtk:VBox {
 		GtkWidget *cbb;
 		GtkWidget *click_b;
 		GtkWidget *dentry;
+		GList *gn;
 
 		gtk_box_set_spacing (GTK_BOX (self), 5);
 		self->device_cb = GTK_COMBO (gtk_combo_new ());
@@ -195,6 +196,7 @@ class Xfce:Mixer:Prefbox from Gtk:VBox {
 		if (g_find_program_in_path ("xfce4-mixer")) {
 			gn = g_list_append (NULL, "xfce4-mixer");
 			gtk_combo_set_popdown_strings (self->execu_cb, gn);
+			g_list_free (gn);
 		}
 	}
 
