@@ -1,0 +1,64 @@
+2003-12-29 16:20  olivier
+
+	* no.gmo, no.po: Update version number, Update ChangeLog Fix
+	  missing CHARSET in potfiles
+
+2003-12-29 13:16  jasper
+
+	* no.gmo, no.po, tr.gmo, tr.po: Update Norwegian and Turkish
+	  translations
+
+2003-12-27 22:52  jasper
+
+	* pl.gmo, pl.po: Update Polish translations
+
+2003-12-15 22:35  jasper
+
+	* az.gmo, az.po: Add Azerbaijani translations
+
+2003-11-16 09:44  jasper
+
+	* cs.gmo, cs.po: Update Czech translations
+
+2003-11-12 08:02  jasper
+
+	* ca.gmo, cs.gmo, de.gmo, fr.gmo, hi.gmo, hu.gmo, it.gmo, ko.gmo,
+	  lt.gmo, ms.gmo, nl.gmo, pt_PT.gmo, ru.gmo, ta.gmo, tr.gmo,
+	  uk.gmo, vi.gmo, zh_CN.gmo, zh_TW.gmo: Forgot gmo files update
+
+2003-11-11 19:35  jasper
+
+	* ca.po, cs.po, de.po, fr.po, hi.po, hu.po, it.po, ko.po, lt.po,
+	  ms.po, nl.po, pt_PT.po, ru.po, ta.po, tr.po, uk.po, vi.po,
+	  xfce4-mixer.pot, zh_CN.po, zh_TW.po: Update po files, just in
+	  case something changed ...
+
+2003-11-09 20:09  jasper
+
+	* cs.gmo, cs.po: Add Check translations
+
+2003-11-03 19:06  jasper
+
+	* uk.gmo, uk.po: Add Ukranian translations
+
+2003-11-02 00:28  olivier
+
+	* hi.gmo, hi.po: Add Hindi translation
+
+2003-10-25 00:31  jasper
+
+	* vi.gmo, vi.po:
+	  Add vietnamese translations by Lam Vinh Nien <nienvl@yahoo.ca>.
+
+2003-10-15 13:20  jasper
+
+	* ko.gmo, ko.po: Update korean translations
+
+2003-09-28 10:08  huysmans
+
+	* ko.gmo, ko.po: Merge changes in HEAD to stable branch
+
+2003-09-27 13:18  huysmans
+
+	* ta.gmo, ta.po: Update tamil translations
+
