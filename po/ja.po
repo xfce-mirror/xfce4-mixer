@@ -7,11 +7,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.2.0\n"
-"Report-Msgid-Bugs-To: xfce-i18n@xfce.org\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-02-16 09:43+0900\n"
-"PO-Revision-Date: 2005-02-17 23:10+0900\n"
+"PO-Revision-Date: 2005-02-22 02:23+0900\n"
 "Last-Translator: Daichi Kawahata <daichik@users.sourceforge.net>\n"
-"Language-Team: Japanese <xfce-i18n@xfce.org>\n"
+"Language-Team: xfce-users-jp <xfce-users-jp@ml.fdiary.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -196,7 +196,7 @@ msgstr "/ファイル(_F)/終了(_E)"
 
 #: src/menus.c:15
 msgid "/_View"
-msgstr "/表示(_)"
+msgstr "/表示(_V)"
 
 #: src/menus.c:16
 msgid "/View/_Manage"
@@ -288,7 +288,7 @@ msgstr "プロファイル"
 #: src/mixer-profilebox.gob:374 mixer-profilebox.gob:374
 #, c-format
 msgid "Really delete those %d profiles?"
-msgstr "本当にこれら %d のプロファイルを削除していいですか?"
+msgstr "本当にこれら %d 件のプロファイルを削除していいですか?"
 
 #: src/mixer-profilebox.gob:377 mixer-profilebox.gob:377
 #, c-format
