@@ -3,7 +3,7 @@
 #include <gtk/gtk.h>
 #include <libxfce4util/libxfce4util.h>
 
-#define MIXER_CONFIG_SUBPATH "mixer/"
+#define MIXER_CONFIG_SUBPATH "xfce4/mixer/"
 
 typedef enum {
 	CONFIG_SAVE,
