@@ -952,7 +952,7 @@ my_create_command_option(GtkSizeGroup *sg)
 
 #endif
 static void
-mixer_add_options(Control *control, GtkContainer *container, GtkWidget *done)
+mixer_create_options(Control *control, GtkContainer *container, GtkWidget *done)
 {
 	t_mixer		*mixer;
 	GtkWidget 	*vbox;
@@ -1146,7 +1146,7 @@ xfce_control_class_init (ControlClass * cc)
     cc->write_config = mixer_write_config;
     cc->attach_callback = mixer_attach_callback;
     
-    cc->add_options = (gpointer) mixer_add_options;
+    cc->create_options = (gpointer) mixer_create_options;
 
     cc->set_theme = mixer_set_theme;
 
