@@ -1,3 +1,8 @@
+2004-10-22 22:38  olivier
+
+	* ChangeLog, configure, configure.ac, ltmain.sh: Updated versions
+	  and change logs
+
 2004-10-21 19:37  benny
 
 	* src/: xfce-mixer-mcs-client.c, xfce-mixer-profilebox-detail.c:
