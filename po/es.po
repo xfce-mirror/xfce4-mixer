@@ -118,7 +118,7 @@ msgstr ""
 #: mixer-profilebox.gob:88
 #, fuzzy
 msgid "Device:"
-msgstr "Dispositivo"
+msgstr "Dispositivo:"
 
 #: mixer-profilebox.gob:142
 msgid "Create new profile"
