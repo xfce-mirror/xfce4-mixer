@@ -1,7 +1,24 @@
+2003-09-28 10:16  huysmans
+
+	* configure, configure.ac, po/ko.gmo: Fix latest po file changes
+
+2003-09-27 14:36  huysmans
+
+	* configure, panel-plugin/vc_alsa.c, po/ta.gmo, po/ta.po: Update
+	  tamil translation
+
+2003-09-27 13:59  dannym
+
+	* configure, configure.ac, po/ko.po: added korean translation
+
+2003-09-22 22:56  huysmans
+
+	* ChangeLog: Update ChangeLogs
+
 2003-09-22 22:44  huysmans
 
 	* po/: pt_PT.gmo, pt_PT.po: Update version numbers and po files for
-	release
+	  release
 
 2003-09-22 00:43  xfce
 
@@ -10,7 +27,7 @@
 2003-09-15 23:07  huysmans
 
 	* configure, configure.ac, po/pt_PT.gmo, po/pt_PT.po: Big portugese
-	translation update
+	  translation update
 
 2003-09-10 09:57  huysmans
 
@@ -19,23 +36,23 @@
 2003-09-10 09:49  huysmans
 
 	* configure, configure.ac, po/zh_TW.po: Update version numbers and
-	po files for release
+	  po files for release
 
 2003-09-02 09:17  huysmans
 
 	* configure, configure.ac, po/ms.gmo, po/ms.po: Add malaysian
-	translations
+	  translations
 
 2003-08-30 14:49  huysmans
 
 	* aclocal.m4, configure, configure.ac, po/zh_TW.Big5.gmo,
-	po/zh_TW.Big5.po, po/zh_TW.gmo, po/zh_TW.po: Rename zh_TW.Big5 ->
-	zh_TW
+	  po/zh_TW.Big5.po, po/zh_TW.gmo, po/zh_TW.po: Rename zh_TW.Big5 ->
+	  zh_TW
 
 2003-08-30 10:59  huysmans
 
 	* po/: zh_TW.Big5.gmo, zh_TW.Big5.po: Add traditional chinese
-	translations
+	  translations
 
 2003-08-26 09:38  huysmans
 
@@ -44,12 +61,12 @@
 2003-08-26 09:22  huysmans
 
 	* po/: ca.po, lt.gmo, lt.po, zh_CN.po: Update version numbers and
-	po files for release
+	  po files for release
 
 2003-08-17 13:36  huysmans
 
 	* configure, configure.ac, po/lt.gmo, po/lt.po: Add lithuanian
-	translations
+	  translations
 
 2003-08-10 21:54  huysmans
 
@@ -58,7 +75,7 @@
 2003-08-07 23:57  huysmans
 
 	* po/: ca.gmo, ca.po, de.gmo, fr.gmo, hu.gmo, it.gmo, nl.gmo,
-	ru.gmo, tr.gmo, zh_CN.gmo: Update catalan translations
+	  ru.gmo, tr.gmo, zh_CN.gmo: Update catalan translations
 
 2003-08-04 18:38  dannym
 
@@ -67,8 +84,8 @@
 2003-08-02 11:41  dannym
 
 	* po/: ca.po, de.po, fr.po, hu.po, it.po, nl.po, ru.po, tr.po,
-	xfce4-mixer.pot, zh_CN.po: added translateable strings for
-	"Visible", "Control" (for the tree)
+	  xfce4-mixer.pot, zh_CN.po: added translateable strings for
+	  "Visible", "Control" (for the tree)
 
 2003-08-01 14:38  dannym
 
@@ -81,17 +98,17 @@
 2003-08-01 14:34  dannym
 
 	* panel-plugin/mvisible_opts.c: translateable "Control" and
-	"Visible"
+	  "Visible"
 
 2003-07-30 22:34  dannym
 
 	* panel-plugin/: string_option_menu.c, string_option_menu.h: small
-	nice helpers
+	  nice helpers
 
 2003-07-30 22:30  dannym
 
 	* panel-plugin/: vc_alsa.c, vc_oss.c: device listing, alsa fixups
-	for proper (hopefully) device selection...
+	  for proper (hopefully) device selection...
 
 2003-07-30 13:31  huysmans
 
@@ -100,20 +117,20 @@
 2003-07-30 10:16  huysmans
 
 	* configure, configure.ac, po/ca.gmo, po/ca.po, po/de.gmo,
-	po/de.po, po/fr.gmo, po/fr.po, po/hu.gmo, po/hu.po, po/it.gmo,
-	po/it.po, po/nl.gmo, po/nl.po, po/ru.gmo, po/ru.po, po/tr.gmo,
-	po/tr.po, po/xfce4-mixer.pot, po/zh_CN.gmo, po/zh_CN.po: Update
-	version numbers and po files for release
+	  po/de.po, po/fr.gmo, po/fr.po, po/hu.gmo, po/hu.po, po/it.gmo,
+	  po/it.po, po/nl.gmo, po/nl.po, po/ru.gmo, po/ru.po, po/tr.gmo,
+	  po/tr.po, po/xfce4-mixer.pot, po/zh_CN.gmo, po/zh_CN.po: Update
+	  version numbers and po files for release
 
 2003-07-30 00:30  dannym
 
 	* panel-plugin/mixer_window.c: fixed source of a warning with
-	--enable-debug=full
+	  --enable-debug=full
 
 2003-07-30 00:28  dannym
 
 	* panel-plugin/mixer.c: bugfix for when the internal mixer window
-	is left open and USR1 is sent to the panel
+	  is left open and USR1 is sent to the panel
 
 2003-07-30 00:07  dannym
 
@@ -162,8 +179,8 @@
 2003-07-28 00:08  dannym
 
 	* panel-plugin/test_vc.c:
-	-------------------------------------------------------------------
-	--- test program for the vc stuff (oss so far)
+	  ----------------------------------------------------------------------
+	  test program for the vc stuff (oss so far)
 
 2003-07-27 23:59  dannym
 
@@ -176,23 +193,23 @@
 2003-07-27 23:26  dannym
 
 	* panel-plugin/: mixer.c, vc.c, vc.h, vc_alsa.c,
-	vc_alsa_fallback.c, vc_oss.c: Bugfix *sweatdrops*
+	  vc_alsa_fallback.c, vc_oss.c: Bugfix *sweatdrops*
 
 2003-07-27 22:40  dannym
 
 	* panel-plugin/: mixer.c, vc.c, vc.h, vc_alsa.c,
-	vc_alsa_fallback.c, vc_oss.c: bugfix set_device
+	  vc_alsa_fallback.c, vc_oss.c: bugfix set_device
 
 2003-07-27 21:56  dannym
 
 	* panel-plugin/: vc_oss.c, vc_alsa.c, vc_alsa_fallback.c:
-	close_device
+	  close_device
 
 2003-07-27 21:38  dannym
 
 	* panel-plugin/: mixer.c, vc.c, vc.h:
-	-------------------------------------------------------------------
-	--- set_device by Toby :)
+	  ----------------------------------------------------------------------
+	  set_device by Toby :)
 
 2003-07-19 11:30  huysmans
 
@@ -201,20 +218,20 @@
 2003-07-19 11:08  huysmans
 
 	* config.h.in, configure, configure.ac, po/ca.gmo, po/ca.po,
-	po/de.gmo, po/de.po, po/fr.gmo, po/fr.po, po/hu.gmo, po/hu.po,
-	po/it.gmo, po/it.po, po/nl.gmo, po/nl.po, po/ru.gmo, po/ru.po,
-	po/tr.gmo, po/tr.po, po/xfce4-mixer.pot, po/zh_CN.gmo, po/zh_CN.po:
-	Update version numbers and po files for release
+	  po/de.gmo, po/de.po, po/fr.gmo, po/fr.po, po/hu.gmo, po/hu.po,
+	  po/it.gmo, po/it.po, po/nl.gmo, po/nl.po, po/ru.gmo, po/ru.po,
+	  po/tr.gmo, po/tr.po, po/xfce4-mixer.pot, po/zh_CN.gmo,
+	  po/zh_CN.po: Update version numbers and po files for release
 
 2003-07-18 20:16  bmeurer
 
 	* ChangeLog, configure, configure.ac: Make this depend on the
-	latest panel.
+	  latest panel.
 
 2003-07-18 17:58  huysmans
 
 	* panel-plugin/mixer.c: Change panel API again to prevent old
-	plugins to crah the panel
+	  plugins to crah the panel
 
 2003-07-18 12:57  huysmans
 
@@ -231,7 +248,7 @@
 2003-07-16 11:57  huysmans
 
 	* configure, configure.ac, po/ca.po, po/hu.gmo, po/hu.po: Add
-	hungarian translations
+	  hungarian translations
 
 2003-07-16 10:22  huysmans
 
@@ -240,9 +257,9 @@
 2003-07-15 19:21  dannym
 
 	* panel-plugin/: scroller_size.c, scroller_size.h: Moved the
-	scroll-window be as big as possible, but without leaving empty
-	space in the window, and smaller than the whole screen, to a
-	function. TODO: mcs desktop borders
+	  scroll-window be as big as possible, but without leaving empty
+	  space in the window, and smaller than the whole screen, to a
+	  function. TODO: mcs desktop borders
 
 2003-07-13 10:43  huysmans
 
@@ -255,24 +272,24 @@
 2003-07-12 15:27  huysmans
 
 	* po/: ca.gmo, ca.po, de.gmo, de.po, fr.gmo, fr.po, it.gmo, it.po,
-	nl.gmo, nl.po, ru.gmo, ru.po, tr.gmo, tr.po, zh_CN.gmo, zh_CN.po:
-	Update po files before release (again ;)
+	  nl.gmo, nl.po, ru.gmo, ru.po, tr.gmo, tr.po, zh_CN.gmo, zh_CN.po:
+	  Update po files before release (again ;)
 
 2003-07-12 15:03  xfce
 
 	* panel-plugin/mixer_window.c, po/xfce4-mixer.pot: Set fixed width
-	and set hscrollbar policy to automatic
+	  and set hscrollbar policy to automatic
 
 2003-07-12 14:11  xfce
 
 	* configure, configure.ac, panel-plugin/Makefile.am,
-	panel-plugin/Makefile.in, panel-plugin/mixer_window.c, po/fr.gmo,
-	po/fr.po: Remove the hack for map event on mixer window.
+	  panel-plugin/Makefile.in, panel-plugin/mixer_window.c, po/fr.gmo,
+	  po/fr.po: Remove the hack for map event on mixer window.
 
 2003-07-12 11:08  dannym
 
 	* panel-plugin/: mixer_window.c, mixer_window.h, vc_alsa.c: Update,
-	breaks stored configuration, ow well
+	  breaks stored configuration, ow well
 
 2003-07-11 09:33  huysmans
 
@@ -289,20 +306,20 @@
 2003-07-10 11:45  huysmans
 
 	* configure, configure.ac: Bump versions for release and update po
-	files
+	  files
 
 2003-07-09 10:47  huysmans
 
 	* configure, configure.ac, ltmain.sh, panel-plugin/mixer.c,
-	po/ca.gmo, po/ca.po, po/de.gmo, po/de.po, po/it.gmo, po/it.po,
-	po/nl.gmo, po/nl.po, po/ru.gmo, po/ru.po, po/tr.gmo, po/tr.po,
-	po/xfce4-mixer.pot, po/zh_CN.gmo, po/zh_CN.po: Update to new plugin
-	API
+	  po/ca.gmo, po/ca.po, po/de.gmo, po/de.po, po/it.gmo, po/it.po,
+	  po/nl.gmo, po/nl.po, po/ru.gmo, po/ru.po, po/tr.gmo, po/tr.po,
+	  po/xfce4-mixer.pot, po/zh_CN.gmo, po/zh_CN.po: Update to new
+	  plugin API
 
 2003-07-08 22:55  xfce
 
 	* po/Makefile.in.in: Don't perform an update-po on make dist as it
-	causes far too much trouble
+	  causes far too much trouble
 
 2003-07-08 20:01  huysmans
 
@@ -315,12 +332,13 @@
 2003-07-07 22:46  dannym
 
 	* panel-plugin/mixer.c: trying to fix the one-pixel-below bug
-	phrep_ reported...
+	  phrep_ reported...
 
 2003-07-07 22:43  dannym
 
 	* panel-plugin/mixer_window.c: Ok, since the draw_value from
-	GtkScale is starting to annoy me, I just switched it off now. Bah.
+	  GtkScale is starting to annoy me, I just switched it off now.
+	  Bah.
 
 2003-07-06 22:14  huysmans
 
@@ -337,7 +355,7 @@
 2003-07-02 00:32  dannym
 
 	* panel-plugin/mixer_window.c: Small xinerama/xrandr fixup... needs
-	work...
+	  work...
 
 2003-06-29 16:17  dannym
 
@@ -346,13 +364,13 @@
 2003-06-29 16:09  dannym
 
 	* panel-plugin/mixer_window.c: Finally... scroller only has
-	scrollbars if required. If possible, the window just gets bigger
-	instead of adding scrollbars...
+	  scrollbars if required. If possible, the window just gets bigger
+	  instead of adding scrollbars...
 
 2003-06-28 12:00  xfce
 
 	* Makefile.in, aclocal.m4, config.h.in, configure, ltmain.sh,
-	panel-plugin/Makefile.in: Switch to GNU libtool 1.5
+	  panel-plugin/Makefile.in: Switch to GNU libtool 1.5
 
 2003-06-25 00:38  xfce
 
@@ -361,7 +379,7 @@
 2003-06-24 22:49  xfce
 
 	* aclocal.m4, configure, configure.ac, ltcf-c.sh, ltconfig,
-	ltmain.sh, po/it.po: Add Italian locale
+	  ltmain.sh, po/it.po: Add Italian locale
 
 2003-06-19 13:19  dannym
 
@@ -374,7 +392,7 @@
 2003-06-18 19:22  dannym
 
 	* panel-plugin/vc_alsa.c: Now unmutes alsa automatically (damn you,
-	alsa). Needs more testing...
+	  alsa). Needs more testing...
 
 2003-06-18 00:04  dannym
 
@@ -387,7 +405,7 @@
 2003-06-17 23:55  dannym
 
 	* panel-plugin/mixer.c: Muting with middle or right mouse button on
-	green bar
+	  green bar
 
 2003-06-16 13:53  dannym
 
@@ -396,7 +414,7 @@
 2003-06-15 14:11  dannym
 
 	* panel-plugin/: mixer.c, mixer_window.c, name_change, vc.c, vc.h,
-	vc_alsa.c, vc_alsa_fallback.c, vc_oss.c: Name Change ;)
+	  vc_alsa.c, vc_alsa_fallback.c, vc_oss.c: Name Change ;)
 
 2003-06-15 13:29  dannym
 
@@ -405,14 +423,14 @@
 2003-06-14 23:51  bmeurer
 
 	* Makefile.in, aclocal.m4, config.guess, config.sub, configure,
-	install-sh, ltcf-c.sh, ltconfig, ltmain.sh,
-	panel-plugin/Makefile.am, panel-plugin/Makefile.in,
-	panel-plugin/mixer.c: Fixed forgotten file.
+	  install-sh, ltcf-c.sh, ltconfig, ltmain.sh,
+	  panel-plugin/Makefile.am, panel-plugin/Makefile.in,
+	  panel-plugin/mixer.c: Fixed forgotten file.
 
 2003-06-14 11:34  dannym
 
 	* panel-plugin/: mixer.c, vc_alsa.c: small bugfixes for the case
-	there is no working sound device...
+	  there is no working sound device...
 
 2003-06-14 10:35  dannym
 
@@ -437,7 +455,7 @@
 2003-06-12 13:13  dannym
 
 	* panel-plugin/: mixer_window.c, mixer_window.h, mvisible_opts.c,
-	vc.c, vc_alsa.c, vc_oss.c: Update... mixer window and all
+	  vc.c, vc_alsa.c, vc_oss.c: Update... mixer window and all
 
 2003-06-12 08:53  dannym
 
@@ -446,12 +464,12 @@
 2003-06-10 23:47  dannym
 
 	* panel-plugin/mixer.c: Check for bind_textdomain_codeset before
-	using it.
+	  using it.
 
 2003-06-10 22:28  dannym
 
 	* panel-plugin/vc_oss.c: Fixed multiple controls handling for
-	get_volume in OSS.
+	  get_volume in OSS.
 
 2003-06-08 16:28  huysmans
 
@@ -460,7 +478,7 @@
 2003-06-08 16:23  huysmans
 
 	* Makefile.in, aclocal.m4, config.h.in, configure, configure.ac,
-	panel-plugin/Makefile.in: Add russian translation
+	  panel-plugin/Makefile.in: Add russian translation
 
 2003-06-07 20:14  bmeurer
 
@@ -473,21 +491,21 @@
 2003-06-07 02:01  xfce
 
 	* Makefile.am, Makefile.in, aclocal.m4, config.h.in, configure,
-	xfce4-mixer.spec.in, panel-plugin/Makefile.am,
-	panel-plugin/Makefile.in: Fix a bunch of errors is build process!
+	  xfce4-mixer.spec.in, panel-plugin/Makefile.am,
+	  panel-plugin/Makefile.in: Fix a bunch of errors is build process!
 
 2003-06-05 13:46  huysmans
 
 	* Makefile.am, Makefile.in, configure, configure.ac,
-	xfce4-mixer.spec.in, po/Makefile.in.in, po/ca.gmo, po/ca.po,
-	po/de.gmo, po/de.po, po/nl.gmo, po/nl.po, po/tr.gmo, po/tr.po,
-	po/xfce4-mixer.pot, po/zh_CN.gmo, po/zh_CN.po: Add spec file and
-	Dutch translations
+	  xfce4-mixer.spec.in, po/Makefile.in.in, po/ca.gmo, po/ca.po,
+	  po/de.gmo, po/de.po, po/nl.gmo, po/nl.po, po/tr.gmo, po/tr.po,
+	  po/xfce4-mixer.pot, po/zh_CN.gmo, po/zh_CN.po: Add spec file and
+	  Dutch translations
 
 2003-06-05 09:31  huysmans
 
 	* panel-plugin/Makefile.in, po/tr.gmo, po/tr.po: Updated
-	translations
+	  translations
 
 2003-05-31 13:10  huysmans
 
@@ -504,12 +522,12 @@
 2003-05-29 14:35  huysmans
 
 	* configure, configure.ac, po/ca.gmo, po/ca.po: Update catalan
-	translations
+	  translations
 
 2003-05-29 11:17  dannym
 
 	* panel-plugin/mixer_window.c: bug fix: first init graphics
-	controls then connect changed signal.
+	  controls then connect changed signal.
 
 2003-05-29 00:29  dannym
 
@@ -517,25 +535,25 @@
 
 2003-05-29 00:04  dannym
 
-	* panel-plugin/mixer_window.h: 
-	part 2 of the mixer window ;)
+	* panel-plugin/mixer_window.h:
+	  part 2 of the mixer window ;)
 
 2003-05-28 23:36  dannym
 
-	* panel-plugin/: mixer_window.c, vc_alsa.c, vc_oss.c: 
-	Mixer Window, part 2 ;) now can actually change volume
+	* panel-plugin/: mixer_window.c, vc_alsa.c, vc_oss.c:
+	  Mixer Window, part 2 ;) now can actually change volume
 
 2003-05-28 23:13  dannym
 
-	* panel-plugin/: Makefile.am, Makefile.in: 
-	added mixer_window{.c,.h}
+	* panel-plugin/: Makefile.am, Makefile.in:
+	  added mixer_window{.c,.h}
 
 2003-05-28 22:43  dannym
 
 	* panel-plugin/: vc_oss.c, mixer.c, vc.c, vc.h, vc_alsa.c,
-	vc_alsa_fallback.c, mixer_window.c, mixer_window.h: 
-	Beginning of a mixer window with sliders etc... leave the launch
-	command of the panel plugin empty to use.
+	  vc_alsa_fallback.c, mixer_window.c, mixer_window.h:
+	  Beginning of a mixer window with sliders etc... leave the launch
+	  command of the panel plugin empty to use.
 
 2003-05-27 21:41  dannym
 
@@ -548,24 +566,24 @@
 2003-05-21 23:43  huysmans
 
 	* Makefile.in, aclocal.m4, config.guess, config.sub, configure,
-	configure.ac, panel-plugin/Makefile.in, po/tr.gmo, po/tr.po: Add
-	Turkish translations
+	  configure.ac, panel-plugin/Makefile.in, po/tr.gmo, po/tr.po: Add
+	  Turkish translations
 
 2003-05-08 21:17  dannym
 
 	* panel-plugin/vc_alsa.c: set_master_volume is more fault-tolerant
-	now.
+	  now.
 
 2003-05-08 19:46  dannym
 
 	* panel-plugin/vc_alsa.c: trying something else... hmmmm alsa will
-	you still play dumb?
+	  you still play dumb?
 
 2003-05-08 19:21  dannym
 
 	* panel-plugin/vc_alsa.c: Removed snd_mixer_close in the error
-	handling block of snd_mixer_attach, since that makes an assertion
-	fail within alsa 0.9.2 lib's snd_mixer_close routine O_o
+	  handling block of snd_mixer_attach, since that makes an assertion
+	  fail within alsa 0.9.2 lib's snd_mixer_close routine O_o
 
 2003-05-03 12:47  huysmans
 
@@ -574,13 +592,13 @@
 2003-05-03 12:35  huysmans
 
 	* Makefile.in, aclocal.m4, config.guess, config.sub, configure,
-	configure.ac, ltcf-c.sh, ltconfig, ltmain.sh,
-	panel-plugin/Makefile.in: Add Chinese translations
+	  configure.ac, ltcf-c.sh, ltconfig, ltmain.sh,
+	  panel-plugin/Makefile.in: Add Chinese translations
 
 2003-05-01 20:49  dannym
 
 	* panel-plugin/mixer.c: Now using translations sourced from the
-	panel (P_)
+	  panel (P_)
 
 2003-04-30 20:42  bmeurer
 
@@ -589,27 +607,27 @@
 2003-04-30 20:38  bmeurer
 
 	* Makefile.in, config.h.in, panel-plugin/Makefile.in: Added de.gmo
-	for people w/o msgfmt.
+	  for people w/o msgfmt.
 
 2003-04-30 19:24  bmeurer
 
 	* configure, configure.ac: BM_DEPEND_CHECK need to appear after
-	BM_DEPENDs
+	  BM_DEPENDs
 
 2003-04-30 17:20  dannym
 
 	* configure.ac, panel-plugin/Makefile.am: Added startup
-	notification check for the options dialog ;)
+	  notification check for the options dialog ;)
 
 2003-04-30 16:52  dannym
 
 	* panel-plugin/mixer.c: Launcher dependent code copy-and-pasted to
-	mixer (trying to fix what belial reported)
+	  mixer (trying to fix what belial reported)
 
 2003-04-29 19:02  dannym
 
 	* README: You README you, will you go into the right place,
-	already? :)
+	  already? :)
 
 2003-04-29 13:33  dannym
 
@@ -626,12 +644,12 @@
 2003-04-27 22:43  dannym
 
 	* panel-plugin/mixer.c: Removed focus-out-event as it caused weird
-	crashes. Hmz.
+	  crashes. Hmz.
 
 2003-04-27 16:37  dannym
 
 	* panel-plugin/mixer.c: Fixed all the dialog callbacks. The options
-	dialog should work fine now :)
+	  dialog should work fine now :)
 
 2003-04-27 15:24  dannym
 
@@ -644,7 +662,7 @@
 2003-04-26 23:30  bmeurer
 
 	* Makefile.am, Makefile.in, aclocal.m4, m4/depends.m4: Updated
-	autostuff.
+	  autostuff.
 
 2003-04-26 23:11  dannym
 
@@ -653,8 +671,8 @@
 2003-04-26 22:56  dannym
 
 	* panel-plugin/: vc.c, vc_alsa.c, vc_oss.c: Now thats what you call
-	a dumb bug :) Found it, anyways: vc.c: register: "break" was
-	missing.
+	  a dumb bug :) Found it, anyways: vc.c: register: "break" was
+	  missing.
 
 2003-04-26 17:40  dannym
 
@@ -663,7 +681,7 @@
 2003-04-26 15:42  dannym
 
 	* panel-plugin/mixer.c: Fixed leak that could happen if never going
-	to the property dialog. (no freed options.command)
+	  to the property dialog. (no freed options.command)
 
 2003-04-26 15:30  dannym
 
@@ -672,45 +690,32 @@
 2003-04-26 15:29  dannym
 
 	* panel-plugin/mixer.c: update_volume_display: caption: Tooltip:
-	"Volume" instead "Volume control"
+	  "Volume" instead "Volume control"
 
 2003-04-26 14:37  dannym
 
 	* panel-plugin/mixer.c: Fixed bug in mixer_command_entry_lost_focus
-	handler.
+	  handler.
 
 2003-04-26 12:48  bmeurer
 
 	* COPYING, Makefile.am, Makefile.in, NOTES, README, aclocal.m4,
-	config.h.in, configure, configure.ac, m4/i18n.m4,
-	panel-plugin/Makefile.am, panel-plugin/Makefile.in,
-	panel-plugin/mixer.c, panel-plugin/vc.c, panel-plugin/vc_alsa.c,
-	panel-plugin/vc_oss.c, po/Makefile.in.in, po/POTFILES.in, po/de.po,
-	po/xfce4-mixer.pot: Added gettext framework. Some improvements to
-	the OSS mixer stuff. Some fixes and cleanups.
+	  config.h.in, configure, configure.ac, m4/i18n.m4,
+	  panel-plugin/Makefile.am, panel-plugin/Makefile.in,
+	  panel-plugin/mixer.c, panel-plugin/vc.c, panel-plugin/vc_alsa.c,
+	  panel-plugin/vc_oss.c, po/Makefile.in.in, po/POTFILES.in,
+	  po/de.po, po/xfce4-mixer.pot: Added gettext framework. Some
+	  improvements to the OSS mixer stuff. Some fixes and cleanups.
 
 2003-04-26 11:01  bmeurer
 
 	* config.guess, AUTHORS, ChangeLog, aclocal.m4, autogen.sh,
-	compile, config.h.in, config.sub, ltconfig, COPYING, INSTALL,
-	configure, configure.ac, depcomp, install-sh, ltcf-c.sh,
-	Makefile.am, Makefile.in, README, TODO, ltmain.sh, missing,
-	mkinstalldirs, m4/debug.m4, m4/depends.m4,
-	panel-plugin/Makefile.am, panel-plugin/Makefile.in,
-	panel-plugin/mixer.c, panel-plugin/vc.c, panel-plugin/vc.h,
-	panel-plugin/vc_alsa.c, panel-plugin/vc_alsa_fallback.c,
-	panel-plugin/vc_oss.c: Initial import of xfce4-mixer. Thanks to
-	Danny Milo.
-
-2003-04-26 11:01  bmeurer
-
-	* config.guess, AUTHORS, ChangeLog, aclocal.m4, autogen.sh,
-	compile, config.h.in, config.sub, ltconfig, COPYING, INSTALL,
-	configure, configure.ac, depcomp, install-sh, ltcf-c.sh,
-	Makefile.am, Makefile.in, README, TODO, ltmain.sh, missing,
-	mkinstalldirs, m4/debug.m4, m4/depends.m4,
-	panel-plugin/Makefile.am, panel-plugin/Makefile.in,
-	panel-plugin/mixer.c, panel-plugin/vc.c, panel-plugin/vc.h,
-	panel-plugin/vc_alsa.c, panel-plugin/vc_alsa_fallback.c,
-	panel-plugin/vc_oss.c: Initial revision
+	  compile, config.h.in, config.sub, ltconfig, COPYING, INSTALL,
+	  configure, configure.ac, depcomp, install-sh, ltcf-c.sh,
+	  Makefile.am, Makefile.in, README, TODO, ltmain.sh, missing,
+	  mkinstalldirs, m4/debug.m4, m4/depends.m4,
+	  panel-plugin/Makefile.am, panel-plugin/Makefile.in,
+	  panel-plugin/mixer.c, panel-plugin/vc.c, panel-plugin/vc.h,
+	  panel-plugin/vc_alsa.c, panel-plugin/vc_alsa_fallback.c,
+	  panel-plugin/vc_oss.c: Initial revision
 
