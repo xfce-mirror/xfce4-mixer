@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-11-18 23:22+0100\n"
+"POT-Creation-Date: 2004-11-22 21:30+0100\n"
 "PO-Revision-Date: 2004-09-22 15:58+0530\n"
 "Last-Translator: Ankit Patel <ankit@redhat.com>\n"
 "Language-Team: Gujarati\n"
@@ -182,6 +182,38 @@ msgstr "ધ્વનિ"
 #: src/main.c:77
 msgid "No working sound"
 msgstr "કોઈ કામ આપતું ધ્વનિ નથી"
+
+#: src/menus.c:9
+msgid "/_File"
+msgstr ""
+
+#: src/menus.c:10
+msgid "/File/_Options"
+msgstr ""
+
+#: src/menus.c:11
+msgid "/File/_Exit"
+msgstr ""
+
+#: src/menus.c:12
+msgid "/_View"
+msgstr ""
+
+#: src/menus.c:13
+msgid "/View/sep"
+msgstr ""
+
+#: src/menus.c:14
+msgid "/View/_Manage"
+msgstr ""
+
+#: src/menus.c:15
+msgid "/_Help"
+msgstr ""
+
+#: src/menus.c:16
+msgid "/Help/_Info"
+msgstr ""
 
 #: src/mixer-info.gob:28 mixer-info.gob:28
 msgid ""

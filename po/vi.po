@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfwm4 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-11-18 23:22+0100\n"
+"POT-Creation-Date: 2004-11-22 21:30+0100\n"
 "PO-Revision-Date: 2004-09-08 15:40+9\n"
 "Last-Translator: Lâm Vĩnh Niên <nienvl@yahoo.ca>\n"
 "Language-Team: none <LL@li.org>\n"
@@ -179,6 +179,38 @@ msgstr "Âm thanh"
 #: src/main.c:77
 msgid "No working sound"
 msgstr "Không có âm thanh đang làm việc"
+
+#: src/menus.c:9
+msgid "/_File"
+msgstr ""
+
+#: src/menus.c:10
+msgid "/File/_Options"
+msgstr ""
+
+#: src/menus.c:11
+msgid "/File/_Exit"
+msgstr ""
+
+#: src/menus.c:12
+msgid "/_View"
+msgstr ""
+
+#: src/menus.c:13
+msgid "/View/sep"
+msgstr ""
+
+#: src/menus.c:14
+msgid "/View/_Manage"
+msgstr ""
+
+#: src/menus.c:15
+msgid "/_Help"
+msgstr ""
+
+#: src/menus.c:16
+msgid "/Help/_Info"
+msgstr ""
 
 #: src/mixer-info.gob:28 mixer-info.gob:28
 msgid ""
