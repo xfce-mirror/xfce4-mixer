@@ -132,8 +132,13 @@ class Xfce:Mixer:Mcs:Client from G:Object {
 			mcs_client_get_setting (self->client, name, self->channel, &setting); /* return val ? */
 
 			if (setting && setting->type == MCS_TYPE_STRING && setting->data.v_string) {
-				return g_strdup (setting->data.v_string);
+				s = g_strdup (setting->data.v_string);
+				mcs_setting_free (setting);
+				return s;
 			}
+
+			if (setting)
+				mcs_setting_free (setting);
 
 			return NULL;
 		}
