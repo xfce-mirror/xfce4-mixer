@@ -12,10 +12,15 @@ extern int register_oss(void);
 
 int main()
 {
+	volchanger_t	**v;
 	register_oss ();
 
-	select_vc_direct (*first_vc ());
-
+	v = first_vc ();
+	if ((*v)->vc_reinit_device && (*(*v)->vc_reinit_device)() == 0) {
+		printf("1. init ok\n");
+	}
+	select_vc_direct (*v);
+	
 	vc_get_volume (NULL);
 	vc_get_volume (NULL);
 	vc_get_volume (NULL);
