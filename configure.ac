@@ -23,6 +23,7 @@ AC_CHECK_HEADERS([fcntl.h limits.h sys/ioctl.h errno.h sys/stat.h sys/types.h ma
 AC_DISABLE_STATIC
 
 AC_PROG_LIBTOOL
+AC_PROG_INTLTOOL
 
 
 dnl Check what sound system to use
