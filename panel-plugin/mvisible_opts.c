@@ -71,7 +71,7 @@ void mvisible_opts_fill(GtkWidget *parent, mvisible_opts_t *o, GList *source)
 
 		cell0 = gtk_cell_renderer_toggle_new();
 		col0 = gtk_tree_view_column_new_with_attributes (
-			"Visible", cell0, "active", 0, NULL);
+			_("Visible"), cell0, "active", 0, NULL);
 					
 		gtk_tree_view_append_column (o->tv, col0);
 		
@@ -79,7 +79,7 @@ void mvisible_opts_fill(GtkWidget *parent, mvisible_opts_t *o, GList *source)
 
 		cell1 = gtk_cell_renderer_text_new();
 		col1 = gtk_tree_view_column_new_with_attributes (
-			"Control", cell1, "text", 1, NULL);
+			_("Control"), cell1, "text", 1, NULL);
 					
 		gtk_tree_view_append_column (o->tv, col1);
 		
