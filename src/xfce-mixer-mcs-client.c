@@ -213,7 +213,7 @@ ___finalize(GObject *obj_self)
 #undef VAR
 #undef client
 #line 84 "mixer-mcs-client.gob"
-	if(self->hash) { ((*(void (*)(void *))g_hash_table_destroy)) (self->hash); self->hash = NULL; }
+	if(self->hash) { g_hash_table_destroy (self->hash); self->hash = NULL; }
 #line 218 "xfce-mixer-mcs-client.c"
 }
 #undef __GOB_FUNCTION__

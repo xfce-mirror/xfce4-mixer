@@ -172,7 +172,7 @@ ___finalize(GObject *obj_self)
 	if(self->valids) { ((*(void (*)(void *))g_free)) (self->valids); self->valids = NULL; }
 #line 174 "xfce-mixer-profilebox-detail.c"
 #line 50 "mixer-profilebox-detail.gob"
-	if(self->presents) { ((*(void (*)(void *))g_hash_table_destroy)) (self->presents); self->presents = NULL; }
+	if(self->presents) { g_hash_table_destroy (self->presents); self->presents = NULL; }
 #line 177 "xfce-mixer-profilebox-detail.c"
 }
 #undef __GOB_FUNCTION__
