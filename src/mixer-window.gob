@@ -32,12 +32,24 @@ class Xfce:Mixer:Window from Gtk:Window {
 	protected Gtk:Menu:Bar *menubar = NULL;
 	public Xfce:Mixer:Profile *profile = NULL
 		unrefwith g_object_unref;
-	protected Gtk:Accel:Group *accelgroup = NULL;
+	protected Gtk:Accel:Group *accelgroup = NULL
+		destroy {
+			self_save_accelgroup (self);
+		};
 	public Xfce:Mixer:Mcs:Client *mcsc = NULL
 		unrefwith g_object_unref;
 
 	protected gchar *fname = NULL
 		destroywith g_free; /* name of the xml config file containing the window position */
+
+	protected gchar *accelmap_fname = NULL
+		destroywith g_free; /* name of the config file containing the menu accelerators */
+
+	protected void save_accelgroup(self)
+	{
+		gtk_accel_map_save (self->accelmap_fname);
+		/*gtk_accel_group_find (self->accelgroup, accelgroup_find_each_cb, self);*/
+	}
 
 	protected void set_profile(self, XfceMixerProfile *p)
 	{
@@ -106,6 +118,10 @@ class Xfce:Mixer:Window from Gtk:Window {
 
 		self->fname = xfce_get_userfile ("xfce4-mixer", "config.xml", NULL);
 		self_load_window_state (self);
+
+		self->accelmap_fname = xfce_get_userfile ("xfce4-mixer", "window.accelmap", NULL);
+
+		gtk_accel_map_load (self->accelmap_fname);
 	}
 
 

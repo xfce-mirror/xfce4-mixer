@@ -8,4 +8,5 @@ device_changed() {
 	vc_profile_item_producer_produce(current_profile);
 }
 
-save keyboard shortcuts
+DONE: save keyboard shortcuts
+gtk_settings ?
