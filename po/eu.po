@@ -7,14 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: es\n"
 "POT-Creation-Date: 2004-08-06 22:56+0200\n"
-"PO-Revision-Date: 2004-01-29 00:36+0100\n"
+"PO-Revision-Date: 2004-09-13 15:25+0200\n"
 "Last-Translator: Piarres Beobide Egaña <pi@beobide.net>\n"
-"Language-Team: Euskara <eu@li.org>\n"
+"Language-Team: Euskara <librezale@librezale.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Report-Msgid-Bugs-To: \n"
-"X-Generator: KBabel 1.0.2\n"
+"X-Generator: KBabel 1.3.1\n"
+"Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: mixer-settingsbox.gob:97
 msgid "Device"
@@ -36,7 +37,7 @@ msgstr "Bol"
 #. Master
 #: lib/trans.c:7
 msgid "Pcm"
-msgstr ""
+msgstr "Pcm"
 
 #. PCM output
 #: lib/trans.c:8
@@ -61,67 +62,67 @@ msgstr "CD"
 #. CD in
 #: lib/trans.c:12
 msgid "Bass"
-msgstr ""
+msgstr "Bax"
 
 #: lib/trans.c:13
 msgid "Trebl"
-msgstr ""
+msgstr "Alt"
 
 #: lib/trans.c:14
 msgid "Synth"
-msgstr ""
+msgstr "Sint"
 
 #: lib/trans.c:15
 msgid "Mix"
-msgstr ""
+msgstr "Nah."
 
 #: lib/trans.c:16
 msgid "Pcm2"
-msgstr ""
+msgstr "Pcm2"
 
 #: lib/trans.c:17
 msgid "Rec"
-msgstr ""
+msgstr "Grab"
 
 #: lib/trans.c:18
 msgid "IGain"
-msgstr ""
+msgstr "1Irabazia"
 
 #: lib/trans.c:19
 msgid "OGain"
-msgstr ""
+msgstr "0Irabazia"
 
 #: lib/trans.c:20
 msgid "Line1"
-msgstr ""
+msgstr "1Linea"
 
 #: lib/trans.c:21
 msgid "Line2"
-msgstr ""
+msgstr "2Linea"
 
 #: lib/trans.c:22
 msgid "Line3"
-msgstr ""
+msgstr "3Linea"
 
 #: lib/trans.c:23
 msgid "Digital1"
-msgstr ""
+msgstr "1Digitala"
 
 #: lib/trans.c:24
 msgid "Digital2"
-msgstr ""
+msgstr "2Digitala"
 
 #: lib/trans.c:25
 msgid "Digital3"
-msgstr ""
+msgstr "3Digitala"
 
 #: lib/trans.c:26
 msgid "PhoneIn"
-msgstr ""
+msgstr "TelefonoSa"
 
 #: lib/trans.c:27
 msgid "PhoneOut"
-msgstr ""
+msgstr "TelefonoIr"
 
 #: lib/trans.c:28
 msgid "Video"
@@ -129,11 +130,11 @@ msgstr "Bideo"
 
 #: lib/trans.c:29
 msgid "Radio"
-msgstr ""
+msgstr "Irratia"
 
 #: lib/trans.c:30
 msgid "Monitor"
-msgstr ""
+msgstr "Monitorea"
 
 #: lib/vc_alsa.c:94
 #, c-format
@@ -146,14 +147,14 @@ msgid "alsa: Mixer attach %s error: %s\n"
 msgstr "alsa: Errorea %s nahaslea atxikitzerakoan: %s\n"
 
 #: lib/vc_alsa.c:107
-#, fuzzy, c-format
+#, c-format
 msgid "alsa: Mixer register error: %s\n"
-msgstr "alsa: Errorea nahasle erregistroan: %s"
+msgstr "alsa: Errorea nahasle erregistroan: %s\n"
 
 #: lib/vc_alsa.c:116
-#, fuzzy, c-format
+#, c-format
 msgid "alsa: Mixer load error: %s: %s\n"
-msgstr "alsa: Errorea nahaslea kargatzerakoan: %s"
+msgstr "alsa: Errorea nahaslea kargatzerakoan: %s:  %s\n"
 
 #: lib/vc_alsa.c:126
 #, c-format
@@ -179,55 +180,54 @@ msgstr "Sonido"
 
 #: mixer-view.gob:255
 msgid "Show Switches"
-msgstr ""
+msgstr "Konmutadoreak Bistarazi"
 
 #: mixer-view.gob:256
 msgid "Hide Switches"
-msgstr ""
+msgstr "Konmutadoreak Ezkutatu"
 
 #: src/main.c:69
 msgid "No working sound"
 msgstr "Ez dago soinurik martxan"
 
 #: mixer-profilebox.gob:88
-#, fuzzy
 msgid "Device:"
-msgstr "Dispositivo"
+msgstr "Gailua:"
 
 #: mixer-profilebox.gob:142
 msgid "Create new profile"
-msgstr ""
+msgstr "Profil berria sortu"
 
 #: mixer-profilebox.gob:151
 msgid "Delete this profile"
-msgstr ""
+msgstr "profil hau ezabatu"
 
 #: mixer-profilebox.gob:170
 msgid "Profile"
-msgstr ""
+msgstr "Profila"
 
 #: mixer-profilebox.gob:374
 #, c-format
 msgid "Really delete those %d profiles?"
-msgstr ""
+msgstr "Benetan %d profilak ezabatu?"
 
 #: mixer-profilebox.gob:377
 #, c-format
 msgid "Really delete profile \"%s\"?"
-msgstr ""
+msgstr "Benetan \"%s\" profila ezabatu?"
 
 #: mixer-profilebox.gob:491
 #, c-format
 msgid "%s - New"
-msgstr ""
+msgstr "%s - Berria"
 
 #: mixer-profilebox.gob:528
 msgid "A profile needs a name"
-msgstr ""
+msgstr "Profilak izen bat behar du"
 
 #: mixer-profilebox.gob:542
 msgid "A profile with that name already exists"
-msgstr ""
+msgstr "Izen honetako profil bat badago dagoeneko"
 
 #: mixer-profilebox-detail.gob:151
 msgid "Control"
@@ -235,53 +235,53 @@ msgstr "Kontrola"
 
 #: mixer-profilebox-detail.gob:154
 msgid "Type"
-msgstr ""
+msgstr "Mota"
 
 #: mixer-profilebox-detail.gob:166
 msgid "Up"
-msgstr ""
+msgstr "Gora"
 
 #: mixer-profilebox-detail.gob:169
 msgid "Down"
-msgstr ""
+msgstr "Behera"
 
 #: mixer-profilebox-detail.gob:176
 msgid "Move Entry Up"
-msgstr ""
+msgstr "Mugitu Erregistroa Gora"
 
 #: mixer-profilebox-detail.gob:179
 msgid "Move Entry Down"
-msgstr ""
+msgstr "Mugitu Erregistroa Behera"
 
 #: mixer-profilebox-detail.gob:188
 msgid "Profile Name:"
-msgstr ""
+msgstr "Profil Izena:"
 
 #: mixer-profilebox-detail.gob:370 mixer-profilebox-detail.gob:435
 msgid "<unknown>"
-msgstr ""
+msgstr "<ezezaguna>"
 
 #: mixer-profilebox-detail.gob:372 mixer-profilebox-detail.gob:437
 msgid "<slider>"
-msgstr ""
+msgstr "<mugitze-barra>"
 
 #: mixer-profilebox-detail.gob:373 mixer-profilebox-detail.gob:438
 msgid "<onoff>"
-msgstr ""
+msgstr "<gaitu/ezgaitu>"
 
 #: mixer-profilebox-detail.gob:374 mixer-profilebox-detail.gob:439
 msgid "<select>"
-msgstr ""
+msgstr "<aukeratu>"
 
 #: src/menu-callbacks.inc:16
 #, c-format
 msgid "%s - Info"
-msgstr ""
+msgstr "%s - Argibidea"
 
 #: src/menu-callbacks.inc:38
 #, c-format
 msgid "%s - Profiles"
-msgstr ""
+msgstr "%s - Profilak"
 
 #: mixer-info.gob:28
 msgid ""
@@ -290,9 +290,13 @@ msgid ""
 "directory.\n"
 "No warranty in any way."
 msgstr ""
+"Hau xfce4-nahaslea da, bolumena kudeatzeko programa.\n"
+"Iturburuan aurki dezakezun GPL-2 lizentzipean kaleratua izan da.\n"
+"Ez dago bermarik hala ere."
 
 #~ msgid "Use _internal mixer"
 #~ msgstr "Erabili _barne nahaslea"
 
 #~ msgid "Visible"
 #~ msgstr "Ikusgai"
+
