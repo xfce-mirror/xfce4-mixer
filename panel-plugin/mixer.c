@@ -25,6 +25,10 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#ifndef HAVE_LIBSTARTUP_NOTIFICATION 
+#define HAVE_LIBSTARTUP_NOTIFICATION 1 /* FIXME: benny: any automake help on this? ;) */
+#endif
+
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
@@ -200,7 +204,7 @@ mixer_new (void)
     
     t_mixer *mixer;
     
-    mixer = g_new0(t_mixer, 1);
+    mixer = g_new0 (t_mixer, 1);
 
     mixer->broken = TRUE;
     
@@ -644,6 +648,108 @@ mixer_revert_options_cb(GtkWidget *button, t_mixer *mixer) /* verified prototype
 	gtk_widget_set_sensitive(mixer->revert_b, FALSE);
 }
 
+#if 0
+static GtkWidget *
+my_create_command_option(GtkSizeGroup *sg)
+{
+	return create_command_option(w);
+}
+#else
+/* this is for checking if that helps against Fuzzbox/Francois' reported bug */
+
+/*  Change the command 
+ *  ------------------
+*/
+static void
+command_browse_cb (GtkWidget * b, GtkEntry * entry)
+{
+/*	GtkWidget	*h1 = NULL;
+	GtkEntry	*entry = NULL;
+	h1 = GTK_CONTAINER(mixer_options_get(mixer->settings_c, 0));
+	entry = GTK_ENTRY(mixer_options_get(GTK_CONTAINER(h1), 1));
+*/	
+    char *file =
+        select_file_name (_("Select command"), gtk_entry_get_text (entry),
+                          gtk_widget_get_toplevel(GTK_WIDGET(entry)));
+
+    if (file)
+    {
+        gtk_entry_set_text (entry, file);
+        g_free (file);
+    }
+}
+
+static GtkWidget *
+my_create_command_option(GtkSizeGroup *sg)
+{
+    GtkWidget *vbox;
+    GtkWidget *vbox2;
+    GtkWidget *hbox;
+    GtkWidget *hbox2;
+    GtkWidget *label;
+    
+    GtkWidget *command_entry = NULL;
+    GtkWidget *command_browse_button = NULL;
+    GtkWidget *term_checkbutton = NULL;
+    GtkWidget *sn_checkbutton = NULL;
+
+    vbox = gtk_vbox_new (FALSE, 8);
+    gtk_widget_show (vbox);
+
+    /* entry */
+    hbox = gtk_hbox_new (FALSE, 4);
+    gtk_widget_show (hbox);
+    gtk_box_pack_start (GTK_BOX (vbox), hbox, FALSE, TRUE, 0);
+
+    label = gtk_label_new (_("Command:"));
+    gtk_misc_set_alignment (GTK_MISC (label), 0, 0.5);
+    gtk_size_group_add_widget (sg, label);
+    gtk_widget_show (label);
+    gtk_box_pack_start (GTK_BOX (hbox), label, FALSE, FALSE, 0);
+
+    command_entry = gtk_entry_new ();
+    gtk_widget_show (command_entry);
+    gtk_box_pack_start (GTK_BOX (hbox), command_entry, TRUE, TRUE, 0);
+
+    command_browse_button = gtk_button_new_with_label ("...");
+    gtk_widget_show (command_browse_button);
+    gtk_box_pack_start (GTK_BOX (hbox), command_browse_button, FALSE, FALSE, 0);
+
+    g_signal_connect (command_browse_button, "clicked",
+                      G_CALLBACK (command_browse_cb), command_entry);
+
+    /* terminal */
+    hbox2 = gtk_hbox_new (FALSE, 4);
+    gtk_widget_show (hbox2);
+    gtk_box_pack_start (GTK_BOX (vbox), hbox2, FALSE, TRUE, 0);
+
+    label = gtk_label_new ("");
+    gtk_size_group_add_widget (sg, label);
+    gtk_widget_show (label);
+    gtk_box_pack_start (GTK_BOX (hbox2), label, FALSE, FALSE, 0);
+
+    vbox2 = gtk_vbox_new (FALSE, 0);
+    gtk_widget_show (vbox2);
+    gtk_box_pack_start (GTK_BOX (hbox2), vbox2, FALSE, TRUE, 0);
+
+    term_checkbutton =
+        gtk_check_button_new_with_mnemonic (_("Run in _terminal"));
+    gtk_widget_show (term_checkbutton);
+    gtk_box_pack_start (GTK_BOX (vbox2), term_checkbutton, FALSE, FALSE, 0);
+
+    sn_checkbutton =
+        gtk_check_button_new_with_mnemonic (_("Use startup _notification"));
+    gtk_widget_show (sn_checkbutton);
+    gtk_box_pack_start (GTK_BOX (vbox2), sn_checkbutton, FALSE, FALSE, 0);
+#ifdef HAVE_LIBSTARTUP_NOTIFICATION
+    gtk_widget_set_sensitive (sn_checkbutton, TRUE);
+#else
+    gtk_widget_set_sensitive (sn_checkbutton, FALSE);
+#endif
+    return vbox;
+}
+
+#endif
 static void
 mixer_add_options(Control *control, GtkContainer *container, GtkWidget *revert, GtkWidget *done)
 {
@@ -657,7 +763,7 @@ mixer_add_options(Control *control, GtkContainer *container, GtkWidget *revert, 
 	mixer->revert_b = revert;
 	
 	mixer->sg = gtk_size_group_new(GTK_SIZE_GROUP_HORIZONTAL);
-	vbox = create_command_option(mixer->sg);
+	vbox = my_create_command_option(mixer->sg);
 	gtk_container_add(GTK_CONTAINER(container), GTK_WIDGET(vbox));
 	mixer->settings_c = GTK_CONTAINER(vbox);
 	mixer_fill_options(mixer);
