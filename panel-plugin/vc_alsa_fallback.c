@@ -106,6 +106,11 @@ static void vc_close_device()
 	/* unsupported */
 }
 
+static GList *vc_list_devices()
+{
+	return NULL;
+}
+
 REGISTER_VC_PLUGIN(alsa_fallback);
 
 #endif /* !USE_ALSA */

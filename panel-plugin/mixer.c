@@ -585,7 +585,7 @@ mixer_device_entry_lost_focus_cb(GtkWidget *w, GdkEvent *event, t_mixer *mixer) 
 	if (mixer->options.device) {
 		vc_set_device (mixer->options.device);
 	}
-	return TRUE;
+	return FALSE;
 	/* FALSE;*/ /* needed? */
 }
 

@@ -122,7 +122,7 @@ vc_set_device(const gchar *name)
 
 	g_strlcpy(dev_name, name, sizeof(dev_name) - 1);
 	mixer_handle = open(dev_name, O_RDWR, 0);
-	find_master();
+/*	find_master();*/
 }
 
 static int
@@ -265,6 +265,41 @@ static void vc_close_device()
 		close (mixer_handle);
 		mixer_handle = -1;
 	}
+}
+
+static GList *vc_list_devices()
+{
+	GList *l;
+	GDir *dir;
+	char const *d;
+	
+	l = NULL;
+	
+	dir = g_dir_open ("/dev/sound");
+
+	if (dir) {
+		while ((d = g_dir_read_name (dir))) {
+			if (!strncmp(d, "mixer")) {
+				l = g_list_append (l, g_strdup_printf("/dev/sound/%s", d));
+			}
+		}
+		
+		g_dir_close (dir);
+	}
+	
+	dir = g_dir_open ("/dev");
+
+	if (dir) {
+		while ((d = g_dir_read_name (dir))) {
+			if (!strncmp(d, "mixer")) {
+				l = g_list_append (l, g_strdup_printf("/dev/%s", d));
+			}
+		}
+		
+		g_dir_close (dir);
+	}
+	
+	return l;
 }
 
 REGISTER_VC_PLUGIN(oss);

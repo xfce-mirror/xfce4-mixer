@@ -173,6 +173,26 @@ void vc_close_device()
 	(*s->vc_close_device)();
 }
 
+GList *vc_list_devices()
+{
+	volchanger_t *s = selected_vc();
+	if (!s  || !s->vc_list_devices) {
+		return NULL;
+	}
+	
+	return (*s->vc_list_devices)();
+}
+
+/* frees device list */
+void vc_free_devices(GList *list_devices)
+{
+	g_list_foreach (list_devices, (GFunc)g_free, NULL);
+	g_list_free (list_devices);
+	
+	/*g_list_foreach(list, (GFunc)g_free(), NULL); g_list_free(list);*/
+}
+
+
 void vc_free_control_list(GList *g)
 {
 /*	GList 			*f;*/

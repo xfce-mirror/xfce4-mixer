@@ -345,6 +345,36 @@ static void vc_close_device()
 	handle = NULL;
 }
 
+static GList *vc_list_devices()
+{
+	GList *l;
+	int card;
+	char *name;
+	
+	card = -1;
+	l = NULL;
+	
+	if (snd_card_next (&card) < 0) {
+		return l;
+	}
+
+	while (card >= 0) {
+		name = NULL;
+		if (snd_card_get_name (card, &name) >= 0 && name) {
+			l = g_list_append (l, g_strdup(name));
+			g_free (name);
+		}
+	
+		if (snd_card_next(&card) < 0) {
+			g_warning("mixer: vc_alsa: snd_card_next failed\n");
+			break;
+		}
+	}
+		
+	return l;
+}
+
+
 REGISTER_VC_PLUGIN(alsa);
 
 #endif /* USE_ALSA */
