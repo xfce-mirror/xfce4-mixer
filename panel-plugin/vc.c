@@ -102,6 +102,8 @@ void vc_set_device(char const *which)
 
 	if (s->vc_reinit_device) {
 		(*s->vc_reinit_device) ();
+	} else {
+		g_warning ("mixer: vc.c: Cannot reinit since driver did not tell how.\n");
 	}
 }
 
