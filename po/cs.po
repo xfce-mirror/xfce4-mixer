@@ -1,0 +1,74 @@
+# Czech translation for xfdesktop
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Lukáš Konarovský <daeltar@daeltar.org>, 2003.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2003-08-02 11:41+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Lukas Konarovsky <daeltar@daeltar.org>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: panel-plugin/mixer.c:157
+msgid "No working sound"
+msgstr "Nefungujcí zvuk"
+
+#: panel-plugin/mixer.c:296
+#, c-format
+msgid "Volume: %d%%"
+msgstr "Hlasitost: %d%%"
+
+#: panel-plugin/mixer.c:1022
+msgid "Device:"
+msgstr "Zařízení:"
+
+#: panel-plugin/mixer.c:1110
+msgid "Use _internal mixer"
+msgstr "Použít _vestavěný mixer"
+
+#: panel-plugin/mixer.c:1307
+msgid "Volume Control"
+msgstr "Nastavení hlasitosti"
+
+#: panel-plugin/vc_alsa.c:90
+#, c-format
+msgid "alsa: Mixer %s open error: %s\n"
+msgstr "alsa: Mixer %s open error: %s\n"
+
+#: panel-plugin/vc_alsa.c:95
+#, c-format
+msgid "alsa: Mixer attach %s error: %s\n"
+msgstr"alsa: Mixer attach %s error: %s\n"
+
+#: panel-plugin/vc_alsa.c:103
+#, c-format
+msgid "alsa: Mixer register error: %s"
+msgstr "alsa: Mixer register error: %s"
+
+#: panel-plugin/vc_alsa.c:112
+#, c-format
+msgid "alsa: Mixer load error: %s"
+msgstr "alsa: Mixer load error: %s"
+
+#: panel-plugin/vc_alsa.c:122
+#, c-format
+msgid "alsa: Unable to find simple control '%s',%i\n"
+msgstr "alsa: Unable to find simple control '%s',%i\n"
+
+#: panel-plugin/vc_oss.c:133
+msgid "oss: No master volume"
+msgstr "oss: No master volume"
+
+#: panel-plugin/mvisible_opts.c:76
+msgid "Visible"
+msgstr "Viditelný"
+
+#: panel-plugin/mvisible_opts.c:84
+msgid "Control"
+msgstr "Ovládat"
