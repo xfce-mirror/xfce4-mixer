@@ -136,7 +136,7 @@ static volchanger_t vc = { \
         vc_get_control_list, \
         vc_set_volume_callback, \
         vc_close_device, \
-        vc_get_device_list \
+        vc_get_device_list, \
         vc_get_select, \
         vc_get_switch, \
         vc_set_switch, \

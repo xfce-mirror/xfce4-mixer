@@ -184,35 +184,35 @@ msgstr "Ez dago soinurik martxan"
 
 #: src/menus.c:9
 msgid "/_File"
-msgstr ""
+msgstr "/_Fitxategia"
 
 #: src/menus.c:10
 msgid "/File/_Options"
-msgstr ""
+msgstr "/Fitxategia/_Aukerak"
 
 #: src/menus.c:11
 msgid "/File/_Exit"
-msgstr ""
+msgstr "/Fitxategia/_Irten"
 
 #: src/menus.c:12
 msgid "/_View"
-msgstr ""
+msgstr "/_Ikusi"
 
 #: src/menus.c:13
 msgid "/View/sep"
-msgstr ""
+msgstr "/Ikusi/sep"
 
 #: src/menus.c:14
 msgid "/View/_Manage"
-msgstr ""
+msgstr "/Ikusi/_Kudeatu"
 
 #: src/menus.c:15
 msgid "/_Help"
-msgstr ""
+msgstr "/_Laguntza"
 
 #: src/menus.c:16
 msgid "/Help/_Info"
-msgstr ""
+msgstr "/Laguntza/_Info"
 
 #: src/mixer-info.gob:28 mixer-info.gob:28
 msgid ""
@@ -314,9 +314,9 @@ msgstr "Izen honetako profil bat badago dagoeneko"
 
 #: src/mixer-profiles.gob:262 src/mixer-profiles.gob:269
 #: mixer-profiles.gob:262 mixer-profiles.gob:269
-#, fuzzy, c-format
+#, , c-format
 msgid "profile%d"
-msgstr "Profila"
+msgstr "%d profila"
 
 #: src/mixer-view.gob:258 mixer-view.gob:258
 msgid "Show Switches"
@@ -337,3 +337,4 @@ msgstr "Konmutadoreak Ezkutatu"
 
 #~ msgid "Visible"
 #~ msgstr "Ikusgai"
+
