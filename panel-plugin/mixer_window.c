@@ -51,11 +51,11 @@ void mixer_window_slider_control_refresh_value_p (mixer_window_t *w, mixer_slide
 	}
 }
 
-void mixer_window_slider_control_refresh_value (mixer_window_t *w, char const *name)
+void mixer_window_slider_control_refresh_value (mixer_window_t *w, char const *name) /* name = NULL => all */
 {
 	mixer_slider_control_t *c = w->controls;
 	while (c) {
-		if (!strcmp(c->name, name)) {
+		if (!name || !strcmp(c->name, name)) {
 			mixer_window_slider_control_refresh_value_p (w, c);
 		}
 		c = c->next;
@@ -136,6 +136,35 @@ void control_glist_foreach_cb(gpointer data, gpointer user_data)
 	}
 }
 
+gboolean mixer_window_map_cb(GtkWidget *widget, gpointer user_data)
+{
+	int		w, h, mw;
+	/*if (gtk_widget_get_size (*/
+	/*gtk_widget_get_child_requisition ()*/
+	
+	GdkScreen	*s;
+	mixer_window_t * a;
+/*	s = gdk_drawable_get_screen (GTK_DRAWABLE (widget));*/
+	s = gtk_widget_get_screen (widget);
+	
+	mw = gdk_screen_get_width (s) * 2 / 3;
+
+
+	a = (mixer_window_t *) user_data;
+	
+	w = 0;
+	h = 0;
+	gtk_window_get_size (GTK_WINDOW (widget), &w, &h);
+
+	if (w > mw && w > 0) {
+		/* set_size_request */
+		w = mw;
+		gtk_scrolled_window_set_policy (a->scroller, GTK_POLICY_AUTOMATIC, GTK_POLICY_NEVER);
+		gtk_window_resize (GTK_WINDOW (widget), w, h);
+	}
+	return FALSE;
+}
+
 mixer_window_t *mixer_window_new(gboolean from_glist, GList *src)
 {
 	GList *g;
@@ -149,8 +178,10 @@ mixer_window_t *mixer_window_new(gboolean from_glist, GList *src)
 		gtk_widget_show (GTK_WIDGET (w->hbox));
 
 		w->scroller = GTK_SCROLLED_WINDOW (gtk_scrolled_window_new (NULL, NULL));
-		gtk_scrolled_window_set_policy (w->scroller, GTK_POLICY_AUTOMATIC, GTK_POLICY_NEVER);
-		gtk_widget_set_size_request (GTK_WIDGET (w->window), 400, -1);
+		gtk_scrolled_window_set_policy (w->scroller, GTK_POLICY_NEVER, GTK_POLICY_NEVER);
+		/*XXXgtk_widget_set_size_request (GTK_WIDGET (w->window), 400, -1);*/
+		/*gtk_window_set_default_size (GTK_WINDOW (w->window), 400, -1);*/
+			
 		gtk_widget_show (GTK_WIDGET (w->scroller));
 
 		gtk_window_set_title (GTK_WINDOW (w->window),  _("Volume Control"));
@@ -173,7 +204,7 @@ mixer_window_t *mixer_window_new(gboolean from_glist, GList *src)
 			g = vc_get_control_list();
 		}
 		if (g) {
-			g_list_foreach(g, control_glist_foreach_cb, w);
+			g_list_foreach (g, control_glist_foreach_cb, w);
 			if (!from_glist) {
 				vc_free_control_list (g);
 			}
@@ -181,6 +212,9 @@ mixer_window_t *mixer_window_new(gboolean from_glist, GList *src)
 			
 			vc_set_volume_callback (vc_cb, w);
 		}
+
+
+		g_signal_connect (G_OBJECT (w->window), "map", G_CALLBACK(mixer_window_map_cb), w);
 	}
 	
 	return w;
