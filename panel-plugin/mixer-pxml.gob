@@ -73,6 +73,7 @@ class Xfce:Mixer:Pxml from G:Object {
 
 			if (g_file_test (self->fname, G_FILE_TEST_EXISTS)) {
 				/* TODO backup */
+				self->document = xmlParseFile (self->fname);
 			} else {
 				/* create directory */
 				dir = g_path_get_dirname (self->fname);
@@ -85,7 +86,6 @@ class Xfce:Mixer:Pxml from G:Object {
 			}
 
 			/* create document etc */
-			self->document = xmlParseFile (self->fname);
 
 			if (!self->document && self->root) {
 				self->document = xmlNewDoc ("1.0");

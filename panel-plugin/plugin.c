@@ -396,6 +396,8 @@ xfce_control_class_init(ControlClass *cc)
 	/* unused in the sample:
 	 * ->set_orientation
 	 */
+	 
+	control_class_set_unique (cc, TRUE);
 }
 
 /* required! defined in panel/plugins.h */
