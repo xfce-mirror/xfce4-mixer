@@ -1,5 +1,5 @@
 # Japanese translation for xfce4-mixer.
-# Copyright (C) 2003-2005, Free Software Foundation, Inc.
+# Copyright (C) 2003-2005, The Xfce development team.
 # This file is distributed under the same license as the xfce4-mixer package.
 # Zhao Ji <zhao-ji@awz.ne.jp>, 2003.
 # Daichi Kawahata <daichik@users.sourceforge.net>, 2005.
@@ -7,11 +7,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.0\n"
-"Report-Msgid-Bugs-To: xfce-i18n@xfce.org\n"
-"POT-Creation-Date: 2005-02-16 09:43+0900\n"
-"PO-Revision-Date: 2005-02-17 21:34+0900\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-03-10 18:35+0900\n"
+"PO-Revision-Date: 2005-03-12 05:08+0900\n"
 "Last-Translator: Daichi Kawahata <daichik@users.sourceforge.net>\n"
-"Language-Team: Japanese <xfce-i18n@xfce.org>\n"
+"Language-Team: xfce-users-jp <xfce-users-jp@ml.fdiary.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -48,11 +48,11 @@ msgstr "CD"
 #. CD in
 #: lib/trans.c:12
 msgid "Bass"
-msgstr "ベース"
+msgstr "低音"
 
 #: lib/trans.c:13
 msgid "Trebl"
-msgstr ""
+msgstr "高音"
 
 #: lib/trans.c:14
 msgid "Synth"
@@ -171,9 +171,8 @@ msgstr "無し"
 #. gtk_widget_show (GTK_WIDGET (self->dev_label));
 #. debug_bindtextdomain();
 #: settings/mixer-settingsbox.gob:107 mixer-settingsbox.gob:107
-#, fuzzy
 msgid "Useful Controls"
-msgstr "コントロール"
+msgstr "便利なコントロール"
 
 #: settings/sound.c:80 settings/sound.c:100 settings/sound.c:107
 msgid "Sound"
@@ -197,7 +196,7 @@ msgstr "/ファイル(_F)/終了(_E)"
 
 #: src/menus.c:15
 msgid "/_View"
-msgstr "/表示(_)"
+msgstr "/表示(_V)"
 
 #: src/menus.c:16
 msgid "/View/_Manage"
@@ -218,6 +217,9 @@ msgid ""
 "directory.\n"
 "No warranty in any way."
 msgstr ""
+"これは xfce4-mixer 音量調節プログラムです。\n"
+"ソースフォルダにある GPL-2 ライセンスの下に配布されています。\n"
+"一切の保証はあります。"
 
 #: src/mixer-profilebox-detail.gob:163 mixer-profilebox-detail.gob:163
 msgid "Control"
@@ -286,7 +288,7 @@ msgstr "プロファイル"
 #: src/mixer-profilebox.gob:374 mixer-profilebox.gob:374
 #, c-format
 msgid "Really delete those %d profiles?"
-msgstr "本当にこれら %d のプロファイルを削除していいですか?"
+msgstr "本当にこれら %d 件のプロファイルを削除していいですか?"
 
 #: src/mixer-profilebox.gob:377 mixer-profilebox.gob:377
 #, c-format
