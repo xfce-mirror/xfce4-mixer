@@ -1,3 +1,59 @@
+2003-12-16 23:36  olivier
+
+	* configure, configure.ac: Resync, update version number
+
+2003-12-15 22:35  jasper
+
+	* configure, configure.ac, po/az.gmo, po/az.po: Add Azerbaijani
+	  translations
+
+2003-11-16 09:44  jasper
+
+	* po/: cs.gmo, cs.po: Update Czech translations
+
+2003-11-12 08:02  jasper
+
+	* po/: ca.gmo, cs.gmo, de.gmo, fr.gmo, hi.gmo, hu.gmo, it.gmo,
+	  ko.gmo, lt.gmo, ms.gmo, nl.gmo, pt_PT.gmo, ru.gmo, ta.gmo,
+	  tr.gmo, uk.gmo, vi.gmo, zh_CN.gmo, zh_TW.gmo: Forgot gmo files
+	  update
+
+2003-11-11 19:35  jasper
+
+	* po/: ca.po, cs.po, de.po, fr.po, hi.po, hu.po, it.po, ko.po,
+	  lt.po, ms.po, nl.po, pt_PT.po, ru.po, ta.po, tr.po, uk.po, vi.po,
+	  xfce4-mixer.pot, zh_CN.po, zh_TW.po: Update po files, just in
+	  case something changed ...
+
+2003-11-09 20:09  jasper
+
+	* configure, configure.ac, po/cs.gmo, po/cs.po: Add Check
+	  translations
+
+2003-11-03 19:06  jasper
+
+	* configure, configure.ac, po/uk.gmo, po/uk.po: Add Ukranian
+	  translations
+
+2003-11-02 00:28  olivier
+
+	* configure, configure.ac, po/hi.gmo, po/hi.po: Add Hindi
+	  translation
+
+2003-10-25 00:31  jasper
+
+	* configure, configure.ac, po/vi.gmo, po/vi.po:
+	  Add vietnamese translations by Lam Vinh Nien <nienvl@yahoo.ca>.
+
+2003-10-15 13:20  jasper
+
+	* po/: ko.gmo, ko.po: Update korean translations
+
+2003-10-13 20:30  jasper
+
+	* ChangeLog: Update ChangeLog's after syncing with SF. Everything
+	  should now be up-to-date.
+
 2003-10-13 20:09  jasper
 
 	* panel-plugin/mixer_window.c:
