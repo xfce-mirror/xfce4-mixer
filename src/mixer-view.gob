@@ -244,6 +244,9 @@ class Xfce:Mixer:View from Gtk:VBox {
 
 		self->switches = GTK_TABLE (gtk_table_new (SWITCH_ROWS, SWITCH_COLUMNS, FALSE));
 		self->selects = GTK_TABLE (gtk_table_new (SWITCH_ROWS, SWITCH_COLUMNS, FALSE));
+		gtk_table_set_row_spacings (GTK_TABLE (self->selects), 7);
+		gtk_table_set_col_spacings (GTK_TABLE (self->selects), 7);
+		gtk_container_set_border_width (GTK_CONTAINER (self->selects), 5);
 		gtk_widget_show (GTK_WIDGET (self->switches));
 		gtk_widget_show (GTK_WIDGET (self->selects));
 
