@@ -24,6 +24,9 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/*
+snd_mixer_selem_is_active ?
+*/
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
@@ -51,6 +54,8 @@
 
 #define VC_PLUGIN
 #include "vc.h"
+
+#include "stringlist.inc"
 
 #ifdef DEBUG
 #define error printf
@@ -281,7 +286,9 @@ GList *alsa_enum_to_glist(snd_mixer_elem_t *i)
 	gint cnt;
 	
 	g = NULL;
-	
+	if (!snd_mixer_selem_is_enumerated (i))
+		return g;
+			
 	cnt = snd_mixer_selem_get_enum_items (i);
 	for(j = 0; j < cnt; j++) {
 		g_snprintf (tmp, 256, "%d", j);
@@ -347,7 +354,6 @@ static GList *vc_get_control_list(void)
 				c->type = CT_ONOFF;
 			}
 		}
-		
 
 		g = g_list_append (g, c);
 	
@@ -460,22 +466,118 @@ static GList *vc_get_device_list()
 	return l;
 }
 
+static GList *vc_get_choices (snd_mixer_elem_t *elem)
+{
+	return alsa_enum_to_glist (elem);
+}
+
 static void vc_set_select(char const *which, gchar const *v)
 {
+	GList *g;
+	gint i;
+	gchar *s;
+	snd_mixer_elem_t *xelem = NULL;
+	if (!handle) return;
+	if (which) {
+		xelem = find_control (which);
+	} else {
+		xelem = elem;
+	}
+	
+	if (!xelem) return;
+	
+	
+	g = vc_get_choices (xelem);
+	if (!g || !v)
+		return;
+		
+	for(i = 0; i < g_list_length (g); i++) {
+		s = (gchar *) g_list_nth_data (g, i);
+		if (g_str_equal (s, v)) {
+			snd_mixer_selem_set_enum_item(
+				xelem, SND_MIXER_SCHN_MONO, i);
+			break;
+		}
+	}
+	
+	stringlist_free (g);
 } 
 
 static gchar *vc_get_select(char const *which)
 {  
-	return NULL;
+	gint j;
+	unsigned int jj;
+	GList *g;
+	gchar *s;
+	snd_mixer_elem_t *xelem = NULL;
+	if (!handle) return NULL;
+	if (which) {
+		xelem = find_control (which);
+	} else {
+		xelem = elem;
+	}
+	
+	if (!xelem) return NULL;
+
+	if (snd_mixer_selem_get_enum_item(xelem, SND_MIXER_SCHN_MONO, &jj) < 0)
+		return NULL;
+
+	j = (gint)jj;
+	
+	g = vc_get_choices (xelem);
+	if (!g)
+		return NULL;
+
+	s = (gchar *) g_list_nth_data (g, j);
+	
+	if (!s)
+		return NULL;
+		
+	s = g_strdup (s);
+	stringlist_free (g);
+	return s;
 }
         
 static void vc_set_switch(char const *which, gboolean v)
 {
+	snd_mixer_elem_t *xelem = NULL;
+	if (!handle) return;
+	if (which) {
+		xelem = find_control (which);
+	} else {
+		xelem = elem;
+	}
+	
+	if (!xelem) return;
+
+/*			&& (snd_mixer_selem_has_common_switch(i)
+			 || snd_mixer_selem_has_playback_switch(i)
+			 || snd_mixer_selem_has_capture_switch(i)
+*/
+
+	snd_mixer_selem_set_playback_switch_all (xelem, v);
 }
   
 static gboolean vc_get_switch(char const *which)
 {
-	return FALSE;
+	snd_mixer_selem_channel_id_t chn;
+	snd_mixer_elem_t *xelem = NULL;
+	gint i;
+	
+	if (!handle) return FALSE;
+	
+	if (which) {
+		xelem = find_control (which);
+	} else {
+		xelem = elem;
+	}
+	
+	if (!xelem) return FALSE;
+
+	chn = SND_MIXER_SCHN_MONO;
+
+	snd_mixer_selem_get_playback_switch (xelem, chn, &i);
+	return (i != 0);
 }
 
 REGISTER_VC_PLUGIN(alsa);
