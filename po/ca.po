@@ -71,4 +71,3 @@ msgstr "Visible"
 #: panel-plugin/mvisible_opts.c:84
 msgid "Control"
 msgstr "Control"
-

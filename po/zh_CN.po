@@ -41,12 +41,12 @@ msgid "alsa: Mixer %s open error: %s\n"
 msgstr "alsa: 混频器 %s 打开错误: %s\n"
 
 #: panel-plugin/vc_alsa.c:95
-#,  c-format
+#, c-format
 msgid "alsa: Mixer attach %s error: %s\n"
 msgstr "alsa: 混频器绑定 %s 错误: %s\n"
 
 #: panel-plugin/vc_alsa.c:103
-#,  c-format
+#, c-format
 msgid "alsa: Mixer register error: %s"
 msgstr "alsa: 混频器注册错误: %s"
 
@@ -56,7 +56,7 @@ msgid "alsa: Mixer load error: %s"
 msgstr "alsa: 混频器加载错误: %s"
 
 #: panel-plugin/vc_alsa.c:122
-#,  c-format
+#, c-format
 msgid "alsa: Unable to find simple control '%s',%i\n"
 msgstr "alsa: 未找到简单控制 '%s', %i\n"
 

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce-mixer 3.99.2\n"
-"POT-Creation-Date: 2003-07-19 10:29+0200\n"
+"POT-Creation-Date: 2003-08-02 11:41+0200\n"
 "PO-Revision-Date: 2003-08-03 01:15+0300\n"
 "Last-Translator: Mantas <zaz@xxx.lt>\n"
 "Language-Team: Lithuania <zaz@xxx.lt>\n"
@@ -14,49 +14,62 @@ msgstr ""
 "Content-Type: text/plain; charset=iso-8859-13\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: panel-plugin/mixer.c:152
+#: panel-plugin/mixer.c:157
 msgid "No working sound"
 msgstr "Garsas neveikia"
 
-#: panel-plugin/mixer.c:287
+#: panel-plugin/mixer.c:296
 #, c-format
 msgid "Volume: %d%%"
 msgstr "Garsas: %d%%"
 
-#: panel-plugin/mixer.c:945
+#: panel-plugin/mixer.c:1022
+msgid "Device:"
+msgstr ""
+
+#: panel-plugin/mixer.c:1110
 msgid "Use _internal mixer"
 msgstr "Naudoti v_idiná mikserá"
 
-#: panel-plugin/mixer.c:1140
+#: panel-plugin/mixer.c:1307
 msgid "Volume Control"
 msgstr "Garso Valdymas"
 
-#: panel-plugin/vc_alsa.c:89
+#: panel-plugin/vc_alsa.c:90
 #, c-format
 msgid "alsa: Mixer %s open error: %s\n"
 msgstr "alsa: Mikserio %s atidarymo klaida: %s\n"
 
-#: panel-plugin/vc_alsa.c:94
+#: panel-plugin/vc_alsa.c:95
 #, c-format
 msgid "alsa: Mixer attach %s error: %s\n"
 msgstr "alsa: Mikserio prijungimo %s klaida: %s\n"
 
-#: panel-plugin/vc_alsa.c:102
+#: panel-plugin/vc_alsa.c:103
 #, c-format
 msgid "alsa: Mixer register error: %s"
 msgstr "alsa: Mikserio registro klaida: %s"
 
-#: panel-plugin/vc_alsa.c:111
+#: panel-plugin/vc_alsa.c:112
 #, c-format
 msgid "alsa: Mixer load error: %s"
 msgstr "alsa: Mikserio ákëlimo klaida: %s"
 
-#: panel-plugin/vc_alsa.c:121
+#: panel-plugin/vc_alsa.c:122
 #, c-format
 msgid "alsa: Unable to find simple control '%s',%i\n"
 msgstr "alsa: Negalima surasti paprasto valdymo'%s',%i\n"
 
-#: panel-plugin/vc_oss.c:134
-msgid "oss: No master"
+#: panel-plugin/vc_oss.c:133
+#, fuzzy
+msgid "oss: No master volume"
 msgstr "oss: Nëra pagrindinio ??"
 
+#: panel-plugin/mvisible_opts.c:76
+msgid "Visible"
+msgstr ""
+
+#: panel-plugin/mvisible_opts.c:84
+#, fuzzy
+msgid "Control"
+msgstr "Garso Valdymas"
