@@ -17,9 +17,9 @@ static GtkItemFactoryEntry menubar_items[] =
 };
 
 static const char *
-translate_menu (const char *msg)
+translate_menu (const char *msg, gpointer data)
 {
-	return _(msg);
+	return dgettext (GETTEXT_PACKAGE, msg);
 } 
 
 GtkMenuBar *
