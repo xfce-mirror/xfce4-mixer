@@ -1,8 +1,7 @@
 # Lithuania translation of xfce-mixer
 # Copyright (C) 2003 Free Software Foundation, Inc.
 # This file is distributed under the same license as the xfce-mixer package.
-# Mantas <zaz@xxx.lt>, 2003.
-# Mantas <zaz@xxx.lt>, 2004.
+# Mantas <zaz@xxx.lt>, 2003 - 2004.
 # Rimas Kudelis <rq@akl.lt>, 2005.
 # 
 # 
@@ -11,7 +10,7 @@ msgstr ""
 "Project-Id-Version: xfce4-mixer 4.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-11-22 21:44+0100\n"
-"PO-Revision-Date: 2005-01-07 01:24+0200\n"
+"PO-Revision-Date: 2005-01-18 00:51+0200\n"
 "Last-Translator: Rimas Kudelis <rq@akl.lt>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
 "MIME-Version: 1.0\n"
@@ -39,7 +38,6 @@ msgstr "Line"
 
 #. Line in
 #: lib/trans.c:10
-#, fuzzy
 msgid "Mic"
 msgstr "Mic"
 
@@ -50,82 +48,66 @@ msgstr "CD"
 
 #. CD in
 #: lib/trans.c:12
-#, fuzzy
 msgid "Bass"
 msgstr "Bass"
 
 #: lib/trans.c:13
-#, fuzzy
 msgid "Trebl"
 msgstr "Trebl"
 
 #: lib/trans.c:14
-#, fuzzy
 msgid "Synth"
 msgstr "Synth"
 
 #: lib/trans.c:15
-#, fuzzy
 msgid "Mix"
 msgstr "Mix"
 
 #: lib/trans.c:16
-#, fuzzy
 msgid "Pcm2"
 msgstr "Pcm2"
 
 #: lib/trans.c:17
-#, fuzzy
 msgid "Rec"
 msgstr "Rec"
 
 #: lib/trans.c:18
-#, fuzzy
 msgid "IGain"
 msgstr "IGain"
 
 #: lib/trans.c:19
-#, fuzzy
 msgid "OGain"
 msgstr "OGain"
 
 #: lib/trans.c:20
-#, fuzzy
 msgid "Line1"
 msgstr "Line1"
 
 #: lib/trans.c:21
-#, fuzzy
 msgid "Line2"
 msgstr "Line2"
 
 #: lib/trans.c:22
-#, fuzzy
 msgid "Line3"
 msgstr "Line3"
 
 #: lib/trans.c:23
-#, fuzzy
 msgid "Digital1"
 msgstr "Digital1"
 
 #: lib/trans.c:24
-#, fuzzy
 msgid "Digital2"
 msgstr "Digital2"
 
 #: lib/trans.c:25
-#, fuzzy
 msgid "Digital3"
 msgstr "Digital3"
 
 #: lib/trans.c:26
-#, fuzzy
 msgid "PhoneIn"
 msgstr "PhoneIn"
 
 #: lib/trans.c:27
-#, fuzzy
 msgid "PhoneOut"
 msgstr "PhoneOut"
 
@@ -134,7 +116,6 @@ msgid "Video"
 msgstr "Video"
 
 #: lib/trans.c:29
-#, fuzzy
 msgid "Radio"
 msgstr "Radio"
 
@@ -165,7 +146,7 @@ msgstr "alsa: Maišiklio įkėlimo klaida: %s: %s\n"
 #: lib/vc_alsa.c:126
 #, c-format
 msgid "alsa: Unable to find simple control '%s',%i\n"
-msgstr "alsa: Negalima surasti paprasto valdiklio '%s',%i\n"
+msgstr "alsa: Nepavyko surasti paprasto valdiklio „%s“,%i\n"
 
 #: lib/vc_oss.c:131
 msgid "oss: No master volume"
@@ -241,8 +222,8 @@ msgid ""
 "No warranty in any way."
 msgstr ""
 "Tai – xfce4-mikseris, garso valdymo programa.\n"
-"Ji platinama pagal GPL-2 licenciją kurią galite rasti programos išeities "
-"tekstų aplanke.\n"
+"Ji platinama pagal GPL-2 licenciją, kurią galite rasti programos "
+"išeities tekstų aplanke.\n"
 "Nesuteikiama jokia garantija."
 
 #: src/mixer-profilebox-detail.gob:163 mixer-profilebox-detail.gob:163
@@ -303,7 +284,7 @@ msgstr "Sukurti naują profilį"
 
 #: src/mixer-profilebox.gob:151 mixer-profilebox.gob:151
 msgid "Delete this profile"
-msgstr "Ištrinti šį profilį"
+msgstr "Šalinti šį profilį"
 
 #: src/mixer-profilebox.gob:170 mixer-profilebox.gob:170
 msgid "Profile"
@@ -312,12 +293,12 @@ msgstr "Profilis"
 #: src/mixer-profilebox.gob:374 mixer-profilebox.gob:374
 #, c-format
 msgid "Really delete those %d profiles?"
-msgstr "Ar tikrai ištrinti šiuos profilius: %d?"
+msgstr "Ar tikrai pašalinti šiuos %d profilius?"
 
 #: src/mixer-profilebox.gob:377 mixer-profilebox.gob:377
 #, c-format
 msgid "Really delete profile \"%s\"?"
-msgstr "Ar tikrai ištrinti profilį \"%s\"?"
+msgstr "Ar tikrai pašalinti profilį „%s“?"
 
 #: src/mixer-profilebox.gob:491 mixer-profilebox.gob:491
 #, c-format
@@ -336,7 +317,7 @@ msgstr "Profilis tokiu pavadinimu jau egzistuoja"
 #: mixer-profiles.gob:262 mixer-profiles.gob:269
 #, c-format
 msgid "profile%d"
-msgstr "Profilis%d"
+msgstr "profilis%d"
 
 #: src/mixer-view.gob:258 mixer-view.gob:258
 msgid "Show Switches"
@@ -346,8 +327,3 @@ msgstr "Rodyti jungiklius"
 msgid "Hide Switches"
 msgstr "Slėpti jungiklius"
 
-#~ msgid "%s - Info"
-#~ msgstr "%s - Info"
-
-#~ msgid "%s - Profiles"
-#~ msgstr "%s - Profiliai"
