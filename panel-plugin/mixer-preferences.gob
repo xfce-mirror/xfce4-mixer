@@ -1,6 +1,5 @@
 %a{
 #include <gtk/gtk.h>
-#include "xfce-mixer-pxml.h"
 %}
 %h{
 #include "helpers_h.inc"
@@ -11,9 +10,13 @@
 #include "xfce-mixer-cache-vc.h"
 #include "vc.h"
 #include "helpers.inc"
+#include "stringlist.inc"
 
 #define MIXER_ROOT "Mixer"
 
+%}
+%a{
+#include "xfce-mixer-pxml.h"
 %}
 
 class Xfce:Mixer:Preferences from G:Object {

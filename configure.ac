@@ -70,6 +70,7 @@ dnl Checks for library functions.
 
 AC_OUTPUT([
 Makefile
+lib/Makefile
 src/Makefile
 panel-plugin/Makefile
 settings/Makefile

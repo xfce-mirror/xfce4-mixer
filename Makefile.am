@@ -2,9 +2,10 @@
 
 EXTRA_DIST = \
 	xfce4-mixer.spec \
+	autogen.sh \
 	NOTES
 
-SUBDIRS = src panel-plugin settings
+SUBDIRS = lib src panel-plugin settings
 
 distclean-local:
 	rm -rf *.cache *~ *.spec

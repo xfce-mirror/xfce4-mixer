@@ -1,5 +1,7 @@
 sounddir = @XFCE_MCS_MANAGER_PLUGINSDIR@
 
+INCLUDES = -I../include
+
 sound_LTLIBRARIES = 							\
 	sound_settings.la
 
@@ -11,15 +13,16 @@ sound_settings_la_LDFLAGS =						\
 sound_settings_la_SOURCES =						\
 	sound-icon.h							\
 	sound.c	\
-	xfce-mixer-settingsbox.c \
-	vc.c vc_alsa.c vc_oss.c
+	xfce-mixer-settingsbox.c
 
 sound_settings_la_CFLAGS =						\
 	@XFCE_MCS_MANAGER_CFLAGS@					\
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"
 
 sound_settings_la_LIBADD =						\
-	@XFCE_MCS_MANAGER_LIBS@
+	@XFCE_MCS_MANAGER_LIBS@ \
+	$(top_builddir)/lib/libxfce4mixer.la
+
 
 sound.c: sound-icon.h
 
@@ -33,3 +36,5 @@ noinst_DATA =								\
 
 EXTRA_DIST =								\
 	sound.png
+
+sound_settings_la_DEPENDENCIES = $(top_builddir)/lib/libxfce4mixer.la

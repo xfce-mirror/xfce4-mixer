@@ -12,14 +12,19 @@ extern "C" {
 
 
 #include <gtk/gtk.h>
-#include "xfce-mixer-pxml.h"
 
 #line 1 "mixer-preferences.gob"
-#line 19 "xfce-mixer-preferences-private.h"
+#line 18 "xfce-mixer-preferences-private.h"
+
+
+#include "xfce-mixer-pxml.h"
+
+#line 18 "mixer-preferences.gob"
+#line 24 "xfce-mixer-preferences-private.h"
 struct _XfceMixerPreferencesPrivate {
-#line 23 "mixer-preferences.gob"
+#line 26 "mixer-preferences.gob"
 	gchar * master;
-#line 23 "xfce-mixer-preferences-private.h"
+#line 28 "xfce-mixer-preferences-private.h"
 };
 void 	xfce_mixer_preferences_fill_probably_master	(XfceMixerPreferences * self);
 gchar * 	xfce_mixer_preferences_find_probably_master	(XfceMixerPreferences * self);

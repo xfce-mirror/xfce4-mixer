@@ -160,6 +160,8 @@ sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 sounddir = @XFCE_MCS_MANAGER_PLUGINSDIR@
 
+INCLUDES = -I../include
+
 sound_LTLIBRARIES = \
 	sound_settings.la
 
@@ -173,8 +175,7 @@ sound_settings_la_LDFLAGS = \
 sound_settings_la_SOURCES = \
 	sound-icon.h							\
 	sound.c	\
-	xfce-mixer-settingsbox.c \
-	vc.c vc_alsa.c vc_oss.c
+	xfce-mixer-settingsbox.c
 
 
 sound_settings_la_CFLAGS = \
@@ -183,7 +184,8 @@ sound_settings_la_CFLAGS = \
 
 
 sound_settings_la_LIBADD = \
-	@XFCE_MCS_MANAGER_LIBS@
+	@XFCE_MCS_MANAGER_LIBS@ \
+	$(top_builddir)/lib/libxfce4mixer.la
 
 
 noinst_DATA = \
@@ -193,6 +195,8 @@ noinst_DATA = \
 EXTRA_DIST = \
 	sound.png
 
+
+sound_settings_la_DEPENDENCIES = $(top_builddir)/lib/libxfce4mixer.la
 subdir = settings
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
@@ -200,20 +204,14 @@ CONFIG_HEADER = $(top_builddir)/config.h
 CONFIG_CLEAN_FILES =
 LTLIBRARIES = $(sound_LTLIBRARIES)
 
-sound_settings_la_DEPENDENCIES =
 am_sound_settings_la_OBJECTS = sound_settings_la-sound.lo \
-	sound_settings_la-xfce-mixer-settingsbox.lo \
-	sound_settings_la-vc.lo sound_settings_la-vc_alsa.lo \
-	sound_settings_la-vc_oss.lo
+	sound_settings_la-xfce-mixer-settingsbox.lo
 sound_settings_la_OBJECTS = $(am_sound_settings_la_OBJECTS)
 
 DEFAULT_INCLUDES =  -I. -I$(srcdir) -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__depfiles_maybe = depfiles
 @AMDEP_TRUE@DEP_FILES = ./$(DEPDIR)/sound_settings_la-sound.Plo \
-@AMDEP_TRUE@	./$(DEPDIR)/sound_settings_la-vc.Plo \
-@AMDEP_TRUE@	./$(DEPDIR)/sound_settings_la-vc_alsa.Plo \
-@AMDEP_TRUE@	./$(DEPDIR)/sound_settings_la-vc_oss.Plo \
 @AMDEP_TRUE@	./$(DEPDIR)/sound_settings_la-xfce-mixer-settingsbox.Plo
 COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
 	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
@@ -225,7 +223,7 @@ LINK = $(LIBTOOL) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 DIST_SOURCES = $(sound_settings_la_SOURCES)
 DATA = $(noinst_DATA)
 
-DIST_COMMON = $(srcdir)/Makefile.in Makefile.am
+DIST_COMMON = $(srcdir)/Makefile.in Makefile.am TODO
 SOURCES = $(sound_settings_la_SOURCES)
 
 all: all-am
@@ -275,9 +273,6 @@ distclean-compile:
 	-rm -f *.tab.c
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sound_settings_la-sound.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sound_settings_la-vc.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sound_settings_la-vc_alsa.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sound_settings_la-vc_oss.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sound_settings_la-xfce-mixer-settingsbox.Plo@am__quote@
 
 .c.o:
@@ -378,105 +373,6 @@ sound_settings_la-xfce-mixer-settingsbox.lo: xfce-mixer-settingsbox.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/sound_settings_la-xfce-mixer-settingsbox.Plo' tmpdepfile='$(DEPDIR)/sound_settings_la-xfce-mixer-settingsbox.TPlo' @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sound_settings_la_CFLAGS) $(CFLAGS) -c -o sound_settings_la-xfce-mixer-settingsbox.lo `test -f 'xfce-mixer-settingsbox.c' || echo '$(srcdir)/'`xfce-mixer-settingsbox.c
-
-sound_settings_la-vc.o: vc.c
-@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sound_settings_la_CFLAGS) $(CFLAGS) -MT sound_settings_la-vc.o -MD -MP -MF "$(DEPDIR)/sound_settings_la-vc.Tpo" \
-@am__fastdepCC_TRUE@	  -c -o sound_settings_la-vc.o `test -f 'vc.c' || echo '$(srcdir)/'`vc.c; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/sound_settings_la-vc.Tpo" "$(DEPDIR)/sound_settings_la-vc.Po"; \
-@am__fastdepCC_TRUE@	else rm -f "$(DEPDIR)/sound_settings_la-vc.Tpo"; exit 1; \
-@am__fastdepCC_TRUE@	fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='vc.c' object='sound_settings_la-vc.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/sound_settings_la-vc.Po' tmpdepfile='$(DEPDIR)/sound_settings_la-vc.TPo' @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sound_settings_la_CFLAGS) $(CFLAGS) -c -o sound_settings_la-vc.o `test -f 'vc.c' || echo '$(srcdir)/'`vc.c
-
-sound_settings_la-vc.obj: vc.c
-@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sound_settings_la_CFLAGS) $(CFLAGS) -MT sound_settings_la-vc.obj -MD -MP -MF "$(DEPDIR)/sound_settings_la-vc.Tpo" \
-@am__fastdepCC_TRUE@	  -c -o sound_settings_la-vc.obj `if test -f 'vc.c'; then $(CYGPATH_W) 'vc.c'; else $(CYGPATH_W) '$(srcdir)/vc.c'; fi`; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/sound_settings_la-vc.Tpo" "$(DEPDIR)/sound_settings_la-vc.Po"; \
-@am__fastdepCC_TRUE@	else rm -f "$(DEPDIR)/sound_settings_la-vc.Tpo"; exit 1; \
-@am__fastdepCC_TRUE@	fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='vc.c' object='sound_settings_la-vc.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/sound_settings_la-vc.Po' tmpdepfile='$(DEPDIR)/sound_settings_la-vc.TPo' @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sound_settings_la_CFLAGS) $(CFLAGS) -c -o sound_settings_la-vc.obj `if test -f 'vc.c'; then $(CYGPATH_W) 'vc.c'; else $(CYGPATH_W) '$(srcdir)/vc.c'; fi`
-
-sound_settings_la-vc.lo: vc.c
-@am__fastdepCC_TRUE@	if $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sound_settings_la_CFLAGS) $(CFLAGS) -MT sound_settings_la-vc.lo -MD -MP -MF "$(DEPDIR)/sound_settings_la-vc.Tpo" \
-@am__fastdepCC_TRUE@	  -c -o sound_settings_la-vc.lo `test -f 'vc.c' || echo '$(srcdir)/'`vc.c; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/sound_settings_la-vc.Tpo" "$(DEPDIR)/sound_settings_la-vc.Plo"; \
-@am__fastdepCC_TRUE@	else rm -f "$(DEPDIR)/sound_settings_la-vc.Tpo"; exit 1; \
-@am__fastdepCC_TRUE@	fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='vc.c' object='sound_settings_la-vc.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/sound_settings_la-vc.Plo' tmpdepfile='$(DEPDIR)/sound_settings_la-vc.TPlo' @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sound_settings_la_CFLAGS) $(CFLAGS) -c -o sound_settings_la-vc.lo `test -f 'vc.c' || echo '$(srcdir)/'`vc.c
-
-sound_settings_la-vc_alsa.o: vc_alsa.c
-@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sound_settings_la_CFLAGS) $(CFLAGS) -MT sound_settings_la-vc_alsa.o -MD -MP -MF "$(DEPDIR)/sound_settings_la-vc_alsa.Tpo" \
-@am__fastdepCC_TRUE@	  -c -o sound_settings_la-vc_alsa.o `test -f 'vc_alsa.c' || echo '$(srcdir)/'`vc_alsa.c; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/sound_settings_la-vc_alsa.Tpo" "$(DEPDIR)/sound_settings_la-vc_alsa.Po"; \
-@am__fastdepCC_TRUE@	else rm -f "$(DEPDIR)/sound_settings_la-vc_alsa.Tpo"; exit 1; \
-@am__fastdepCC_TRUE@	fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='vc_alsa.c' object='sound_settings_la-vc_alsa.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/sound_settings_la-vc_alsa.Po' tmpdepfile='$(DEPDIR)/sound_settings_la-vc_alsa.TPo' @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sound_settings_la_CFLAGS) $(CFLAGS) -c -o sound_settings_la-vc_alsa.o `test -f 'vc_alsa.c' || echo '$(srcdir)/'`vc_alsa.c
-
-sound_settings_la-vc_alsa.obj: vc_alsa.c
-@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sound_settings_la_CFLAGS) $(CFLAGS) -MT sound_settings_la-vc_alsa.obj -MD -MP -MF "$(DEPDIR)/sound_settings_la-vc_alsa.Tpo" \
-@am__fastdepCC_TRUE@	  -c -o sound_settings_la-vc_alsa.obj `if test -f 'vc_alsa.c'; then $(CYGPATH_W) 'vc_alsa.c'; else $(CYGPATH_W) '$(srcdir)/vc_alsa.c'; fi`; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/sound_settings_la-vc_alsa.Tpo" "$(DEPDIR)/sound_settings_la-vc_alsa.Po"; \
-@am__fastdepCC_TRUE@	else rm -f "$(DEPDIR)/sound_settings_la-vc_alsa.Tpo"; exit 1; \
-@am__fastdepCC_TRUE@	fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='vc_alsa.c' object='sound_settings_la-vc_alsa.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/sound_settings_la-vc_alsa.Po' tmpdepfile='$(DEPDIR)/sound_settings_la-vc_alsa.TPo' @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sound_settings_la_CFLAGS) $(CFLAGS) -c -o sound_settings_la-vc_alsa.obj `if test -f 'vc_alsa.c'; then $(CYGPATH_W) 'vc_alsa.c'; else $(CYGPATH_W) '$(srcdir)/vc_alsa.c'; fi`
-
-sound_settings_la-vc_alsa.lo: vc_alsa.c
-@am__fastdepCC_TRUE@	if $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sound_settings_la_CFLAGS) $(CFLAGS) -MT sound_settings_la-vc_alsa.lo -MD -MP -MF "$(DEPDIR)/sound_settings_la-vc_alsa.Tpo" \
-@am__fastdepCC_TRUE@	  -c -o sound_settings_la-vc_alsa.lo `test -f 'vc_alsa.c' || echo '$(srcdir)/'`vc_alsa.c; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/sound_settings_la-vc_alsa.Tpo" "$(DEPDIR)/sound_settings_la-vc_alsa.Plo"; \
-@am__fastdepCC_TRUE@	else rm -f "$(DEPDIR)/sound_settings_la-vc_alsa.Tpo"; exit 1; \
-@am__fastdepCC_TRUE@	fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='vc_alsa.c' object='sound_settings_la-vc_alsa.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/sound_settings_la-vc_alsa.Plo' tmpdepfile='$(DEPDIR)/sound_settings_la-vc_alsa.TPlo' @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sound_settings_la_CFLAGS) $(CFLAGS) -c -o sound_settings_la-vc_alsa.lo `test -f 'vc_alsa.c' || echo '$(srcdir)/'`vc_alsa.c
-
-sound_settings_la-vc_oss.o: vc_oss.c
-@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sound_settings_la_CFLAGS) $(CFLAGS) -MT sound_settings_la-vc_oss.o -MD -MP -MF "$(DEPDIR)/sound_settings_la-vc_oss.Tpo" \
-@am__fastdepCC_TRUE@	  -c -o sound_settings_la-vc_oss.o `test -f 'vc_oss.c' || echo '$(srcdir)/'`vc_oss.c; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/sound_settings_la-vc_oss.Tpo" "$(DEPDIR)/sound_settings_la-vc_oss.Po"; \
-@am__fastdepCC_TRUE@	else rm -f "$(DEPDIR)/sound_settings_la-vc_oss.Tpo"; exit 1; \
-@am__fastdepCC_TRUE@	fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='vc_oss.c' object='sound_settings_la-vc_oss.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/sound_settings_la-vc_oss.Po' tmpdepfile='$(DEPDIR)/sound_settings_la-vc_oss.TPo' @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sound_settings_la_CFLAGS) $(CFLAGS) -c -o sound_settings_la-vc_oss.o `test -f 'vc_oss.c' || echo '$(srcdir)/'`vc_oss.c
-
-sound_settings_la-vc_oss.obj: vc_oss.c
-@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sound_settings_la_CFLAGS) $(CFLAGS) -MT sound_settings_la-vc_oss.obj -MD -MP -MF "$(DEPDIR)/sound_settings_la-vc_oss.Tpo" \
-@am__fastdepCC_TRUE@	  -c -o sound_settings_la-vc_oss.obj `if test -f 'vc_oss.c'; then $(CYGPATH_W) 'vc_oss.c'; else $(CYGPATH_W) '$(srcdir)/vc_oss.c'; fi`; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/sound_settings_la-vc_oss.Tpo" "$(DEPDIR)/sound_settings_la-vc_oss.Po"; \
-@am__fastdepCC_TRUE@	else rm -f "$(DEPDIR)/sound_settings_la-vc_oss.Tpo"; exit 1; \
-@am__fastdepCC_TRUE@	fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='vc_oss.c' object='sound_settings_la-vc_oss.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/sound_settings_la-vc_oss.Po' tmpdepfile='$(DEPDIR)/sound_settings_la-vc_oss.TPo' @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sound_settings_la_CFLAGS) $(CFLAGS) -c -o sound_settings_la-vc_oss.obj `if test -f 'vc_oss.c'; then $(CYGPATH_W) 'vc_oss.c'; else $(CYGPATH_W) '$(srcdir)/vc_oss.c'; fi`
-
-sound_settings_la-vc_oss.lo: vc_oss.c
-@am__fastdepCC_TRUE@	if $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sound_settings_la_CFLAGS) $(CFLAGS) -MT sound_settings_la-vc_oss.lo -MD -MP -MF "$(DEPDIR)/sound_settings_la-vc_oss.Tpo" \
-@am__fastdepCC_TRUE@	  -c -o sound_settings_la-vc_oss.lo `test -f 'vc_oss.c' || echo '$(srcdir)/'`vc_oss.c; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/sound_settings_la-vc_oss.Tpo" "$(DEPDIR)/sound_settings_la-vc_oss.Plo"; \
-@am__fastdepCC_TRUE@	else rm -f "$(DEPDIR)/sound_settings_la-vc_oss.Tpo"; exit 1; \
-@am__fastdepCC_TRUE@	fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='vc_oss.c' object='sound_settings_la-vc_oss.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/sound_settings_la-vc_oss.Plo' tmpdepfile='$(DEPDIR)/sound_settings_la-vc_oss.TPlo' @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(sound_settings_la_CFLAGS) $(CFLAGS) -c -o sound_settings_la-vc_oss.lo `test -f 'vc_oss.c' || echo '$(srcdir)/'`vc_oss.c
 
 mostlyclean-libtool:
 	-rm -f *.lo

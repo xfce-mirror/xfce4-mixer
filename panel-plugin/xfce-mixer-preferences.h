@@ -12,11 +12,14 @@ extern "C" {
 
 
 #include <gtk/gtk.h>
-#include "xfce-mixer-pxml.h"
 
 
 
 #include "helpers_h.inc"
+
+
+
+#include "xfce-mixer-pxml.h"
 
 
 /*
