@@ -17,9 +17,14 @@ xfce4_mixer_SOURCES = $(xfce4_mixer_CSOURCES) mixer-control.gob \
 	mixer-slider-tiny.gob mixer-window.gob mixer-switch.gob \
 	mixer-info.gob
 
-xfce4_mixer_CFLAGS = $(GTK_CFLAGS)
-xfce4_mixer_LDADD = $(GTK_LIBS)
-
+xfce4_mixer_CFLAGS =							\
+	@XFCE4_UTIL_CFLAGS@						\
+	@GTK_CFLAGS@
+	
+xfce4_mixer_LDADD = 							\
+	@XFCE4_UTIL_LIBS@						\
+	@GTK_LIBS@
+	
 OBJECTS = xfce-mixer-control.o xfce-mixer-slider.o xfce-mixer-profile.o \
 	xfce-mixer-slider-tiny.o xfce-mixer-view.o xfce-mixer-view-tiny.o \
 	xfce-mixer-control-factory.o vc.o vc_alsa.o disclosure-widget.o \

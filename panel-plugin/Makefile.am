@@ -16,7 +16,9 @@ libmixer_la_SOURCES =							\
 	vc_oss.c vc_alsa.c
 
 libmixer_la_CFLAGS =							\
+	@XFCE_MCS_CLIENT_CFLAGS@					\
 	@XFCE4_PANEL_CFLAGS@
 
 libmixer_la_LIBADD = 							\
+	@XFCE_MCS_CLIENT_LIBS@						\
 	@XFCE4_PANEL_LIBS@

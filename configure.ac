@@ -7,7 +7,7 @@ dnl Checks for libraries.
 
 
 AM_CONFIG_HEADER([config.h])
-AM_INIT_AUTOMAKE([xfce4-mixer], [4.0.0])
+AM_INIT_AUTOMAKE([xfce4-mixer], [4.1.0])
 AM_MAINTAINER_MODE
 
 dnl Check for UNIX variants
@@ -23,20 +23,9 @@ dnl Checks for header files.
 AC_HEADER_STDC
 AC_CHECK_HEADERS([fcntl.h limits.h sys/ioctl.h])
 
-dnl required versions of other packages
-dnl not AC_SUBST(PYGTK_REQ, 2.0.0)
-AC_SUBST(GLIB_REQ,  2.0.0)
-AC_SUBST(GTK_REQ,   2.0.0)
-
 AC_DISABLE_STATIC
 
 AC_PROG_LIBTOOL
-
-dnl check for glib
-AM_PATH_GLIB_2_0($GLIB_REQ,,[AC_MSG_ERROR(maybe you want the gtk-gnome-1-2 branch?)],$extra_mods)
-
-dnl check to make sure we can find gtk
-AM_PATH_GTK_2_0($GTK_REQ,,[AC_MSG_ERROR(maybe you want the gtk-gnome-1-2 branch?)],$extra_mods)
 
 dnl Check what sound system to use
 AC_ARG_WITH([sound], [
@@ -65,12 +54,14 @@ fi
 dnl Check for i18n support
 BM_I18N([xfce4-mixer], [ca de fr hu it lt ms nl pt_PT ru tr zh_CN zh_TW ko])
 
-
-XFCE_PANEL_PLUGIN([XFCE4_PANEL], [0.10.1])
+BM_DEPEND([XFCE4_UTIL], [libxfce4util-1.0], [4.0.0])
+BM_DEPEND([GTK], [gtk+-2.0], [2.0.6])
+BM_DEPEND([XFCE_MCS_CLIENT], [libxfce4mcs-client-1.0], [4.0.0])
+XFCE_PANEL_PLUGIN([XFCE4_PANEL], [4.0.0])
+XFCE_MCS_PLUGIN([XFCE_MCS_MANAGER], [4.0.0])
 
 dnl Check for debugging support
 BM_DEBUG_SUPPORT
-
 
 dnl Checks for typedefs, structures, and compiler characteristics.
 AC_C_CONST

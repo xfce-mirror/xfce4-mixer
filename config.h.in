@@ -36,9 +36,6 @@
 /* Define to 1 if you have the `ossaudio' library (-lossaudio). */
 #undef HAVE_LIBOSSAUDIO
 
-/* Define if you have libstartup-notification-1.0 >= 0.5 */
-#undef HAVE_LIBSTARTUP_NOTIFICATION
-
 /* Define to 1 if you have the <limits.h> header file. */
 #undef HAVE_LIMITS_H
 
@@ -127,3 +124,6 @@
 
 /* Define to 1 if you need to in order for `stat' and other things to work. */
 #undef _POSIX_SOURCE
+
+/* Define to empty if `const' does not conform to ANSI C. */
+#undef const

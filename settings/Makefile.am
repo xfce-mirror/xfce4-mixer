@@ -5,6 +5,7 @@ sound_LTLIBRARIES = 							\
 
 sound_settings_la_LDFLAGS =						\
 	-avoid-version							\
+	-export-dynamic							\
 	-module
 
 sound_settings_la_SOURCES =						\
@@ -15,7 +16,13 @@ sound_settings_la_CFLAGS =						\
 	@XFCE_MCS_MANAGER_CFLAGS@					\
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"
 
-sound-icon.h: $(srcdir)/sound.png
+sound_settings_la_LIBADD =						\
+	@XFCE_MCS_MANAGER_LIBS@
+
+sound.c: sound-icon.h
+
+
+sound-icon.h: Makefile $(srcdir)/sound.png
 	gdk-pixbuf-csource --raw --build-list				\
 	sound_icon_data $(srcdir)/sound.png > sound-icon.h
 

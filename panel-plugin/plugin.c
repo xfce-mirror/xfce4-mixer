@@ -18,7 +18,6 @@
 
 typedef struct
 {
-	GtkWidget *alignment;
 	GtkWidget *box;
 	XfceMixerControl *slider;
 	XfceMixerPreferences *prefs;
@@ -129,11 +128,11 @@ mixer_new(void)
 {
 	t_mixer *mixer;
 	GdkPixbuf *pb;
+	GtkWidget *align;
 	
 	mixer = g_new (t_mixer, 1);
 	mixer->box = gtk_hbox_new (FALSE, 0); 
 	gtk_widget_show (mixer->box);
-	gtk_container_set_border_width (GTK_CONTAINER (mixer->box), border_width);
 
 	pb = get_pixbuf_for (mixer->broken);
 	mixer->ib = (XfceIconbutton *)xfce_iconbutton_new_from_pixbuf (pb);
@@ -143,7 +142,7 @@ mixer_new(void)
 	
 	g_signal_connect (G_OBJECT (mixer->ib), "clicked", G_CALLBACK (xfce_mixer_launch_cb), mixer);
 
-	gtk_box_pack_start (GTK_BOX (mixer->box), GTK_WIDGET (mixer->ib), FALSE, FALSE, 0);
+	gtk_box_pack_start (GTK_BOX (mixer->box), GTK_WIDGET (mixer->ib), TRUE, TRUE, 0);
 
 	mixer->slider = XFCE_MIXER_CONTROL (xfce_mixer_slider_tiny_new ());
 	g_signal_connect (
@@ -151,20 +150,19 @@ mixer_new(void)
 		G_CALLBACK (mixer_value_changed_cb), mixer
 	);
 	
-	/*xfce_mixer_slider_tiny_new ());*/
 	gtk_widget_show (GTK_WIDGET (mixer->slider));
-	
-	gtk_box_pack_start (GTK_BOX (mixer->box), GTK_WIDGET (mixer->slider), FALSE, FALSE, 0);
+	gtk_box_pack_start (GTK_BOX (mixer->box), GTK_WIDGET (mixer->slider), FALSE, TRUE, 0);
 		
-	mixer->alignment = gtk_alignment_new (0.5, 0.5, 0.0, 0.0); /* xalign,yalign,xs,ys */
-	gtk_widget_show (mixer->alignment);
-	gtk_container_add (GTK_CONTAINER (mixer->alignment), GTK_WIDGET (mixer->box));
-	
 	g_signal_connect_swapped (
 		G_OBJECT (mixer->ib), "scroll-event", 
 		G_CALLBACK (xfce_mixer_slider_tiny_scroll_cb), 
 		mixer->slider
 	);
+
+	align = gtk_alignment_new (0,0,0,0);
+	gtk_widget_show (align);
+	gtk_widget_set_size_request (align, border_width, -1);
+	gtk_box_pack_start (GTK_BOX (mixer->box), align, FALSE, FALSE, 0);	
 	
 	mixer->prefs = XFCE_MIXER_PREFERENCES (xfce_mixer_preferences_new ());
 
@@ -187,7 +185,7 @@ mixer_control_new (Control *ctrl)
 	t_mixer *mixer;
 	
 	mixer = mixer_new ();
-	gtk_container_add (GTK_CONTAINER(ctrl->base), mixer->alignment);
+	gtk_container_add (GTK_CONTAINER(ctrl->base), mixer->box);
 	
 	ctrl->data = (gpointer) mixer;
 	ctrl->with_popup = FALSE;
