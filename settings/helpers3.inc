@@ -1,3 +1,4 @@
+#ifndef NO_TREE_CHECK_COLUMN
 static void
 tree_check_column_toggled_cb (
 	GtkCellRendererToggle *cell,
@@ -48,6 +49,7 @@ tree_new_check_column (gchar const *title, gint datalink, GtkTreeModel *model)
 
 	return col;
 }
+#endif
 
 static GtkTreeViewColumn *
 tree_new_text_column (gchar const *title, gint datalink)

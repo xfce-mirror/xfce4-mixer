@@ -16,7 +16,7 @@
 #include "mixer-mcs-names.h"
 #include "string_option_menu.h"
 
-#undef SHOW_DEFAULT_DEVICE_ENTRY
+#define SHOW_DEFAULT_DEVICE_ENTRY
 #define SETTINGS_LIST_SEP "@"
 #define CHANNEL "sound"
 /*#define TRACE g_warning(s)*/
