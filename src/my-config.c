@@ -6,6 +6,7 @@
 
 #include "my-config.h"
 
+#include <stdio.h>
 #ifdef HAVE_SYS_STAT_H
 #include <sys/stat.h>
 #endif
@@ -38,38 +39,6 @@ TODO:
 <benny> well, xfce_rc_* does that automagically... if you decide that you don't want to use xfce_rc_*, then you're stuck to do it yourself :-P
 */
 
-#if 0
-static gchar *
-get_tmp_file_name()
-{
-	gchar *nfilename;
-	pid_t	pid;
-	pid = getpid();
-	nfilename = g_strdup_printf("%s.tmp.%lu", origfilename, (gulong) pid);
-	return nfilename;
-}
-
-
-static int 
-create_tmp_file(gchar const *origfilename)
-{
-	int	handle;
-	gchar *nfilename;
-	if (!nfilename) {
-		errno = ENOENT;
-	}
-	
-	handle = open(nfilename, O_WRONLY|O_CREAT, 0644);
-	g_free (nfilename);
-	return handle;
-}
-
-static void
-rename_tmp_file()
-{
-}
-
-#endif
 
 static void 
 migrate_errno_print(gchar const *oldpath, gchar const *newpath, int errno, gboolean newfile_culprit)
@@ -86,6 +55,51 @@ migrate_errno_print(gchar const *oldpath, gchar const *newpath, int errno, gbool
 	} else {
 		g_warning("could not migrate \"%s\" to \"%s\" because something went wrong (%s)", oldpath, newpath, whichfile);
 	}
+}
+
+static gchar *
+get_tmp_file_name(gchar const *origfilename)
+{
+	gchar *nfilename;
+	pid_t	pid;
+	pid = getpid();
+	nfilename = g_strdup_printf("%s.tmp.%lu", origfilename, (gulong) pid);
+	return nfilename;
+}
+
+
+static int 
+create_tmp_file(gchar const *origfilename)
+{
+	int	handle;
+	gchar *nfilename;
+
+	nfilename = get_tmp_file_name (origfilename);
+	if (!nfilename) {
+		errno = ENOENT;
+		return -1;
+	}
+	
+	handle = open(nfilename, O_WRONLY|O_CREAT, 0644);
+	g_free (nfilename);
+	return handle;
+}
+
+static void
+rename_tmp_file(gchar const *origfilename)
+{
+	int	rc;
+	nfilename = get_tmp_file_name (origfilename);
+	if (!nfilename) {
+		errno = ENOENT;
+		return -1;
+	}
+	rc = rename(nfilename, origfilename);
+	if (rc == -1) {
+		migrate_errno_print(nfilename, origfilename, errno, TRUE);
+		unlink (nfilename);
+	}
+	return rc;
 }
 
 static void
