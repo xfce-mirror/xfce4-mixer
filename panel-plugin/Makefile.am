@@ -9,13 +9,14 @@ libmixer_la_LDFLAGS =							\
 	-module
 
 libmixer_la_SOURCES =							\
-	mixer.c								\
-	mixer_window.c							\
-	vc.c								\
-	vc.h								\
-	vc_alsa_fallback.c						\
-	vc_alsa.c							\
-	vc_oss.c
+        mixer.c								\
+        mixer_window.c							\
+        mixer_window.h							\
+        vc_alsa.c							\
+        vc_alsa_fallback.c						\
+        vc.c								\
+        vc.h								\
+        vc_oss.c
 
 libmixer_la_CFLAGS =							\
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"				\

@@ -31,6 +31,6 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(-,root,root)
 %doc README TODO ChangeLog NOTES INSTALL COPYING AUTHORS
-${_libdir}/xfce4/panel-plugins/
-${_datadir}/locale/
+%{_libdir}/xfce4/panel-plugins/
+%{_datadir}/locale/
 

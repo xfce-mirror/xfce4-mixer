@@ -1,16 +1,16 @@
 @SET_MAKE@
 
+EXTRA_DIST =								\
+	xfce4-mixer.spec                                                \
+	NOTES
+
 SUBDIRS = panel-plugin po
 
-EXTRA_DIST =								\
-	NOTES								\
-	README								\
-	TODO								\
-	xfce4-mixer.spec
-
 distclean-local:
-	rm -rf *.cache *~
+	rm -rf *.cache *~ *.spec
 
 rpm: dist
 	rpmbuild -ta $(PACKAGE)-$(VERSION).tar.gz
 	@rm -f $(PACKAGE)-$(VERSION).tar.gz
+
+ACLOCAL_AMFLAGS = -I m4
