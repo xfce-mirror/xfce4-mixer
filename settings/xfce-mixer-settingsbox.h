@@ -53,6 +53,7 @@ struct _XfceMixerSettingsbox {
 	GtkBox * right_box; /* protected */
 	GtkWidget * sep; /* protected */
 	GList * device_lst; /* protected */
+	gchar * sel_device; /* protected */
 };
 
 /*
@@ -69,6 +70,8 @@ struct _XfceMixerSettingsboxClass {
  */
 GType	xfce_mixer_settingsbox_get_type	(void);
 void 	xfce_mixer_settingsbox_load	(XfceMixerSettingsbox * self);
+void 	xfce_mixer_settingsbox_save	(XfceMixerSettingsbox * self);
+void 	xfce_mixer_settingsbox_devicelst_updated	(XfceMixerSettingsbox * self);
 XfceMixerSettingsbox * 	xfce_mixer_settingsbox_new	(void);
 
 #ifdef __cplusplus

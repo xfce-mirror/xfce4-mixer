@@ -31,18 +31,23 @@ static void     run_dialog(McsPlugin *);
 static gboolean save_settings(McsPlugin *);
 
 static GtkWidget *dialog = NULL;
+static XfceMixerSettingsbox *sb = NULL;
 
 #define RCDIR	"settings"
 #define CHANNEL	"sound"
 #define RCFILE	"sound.xml"
 
 static void
-response_cb (McsPlugin *plugin)
+response_cb (McsPlugin *plugin, gpointer user_data)
 {
+	if (sb)
+		xfce_mixer_settingsbox_save (sb);
+		
 	save_settings (plugin);
 	gtk_widget_destroy (GTK_WIDGET (dialog));
 	
 	dialog = NULL;
+	sb = NULL;
 }
 
 /* settings */
@@ -76,7 +81,6 @@ mcs_plugin_init(McsPlugin *plugin)
 
 static void     run_dialog(McsPlugin *plugin)
 {
-	XfceMixerSettingsbox *sb;
 	
 	if (dialog) {
 		gtk_window_present (GTK_WINDOW (dialog));
@@ -97,7 +101,7 @@ static void     run_dialog(McsPlugin *plugin)
 	gtk_window_set_resizable (GTK_WINDOW(dialog), FALSE);
 	
 	g_signal_connect_swapped(dialog, "response", G_CALLBACK(response_cb), plugin);
-	g_signal_connect_swapped(dialog, "delete-event",G_CALLBACK(response_cb), plugin);
+	g_signal_connect_swapped(dialog, "destroy",G_CALLBACK(response_cb), plugin);
 	
 	sb->manager = plugin->manager;
 	xfce_mixer_settingsbox_load (sb);
@@ -109,11 +113,17 @@ static gboolean save_settings(McsPlugin *plugin)
 {
 	gboolean result;
 	gchar *file;
-               
+
+	if (!dialog || !sb)
+		return TRUE;
+		
 	file = xfce_get_userfile(RCDIR, RCFILE, NULL);
 	result = mcs_manager_save_channel_to_file(plugin->manager, CHANNEL,
 	  file);
 	g_free(file);
+
+	if (sb)
+		sb->manager = NULL;
 
 	return(result);
 }

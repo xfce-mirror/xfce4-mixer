@@ -10,6 +10,13 @@
 #include "stringlist.inc"
 
 #undef SHOW_DEFAULT_DEVICE_ENTRY
+#define SETTINGS_LIST_SEP "@"
+#define CHANNEL "sound"
+/*#define TRACE g_warning(s)*/
+
+static void TRACE (gchar const *n)
+{
+}
 
 %}
 
@@ -28,6 +35,9 @@ class Xfce:Mixer:Settingsbox from Gtk:VBox {
 	protected GtkWidget *sep = NULL;
 	protected GList *device_lst = NULL
 		destroywith stringlist_free;
+	protected gchar *sel_device = NULL
+		destroywith g_free;
+
 	public McsManager * manager = NULL;
 
 	public void load (self) /* load from manager */
@@ -35,6 +45,15 @@ class Xfce:Mixer:Settingsbox from Gtk:VBox {
 		if (!self->manager)
 			return;
 
+		self_devicelst_updated (self);
+	}
+
+	public void save (self) /* load from manager */
+	{
+		if (!self->manager)
+			return;
+
+		self_device_changed_cb (self);
 	}
 
 	init (self)
@@ -118,8 +137,7 @@ class Xfce:Mixer:Settingsbox from Gtk:VBox {
 
 		gtk_box_pack_start (GTK_BOX (self), GTK_WIDGET (self->cols), TRUE, TRUE, 0);
 
-		self_devicelst_updated (self);
-
+		/*self_devicelst_updated (self);*/
 
 		gtk_widget_set_size_request (GTK_WIDGET (self), -1, 300);
 	}
@@ -145,6 +163,8 @@ class Xfce:Mixer:Settingsbox from Gtk:VBox {
 		GList *g;
 		GList *cl;
 		volcontrol_t *vci;
+		TRACE ("enter device_changed_cb");
+
 		self_apply_right_box (self);
 
 		sels = gtk_tree_view_get_selection (self->devlist_tv);
@@ -154,13 +174,29 @@ class Xfce:Mixer:Settingsbox from Gtk:VBox {
 		if (!gtk_tree_selection_get_selected (sels, &m, &iter))
 			return;
 
+		TRACE ("read selected device string");
 		gtk_tree_model_get (m, &iter, 0, &s, -1);
+		TRACE ("read selected device string ok");
 		if (s) {
+			TRACE (s);
+			TRACE ("set dev_label");
+
 			gtk_label_set_text (self->dev_label, s);
+			TRACE ("set vc device");
 			vc_set_device (s);
+			TRACE ("free sel_device");
+			if (self->sel_device) {
+				g_free (self->sel_device);
+				self->sel_device = NULL;
+			}
+			TRACE ("set sel_device");
+			self->sel_device = g_strdup (s);
+			TRACE ("free selected device string");
+
 			g_free (s);
 		}
 
+		TRACE ("fill useful controls list");
 		/* fill "useful controls" list */
 		gtk_tree_store_clear (self->useful_model);
 
@@ -176,26 +212,33 @@ class Xfce:Mixer:Settingsbox from Gtk:VBox {
 					1, vci->name, 
 				-1);
 
-				/*g_warning ("vci %s", vci->name);*/
 			}
 
 			g = g_list_next (g);
 		}
+		TRACE ("fill vccl");
 		if (cl)
 			vc_free_control_list (cl);
+
+		TRACE ("fill right_box soon");
+		self_fill_right_box (self);
+		TRACE ("leave device_changed_cb");
 	}
 
-	protected void devicelst_updated (self)
+	public void devicelst_updated (self)
 	{
 		GList *g;
 		gchar const *s;
 		GtkTreeIter iter;
+		/*GtkTreeSelection *sels;*/
 		if (self->device_lst) {
 			stringlist_free (self->device_lst);
 			self->device_lst = NULL;
 		}
+		TRACE ("enter devicelst_updated");
 		self->device_lst = vc_get_device_list ();
 		gtk_tree_store_clear (self->devlist_model);
+		/*sels = gtk_tree_view_get_selection (self->devlist_tv);*/
 		g = self->device_lst;
 		while (g) {
 			s = (gchar const *) g->data;
@@ -204,17 +247,161 @@ class Xfce:Mixer:Settingsbox from Gtk:VBox {
 	&& !g_str_equal (s, "default")
 #endif
 			) {
+				TRACE ("before append");
 				gtk_tree_store_append (self->devlist_model, &iter, NULL);
+				TRACE ("before set");
 				gtk_tree_store_set (self->devlist_model, &iter, 0, s, -1);
+
+				/*if (sels) {
+					gtk_tree_selection_select_iter (sels, &iter);
+					self_device_changed_cb (self);
+				}*/
 			}
 
 			g = g_list_next (g);
 		}
+		/*if (sels && gtk_tree_model_get_iter_first (GTK_TREE_MODEL (self->devlist_model), &iter))
+			gtk_tree_selection_select_iter (sels, &iter);*/
+		TRACE ("leave devicelst_updated");
+	}
+
+	private gchar *mcs_s_name(self)
+	{
+		if (!self->sel_device)
+			return NULL;
+
+		return g_strdup_printf ("Sound/Mixer/Useful:%s", self->sel_device);
+	}
+
+	protected void fill_right_box (self)
+	{
+		gchar *n;
+		gchar *s;
+		gchar *s2;
+		gchar *all;
+		gboolean neof;
+		gboolean b;
+		McsSetting *setting;
+		GtkTreeIter iter;
+		if (!self->manager)
+			return;
+
+		n = self_mcs_s_name (self);
+		if (!n)
+			return;
+
+	        if ((setting = mcs_manager_setting_lookup(self->manager,
+                                        n, CHANNEL)) == NULL
+		) {
+			self_apply_right_box (self);
+		}
+
+	        if ((setting = mcs_manager_setting_lookup(self->manager,
+                                        n, CHANNEL)) == NULL
+		) {
+			g_free (n);
+			return;
+		}
+
+		g_free (n);
+
+		all = setting->data.v_string;
+		if (!all) 
+			return;
+
+		TRACE ("mcs_manager_setting_lookup");
+		TRACE (all);
+
+		neof = gtk_tree_model_get_iter_first (
+			GTK_TREE_MODEL (self->useful_model), &iter);
+
+		while (neof) {
+			gtk_tree_model_get (GTK_TREE_MODEL (self->useful_model), 
+				&iter, 1, &s, -1);
+
+			b = FALSE;
+			if (s) {
+				s2 = g_strdup_printf ("%s%s%s", 
+					SETTINGS_LIST_SEP,
+					s,
+					SETTINGS_LIST_SEP);
+				g_free (s);
+				s = s2;
+				s2 = NULL;
+			}
+
+			if (s) {
+				if (g_strrstr (all, s)) { /*contained*/
+					b = TRUE;
+				}
+				g_free (s);
+			}
+			gtk_tree_store_set (
+				self->useful_model,
+				&iter, 
+				0, b, -1);
+			
+			neof = gtk_tree_model_iter_next (GTK_TREE_MODEL (self->useful_model), &iter);
+		}
+			
+		/*g_free (all);*/
+		TRACE ("leave fill");
 	}
 
 	protected void apply_right_box (self)
 	{
-		/* TODO */
+		gchar *n;
+		gchar *v;
+		gchar *v2;
+		gchar *s;
+		gboolean b;
+		gboolean neof;
+		GtkTreeIter iter;
+		if (!self->sel_device || !self->manager)
+			return;
+
+		TRACE ("enter apply_right_box");
+
+		v = g_strdup ("");
+
+		neof = gtk_tree_model_get_iter_first (
+			GTK_TREE_MODEL (self->useful_model), &iter);
+
+		while (neof) {
+			gtk_tree_model_get (GTK_TREE_MODEL (self->useful_model), 
+				&iter, 0, &b, 1, &s, -1);
+
+			if (s) {
+				if (b) {
+					v2 = g_strdup_printf("%s%s%s", v, SETTINGS_LIST_SEP, s);
+					g_free (v);
+					v = v2;
+					v2 = NULL;
+				}
+				g_free (s);
+			}			
+
+			neof = gtk_tree_model_iter_next (
+				GTK_TREE_MODEL (self->useful_model), &iter);
+		}
+
+		v2 = g_strdup_printf("%s%s%s", v, SETTINGS_LIST_SEP,  "");
+		g_free (v);
+		v = v2;
+		v2 = NULL;
+
+		n = self_mcs_s_name (self);
+		if (!n)
+			return;
+
+		mcs_manager_set_string (self->manager,
+                                n, CHANNEL, v);
+		TRACE (n);
+		TRACE ("mcs_manager_set_string");
+		TRACE (v);
+		g_free (n);
+
+		TRACE ("leave apply_right_box");
 	}
 
 	public Xfce:Mixer:Settingsbox *new (void)
