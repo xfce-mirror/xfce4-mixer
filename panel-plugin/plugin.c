@@ -12,6 +12,7 @@
 #include "xfce-mixer-prefbox.h"
 #include "xfce-mixer-preferences.h"
 #include "xfce-mixer-control-vc.h"
+#include "xfce-mixer-cache-vc.h"
 #include "vcs.h"
 
 /* DO: timeout -> update volume */
@@ -402,6 +403,12 @@ xfce_control_class_init(ControlClass *cc)
 	 */
 	 
 	control_class_set_unique (cc, TRUE);
+}
+
+G_MODULE_EXPORT void 
+g_module_unload() 
+{
+	xfce_mixer_cache_vc_free ();
 }
 
 /* required! defined in panel/plugins.h */
