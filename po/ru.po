@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-01-21 12:36+0100\n"
+"POT-Creation-Date: 2004-01-21 12:49+0100\n"
 "PO-Revision-Date: 2003-07-18 01:28+0000\n"
 "Last-Translator: Poul Ionkin <wizzard@nmg.lv>\n"
 "Language-Team: Russian <none>\n"
@@ -72,26 +72,108 @@ msgstr ""
 msgid "Control"
 msgstr "Контроль звука"
 
-#: panel-plugin/trans.c:5
+#: panel-plugin/trans.c:6
 msgid "Vol"
 msgstr ""
 
-#: panel-plugin/trans.c:6
+#. Master
+#: panel-plugin/trans.c:7
 msgid "Pcm"
 msgstr ""
 
-#: panel-plugin/trans.c:7
+#. PCM output
+#: panel-plugin/trans.c:8
 msgid "Spkr"
 msgstr ""
 
-#: panel-plugin/trans.c:8
+#. Internal speaker?
+#: panel-plugin/trans.c:9
 msgid "Line"
 msgstr ""
 
-#: panel-plugin/trans.c:9
+#. Line in
+#: panel-plugin/trans.c:10
 msgid "Mic"
 msgstr ""
 
-#: panel-plugin/trans.c:10
+#. Mic in
+#: panel-plugin/trans.c:11
 msgid "CD"
+msgstr ""
+
+#. CD in
+#: panel-plugin/trans.c:12
+msgid "Bass"
+msgstr ""
+
+#: panel-plugin/trans.c:13
+msgid "Trebl"
+msgstr ""
+
+#: panel-plugin/trans.c:14
+msgid "Synth"
+msgstr ""
+
+#: panel-plugin/trans.c:15
+msgid "Mix"
+msgstr ""
+
+#: panel-plugin/trans.c:16
+msgid "Pcm2"
+msgstr ""
+
+#: panel-plugin/trans.c:17
+msgid "Rec"
+msgstr ""
+
+#: panel-plugin/trans.c:18
+msgid "IGain"
+msgstr ""
+
+#: panel-plugin/trans.c:19
+msgid "OGain"
+msgstr ""
+
+#: panel-plugin/trans.c:20
+msgid "Line1"
+msgstr ""
+
+#: panel-plugin/trans.c:21
+msgid "Line2"
+msgstr ""
+
+#: panel-plugin/trans.c:22
+msgid "Line3"
+msgstr ""
+
+#: panel-plugin/trans.c:23
+msgid "Digital1"
+msgstr ""
+
+#: panel-plugin/trans.c:24
+msgid "Digital2"
+msgstr ""
+
+#: panel-plugin/trans.c:25
+msgid "Digital3"
+msgstr ""
+
+#: panel-plugin/trans.c:26
+msgid "PhoneIn"
+msgstr ""
+
+#: panel-plugin/trans.c:27
+msgid "PhoneOut"
+msgstr ""
+
+#: panel-plugin/trans.c:28
+msgid "Video"
+msgstr ""
+
+#: panel-plugin/trans.c:29
+msgid "Radio"
+msgstr ""
+
+#: panel-plugin/trans.c:30
+msgid "Monitor"
 msgstr ""
