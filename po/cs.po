@@ -44,7 +44,7 @@ msgstr "alsa: Mixer %s open error: %s\n"
 #: panel-plugin/vc_alsa.c:95
 #, c-format
 msgid "alsa: Mixer attach %s error: %s\n"
-msgstr"alsa: Mixer attach %s error: %s\n"
+msgstr "alsa: Mixer attach %s error: %s\n"
 
 #: panel-plugin/vc_alsa.c:103
 #, c-format
