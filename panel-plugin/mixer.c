@@ -405,7 +405,7 @@ xfce_mixer_launch_button_cb(GtkWidget *button, t_mixer *mixer) /* verified proto
 	if (!mixer->options.command || !mixer->options.command[0] || mixer->options.use_internal) {
 		/* empty: use internal */
 
-		if (!mixer->mw) {
+		if (!mixer->mw && mixer->options.l_visible) {
 			mixer->mw = mixer_window_new (TRUE, mixer->options.l_visible);
 			g_signal_connect(GTK_WIDGET (mixer->mw->window), "destroy", G_CALLBACK(xfce_mixer_window_destroy_cb), mixer);
 			gtk_widget_show (GTK_WIDGET (mixer->mw->window));

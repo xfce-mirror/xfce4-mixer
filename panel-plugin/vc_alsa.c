@@ -53,7 +53,8 @@
 #include "vc.h"
 
 #ifdef DEBUG
-#define error xfce_info
+#define error printf
+/*#define error xfce_info*/
 #else
 #define error printf
 #endif
@@ -243,6 +244,10 @@ static GList *get_control_list(void)
 	g_list_alloc ();
 	if (!g) return NULL;
 #endif
+
+	if (!handle) {
+		return NULL;
+	}
 
 	b = snd_mixer_first_elem (handle);
 	e = snd_mixer_last_elem (handle);
