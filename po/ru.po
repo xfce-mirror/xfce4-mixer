@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-10-23 19:07+0200\n"
+"POT-Creation-Date: 2004-11-18 23:22+0100\n"
 "PO-Revision-Date: 2004-08-23 19:48+0600\n"
 "Last-Translator: Anthony Ivanoff <a-i@bk.ru>\n"
 "Language-Team: Russian\n"
@@ -18,19 +18,6 @@ msgstr ""
 "X-Generator: KBabel 1.3.1\n"
 "Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-
-#: mixer-settingsbox.gob:97
-msgid "Device"
-msgstr "Устройство"
-
-#: mixer-settingsbox.gob:100
-msgid "None"
-msgstr "Нет"
-
-#. gtk_widget_show (GTK_WIDGET (self->dev_label));
-#: mixer-settingsbox.gob:103
-msgid "Useful Controls"
-msgstr "Контролируемые каналы"
 
 #: lib/trans.c:6
 msgid "Vol"
@@ -172,120 +159,32 @@ msgstr "oss: Нет громкости"
 msgid "Volume: %d%%"
 msgstr "Громкость: %d%%"
 
-#: panel-plugin/plugin.c:387 mixer-window.gob:169
+#: panel-plugin/plugin.c:384 src/mixer-window.gob:188 mixer-window.gob:188
 msgid "Volume Control"
 msgstr "Контроль звука"
+
+#: settings/mixer-settingsbox.gob:102 mixer-settingsbox.gob:102
+msgid "Device"
+msgstr "Устройство"
+
+#: settings/mixer-settingsbox.gob:105 mixer-settingsbox.gob:105
+msgid "None"
+msgstr "Нет"
+
+#. gtk_widget_show (GTK_WIDGET (self->dev_label));
+#: settings/mixer-settingsbox.gob:108 mixer-settingsbox.gob:108
+msgid "Useful Controls"
+msgstr "Контролируемые каналы"
 
 #: settings/sound.c:80 settings/sound.c:102 settings/sound.c:109
 msgid "Sound"
 msgstr "Звук"
 
-#: mixer-view.gob:258
-msgid "Show Switches"
-msgstr "Показывать переключатели"
-
-#: mixer-view.gob:259
-msgid "Hide Switches"
-msgstr "Скрыть переключатели"
-
-#: src/main.c:69
+#: src/main.c:77
 msgid "No working sound"
 msgstr "Звук не работает"
 
-#: mixer-profilebox.gob:88
-msgid "Device:"
-msgstr "Устройство:"
-
-#: mixer-profilebox.gob:142
-msgid "Create new profile"
-msgstr "Создать профиль"
-
-#: mixer-profilebox.gob:151
-msgid "Delete this profile"
-msgstr "Удалить профиль"
-
-#: mixer-profilebox.gob:170
-msgid "Profile"
-msgstr "Профиль"
-
-#: mixer-profilebox.gob:374
-#, c-format
-msgid "Really delete those %d profiles?"
-msgstr "Действительно удалить профили (%d)?"
-
-#: mixer-profilebox.gob:377
-#, c-format
-msgid "Really delete profile \"%s\"?"
-msgstr "Удалить профиль \"%s\"?"
-
-#: mixer-profilebox.gob:491
-#, c-format
-msgid "%s - New"
-msgstr "%s - Новый"
-
-#: mixer-profilebox.gob:528
-msgid "A profile needs a name"
-msgstr "Профилю требуется имя"
-
-#: mixer-profilebox.gob:542
-msgid "A profile with that name already exists"
-msgstr "Профиль с таким именем уже существует"
-
-#: mixer-profilebox-detail.gob:151
-msgid "Control"
-msgstr "Элемент управления"
-
-#: mixer-profilebox-detail.gob:154
-msgid "Type"
-msgstr "Тип"
-
-#: mixer-profilebox-detail.gob:166
-msgid "Up"
-msgstr "Вверх"
-
-#: mixer-profilebox-detail.gob:169
-msgid "Down"
-msgstr "Вниз"
-
-#: mixer-profilebox-detail.gob:176
-msgid "Move Entry Up"
-msgstr "Переместить элемент вверх"
-
-#: mixer-profilebox-detail.gob:179
-msgid "Move Entry Down"
-msgstr "Переместить элемент вниз"
-
-#: mixer-profilebox-detail.gob:188
-msgid "Profile Name:"
-msgstr "Имя профиля:"
-
-#: mixer-profilebox-detail.gob:370 mixer-profilebox-detail.gob:435
-msgid "<unknown>"
-msgstr "<неизв.>"
-
-#: mixer-profilebox-detail.gob:372 mixer-profilebox-detail.gob:437
-msgid "<slider>"
-msgstr "<ползунок>"
-
-#: mixer-profilebox-detail.gob:373 mixer-profilebox-detail.gob:438
-msgid "<onoff>"
-msgstr "<вкл/выкл>"
-
-#: mixer-profilebox-detail.gob:374 mixer-profilebox-detail.gob:439
-msgid "<select>"
-msgstr "<выбор>"
-
-#: src/menu-callbacks.inc:16
-#, c-format
-msgid "%s - Info"
-msgstr "%s - Сведения"
-
-#: src/menu-callbacks.inc:38
-#, c-format
-msgid "%s - Profiles"
-msgstr "%s - Профили"
-
-#: mixer-info.gob:28
+#: src/mixer-info.gob:28 mixer-info.gob:28
 msgid ""
 "This is xfce4-mixer, a volume control program.\n"
 "It is released under the GPL-2 License which you find in the source "
@@ -296,3 +195,110 @@ msgstr ""
 "Распространяется на условиях GPL-2, текст которой можно найти в каталоге с "
 "исходным кодом.\n"
 "Никакой гарантии на продукт не даётся."
+
+#: src/mixer-profilebox-detail.gob:163 mixer-profilebox-detail.gob:163
+msgid "Control"
+msgstr "Элемент управления"
+
+#: src/mixer-profilebox-detail.gob:166 mixer-profilebox-detail.gob:166
+msgid "Type"
+msgstr "Тип"
+
+#: src/mixer-profilebox-detail.gob:178 mixer-profilebox-detail.gob:178
+msgid "Up"
+msgstr "Вверх"
+
+#: src/mixer-profilebox-detail.gob:181 mixer-profilebox-detail.gob:181
+msgid "Down"
+msgstr "Вниз"
+
+#: src/mixer-profilebox-detail.gob:188 mixer-profilebox-detail.gob:188
+msgid "Move Entry Up"
+msgstr "Переместить элемент вверх"
+
+#: src/mixer-profilebox-detail.gob:191 mixer-profilebox-detail.gob:191
+msgid "Move Entry Down"
+msgstr "Переместить элемент вниз"
+
+#: src/mixer-profilebox-detail.gob:200 mixer-profilebox-detail.gob:200
+msgid "Profile Name:"
+msgstr "Имя профиля:"
+
+#: src/mixer-profilebox-detail.gob:382 src/mixer-profilebox-detail.gob:447
+#: mixer-profilebox-detail.gob:382 mixer-profilebox-detail.gob:447
+msgid "<unknown>"
+msgstr "<неизв.>"
+
+#: src/mixer-profilebox-detail.gob:384 src/mixer-profilebox-detail.gob:449
+#: mixer-profilebox-detail.gob:384 mixer-profilebox-detail.gob:449
+msgid "<slider>"
+msgstr "<ползунок>"
+
+#: src/mixer-profilebox-detail.gob:385 src/mixer-profilebox-detail.gob:450
+#: mixer-profilebox-detail.gob:385 mixer-profilebox-detail.gob:450
+msgid "<onoff>"
+msgstr "<вкл/выкл>"
+
+#: src/mixer-profilebox-detail.gob:386 src/mixer-profilebox-detail.gob:451
+#: mixer-profilebox-detail.gob:386 mixer-profilebox-detail.gob:451
+msgid "<select>"
+msgstr "<выбор>"
+
+#: src/mixer-profilebox.gob:88 mixer-profilebox.gob:88
+msgid "Device:"
+msgstr "Устройство:"
+
+#: src/mixer-profilebox.gob:142 mixer-profilebox.gob:142
+msgid "Create new profile"
+msgstr "Создать профиль"
+
+#: src/mixer-profilebox.gob:151 mixer-profilebox.gob:151
+msgid "Delete this profile"
+msgstr "Удалить профиль"
+
+#: src/mixer-profilebox.gob:170 mixer-profilebox.gob:170
+msgid "Profile"
+msgstr "Профиль"
+
+#: src/mixer-profilebox.gob:374 mixer-profilebox.gob:374
+#, c-format
+msgid "Really delete those %d profiles?"
+msgstr "Действительно удалить профили (%d)?"
+
+#: src/mixer-profilebox.gob:377 mixer-profilebox.gob:377
+#, c-format
+msgid "Really delete profile \"%s\"?"
+msgstr "Удалить профиль \"%s\"?"
+
+#: src/mixer-profilebox.gob:491 mixer-profilebox.gob:491
+#, c-format
+msgid "%s - New"
+msgstr "%s - Новый"
+
+#: src/mixer-profilebox.gob:528 mixer-profilebox.gob:528
+msgid "A profile needs a name"
+msgstr "Профилю требуется имя"
+
+#: src/mixer-profilebox.gob:542 mixer-profilebox.gob:542
+msgid "A profile with that name already exists"
+msgstr "Профиль с таким именем уже существует"
+
+#: src/mixer-profiles.gob:262 src/mixer-profiles.gob:269
+#: mixer-profiles.gob:262 mixer-profiles.gob:269
+#, fuzzy, c-format
+msgid "profile%d"
+msgstr "Профиль"
+
+#: src/mixer-view.gob:258 mixer-view.gob:258
+msgid "Show Switches"
+msgstr "Показывать переключатели"
+
+#: src/mixer-view.gob:259 mixer-view.gob:259
+msgid "Hide Switches"
+msgstr "Скрыть переключатели"
+
+#~ msgid "%s - Info"
+#~ msgstr "%s - Сведения"
+
+#~ msgid "%s - Profiles"
+#~ msgstr "%s - Профили"

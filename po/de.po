@@ -6,26 +6,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-10-23 19:07+0200\n"
+"POT-Creation-Date: 2004-11-18 23:22+0100\n"
 "PO-Revision-Date: 2004-09-18 00:10+0100\n"
 "Last-Translator: Moritz Heiber <moe@xfce.org>\n"
 "Language-Team: German <xfce4-dev@xfce.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-
-#: mixer-settingsbox.gob:97
-msgid "Device"
-msgstr "Gerät"
-
-#: mixer-settingsbox.gob:100
-msgid "None"
-msgstr "Nichts"
-
-#. gtk_widget_show (GTK_WIDGET (self->dev_label));
-#: mixer-settingsbox.gob:103
-msgid "Useful Controls"
-msgstr "Nützliche Regler"
 
 #: lib/trans.c:6
 msgid "Vol"
@@ -167,120 +154,32 @@ msgstr "OSS: Kein Master"
 msgid "Volume: %d%%"
 msgstr "Lautstärke: %d %%"
 
-#: panel-plugin/plugin.c:387 mixer-window.gob:169
+#: panel-plugin/plugin.c:384 src/mixer-window.gob:188 mixer-window.gob:188
 msgid "Volume Control"
 msgstr "Lautstärkenregler"
+
+#: settings/mixer-settingsbox.gob:102 mixer-settingsbox.gob:102
+msgid "Device"
+msgstr "Gerät"
+
+#: settings/mixer-settingsbox.gob:105 mixer-settingsbox.gob:105
+msgid "None"
+msgstr "Nichts"
+
+#. gtk_widget_show (GTK_WIDGET (self->dev_label));
+#: settings/mixer-settingsbox.gob:108 mixer-settingsbox.gob:108
+msgid "Useful Controls"
+msgstr "Nützliche Regler"
 
 #: settings/sound.c:80 settings/sound.c:102 settings/sound.c:109
 msgid "Sound"
 msgstr "Sound"
 
-#: mixer-view.gob:258
-msgid "Show Switches"
-msgstr "Schalter anzeigen"
-
-#: mixer-view.gob:259
-msgid "Hide Switches"
-msgstr "Schalter ausblenden"
-
-#: src/main.c:69
+#: src/main.c:77
 msgid "No working sound"
 msgstr "Keine funktionierende Soundkonfiguration gefunden"
 
-#: mixer-profilebox.gob:88
-msgid "Device:"
-msgstr "Gerät:"
-
-#: mixer-profilebox.gob:142
-msgid "Create new profile"
-msgstr "Neues Profil anlegen"
-
-#: mixer-profilebox.gob:151
-msgid "Delete this profile"
-msgstr "Dieses Profil löschen"
-
-#: mixer-profilebox.gob:170
-msgid "Profile"
-msgstr "Profil"
-
-#: mixer-profilebox.gob:374
-#, c-format
-msgid "Really delete those %d profiles?"
-msgstr "Diese %d Profile wirklich löschen?"
-
-#: mixer-profilebox.gob:377
-#, c-format
-msgid "Really delete profile \"%s\"?"
-msgstr "Profil \"%s\" wirklich löschen?"
-
-#: mixer-profilebox.gob:491
-#, c-format
-msgid "%s - New"
-msgstr "%s - Neu"
-
-#: mixer-profilebox.gob:528
-msgid "A profile needs a name"
-msgstr "Jedes Profil benötigt einen Namen"
-
-#: mixer-profilebox.gob:542
-msgid "A profile with that name already exists"
-msgstr "Ein Profil mit demselben Namen existiert bereits"
-
-#: mixer-profilebox-detail.gob:151
-msgid "Control"
-msgstr "Lautstärkenregler"
-
-#: mixer-profilebox-detail.gob:154
-msgid "Type"
-msgstr "Art"
-
-#: mixer-profilebox-detail.gob:166
-msgid "Up"
-msgstr "Hoch"
-
-#: mixer-profilebox-detail.gob:169
-msgid "Down"
-msgstr "Runter"
-
-#: mixer-profilebox-detail.gob:176
-msgid "Move Entry Up"
-msgstr "Eintrag höher"
-
-#: mixer-profilebox-detail.gob:179
-msgid "Move Entry Down"
-msgstr "Eintrag tiefer"
-
-#: mixer-profilebox-detail.gob:188
-msgid "Profile Name:"
-msgstr "Profilname:"
-
-#: mixer-profilebox-detail.gob:370 mixer-profilebox-detail.gob:435
-msgid "<unknown>"
-msgstr "<unbekannt>"
-
-#: mixer-profilebox-detail.gob:372 mixer-profilebox-detail.gob:437
-msgid "<slider>"
-msgstr "<Regler>"
-
-#: mixer-profilebox-detail.gob:373 mixer-profilebox-detail.gob:438
-msgid "<onoff>"
-msgstr "<ein/aus>"
-
-#: mixer-profilebox-detail.gob:374 mixer-profilebox-detail.gob:439
-msgid "<select>"
-msgstr "<Umschalter>"
-
-#: src/menu-callbacks.inc:16
-#, c-format
-msgid "%s - Info"
-msgstr "%s - Info"
-
-#: src/menu-callbacks.inc:38
-#, c-format
-msgid "%s - Profiles"
-msgstr "%s - Profile"
-
-#: mixer-info.gob:28
+#: src/mixer-info.gob:28 mixer-info.gob:28
 msgid ""
 "This is xfce4-mixer, a volume control program.\n"
 "It is released under the GPL-2 License which you find in the source "
@@ -291,3 +190,110 @@ msgstr ""
 "Es ist unter der GPL-2 lizensiert, die man auch im Quelltextverzeichnis "
 "finden kann.\n"
 "Keine Garantie jeglicher Art für das Programm."
+
+#: src/mixer-profilebox-detail.gob:163 mixer-profilebox-detail.gob:163
+msgid "Control"
+msgstr "Lautstärkenregler"
+
+#: src/mixer-profilebox-detail.gob:166 mixer-profilebox-detail.gob:166
+msgid "Type"
+msgstr "Art"
+
+#: src/mixer-profilebox-detail.gob:178 mixer-profilebox-detail.gob:178
+msgid "Up"
+msgstr "Hoch"
+
+#: src/mixer-profilebox-detail.gob:181 mixer-profilebox-detail.gob:181
+msgid "Down"
+msgstr "Runter"
+
+#: src/mixer-profilebox-detail.gob:188 mixer-profilebox-detail.gob:188
+msgid "Move Entry Up"
+msgstr "Eintrag höher"
+
+#: src/mixer-profilebox-detail.gob:191 mixer-profilebox-detail.gob:191
+msgid "Move Entry Down"
+msgstr "Eintrag tiefer"
+
+#: src/mixer-profilebox-detail.gob:200 mixer-profilebox-detail.gob:200
+msgid "Profile Name:"
+msgstr "Profilname:"
+
+#: src/mixer-profilebox-detail.gob:382 src/mixer-profilebox-detail.gob:447
+#: mixer-profilebox-detail.gob:382 mixer-profilebox-detail.gob:447
+msgid "<unknown>"
+msgstr "<unbekannt>"
+
+#: src/mixer-profilebox-detail.gob:384 src/mixer-profilebox-detail.gob:449
+#: mixer-profilebox-detail.gob:384 mixer-profilebox-detail.gob:449
+msgid "<slider>"
+msgstr "<Regler>"
+
+#: src/mixer-profilebox-detail.gob:385 src/mixer-profilebox-detail.gob:450
+#: mixer-profilebox-detail.gob:385 mixer-profilebox-detail.gob:450
+msgid "<onoff>"
+msgstr "<ein/aus>"
+
+#: src/mixer-profilebox-detail.gob:386 src/mixer-profilebox-detail.gob:451
+#: mixer-profilebox-detail.gob:386 mixer-profilebox-detail.gob:451
+msgid "<select>"
+msgstr "<Umschalter>"
+
+#: src/mixer-profilebox.gob:88 mixer-profilebox.gob:88
+msgid "Device:"
+msgstr "Gerät:"
+
+#: src/mixer-profilebox.gob:142 mixer-profilebox.gob:142
+msgid "Create new profile"
+msgstr "Neues Profil anlegen"
+
+#: src/mixer-profilebox.gob:151 mixer-profilebox.gob:151
+msgid "Delete this profile"
+msgstr "Dieses Profil löschen"
+
+#: src/mixer-profilebox.gob:170 mixer-profilebox.gob:170
+msgid "Profile"
+msgstr "Profil"
+
+#: src/mixer-profilebox.gob:374 mixer-profilebox.gob:374
+#, c-format
+msgid "Really delete those %d profiles?"
+msgstr "Diese %d Profile wirklich löschen?"
+
+#: src/mixer-profilebox.gob:377 mixer-profilebox.gob:377
+#, c-format
+msgid "Really delete profile \"%s\"?"
+msgstr "Profil \"%s\" wirklich löschen?"
+
+#: src/mixer-profilebox.gob:491 mixer-profilebox.gob:491
+#, c-format
+msgid "%s - New"
+msgstr "%s - Neu"
+
+#: src/mixer-profilebox.gob:528 mixer-profilebox.gob:528
+msgid "A profile needs a name"
+msgstr "Jedes Profil benötigt einen Namen"
+
+#: src/mixer-profilebox.gob:542 mixer-profilebox.gob:542
+msgid "A profile with that name already exists"
+msgstr "Ein Profil mit demselben Namen existiert bereits"
+
+#: src/mixer-profiles.gob:262 src/mixer-profiles.gob:269
+#: mixer-profiles.gob:262 mixer-profiles.gob:269
+#, fuzzy, c-format
+msgid "profile%d"
+msgstr "Profil"
+
+#: src/mixer-view.gob:258 mixer-view.gob:258
+msgid "Show Switches"
+msgstr "Schalter anzeigen"
+
+#: src/mixer-view.gob:259 mixer-view.gob:259
+msgid "Hide Switches"
+msgstr "Schalter ausblenden"
+
+#~ msgid "%s - Info"
+#~ msgstr "%s - Info"
+
+#~ msgid "%s - Profiles"
+#~ msgstr "%s - Profile"

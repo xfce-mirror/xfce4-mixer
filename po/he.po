@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: he\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-10-23 19:07+0200\n"
+"POT-Creation-Date: 2004-11-18 23:22+0100\n"
 "PO-Revision-Date: 2004-10-26 17:41+0200\n"
 "Last-Translator: Yuval Tanny <tanai@int.gov.il>\n"
 "Language-Team: \n"
@@ -17,19 +17,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.3.1\n"
-
-#: mixer-settingsbox.gob:97
-msgid "Device"
-msgstr "התקן"
-
-#: mixer-settingsbox.gob:100
-msgid "None"
-msgstr "אין"
-
-#. gtk_widget_show (GTK_WIDGET (self->dev_label));
-#: mixer-settingsbox.gob:103
-msgid "Useful Controls"
-msgstr "בקרים שמישים"
 
 #: lib/trans.c:6
 msgid "Vol"
@@ -171,120 +158,32 @@ msgstr "oss:אין עוצמת צליל ראשית"
 msgid "Volume: %d%%"
 msgstr "עוצמת צליל: %d%%"
 
-#: panel-plugin/plugin.c:387 mixer-window.gob:169
+#: panel-plugin/plugin.c:384 src/mixer-window.gob:188 mixer-window.gob:188
 msgid "Volume Control"
 msgstr "בקרת עוצמת צליל"
+
+#: settings/mixer-settingsbox.gob:102 mixer-settingsbox.gob:102
+msgid "Device"
+msgstr "התקן"
+
+#: settings/mixer-settingsbox.gob:105 mixer-settingsbox.gob:105
+msgid "None"
+msgstr "אין"
+
+#. gtk_widget_show (GTK_WIDGET (self->dev_label));
+#: settings/mixer-settingsbox.gob:108 mixer-settingsbox.gob:108
+msgid "Useful Controls"
+msgstr "בקרים שמישים"
 
 #: settings/sound.c:80 settings/sound.c:102 settings/sound.c:109
 msgid "Sound"
 msgstr "צליל"
 
-#: mixer-view.gob:258
-msgid "Show Switches"
-msgstr "הצג מתגים"
-
-#: mixer-view.gob:259
-msgid "Hide Switches"
-msgstr "הסתר מתגים"
-
-#: src/main.c:69
+#: src/main.c:77
 msgid "No working sound"
 msgstr "אין צליל עובד"
 
-#: mixer-profilebox.gob:88
-msgid "Device:"
-msgstr "התקן:"
-
-#: mixer-profilebox.gob:142
-msgid "Create new profile"
-msgstr "צור פרופיל חדש"
-
-#: mixer-profilebox.gob:151
-msgid "Delete this profile"
-msgstr "מחק פרופיל זה"
-
-#: mixer-profilebox.gob:170
-msgid "Profile"
-msgstr "פרופיל"
-
-#: mixer-profilebox.gob:374
-#, c-format
-msgid "Really delete those %d profiles?"
-msgstr "האם למחוק את הפרופיל %d ?"
-
-#: mixer-profilebox.gob:377
-#, c-format
-msgid "Really delete profile \"%s\"?"
-msgstr "האם למחוקאת הפרופיל \"%s\" ?"
-
-#: mixer-profilebox.gob:491
-#, c-format
-msgid "%s - New"
-msgstr "%s - חדש"
-
-#: mixer-profilebox.gob:528
-msgid "A profile needs a name"
-msgstr "הפרופיל צריך שם"
-
-#: mixer-profilebox.gob:542
-msgid "A profile with that name already exists"
-msgstr "פרופיל עם שם זה כבר קיים"
-
-#: mixer-profilebox-detail.gob:151
-msgid "Control"
-msgstr "בקרה"
-
-#: mixer-profilebox-detail.gob:154
-msgid "Type"
-msgstr "סוג"
-
-#: mixer-profilebox-detail.gob:166
-msgid "Up"
-msgstr "למעלה"
-
-#: mixer-profilebox-detail.gob:169
-msgid "Down"
-msgstr "למטה"
-
-#: mixer-profilebox-detail.gob:176
-msgid "Move Entry Up"
-msgstr "הזז פריט למעלה"
-
-#: mixer-profilebox-detail.gob:179
-msgid "Move Entry Down"
-msgstr "הזז פריט למטה"
-
-#: mixer-profilebox-detail.gob:188
-msgid "Profile Name:"
-msgstr "שם פרופיל:"
-
-#: mixer-profilebox-detail.gob:370 mixer-profilebox-detail.gob:435
-msgid "<unknown>"
-msgstr "<לא ידוע>"
-
-#: mixer-profilebox-detail.gob:372 mixer-profilebox-detail.gob:437
-msgid "<slider>"
-msgstr "<גולש>"
-
-#: mixer-profilebox-detail.gob:373 mixer-profilebox-detail.gob:438
-msgid "<onoff>"
-msgstr "<פועל מכובה>"
-
-#: mixer-profilebox-detail.gob:374 mixer-profilebox-detail.gob:439
-msgid "<select>"
-msgstr "<בחר>"
-
-#: src/menu-callbacks.inc:16
-#, c-format
-msgid "%s - Info"
-msgstr "%s - מידע"
-
-#: src/menu-callbacks.inc:38
-#, c-format
-msgid "%s - Profiles"
-msgstr "%s - פרופיל"
-
-#: mixer-info.gob:28
+#: src/mixer-info.gob:28 mixer-info.gob:28
 msgid ""
 "This is xfce4-mixer, a volume control program.\n"
 "It is released under the GPL-2 License which you find in the source "
@@ -294,3 +193,110 @@ msgstr ""
 "זה הוא מיקסר צליל xfce4, תוכנת בקרת צליל.\n"
 "תוכנה זו מופצת תחת רישיוןה GPL-2 שאפשר למצוא בתיקיית הקוד מקור.\n"
 "אין שום אחריות בכל מקרה."
+
+#: src/mixer-profilebox-detail.gob:163 mixer-profilebox-detail.gob:163
+msgid "Control"
+msgstr "בקרה"
+
+#: src/mixer-profilebox-detail.gob:166 mixer-profilebox-detail.gob:166
+msgid "Type"
+msgstr "סוג"
+
+#: src/mixer-profilebox-detail.gob:178 mixer-profilebox-detail.gob:178
+msgid "Up"
+msgstr "למעלה"
+
+#: src/mixer-profilebox-detail.gob:181 mixer-profilebox-detail.gob:181
+msgid "Down"
+msgstr "למטה"
+
+#: src/mixer-profilebox-detail.gob:188 mixer-profilebox-detail.gob:188
+msgid "Move Entry Up"
+msgstr "הזז פריט למעלה"
+
+#: src/mixer-profilebox-detail.gob:191 mixer-profilebox-detail.gob:191
+msgid "Move Entry Down"
+msgstr "הזז פריט למטה"
+
+#: src/mixer-profilebox-detail.gob:200 mixer-profilebox-detail.gob:200
+msgid "Profile Name:"
+msgstr "שם פרופיל:"
+
+#: src/mixer-profilebox-detail.gob:382 src/mixer-profilebox-detail.gob:447
+#: mixer-profilebox-detail.gob:382 mixer-profilebox-detail.gob:447
+msgid "<unknown>"
+msgstr "<לא ידוע>"
+
+#: src/mixer-profilebox-detail.gob:384 src/mixer-profilebox-detail.gob:449
+#: mixer-profilebox-detail.gob:384 mixer-profilebox-detail.gob:449
+msgid "<slider>"
+msgstr "<גולש>"
+
+#: src/mixer-profilebox-detail.gob:385 src/mixer-profilebox-detail.gob:450
+#: mixer-profilebox-detail.gob:385 mixer-profilebox-detail.gob:450
+msgid "<onoff>"
+msgstr "<פועל מכובה>"
+
+#: src/mixer-profilebox-detail.gob:386 src/mixer-profilebox-detail.gob:451
+#: mixer-profilebox-detail.gob:386 mixer-profilebox-detail.gob:451
+msgid "<select>"
+msgstr "<בחר>"
+
+#: src/mixer-profilebox.gob:88 mixer-profilebox.gob:88
+msgid "Device:"
+msgstr "התקן:"
+
+#: src/mixer-profilebox.gob:142 mixer-profilebox.gob:142
+msgid "Create new profile"
+msgstr "צור פרופיל חדש"
+
+#: src/mixer-profilebox.gob:151 mixer-profilebox.gob:151
+msgid "Delete this profile"
+msgstr "מחק פרופיל זה"
+
+#: src/mixer-profilebox.gob:170 mixer-profilebox.gob:170
+msgid "Profile"
+msgstr "פרופיל"
+
+#: src/mixer-profilebox.gob:374 mixer-profilebox.gob:374
+#, c-format
+msgid "Really delete those %d profiles?"
+msgstr "האם למחוק את הפרופיל %d ?"
+
+#: src/mixer-profilebox.gob:377 mixer-profilebox.gob:377
+#, c-format
+msgid "Really delete profile \"%s\"?"
+msgstr "האם למחוקאת הפרופיל \"%s\" ?"
+
+#: src/mixer-profilebox.gob:491 mixer-profilebox.gob:491
+#, c-format
+msgid "%s - New"
+msgstr "%s - חדש"
+
+#: src/mixer-profilebox.gob:528 mixer-profilebox.gob:528
+msgid "A profile needs a name"
+msgstr "הפרופיל צריך שם"
+
+#: src/mixer-profilebox.gob:542 mixer-profilebox.gob:542
+msgid "A profile with that name already exists"
+msgstr "פרופיל עם שם זה כבר קיים"
+
+#: src/mixer-profiles.gob:262 src/mixer-profiles.gob:269
+#: mixer-profiles.gob:262 mixer-profiles.gob:269
+#, fuzzy, c-format
+msgid "profile%d"
+msgstr "פרופיל"
+
+#: src/mixer-view.gob:258 mixer-view.gob:258
+msgid "Show Switches"
+msgstr "הצג מתגים"
+
+#: src/mixer-view.gob:259 mixer-view.gob:259
+msgid "Hide Switches"
+msgstr "הסתר מתגים"
+
+#~ msgid "%s - Info"
+#~ msgstr "%s - מידע"
+
+#~ msgid "%s - Profiles"
+#~ msgstr "%s - פרופיל"
