@@ -1817,7 +1817,7 @@ fi
 
 # Define the identity of the package.
  PACKAGE=xfce4-mixer
- VERSION=4.1.1
+ VERSION=4.1.90
 
 
 cat >>confdefs.h <<_ACEOF

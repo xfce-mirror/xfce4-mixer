@@ -1,6 +1,6 @@
 @SET_MAKE@
 
-INCLUDES = -I../include
+INCLUDES = -I$(top_srcdir)/include
 
 bin_PROGRAMS = xfce4-mixer
 

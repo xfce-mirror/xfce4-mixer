@@ -2,7 +2,7 @@
 
 CLEANFILES = *~ *.bak core *.core *.o *.lo
 
-INCLUDES = -I../include
+INCLUDES = -I$(top_srcdir)/include
 
 plugindir = $(libdir)/xfce4/modules
 

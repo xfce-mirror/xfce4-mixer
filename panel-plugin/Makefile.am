@@ -38,6 +38,7 @@ libmixer_la_SOURCES =							\
 			xfce-mixer-slider-tiny-private.h
 
 libmixer_la_CFLAGS =							\
+	-I$(top_srcdir)/include						\
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"                           \
 	@XFCE_MCS_CLIENT_CFLAGS@					\
 	@XFCE4_PANEL_CFLAGS@
