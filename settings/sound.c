@@ -23,8 +23,9 @@
 #include <libxfce4util/util.h> 
 #include <libxfcegui4/libxfcegui4.h>
 #include <xfce-mcs-manager/manager-plugin.h>
-
 #include "sound-icon.h"
+#include "xfce-mixer-settingsbox.h"
+#include "vcreg.inc"
 
 static void     run_dialog(McsPlugin *);
 static gboolean save_settings(McsPlugin *);
@@ -66,12 +67,17 @@ mcs_plugin_init(McsPlugin *plugin)
 	plugin->caption = g_strdup ( _("Sound"));
 	plugin->run_dialog = run_dialog;
 	plugin->icon = inline_icon_at_size(sound_icon_data, 48, 48);
+	
+	VC_INIT;
+	
 	return MCS_PLUGIN_INIT_OK;
 }
 
 
 static void     run_dialog(McsPlugin *plugin)
 {
+	XfceMixerSettingsbox *sb;
+	
 	if (dialog) {
 		gtk_window_present (GTK_WINDOW (dialog));
 		return;
@@ -81,7 +87,10 @@ static void     run_dialog(McsPlugin *plugin)
                          GTK_DIALOG_NO_SEPARATOR,
                          GTK_STOCK_CLOSE, GTK_RESPONSE_OK,
 			NULL);
-                                                                         
+
+	sb = xfce_mixer_settingsbox_new ();
+	gtk_widget_show (GTK_WIDGET (sb));
+	gtk_box_pack_start (GTK_BOX (GTK_DIALOG (dialog)->vbox), GTK_WIDGET (sb), TRUE, FALSE, 0);
 
 	gtk_window_set_icon (GTK_WINDOW (dialog), plugin->icon);
 	gtk_window_set_position (GTK_WINDOW(dialog), GTK_WIN_POS_CENTER);

@@ -1,0 +1,194 @@
+%a{
+#include <gtk/gtk.h>
+#include <libxfce4util/i18n.h>
+#include <libxfcegui4/xfce_framebox.h>
+%}
+%{
+#include "helpers3.inc"
+#include "vc.h"
+#include "stringlist.inc"
+%}
+
+class Xfce:Mixer:Settingsbox from Gtk:VBox {
+	protected GtkWidget *dev_frame = NULL;
+	protected GtkLabel *dev_label = NULL;
+	protected GtkWidget *useful_frame = NULL;
+	protected GtkTreeView *useful_tv = NULL;
+	protected GtkTreeStore *useful_model = NULL;
+	protected GtkScrolledWindow *useful_sc = NULL;
+	protected GtkTreeStore *devlist_model = NULL;
+	protected GtkTreeView *devlist_tv = NULL;
+	protected GtkScrolledWindow *devlist_sc = NULL;
+	protected GtkBox *cols = NULL;
+	protected GtkBox *right_box = NULL;
+	protected GtkWidget *sep = NULL;
+	protected GList *device_lst = NULL
+		destroywith stringlist_free;
+
+	init (self)
+	{
+		self->cols = GTK_BOX (gtk_hbox_new (FALSE, 5));
+		gtk_widget_show (GTK_WIDGET (self->cols));
+
+		self->sep = gtk_vseparator_new ();
+		gtk_widget_show (GTK_WIDGET (self->sep));
+
+		self->devlist_tv = GTK_TREE_VIEW (gtk_tree_view_new ());
+		gtk_widget_show (GTK_WIDGET (self->devlist_tv));
+
+		gtk_tree_view_append_column (self->devlist_tv, 
+			tree_new_text_column (_ ("Device"), 0
+			)
+		);
+
+		self->devlist_sc = GTK_SCROLLED_WINDOW (gtk_scrolled_window_new (NULL, NULL));
+		gtk_scrolled_window_set_policy (self->devlist_sc, GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
+		gtk_container_add (GTK_CONTAINER (self->devlist_sc), GTK_WIDGET (self->devlist_tv));
+		gtk_widget_show (GTK_WIDGET (self->devlist_sc));
+
+		self->devlist_model = GTK_TREE_STORE (gtk_tree_store_new (1, G_TYPE_STRING));
+		gtk_tree_view_set_model (self->devlist_tv, GTK_TREE_MODEL (self->devlist_model));
+
+		self->right_box = GTK_BOX (gtk_vbox_new (FALSE, 5));
+		gtk_widget_show (GTK_WIDGET (self->right_box));
+
+		self->dev_frame = xfce_framebox_new (_ ("Device"), TRUE);
+		gtk_widget_show (GTK_WIDGET (self->dev_frame));
+
+		self->dev_label = GTK_LABEL (gtk_label_new (""));
+		gtk_widget_show (GTK_WIDGET (self->dev_label));
+
+		self->useful_frame = xfce_framebox_new (_ ("Useful Controls"), TRUE);
+		gtk_widget_show (GTK_WIDGET (self->useful_frame));
+
+		self->useful_tv = GTK_TREE_VIEW (gtk_tree_view_new ());
+		gtk_widget_show (GTK_WIDGET (self->useful_tv));
+
+		gtk_tree_view_append_column (self->useful_tv, 
+			tree_new_check_column ("", 0
+		));
+		gtk_tree_view_append_column (self->useful_tv, 
+			tree_new_text_column ("", 1
+		));
+
+		gtk_tree_view_set_headers_visible (self->useful_tv, FALSE);
+
+		self->useful_model = GTK_TREE_STORE (gtk_tree_store_new (2, G_TYPE_BOOLEAN, G_TYPE_STRING));
+		gtk_tree_view_set_model (self->useful_tv, GTK_TREE_MODEL (self->useful_model));
+
+		self->useful_sc = GTK_SCROLLED_WINDOW (gtk_scrolled_window_new (NULL, NULL));
+		gtk_scrolled_window_set_policy (self->useful_sc, GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
+		gtk_container_add (GTK_CONTAINER (self->useful_sc), GTK_WIDGET (self->useful_tv));
+		gtk_widget_show (GTK_WIDGET (self->useful_sc));
+
+		xfce_framebox_add (XFCE_FRAMEBOX (self->useful_frame), GTK_WIDGET (self->useful_sc));
+		xfce_framebox_add (XFCE_FRAMEBOX (self->dev_frame), GTK_WIDGET (self->dev_label));
+
+		gtk_box_pack_start (GTK_BOX (self->right_box), GTK_WIDGET (self->dev_frame), FALSE, FALSE, 0);
+		gtk_box_pack_start (GTK_BOX (self->right_box), GTK_WIDGET (self->useful_frame), TRUE, FALSE, 0);
+
+		gtk_box_pack_start (GTK_BOX (self->cols), GTK_WIDGET (self->devlist_sc), FALSE, FALSE, 0);
+		gtk_box_pack_start (GTK_BOX (self->cols), GTK_WIDGET (self->sep), FALSE, FALSE, 0);
+		gtk_box_pack_start (GTK_BOX (self->cols), GTK_WIDGET (self->right_box), FALSE, FALSE, 0);
+
+		g_signal_connect_swapped (G_OBJECT (self->devlist_tv), "row-activated", G_CALLBACK (self_device_changed_t_cb), self);
+		g_signal_connect_swapped (G_OBJECT (self), "destroy", G_CALLBACK (self_device_changed_d_cb), self);
+
+		gtk_box_pack_start (GTK_BOX (self), GTK_WIDGET (self->cols), TRUE, TRUE, 0);
+
+		self_devicelst_updated (self);
+	}
+
+	private void device_changed_d_cb (self, gpointer user_data)
+	{
+		self_device_changed_cb (self);
+	}
+
+	private void device_changed_t_cb (self, 
+			GtkTreePath *arg1,
+        		GtkTreeViewColumn *arg2, 
+			gpointer user_data
+	)
+	{
+		self_device_changed_cb (self);
+	}
+
+	protected void device_changed_cb (self)
+	{
+		GtkTreeSelection *sels;
+		GtkTreeModel *m;
+		GtkTreeIter iter;
+		gchar *s;
+		GList *g;
+		GList *cl;
+		volcontrol_t *vci;
+		self_apply_right_box (self);
+
+		sels = gtk_tree_view_get_selection (self->devlist_tv);
+		if (!sels)
+			return;
+
+
+		gtk_tree_selection_get_selected (sels, &m, &iter);
+		gtk_tree_model_get (m, &iter, 0, &s, -1);
+		if (s) {
+			vc_set_device (s);
+			gtk_label_set_text (self->dev_label, s);
+			g_free (s);
+		}
+
+		/* fill "useful controls" list */
+		gtk_tree_store_clear (self->useful_model);
+
+		cl = vc_get_control_list ();
+		g = cl;
+		while (g) {
+			vci = (volcontrol_t *) g->data;
+
+			if (vci && vci->name) {
+				gtk_tree_store_append (self->useful_model, &iter, NULL);
+				gtk_tree_store_set (self->useful_model, &iter, 
+					0, TRUE, 
+					1, vci->name, 
+				-1);
+
+				/*g_warning ("vci %s", vci->name);*/
+			}
+
+			g = g_list_next (g);
+		}
+		if (cl)
+			vc_free_control_list (cl);
+	}
+
+	protected void devicelst_updated (self)
+	{
+		GList *g;
+		gchar const *s;
+		GtkTreeIter iter;
+		if (self->device_lst) {
+			stringlist_free (self->device_lst);
+			self->device_lst = NULL;
+		}
+		self->device_lst = vc_get_device_list ();
+		gtk_tree_store_clear (self->devlist_model);
+		g = self->device_lst;
+		while (g) {
+			s = (gchar const *) g->data;
+			gtk_tree_store_append (self->devlist_model, &iter, NULL);
+			gtk_tree_store_set (self->devlist_model, &iter, 0, s, -1);
+
+			g = g_list_next (g);
+		}
+	}
+
+	protected void apply_right_box (self)
+	{
+		/* TODO */
+	}
+
+	public Xfce:Mixer:Settingsbox *new (void)
+	{
+		return XFCE_MIXER_SETTINGSBOX (GET_NEW);
+	}
+}

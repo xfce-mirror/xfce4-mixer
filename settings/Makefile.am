@@ -10,7 +10,9 @@ sound_settings_la_LDFLAGS =						\
 
 sound_settings_la_SOURCES =						\
 	sound-icon.h							\
-	sound.c
+	sound.c	\
+	xfce-mixer-settingsbox.c \
+	vc.c vc_alsa.c vc_oss.c
 
 sound_settings_la_CFLAGS =						\
 	@XFCE_MCS_MANAGER_CFLAGS@					\
