@@ -12,6 +12,7 @@
 %}
 %{
 #include <gtk/gtk.h>
+#include <libxfce4util/i18n.h>
 #include "menus.h"
 #define CHANNEL "sound"
 %}
@@ -58,7 +59,7 @@ class Xfce:Mixer:Window from Gtk:Window {
 
 		gtk_container_add (GTK_CONTAINER (self), GTK_WIDGET (self->box));
 
-		gtk_window_set_title (GTK_WINDOW (self), "Volume Control");
+		gtk_window_set_title (GTK_WINDOW (self), _("Volume Control"));
 
 		self->mcsc = xfce_mixer_mcs_client_new ();
 		g_object_set (self->mcsc, "channel", CHANNEL, NULL);

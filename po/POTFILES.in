@@ -8,8 +8,10 @@ settings/xfce-mixer-settingsbox.c
 src/disclosure-widget.c
 src/xfce-mixer-view.c
 src/xfce-mixer-view-tiny.c
+src/xfce-mixer-window.c
 src/main.c
 src/menus.c
 src/xfce-mixer-profilebox.c
 src/xfce-mixer-profilebox-detail.c
 src/menu-callbacks.inc
+src/xfce-mixer-info.c

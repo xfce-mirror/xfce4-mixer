@@ -167,7 +167,7 @@ class Xfce:Mixer:Profilebox from Gtk:VBox {
 		gtk_tree_view_set_model (self->profiles_tv, GTK_TREE_MODEL (self->profiles_model));
 
 		gtk_tree_view_append_column (self->profiles_tv, 
-			tree_new_text_column ("Profile", 0
+			tree_new_text_column (_("Profile"), 0
 		));
 
 		gtk_tree_view_set_headers_visible (self->profiles_tv, FALSE);

@@ -51,7 +51,9 @@ int main(int argc, char * argv[])
 	}
 
 	gtk_init (&argc, &argv);
-	
+
+	xfce_textdomain(GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");
+
 	tooltips = gtk_tooltips_new ();
 	
 	if (argc >=2 && argv[1][0] != '-') {

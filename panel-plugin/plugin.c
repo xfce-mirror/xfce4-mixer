@@ -367,6 +367,8 @@ mixer_set_theme(Control * control, const char *theme)
 G_MODULE_EXPORT void
 xfce_control_class_init(ControlClass *cc)
 {
+	xfce_textdomain(GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");
+
 	tooltips = gtk_tooltips_new ();
 	register_vcs ();
 

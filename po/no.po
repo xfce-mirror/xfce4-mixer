@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-01-20 15:30+0100\n"
+"POT-Creation-Date: 2004-01-20 15:58+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -65,7 +65,7 @@ msgstr "oss: Hovedvolum av"
 msgid "Volume: %d%%"
 msgstr "Volum: %d%%"
 
-#: panel-plugin/plugin.c:375
+#: panel-plugin/plugin.c:377 mixer-window.gob:62
 msgid "Volume Control"
 msgstr "Volum kontroll"
 
@@ -130,6 +130,10 @@ msgstr ""
 msgid "Delete this profile"
 msgstr ""
 
+#: mixer-profilebox.gob:170
+msgid "Profile"
+msgstr ""
+
 #: mixer-profilebox.gob:340
 #, c-format
 msgid "Really delete those %d profiles?"
@@ -190,6 +194,14 @@ msgstr ""
 #: src/menu-callbacks.inc:38
 #, c-format
 msgid "%s - Profiles"
+msgstr ""
+
+#: mixer-info.gob:28
+msgid ""
+"This is xfce4-mixer, a volume control program.\n"
+"It is released under the GPL-2 License which you find in the source "
+"directory.\n"
+"No warranty in any way."
 msgstr ""
 
 #~ msgid "Use _internal mixer"

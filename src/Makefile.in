@@ -189,6 +189,7 @@ xfce4_mixer_GSOURCES = mixer-control.gob \
 
 
 xfce4_mixer_CFLAGS = \
+	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"                           \
 	@XFCE_MCS_CLIENT_CFLAGS@ \
 	@XFCE4_UTIL_CFLAGS@						\
 	@GTK_CFLAGS@ \
