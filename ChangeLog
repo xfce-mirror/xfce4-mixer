@@ -1,3 +1,14 @@
+2005-01-10 17:36  benny
+
+	* AUTHORS, COPYING, ChangeLog, NEWS, README, xfce4-mixer.spec.in,
+	  po/xfce4-mixer.pot, src/menus.c: Added useful README file.
+	  Updated ChangeLog, AUTHORS, COPYING, xfce4-mixer.spec.in. Removed
+	  useless separator from the View menu.
+
+2005-01-10 17:29  benny
+
+	* NEWS, README, src/menus.c: Meh.
+
 2005-01-10 13:56  pollux
 
 	* po/: hu.gmo, hu.po: update HU translations
