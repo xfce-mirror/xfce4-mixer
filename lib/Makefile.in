@@ -52,15 +52,19 @@ am__installdirs = "$(DESTDIR)$(plugindir)"
 pluginLTLIBRARIES_INSTALL = $(INSTALL)
 LTLIBRARIES = $(plugin_LTLIBRARIES)
 libxfce4mixer_la_DEPENDENCIES =
-am_libxfce4mixer_la_OBJECTS = libxfce4mixer_la-vc.lo \
-	libxfce4mixer_la-vc_oss.lo libxfce4mixer_la-vc_alsa.lo \
-	libxfce4mixer_la-vc_sun.lo libxfce4mixer_la-vcs.lo
+am_libxfce4mixer_la_OBJECTS = libxfce4mixer_la-trans.lo \
+	libxfce4mixer_la-vc_alsa.lo \
+	libxfce4mixer_la-vc_alsa_fallback.lo libxfce4mixer_la-vc.lo \
+	libxfce4mixer_la-vc_oss.lo libxfce4mixer_la-vcs.lo \
+	libxfce4mixer_la-vc_sun.lo
 libxfce4mixer_la_OBJECTS = $(am_libxfce4mixer_la_OBJECTS)
 DEFAULT_INCLUDES = -I. -I$(srcdir) -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__depfiles_maybe = depfiles
-@AMDEP_TRUE@DEP_FILES = ./$(DEPDIR)/libxfce4mixer_la-vc.Plo \
+@AMDEP_TRUE@DEP_FILES = ./$(DEPDIR)/libxfce4mixer_la-trans.Plo \
+@AMDEP_TRUE@	./$(DEPDIR)/libxfce4mixer_la-vc.Plo \
 @AMDEP_TRUE@	./$(DEPDIR)/libxfce4mixer_la-vc_alsa.Plo \
+@AMDEP_TRUE@	./$(DEPDIR)/libxfce4mixer_la-vc_alsa_fallback.Plo \
 @AMDEP_TRUE@	./$(DEPDIR)/libxfce4mixer_la-vc_oss.Plo \
 @AMDEP_TRUE@	./$(DEPDIR)/libxfce4mixer_la-vc_sun.Plo \
 @AMDEP_TRUE@	./$(DEPDIR)/libxfce4mixer_la-vcs.Plo
@@ -221,7 +225,7 @@ CLEANFILES = *~ *.bak core *.core *.o *.lo
 INCLUDES = -I../include
 plugindir = $(libdir)/xfce4/modules
 plugin_LTLIBRARIES = libxfce4mixer.la
-libxfce4mixer_la_SOURCES = vc.c vc_oss.c vc_alsa.c vc_sun.c vcs.c
+libxfce4mixer_la_SOURCES = trans.c  vc_alsa.c  vc_alsa_fallback.c  vc.c  vc.h  vc_oss.c  vcs.c  vc_sun.c
 libxfce4mixer_la_LDFLAGS = -export-dynamic
 libxfce4mixer_la_CFLAGS = @GTK_CFLAGS@ @XFCE4_UTIL_CFLAGS@
 libxfce4mixer_la_LIBADD = @GTK_LIBS@ @XFCE4_UTIL_LIBS@
@@ -294,8 +298,10 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libxfce4mixer_la-trans.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libxfce4mixer_la-vc.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libxfce4mixer_la-vc_alsa.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libxfce4mixer_la-vc_alsa_fallback.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libxfce4mixer_la-vc_oss.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libxfce4mixer_la-vc_sun.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libxfce4mixer_la-vcs.Plo@am__quote@
@@ -323,6 +329,78 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/$*.Plo' tmpdepfile='$(DEPDIR)/$*.TPlo' @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LTCOMPILE) -c -o $@ $<
+
+libxfce4mixer_la-trans.o: trans.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libxfce4mixer_la_CFLAGS) $(CFLAGS) -MT libxfce4mixer_la-trans.o -MD -MP -MF "$(DEPDIR)/libxfce4mixer_la-trans.Tpo" -c -o libxfce4mixer_la-trans.o `test -f 'trans.c' || echo '$(srcdir)/'`trans.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libxfce4mixer_la-trans.Tpo" "$(DEPDIR)/libxfce4mixer_la-trans.Po"; else rm -f "$(DEPDIR)/libxfce4mixer_la-trans.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='trans.c' object='libxfce4mixer_la-trans.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libxfce4mixer_la-trans.Po' tmpdepfile='$(DEPDIR)/libxfce4mixer_la-trans.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libxfce4mixer_la_CFLAGS) $(CFLAGS) -c -o libxfce4mixer_la-trans.o `test -f 'trans.c' || echo '$(srcdir)/'`trans.c
+
+libxfce4mixer_la-trans.obj: trans.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libxfce4mixer_la_CFLAGS) $(CFLAGS) -MT libxfce4mixer_la-trans.obj -MD -MP -MF "$(DEPDIR)/libxfce4mixer_la-trans.Tpo" -c -o libxfce4mixer_la-trans.obj `if test -f 'trans.c'; then $(CYGPATH_W) 'trans.c'; else $(CYGPATH_W) '$(srcdir)/trans.c'; fi`; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libxfce4mixer_la-trans.Tpo" "$(DEPDIR)/libxfce4mixer_la-trans.Po"; else rm -f "$(DEPDIR)/libxfce4mixer_la-trans.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='trans.c' object='libxfce4mixer_la-trans.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libxfce4mixer_la-trans.Po' tmpdepfile='$(DEPDIR)/libxfce4mixer_la-trans.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libxfce4mixer_la_CFLAGS) $(CFLAGS) -c -o libxfce4mixer_la-trans.obj `if test -f 'trans.c'; then $(CYGPATH_W) 'trans.c'; else $(CYGPATH_W) '$(srcdir)/trans.c'; fi`
+
+libxfce4mixer_la-trans.lo: trans.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libxfce4mixer_la_CFLAGS) $(CFLAGS) -MT libxfce4mixer_la-trans.lo -MD -MP -MF "$(DEPDIR)/libxfce4mixer_la-trans.Tpo" -c -o libxfce4mixer_la-trans.lo `test -f 'trans.c' || echo '$(srcdir)/'`trans.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libxfce4mixer_la-trans.Tpo" "$(DEPDIR)/libxfce4mixer_la-trans.Plo"; else rm -f "$(DEPDIR)/libxfce4mixer_la-trans.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='trans.c' object='libxfce4mixer_la-trans.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libxfce4mixer_la-trans.Plo' tmpdepfile='$(DEPDIR)/libxfce4mixer_la-trans.TPlo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libxfce4mixer_la_CFLAGS) $(CFLAGS) -c -o libxfce4mixer_la-trans.lo `test -f 'trans.c' || echo '$(srcdir)/'`trans.c
+
+libxfce4mixer_la-vc_alsa.o: vc_alsa.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libxfce4mixer_la_CFLAGS) $(CFLAGS) -MT libxfce4mixer_la-vc_alsa.o -MD -MP -MF "$(DEPDIR)/libxfce4mixer_la-vc_alsa.Tpo" -c -o libxfce4mixer_la-vc_alsa.o `test -f 'vc_alsa.c' || echo '$(srcdir)/'`vc_alsa.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libxfce4mixer_la-vc_alsa.Tpo" "$(DEPDIR)/libxfce4mixer_la-vc_alsa.Po"; else rm -f "$(DEPDIR)/libxfce4mixer_la-vc_alsa.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='vc_alsa.c' object='libxfce4mixer_la-vc_alsa.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libxfce4mixer_la-vc_alsa.Po' tmpdepfile='$(DEPDIR)/libxfce4mixer_la-vc_alsa.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libxfce4mixer_la_CFLAGS) $(CFLAGS) -c -o libxfce4mixer_la-vc_alsa.o `test -f 'vc_alsa.c' || echo '$(srcdir)/'`vc_alsa.c
+
+libxfce4mixer_la-vc_alsa.obj: vc_alsa.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libxfce4mixer_la_CFLAGS) $(CFLAGS) -MT libxfce4mixer_la-vc_alsa.obj -MD -MP -MF "$(DEPDIR)/libxfce4mixer_la-vc_alsa.Tpo" -c -o libxfce4mixer_la-vc_alsa.obj `if test -f 'vc_alsa.c'; then $(CYGPATH_W) 'vc_alsa.c'; else $(CYGPATH_W) '$(srcdir)/vc_alsa.c'; fi`; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libxfce4mixer_la-vc_alsa.Tpo" "$(DEPDIR)/libxfce4mixer_la-vc_alsa.Po"; else rm -f "$(DEPDIR)/libxfce4mixer_la-vc_alsa.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='vc_alsa.c' object='libxfce4mixer_la-vc_alsa.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libxfce4mixer_la-vc_alsa.Po' tmpdepfile='$(DEPDIR)/libxfce4mixer_la-vc_alsa.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libxfce4mixer_la_CFLAGS) $(CFLAGS) -c -o libxfce4mixer_la-vc_alsa.obj `if test -f 'vc_alsa.c'; then $(CYGPATH_W) 'vc_alsa.c'; else $(CYGPATH_W) '$(srcdir)/vc_alsa.c'; fi`
+
+libxfce4mixer_la-vc_alsa.lo: vc_alsa.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libxfce4mixer_la_CFLAGS) $(CFLAGS) -MT libxfce4mixer_la-vc_alsa.lo -MD -MP -MF "$(DEPDIR)/libxfce4mixer_la-vc_alsa.Tpo" -c -o libxfce4mixer_la-vc_alsa.lo `test -f 'vc_alsa.c' || echo '$(srcdir)/'`vc_alsa.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libxfce4mixer_la-vc_alsa.Tpo" "$(DEPDIR)/libxfce4mixer_la-vc_alsa.Plo"; else rm -f "$(DEPDIR)/libxfce4mixer_la-vc_alsa.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='vc_alsa.c' object='libxfce4mixer_la-vc_alsa.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libxfce4mixer_la-vc_alsa.Plo' tmpdepfile='$(DEPDIR)/libxfce4mixer_la-vc_alsa.TPlo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libxfce4mixer_la_CFLAGS) $(CFLAGS) -c -o libxfce4mixer_la-vc_alsa.lo `test -f 'vc_alsa.c' || echo '$(srcdir)/'`vc_alsa.c
+
+libxfce4mixer_la-vc_alsa_fallback.o: vc_alsa_fallback.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libxfce4mixer_la_CFLAGS) $(CFLAGS) -MT libxfce4mixer_la-vc_alsa_fallback.o -MD -MP -MF "$(DEPDIR)/libxfce4mixer_la-vc_alsa_fallback.Tpo" -c -o libxfce4mixer_la-vc_alsa_fallback.o `test -f 'vc_alsa_fallback.c' || echo '$(srcdir)/'`vc_alsa_fallback.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libxfce4mixer_la-vc_alsa_fallback.Tpo" "$(DEPDIR)/libxfce4mixer_la-vc_alsa_fallback.Po"; else rm -f "$(DEPDIR)/libxfce4mixer_la-vc_alsa_fallback.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='vc_alsa_fallback.c' object='libxfce4mixer_la-vc_alsa_fallback.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libxfce4mixer_la-vc_alsa_fallback.Po' tmpdepfile='$(DEPDIR)/libxfce4mixer_la-vc_alsa_fallback.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libxfce4mixer_la_CFLAGS) $(CFLAGS) -c -o libxfce4mixer_la-vc_alsa_fallback.o `test -f 'vc_alsa_fallback.c' || echo '$(srcdir)/'`vc_alsa_fallback.c
+
+libxfce4mixer_la-vc_alsa_fallback.obj: vc_alsa_fallback.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libxfce4mixer_la_CFLAGS) $(CFLAGS) -MT libxfce4mixer_la-vc_alsa_fallback.obj -MD -MP -MF "$(DEPDIR)/libxfce4mixer_la-vc_alsa_fallback.Tpo" -c -o libxfce4mixer_la-vc_alsa_fallback.obj `if test -f 'vc_alsa_fallback.c'; then $(CYGPATH_W) 'vc_alsa_fallback.c'; else $(CYGPATH_W) '$(srcdir)/vc_alsa_fallback.c'; fi`; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libxfce4mixer_la-vc_alsa_fallback.Tpo" "$(DEPDIR)/libxfce4mixer_la-vc_alsa_fallback.Po"; else rm -f "$(DEPDIR)/libxfce4mixer_la-vc_alsa_fallback.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='vc_alsa_fallback.c' object='libxfce4mixer_la-vc_alsa_fallback.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libxfce4mixer_la-vc_alsa_fallback.Po' tmpdepfile='$(DEPDIR)/libxfce4mixer_la-vc_alsa_fallback.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libxfce4mixer_la_CFLAGS) $(CFLAGS) -c -o libxfce4mixer_la-vc_alsa_fallback.obj `if test -f 'vc_alsa_fallback.c'; then $(CYGPATH_W) 'vc_alsa_fallback.c'; else $(CYGPATH_W) '$(srcdir)/vc_alsa_fallback.c'; fi`
+
+libxfce4mixer_la-vc_alsa_fallback.lo: vc_alsa_fallback.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libxfce4mixer_la_CFLAGS) $(CFLAGS) -MT libxfce4mixer_la-vc_alsa_fallback.lo -MD -MP -MF "$(DEPDIR)/libxfce4mixer_la-vc_alsa_fallback.Tpo" -c -o libxfce4mixer_la-vc_alsa_fallback.lo `test -f 'vc_alsa_fallback.c' || echo '$(srcdir)/'`vc_alsa_fallback.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libxfce4mixer_la-vc_alsa_fallback.Tpo" "$(DEPDIR)/libxfce4mixer_la-vc_alsa_fallback.Plo"; else rm -f "$(DEPDIR)/libxfce4mixer_la-vc_alsa_fallback.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='vc_alsa_fallback.c' object='libxfce4mixer_la-vc_alsa_fallback.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libxfce4mixer_la-vc_alsa_fallback.Plo' tmpdepfile='$(DEPDIR)/libxfce4mixer_la-vc_alsa_fallback.TPlo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libxfce4mixer_la_CFLAGS) $(CFLAGS) -c -o libxfce4mixer_la-vc_alsa_fallback.lo `test -f 'vc_alsa_fallback.c' || echo '$(srcdir)/'`vc_alsa_fallback.c
 
 libxfce4mixer_la-vc.o: vc.c
 @am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libxfce4mixer_la_CFLAGS) $(CFLAGS) -MT libxfce4mixer_la-vc.o -MD -MP -MF "$(DEPDIR)/libxfce4mixer_la-vc.Tpo" -c -o libxfce4mixer_la-vc.o `test -f 'vc.c' || echo '$(srcdir)/'`vc.c; \
@@ -372,29 +450,29 @@ libxfce4mixer_la-vc_oss.lo: vc_oss.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libxfce4mixer_la_CFLAGS) $(CFLAGS) -c -o libxfce4mixer_la-vc_oss.lo `test -f 'vc_oss.c' || echo '$(srcdir)/'`vc_oss.c
 
-libxfce4mixer_la-vc_alsa.o: vc_alsa.c
-@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libxfce4mixer_la_CFLAGS) $(CFLAGS) -MT libxfce4mixer_la-vc_alsa.o -MD -MP -MF "$(DEPDIR)/libxfce4mixer_la-vc_alsa.Tpo" -c -o libxfce4mixer_la-vc_alsa.o `test -f 'vc_alsa.c' || echo '$(srcdir)/'`vc_alsa.c; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libxfce4mixer_la-vc_alsa.Tpo" "$(DEPDIR)/libxfce4mixer_la-vc_alsa.Po"; else rm -f "$(DEPDIR)/libxfce4mixer_la-vc_alsa.Tpo"; exit 1; fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='vc_alsa.c' object='libxfce4mixer_la-vc_alsa.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libxfce4mixer_la-vc_alsa.Po' tmpdepfile='$(DEPDIR)/libxfce4mixer_la-vc_alsa.TPo' @AMDEPBACKSLASH@
+libxfce4mixer_la-vcs.o: vcs.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libxfce4mixer_la_CFLAGS) $(CFLAGS) -MT libxfce4mixer_la-vcs.o -MD -MP -MF "$(DEPDIR)/libxfce4mixer_la-vcs.Tpo" -c -o libxfce4mixer_la-vcs.o `test -f 'vcs.c' || echo '$(srcdir)/'`vcs.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libxfce4mixer_la-vcs.Tpo" "$(DEPDIR)/libxfce4mixer_la-vcs.Po"; else rm -f "$(DEPDIR)/libxfce4mixer_la-vcs.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='vcs.c' object='libxfce4mixer_la-vcs.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libxfce4mixer_la-vcs.Po' tmpdepfile='$(DEPDIR)/libxfce4mixer_la-vcs.TPo' @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libxfce4mixer_la_CFLAGS) $(CFLAGS) -c -o libxfce4mixer_la-vc_alsa.o `test -f 'vc_alsa.c' || echo '$(srcdir)/'`vc_alsa.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libxfce4mixer_la_CFLAGS) $(CFLAGS) -c -o libxfce4mixer_la-vcs.o `test -f 'vcs.c' || echo '$(srcdir)/'`vcs.c
 
-libxfce4mixer_la-vc_alsa.obj: vc_alsa.c
-@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libxfce4mixer_la_CFLAGS) $(CFLAGS) -MT libxfce4mixer_la-vc_alsa.obj -MD -MP -MF "$(DEPDIR)/libxfce4mixer_la-vc_alsa.Tpo" -c -o libxfce4mixer_la-vc_alsa.obj `if test -f 'vc_alsa.c'; then $(CYGPATH_W) 'vc_alsa.c'; else $(CYGPATH_W) '$(srcdir)/vc_alsa.c'; fi`; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libxfce4mixer_la-vc_alsa.Tpo" "$(DEPDIR)/libxfce4mixer_la-vc_alsa.Po"; else rm -f "$(DEPDIR)/libxfce4mixer_la-vc_alsa.Tpo"; exit 1; fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='vc_alsa.c' object='libxfce4mixer_la-vc_alsa.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libxfce4mixer_la-vc_alsa.Po' tmpdepfile='$(DEPDIR)/libxfce4mixer_la-vc_alsa.TPo' @AMDEPBACKSLASH@
+libxfce4mixer_la-vcs.obj: vcs.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libxfce4mixer_la_CFLAGS) $(CFLAGS) -MT libxfce4mixer_la-vcs.obj -MD -MP -MF "$(DEPDIR)/libxfce4mixer_la-vcs.Tpo" -c -o libxfce4mixer_la-vcs.obj `if test -f 'vcs.c'; then $(CYGPATH_W) 'vcs.c'; else $(CYGPATH_W) '$(srcdir)/vcs.c'; fi`; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libxfce4mixer_la-vcs.Tpo" "$(DEPDIR)/libxfce4mixer_la-vcs.Po"; else rm -f "$(DEPDIR)/libxfce4mixer_la-vcs.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='vcs.c' object='libxfce4mixer_la-vcs.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libxfce4mixer_la-vcs.Po' tmpdepfile='$(DEPDIR)/libxfce4mixer_la-vcs.TPo' @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libxfce4mixer_la_CFLAGS) $(CFLAGS) -c -o libxfce4mixer_la-vc_alsa.obj `if test -f 'vc_alsa.c'; then $(CYGPATH_W) 'vc_alsa.c'; else $(CYGPATH_W) '$(srcdir)/vc_alsa.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libxfce4mixer_la_CFLAGS) $(CFLAGS) -c -o libxfce4mixer_la-vcs.obj `if test -f 'vcs.c'; then $(CYGPATH_W) 'vcs.c'; else $(CYGPATH_W) '$(srcdir)/vcs.c'; fi`
 
-libxfce4mixer_la-vc_alsa.lo: vc_alsa.c
-@am__fastdepCC_TRUE@	if $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libxfce4mixer_la_CFLAGS) $(CFLAGS) -MT libxfce4mixer_la-vc_alsa.lo -MD -MP -MF "$(DEPDIR)/libxfce4mixer_la-vc_alsa.Tpo" -c -o libxfce4mixer_la-vc_alsa.lo `test -f 'vc_alsa.c' || echo '$(srcdir)/'`vc_alsa.c; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libxfce4mixer_la-vc_alsa.Tpo" "$(DEPDIR)/libxfce4mixer_la-vc_alsa.Plo"; else rm -f "$(DEPDIR)/libxfce4mixer_la-vc_alsa.Tpo"; exit 1; fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='vc_alsa.c' object='libxfce4mixer_la-vc_alsa.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libxfce4mixer_la-vc_alsa.Plo' tmpdepfile='$(DEPDIR)/libxfce4mixer_la-vc_alsa.TPlo' @AMDEPBACKSLASH@
+libxfce4mixer_la-vcs.lo: vcs.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libxfce4mixer_la_CFLAGS) $(CFLAGS) -MT libxfce4mixer_la-vcs.lo -MD -MP -MF "$(DEPDIR)/libxfce4mixer_la-vcs.Tpo" -c -o libxfce4mixer_la-vcs.lo `test -f 'vcs.c' || echo '$(srcdir)/'`vcs.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libxfce4mixer_la-vcs.Tpo" "$(DEPDIR)/libxfce4mixer_la-vcs.Plo"; else rm -f "$(DEPDIR)/libxfce4mixer_la-vcs.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='vcs.c' object='libxfce4mixer_la-vcs.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libxfce4mixer_la-vcs.Plo' tmpdepfile='$(DEPDIR)/libxfce4mixer_la-vcs.TPlo' @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libxfce4mixer_la_CFLAGS) $(CFLAGS) -c -o libxfce4mixer_la-vc_alsa.lo `test -f 'vc_alsa.c' || echo '$(srcdir)/'`vc_alsa.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libxfce4mixer_la_CFLAGS) $(CFLAGS) -c -o libxfce4mixer_la-vcs.lo `test -f 'vcs.c' || echo '$(srcdir)/'`vcs.c
 
 libxfce4mixer_la-vc_sun.o: vc_sun.c
 @am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libxfce4mixer_la_CFLAGS) $(CFLAGS) -MT libxfce4mixer_la-vc_sun.o -MD -MP -MF "$(DEPDIR)/libxfce4mixer_la-vc_sun.Tpo" -c -o libxfce4mixer_la-vc_sun.o `test -f 'vc_sun.c' || echo '$(srcdir)/'`vc_sun.c; \
@@ -419,30 +497,6 @@ libxfce4mixer_la-vc_sun.lo: vc_sun.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libxfce4mixer_la-vc_sun.Plo' tmpdepfile='$(DEPDIR)/libxfce4mixer_la-vc_sun.TPlo' @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libxfce4mixer_la_CFLAGS) $(CFLAGS) -c -o libxfce4mixer_la-vc_sun.lo `test -f 'vc_sun.c' || echo '$(srcdir)/'`vc_sun.c
-
-libxfce4mixer_la-vcs.o: vcs.c
-@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libxfce4mixer_la_CFLAGS) $(CFLAGS) -MT libxfce4mixer_la-vcs.o -MD -MP -MF "$(DEPDIR)/libxfce4mixer_la-vcs.Tpo" -c -o libxfce4mixer_la-vcs.o `test -f 'vcs.c' || echo '$(srcdir)/'`vcs.c; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libxfce4mixer_la-vcs.Tpo" "$(DEPDIR)/libxfce4mixer_la-vcs.Po"; else rm -f "$(DEPDIR)/libxfce4mixer_la-vcs.Tpo"; exit 1; fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='vcs.c' object='libxfce4mixer_la-vcs.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libxfce4mixer_la-vcs.Po' tmpdepfile='$(DEPDIR)/libxfce4mixer_la-vcs.TPo' @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libxfce4mixer_la_CFLAGS) $(CFLAGS) -c -o libxfce4mixer_la-vcs.o `test -f 'vcs.c' || echo '$(srcdir)/'`vcs.c
-
-libxfce4mixer_la-vcs.obj: vcs.c
-@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libxfce4mixer_la_CFLAGS) $(CFLAGS) -MT libxfce4mixer_la-vcs.obj -MD -MP -MF "$(DEPDIR)/libxfce4mixer_la-vcs.Tpo" -c -o libxfce4mixer_la-vcs.obj `if test -f 'vcs.c'; then $(CYGPATH_W) 'vcs.c'; else $(CYGPATH_W) '$(srcdir)/vcs.c'; fi`; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libxfce4mixer_la-vcs.Tpo" "$(DEPDIR)/libxfce4mixer_la-vcs.Po"; else rm -f "$(DEPDIR)/libxfce4mixer_la-vcs.Tpo"; exit 1; fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='vcs.c' object='libxfce4mixer_la-vcs.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libxfce4mixer_la-vcs.Po' tmpdepfile='$(DEPDIR)/libxfce4mixer_la-vcs.TPo' @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libxfce4mixer_la_CFLAGS) $(CFLAGS) -c -o libxfce4mixer_la-vcs.obj `if test -f 'vcs.c'; then $(CYGPATH_W) 'vcs.c'; else $(CYGPATH_W) '$(srcdir)/vcs.c'; fi`
-
-libxfce4mixer_la-vcs.lo: vcs.c
-@am__fastdepCC_TRUE@	if $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libxfce4mixer_la_CFLAGS) $(CFLAGS) -MT libxfce4mixer_la-vcs.lo -MD -MP -MF "$(DEPDIR)/libxfce4mixer_la-vcs.Tpo" -c -o libxfce4mixer_la-vcs.lo `test -f 'vcs.c' || echo '$(srcdir)/'`vcs.c; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libxfce4mixer_la-vcs.Tpo" "$(DEPDIR)/libxfce4mixer_la-vcs.Plo"; else rm -f "$(DEPDIR)/libxfce4mixer_la-vcs.Tpo"; exit 1; fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='vcs.c' object='libxfce4mixer_la-vcs.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libxfce4mixer_la-vcs.Plo' tmpdepfile='$(DEPDIR)/libxfce4mixer_la-vcs.TPlo' @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libxfce4mixer_la_CFLAGS) $(CFLAGS) -c -o libxfce4mixer_la-vcs.lo `test -f 'vcs.c' || echo '$(srcdir)/'`vcs.c
 
 mostlyclean-libtool:
 	-rm -f *.lo

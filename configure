@@ -23431,7 +23431,7 @@ fi
 
 
 
-                                                                      ac_config_files="$ac_config_files Makefile xfce4-mixer.spec lib/Makefile src/Makefile panel-plugin/Makefile settings/Makefile po/Makefile.in"
+                                                                                ac_config_files="$ac_config_files Makefile xfce4-mixer.spec include/Makefile lib/Makefile src/Makefile panel-plugin/Makefile settings/Makefile po/Makefile.in"
 cat >confcache <<\_ACEOF
 # This file is a shell script that caches the results of configure
 # tests run on this system so they can be shared between configure
@@ -24012,6 +24012,7 @@ do
   # Handling of arguments.
   "Makefile" ) CONFIG_FILES="$CONFIG_FILES Makefile" ;;
   "xfce4-mixer.spec" ) CONFIG_FILES="$CONFIG_FILES xfce4-mixer.spec" ;;
+  "include/Makefile" ) CONFIG_FILES="$CONFIG_FILES include/Makefile" ;;
   "lib/Makefile" ) CONFIG_FILES="$CONFIG_FILES lib/Makefile" ;;
   "src/Makefile" ) CONFIG_FILES="$CONFIG_FILES src/Makefile" ;;
   "panel-plugin/Makefile" ) CONFIG_FILES="$CONFIG_FILES panel-plugin/Makefile" ;;

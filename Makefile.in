@@ -220,7 +220,7 @@ EXTRA_DIST = config.rpath  \
 
 @BUILD_BIG_MIXER_TRUE@SUBDIR_BIG_MIXER = src settings
 SUBDIRS = lib panel-plugin $(SUBDIR_BIG_MIXER) po
-DIST_SUBDIRS = lib panel-plugin src settings po
+DIST_SUBDIRS = include lib panel-plugin src settings po
 ACLOCAL_AMFLAGS = -I m4
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-recursive

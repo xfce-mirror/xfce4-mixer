@@ -11,10 +11,33 @@ libmixer_la_LDFLAGS =							\
 	-module
 
 libmixer_la_SOURCES =							\
-	xfce-mixer-preferences.c plugin.c xfce-mixer-cache-vc.c \
-	xfce-mixer-pxml.c string_option_menu.c  xfce-mixer-control.c \
-	xfce-mixer-slider-tiny.c xfce-mixer-prefbox.c \
-	xfce-mixer-control-vc.c
+			delayer.inc					\
+			helpers_h.inc					\
+			helpers.inc					\
+			main.c						\
+			plugin.c					\
+			stringlist.inc					\
+			string_option_menu.c				\
+			string_option_menu.h				\
+			test_vc.c					\
+			xfce-mixer-cache-vc.c				\
+			xfce-mixer-cache-vc.h				\
+			xfce-mixer-control.c				\
+			xfce-mixer-control.h				\
+			xfce-mixer-control-vc.c				\
+			xfce-mixer-control-vc.h				\
+			xfce-mixer-prefbox.c				\
+			xfce-mixer-prefbox.h				\
+			xfce-mixer-prefbox-private.h			\
+			xfce-mixer-preferences.c			\
+			xfce-mixer-preferences.h			\
+			xfce-mixer-preferences-private.h		\
+			xfce-mixer-pxml.c				\
+			xfce-mixer-pxml.h				\
+			xfce-mixer-pxml-private.h			\
+			xfce-mixer-slider-tiny.c			\
+			xfce-mixer-slider-tiny.h			\
+			xfce-mixer-slider-tiny-private.h
 
 libmixer_la_CFLAGS =							\
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"                           \

@@ -10,7 +10,7 @@ SUBDIR_BIG_MIXER = src settings
 endif
 
 SUBDIRS = lib panel-plugin $(SUBDIR_BIG_MIXER) po
-DIST_SUBDIRS = lib panel-plugin src settings po
+DIST_SUBDIRS = include lib panel-plugin src settings po
 
 distclean-local:
 	rm -rf *.cache *~ *.spec

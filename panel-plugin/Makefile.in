@@ -51,20 +51,23 @@ CONFIG_CLEAN_FILES =
 am__installdirs = "$(DESTDIR)$(plugindir)"
 pluginLTLIBRARIES_INSTALL = $(INSTALL)
 LTLIBRARIES = $(plugin_LTLIBRARIES)
-am_libmixer_la_OBJECTS = libmixer_la-xfce-mixer-preferences.lo \
-	libmixer_la-plugin.lo libmixer_la-xfce-mixer-cache-vc.lo \
-	libmixer_la-xfce-mixer-pxml.lo \
-	libmixer_la-string_option_menu.lo \
+am_libmixer_la_OBJECTS = libmixer_la-main.lo libmixer_la-plugin.lo \
+	libmixer_la-string_option_menu.lo libmixer_la-test_vc.lo \
+	libmixer_la-xfce-mixer-cache-vc.lo \
 	libmixer_la-xfce-mixer-control.lo \
-	libmixer_la-xfce-mixer-slider-tiny.lo \
+	libmixer_la-xfce-mixer-control-vc.lo \
 	libmixer_la-xfce-mixer-prefbox.lo \
-	libmixer_la-xfce-mixer-control-vc.lo
+	libmixer_la-xfce-mixer-preferences.lo \
+	libmixer_la-xfce-mixer-pxml.lo \
+	libmixer_la-xfce-mixer-slider-tiny.lo
 libmixer_la_OBJECTS = $(am_libmixer_la_OBJECTS)
 DEFAULT_INCLUDES = -I. -I$(srcdir) -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__depfiles_maybe = depfiles
-@AMDEP_TRUE@DEP_FILES = ./$(DEPDIR)/libmixer_la-plugin.Plo \
+@AMDEP_TRUE@DEP_FILES = ./$(DEPDIR)/libmixer_la-main.Plo \
+@AMDEP_TRUE@	./$(DEPDIR)/libmixer_la-plugin.Plo \
 @AMDEP_TRUE@	./$(DEPDIR)/libmixer_la-string_option_menu.Plo \
+@AMDEP_TRUE@	./$(DEPDIR)/libmixer_la-test_vc.Plo \
 @AMDEP_TRUE@	./$(DEPDIR)/libmixer_la-xfce-mixer-cache-vc.Plo \
 @AMDEP_TRUE@	./$(DEPDIR)/libmixer_la-xfce-mixer-control-vc.Plo \
 @AMDEP_TRUE@	./$(DEPDIR)/libmixer_la-xfce-mixer-control.Plo \
@@ -236,10 +239,33 @@ libmixer_la_LDFLAGS = \
 	-module
 
 libmixer_la_SOURCES = \
-	xfce-mixer-preferences.c plugin.c xfce-mixer-cache-vc.c \
-	xfce-mixer-pxml.c string_option_menu.c  xfce-mixer-control.c \
-	xfce-mixer-slider-tiny.c xfce-mixer-prefbox.c \
-	xfce-mixer-control-vc.c
+			delayer.inc					\
+			helpers_h.inc					\
+			helpers.inc					\
+			main.c						\
+			plugin.c					\
+			stringlist.inc					\
+			string_option_menu.c				\
+			string_option_menu.h				\
+			test_vc.c					\
+			xfce-mixer-cache-vc.c				\
+			xfce-mixer-cache-vc.h				\
+			xfce-mixer-control.c				\
+			xfce-mixer-control.h				\
+			xfce-mixer-control-vc.c				\
+			xfce-mixer-control-vc.h				\
+			xfce-mixer-prefbox.c				\
+			xfce-mixer-prefbox.h				\
+			xfce-mixer-prefbox-private.h			\
+			xfce-mixer-preferences.c			\
+			xfce-mixer-preferences.h			\
+			xfce-mixer-preferences-private.h		\
+			xfce-mixer-pxml.c				\
+			xfce-mixer-pxml.h				\
+			xfce-mixer-pxml-private.h			\
+			xfce-mixer-slider-tiny.c			\
+			xfce-mixer-slider-tiny.h			\
+			xfce-mixer-slider-tiny-private.h
 
 libmixer_la_CFLAGS = \
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"                           \
@@ -321,8 +347,10 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmixer_la-main.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmixer_la-plugin.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmixer_la-string_option_menu.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmixer_la-test_vc.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmixer_la-xfce-mixer-cache-vc.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmixer_la-xfce-mixer-control-vc.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libmixer_la-xfce-mixer-control.Plo@am__quote@
@@ -355,29 +383,29 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LTCOMPILE) -c -o $@ $<
 
-libmixer_la-xfce-mixer-preferences.o: xfce-mixer-preferences.c
-@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-xfce-mixer-preferences.o -MD -MP -MF "$(DEPDIR)/libmixer_la-xfce-mixer-preferences.Tpo" -c -o libmixer_la-xfce-mixer-preferences.o `test -f 'xfce-mixer-preferences.c' || echo '$(srcdir)/'`xfce-mixer-preferences.c; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-xfce-mixer-preferences.Tpo" "$(DEPDIR)/libmixer_la-xfce-mixer-preferences.Po"; else rm -f "$(DEPDIR)/libmixer_la-xfce-mixer-preferences.Tpo"; exit 1; fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='xfce-mixer-preferences.c' object='libmixer_la-xfce-mixer-preferences.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-xfce-mixer-preferences.Po' tmpdepfile='$(DEPDIR)/libmixer_la-xfce-mixer-preferences.TPo' @AMDEPBACKSLASH@
+libmixer_la-main.o: main.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-main.o -MD -MP -MF "$(DEPDIR)/libmixer_la-main.Tpo" -c -o libmixer_la-main.o `test -f 'main.c' || echo '$(srcdir)/'`main.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-main.Tpo" "$(DEPDIR)/libmixer_la-main.Po"; else rm -f "$(DEPDIR)/libmixer_la-main.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='main.c' object='libmixer_la-main.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-main.Po' tmpdepfile='$(DEPDIR)/libmixer_la-main.TPo' @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-xfce-mixer-preferences.o `test -f 'xfce-mixer-preferences.c' || echo '$(srcdir)/'`xfce-mixer-preferences.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-main.o `test -f 'main.c' || echo '$(srcdir)/'`main.c
 
-libmixer_la-xfce-mixer-preferences.obj: xfce-mixer-preferences.c
-@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-xfce-mixer-preferences.obj -MD -MP -MF "$(DEPDIR)/libmixer_la-xfce-mixer-preferences.Tpo" -c -o libmixer_la-xfce-mixer-preferences.obj `if test -f 'xfce-mixer-preferences.c'; then $(CYGPATH_W) 'xfce-mixer-preferences.c'; else $(CYGPATH_W) '$(srcdir)/xfce-mixer-preferences.c'; fi`; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-xfce-mixer-preferences.Tpo" "$(DEPDIR)/libmixer_la-xfce-mixer-preferences.Po"; else rm -f "$(DEPDIR)/libmixer_la-xfce-mixer-preferences.Tpo"; exit 1; fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='xfce-mixer-preferences.c' object='libmixer_la-xfce-mixer-preferences.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-xfce-mixer-preferences.Po' tmpdepfile='$(DEPDIR)/libmixer_la-xfce-mixer-preferences.TPo' @AMDEPBACKSLASH@
+libmixer_la-main.obj: main.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-main.obj -MD -MP -MF "$(DEPDIR)/libmixer_la-main.Tpo" -c -o libmixer_la-main.obj `if test -f 'main.c'; then $(CYGPATH_W) 'main.c'; else $(CYGPATH_W) '$(srcdir)/main.c'; fi`; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-main.Tpo" "$(DEPDIR)/libmixer_la-main.Po"; else rm -f "$(DEPDIR)/libmixer_la-main.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='main.c' object='libmixer_la-main.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-main.Po' tmpdepfile='$(DEPDIR)/libmixer_la-main.TPo' @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-xfce-mixer-preferences.obj `if test -f 'xfce-mixer-preferences.c'; then $(CYGPATH_W) 'xfce-mixer-preferences.c'; else $(CYGPATH_W) '$(srcdir)/xfce-mixer-preferences.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-main.obj `if test -f 'main.c'; then $(CYGPATH_W) 'main.c'; else $(CYGPATH_W) '$(srcdir)/main.c'; fi`
 
-libmixer_la-xfce-mixer-preferences.lo: xfce-mixer-preferences.c
-@am__fastdepCC_TRUE@	if $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-xfce-mixer-preferences.lo -MD -MP -MF "$(DEPDIR)/libmixer_la-xfce-mixer-preferences.Tpo" -c -o libmixer_la-xfce-mixer-preferences.lo `test -f 'xfce-mixer-preferences.c' || echo '$(srcdir)/'`xfce-mixer-preferences.c; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-xfce-mixer-preferences.Tpo" "$(DEPDIR)/libmixer_la-xfce-mixer-preferences.Plo"; else rm -f "$(DEPDIR)/libmixer_la-xfce-mixer-preferences.Tpo"; exit 1; fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='xfce-mixer-preferences.c' object='libmixer_la-xfce-mixer-preferences.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-xfce-mixer-preferences.Plo' tmpdepfile='$(DEPDIR)/libmixer_la-xfce-mixer-preferences.TPlo' @AMDEPBACKSLASH@
+libmixer_la-main.lo: main.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-main.lo -MD -MP -MF "$(DEPDIR)/libmixer_la-main.Tpo" -c -o libmixer_la-main.lo `test -f 'main.c' || echo '$(srcdir)/'`main.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-main.Tpo" "$(DEPDIR)/libmixer_la-main.Plo"; else rm -f "$(DEPDIR)/libmixer_la-main.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='main.c' object='libmixer_la-main.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-main.Plo' tmpdepfile='$(DEPDIR)/libmixer_la-main.TPlo' @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-xfce-mixer-preferences.lo `test -f 'xfce-mixer-preferences.c' || echo '$(srcdir)/'`xfce-mixer-preferences.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-main.lo `test -f 'main.c' || echo '$(srcdir)/'`main.c
 
 libmixer_la-plugin.o: plugin.c
 @am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-plugin.o -MD -MP -MF "$(DEPDIR)/libmixer_la-plugin.Tpo" -c -o libmixer_la-plugin.o `test -f 'plugin.c' || echo '$(srcdir)/'`plugin.c; \
@@ -403,54 +431,6 @@ libmixer_la-plugin.lo: plugin.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-plugin.lo `test -f 'plugin.c' || echo '$(srcdir)/'`plugin.c
 
-libmixer_la-xfce-mixer-cache-vc.o: xfce-mixer-cache-vc.c
-@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-xfce-mixer-cache-vc.o -MD -MP -MF "$(DEPDIR)/libmixer_la-xfce-mixer-cache-vc.Tpo" -c -o libmixer_la-xfce-mixer-cache-vc.o `test -f 'xfce-mixer-cache-vc.c' || echo '$(srcdir)/'`xfce-mixer-cache-vc.c; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-xfce-mixer-cache-vc.Tpo" "$(DEPDIR)/libmixer_la-xfce-mixer-cache-vc.Po"; else rm -f "$(DEPDIR)/libmixer_la-xfce-mixer-cache-vc.Tpo"; exit 1; fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='xfce-mixer-cache-vc.c' object='libmixer_la-xfce-mixer-cache-vc.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-xfce-mixer-cache-vc.Po' tmpdepfile='$(DEPDIR)/libmixer_la-xfce-mixer-cache-vc.TPo' @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-xfce-mixer-cache-vc.o `test -f 'xfce-mixer-cache-vc.c' || echo '$(srcdir)/'`xfce-mixer-cache-vc.c
-
-libmixer_la-xfce-mixer-cache-vc.obj: xfce-mixer-cache-vc.c
-@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-xfce-mixer-cache-vc.obj -MD -MP -MF "$(DEPDIR)/libmixer_la-xfce-mixer-cache-vc.Tpo" -c -o libmixer_la-xfce-mixer-cache-vc.obj `if test -f 'xfce-mixer-cache-vc.c'; then $(CYGPATH_W) 'xfce-mixer-cache-vc.c'; else $(CYGPATH_W) '$(srcdir)/xfce-mixer-cache-vc.c'; fi`; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-xfce-mixer-cache-vc.Tpo" "$(DEPDIR)/libmixer_la-xfce-mixer-cache-vc.Po"; else rm -f "$(DEPDIR)/libmixer_la-xfce-mixer-cache-vc.Tpo"; exit 1; fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='xfce-mixer-cache-vc.c' object='libmixer_la-xfce-mixer-cache-vc.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-xfce-mixer-cache-vc.Po' tmpdepfile='$(DEPDIR)/libmixer_la-xfce-mixer-cache-vc.TPo' @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-xfce-mixer-cache-vc.obj `if test -f 'xfce-mixer-cache-vc.c'; then $(CYGPATH_W) 'xfce-mixer-cache-vc.c'; else $(CYGPATH_W) '$(srcdir)/xfce-mixer-cache-vc.c'; fi`
-
-libmixer_la-xfce-mixer-cache-vc.lo: xfce-mixer-cache-vc.c
-@am__fastdepCC_TRUE@	if $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-xfce-mixer-cache-vc.lo -MD -MP -MF "$(DEPDIR)/libmixer_la-xfce-mixer-cache-vc.Tpo" -c -o libmixer_la-xfce-mixer-cache-vc.lo `test -f 'xfce-mixer-cache-vc.c' || echo '$(srcdir)/'`xfce-mixer-cache-vc.c; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-xfce-mixer-cache-vc.Tpo" "$(DEPDIR)/libmixer_la-xfce-mixer-cache-vc.Plo"; else rm -f "$(DEPDIR)/libmixer_la-xfce-mixer-cache-vc.Tpo"; exit 1; fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='xfce-mixer-cache-vc.c' object='libmixer_la-xfce-mixer-cache-vc.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-xfce-mixer-cache-vc.Plo' tmpdepfile='$(DEPDIR)/libmixer_la-xfce-mixer-cache-vc.TPlo' @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-xfce-mixer-cache-vc.lo `test -f 'xfce-mixer-cache-vc.c' || echo '$(srcdir)/'`xfce-mixer-cache-vc.c
-
-libmixer_la-xfce-mixer-pxml.o: xfce-mixer-pxml.c
-@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-xfce-mixer-pxml.o -MD -MP -MF "$(DEPDIR)/libmixer_la-xfce-mixer-pxml.Tpo" -c -o libmixer_la-xfce-mixer-pxml.o `test -f 'xfce-mixer-pxml.c' || echo '$(srcdir)/'`xfce-mixer-pxml.c; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-xfce-mixer-pxml.Tpo" "$(DEPDIR)/libmixer_la-xfce-mixer-pxml.Po"; else rm -f "$(DEPDIR)/libmixer_la-xfce-mixer-pxml.Tpo"; exit 1; fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='xfce-mixer-pxml.c' object='libmixer_la-xfce-mixer-pxml.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-xfce-mixer-pxml.Po' tmpdepfile='$(DEPDIR)/libmixer_la-xfce-mixer-pxml.TPo' @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-xfce-mixer-pxml.o `test -f 'xfce-mixer-pxml.c' || echo '$(srcdir)/'`xfce-mixer-pxml.c
-
-libmixer_la-xfce-mixer-pxml.obj: xfce-mixer-pxml.c
-@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-xfce-mixer-pxml.obj -MD -MP -MF "$(DEPDIR)/libmixer_la-xfce-mixer-pxml.Tpo" -c -o libmixer_la-xfce-mixer-pxml.obj `if test -f 'xfce-mixer-pxml.c'; then $(CYGPATH_W) 'xfce-mixer-pxml.c'; else $(CYGPATH_W) '$(srcdir)/xfce-mixer-pxml.c'; fi`; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-xfce-mixer-pxml.Tpo" "$(DEPDIR)/libmixer_la-xfce-mixer-pxml.Po"; else rm -f "$(DEPDIR)/libmixer_la-xfce-mixer-pxml.Tpo"; exit 1; fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='xfce-mixer-pxml.c' object='libmixer_la-xfce-mixer-pxml.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-xfce-mixer-pxml.Po' tmpdepfile='$(DEPDIR)/libmixer_la-xfce-mixer-pxml.TPo' @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-xfce-mixer-pxml.obj `if test -f 'xfce-mixer-pxml.c'; then $(CYGPATH_W) 'xfce-mixer-pxml.c'; else $(CYGPATH_W) '$(srcdir)/xfce-mixer-pxml.c'; fi`
-
-libmixer_la-xfce-mixer-pxml.lo: xfce-mixer-pxml.c
-@am__fastdepCC_TRUE@	if $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-xfce-mixer-pxml.lo -MD -MP -MF "$(DEPDIR)/libmixer_la-xfce-mixer-pxml.Tpo" -c -o libmixer_la-xfce-mixer-pxml.lo `test -f 'xfce-mixer-pxml.c' || echo '$(srcdir)/'`xfce-mixer-pxml.c; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-xfce-mixer-pxml.Tpo" "$(DEPDIR)/libmixer_la-xfce-mixer-pxml.Plo"; else rm -f "$(DEPDIR)/libmixer_la-xfce-mixer-pxml.Tpo"; exit 1; fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='xfce-mixer-pxml.c' object='libmixer_la-xfce-mixer-pxml.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-xfce-mixer-pxml.Plo' tmpdepfile='$(DEPDIR)/libmixer_la-xfce-mixer-pxml.TPlo' @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-xfce-mixer-pxml.lo `test -f 'xfce-mixer-pxml.c' || echo '$(srcdir)/'`xfce-mixer-pxml.c
-
 libmixer_la-string_option_menu.o: string_option_menu.c
 @am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-string_option_menu.o -MD -MP -MF "$(DEPDIR)/libmixer_la-string_option_menu.Tpo" -c -o libmixer_la-string_option_menu.o `test -f 'string_option_menu.c' || echo '$(srcdir)/'`string_option_menu.c; \
 @am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-string_option_menu.Tpo" "$(DEPDIR)/libmixer_la-string_option_menu.Po"; else rm -f "$(DEPDIR)/libmixer_la-string_option_menu.Tpo"; exit 1; fi
@@ -474,6 +454,54 @@ libmixer_la-string_option_menu.lo: string_option_menu.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-string_option_menu.Plo' tmpdepfile='$(DEPDIR)/libmixer_la-string_option_menu.TPlo' @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-string_option_menu.lo `test -f 'string_option_menu.c' || echo '$(srcdir)/'`string_option_menu.c
+
+libmixer_la-test_vc.o: test_vc.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-test_vc.o -MD -MP -MF "$(DEPDIR)/libmixer_la-test_vc.Tpo" -c -o libmixer_la-test_vc.o `test -f 'test_vc.c' || echo '$(srcdir)/'`test_vc.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-test_vc.Tpo" "$(DEPDIR)/libmixer_la-test_vc.Po"; else rm -f "$(DEPDIR)/libmixer_la-test_vc.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='test_vc.c' object='libmixer_la-test_vc.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-test_vc.Po' tmpdepfile='$(DEPDIR)/libmixer_la-test_vc.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-test_vc.o `test -f 'test_vc.c' || echo '$(srcdir)/'`test_vc.c
+
+libmixer_la-test_vc.obj: test_vc.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-test_vc.obj -MD -MP -MF "$(DEPDIR)/libmixer_la-test_vc.Tpo" -c -o libmixer_la-test_vc.obj `if test -f 'test_vc.c'; then $(CYGPATH_W) 'test_vc.c'; else $(CYGPATH_W) '$(srcdir)/test_vc.c'; fi`; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-test_vc.Tpo" "$(DEPDIR)/libmixer_la-test_vc.Po"; else rm -f "$(DEPDIR)/libmixer_la-test_vc.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='test_vc.c' object='libmixer_la-test_vc.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-test_vc.Po' tmpdepfile='$(DEPDIR)/libmixer_la-test_vc.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-test_vc.obj `if test -f 'test_vc.c'; then $(CYGPATH_W) 'test_vc.c'; else $(CYGPATH_W) '$(srcdir)/test_vc.c'; fi`
+
+libmixer_la-test_vc.lo: test_vc.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-test_vc.lo -MD -MP -MF "$(DEPDIR)/libmixer_la-test_vc.Tpo" -c -o libmixer_la-test_vc.lo `test -f 'test_vc.c' || echo '$(srcdir)/'`test_vc.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-test_vc.Tpo" "$(DEPDIR)/libmixer_la-test_vc.Plo"; else rm -f "$(DEPDIR)/libmixer_la-test_vc.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='test_vc.c' object='libmixer_la-test_vc.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-test_vc.Plo' tmpdepfile='$(DEPDIR)/libmixer_la-test_vc.TPlo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-test_vc.lo `test -f 'test_vc.c' || echo '$(srcdir)/'`test_vc.c
+
+libmixer_la-xfce-mixer-cache-vc.o: xfce-mixer-cache-vc.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-xfce-mixer-cache-vc.o -MD -MP -MF "$(DEPDIR)/libmixer_la-xfce-mixer-cache-vc.Tpo" -c -o libmixer_la-xfce-mixer-cache-vc.o `test -f 'xfce-mixer-cache-vc.c' || echo '$(srcdir)/'`xfce-mixer-cache-vc.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-xfce-mixer-cache-vc.Tpo" "$(DEPDIR)/libmixer_la-xfce-mixer-cache-vc.Po"; else rm -f "$(DEPDIR)/libmixer_la-xfce-mixer-cache-vc.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='xfce-mixer-cache-vc.c' object='libmixer_la-xfce-mixer-cache-vc.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-xfce-mixer-cache-vc.Po' tmpdepfile='$(DEPDIR)/libmixer_la-xfce-mixer-cache-vc.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-xfce-mixer-cache-vc.o `test -f 'xfce-mixer-cache-vc.c' || echo '$(srcdir)/'`xfce-mixer-cache-vc.c
+
+libmixer_la-xfce-mixer-cache-vc.obj: xfce-mixer-cache-vc.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-xfce-mixer-cache-vc.obj -MD -MP -MF "$(DEPDIR)/libmixer_la-xfce-mixer-cache-vc.Tpo" -c -o libmixer_la-xfce-mixer-cache-vc.obj `if test -f 'xfce-mixer-cache-vc.c'; then $(CYGPATH_W) 'xfce-mixer-cache-vc.c'; else $(CYGPATH_W) '$(srcdir)/xfce-mixer-cache-vc.c'; fi`; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-xfce-mixer-cache-vc.Tpo" "$(DEPDIR)/libmixer_la-xfce-mixer-cache-vc.Po"; else rm -f "$(DEPDIR)/libmixer_la-xfce-mixer-cache-vc.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='xfce-mixer-cache-vc.c' object='libmixer_la-xfce-mixer-cache-vc.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-xfce-mixer-cache-vc.Po' tmpdepfile='$(DEPDIR)/libmixer_la-xfce-mixer-cache-vc.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-xfce-mixer-cache-vc.obj `if test -f 'xfce-mixer-cache-vc.c'; then $(CYGPATH_W) 'xfce-mixer-cache-vc.c'; else $(CYGPATH_W) '$(srcdir)/xfce-mixer-cache-vc.c'; fi`
+
+libmixer_la-xfce-mixer-cache-vc.lo: xfce-mixer-cache-vc.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-xfce-mixer-cache-vc.lo -MD -MP -MF "$(DEPDIR)/libmixer_la-xfce-mixer-cache-vc.Tpo" -c -o libmixer_la-xfce-mixer-cache-vc.lo `test -f 'xfce-mixer-cache-vc.c' || echo '$(srcdir)/'`xfce-mixer-cache-vc.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-xfce-mixer-cache-vc.Tpo" "$(DEPDIR)/libmixer_la-xfce-mixer-cache-vc.Plo"; else rm -f "$(DEPDIR)/libmixer_la-xfce-mixer-cache-vc.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='xfce-mixer-cache-vc.c' object='libmixer_la-xfce-mixer-cache-vc.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-xfce-mixer-cache-vc.Plo' tmpdepfile='$(DEPDIR)/libmixer_la-xfce-mixer-cache-vc.TPlo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-xfce-mixer-cache-vc.lo `test -f 'xfce-mixer-cache-vc.c' || echo '$(srcdir)/'`xfce-mixer-cache-vc.c
 
 libmixer_la-xfce-mixer-control.o: xfce-mixer-control.c
 @am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-xfce-mixer-control.o -MD -MP -MF "$(DEPDIR)/libmixer_la-xfce-mixer-control.Tpo" -c -o libmixer_la-xfce-mixer-control.o `test -f 'xfce-mixer-control.c' || echo '$(srcdir)/'`xfce-mixer-control.c; \
@@ -499,29 +527,29 @@ libmixer_la-xfce-mixer-control.lo: xfce-mixer-control.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-xfce-mixer-control.lo `test -f 'xfce-mixer-control.c' || echo '$(srcdir)/'`xfce-mixer-control.c
 
-libmixer_la-xfce-mixer-slider-tiny.o: xfce-mixer-slider-tiny.c
-@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-xfce-mixer-slider-tiny.o -MD -MP -MF "$(DEPDIR)/libmixer_la-xfce-mixer-slider-tiny.Tpo" -c -o libmixer_la-xfce-mixer-slider-tiny.o `test -f 'xfce-mixer-slider-tiny.c' || echo '$(srcdir)/'`xfce-mixer-slider-tiny.c; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-xfce-mixer-slider-tiny.Tpo" "$(DEPDIR)/libmixer_la-xfce-mixer-slider-tiny.Po"; else rm -f "$(DEPDIR)/libmixer_la-xfce-mixer-slider-tiny.Tpo"; exit 1; fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='xfce-mixer-slider-tiny.c' object='libmixer_la-xfce-mixer-slider-tiny.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-xfce-mixer-slider-tiny.Po' tmpdepfile='$(DEPDIR)/libmixer_la-xfce-mixer-slider-tiny.TPo' @AMDEPBACKSLASH@
+libmixer_la-xfce-mixer-control-vc.o: xfce-mixer-control-vc.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-xfce-mixer-control-vc.o -MD -MP -MF "$(DEPDIR)/libmixer_la-xfce-mixer-control-vc.Tpo" -c -o libmixer_la-xfce-mixer-control-vc.o `test -f 'xfce-mixer-control-vc.c' || echo '$(srcdir)/'`xfce-mixer-control-vc.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-xfce-mixer-control-vc.Tpo" "$(DEPDIR)/libmixer_la-xfce-mixer-control-vc.Po"; else rm -f "$(DEPDIR)/libmixer_la-xfce-mixer-control-vc.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='xfce-mixer-control-vc.c' object='libmixer_la-xfce-mixer-control-vc.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-xfce-mixer-control-vc.Po' tmpdepfile='$(DEPDIR)/libmixer_la-xfce-mixer-control-vc.TPo' @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-xfce-mixer-slider-tiny.o `test -f 'xfce-mixer-slider-tiny.c' || echo '$(srcdir)/'`xfce-mixer-slider-tiny.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-xfce-mixer-control-vc.o `test -f 'xfce-mixer-control-vc.c' || echo '$(srcdir)/'`xfce-mixer-control-vc.c
 
-libmixer_la-xfce-mixer-slider-tiny.obj: xfce-mixer-slider-tiny.c
-@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-xfce-mixer-slider-tiny.obj -MD -MP -MF "$(DEPDIR)/libmixer_la-xfce-mixer-slider-tiny.Tpo" -c -o libmixer_la-xfce-mixer-slider-tiny.obj `if test -f 'xfce-mixer-slider-tiny.c'; then $(CYGPATH_W) 'xfce-mixer-slider-tiny.c'; else $(CYGPATH_W) '$(srcdir)/xfce-mixer-slider-tiny.c'; fi`; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-xfce-mixer-slider-tiny.Tpo" "$(DEPDIR)/libmixer_la-xfce-mixer-slider-tiny.Po"; else rm -f "$(DEPDIR)/libmixer_la-xfce-mixer-slider-tiny.Tpo"; exit 1; fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='xfce-mixer-slider-tiny.c' object='libmixer_la-xfce-mixer-slider-tiny.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-xfce-mixer-slider-tiny.Po' tmpdepfile='$(DEPDIR)/libmixer_la-xfce-mixer-slider-tiny.TPo' @AMDEPBACKSLASH@
+libmixer_la-xfce-mixer-control-vc.obj: xfce-mixer-control-vc.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-xfce-mixer-control-vc.obj -MD -MP -MF "$(DEPDIR)/libmixer_la-xfce-mixer-control-vc.Tpo" -c -o libmixer_la-xfce-mixer-control-vc.obj `if test -f 'xfce-mixer-control-vc.c'; then $(CYGPATH_W) 'xfce-mixer-control-vc.c'; else $(CYGPATH_W) '$(srcdir)/xfce-mixer-control-vc.c'; fi`; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-xfce-mixer-control-vc.Tpo" "$(DEPDIR)/libmixer_la-xfce-mixer-control-vc.Po"; else rm -f "$(DEPDIR)/libmixer_la-xfce-mixer-control-vc.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='xfce-mixer-control-vc.c' object='libmixer_la-xfce-mixer-control-vc.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-xfce-mixer-control-vc.Po' tmpdepfile='$(DEPDIR)/libmixer_la-xfce-mixer-control-vc.TPo' @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-xfce-mixer-slider-tiny.obj `if test -f 'xfce-mixer-slider-tiny.c'; then $(CYGPATH_W) 'xfce-mixer-slider-tiny.c'; else $(CYGPATH_W) '$(srcdir)/xfce-mixer-slider-tiny.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-xfce-mixer-control-vc.obj `if test -f 'xfce-mixer-control-vc.c'; then $(CYGPATH_W) 'xfce-mixer-control-vc.c'; else $(CYGPATH_W) '$(srcdir)/xfce-mixer-control-vc.c'; fi`
 
-libmixer_la-xfce-mixer-slider-tiny.lo: xfce-mixer-slider-tiny.c
-@am__fastdepCC_TRUE@	if $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-xfce-mixer-slider-tiny.lo -MD -MP -MF "$(DEPDIR)/libmixer_la-xfce-mixer-slider-tiny.Tpo" -c -o libmixer_la-xfce-mixer-slider-tiny.lo `test -f 'xfce-mixer-slider-tiny.c' || echo '$(srcdir)/'`xfce-mixer-slider-tiny.c; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-xfce-mixer-slider-tiny.Tpo" "$(DEPDIR)/libmixer_la-xfce-mixer-slider-tiny.Plo"; else rm -f "$(DEPDIR)/libmixer_la-xfce-mixer-slider-tiny.Tpo"; exit 1; fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='xfce-mixer-slider-tiny.c' object='libmixer_la-xfce-mixer-slider-tiny.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-xfce-mixer-slider-tiny.Plo' tmpdepfile='$(DEPDIR)/libmixer_la-xfce-mixer-slider-tiny.TPlo' @AMDEPBACKSLASH@
+libmixer_la-xfce-mixer-control-vc.lo: xfce-mixer-control-vc.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-xfce-mixer-control-vc.lo -MD -MP -MF "$(DEPDIR)/libmixer_la-xfce-mixer-control-vc.Tpo" -c -o libmixer_la-xfce-mixer-control-vc.lo `test -f 'xfce-mixer-control-vc.c' || echo '$(srcdir)/'`xfce-mixer-control-vc.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-xfce-mixer-control-vc.Tpo" "$(DEPDIR)/libmixer_la-xfce-mixer-control-vc.Plo"; else rm -f "$(DEPDIR)/libmixer_la-xfce-mixer-control-vc.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='xfce-mixer-control-vc.c' object='libmixer_la-xfce-mixer-control-vc.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-xfce-mixer-control-vc.Plo' tmpdepfile='$(DEPDIR)/libmixer_la-xfce-mixer-control-vc.TPlo' @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-xfce-mixer-slider-tiny.lo `test -f 'xfce-mixer-slider-tiny.c' || echo '$(srcdir)/'`xfce-mixer-slider-tiny.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-xfce-mixer-control-vc.lo `test -f 'xfce-mixer-control-vc.c' || echo '$(srcdir)/'`xfce-mixer-control-vc.c
 
 libmixer_la-xfce-mixer-prefbox.o: xfce-mixer-prefbox.c
 @am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-xfce-mixer-prefbox.o -MD -MP -MF "$(DEPDIR)/libmixer_la-xfce-mixer-prefbox.Tpo" -c -o libmixer_la-xfce-mixer-prefbox.o `test -f 'xfce-mixer-prefbox.c' || echo '$(srcdir)/'`xfce-mixer-prefbox.c; \
@@ -547,29 +575,77 @@ libmixer_la-xfce-mixer-prefbox.lo: xfce-mixer-prefbox.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-xfce-mixer-prefbox.lo `test -f 'xfce-mixer-prefbox.c' || echo '$(srcdir)/'`xfce-mixer-prefbox.c
 
-libmixer_la-xfce-mixer-control-vc.o: xfce-mixer-control-vc.c
-@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-xfce-mixer-control-vc.o -MD -MP -MF "$(DEPDIR)/libmixer_la-xfce-mixer-control-vc.Tpo" -c -o libmixer_la-xfce-mixer-control-vc.o `test -f 'xfce-mixer-control-vc.c' || echo '$(srcdir)/'`xfce-mixer-control-vc.c; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-xfce-mixer-control-vc.Tpo" "$(DEPDIR)/libmixer_la-xfce-mixer-control-vc.Po"; else rm -f "$(DEPDIR)/libmixer_la-xfce-mixer-control-vc.Tpo"; exit 1; fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='xfce-mixer-control-vc.c' object='libmixer_la-xfce-mixer-control-vc.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-xfce-mixer-control-vc.Po' tmpdepfile='$(DEPDIR)/libmixer_la-xfce-mixer-control-vc.TPo' @AMDEPBACKSLASH@
+libmixer_la-xfce-mixer-preferences.o: xfce-mixer-preferences.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-xfce-mixer-preferences.o -MD -MP -MF "$(DEPDIR)/libmixer_la-xfce-mixer-preferences.Tpo" -c -o libmixer_la-xfce-mixer-preferences.o `test -f 'xfce-mixer-preferences.c' || echo '$(srcdir)/'`xfce-mixer-preferences.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-xfce-mixer-preferences.Tpo" "$(DEPDIR)/libmixer_la-xfce-mixer-preferences.Po"; else rm -f "$(DEPDIR)/libmixer_la-xfce-mixer-preferences.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='xfce-mixer-preferences.c' object='libmixer_la-xfce-mixer-preferences.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-xfce-mixer-preferences.Po' tmpdepfile='$(DEPDIR)/libmixer_la-xfce-mixer-preferences.TPo' @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-xfce-mixer-control-vc.o `test -f 'xfce-mixer-control-vc.c' || echo '$(srcdir)/'`xfce-mixer-control-vc.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-xfce-mixer-preferences.o `test -f 'xfce-mixer-preferences.c' || echo '$(srcdir)/'`xfce-mixer-preferences.c
 
-libmixer_la-xfce-mixer-control-vc.obj: xfce-mixer-control-vc.c
-@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-xfce-mixer-control-vc.obj -MD -MP -MF "$(DEPDIR)/libmixer_la-xfce-mixer-control-vc.Tpo" -c -o libmixer_la-xfce-mixer-control-vc.obj `if test -f 'xfce-mixer-control-vc.c'; then $(CYGPATH_W) 'xfce-mixer-control-vc.c'; else $(CYGPATH_W) '$(srcdir)/xfce-mixer-control-vc.c'; fi`; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-xfce-mixer-control-vc.Tpo" "$(DEPDIR)/libmixer_la-xfce-mixer-control-vc.Po"; else rm -f "$(DEPDIR)/libmixer_la-xfce-mixer-control-vc.Tpo"; exit 1; fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='xfce-mixer-control-vc.c' object='libmixer_la-xfce-mixer-control-vc.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-xfce-mixer-control-vc.Po' tmpdepfile='$(DEPDIR)/libmixer_la-xfce-mixer-control-vc.TPo' @AMDEPBACKSLASH@
+libmixer_la-xfce-mixer-preferences.obj: xfce-mixer-preferences.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-xfce-mixer-preferences.obj -MD -MP -MF "$(DEPDIR)/libmixer_la-xfce-mixer-preferences.Tpo" -c -o libmixer_la-xfce-mixer-preferences.obj `if test -f 'xfce-mixer-preferences.c'; then $(CYGPATH_W) 'xfce-mixer-preferences.c'; else $(CYGPATH_W) '$(srcdir)/xfce-mixer-preferences.c'; fi`; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-xfce-mixer-preferences.Tpo" "$(DEPDIR)/libmixer_la-xfce-mixer-preferences.Po"; else rm -f "$(DEPDIR)/libmixer_la-xfce-mixer-preferences.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='xfce-mixer-preferences.c' object='libmixer_la-xfce-mixer-preferences.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-xfce-mixer-preferences.Po' tmpdepfile='$(DEPDIR)/libmixer_la-xfce-mixer-preferences.TPo' @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-xfce-mixer-control-vc.obj `if test -f 'xfce-mixer-control-vc.c'; then $(CYGPATH_W) 'xfce-mixer-control-vc.c'; else $(CYGPATH_W) '$(srcdir)/xfce-mixer-control-vc.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-xfce-mixer-preferences.obj `if test -f 'xfce-mixer-preferences.c'; then $(CYGPATH_W) 'xfce-mixer-preferences.c'; else $(CYGPATH_W) '$(srcdir)/xfce-mixer-preferences.c'; fi`
 
-libmixer_la-xfce-mixer-control-vc.lo: xfce-mixer-control-vc.c
-@am__fastdepCC_TRUE@	if $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-xfce-mixer-control-vc.lo -MD -MP -MF "$(DEPDIR)/libmixer_la-xfce-mixer-control-vc.Tpo" -c -o libmixer_la-xfce-mixer-control-vc.lo `test -f 'xfce-mixer-control-vc.c' || echo '$(srcdir)/'`xfce-mixer-control-vc.c; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-xfce-mixer-control-vc.Tpo" "$(DEPDIR)/libmixer_la-xfce-mixer-control-vc.Plo"; else rm -f "$(DEPDIR)/libmixer_la-xfce-mixer-control-vc.Tpo"; exit 1; fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='xfce-mixer-control-vc.c' object='libmixer_la-xfce-mixer-control-vc.lo' libtool=yes @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-xfce-mixer-control-vc.Plo' tmpdepfile='$(DEPDIR)/libmixer_la-xfce-mixer-control-vc.TPlo' @AMDEPBACKSLASH@
+libmixer_la-xfce-mixer-preferences.lo: xfce-mixer-preferences.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-xfce-mixer-preferences.lo -MD -MP -MF "$(DEPDIR)/libmixer_la-xfce-mixer-preferences.Tpo" -c -o libmixer_la-xfce-mixer-preferences.lo `test -f 'xfce-mixer-preferences.c' || echo '$(srcdir)/'`xfce-mixer-preferences.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-xfce-mixer-preferences.Tpo" "$(DEPDIR)/libmixer_la-xfce-mixer-preferences.Plo"; else rm -f "$(DEPDIR)/libmixer_la-xfce-mixer-preferences.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='xfce-mixer-preferences.c' object='libmixer_la-xfce-mixer-preferences.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-xfce-mixer-preferences.Plo' tmpdepfile='$(DEPDIR)/libmixer_la-xfce-mixer-preferences.TPlo' @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-xfce-mixer-control-vc.lo `test -f 'xfce-mixer-control-vc.c' || echo '$(srcdir)/'`xfce-mixer-control-vc.c
+@am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-xfce-mixer-preferences.lo `test -f 'xfce-mixer-preferences.c' || echo '$(srcdir)/'`xfce-mixer-preferences.c
+
+libmixer_la-xfce-mixer-pxml.o: xfce-mixer-pxml.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-xfce-mixer-pxml.o -MD -MP -MF "$(DEPDIR)/libmixer_la-xfce-mixer-pxml.Tpo" -c -o libmixer_la-xfce-mixer-pxml.o `test -f 'xfce-mixer-pxml.c' || echo '$(srcdir)/'`xfce-mixer-pxml.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-xfce-mixer-pxml.Tpo" "$(DEPDIR)/libmixer_la-xfce-mixer-pxml.Po"; else rm -f "$(DEPDIR)/libmixer_la-xfce-mixer-pxml.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='xfce-mixer-pxml.c' object='libmixer_la-xfce-mixer-pxml.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-xfce-mixer-pxml.Po' tmpdepfile='$(DEPDIR)/libmixer_la-xfce-mixer-pxml.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-xfce-mixer-pxml.o `test -f 'xfce-mixer-pxml.c' || echo '$(srcdir)/'`xfce-mixer-pxml.c
+
+libmixer_la-xfce-mixer-pxml.obj: xfce-mixer-pxml.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-xfce-mixer-pxml.obj -MD -MP -MF "$(DEPDIR)/libmixer_la-xfce-mixer-pxml.Tpo" -c -o libmixer_la-xfce-mixer-pxml.obj `if test -f 'xfce-mixer-pxml.c'; then $(CYGPATH_W) 'xfce-mixer-pxml.c'; else $(CYGPATH_W) '$(srcdir)/xfce-mixer-pxml.c'; fi`; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-xfce-mixer-pxml.Tpo" "$(DEPDIR)/libmixer_la-xfce-mixer-pxml.Po"; else rm -f "$(DEPDIR)/libmixer_la-xfce-mixer-pxml.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='xfce-mixer-pxml.c' object='libmixer_la-xfce-mixer-pxml.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-xfce-mixer-pxml.Po' tmpdepfile='$(DEPDIR)/libmixer_la-xfce-mixer-pxml.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-xfce-mixer-pxml.obj `if test -f 'xfce-mixer-pxml.c'; then $(CYGPATH_W) 'xfce-mixer-pxml.c'; else $(CYGPATH_W) '$(srcdir)/xfce-mixer-pxml.c'; fi`
+
+libmixer_la-xfce-mixer-pxml.lo: xfce-mixer-pxml.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-xfce-mixer-pxml.lo -MD -MP -MF "$(DEPDIR)/libmixer_la-xfce-mixer-pxml.Tpo" -c -o libmixer_la-xfce-mixer-pxml.lo `test -f 'xfce-mixer-pxml.c' || echo '$(srcdir)/'`xfce-mixer-pxml.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-xfce-mixer-pxml.Tpo" "$(DEPDIR)/libmixer_la-xfce-mixer-pxml.Plo"; else rm -f "$(DEPDIR)/libmixer_la-xfce-mixer-pxml.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='xfce-mixer-pxml.c' object='libmixer_la-xfce-mixer-pxml.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-xfce-mixer-pxml.Plo' tmpdepfile='$(DEPDIR)/libmixer_la-xfce-mixer-pxml.TPlo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-xfce-mixer-pxml.lo `test -f 'xfce-mixer-pxml.c' || echo '$(srcdir)/'`xfce-mixer-pxml.c
+
+libmixer_la-xfce-mixer-slider-tiny.o: xfce-mixer-slider-tiny.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-xfce-mixer-slider-tiny.o -MD -MP -MF "$(DEPDIR)/libmixer_la-xfce-mixer-slider-tiny.Tpo" -c -o libmixer_la-xfce-mixer-slider-tiny.o `test -f 'xfce-mixer-slider-tiny.c' || echo '$(srcdir)/'`xfce-mixer-slider-tiny.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-xfce-mixer-slider-tiny.Tpo" "$(DEPDIR)/libmixer_la-xfce-mixer-slider-tiny.Po"; else rm -f "$(DEPDIR)/libmixer_la-xfce-mixer-slider-tiny.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='xfce-mixer-slider-tiny.c' object='libmixer_la-xfce-mixer-slider-tiny.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-xfce-mixer-slider-tiny.Po' tmpdepfile='$(DEPDIR)/libmixer_la-xfce-mixer-slider-tiny.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-xfce-mixer-slider-tiny.o `test -f 'xfce-mixer-slider-tiny.c' || echo '$(srcdir)/'`xfce-mixer-slider-tiny.c
+
+libmixer_la-xfce-mixer-slider-tiny.obj: xfce-mixer-slider-tiny.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-xfce-mixer-slider-tiny.obj -MD -MP -MF "$(DEPDIR)/libmixer_la-xfce-mixer-slider-tiny.Tpo" -c -o libmixer_la-xfce-mixer-slider-tiny.obj `if test -f 'xfce-mixer-slider-tiny.c'; then $(CYGPATH_W) 'xfce-mixer-slider-tiny.c'; else $(CYGPATH_W) '$(srcdir)/xfce-mixer-slider-tiny.c'; fi`; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-xfce-mixer-slider-tiny.Tpo" "$(DEPDIR)/libmixer_la-xfce-mixer-slider-tiny.Po"; else rm -f "$(DEPDIR)/libmixer_la-xfce-mixer-slider-tiny.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='xfce-mixer-slider-tiny.c' object='libmixer_la-xfce-mixer-slider-tiny.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-xfce-mixer-slider-tiny.Po' tmpdepfile='$(DEPDIR)/libmixer_la-xfce-mixer-slider-tiny.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-xfce-mixer-slider-tiny.obj `if test -f 'xfce-mixer-slider-tiny.c'; then $(CYGPATH_W) 'xfce-mixer-slider-tiny.c'; else $(CYGPATH_W) '$(srcdir)/xfce-mixer-slider-tiny.c'; fi`
+
+libmixer_la-xfce-mixer-slider-tiny.lo: xfce-mixer-slider-tiny.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -MT libmixer_la-xfce-mixer-slider-tiny.lo -MD -MP -MF "$(DEPDIR)/libmixer_la-xfce-mixer-slider-tiny.Tpo" -c -o libmixer_la-xfce-mixer-slider-tiny.lo `test -f 'xfce-mixer-slider-tiny.c' || echo '$(srcdir)/'`xfce-mixer-slider-tiny.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/libmixer_la-xfce-mixer-slider-tiny.Tpo" "$(DEPDIR)/libmixer_la-xfce-mixer-slider-tiny.Plo"; else rm -f "$(DEPDIR)/libmixer_la-xfce-mixer-slider-tiny.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='xfce-mixer-slider-tiny.c' object='libmixer_la-xfce-mixer-slider-tiny.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/libmixer_la-xfce-mixer-slider-tiny.Plo' tmpdepfile='$(DEPDIR)/libmixer_la-xfce-mixer-slider-tiny.TPlo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libmixer_la_CFLAGS) $(CFLAGS) -c -o libmixer_la-xfce-mixer-slider-tiny.lo `test -f 'xfce-mixer-slider-tiny.c' || echo '$(srcdir)/'`xfce-mixer-slider-tiny.c
 
 mostlyclean-libtool:
 	-rm -f *.lo
