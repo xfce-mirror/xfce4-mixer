@@ -78,7 +78,7 @@ mcs_plugin_init(McsPlugin *plugin)
 
 static void     run_dialog(McsPlugin *plugin)
 {
-	
+	GtkWidget *header;	
 	if (dialog) {
 		gtk_window_present (GTK_WINDOW (dialog));
 		return;
@@ -91,6 +91,9 @@ static void     run_dialog(McsPlugin *plugin)
 
 	sb = xfce_mixer_settingsbox_new ();
 	gtk_widget_show (GTK_WIDGET (sb));
+	header = xfce_create_header (plugin->icon, _("Sound"));
+	gtk_widget_show (header);
+	gtk_box_pack_start (GTK_BOX (GTK_DIALOG (dialog)->vbox), GTK_WIDGET (header), FALSE, FALSE, 0);
 	gtk_box_pack_start (GTK_BOX (GTK_DIALOG (dialog)->vbox), GTK_WIDGET (sb), TRUE, FALSE, 0);
 
 	gtk_window_set_icon (GTK_WINDOW (dialog), plugin->icon);
