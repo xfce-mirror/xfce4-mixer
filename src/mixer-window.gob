@@ -87,7 +87,8 @@ class Xfce:Mixer:Window from Gtk:Window {
 
 		self->view = xfce_mixer_view_new ();
 
-		gtk_widget_set_size_request (GTK_WIDGET (self->view), 600, -1);
+		/*gtk_widget_set_size_request (GTK_WIDGET (self->view), 600, -1);*/
+		gtk_window_set_default_size (GTK_WINDOW (self), 600, -1);
 
 		p = XFCE_MIXER_PROFILE (xfce_mixer_profile_new ("noname"));
 		self_set_profile (self, p);
