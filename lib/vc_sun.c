@@ -63,7 +63,12 @@ static int fd = -1;
 
 static int init(void)
 {
-	vc_set_device(dev_name);
+  if (g_getenv ("AUDIODEV") != NULL)
+    g_strlcpy (mixer_device, g_getenv ("AUDIODEV"), PATH_MAX);
+  else
+    g_strlcpy (mixer_device, MIXER_BASE, PATH_MAX);
+
+	vc_set_device(mixer_device);
 	vc_reinit_device();
 	return USE_THAT;
 }
