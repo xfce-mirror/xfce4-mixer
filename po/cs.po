@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2003-11-11 16:08+0100\n"
+"POT-Creation-Date: 2003-08-02 11:41+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Lukas Konarovsky <daeltar@daeltar.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,20 +15,24 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: panel-plugin/mixer.c:154
+#: panel-plugin/mixer.c:157
 msgid "No working sound"
 msgstr "Nefungujcí zvuk"
 
-#: panel-plugin/mixer.c:293
+#: panel-plugin/mixer.c:296
 #, c-format
 msgid "Volume: %d%%"
 msgstr "Hlasitost: %d%%"
 
-#: panel-plugin/mixer.c:1001
+#: panel-plugin/mixer.c:1022
+msgid "Device:"
+msgstr "Zařízení:"
+
+#: panel-plugin/mixer.c:1110
 msgid "Use _internal mixer"
 msgstr "Použít _vestavěný mixer"
 
-#: panel-plugin/mixer.c:1211
+#: panel-plugin/mixer.c:1307
 msgid "Volume Control"
 msgstr "Nastavení hlasitosti"
 
@@ -68,6 +72,3 @@ msgstr "Viditelný"
 #: panel-plugin/mvisible_opts.c:84
 msgid "Control"
 msgstr "Ovládat"
-
-#~ msgid "Device:"
-#~ msgstr "Zařízení:"
