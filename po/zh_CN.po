@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-11-22 21:44+0100\n"
-"PO-Revision-Date: 2004-09-28 01:05-0700\n"
+"PO-Revision-Date: 2005-01-25 14:38+0100\n"
 "Last-Translator: Yongtao Yang <yongtao.yang@telia.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -183,19 +183,19 @@ msgstr "声卡工作不正常"
 
 #: src/menus.c:9
 msgid "/_File"
-msgstr ""
+msgstr "/文件(_F)"
 
 #: src/menus.c:10
 msgid "/File/_Options"
-msgstr ""
+msgstr "/文件(F)/选项(_O)"
 
 #: src/menus.c:11
 msgid "/File/_Exit"
-msgstr ""
+msgstr "/文件(F)/退出(_E)"
 
 #: src/menus.c:12
 msgid "/_View"
-msgstr ""
+msgstr "/查看(_V)"
 
 #: src/menus.c:13
 msgid "/View/sep"
@@ -203,15 +203,15 @@ msgstr ""
 
 #: src/menus.c:14
 msgid "/View/_Manage"
-msgstr ""
+msgstr "/查看(V)/管理(_M)"
 
 #: src/menus.c:15
 msgid "/_Help"
-msgstr ""
+msgstr "/帮助(_H)"
 
 #: src/menus.c:16
 msgid "/Help/_Info"
-msgstr ""
+msgstr "/文件(F)/选项(_O)"
 
 #: src/mixer-info.gob:28 mixer-info.gob:28
 msgid ""
@@ -313,9 +313,9 @@ msgstr "该用户文件名已经存在"
 
 #: src/mixer-profiles.gob:262 src/mixer-profiles.gob:269
 #: mixer-profiles.gob:262 mixer-profiles.gob:269
-#, fuzzy, c-format
+#, c-format
 msgid "profile%d"
-msgstr "用户文件"
+msgstr "用户文件 %d"
 
 #: src/mixer-view.gob:258 mixer-view.gob:258
 msgid "Show Switches"
