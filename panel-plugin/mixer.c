@@ -384,6 +384,7 @@ xfce_mixer_status_button_cb (GtkWidget * widget, GdkEventButton *b, t_mixer *mix
 			/* this is a hack 'cause I dont know how to get the height 
 			   of the border of the progressbar yet ;) */
 			y = (sy + 2 - y) * 100 / sy;
+			if (y <= 0) y = 0;
 		} else y = 0;
 	} else return TRUE;
 	
