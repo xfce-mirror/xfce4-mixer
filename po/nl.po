@@ -26,7 +26,7 @@ msgstr "Volume: %d%%"
 
 #: panel-plugin/mixer.c:945
 msgid "Use _internal mixer"
-msgstr ""
+msgstr "_Interne mixer gebruiken"
 
 #: panel-plugin/mixer.c:1140
 msgid "Volume Control"
