@@ -262,6 +262,24 @@ class Xfce:Mixer:Pxml from G:Object {
 		return xmlGetProp (self->node, pname);
 	}
 
+	public gboolean get_prop_int (self, gchar const *pname, gint *result)
+	{
+		gchar *s;
+		gchar *endptr;
+		gboolean b;
+		s = self_get_prop (self, pname);
+		if (!s)
+			return FALSE;
+
+		b = FALSE;
+		endptr = NULL;
+		*result = strtol (s, &endptr, 0);
+		b = (endptr == NULL);
+
+		g_free (s);
+		return b;
+	}
+
 	public void set_prop_int (self, gchar const *pname, gint v)
 	{
 		gchar tmp[20];
