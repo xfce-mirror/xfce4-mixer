@@ -30,9 +30,10 @@ static gboolean save_settings(McsPlugin *);
 static GtkWidget *dialog = NULL;
 static XfceMixerSettingsbox *sb = NULL;
 
-#define RCDIR	"settings"
-#define CHANNEL	"sound"
-#define RCFILE	"sound.xml"
+#define RCDIR		"mcs_settings"
+#define OLDRCDIR	"settings"
+#define CHANNEL		"sound"
+#define RCFILE		"sound.xml"
 
 static void
 response_cb (McsPlugin *plugin, gpointer user_data)
@@ -57,12 +58,22 @@ response_cb (McsPlugin *plugin, gpointer user_data)
 McsPluginInitResult
 mcs_plugin_init(McsPlugin *plugin)
 {
-	gchar *file;
+	gchar *path, *file;
 	
 	xfce_textdomain(GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");
 	
-	file = xfce_get_userfile(RCDIR, RCFILE, NULL);
-	mcs_manager_add_channel_from_file(plugin->manager, CHANNEL, file);
+	path = g_build_filename ("xfce4", RCDIR, RCFILE, NULL);
+	file = xfce_resource_lookup (XFCE_RESOURCE_CONFIG, path);
+
+	if (!file)
+		file = xfce_get_userfile(OLDRCDIR, RCFILE, NULL);
+
+	if (g_file_test (file, G_FILE_TEST_EXISTS))
+		mcs_manager_add_channel_from_file(plugin->manager, CHANNEL, file);
+	else
+		mcs_manager_add_channel (plugin->manager, CHANNEL);
+
+	g_free (path);
 	g_free(file);
 
 	plugin->plugin_name = g_strdup ("sound");
@@ -112,14 +123,15 @@ static void     run_dialog(McsPlugin *plugin)
 static gboolean save_settings(McsPlugin *plugin)
 {
 	gboolean result;
-	gchar *file;
+	gchar *file, *path;
 
 	if (!dialog || !sb)
 		return TRUE;
-		
-	file = xfce_get_userfile(RCDIR, RCFILE, NULL);
-	result = mcs_manager_save_channel_to_file(plugin->manager, CHANNEL,
-	  file);
+	
+	path = g_build_filename ("xfce4", RCDIR, RCFILE, NULL);
+	file = xfce_resource_save_location(XFCE_RESOURCE_CONFIG, path, TRUE);
+	result = mcs_manager_save_channel_to_file(plugin->manager, CHANNEL, file);
+	g_free(path);
 	g_free(file);
 
 	if (sb)
