@@ -283,7 +283,6 @@ class Xfce:Mixer:Profiles from G:Object {
 
 	protected gboolean delayed_pc_cb (self)
 	{
-		/*g_warning ("mixer-profiles::profiles-changed");*/
 		emit self_profiles_changed (self);
 		return FALSE;
 	}

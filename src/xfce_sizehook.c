@@ -57,7 +57,6 @@ map_cb(GtkWindow *w, t_window_state *s)
 {
 	if (!s)
 		return;
-	/*g_warning ("s->valid: %d", s->valid  ? 1 : 0);	*/
 
 	if (s->valid) {
 		if (s->width > 0 && s->height > 0)

@@ -211,7 +211,6 @@ class Xfce:Mixer:Window from Gtk:Window {
 
 	protected void save_window_state_cb(self, t_window_state *s, GtkWindow *w)
 	{
-		/*g_warning ("save state %d %d %d %d %d", s->x, s->y, s->width, s->height, s->valid);*/
 		self_save_window_state(self, s);
 	}
 
@@ -266,7 +265,6 @@ class Xfce:Mixer:Window from Gtk:Window {
 
 	protected void mcs_changed_cb(self, GtkWidget *widget)
 	{
-		/*g_warning ("mcs changed");*/
 		self_reset_profile (self);
 	}
 
@@ -303,12 +301,9 @@ class Xfce:Mixer:Window from Gtk:Window {
 
 		p = xfce_mixer_profiles_get_profile (profiles, n);
 		if (p) {
-			/*g_warning ("profile_activate_cb init %X", (int)p);
-			g_warning ("profile name %s", xfce_mixer_profile_get_title (p));*/
 			self_set_profile (self, p);
 			/*self_reset_profile (self);TODO remove this*/
 			g_object_unref (G_OBJECT (p));
-			/*g_warning ("profile_activate_cb done");*/
 		}
 
 		if (g)
