@@ -1,3 +1,90 @@
+2004-10-21 19:37  benny
+
+	* src/: xfce-mixer-mcs-client.c, xfce-mixer-profilebox-detail.c:
+	  Fix casting bug that breaks gcc34 based plattforms. Danny, please
+	  get rid of gob as soon as possible, it generates faulty code!
+
+2004-10-21 19:35  benny
+
+	* src/: mixer-window.gob, xfce-mixer-window.c: Fix memory
+	  corruption, calling g_free on data, which is accessed later on.
+
+2004-10-15 11:42  pollux
+
+	* configure, configure.ac, po/ar.gmo, po/az.gmo, po/be.gmo,
+	  po/bg.gmo, po/ca.gmo, po/de.gmo, po/es.gmo, po/et.gmo, po/eu.gmo,
+	  po/fi.gmo, po/fi.po, po/fr.gmo, po/gu.gmo, po/he.gmo, po/hu.gmo,
+	  po/it.gmo, po/ja.gmo, po/ko.gmo, po/lt.gmo, po/ms.gmo, po/nl.gmo,
+	  po/no.gmo, po/pa.gmo, po/pt_BR.gmo, po/pt_PT.gmo, po/ru.gmo,
+	  po/sk.gmo, po/tr.gmo, po/vi.gmo, po/zh_CN.gmo, po/zh_TW.gmo,
+	  settings/xfce-mixer-settings.desktop: update FI translations
+
+2004-10-11 20:10  benny
+
+	* lib/vc_sun.c: Here we go, Sun mixer support. Just what I have so
+	  far. Seems to block the mixer device, tho it shouldn't. Since I
+	  merged this from my test .c files, it may not even compile. I'll
+	  check once I get my hands on Solaris next time. Other than that,
+	  the code is very straight forward, nothing glorious (just like
+	  the solaris audio/mixer system itself :-).
+
+2004-10-11 18:30  benny
+
+	* po/: ar.po, az.po, be.po, bg.po, ca.po, de.po, es.po, et.po,
+	  eu.po, fr.po, gu.po, he.po, hu.po, it.po, ja.po, ko.po, lt.po,
+	  ms.po, nl.po, no.po, pa.po, pt_BR.po, pt_PT.po, ru.po, sk.po,
+	  tr.po, vi.po, zh_CN.po, zh_TW.po: update-po for Moe.
+
+2004-10-10 13:52  pollux
+
+	* po/: pt_PT.gmo, pt_PT.po: update pt_PT translations
+
+2004-10-09 16:20  pollux
+
+	* configure, configure.ac, po/fa.gmo, po/fa.po, po/fa_IR.gmo,
+	  po/fa_IR.po: update FA translations
+
+2004-10-08 16:01  edscott
+
+	* configure, configure.ac, po/es.gmo, po/es_MX.gmo, po/es_MX.po:
+	  add spanish translation
+
+2004-10-08 15:58  edscott
+
+	* po/es.po: update translation
+
+2004-10-07 22:35  benny
+
+	* Makefile.in, aclocal.m4, configure, include/Makefile.in,
+	  lib/Makefile.in, m4/debug.m4, m4/glib-gettext.m4, m4/pkg.m4,
+	  panel-plugin/Makefile.in, settings/Makefile.in, src/Makefile.in:
+	  Added --enable-final (-O1 for GNU ld) as per Jaspers request.
+	  Added missing m4 files.
+
+2004-10-03 18:14  pollux
+
+	* configure, configure.ac, po/pa.gmo, po/pa.po: Punjabi
+	  translations (PA) from jaswinderlinux@netscape.net
+
+2004-10-03 17:43  pollux
+
+	* settings/xfce-mixer-settings.desktop: zh_TW translations of
+	  desktop files from Ambrose Li <acli@ada.dhs.org>
+
+2004-10-03 17:00  jasper
+
+	* ltmain.sh, lib/Makefile.am, lib/Makefile.in: Missing file from
+	  tarball
+
+2004-10-03 01:26  olivier
+
+	* xfce4-mixer.spec.in: Missing files from spec file
+
+2004-10-02 15:28  olivier
+
+	* ChangeLog, ltmain.sh, po/xfce4-mixer.pot: Update all files for
+	  4.2 beta 1
+
 2004-09-30 13:12  jasper
 
 	* configure, configure.ac, lib/Makefile.am, lib/Makefile.in,
