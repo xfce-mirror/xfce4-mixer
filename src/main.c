@@ -8,7 +8,6 @@
 #include "xfce-mixer-mcs-client.h"
 #include "vcs.h"
 #include "main.h"
-#include "mcs_client.h"
 
 GtkTooltips *tooltips;
 
