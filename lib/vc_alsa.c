@@ -274,6 +274,17 @@ static void vc_set_volume(char const *which, int vol_p)
 		
 	lval = (long) pmin + (vold) * (pmax - pmin) / 100;
 
+	/*
+	snd_mixer_selem_get_playback_switch(Ex_elem, SND_MIXER_SCHN_MONO, &status);
+	*/
+	
+	/* use _all functions for sami's card ... */
+	if (lval == pmin) /* mute */
+		snd_mixer_selem_set_playback_switch_all (xelem, 0);
+	else /* unmute, just in case. */
+		snd_mixer_selem_set_playback_switch_all (xelem, 1);
+
+#if 0		
 	for (chn = 0; chn <= SND_MIXER_SCHN_LAST; chn++) {
 		if (!snd_mixer_selem_has_playback_channel(xelem, chn)) continue;
 
@@ -285,6 +296,7 @@ static void vc_set_volume(char const *which, int vol_p)
 			snd_mixer_selem_set_playback_volume(xelem, chn, lval);
 		}
 	}
+#endif
 }
 
 GList *alsa_enum_to_glist(snd_mixer_elem_t *i)
