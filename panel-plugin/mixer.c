@@ -117,7 +117,9 @@ static int find_working_sound(void)
 #endif
 #ifdef USE_ALSA
 	register_alsa();
+#if 0
 	register_alsa_fallback();
+#endif
 #endif
 
 	v = first_vc();
@@ -553,7 +555,9 @@ mixer_do_options(t_mixer *mixer, int mode) /* 0: load; 1: store; 2: connect reve
 			}
 			break;
 		case 0:
-			gtk_entry_set_text(GTK_ENTRY(e_command), g_strdup(mixer->options.command));
+			if (mixer->options.command) {
+				gtk_entry_set_text(GTK_ENTRY(e_command), g_strdup(mixer->options.command));
+			}
 			break;
 		case 2:
 			g_signal_connect_swapped (e_command, "insert-at-cursor", G_CALLBACK (mixer_revert_make_sensitive), mixer->revert_b);
