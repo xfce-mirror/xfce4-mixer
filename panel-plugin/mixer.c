@@ -227,6 +227,7 @@ mixer_new (void)
 {
     GtkRcStyle	*rc;
     GdkColor	color;
+    GtkWidget *align;
         
     t_mixer *mixer;
     
@@ -244,17 +245,46 @@ mixer_new (void)
     
     mixer->hbox = GTK_BOX(gtk_hbox_new(FALSE, 0));
     gtk_widget_set_name (GTK_WIDGET(mixer->hbox), "xfce_mixer");
-    gtk_container_set_border_width(GTK_CONTAINER(mixer->hbox), border_width);
 
     gtk_widget_show(GTK_WIDGET(mixer->hbox));
 
+    /* Ok, complicated sizing tricks to make it look better:
+     * - control is icon_size[] + border_width (see mixer_set_size())
+     * - progress bar is icon_size[], vertically centered
+     * - there is a border_size spacer widget to the right of the
+     *   progress bar
+     * - the mixer button fills the remaining space
+    */
+    
     mixer->mixer = xfce_mixer_new (&mixer->broken);
     gtk_widget_show (mixer->mixer);
-    gtk_box_pack_start (GTK_BOX(mixer->hbox), GTK_WIDGET(mixer->mixer), FALSE, FALSE, 0);
+    gtk_box_pack_start (GTK_BOX(mixer->hbox), GTK_WIDGET(mixer->mixer), 
+			TRUE, TRUE, 0);
 
     mixer->status = GTK_PROGRESS_BAR(gtk_progress_bar_new());
     gtk_progress_bar_set_orientation(mixer->status, GTK_PROGRESS_BOTTOM_TO_TOP);
+    gtk_widget_show(GTK_WIDGET(mixer->status));
+
+    /* left aligned, vertically centered, no scaling */
+    align = gtk_alignment_new (0, 0.5, 0, 0);
+    gtk_widget_show (align);
+    gtk_box_pack_start (GTK_BOX(mixer->hbox), align, FALSE, FALSE, 0);
     
+    mixer->eventbox = gtk_event_box_new ();
+    gtk_widget_show (mixer->eventbox);
+    gtk_container_add (GTK_CONTAINER (align),
+		       mixer->eventbox);
+    
+    gtk_container_add (GTK_CONTAINER (mixer->eventbox),
+		    GTK_WIDGET(mixer->status));
+
+    /* extra spacer of 'border_width' to the right of the progress bar */
+    align = gtk_alignment_new (0, 0, 0, 0);
+    gtk_widget_show (align);
+    gtk_widget_set_size_request (align, border_width, -1);
+    gtk_box_pack_start (GTK_BOX(mixer->hbox), align, FALSE, FALSE, 0);
+
+
     rc = gtk_widget_get_modifier_style(GTK_WIDGET(mixer->status));
     if (!rc) { rc = gtk_rc_style_new(); }
     
@@ -266,18 +296,6 @@ mixer_new (void)
     }
    
     gtk_widget_modify_style(GTK_WIDGET(mixer->status), rc); /* gone afterwards */
-    
-    gtk_widget_show(GTK_WIDGET(mixer->status));
-
-    mixer->eventbox = gtk_event_box_new ();
-    gtk_widget_show (mixer->eventbox);
-    
-    gtk_container_add (GTK_CONTAINER (mixer->eventbox),
-		    GTK_WIDGET(mixer->status));
-
-    gtk_box_pack_start (GTK_BOX(mixer->hbox), GTK_WIDGET(mixer->eventbox),
-		    FALSE, FALSE, 0);
-
     mixer->options.l_visible = vc_get_control_list ();
     
     use_internal_changed_cb(mixer);
@@ -521,14 +539,14 @@ mixer_set_size (Control *control, int size)
 	gtk_widget_set_size_request(GTK_WIDGET(mixer->mixer), icon_size[size], icon_size[size]);
 	gtk_widget_set_size_request(GTK_WIDGET(mixer->status), 6 + 2 * size, icon_size[size]);
 #endif
-	all = icon_size[size];
+	all = icon_size[size] + border_width;
 	r = all - slider_width;
-	if (r < 0) r = 1;
+	if (r < 10) r = 10;
 		
-	gtk_widget_set_size_request(GTK_WIDGET(mixer->mixer), r, r);
-	gtk_widget_set_size_request(GTK_WIDGET(mixer->status), 6 + 2 * size, icon_size[size]);
-
-	gtk_widget_queue_resize (GTK_WIDGET (mixer->status));
+	gtk_widget_set_size_request(GTK_WIDGET(mixer->mixer), r, -1);
+	gtk_widget_set_size_request(GTK_WIDGET(mixer->status), slider_width, 
+	    			    icon_size[size]);
+/*	gtk_widget_queue_resize (GTK_WIDGET (mixer->status));*/
 }
 
 
@@ -547,10 +565,13 @@ create_mixer_control (Control * control)
 	
 	mixer = mixer_new ();
 
-	alignment = gtk_alignment_new (0.5, 0.5, 0.0, 0.0); /* xalign,yalign,xscale,yscale */
+/*	alignment = gtk_alignment_new (0.5, 0.5, 0.0, 0.0);  xalign,yalign,xscale,yscale 
 	gtk_widget_show (alignment);
 	gtk_container_add (GTK_CONTAINER (alignment), GTK_WIDGET(mixer->hbox));
 	gtk_container_add (GTK_CONTAINER (control->base), alignment);
+*/
+	gtk_container_add (GTK_CONTAINER (control->base), 
+	    		   GTK_WIDGET(mixer->hbox));
 
 	control->data = (gpointer) mixer;
 	control->with_popup = FALSE;
