@@ -82,6 +82,7 @@ AC_C_CONST
 
 AC_OUTPUT([
 Makefile
+xfce4-mixer.spec
 lib/Makefile
 src/Makefile
 panel-plugin/Makefile

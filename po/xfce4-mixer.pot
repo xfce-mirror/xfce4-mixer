@@ -7,7 +7,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2004-08-06 22:56+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-08-26 00:04+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -176,11 +177,11 @@ msgstr ""
 msgid "Sound"
 msgstr ""
 
-#: mixer-view.gob:255
+#: mixer-view.gob:258
 msgid "Show Switches"
 msgstr ""
 
-#: mixer-view.gob:256
+#: mixer-view.gob:259
 msgid "Hide Switches"
 msgstr ""
 
