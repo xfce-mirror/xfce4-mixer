@@ -51,18 +51,17 @@ migrate_errno_print(
 	gchar const *func
 )
 {
-	char tmp[2049];
+	char const *tmp;
 	gchar *whichfile;
-	if (strerror_r (xerrno, tmp, sizeof(tmp)) != -1) {
-		if (!newfile_culprit)
-			whichfile = "old file";
-		else
-			whichfile = "new file";
+	/* TODO use strerror_r if we readd threads to panel */
+	
+	tmp = g_strerror (xerrno);
+	if (!newfile_culprit)
+		whichfile = "old file";
+	else
+		whichfile = "new file";
 			
-		g_warning("could not migrate \"%s\" to \"%s\" because: %s: %s (%s)", oldpath, newpath, tmp, func, whichfile);
-	} else {
-		g_warning("could not migrate \"%s\" to \"%s\" because something went wrong (%s: %s)", oldpath, newpath, func, whichfile);
-	}
+	g_warning("could not migrate \"%s\" to \"%s\" because: %s: %s (%s)", oldpath, newpath, tmp, func, whichfile);
 }
 
 static gchar *
