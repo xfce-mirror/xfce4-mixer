@@ -48,6 +48,7 @@
 
 #include <alsa/asoundlib.h>
 #include <alsa/mixer.h>
+#include <alsa/control.h>
 
 #define VC_PLUGIN
 #include "vc.h"
@@ -129,9 +130,18 @@ static void find_master(void)
 
 static void vc_set_device(char const *name)
 {
-	strncpy(card, name, sizeof(card));
-	card[sizeof(card) - 1] = 0;
-	find_master();
+	gchar	*colon;
+	if (name && name[0] == '#') {
+		card[0] = 'h'; card[1] = 'w'; card[2] = ':';
+		strncpy(card + 3, &name[1], sizeof(card) - 3);
+		card[sizeof(card) - 1] = 0;
+		colon = g_utf8_strchr (card + 3, sizeof(card) - 4, ':');
+		if (colon) *colon = 0;
+		find_master();
+	} else if (!strcmp (name, "default")) {
+		strncpy(card, name, sizeof(card));
+		card[sizeof(card) - 1] = 0;
+	}
 }
 
 static int vc_reinit_device(void)
@@ -349,7 +359,12 @@ static GList *vc_get_device_list()
 {
 	GList *l;
 	int card;
-	char *name;
+	int rc;
+	gchar const *name;
+	gchar *cname;
+	snd_ctl_t *ctl_handle;
+	snd_ctl_card_info_t	*card_info;
+	snd_ctl_card_info_alloca (&card_info);
 	
 	card = -1;
 	l = NULL;
@@ -359,13 +374,35 @@ static GList *vc_get_device_list()
 	}
 
 	/* FIXME remove this ? */
-	l = g_list_append (l, "default"); /* this is just to make sure */
-	
+	l = g_list_append (l, g_strdup ("default")); /* this is just to make sure */
 
+	do {
+		cname = g_strdup_printf ("hw:%d", card);
+		rc = snd_ctl_open(&ctl_handle, cname, 0);
+		if (rc == 0) {
+			if (snd_ctl_card_info (ctl_handle, card_info) >= 0) {
+				name = snd_ctl_card_info_get_name (card_info);
+			} else {
+				name = "?";
+			}
+
+			l = g_list_append (l, g_strdup_printf("#%d: %s", card, name));
+			snd_ctl_close (ctl_handle);
+
+		}
+		
+			
+		g_free (cname);
+
+		card++;
+	} while (rc == 0);		
+		
+#if 0
+	/* SLOOOOW way: */
 	while (card >= 0) {
 		name = NULL;
 		if (snd_card_get_name (card, &name) >= 0 && name) {
-			l = g_list_append (l, g_strdup(name));
+			l = g_list_append (l, g_strdup_printf("#%d: %s", card, name));
 			g_free (name);
 		}
 	
@@ -374,7 +411,8 @@ static GList *vc_get_device_list()
 			break;
 		}
 	}
-		
+#endif
+
 	return l;
 }
 

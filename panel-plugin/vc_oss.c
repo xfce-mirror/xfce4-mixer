@@ -94,8 +94,8 @@ find_master(void)
 
 	if (ioctl(mixer_handle, SOUND_MIXER_READ_DEVMASK, &devmask) == -1) {
 		perror("Unable to get mixer device mask");
-		(void)close(mixer_handle);
-		mixer_handle = -1;
+		/*(void)close(mixer_handle);
+		mixer_handle = -1;*/
 		return;
 	}
 	
@@ -130,7 +130,7 @@ vc_reinit_device()
 	find_master();
 
 	if (master_i == -1) {
-		g_warning(_("oss: No master"));
+		g_warning(_("oss: No master volume"));
 		return -1;
 	}
 	
@@ -231,16 +231,10 @@ vc_get_control_list(void)
 
 	GList *	g;
 	
-#if 0
-	g = g_list_alloc ();
-	if (!g) return; /* error */
-#endif
 	g = NULL;
 		
 	for (i = 0; i < SOUND_MIXER_NRDEVICES; i++) {
 		if (devmask & (1 << i)) {
-			/* if in doubt, choose the first */
-
 			c = g_new0 (volcontrol_t, 1);
 			if (c) {
 				c->name = g_strdup(label[i]);
@@ -261,43 +255,61 @@ static void vc_set_volume_callback(volchanger_callback_t cb, void *data)
 
 static void vc_close_device()
 {
+	master_i = -1;
 	if (mixer_handle != -1) {
 		close (mixer_handle);
 		mixer_handle = -1;
 	}
 }
 
+#define SUPPORT_LINK /* TODO: automake() this */
+#ifdef SUPPORT_LINK
+static gboolean my_file_is_link(gchar *filename)
+{
+	return g_file_test (filename, G_FILE_TEST_IS_SYMLINK);
+}
+#else
+static gboolean my_file_is_link(gchar *filename)
+{
+	return FALSE;
+}
+#endif
+
+static void scan_dir_for_mixers(GList **l, gchar const *base_dir)
+{
+	GDir *dir;
+	gchar const *d;
+	gchar *file;
+	dir = g_dir_open (base_dir, 0, NULL);
+
+	if (dir) {
+		while ((d = g_dir_read_name (dir))) {
+			if (!strncmp(d, "mixer", 5)) {
+				file = g_strdup_printf ("%s/%s", base_dir, d);
+				if (file) {
+					if (!my_file_is_link (file)) {
+						*l = g_list_append (*l, file);
+					} else {
+						g_free (file);
+					}
+				}
+			}
+		}
+		
+		g_dir_close (dir);
+	}
+
+}
+
+
 static GList *vc_get_device_list()
 {
 	GList *l;
-	GDir *dir;
-	char const *d;
 	
 	l = NULL;
 	
-	dir = g_dir_open ("/dev/sound", 0, NULL);
-
-	if (dir) {
-		while ((d = g_dir_read_name (dir))) {
-			if (!strncmp(d, "mixer", 5)) {
-				l = g_list_append (l, g_strdup_printf("/dev/sound/%s", d));
-			}
-		}
-		
-		g_dir_close (dir);
-	}
-	
-	dir = g_dir_open ("/dev", 0, NULL);
-
-	if (dir) {
-		while ((d = g_dir_read_name (dir))) {
-			if (!strncmp(d, "mixer", 5)) {
-				l = g_list_append (l, g_strdup_printf("/dev/%s", d));
-			}
-		}
-		
-		g_dir_close (dir);
-	}
+	scan_dir_for_mixers (&l, "/dev/sound");
+	scan_dir_for_mixers (&l, "/dev");
 	
 	return l;
 }
