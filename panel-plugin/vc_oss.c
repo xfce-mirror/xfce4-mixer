@@ -144,10 +144,10 @@ init(void)
 }
 
 /*
- * Sets master volume in percent
+ * Sets volume in percent
  */
 static void
-set_master_volume(int percent)
+set_volume(char const *which, int percent)
 {
 	int vol;
 	int level;
@@ -166,10 +166,10 @@ set_master_volume(int percent)
 #define RIGHT(lvl)	(((lvl) >> 8) & 0x7f)
 
 /*
- * Returns master volume in percent
+ * Returns volume in percent
  */
 static int
-get_master_volume(void)
+get_volume(char const *which)
 {
 	int level;
 	
@@ -184,6 +184,33 @@ get_master_volume(void)
 	}
 
 	return((((LEFT(level) + RIGHT(level)) >> 1) * 100) / MAX_AMP);
+}
+
+static GList *
+get_control_list(void)
+{
+	int 	i;
+	volcontrol_t *c;
+
+	GList *	g;
+	
+	g = g_list_alloc ();
+	if (!g) return; /* error */
+	
+	for (i = 0; i < SOUND_MIXER_NRDEVICES; i++) {
+		if (devmask & (1 << i)) {
+			/* if in doubt, choose the first */
+
+			c = g_new0 (volcontrol_t, 1);
+			if (!c) return; /* error */
+			c->name = g_strdup(label[i]);
+			
+			g_list_append(g, c);
+
+		}
+	}
+
+	return g;	
 }
 
 REGISTER_VC_PLUGIN(oss);

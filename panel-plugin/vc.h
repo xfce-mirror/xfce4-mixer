@@ -36,9 +36,16 @@ typedef struct {
 
 	void (*set_device)(char const *dev);
 	int (*reinit_device)(void);
-        int (*get_master_volume)();
-        void (*set_master_volume)(int v);
+        int (*get_volume)(char const *which);
+        void (*set_volume)(char const *which, int v);
+        GList *(*get_control_list)(void);
 } volchanger_t;
+
+typedef struct {
+	char *		name;
+	/*int		cnt_channels; TODO */
+	
+} volcontrol_t;
 
 void register_vc(volchanger_t *vc);
 void unregister_vc(volchanger_t *vc);
@@ -51,16 +58,19 @@ volchanger_t **next_vc(volchanger_t **);
 
 #ifndef VC_PLUGIN
 /* these operate on the selected_vc: */
-int get_master_volume(void);
-void set_master_volume(int v);
+int get_volume(char const *which);
+void set_volume(char const *which, int v);
+GList *get_control_list();
+void free_control_list(GList *g);
 #else
 #define REGISTER_VC_PLUGIN(a) \
 static volchanger_t vc = { \
         name: #a, \
         set_device: set_device, \
-        get_master_volume: get_master_volume, \
-        set_master_volume: set_master_volume, \
-        reinit_device: reinit_device \
+        get_volume: get_volume, \
+        set_volume: set_volume, \
+        reinit_device: reinit_device, \
+        get_control_list: get_control_list \
 }; \
 \
 int register_##a(void) \

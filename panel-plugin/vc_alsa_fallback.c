@@ -60,7 +60,7 @@ static void set_device(char const *name)
 }
 
 
-static int get_master_volume(void)
+static int get_volume(char const *which)
 {
 	/*char buf[1000];*/
 	FILE *f;
@@ -79,11 +79,21 @@ static int get_master_volume(void)
 	return vol_p;  
 }
 
-static void set_master_volume(int vol_p)
+static void set_volume(char const *which, int vol_p)
 {
 	char buf[1000];
 	snprintf(buf,sizeof(buf), "amixer sset Master \"%d%%\" >/dev/null", vol_p);
 	system(buf);
+}
+
+static GList *get_control_list()
+{
+	GList *g;
+	
+	g = g_list_alloc ();
+	g_list_append (g, g_strdup("Master")); 
+	
+	return g;
 }
 
 REGISTER_VC_PLUGIN(alsa_fallback);

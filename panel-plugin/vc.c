@@ -109,25 +109,55 @@ volchanger_t *selected_vc()
 }
 
 
-int get_master_volume(void)
+int get_volume(char const *which)
 {
 	volchanger_t *s = selected_vc();
-	if (!s  || !s->get_master_volume) {
+	if (!s  || !s->get_volume) {
 		return 0;
 	}
 	
-	return (*s->get_master_volume)();
+	return (*s->get_volume)(which);
 }
 
-void set_master_volume(int v)
+void set_volume(char const *which, int v)
 {
 	volchanger_t *s = selected_vc();
-	if (!s  || !s->set_master_volume) {
+	if (!s  || !s->set_volume) {
 		return;
 	}
 	
-	(*s->set_master_volume)(v);
+	(*s->set_volume)(which, v);
 }
+
+GList *get_control_list()
+{
+	volchanger_t *s = selected_vc();
+	if (!s  || !s->get_control_list) {
+		return NULL;
+	}
+	
+	return (*s->get_control_list)();
+}
+
+void free_control_list(GList *g)
+{
+	GList 			*f;
+	volcontrol_t		*c;
+	int			i = 0;
+	
+	while (i < 100) { /* safety */
+		c = g_list_nth_data (g, i);
+		if (c) {
+			if (c->name) g_free (c->name);
+			g_free (c);
+		}
+	
+		++i;
+	}
+
+	g_list_free (g);
+}
+
 
 volchanger_t **first_vc()
 {
@@ -161,3 +191,4 @@ volchanger_t **next_vc(volchanger_t **v)
 	
 	return NULL;
 }
+

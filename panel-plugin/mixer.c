@@ -1,4 +1,4 @@
-/*
+/* Provides: A small mixer plugin for the panel.
  * Copyright (c) 2003 Danny Milosavljevic <danny_milo@yahoo.com>
  * Copyright (c) 2003 Benedikt Meurer <benedikt.meurer@unix-ag.uni-siegen.de>
  * All rights reserved.
@@ -58,6 +58,7 @@
 #include <panel/item_dialog.h>
 
 #include "vc.h"
+#include "mixer_window.h"
 
 /* for xml: */
 #define MIXER_ROOT "Mixer"
@@ -283,7 +284,7 @@ check_volume (t_mixer *mixer)
 	
 	/*	return FALSE;*/ /* stop */
 	
-	volume = get_master_volume();
+	volume = get_volume(NULL);
 	if (volume != mixer->c_volume) {
 		mixer->c_volume = volume; /* atomic? lol */
 		update_volume_display(mixer);
@@ -301,7 +302,7 @@ xfce_mixer_scroll_cb (GtkWidget *widget, GdkEventScroll *event, t_mixer *mixer) 
 	int	tvol;	/* test volume */
 	int	tries;
 	
-	vol = get_master_volume();
+	vol = get_volume(NULL);
 	ovol = vol;
 
 	if (event->type != GDK_SCROLL) {
@@ -318,9 +319,9 @@ xfce_mixer_scroll_cb (GtkWidget *widget, GdkEventScroll *event, t_mixer *mixer) 
 			if (vol > 100) { vol = 100; }
 		}
 		if (ovol != vol) {
-			set_master_volume(vol);
+			set_volume(NULL, vol);
 		
-			tvol = get_master_volume();
+			tvol = get_volume(NULL);
 			if (ovol != tvol) { /* worked. */
 				break;
 			}
@@ -329,7 +330,7 @@ xfce_mixer_scroll_cb (GtkWidget *widget, GdkEventScroll *event, t_mixer *mixer) 
 		++tries;
 	} while (ovol == vol && vol > 0 && vol < 100 && tries < 3); /* if still unchanged, loop */
 
-	tvol = get_master_volume();
+	tvol = get_volume(NULL);
 	mixer->c_volume = tvol;
 
 	update_volume_display(mixer);
@@ -360,9 +361,9 @@ xfce_mixer_status_button_cb (GtkWidget * widget, GdkEventButton *b, t_mixer *mix
 		} else y = 0;
 	}
 	
-	set_master_volume(y);
+	set_volume(NULL, y);
 		
-	mixer->c_volume = get_master_volume();
+	mixer->c_volume = get_volume(NULL);
 	update_volume_display(mixer);
 
 	return TRUE;
@@ -371,10 +372,18 @@ xfce_mixer_status_button_cb (GtkWidget * widget, GdkEventButton *b, t_mixer *mix
 static void
 xfce_mixer_launch_button_cb(GtkWidget *button, t_mixer *mixer) /* verified prototype: clicked */
 {
-	if (!mixer->options.command) return;
-	
-	exec_cmd(mixer->options.command, mixer->options.use_terminal,
+	mixer_window_t * mw;
+	if (!mixer->options.command || !mixer->options.command[0]) {
+		/* empty: use internal */
+		
+		mw = mixer_window_new();
+		if (mw) {
+			gtk_widget_show (GTK_WIDGET (mw->window));
+		}
+	} else {
+		exec_cmd(mixer->options.command, mixer->options.use_terminal,
 			mixer->options.use_sn);
+	}
 }
 
 

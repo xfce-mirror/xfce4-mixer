@@ -148,7 +148,7 @@ static int init(void)
 }
 
 
-static int get_master_volume(void)
+static int get_volume(char const *which)
 {
 	long pmin,pmax;
 	long lval;
@@ -171,7 +171,7 @@ static int get_master_volume(void)
 	return 0;
 }
 
-static void set_master_volume(int vol_p)
+static void set_volume(char const *which, int vol_p)
 {
 	long pmin,pmax;
 	long lval;
@@ -192,6 +192,40 @@ static void set_master_volume(int vol_p)
 		/* lol*/
 		/*return;*/
 	}
+}
+
+static GList *get_control_list(void)
+{
+	volcontrol_t *c;
+	GList *g;
+	snd_mixer_elem_t *b; /* begin */
+	snd_mixer_elem_t *e; /* end */
+	snd_mixer_elem_t *i; /* item */
+	char const *n; /* name */
+	
+	g = g_list_alloc ();
+	if (!g) return NULL;
+
+	b = snd_mixer_first_elem (handle);
+	e = snd_mixer_last_elem (handle);
+	
+	i = b;
+	while (i) {
+		n = snd_mixer_selem_get_name (i);
+
+		c = g_new0(volcontrol_t, 1);
+		c->name = g_strdup(n);	
+
+		g_list_append (g, c);
+	
+		if (i == e)
+			break;
+
+		i = snd_mixer_elem_next (i);
+	}
+	
+
+	return g;
 }
 
 
