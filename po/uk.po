@@ -1,0 +1,74 @@
+# Ukrainian translation of xfce4-mixer.
+# Copyright (C) Free Software Foundation
+# This file is distributed under the same license as the PACKAGE package.
+# Maxim Dziumanenko <mvd@mylinux.com.ua>, 2003.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4-mixer\n"
+"POT-Creation-Date: 2003-08-02 11:41+0200\n"
+"PO-Revision-Date: 2003-10-22 11:56+0200\n"
+"Last-Translator: Maxim Dziumanenko <mvd@mylinux.com.ua>\n"
+"Language-Team: Ukrainian <uk@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: panel-plugin/mixer.c:157
+msgid "No working sound"
+msgstr "Звук не працює"
+
+#: panel-plugin/mixer.c:296
+#, c-format
+msgid "Volume: %d%%"
+msgstr "Гучність: %d%%"
+
+#: panel-plugin/mixer.c:1022
+msgid "Device:"
+msgstr "Пристрій:"
+
+#: panel-plugin/mixer.c:1110
+msgid "Use _internal mixer"
+msgstr "Використовувати _внутрішній мікшер"
+
+#: panel-plugin/mixer.c:1307
+msgid "Volume Control"
+msgstr "Контроль гучності"
+
+#: panel-plugin/vc_alsa.c:90
+#, c-format
+msgid "alsa: Mixer %s open error: %s\n"
+msgstr "alsa: Помилка відкривання мікшера %s: %s\n"
+
+#: panel-plugin/vc_alsa.c:95
+#, c-format
+msgid "alsa: Mixer attach %s error: %s\n"
+msgstr "alsa: Помилка підключення мікшера %s: %s\n"
+
+#: panel-plugin/vc_alsa.c:103
+#, c-format
+msgid "alsa: Mixer register error: %s"
+msgstr "alsa: Помилка реєстрації мікшера: %s"
+
+#: panel-plugin/vc_alsa.c:112
+#, c-format
+msgid "alsa: Mixer load error: %s"
+msgstr "alsa: Помилка завантаження мікшера: %s"
+
+#: panel-plugin/vc_alsa.c:122
+#, c-format
+msgid "alsa: Unable to find simple control '%s',%i\n"
+msgstr "alsa: Неможливо знайти елемент керування '%s',%i\n"
+
+#: panel-plugin/vc_oss.c:133
+msgid "oss: No master volume"
+msgstr "oss: Немає головного регулятора гучності"
+
+#: panel-plugin/mvisible_opts.c:76
+msgid "Visible"
+msgstr "Видимість"
+
+#: panel-plugin/mvisible_opts.c:84
+msgid "Control"
+msgstr "Регулятор"
