@@ -4,6 +4,7 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+#include "xfce-mixer-pxml.h"
 
 #define XFCE_MIXER_PROFILE(obj) G_TYPE_CHECK_INSTANCE_CAST (obj, xfce_mixer_profile_get_type (), XfceMixerProfile)
 #define XFCE_MIXER_PROFILE_CLASS(klass) G_TYPE_CHECK_CLASS_CAST (klass, xfce_mixer_profile_get_type (), XfceMixerProfile)
@@ -60,7 +61,8 @@ typedef struct _XfceMixerView XfceMixerView;
 
 void xfce_mixer_profile_register_view(XfceMixerProfile *profile, XfceMixerView *view);
 void xfce_mixer_profile_unregister_view(XfceMixerProfile *profile, XfceMixerView *view);
-
-/* todo load/save from/to xml */
+void xfce_mixer_profile_refresh_view(XfceMixerProfile *profile, XfceMixerView *view);
+void xfce_mixer_profile_load(XfceMixerProfile *profile, XfceMixerPxml *xml);
+void xfce_mixer_profile_save(XfceMixerProfile *profile, XfceMixerPxml *xml);
 
 #endif /* ndef __XFCE_MIXER_PROFILE_H */

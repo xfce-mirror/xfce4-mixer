@@ -305,6 +305,8 @@ xfce_mixer_profile_register_view(XfceMixerProfile *profile, XfceMixerView *view)
 	}
 	
 	profile->views = g_list_append (profile->views, view);
+
+	xfce_mixer_profile_refresh_view(profile, view);
 }
 
 void
@@ -378,12 +380,25 @@ void xfce_mixer_profile_update_views_p (
 /*	TRACEY ("xfce_mixer_profile_update_views_p: leave\n");*/
 }
 
+void xfce_mixer_profile_refresh_view(XfceMixerProfile *profile, XfceMixerView *view)
+{
+	t_mixer_profile_item *item;
+	GList *g2;
+	xfce_mixer_view_profile_cleared (view);
+	g2 = profile->controls;
+	while (g2) {
+		item = (t_mixer_profile_item *) g2->data;
+			
+		xfce_mixer_view_profile_item_updated (view, item);
+		g2 = g_list_next (g2);
+	}
+			
+}
+
 void xfce_mixer_profile_refresh_views (XfceMixerProfile *profile)
 {
 	GList *g;
 	XfceMixerView *view;
-	t_mixer_profile_item *item;
-	GList *g2;
 
 	g_return_if_fail (profile != NULL);
 	g_return_if_fail (XFCE_IS_MIXER_PROFILE (profile));
@@ -392,22 +407,13 @@ void xfce_mixer_profile_refresh_views (XfceMixerProfile *profile)
 		while (g) {
 			view = XFCE_MIXER_VIEW (g->data);
 			
-			xfce_mixer_view_profile_cleared (view);
-			g2 = profile->controls;
-			while (g2) {
-				item = (t_mixer_profile_item *) g2->data;
-			
-				xfce_mixer_view_profile_item_updated (view, item);
-				g2 = g_list_next (g2);
-			}
-			
 			g = g_list_next (g);
 		}
 
 	
 }
 
-/* todo add/update/delete item by t_mixer_profile_item */
+/* add/update/delete item by t_mixer_profile_item */
 void
 xfce_mixer_profile_update_control (XfceMixerProfile *profile, t_mixer_profile_item const *item)
 {
@@ -539,5 +545,98 @@ xfce_mixer_profile_clear (XfceMixerProfile *profile)
 		g = gp;
 	}
 	
+}
+
+void xfce_mixer_profile_load(XfceMixerProfile *profile, XfceMixerPxml *xml)
+{
+		/* TODO read data etc */
+		gchar *vcname;
+		gchar *location;
+		gchar *sorderno;
+		gint orderno;
+		t_mixer_profile_item *item;
+		
+	xfce_mixer_profile_clear (profile);
+
+
+		xfce_mixer_pxml_goto_child_tag (xml, "controls");
+		if (!xml->node)
+			return;
+
+		g_warning ("loading profile");
+		
+		xfce_mixer_pxml_goto_children (xml);
+		if (!xml->node)
+			return;
+
+		while (xml->node) {
+			if (xfce_mixer_pxml_check_tag (xml, "control")) {
+				vcname = xfce_mixer_pxml_get_prop (xml, "vcname");
+
+				if (vcname) {
+					location = xfce_mixer_pxml_get_prop (xml, "location");
+
+					sorderno = xfce_mixer_pxml_get_prop (xml, "orderno");
+					if (sorderno) {
+						orderno = atoi (sorderno);
+						g_free (sorderno);
+					} else
+						orderno = -1;
+
+					item = pi_new ();
+					if (item) {
+						item->vcname = vcname; vcname = NULL;
+						item->location = location; location = NULL;
+						item->orderno = orderno;
+						xfce_mixer_profile_update_control (profile, item);
+						g_free (item);
+					}
+
+					if (location)
+						g_free (location);
+
+					g_free (vcname);
+				}
+			}
+
+			xfce_mixer_pxml_goto_next (xml);
+		}
+}
+
+void xfce_mixer_profile_save(XfceMixerProfile *profile, XfceMixerPxml *xml)
+{
+		/* save actual data */
+
+		GList *go, *g;
+		xmlNodePtr parent;
+		t_mixer_profile_item *item;
+		gchar sorderno[20];
+		
+		g_warning ("xfce_mixer_profile_save");
+
+		xml->node = xfce_mixer_pxml_create_text_child (xml, "controls", NULL);
+		parent = xml->node;
+
+		go = xfce_mixer_profile_get_control_list (profile);
+		g = go;
+		while (g) {
+			item = (t_mixer_profile_item *)g->data;
+
+			if (item && item->vcname) {
+				xfce_mixer_pxml_goto_node (xml, parent);
+				xml->node = xfce_mixer_pxml_create_text_child (xml, "control", NULL);
+
+				g_snprintf (sorderno, sizeof(sorderno), "%d", item->orderno);
+
+				xfce_mixer_pxml_set_prop (xml, "vcname", item->vcname);
+				xfce_mixer_pxml_set_prop (xml, "orderno", sorderno);
+				if (item->location)
+					xfce_mixer_pxml_set_prop (xml, "location", item->location);
+			}
+			
+			g = g_list_next (g);
+		}
+		if (go)
+			xfce_mixer_profile_free_control_list (profile, go);
 }
 

@@ -19,6 +19,7 @@ extern "C" {
 
 #line 7 "mixer-window.gob"
 #line 22 "xfce-mixer-window-private.h"
+void 	xfce_mixer_window_set_profile	(XfceMixerWindow * self, XfceMixerProfile * p);
 void 	xfce_mixer_window_mcs_changed_cb	(XfceMixerWindow * self, GtkWidget * widget);
 void 	xfce_mixer_window_profiles_changed_cb	(XfceMixerWindow * self, GObject * profiles);
 void 	xfce_mixer_window_view_profile_activate_cb	(XfceMixerWindow * self, GtkWidget * w);

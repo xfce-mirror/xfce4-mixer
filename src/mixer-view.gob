@@ -278,42 +278,29 @@ class Xfce:Mixer:View from Gtk:VBox {
 		t_mixer_profile_item *item;
 		XfceMixerControl *c;
 
-		if (p)
+		g_warning ("set_profile entered");
+
+		if (p) {
 			g_object_ref (G_OBJECT (p));
+			g_warning ("ref profile %X %s", (int)p, xfce_mixer_profile_get_title (p));
+		}
 
 		if (self->profile) {
 			xfce_mixer_profile_unregister_view (self->profile, self);
 			g_object_unref (G_OBJECT (self->profile));
+			self->profile = NULL;
 		}
 		self_clear_controls (self);
 		self->profile = p;
 
 		self_view_cleared (self);
 
-		if (p) {
-			/* sort by location, orderno */
-			/* create correct control */
-			/* self_add_control */
+		if (p)
 			xfce_mixer_profile_register_view (self->profile, self);
-
-			go = xfce_mixer_profile_get_control_list (p);
-			g = go;
-			while (g) {
-				item = (t_mixer_profile_item *)g->data;
-
-				c = xfce_mixer_control_factory_new_from_profile_item (item, self->kind);
-				if (c) {
-					self_add_control (self, c);
-					self_pack_control (self, c, item);
-				}
-
-				g = g_list_next (g);
-			}
-			xfce_mixer_profile_free_control_list (p, go);
-		}
 
 		if (!self->destruction)
 			emit self_profile_changed (self);
+		g_warning ("set_profile left");
 	}
 
 	public Xfce:Mixer:Profile const *get_profile(self)

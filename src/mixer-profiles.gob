@@ -109,27 +109,35 @@ class Xfce:Mixer:Profiles from G:Object {
 		xfce_mixer_pxml_set_prop (self->xml, "name", self->device);
 	}
 
+	protected void load_profile(self, XfceMixerProfile *p)
+	{
+		xfce_mixer_profile_load (p, self->xml);
+	}
+
 	public void load(self)
 	{
 		gchar *n;
 		XfceMixerProfile *p;
+		xmlNodePtr parent;
 		self_clear (self);
 		self_goto_device (self);
 
 		xfce_mixer_pxml_goto_children (self->xml);
 		while (self->xml->node) {
+			parent = self->xml->node;
 			if (xfce_mixer_pxml_check_tag (self->xml, "profile")) {
 				n = xfce_mixer_pxml_get_prop (self->xml, "name");
 				if (n) {
 					p = XFCE_MIXER_PROFILE (xfce_mixer_profile_new (n));
 					if (p) {
-						/* TODO read data etc */
+						self_load_profile (self, p);
 
 						self_add_profile (self, p);
 						g_object_unref (G_OBJECT (p));
 					}
 				}
 			}
+			self->xml->node = parent;
 
 			xfce_mixer_pxml_goto_next (self->xml);
 		}
@@ -141,12 +149,18 @@ class Xfce:Mixer:Profiles from G:Object {
 		self->xml->node = xfce_mixer_pxml_create_text_child (self->xml, tagname, NULL);
 	}
 
+	protected void save_profile(self, XfceMixerProfile *p)
+	{
+		xfce_mixer_profile_save (p, self->xml);
+	}
+
 	public void save(self)
 	{
 		xmlNodePtr profilesx;
 		XfceMixerProfile *p;
 		GList *g;
 		gchar const *n;
+
 		if (!self_get_modified (self))
 			return;
 
@@ -166,7 +180,8 @@ class Xfce:Mixer:Profiles from G:Object {
 			self_xml_text_child (self, "profile");
 			xfce_mixer_pxml_set_prop (self->xml, "name", n);
 
-			/* TODO save actual data */
+			self_save_profile (self, p);
+			
 
 			g = g_list_next (g);
 		}
