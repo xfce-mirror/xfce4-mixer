@@ -49,6 +49,8 @@
 #include <unistd.h>
 #endif
 
+/*#define TEST_DEVICE_ENTRY*/
+
 #include <libxfce4util/debug.h>
 #include <libxfce4util/i18n.h>
 #include <libxfcegui4/xfce_iconbutton.h>
@@ -736,12 +738,11 @@ mixer_do_options(t_mixer *mixer, int mode) /* 0: load; 1: store; 2: connect sign
 			}
 			break;
 		case 2:
-			/* ??? no clue about that O_o byT */
 			g_signal_connect (e_device, "focus-out-event", G_CALLBACK(mixer_device_entry_lost_focus_cb), mixer);
 			break;
 			
 		case 3:
-			/* maybe we could add a use default device but only maybe!
+			/* maybe we could add a 'use default' device but only maybe!
 			gtk_widget_set_sensitive (GTK_WIDGET (e_device), !mixer->options.use_default);
 			*/
 			break;
@@ -903,7 +904,10 @@ my_create_command_option(GtkSizeGroup *sg)
     gtk_box_pack_start (GTK_BOX (hbox), command_browse_button, FALSE, FALSE, 0);
 
     hbox2 = gtk_hbox_new (FALSE, 4);
+#ifdef TEST_DEVICE_ENTRY
     gtk_widget_show (hbox2);
+#endif
+
     gtk_box_pack_start (GTK_BOX (vbox), hbox2, FALSE, TRUE, 0);
     
     label = gtk_label_new (P_("Device:"));
