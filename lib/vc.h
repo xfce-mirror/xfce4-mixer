@@ -87,7 +87,9 @@ void vc_set_switch(char const *which, gboolean v);
 gboolean vc_get_switch(char const *which);
 void vc_handle_events(void);
 
+/* returns list of volcontrol_t */
 GList *vc_get_control_list();
+
 void vc_free_control_list(GList *g);
 void vc_set_volume_callback (volchanger_callback_t cb, void *data);
 void vc_set_device(char const *which);

@@ -234,6 +234,7 @@ vc_get_volume(char const *which)
 	return((((LEFT(level) + RIGHT(level)) >> 1) * 100) / MAX_AMP);
 }
 
+/* returns list of volcontrol_t */
 static GList *
 vc_get_control_list(void)
 {

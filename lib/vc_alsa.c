@@ -310,6 +310,7 @@ GList *alsa_enum_to_glist(snd_mixer_elem_t *i)
 	
 }
 
+/* returns list of volcontrol_t */
 static GList *vc_get_control_list(void)
 {
 	volcontrol_t *c;

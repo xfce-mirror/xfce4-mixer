@@ -205,6 +205,7 @@ gboolean vc_get_switch(char const *which)
 	return (*s->vc_get_switch)(which);
 }
 
+/* returns list of volcontrol_t */
 GList *vc_get_control_list()
 {
 	volchanger_t *s = selected_vc();

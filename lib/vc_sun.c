@@ -253,13 +253,14 @@ static void vc_set_volume(char const *which, int vol_p)
 
   if (ioctl (fd, AUDIO_SETINFO, &info) < 0)
     {
-      g_warning ("Unable to set volumne of %s: %s", MIXER_BASE, g_strerror (errno));
+      g_warning ("Unable to set volume of %s: %s", MIXER_BASE, g_strerror (errno));
       close (fd);
       fd = -1;
       return;
     }
 }
 
+/* returns list of volcontrol_t */
 static GList *vc_get_control_list()
 {
   GList *lp = NULL;
