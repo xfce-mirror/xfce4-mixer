@@ -133,6 +133,10 @@ static char const *vc_get_device()
 {
 	return NULL;
 }
+
+static void vc_handle_events()
+{
+}
          
 REGISTER_VC_PLUGIN(alsa_fallback);
 
