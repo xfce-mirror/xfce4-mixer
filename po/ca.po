@@ -5,11 +5,11 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: xfce 4\n"
 "POT-Creation-Date: 2003-08-02 11:41+0200\n"
-"PO-Revision-Date: 2003-07-15 22:21+0100\n"
-"Last-Translator: Carles Muñoz Gorriz <carlesmu@internautas.org>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2003-08-05 13:39+0100\n"
+"Last-Translator: Carles Mu-oz Gorriz <carlesmu@internautas.org>\n"
+"Language-Team: ca <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -25,7 +25,7 @@ msgstr "Volum: %d%%"
 
 #: panel-plugin/mixer.c:1022
 msgid "Device:"
-msgstr ""
+msgstr "Dispositiu:"
 
 #: panel-plugin/mixer.c:1110
 msgid "Use _internal mixer"
@@ -61,15 +61,14 @@ msgid "alsa: Unable to find simple control '%s',%i\n"
 msgstr "alsa: No es pot trobar el control '%s',%i\n"
 
 #: panel-plugin/vc_oss.c:133
-#, fuzzy
 msgid "oss: No master volume"
-msgstr "oss: No hi és el mestre"
+msgstr "oss: No hi és el control principal de volum"
 
 #: panel-plugin/mvisible_opts.c:76
 msgid "Visible"
-msgstr ""
+msgstr "Visible"
 
 #: panel-plugin/mvisible_opts.c:84
-#, fuzzy
 msgid "Control"
-msgstr "Control de volum"
+msgstr "Control"
+
