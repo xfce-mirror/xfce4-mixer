@@ -1,0 +1,170 @@
+%{
+#ifdef HAVE_CONFIG_H
+#  include <config.h>
+#endif
+%}
+%a{
+
+#include <gtk/gtk.h>
+#include <libxml/parser.h>
+#include <libxml/tree.h>
+
+#ifndef MYDATA
+extern xmlDocPtr xmlconfig;
+#define MYDATA(node) xmlNodeListGetString(xmlconfig, node->children, 1)
+#endif
+
+%}
+
+class Xfce:Mixer:Pxml from G:Object {
+	protected gchar * root = NULL
+		destroywith g_free;
+
+	public xmlNodePtr node = NULL;
+
+	init(self)
+	{
+	}
+
+	public void eat_children (self, GList *exceptions)
+	{
+		xmlNodePtr nodex;
+		xmlNodePtr nnodex;
+		GList *g;
+		gchar *tagname;
+		gboolean found;
+		/* todo */
+		if (!self->node)
+			return;
+
+		nodex = self->node->children;
+		if (!nodex)
+			return;
+
+		while (nodex) {
+			nnodex = nodex->next;
+
+			/* if not nodex.tagname in exceptions:
+				nodex.del()
+			*/
+			tagname = (gchar *)nodex->name;
+			found = FALSE;
+			g = exceptions;
+			while (g) {
+				if (g_str_equal ((gchar *)g->data, tagname)) {
+					found = TRUE;
+					break;
+				}
+				g = g_list_next (g);
+			}
+
+			if (!found) {
+				/* delete node */
+				xmlUnlinkNode (nodex);
+				xmlFreeNode (nodex);
+			}
+
+			nodex = nnodex;
+		}
+	}
+
+	public gboolean goto_next (self)
+	{
+		if (!self->node)
+			return FALSE;
+
+		self->node = self->node->next;
+		if (self->node)
+			return TRUE;
+
+		return FALSE;
+	}
+
+	public gboolean check_tag (self, gchar const *tagname)
+	{
+		if (!self->node)
+			return FALSE;
+
+		return (xmlStrEqual(self->node->name, (const xmlChar *)tagname));
+	}
+
+	public gboolean goto_child_tag (self, gchar const *tagname)
+	{
+		xmlNodePtr nodex;
+		if (!self->node)
+			return FALSE;
+
+		nodex = self->node->children;
+		while (nodex) {
+			if (xmlStrEqual(self->node->name, (const xmlChar *)tagname)) {
+				self->node = nodex;
+				return TRUE;
+			}
+			nodex = nodex->next;
+		}
+
+		return FALSE;
+	}
+
+	public gboolean has_parent (self)
+	{
+		if (!self->node)
+			return FALSE;
+
+		return (self->node->parent != NULL);
+	}
+
+	public void goto_parent (self)
+	{
+		if (!self->node)
+			return;
+
+		self->node = self->node->parent;
+	}
+
+	public void goto_children (self)
+	{
+		if (!self->node)
+			return;
+
+		self->node = self->node->children;
+	}
+
+	public void goto_node(self, xmlNodePtr nn)
+	{
+		self->node = nn;
+	}
+
+	public gboolean has_children (self)
+	{
+		if (!self->node)
+			return FALSE;
+
+		return (self->node->children != NULL);
+	}
+
+	public gchar *get_prop (self, gchar const *pname)
+	{
+		return xmlGetProp (self->node, pname);
+	}
+
+	public void set_prop (self, gchar const *pname, gchar const *value)
+	{
+		xmlSetProp (self->node, pname, (const xmlChar *) value);
+	}
+
+	public xmlNodePtr create_text_child (self, gchar const *name, gchar const *opt_text)
+	{
+		return xmlNewTextChild (self->node, NULL, (const xmlChar *)name, (const xmlChar *) opt_text);
+	}
+
+
+	public XfceMixerPxml *new(gchar const *root)
+	{
+		XfceMixerPxml *p;
+		p = XFCE_MIXER_PXML (GET_NEW);
+		p->root = g_strdup (root);
+		return p;
+	}
+}
+

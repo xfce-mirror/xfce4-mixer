@@ -6,15 +6,25 @@
 %a{
 #include <gtk/gtk.h>
 #include "xfce-mixer-profilebox-detail.h"
+#include "xfce-mixer-profile.h"
 %}
 %{
 #include <libxfce4util/i18n.h>
 #define NO_TREE_CHECK_COLUMN
 #include "helpers3.inc"
 #include "stringlist.inc"
+#include "msgdlg.inc"
+#include "main.h"
 
 static void profile_insert_cb (GtkWidget *w, gpointer user_data);
 static void profile_delete_cb (GtkWidget *w, gpointer user_data);
+
+/*static GList *list_remove_nth (GList *go, gint i, void ())
+{
+	gpointer d;
+	d = g_list_nth_data (go, i);
+	return g_list_remove (go, d);
+}*/
 
 static void each_selstring_cb (GtkTreeModel *model, GtkTreePath *path, GtkTreeIter *iter, gpointer data)
 {
@@ -27,6 +37,23 @@ static void each_selstring_cb (GtkTreeModel *model, GtkTreePath *path, GtkTreeIt
 		*gg = g_list_append (*gg, s);
 	}
 }
+
+static void profiles_free (GList *go)
+{
+	GList *g;
+	GObject *p;
+	g = go;
+	while (g) {
+		p = G_OBJECT (g->data);
+		g_object_unref (p);
+
+		g = g_list_next (g);
+	}
+
+	if (go)
+		g_list_free (go);
+}
+
 
 %}
 
@@ -44,18 +71,29 @@ class Xfce:Mixer:Profilebox from Gtk:VBox {
 	protected GtkToolbar *profiles_toolbar;
 	protected Xfce:Mixer:Profilebox:Detail *detail = NULL;
 	protected GtkBox * hbox;
+	protected GList *profile_names = NULL
+		destroywith stringlist_free;
+	protected GList *profiles = NULL
+		destroywith profiles_free;
 
 	init (self)
 	{
 		GtkBox *devbox;
 		GtkWidget *d1label;
 		GtkWidget *dal;
+		gchar const *dd;
+		GtkTreeSelection *sels;
+
 		devbox = GTK_BOX (gtk_hbox_new (FALSE, 5));
 		d1label = gtk_label_new (_("Device:"));
 		gtk_widget_show (GTK_WIDGET (d1label));
 		gtk_box_pack_start (devbox, d1label, FALSE, FALSE, 0);
 
-		self->device_label = GTK_LABEL (gtk_label_new ("(TODO)"));
+		dd = device;
+		if (!dd)
+			dd = "";
+
+		self->device_label = GTK_LABEL (gtk_label_new (dd));
 		gtk_widget_show (GTK_WIDGET (self->device_label));
 
 		gtk_box_pack_start (devbox, GTK_WIDGET (self->device_label), FALSE, FALSE, 0);
@@ -149,7 +187,7 @@ class Xfce:Mixer:Profilebox from Gtk:VBox {
 		gtk_widget_set_size_request (GTK_WIDGET (self->hbox), -1, 200);
 
 		/*self->profiles_insert_button;*/
-		gtk_widget_set_sensitive (self->profiles_delete_button, FALSE);
+		/*gtk_widget_set_sensitive (self->profiles_delete_button, FALSE);*/
 
 		g_signal_connect_swapped (G_OBJECT (self->profiles_model),
 			"row-inserted", G_CALLBACK (self_row_inserted_cb),
@@ -158,11 +196,69 @@ class Xfce:Mixer:Profilebox from Gtk:VBox {
 		g_signal_connect_swapped (G_OBJECT (self->profiles_model),
 			"row-deleted", G_CALLBACK (self_row_inserted_cb),
 			self);
+
+		sels = gtk_tree_view_get_selection (self->profiles_tv);
+		g_signal_connect_swapped (G_OBJECT (sels),
+			"changed", G_CALLBACK (self_sel_changed_cb),
+			self
+		);
+
+		self_rowcnt_updated_cb (self);
+
+	}
+
+	protected void sel_changed_cb (self, GtkTreeSelection *sel)
+	{
+		gboolean issel;
+		GtkTreeModel *model;
+		GtkTreeIter iter;
+		gchar *s;
+
+		/* TODO save current "detail" */
+
+		issel = gtk_tree_selection_get_selected (sel, &model, &iter);
+
+		if (issel) {
+			gtk_tree_model_get (GTK_TREE_MODEL (self->profiles_model),
+				&iter, 0, &s, -1);
+
+			xfce_mixer_profilebox_detail_filln (self->detail, s);
+			g_free (s);
+
+			/* TODO fill real "detail" */
+		} else {
+			xfce_mixer_profilebox_detail_unfill (self->detail);
+		}
+	}
+
+	protected gint profile_pos (self, gchar const *name)
+	{
+		GList *g;
+		gint	i;
+		g = self->profile_names;
+		if (!name)
+			return FALSE;
+
+		i = -1;
+
+		while (g) {
+			++i;
+			if (g_str_equal ((gchar const *)g->data, name))
+				return i;
+
+			g = g_list_next (g);
+		}
+
+		return -1;
+	}
+
+	protected gboolean profile_exists (self, gchar const *name)
+	{
+		return self_profile_pos (self, name) > -1;
 	}
 
 	protected void row_inserted_cb (self, GtkTreePath *path, GtkTreeIter *iter, GtkTreeModel *model)
 	{
-		g_warning ("inserted");
 		self_rowcnt_updated_cb (self);
 	}
 
@@ -177,6 +273,7 @@ class Xfce:Mixer:Profilebox from Gtk:VBox {
 		gboolean b;
 		b = gtk_tree_model_iter_n_children (GTK_TREE_MODEL (self->profiles_model), NULL) > 0;
 		gtk_widget_set_sensitive (GTK_WIDGET (self->profiles_delete_button), b);
+		gtk_widget_set_sensitive (GTK_WIDGET (self->detail), b);
 	}
 
 	public void profile_insert_cb(self)
@@ -184,10 +281,44 @@ class Xfce:Mixer:Profilebox from Gtk:VBox {
 		self_new_dlg (self);
 	}
 
+	public void delete_profile(self, gchar const *name)
+	{
+		gint	i;
+		gpointer d;
+		i = self_profile_pos (self, name);
+
+		if (i == -1)
+			return;
+
+		d = g_list_nth_data (self->profiles, i);
+		if (d) {
+			g_object_unref (G_OBJECT (d));
+			self->profiles = g_list_remove (self->profiles, d);
+		}
+
+		d = g_list_nth_data (self->profile_names, i);
+		if (d) {
+			g_free (d);
+			self->profile_names = g_list_remove (self->profile_names, d);
+		}
+
+		self_profiles_updated (self);
+	}
+
 	public void profile_delete_cb(self)
 	{
 		GtkTreeSelection *sels;
 		GList *g;
+		GList *gg;
+		gint cnt;
+		gchar const *q;
+		gchar const *name;
+		gchar *s;
+		GtkResponseType rc;
+		GtkWindow *parent;
+
+		parent = GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (self)));
+
 		sels = gtk_tree_view_get_selection (self->profiles_tv);
 		if (!sels)
 			return;
@@ -199,7 +330,32 @@ class Xfce:Mixer:Profilebox from Gtk:VBox {
 		if (!g) /* nothing selected */
 			return;
 
-		/* TODO really delete */
+		cnt = g_list_length (g);
+		if (cnt > 1) {
+			q = _("Really delete those %d profiles?");
+			s = g_strdup_printf (q, cnt);
+		} else {
+			q = _("Really delete profile \"%s\"?");
+			s = g_strdup_printf (q, (gchar const *)g->data);
+		}
+
+		rc = annoy_user (parent, GTK_MESSAGE_QUESTION, GTK_BUTTONS_YES_NO, "%s", s);
+		g_free (s);
+
+		if (rc == GTK_RESPONSE_YES) {
+
+			/* TODO really delete */
+			gg = g;
+			while (gg) {
+				name = (char const *)gg->data;
+				if (name) {
+					self_delete_profile (self, name);
+				}
+				gg = g_list_next (gg);
+			}
+
+			xfce_mixer_profilebox_detail_unfill (self->detail);
+		}
 
 		if (g)
 			stringlist_free (g);
@@ -208,9 +364,48 @@ class Xfce:Mixer:Profilebox from Gtk:VBox {
 	protected void profiles_updated (self) /* profile list changed */
 	{
 		GtkTreeStore *store;
+		GList *g;
+		gchar const *s;
+		GtkTreeIter iter;
 		store = self->profiles_model;
 
 		gtk_tree_store_clear (store);
+
+		g = self->profile_names;
+		while (g) {
+			s = (gchar const *)g->data;
+			gtk_tree_store_append (store, &iter, NULL);
+			gtk_tree_store_set (store, &iter,
+				0, s,
+				-1
+			);
+
+			g = g_list_next (g);
+		}
+
+
+		self_rowcnt_updated_cb (self);
+	}
+
+	protected void select_last (self)
+	{
+		gboolean b;
+		GtkTreeSelection *sels;
+		GtkTreeIter iter;
+		GtkTreeIter piter;
+
+		sels = gtk_tree_view_get_selection (self->profiles_tv);
+		b = gtk_tree_model_get_iter_first (GTK_TREE_MODEL (self->profiles_model), &iter);
+		if (b) {
+			while (b) {
+				piter = iter;
+				b = gtk_tree_model_iter_next (
+					GTK_TREE_MODEL (self->profiles_model), 
+					&iter
+				);
+			}
+			gtk_tree_selection_select_iter (sels, &piter);
+		}
 	}
 
 	protected void new_dlg(self)
@@ -219,6 +414,9 @@ class Xfce:Mixer:Profilebox from Gtk:VBox {
 		gchar *s;
 		GtkWindow *parent;
 		XfceMixerProfileboxDetail *detail;
+		XfceMixerProfile *p;
+		gboolean retry;
+		gchar const *name;
 		parent =  GTK_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (self)));
 
 		s = g_strdup_printf (
@@ -234,6 +432,8 @@ class Xfce:Mixer:Profilebox from Gtk:VBox {
 		));
 		g_free (s);
 
+		gtk_dialog_set_default_response (dlg, GTK_RESPONSE_OK);
+
 		detail = xfce_mixer_profilebox_detail_new ();
 		gtk_widget_show (GTK_WIDGET (detail));
 		gtk_box_pack_start (GTK_BOX (dlg->vbox), GTK_WIDGET (detail), TRUE, TRUE, 0);
@@ -242,8 +442,36 @@ class Xfce:Mixer:Profilebox from Gtk:VBox {
 
 		xfce_mixer_profilebox_detail_fill (detail);
 
-		if (gtk_dialog_run (dlg) == GTK_RESPONSE_OK) {
-			/* TODO really insert */
+		retry = TRUE;
+		while (retry) {
+			gtk_window_present (GTK_WINDOW (dlg));
+			if (gtk_dialog_run (dlg) != GTK_RESPONSE_OK)
+				break;
+
+			retry = FALSE;
+			name = xfce_mixer_profilebox_detail_get_name (detail);
+			if (!name || !name[0]) {
+				annoy_user (parent, GTK_MESSAGE_ERROR,
+					GTK_BUTTONS_OK, "%s", 
+				_("A profile needs a name"));
+				retry = TRUE;
+			} else if (!self_profile_exists (self, name)) {
+				p = XFCE_MIXER_PROFILE (xfce_mixer_profile_new (name));
+				self->profiles = g_list_append (self->profiles, (gpointer) p);
+				self->profile_names = g_list_append (self->profile_names, g_strdup (
+					name
+				));
+				/* TODO really insert */
+
+				self_profiles_updated (self);
+				self_select_last (self);
+			} else {
+				annoy_user (parent, GTK_MESSAGE_ERROR,
+					GTK_BUTTONS_OK, "%s", 
+				_("A profile with that name already exists"));
+				retry = TRUE;
+			}
+
 		}
 		gtk_widget_destroy (GTK_WIDGET (dlg));
 	}

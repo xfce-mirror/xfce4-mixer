@@ -13,6 +13,7 @@ GtkTooltips *tooltips;
 
 static GtkWidget *mixer_window;
 XfceMixerMcsClient *mcsc = NULL;
+gchar *device = NULL;
 
 static void
 my_main_quit(GtkWidget *w, gpointer user_data)
@@ -24,6 +25,7 @@ my_main_quit(GtkWidget *w, gpointer user_data)
 int main(int argc, char * argv[])
 {
 	int rc;
+	gchar const *dd;
 	rc = register_vcs ();
 	if (rc < -1) {
 		g_warning (_ ("No working sound"));
@@ -35,8 +37,15 @@ int main(int argc, char * argv[])
 	
 	if (argc >=2 && argv[1][0] != '-') {
 		vc_set_device (argv[1]);
+		device = g_strdup (argv[1]);
+	} else {
+		dd = vc_get_device ();
+		if (dd)
+			device = g_strdup (dd);
+		else
+			device = NULL;
 	}
-
+  
 	mixer_window = xfce_mixer_window_new ();
 	mcsc = XFCE_MIXER_WINDOW (mixer_window)->mcsc;
 	xfce_mixer_profile_fill_defaults (XFCE_MIXER_WINDOW (mixer_window)->profile);
@@ -45,5 +54,7 @@ int main(int argc, char * argv[])
 	gtk_widget_show (GTK_WIDGET (mixer_window));
 
 	gtk_main ();
+	g_free (device);
+	
 	return 0;
 }
