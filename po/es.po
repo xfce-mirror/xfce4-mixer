@@ -1,0 +1,75 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-01-06 20:38+0100\n"
+"PO-Revision-Date: 2004-01-13 00:00+0100\n"
+"Last-Translator: Jaime Buffery <nestu@lunar-linux.org>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: mixer-settingsbox.gob:71 mixer-settingsbox.gob:88
+msgid "Device"
+msgstr "Dispositivo"
+
+#: mixer-settingsbox.gob:91
+msgid "None"
+msgstr "Ninguno"
+
+#: mixer-settingsbox.gob:94
+msgid "Useful Controls"
+msgstr "Controles útiles"
+
+#: lib/vc_alsa.c:89
+#, c-format
+msgid "alsa: Mixer %s open error: %s\n"
+msgstr "alsa: Error de apertura del mezclador %s: %s\n"
+
+#: lib/vc_alsa.c:94
+#, c-format
+msgid "alsa: Mixer attach %s error: %s\n"
+msgstr "alsa: Error de anexión del mezclador %s: %s\n"
+
+#: lib/vc_alsa.c:102
+#, c-format
+msgid "alsa: Mixer register error: %s"
+msgstr "alsa: Error de registro del mezclador: %s"
+
+#: lib/vc_alsa.c:111
+#, c-format
+msgid "alsa: Mixer load error: %s: %s"
+msgstr "alsa: Error de carga del mezclador: %s: %s"
+
+#: lib/vc_alsa.c:121
+#, c-format
+msgid "alsa: Unable to find simple control '%s',%i\n"
+msgstr "alsa: Imposible encontrar un control sencillo '%s',%i\n" 
+
+#: lib/vc_oss.c:134
+msgid "oss: No master volume"
+msgstr "oss: Sin volumen maestro"
+
+#: panel-plugin/plugin.c:82
+#, c-format
+msgid "Volume: %d%%"
+msgstr "Volumen: %d%%"
+
+#: panel-plugin/plugin.c:326
+msgid "Volume Control"
+msgstr "Control de Volumen"
+
+#: settings/sound.c:72 settings/sound.c:90
+msgid "Sound"
+msgstr "Sonido"
+
+#: src/main.c:28
+msgid "No working sound"
+msgstr "No hay sonido funcionando"

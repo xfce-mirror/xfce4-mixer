@@ -6,69 +6,69 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-mixer\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2003-08-02 11:41+0200\n"
-"PO-Revision-Date: 2004-01-17 23:47-0200\n"
-"Last-Translator: Felix da Silva Costa <felix@online.eti.br>\n"
-"Language-Team: pt_BR <felix@online.eti.br>\n"
+"PO-Revision-Date: 2003-12-09 17:30+0900\n"
+"Last-Translator: Zhao Ji <zhao-ji@awz.ne.jp>\n"
+"Language-Team: xfce-users-jp <xfce-users-jp@ml.fdiary.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: panel-plugin/mixer.c:157
 msgid "No working sound"
-msgstr "Som não esta funcionando"
+msgstr "サウンド機能が動作していません"
 
 #: panel-plugin/mixer.c:296
 #, c-format
 msgid "Volume: %d%%"
-msgstr "Volume: %d%%"
+msgstr "音量"
 
 #: panel-plugin/mixer.c:1022
 msgid "Device:"
-msgstr "Dispositivo:"
+msgstr "機器"
 
 #: panel-plugin/mixer.c:1110
 msgid "Use _internal mixer"
-msgstr "Use mixer _interno"
+msgstr "内部(_i)ミキサー使用"
 
 #: panel-plugin/mixer.c:1307
 msgid "Volume Control"
-msgstr "Controle de volume"
+msgstr "音量調節"
 
 #: panel-plugin/vc_alsa.c:90
 #, c-format
 msgid "alsa: Mixer %s open error: %s\n"
-msgstr "alsa: Mixer %s erro ao abrir: %s\n"
+msgstr "alsa: ミキサー %s を開けません エラー: %s\n"
 
 #: panel-plugin/vc_alsa.c:95
 #, c-format
 msgid "alsa: Mixer attach %s error: %s\n"
-msgstr "alsa: Erro %s ao atachar Mixer: %s\n"
+msgstr "alsa: ミキサー付随 %s エラー: %s\n"
 
 #: panel-plugin/vc_alsa.c:103
 #, c-format
 msgid "alsa: Mixer register error: %s"
-msgstr "alsa: erro no registro do mixer: %s"
+msgstr "alsa: ミキサー登録エラー: %s"
 
 #: panel-plugin/vc_alsa.c:112
 #, c-format
 msgid "alsa: Mixer load error: %s"
-msgstr "alsa: Erro ao carregar mixer: %s"
+msgstr "alsa: ミキサー読み込みエラー: %s"
 
 #: panel-plugin/vc_alsa.c:122
 #, c-format
 msgid "alsa: Unable to find simple control '%s',%i\n"
-msgstr "alsa: Não foi possível encontrar o controle simples '%s',%i\n"
+msgstr "alsa: シンプル・コントロール '%s' を見付けられません,%i\n"
 
 #: panel-plugin/vc_oss.c:133
 msgid "oss: No master volume"
-msgstr "oss: sem volume mestre"
+msgstr "oss: マスター音量がありません"
 
 #: panel-plugin/mvisible_opts.c:76
 msgid "Visible"
-msgstr "Visível"
+msgstr "見せる"
 
 #: panel-plugin/mvisible_opts.c:84
 msgid "Control"
-msgstr "Controle"
+msgstr "コントロール"
