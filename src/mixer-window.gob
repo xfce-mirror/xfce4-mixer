@@ -19,8 +19,12 @@
 #include "menus.h"
 #include "main.h"
 #include "stringlist.inc"
+#include <my-config.h>
 #define CHANNEL "sound"
 #define MIXER_ROOT "Mixer"
+
+#define WINDOWSTATE_CONFIG_FILENAME "config.xml"
+#define ACCELMAP_CONFIG_FILENAME "window.accelmap"
 
 %}
 
@@ -44,9 +48,24 @@ class Xfce:Mixer:Window from Gtk:Window {
 	protected gchar *accelmap_fname = NULL
 		destroywith g_free; /* name of the config file containing the menu accelerators */
 
+	protected void load_accelgroup(self)
+	{
+		gchar *tpath;
+		tpath = get_config_path (self->accelmap_fname, CONFIG_LOAD);
+		if (tpath) {
+			gtk_accel_map_load (tpath);
+			g_free (tpath);
+		}
+	}
+
 	protected void save_accelgroup(self)
 	{
-		gtk_accel_map_save (self->accelmap_fname);
+		gchar *tpath;
+		tpath = get_config_path (self->accelmap_fname, CONFIG_SAVE);
+		if (tpath) {
+			gtk_accel_map_save (tpath);
+			g_free (tpath);
+		}
 		/*gtk_accel_group_find (self->accelgroup, accelgroup_find_each_cb, self);*/
 	}
 
@@ -65,6 +84,7 @@ class Xfce:Mixer:Window from Gtk:Window {
 	init(self)
 	{
 		XfceMixerProfile *p;
+		gchar *tpath;
 		self->box = GTK_BOX (gtk_vbox_new (FALSE, 0));
 		gtk_widget_show (GTK_WIDGET (self->box));
 
@@ -116,14 +136,13 @@ class Xfce:Mixer:Window from Gtk:Window {
 
 		self_update_profiles_menu (self);
 
-		self->fname = xfce_get_userfile ("xfce4-mixer", "config.xml", NULL);
+		self->fname = g_strdup (WINDOWSTATE_CONFIG_FILENAME);
 		self_load_window_state (self);
 
-		self->accelmap_fname = xfce_get_userfile ("xfce4-mixer", "window.accelmap", NULL);
+		self->accelmap_fname = g_strdup (ACCELMAP_CONFIG_FILENAME);
+		self_load_accelgroup (self);
 
-		gtk_accel_map_load (self->accelmap_fname);
 	}
-
 
 	/* TODO handle screen-changed */
 
@@ -156,54 +175,61 @@ class Xfce:Mixer:Window from Gtk:Window {
 	protected void load_window_state(self)
 	{
 		XfceMixerPxml *xml;
+		gchar *tpath;
 		gint x, y;
 		gint width, height;
 		gint isticky;
 
 		t_window_state *s;
 		s = g_new0 (t_window_state, 1);
+		s->valid = FALSE;
 		s->width = -1;
 		s->height = -1;
 		s->sticky = FALSE;
 
-		xml = xfce_mixer_pxml_new (MIXER_ROOT);
-		g_object_set (G_OBJECT (xml), "fname", self->fname, NULL);
+		tpath = get_config_path (self->fname, CONFIG_LOAD);
+		if (tpath) {
+			xml = xfce_mixer_pxml_new (MIXER_ROOT);
+			g_object_set (G_OBJECT (xml), "fname", tpath, NULL);
+			g_free (tpath);
+			tpath = NULL;
 
-		self_xml_goto_device (self, xml);
-		if (xfce_mixer_pxml_goto_child_tag (xml, "size")) {
-			if (xfce_mixer_pxml_get_prop_int (xml, "width", &width)
-			&& xfce_mixer_pxml_get_prop_int (xml, "height", &height)) {
-				s->width = width;
-				s->height = height;
+			self_xml_goto_device (self, xml);
+			if (xfce_mixer_pxml_goto_child_tag (xml, "size")) {
+				if (xfce_mixer_pxml_get_prop_int (xml, "width", &width)
+				&& xfce_mixer_pxml_get_prop_int (xml, "height", &height)) {
+					s->width = width;
+					s->height = height;
+				}
 			}
-		}
 
-		self_xml_goto_device (self, xml);
-		if (xfce_mixer_pxml_goto_child_tag (xml, "position")) {
-			if (xfce_mixer_pxml_get_prop_int (xml, "x", &x) 
-			&& xfce_mixer_pxml_get_prop_int (xml, "y", &y)) {
-				s->x = x;
-				s->y = y;
-				s->valid = TRUE;
+			self_xml_goto_device (self, xml);
+			if (xfce_mixer_pxml_goto_child_tag (xml, "position")) {
+				if (xfce_mixer_pxml_get_prop_int (xml, "x", &x) 
+				&& xfce_mixer_pxml_get_prop_int (xml, "y", &y)) {
+					s->x = x;
+					s->y = y;
+					s->valid = TRUE;
+				}
 			}
-		}
 
-		/* if sticky: gtk_window_stick (GTK_WINDOW (self)); */
-		/* sticking must be done before realizing */
+			/* if sticky: gtk_window_stick (GTK_WINDOW (self)); */
+			/* sticking must be done before realizing */
 
-		self_xml_goto_device (self, xml);
-		if (xfce_mixer_pxml_goto_child_tag (xml, "state")) {
-			if (xfce_mixer_pxml_get_prop_int (xml, "sticky", &isticky)) {
-				s->sticky = isticky;
+			self_xml_goto_device (self, xml);
+			if (xfce_mixer_pxml_goto_child_tag (xml, "state")) {
+				if (xfce_mixer_pxml_get_prop_int (xml, "sticky", &isticky)) {
+					s->sticky = isticky;
+				}
 			}
+
+			self_xml_goto_device (self, xml);
+			if (self->view)
+				xfce_mixer_view_load_state (self->view, xml);
+
+			g_object_unref (G_OBJECT (xml));
+
 		}
-
-		self_xml_goto_device (self, xml);
-		if (self->view)
-			xfce_mixer_view_load_state (self->view, xml);
-
-		g_object_unref (G_OBJECT (xml));
-
 		xfce_hook_window_state_swapped
 			(GTK_WINDOW (self), s, 
 			(XfceSizehookCallback)self_save_window_state_cb, self);
@@ -217,49 +243,54 @@ class Xfce:Mixer:Window from Gtk:Window {
 	protected void save_window_state(self, t_window_state *s)
 	{
 		XfceMixerPxml *xml;
+		gchar *tpath;
 
 		if (!s || !s->valid)
 			return;
 
-		xml = xfce_mixer_pxml_new (MIXER_ROOT);
-		g_object_set (G_OBJECT (xml), "fname", self->fname, NULL);
+		tpath = get_config_path (self->fname, CONFIG_SAVE);
+		if (tpath) {
+			xml = xfce_mixer_pxml_new (MIXER_ROOT);
+			g_object_set (G_OBJECT (xml), "fname", tpath, NULL);
+			g_free (tpath);
+			tpath = NULL;
 
-		self_xml_goto_device (self, xml);
+			self_xml_goto_device (self, xml);
 
-		if (!xfce_mixer_pxml_goto_child_tag (xml, "position")) 
-			xfce_mixer_pxml_goto_node (xml, 
-				xfce_mixer_pxml_create_text_child (xml, "position", NULL)
-			);
+			if (!xfce_mixer_pxml_goto_child_tag (xml, "position")) 
+				xfce_mixer_pxml_goto_node (xml, 
+					xfce_mixer_pxml_create_text_child (xml, "position", NULL)
+				);
+	
+			xfce_mixer_pxml_set_prop_int (xml, "x", s->x);
+			xfce_mixer_pxml_set_prop_int (xml, "y", s->y);
+	
+			self_xml_goto_device (self, xml);
+			if (!xfce_mixer_pxml_goto_child_tag (xml, "size"))
+				xfce_mixer_pxml_goto_node (xml, 
+					xfce_mixer_pxml_create_text_child (xml, "size", NULL)
+				);
+			xfce_mixer_pxml_set_prop_int (xml, "width", s->width);
+			xfce_mixer_pxml_set_prop_int (xml, "height", s->height);
 
-		xfce_mixer_pxml_set_prop_int (xml, "x", s->x);
-		xfce_mixer_pxml_set_prop_int (xml, "y", s->y);
 
-		self_xml_goto_device (self, xml);
-		if (!xfce_mixer_pxml_goto_child_tag (xml, "size"))
-			xfce_mixer_pxml_goto_node (xml, 
-				xfce_mixer_pxml_create_text_child (xml, "size", NULL)
-			);
-		xfce_mixer_pxml_set_prop_int (xml, "width", s->width);
-		xfce_mixer_pxml_set_prop_int (xml, "height", s->height);
+			self_xml_goto_device (self, xml);
+			if (!xfce_mixer_pxml_goto_child_tag (xml, "state"))
+				xfce_mixer_pxml_goto_node (xml, 
+					xfce_mixer_pxml_create_text_child (xml, "state", NULL)
+				);
+			xfce_mixer_pxml_set_prop_int (xml, "sticky", s->sticky ? 1 : 0);
 
+			self_xml_goto_device (self, xml);
+			if (self->view)
+				xfce_mixer_view_save_state (self->view, xml);
 
-		self_xml_goto_device (self, xml);
-		if (!xfce_mixer_pxml_goto_child_tag (xml, "state"))
-			xfce_mixer_pxml_goto_node (xml, 
-				xfce_mixer_pxml_create_text_child (xml, "state", NULL)
-			);
-		xfce_mixer_pxml_set_prop_int (xml, "sticky", s->sticky ? 1 : 0);
-
-		self_xml_goto_device (self, xml);
-		if (self->view)
-			xfce_mixer_view_save_state (self->view, xml);
-
-		/* netk_window_is_sticky (win)); */
-		/*, selfp->sticky ? 1 : 0); */
-
-		g_object_unref (G_OBJECT (xml));
-		/*g_object_unref (G_OBJECT (win));*/
-
+			/* netk_window_is_sticky (win)); */
+			/*, selfp->sticky ? 1 : 0); */
+	
+			g_object_unref (G_OBJECT (xml));
+			/*g_object_unref (G_OBJECT (win));*/
+		}
 		g_free (s);
 	}
 

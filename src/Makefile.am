@@ -31,6 +31,7 @@ xfce4_mixer_SOURCES = \
 	xfce-mixer-pxml.c xfce-mixer-pxml.h xfce-mixer-pxml-private.h \
 	xfce-mixer-profiles.c xfce-mixer-profiles.h xfce-mixer-profiles-private.h \
 	xfce_sizehook.c xfce_sizehook.h \
+	my-config.c my-config.h \
 	stringlist.inc helpers3.inc msgdlg.inc
 
 xfce4_mixer_GSOURCES = mixer-control.gob \

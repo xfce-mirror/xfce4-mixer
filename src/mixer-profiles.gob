@@ -5,8 +5,11 @@
 %}
 %{
 #include <libxfce4util/libxfce4util.h>
+#include <my-config.h>
 #define emit
 #define PROFILES_ROOT "Profiles"
+#define PROFILES_CONFIG_FILENAME "profiles.xml"
+
 #ifndef MAX_PATH
 #define MAX_PATH 4096
 #endif
@@ -53,9 +56,15 @@ class Xfce:Mixer:Profiles from G:Object {
 
 	init (self)
 	{
-		self->fname = xfce_get_userfile ("xfce4-mixer", "profiles.xml", NULL);
+		gchar *tpath;
+		self->fname = g_strdup (PROFILES_CONFIG_FILENAME);
+
 		self->xml = xfce_mixer_pxml_new (PROFILES_ROOT);
-		g_object_set (G_OBJECT (self->xml), "fname", self->fname, NULL);
+		tpath = get_config_path (self->fname, CONFIG_LOAD);
+		if (tpath) {
+			g_object_set (G_OBJECT (self->xml), "fname", tpath, NULL);
+			g_free (tpath);
+		}
 	}
 
 	public void clear(self)
@@ -118,10 +127,18 @@ class Xfce:Mixer:Profiles from G:Object {
 
 	public void load(self)
 	{
+		gchar *tpath;
 		gchar *n;
 		XfceMixerProfile *p;
 		xmlNodePtr parent;
 		self_clear (self);
+
+		tpath = get_config_path (self->fname, CONFIG_LOAD);
+		if (tpath) {
+			g_object_set (G_OBJECT (self->xml), "fname", tpath, NULL);
+			g_free (tpath);
+		}
+
 		self_goto_device (self);
 
 		xfce_mixer_pxml_goto_children (self->xml);
@@ -162,9 +179,16 @@ class Xfce:Mixer:Profiles from G:Object {
 		XfceMixerProfile *p;
 		GList *g;
 		gchar const *n;
+		gchar *tpath;
 
 		if (!self_get_modified (self))
 			return;
+
+		tpath = get_config_path (self->fname, CONFIG_SAVE);
+		if (tpath) {
+			g_object_set (G_OBJECT (self->xml), "fname", tpath, NULL);
+			g_free (tpath);
+		}
 
 		xfce_mixer_pxml_goto_root (self->xml);
 		self_goto_device (self);
