@@ -6,11 +6,10 @@
 usage:
 
 first create an instance of t_window_state (with g_new0(t_window_state, -1))
-
-set width,height to -1
-set sticky to FALSE
+(set valid to FALSE)
 
 load saved position into the t_window_state
+if that worked, set valid to TRUE.
 
 call one of xfce_hook_window_state*
 The callback will be called to save the position (on window close).
