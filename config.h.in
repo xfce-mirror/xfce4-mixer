@@ -33,6 +33,9 @@
 /* Define to 1 if you have the `ossaudio' library (-lossaudio). */
 #undef HAVE_LIBOSSAUDIO
 
+/* Define if you have libstartup-notification-1.0 >= 0.4 */
+#undef HAVE_LIBSTARTUP_NOTIFICATION
+
 /* Define to 1 if you have the <limits.h> header file. */
 #undef HAVE_LIMITS_H
 
