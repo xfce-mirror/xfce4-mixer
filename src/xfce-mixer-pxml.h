@@ -78,6 +78,9 @@ void 	xfce_mixer_pxml_goto_node	(XfceMixerPxml * self,
 gboolean 	xfce_mixer_pxml_has_children	(XfceMixerPxml * self);
 gchar * 	xfce_mixer_pxml_get_prop	(XfceMixerPxml * self,
 					gchar const * pname);
+gboolean 	xfce_mixer_pxml_get_prop_int	(XfceMixerPxml * self,
+					gchar const * pname,
+					gint * result);
 void 	xfce_mixer_pxml_set_prop_int	(XfceMixerPxml * self,
 					gchar const * pname,
 					gint v);

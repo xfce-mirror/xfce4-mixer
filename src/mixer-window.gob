@@ -111,15 +111,56 @@ class Xfce:Mixer:Window from Gtk:Window {
 
 	/* TODO handle screen-changed */
 
+	protected void xml_goto_device(self, XfceMixerPxml *xml)
+	{
+		gchar *n;
+		xfce_mixer_pxml_goto_root (xml);
+		xfce_mixer_pxml_goto_children (xml);
+		while (xml->node) {
+			if (xfce_mixer_pxml_check_tag (xml, "device")) {
+				n = xfce_mixer_pxml_get_prop (xml, "name");
+				if (n && device && g_str_equal (n, device)) {
+					g_free (n);
+					return;
+				}
+				if (n)
+					g_free (n);
+			}
+
+			xfce_mixer_pxml_goto_next (xml);
+		}
+
+		/* device does not exist yet in xml */
+		xml->node = NULL;
+		xfce_mixer_pxml_goto_root (xml);
+		xml->node = xfce_mixer_pxml_create_text_child (xml, "device", NULL);
+		xfce_mixer_pxml_set_prop (xml, "name", device);
+	}
+
 	protected void load_window_state(self)
 	{
 		XfceMixerPxml *xml;
+		gint x, y;
+		gint width, height;
 
 		xml = xfce_mixer_pxml_new (MIXER_ROOT);
 		g_object_set (G_OBJECT (xml), "fname", self->fname, NULL);
 
-		gtk_widget_set_size_request (GTK_WIDGET (self), 100, 100);
-		gtk_window_move (GTK_WINDOW (self), 100, 100);
+		self_xml_goto_device (self, xml);
+		if (xfce_mixer_pxml_goto_child_tag (xml, "position")) {
+			if (xfce_mixer_pxml_get_prop_int (xml, "width", &width)
+			&& xfce_mixer_pxml_get_prop_int (xml, "height", &height)) {
+				gtk_widget_set_size_request (GTK_WIDGET (self), width, height);
+			}
+		}
+
+		self_xml_goto_device (self, xml);
+		if (xfce_mixer_pxml_goto_child_tag (xml, "size")) {
+			if (xfce_mixer_pxml_get_prop_int (xml, "x", &x) 
+			&& xfce_mixer_pxml_get_prop_int (xml, "y", &y)) {
+				gtk_window_move (GTK_WINDOW (self), x, y);
+			}
+		}
 
 		g_object_unref (G_OBJECT (xml));
 	}
@@ -138,7 +179,7 @@ class Xfce:Mixer:Window from Gtk:Window {
 
 		g_warning ("save pos %d %d, size %d %d", x, y, req.width, req.height);
 
-		xfce_mixer_pxml_goto_root (xml);
+		self_xml_goto_device (self, xml);
 
 		if (!xfce_mixer_pxml_goto_child_tag (xml, "position")) 
 			xfce_mixer_pxml_goto_node (xml, 
@@ -148,7 +189,7 @@ class Xfce:Mixer:Window from Gtk:Window {
 		xfce_mixer_pxml_set_prop_int (xml, "x", x);
 		xfce_mixer_pxml_set_prop_int (xml, "y", y);
 
-		xfce_mixer_pxml_goto_root (xml);
+		self_xml_goto_device (self, xml);
 		if (!xfce_mixer_pxml_goto_child_tag (xml, "size"))
 			xfce_mixer_pxml_goto_node (xml, 
 				xfce_mixer_pxml_create_text_child (xml, "size", NULL)
