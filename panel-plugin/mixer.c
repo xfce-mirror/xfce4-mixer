@@ -401,6 +401,11 @@ mixer_free (Control * control)
     t_mixer *mixer = control->data;
 
     g_return_if_fail (mixer != NULL);
+    
+    if (mixer->timeout_id != 0) {
+	    g_source_remove (mixer->timeout_id); mixer->timeout_id = 0;
+    }
+    
     free_optionsdialog(mixer);
 
     g_free (mixer);
@@ -458,6 +463,7 @@ create_mixer_control (Control * control)
 	
 	g_signal_connect(mixer->mixer, "clicked", G_CALLBACK(xfce_mixer_launch_button_cb), mixer);
 
+	mixer->timeout_id = 0;
 	if (!mixer->broken) {
 		check_volume (mixer);
 		/* timeout_id==0: failed */
@@ -563,7 +569,7 @@ mixer_do_options(t_mixer *mixer, int mode) /* 0: load; 1: store; 2: connect reve
 			/*g_signal_connect (e_command, "insert-at-cursor", G_CALLBACK (mixer_revert_make_sensitive_cb), mixer->revert_b);
 			g_signal_connect_swapped (e_command, "delete-from-cursor", G_CALLBACK (mixer_revert_make_sensitive_cb), mixer->revert_b);
 			*/
-			g_signal_connect (e_command, "focus-out-event", G_CALLBACK(mixer_command_entry_lost_focus_cb), mixer);
+			/*g_signal_connect (e_command, "focus-out-event", G_CALLBACK(mixer_command_entry_lost_focus_cb), mixer);*/
 			break;
 		}
 	}
