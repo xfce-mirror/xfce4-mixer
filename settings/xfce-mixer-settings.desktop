@@ -2,7 +2,7 @@
 Encoding=UTF-8
 Name=Xfce 4 Mixer Settings
 Name[et]=Xfce 4 helitugevuse seaded
-Name[fi]=Xfce4 Mixer asetukset
+Name[fi]=Xfce 4 Äänenvoimakkuusasetukset
 Name[fr]=Paramètres du mixer de Xfce 4
 Name[he]=הגדרות מערבל Xfce 4
 Name[ko]=Xfce 4 믹서 설정
@@ -25,7 +25,7 @@ Type=Application
 Categories=X-XFCE;Settings;DesktopSettings;
 OnlyShowIn=XFCE;
 GenericName=Mixer Settings
-GenericName[fi]=Mixerin asetukset
+GenericName[fi]=Äänenvoimakkuusasetukset
 GenericName[ko]=믹서 설정
 GenericName[nl]=Instellingen Volumeregelaar
 GenericName[et]=Helitugevuse seaded
