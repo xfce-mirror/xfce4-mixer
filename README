@@ -1,19 +1,37 @@
-This is a mixer plugin for the panel.
+This is a launcher with two states.
 
-It supports the following audio systems:
-	oss (default)
-	alsa
-	alsa (fallback via amixer)
+You use it like this:
+	First, create a script which accepts these arguments:
+		- none
+			to check if on or off and output 0 or 1 (to stdout)
 
-Tuning the volume can be done by clicking in the indicator or by using the 
-mouse wheel.
+		- the value 1
+			to set the state to on
 
-Installation: 
-	tar zxvf xfce-mixer-<whatever>.tar.gz
+		- the value 0
+			to set the state to off
 
-	./configure # .........
-	make
-	make install
+	If it can be used like this, its correct:
+		$ blah/foo
+		0
+		$ blah/foo 1
+		$ blah/foo
+		1
+		$ blah/foo 1
+		$ blah/foo
+		1
+		$ blah/foo 0
+		$ blah/foo
+		0
+		$ blah/foo 1
+		$ blah/foo
+		1
+
+	Give this script to the launcher.
+
+	Also two icons.
+
+	And you are set ;)
 
 Cheers
 	Danny
