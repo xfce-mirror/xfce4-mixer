@@ -9,7 +9,7 @@ if BUILD_BIG_MIXER
 SUBDIR_BIG_MIXER = src settings
 endif
 
-SUBDIRS = lib panel-plugin $SUBDIR_BIG_MIXER po
+SUBDIRS = lib panel-plugin $(SUBDIR_BIG_MIXER) po
 DIST_SUBDIRS = lib panel-plugin src settings po
 
 distclean-local:
