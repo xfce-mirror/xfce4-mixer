@@ -1,6 +1,7 @@
 #include <gtk/gtk.h>
 #include "xfce-mixer-control.h"
 #include "xfce-mixer-slider.h"
+#include "xfce-mixer-slider-tiny.h"
 #include "xfce-mixer-switch.h"
 #include "xfce-mixer-profile.h"
 #include "xfce-mixer-control-factory.h"

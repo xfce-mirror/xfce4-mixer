@@ -1,10 +1,10 @@
+#include <stdlib.h> /* qsort */
 #include <gtk/gtk.h>
 #include "xfce-mixer-profile.h"
 #include "xfce-mixer-view.h"
 #include "xfce-mixer-cache-vc.h"
 #include "vc.h"
 
-#define TRACEY 
 
 static t_mixer_profile_item * pi_new (void)
 {
@@ -51,6 +51,8 @@ static int pi_compare (const void *a, const void *b)
 	
 	api = (t_mixer_profile_item **)a;
 	bpi = (t_mixer_profile_item **)b;
+	ai = *api;
+	bi = *bpi;
 	
 	c1 = ai->location - bi->location;
 	c2 = ai->orderno - bi->orderno;
@@ -205,8 +207,8 @@ GList *xfce_mixer_profile_get_control_list (XfceMixerProfile *profile)
 	GList *g;
 	GList *gn;
 	int cnt, i;
-	g_return_if_fail (profile != NULL);
-	g_return_if_fail (XFCE_IS_MIXER_PROFILE (profile));
+	g_return_val_if_fail (profile != NULL, NULL);
+	g_return_val_if_fail (XFCE_IS_MIXER_PROFILE (profile), NULL);
 
 	g = profile->controls;
 	cnt = g_list_length (g);
@@ -339,6 +341,7 @@ t_mixer_profile_item *find_item_by_vcname(XfceMixerProfile *profile, gchar const
 	return NULL;
 }
 
+/*
 static void pi_foreach_cb (gpointer data, gpointer user_data)
 {
 	t_mixer_profile_item * item = (t_mixer_profile_item *) data;
@@ -348,6 +351,7 @@ static void pi_foreach_cb (gpointer data, gpointer user_data)
 	
 	xfce_mixer_profile_update_views_p (profile, item);
 }
+*/
 
 void xfce_mixer_profile_update_views_p (
 	XfceMixerProfile *profile, 
@@ -360,18 +364,18 @@ void xfce_mixer_profile_update_views_p (
 	g_return_if_fail (profile != NULL);
 	g_return_if_fail (XFCE_IS_MIXER_PROFILE (profile));
 
-	TRACEY ("xfce_mixer_profile_update_views_p: enter\n");
+/*	TRACEY ("xfce_mixer_profile_update_views_p: enter\n");*/
 		g = profile->views;
 		while (g) {
 			view = XFCE_MIXER_VIEW (g->data);
 			
-	TRACEY ("xfce_mixer_profile_update_views_p: item\n");
+/*	TRACEY ("xfce_mixer_profile_update_views_p: item\n");*/
 			xfce_mixer_view_profile_item_updated (view, p);
 			
 			g = g_list_next (g);
 		}
 
-	TRACEY ("xfce_mixer_profile_update_views_p: leave\n");
+/*	TRACEY ("xfce_mixer_profile_update_views_p: leave\n");*/
 }
 
 void xfce_mixer_profile_refresh_views (XfceMixerProfile *profile)
@@ -402,8 +406,8 @@ xfce_mixer_profile_update_control (XfceMixerProfile *profile, t_mixer_profile_it
 	g_return_if_fail (XFCE_IS_MIXER_PROFILE (profile));
 	
 	t_mixer_profile_item *p;
-	GList *g;
-	XfceMixerView *view;
+/*	GList *g;*/
+	/*XfceMixerView *view;*/
 	gboolean dodel;
 	
 	if (!item || !item->vcname)
