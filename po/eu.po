@@ -6,185 +6,293 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: es\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-01-21 12:49+0100\n"
+"POT-Creation-Date: 2004-08-06 22:56+0200\n"
 "PO-Revision-Date: 2004-01-29 00:36+0100\n"
 "Last-Translator: Piarres Beobide Egaña <pi@beobide.net>\n"
 "Language-Team: Euskara <eu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Report-Msgid-Bugs-To: \n"
 "X-Generator: KBabel 1.0.2\n"
 
-#: panel-plugin/mixer.c:154
-msgid "No working sound"
-msgstr "Ez dago soinurik martxan"
+#: mixer-settingsbox.gob:97
+msgid "Device"
+msgstr "Dispositivo"
 
-#: panel-plugin/mixer.c:293
-#, c-format
-msgid "Volume: %d%%"
-msgstr "Bolumena: %% %d"
+#: mixer-settingsbox.gob:100
+msgid "None"
+msgstr "Ninguno"
 
-#: panel-plugin/mixer.c:1001
-msgid "Use _internal mixer"
-msgstr "Erabili _barne nahaslea"
+#. gtk_widget_show (GTK_WIDGET (self->dev_label));
+#: mixer-settingsbox.gob:103
+msgid "Useful Controls"
+msgstr "Controles útiles"
 
-#: panel-plugin/mixer.c:1211
-msgid "Volume Control"
-msgstr "Bolumen Kontrola"
-
-#: panel-plugin/vc_alsa.c:90
-#, c-format
-msgid "alsa: Mixer %s open error: %s\n"
-msgstr "alsa: Errorea %s nahaslea abiarazterakoan: %s\n"
-
-#: panel-plugin/vc_alsa.c:95
-#, c-format
-msgid "alsa: Mixer attach %s error: %s\n"
-msgstr "alsa: Errorea %s nahaslea atxikitzerakoan: %s\n"
-
-#: panel-plugin/vc_alsa.c:103
-#, c-format
-msgid "alsa: Mixer register error: %s"
-msgstr "alsa: Errorea nahasle erregistroan: %s"
-
-#: panel-plugin/vc_alsa.c:112
-#, c-format
-msgid "alsa: Mixer load error: %s"
-msgstr "alsa: Errorea nahaslea kargatzerakoan: %s"
-
-#: panel-plugin/vc_alsa.c:122
-#, c-format
-msgid "alsa: Unable to find simple control '%s',%i\n"
-msgstr "alsa: Ezinezkoa kontrol sinplerik aurkitzea '%s',%i\n"
-
-#: panel-plugin/vc_oss.c:133
-msgid "oss: No master volume"
-msgstr "oss: Bolumen nagusirik gabea"
-
-#: panel-plugin/mvisible_opts.c:76
-msgid "Visible"
-msgstr "Ikusgai"
-
-#: panel-plugin/mvisible_opts.c:84
-msgid "Control"
-msgstr "Kontrola"
-
-#: panel-plugin/trans.c:6
+#: lib/trans.c:6
 msgid "Vol"
 msgstr "Bol"
 
 #. Master
-#: panel-plugin/trans.c:7
+#: lib/trans.c:7
 msgid "Pcm"
 msgstr ""
 
 #. PCM output
-#: panel-plugin/trans.c:8
+#: lib/trans.c:8
 msgid "Spkr"
 msgstr "Bozg"
 
 #. Internal speaker?
-#: panel-plugin/trans.c:9
+#: lib/trans.c:9
 msgid "Line"
 msgstr "Linea"
 
 #. Line in
-#: panel-plugin/trans.c:10
+#: lib/trans.c:10
 msgid "Mic"
 msgstr "Mik"
 
 #. Mic in
-#: panel-plugin/trans.c:11
+#: lib/trans.c:11
 msgid "CD"
 msgstr "CD"
 
 #. CD in
-#: panel-plugin/trans.c:12
+#: lib/trans.c:12
 msgid "Bass"
 msgstr ""
 
-#: panel-plugin/trans.c:13
+#: lib/trans.c:13
 msgid "Trebl"
 msgstr ""
 
-#: panel-plugin/trans.c:14
+#: lib/trans.c:14
 msgid "Synth"
 msgstr ""
 
-#: panel-plugin/trans.c:15
+#: lib/trans.c:15
 msgid "Mix"
 msgstr ""
 
-#: panel-plugin/trans.c:16
+#: lib/trans.c:16
 msgid "Pcm2"
 msgstr ""
 
-#: panel-plugin/trans.c:17
+#: lib/trans.c:17
 msgid "Rec"
 msgstr ""
 
-#: panel-plugin/trans.c:18
+#: lib/trans.c:18
 msgid "IGain"
 msgstr ""
 
-#: panel-plugin/trans.c:19
+#: lib/trans.c:19
 msgid "OGain"
 msgstr ""
 
-#: panel-plugin/trans.c:20
+#: lib/trans.c:20
 msgid "Line1"
 msgstr ""
 
-#: panel-plugin/trans.c:21
+#: lib/trans.c:21
 msgid "Line2"
 msgstr ""
 
-#: panel-plugin/trans.c:22
+#: lib/trans.c:22
 msgid "Line3"
 msgstr ""
 
-#: panel-plugin/trans.c:23
+#: lib/trans.c:23
 msgid "Digital1"
 msgstr ""
 
-#: panel-plugin/trans.c:24
+#: lib/trans.c:24
 msgid "Digital2"
 msgstr ""
 
-#: panel-plugin/trans.c:25
+#: lib/trans.c:25
 msgid "Digital3"
 msgstr ""
 
-#: panel-plugin/trans.c:26
+#: lib/trans.c:26
 msgid "PhoneIn"
 msgstr ""
 
-#: panel-plugin/trans.c:27
+#: lib/trans.c:27
 msgid "PhoneOut"
 msgstr ""
 
-#: panel-plugin/trans.c:28
+#: lib/trans.c:28
 msgid "Video"
 msgstr "Bideo"
 
-#: panel-plugin/trans.c:29
+#: lib/trans.c:29
 msgid "Radio"
 msgstr ""
 
-#: panel-plugin/trans.c:30
+#: lib/trans.c:30
 msgid "Monitor"
 msgstr ""
 
-#~ msgid "Device"
-#~ msgstr "Dispositivo"
+#: lib/vc_alsa.c:94
+#, c-format
+msgid "alsa: Mixer %s open error: %s\n"
+msgstr "alsa: Errorea %s nahaslea abiarazterakoan: %s\n"
 
-#~ msgid "None"
-#~ msgstr "Ninguno"
+#: lib/vc_alsa.c:99
+#, c-format
+msgid "alsa: Mixer attach %s error: %s\n"
+msgstr "alsa: Errorea %s nahaslea atxikitzerakoan: %s\n"
 
-#~ msgid "Useful Controls"
-#~ msgstr "Controles útiles"
+#: lib/vc_alsa.c:107
+#, fuzzy, c-format
+msgid "alsa: Mixer register error: %s\n"
+msgstr "alsa: Errorea nahasle erregistroan: %s"
 
-#~ msgid "Sound"
-#~ msgstr "Sonido"
+#: lib/vc_alsa.c:116
+#, fuzzy, c-format
+msgid "alsa: Mixer load error: %s: %s\n"
+msgstr "alsa: Errorea nahaslea kargatzerakoan: %s"
 
+#: lib/vc_alsa.c:126
+#, c-format
+msgid "alsa: Unable to find simple control '%s',%i\n"
+msgstr "alsa: Ezinezkoa kontrol sinplerik aurkitzea '%s',%i\n"
+
+#: lib/vc_oss.c:131
+msgid "oss: No master volume"
+msgstr "oss: Bolumen nagusirik gabea"
+
+#: panel-plugin/plugin.c:95
+#, c-format
+msgid "Volume: %d%%"
+msgstr "Bolumena: %% %d"
+
+#: panel-plugin/plugin.c:387 mixer-window.gob:110
+msgid "Volume Control"
+msgstr "Bolumen Kontrola"
+
+#: settings/sound.c:69 settings/sound.c:87
+msgid "Sound"
+msgstr "Sonido"
+
+#: mixer-view.gob:255
+msgid "Show Switches"
+msgstr ""
+
+#: mixer-view.gob:256
+msgid "Hide Switches"
+msgstr ""
+
+#: src/main.c:69
+msgid "No working sound"
+msgstr "Ez dago soinurik martxan"
+
+#: mixer-profilebox.gob:88
+#, fuzzy
+msgid "Device:"
+msgstr "Dispositivo"
+
+#: mixer-profilebox.gob:142
+msgid "Create new profile"
+msgstr ""
+
+#: mixer-profilebox.gob:151
+msgid "Delete this profile"
+msgstr ""
+
+#: mixer-profilebox.gob:170
+msgid "Profile"
+msgstr ""
+
+#: mixer-profilebox.gob:374
+#, c-format
+msgid "Really delete those %d profiles?"
+msgstr ""
+
+#: mixer-profilebox.gob:377
+#, c-format
+msgid "Really delete profile \"%s\"?"
+msgstr ""
+
+#: mixer-profilebox.gob:491
+#, c-format
+msgid "%s - New"
+msgstr ""
+
+#: mixer-profilebox.gob:528
+msgid "A profile needs a name"
+msgstr ""
+
+#: mixer-profilebox.gob:542
+msgid "A profile with that name already exists"
+msgstr ""
+
+#: mixer-profilebox-detail.gob:151
+msgid "Control"
+msgstr "Kontrola"
+
+#: mixer-profilebox-detail.gob:154
+msgid "Type"
+msgstr ""
+
+#: mixer-profilebox-detail.gob:166
+msgid "Up"
+msgstr ""
+
+#: mixer-profilebox-detail.gob:169
+msgid "Down"
+msgstr ""
+
+#: mixer-profilebox-detail.gob:176
+msgid "Move Entry Up"
+msgstr ""
+
+#: mixer-profilebox-detail.gob:179
+msgid "Move Entry Down"
+msgstr ""
+
+#: mixer-profilebox-detail.gob:188
+msgid "Profile Name:"
+msgstr ""
+
+#: mixer-profilebox-detail.gob:370 mixer-profilebox-detail.gob:435
+msgid "<unknown>"
+msgstr ""
+
+#: mixer-profilebox-detail.gob:372 mixer-profilebox-detail.gob:437
+msgid "<slider>"
+msgstr ""
+
+#: mixer-profilebox-detail.gob:373 mixer-profilebox-detail.gob:438
+msgid "<onoff>"
+msgstr ""
+
+#: mixer-profilebox-detail.gob:374 mixer-profilebox-detail.gob:439
+msgid "<select>"
+msgstr ""
+
+#: src/menu-callbacks.inc:16
+#, c-format
+msgid "%s - Info"
+msgstr ""
+
+#: src/menu-callbacks.inc:38
+#, c-format
+msgid "%s - Profiles"
+msgstr ""
+
+#: mixer-info.gob:28
+msgid ""
+"This is xfce4-mixer, a volume control program.\n"
+"It is released under the GPL-2 License which you find in the source "
+"directory.\n"
+"No warranty in any way."
+msgstr ""
+
+#~ msgid "Use _internal mixer"
+#~ msgstr "Erabili _barne nahaslea"
+
+#~ msgid "Visible"
+#~ msgstr "Ikusgai"

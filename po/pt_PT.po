@@ -8,26 +8,26 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-01-21 12:54+0100\n"
+"POT-Creation-Date: 2004-08-06 22:56+0200\n"
 "PO-Revision-Date: 2003-09-12 01:29+0100\n"
 "Last-Translator: Nuno Donato <nunodonato@sapo.pt>\n"
 "Language-Team: Portuguese <pt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Report-Msgid-Bugs-To: \n"
 
-#: mixer-settingsbox.gob:98
+#: mixer-settingsbox.gob:97
 #, fuzzy
 msgid "Device"
 msgstr "Dispositivo:"
 
-#: mixer-settingsbox.gob:101
+#: mixer-settingsbox.gob:100
 msgid "None"
 msgstr ""
 
 #. gtk_widget_show (GTK_WIDGET (self->dev_label));
-#: mixer-settingsbox.gob:104
+#: mixer-settingsbox.gob:103
 #, fuzzy
 msgid "Useful Controls"
 msgstr "Controlo"
@@ -163,32 +163,32 @@ msgstr "alsa: Erro ao carregar misturador: %s\n"
 msgid "alsa: Unable to find simple control '%s',%i\n"
 msgstr "alsa: Incapaz de encontrar controlo simples '%s',%i\n"
 
-#: lib/vc_oss.c:134
+#: lib/vc_oss.c:131
 msgid "oss: No master volume"
 msgstr "oss: Sem volume mestre"
 
-#: panel-plugin/plugin.c:94
+#: panel-plugin/plugin.c:95
 #, c-format
 msgid "Volume: %d%%"
 msgstr "Volume: %d%%"
 
-#: panel-plugin/plugin.c:377 mixer-window.gob:62
+#: panel-plugin/plugin.c:387 mixer-window.gob:110
 msgid "Volume Control"
 msgstr "Controlo de Volume"
 
-#: settings/sound.c:72 settings/sound.c:90
+#: settings/sound.c:69 settings/sound.c:87
 msgid "Sound"
 msgstr ""
 
-#: mixer-view.gob:203
+#: mixer-view.gob:255
 msgid "Show Switches"
 msgstr ""
 
-#: mixer-view.gob:204
+#: mixer-view.gob:256
 msgid "Hide Switches"
 msgstr ""
 
-#: src/main.c:50
+#: src/main.c:69
 msgid "No working sound"
 msgstr "Sem som"
 
@@ -209,55 +209,71 @@ msgstr ""
 msgid "Profile"
 msgstr ""
 
-#: mixer-profilebox.gob:340
+#: mixer-profilebox.gob:374
 #, c-format
 msgid "Really delete those %d profiles?"
 msgstr ""
 
-#: mixer-profilebox.gob:343
+#: mixer-profilebox.gob:377
 #, c-format
 msgid "Really delete profile \"%s\"?"
 msgstr ""
 
-#: mixer-profilebox.gob:428
+#: mixer-profilebox.gob:491
 #, c-format
 msgid "%s - New"
 msgstr ""
 
-#: mixer-profilebox.gob:462
+#: mixer-profilebox.gob:528
 msgid "A profile needs a name"
 msgstr ""
 
-#: mixer-profilebox.gob:479
+#: mixer-profilebox.gob:542
 msgid "A profile with that name already exists"
 msgstr ""
 
-#: mixer-profilebox-detail.gob:76
+#: mixer-profilebox-detail.gob:151
 #, fuzzy
 msgid "Control"
 msgstr "Controlo de Volume"
 
-#: mixer-profilebox-detail.gob:79
+#: mixer-profilebox-detail.gob:154
 msgid "Type"
 msgstr ""
 
-#: mixer-profilebox-detail.gob:92
+#: mixer-profilebox-detail.gob:166
+msgid "Up"
+msgstr ""
+
+#: mixer-profilebox-detail.gob:169
+msgid "Down"
+msgstr ""
+
+#: mixer-profilebox-detail.gob:176
+msgid "Move Entry Up"
+msgstr ""
+
+#: mixer-profilebox-detail.gob:179
+msgid "Move Entry Down"
+msgstr ""
+
+#: mixer-profilebox-detail.gob:188
 msgid "Profile Name:"
 msgstr ""
 
-#: mixer-profilebox-detail.gob:180
+#: mixer-profilebox-detail.gob:370 mixer-profilebox-detail.gob:435
 msgid "<unknown>"
 msgstr ""
 
-#: mixer-profilebox-detail.gob:182
+#: mixer-profilebox-detail.gob:372 mixer-profilebox-detail.gob:437
 msgid "<slider>"
 msgstr ""
 
-#: mixer-profilebox-detail.gob:183
+#: mixer-profilebox-detail.gob:373 mixer-profilebox-detail.gob:438
 msgid "<onoff>"
 msgstr ""
 
-#: mixer-profilebox-detail.gob:184
+#: mixer-profilebox-detail.gob:374 mixer-profilebox-detail.gob:439
 msgid "<select>"
 msgstr ""
 

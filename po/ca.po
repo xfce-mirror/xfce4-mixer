@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce 4\n"
-"POT-Creation-Date: 2004-01-21 12:54+0100\n"
+"POT-Creation-Date: 2004-08-06 22:56+0200\n"
 "PO-Revision-Date: 2004-03-29 21:15+0100\n"
 "Last-Translator: Carles Munoz Gorriz <carlesmu@internautas.org>\n"
 "Language-Team: ca <ca@li.org>\n"
@@ -14,16 +14,16 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: mixer-settingsbox.gob:98
+#: mixer-settingsbox.gob:97
 msgid "Device"
 msgstr "Dispositiu"
 
-#: mixer-settingsbox.gob:101
+#: mixer-settingsbox.gob:100
 msgid "None"
 msgstr "Cap"
 
 #. gtk_widget_show (GTK_WIDGET (self->dev_label));
-#: mixer-settingsbox.gob:104
+#: mixer-settingsbox.gob:103
 msgid "Useful Controls"
 msgstr "Controls útils"
 
@@ -158,34 +158,32 @@ msgstr "alsa: Error en la càrrega del mesclador: %s: %s\n"
 msgid "alsa: Unable to find simple control '%s',%i\n"
 msgstr "alsa: No es pot trobar el control «%s»,%i\n"
 
-#: lib/vc_oss.c:134
+#: lib/vc_oss.c:131
 msgid "oss: No master volume"
 msgstr "oss: No hi és el control principal de volum"
 
-#: panel-plugin/plugin.c:94
+#: panel-plugin/plugin.c:95
 #, c-format
 msgid "Volume: %d%%"
 msgstr "Volum: %d%%"
 
-#: panel-plugin/plugin.c:377
-#: mixer-window.gob:62
+#: panel-plugin/plugin.c:387 mixer-window.gob:110
 msgid "Volume Control"
 msgstr "Control de volum"
 
-#: settings/sound.c:72
-#: settings/sound.c:90
+#: settings/sound.c:69 settings/sound.c:87
 msgid "Sound"
 msgstr "So"
 
-#: mixer-view.gob:203
+#: mixer-view.gob:255
 msgid "Show Switches"
 msgstr "Mostra els interruptors"
 
-#: mixer-view.gob:204
+#: mixer-view.gob:256
 msgid "Hide Switches"
 msgstr "Amaga els interruptors"
 
-#: src/main.c:50
+#: src/main.c:69
 msgid "No working sound"
 msgstr "El so no funciona"
 
@@ -205,54 +203,70 @@ msgstr "Elimina aquest perfil"
 msgid "Profile"
 msgstr "Perfil"
 
-#: mixer-profilebox.gob:340
+#: mixer-profilebox.gob:374
 #, c-format
 msgid "Really delete those %d profiles?"
 msgstr "Realment voleu eliminar aquests %d perfils?"
 
-#: mixer-profilebox.gob:343
+#: mixer-profilebox.gob:377
 #, c-format
 msgid "Really delete profile \"%s\"?"
 msgstr "Voleu realment esborrar el perfil «%s»?"
 
-#: mixer-profilebox.gob:428
+#: mixer-profilebox.gob:491
 #, c-format
 msgid "%s - New"
 msgstr "%s - Nou"
 
-#: mixer-profilebox.gob:462
+#: mixer-profilebox.gob:528
 msgid "A profile needs a name"
 msgstr "El perfil ha de tenir un nom"
 
-#: mixer-profilebox.gob:479
+#: mixer-profilebox.gob:542
 msgid "A profile with that name already exists"
 msgstr "Ja existeix un perfil amb aquest nom"
 
-#: mixer-profilebox-detail.gob:76
+#: mixer-profilebox-detail.gob:151
 msgid "Control"
 msgstr "Control"
 
-#: mixer-profilebox-detail.gob:79
+#: mixer-profilebox-detail.gob:154
 msgid "Type"
 msgstr "Tipus"
 
-#: mixer-profilebox-detail.gob:92
+#: mixer-profilebox-detail.gob:166
+msgid "Up"
+msgstr ""
+
+#: mixer-profilebox-detail.gob:169
+msgid "Down"
+msgstr ""
+
+#: mixer-profilebox-detail.gob:176
+msgid "Move Entry Up"
+msgstr ""
+
+#: mixer-profilebox-detail.gob:179
+msgid "Move Entry Down"
+msgstr ""
+
+#: mixer-profilebox-detail.gob:188
 msgid "Profile Name:"
 msgstr "Nom del perfil:"
 
-#: mixer-profilebox-detail.gob:180
+#: mixer-profilebox-detail.gob:370 mixer-profilebox-detail.gob:435
 msgid "<unknown>"
 msgstr "<desconegut>"
 
-#: mixer-profilebox-detail.gob:182
+#: mixer-profilebox-detail.gob:372 mixer-profilebox-detail.gob:437
 msgid "<slider>"
 msgstr "<desplaçador>"
 
-#: mixer-profilebox-detail.gob:183
+#: mixer-profilebox-detail.gob:373 mixer-profilebox-detail.gob:438
 msgid "<onoff>"
 msgstr "<encén-apaga>"
 
-#: mixer-profilebox-detail.gob:184
+#: mixer-profilebox-detail.gob:374 mixer-profilebox-detail.gob:439
 msgid "<select>"
 msgstr "<elecciona>"
 
@@ -269,10 +283,11 @@ msgstr "%s - Perfils"
 #: mixer-info.gob:28
 msgid ""
 "This is xfce4-mixer, a volume control program.\n"
-"It is released under the GPL-2 License which you find in the source directory.\n"
+"It is released under the GPL-2 License which you find in the source "
+"directory.\n"
 "No warranty in any way."
 msgstr ""
 "Això és xfce4-mixer, un programa pel control del volum.\n"
-"Ha estat alliberar sota la llicència GPL-2, que pots trobar en el directori amb les fonts.\n"
+"Ha estat alliberar sota la llicència GPL-2, que pots trobar en el directori "
+"amb les fonts.\n"
 "No hi ha pas cap garantia de cap tipus."
-

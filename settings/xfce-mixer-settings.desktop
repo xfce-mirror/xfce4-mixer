@@ -1,7 +1,9 @@
 [Desktop Entry]
 Encoding=UTF-8
 Name=Xfce 4 Mixer Settings
+Name[fr]=Paramètres du mixer de Xfce 4
 Comment=Mixer Settings
+Comment[fr]=Paramétrage du mixer
 Exec=xfce-setting-show sound
 Icon=xfce4-mixer
 Terminal=false

@@ -8,66 +8,292 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2003-11-11 16:08+0100\n"
+"POT-Creation-Date: 2004-08-06 22:56+0200\n"
 "PO-Revision-Date: 2004-03-09 18:43+0200\n"
 "Last-Translator: Miroslav Yordanov <miordanov@i-space.org>\n"
 "Language-Team: Bulgarian <bg@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit"
+"Content-Transfer-Encoding: 8bit\n"
+"Report-Msgid-Bugs-To: \n"
 
-#: panel-plugin/mixer.c:154
-msgid "No working sound"
-msgstr "Няма работещ звук"
+#: mixer-settingsbox.gob:97
+msgid "Device"
+msgstr ""
 
-#: panel-plugin/mixer.c:293
-#, c-format
-msgid "Volume: %d%%"
-msgstr "Звук:·%d%%"
+#: mixer-settingsbox.gob:100
+msgid "None"
+msgstr ""
 
-#: panel-plugin/mixer.c:1001
-msgid "Use _internal mixer"
-msgstr "Ползва _вътрешен миксер"
+#. gtk_widget_show (GTK_WIDGET (self->dev_label));
+#: mixer-settingsbox.gob:103
+#, fuzzy
+msgid "Useful Controls"
+msgstr "Контрол"
 
-#: panel-plugin/mixer.c:1211
-msgid "Volume Control"
-msgstr "Контрол на звука"
+#: lib/trans.c:6
+msgid "Vol"
+msgstr ""
 
-#: panel-plugin/vc_alsa.c:90
+#. Master
+#: lib/trans.c:7
+msgid "Pcm"
+msgstr ""
+
+#. PCM output
+#: lib/trans.c:8
+msgid "Spkr"
+msgstr ""
+
+#. Internal speaker?
+#: lib/trans.c:9
+msgid "Line"
+msgstr ""
+
+#. Line in
+#: lib/trans.c:10
+msgid "Mic"
+msgstr ""
+
+#. Mic in
+#: lib/trans.c:11
+msgid "CD"
+msgstr ""
+
+#. CD in
+#: lib/trans.c:12
+msgid "Bass"
+msgstr ""
+
+#: lib/trans.c:13
+msgid "Trebl"
+msgstr ""
+
+#: lib/trans.c:14
+msgid "Synth"
+msgstr ""
+
+#: lib/trans.c:15
+msgid "Mix"
+msgstr ""
+
+#: lib/trans.c:16
+msgid "Pcm2"
+msgstr ""
+
+#: lib/trans.c:17
+msgid "Rec"
+msgstr ""
+
+#: lib/trans.c:18
+msgid "IGain"
+msgstr ""
+
+#: lib/trans.c:19
+msgid "OGain"
+msgstr ""
+
+#: lib/trans.c:20
+msgid "Line1"
+msgstr ""
+
+#: lib/trans.c:21
+msgid "Line2"
+msgstr ""
+
+#: lib/trans.c:22
+msgid "Line3"
+msgstr ""
+
+#: lib/trans.c:23
+msgid "Digital1"
+msgstr ""
+
+#: lib/trans.c:24
+msgid "Digital2"
+msgstr ""
+
+#: lib/trans.c:25
+msgid "Digital3"
+msgstr ""
+
+#: lib/trans.c:26
+msgid "PhoneIn"
+msgstr ""
+
+#: lib/trans.c:27
+msgid "PhoneOut"
+msgstr ""
+
+#: lib/trans.c:28
+msgid "Video"
+msgstr ""
+
+#: lib/trans.c:29
+msgid "Radio"
+msgstr ""
+
+#: lib/trans.c:30
+msgid "Monitor"
+msgstr ""
+
+#: lib/vc_alsa.c:94
 #, c-format
 msgid "alsa: Mixer %s open error: %s\n"
 msgstr "alsa:·Mixer·%s·open·error:·%s\n"
 
-#: panel-plugin/vc_alsa.c:95
+#: lib/vc_alsa.c:99
 #, c-format
 msgid "alsa: Mixer attach %s error: %s\n"
 msgstr ""
 
-#: panel-plugin/vc_alsa.c:103
-#, c-format
-msgid "alsa: Mixer register error: %s"
-msgstr ""
+#: lib/vc_alsa.c:107
+#, fuzzy, c-format
+msgid "alsa: Mixer register error: %s\n"
+msgstr "alsa:·Mixer·%s·open·error:·%s\n"
 
-#: panel-plugin/vc_alsa.c:112
-#, c-format
-msgid "alsa: Mixer load error: %s"
-msgstr ""
+#: lib/vc_alsa.c:116
+#, fuzzy, c-format
+msgid "alsa: Mixer load error: %s: %s\n"
+msgstr "alsa:·Mixer·%s·open·error:·%s\n"
 
-#: panel-plugin/vc_alsa.c:122
+#: lib/vc_alsa.c:126
 #, c-format
 msgid "alsa: Unable to find simple control '%s',%i\n"
 msgstr ""
 
-#: panel-plugin/vc_oss.c:133
+#: lib/vc_oss.c:131
 msgid "oss: No master volume"
 msgstr ""
 
-#: panel-plugin/mvisible_opts.c:76
-msgid "Visible"
-msgstr "Видим"
+#: panel-plugin/plugin.c:95
+#, c-format
+msgid "Volume: %d%%"
+msgstr "Звук:·%d%%"
 
-#: panel-plugin/mvisible_opts.c:84
+#: panel-plugin/plugin.c:387 mixer-window.gob:110
+msgid "Volume Control"
+msgstr "Контрол на звука"
+
+#: settings/sound.c:69 settings/sound.c:87
+msgid "Sound"
+msgstr ""
+
+#: mixer-view.gob:255
+msgid "Show Switches"
+msgstr ""
+
+#: mixer-view.gob:256
+msgid "Hide Switches"
+msgstr ""
+
+#: src/main.c:69
+msgid "No working sound"
+msgstr "Няма работещ звук"
+
+#: mixer-profilebox.gob:88
+msgid "Device:"
+msgstr ""
+
+#: mixer-profilebox.gob:142
+msgid "Create new profile"
+msgstr ""
+
+#: mixer-profilebox.gob:151
+msgid "Delete this profile"
+msgstr ""
+
+#: mixer-profilebox.gob:170
+msgid "Profile"
+msgstr ""
+
+#: mixer-profilebox.gob:374
+#, c-format
+msgid "Really delete those %d profiles?"
+msgstr ""
+
+#: mixer-profilebox.gob:377
+#, c-format
+msgid "Really delete profile \"%s\"?"
+msgstr ""
+
+#: mixer-profilebox.gob:491
+#, c-format
+msgid "%s - New"
+msgstr ""
+
+#: mixer-profilebox.gob:528
+msgid "A profile needs a name"
+msgstr ""
+
+#: mixer-profilebox.gob:542
+msgid "A profile with that name already exists"
+msgstr ""
+
+#: mixer-profilebox-detail.gob:151
 msgid "Control"
 msgstr "Контрол"
 
+#: mixer-profilebox-detail.gob:154
+msgid "Type"
+msgstr ""
+
+#: mixer-profilebox-detail.gob:166
+msgid "Up"
+msgstr ""
+
+#: mixer-profilebox-detail.gob:169
+msgid "Down"
+msgstr ""
+
+#: mixer-profilebox-detail.gob:176
+msgid "Move Entry Up"
+msgstr ""
+
+#: mixer-profilebox-detail.gob:179
+msgid "Move Entry Down"
+msgstr ""
+
+#: mixer-profilebox-detail.gob:188
+msgid "Profile Name:"
+msgstr ""
+
+#: mixer-profilebox-detail.gob:370 mixer-profilebox-detail.gob:435
+msgid "<unknown>"
+msgstr ""
+
+#: mixer-profilebox-detail.gob:372 mixer-profilebox-detail.gob:437
+msgid "<slider>"
+msgstr ""
+
+#: mixer-profilebox-detail.gob:373 mixer-profilebox-detail.gob:438
+msgid "<onoff>"
+msgstr ""
+
+#: mixer-profilebox-detail.gob:374 mixer-profilebox-detail.gob:439
+msgid "<select>"
+msgstr ""
+
+#: src/menu-callbacks.inc:16
+#, c-format
+msgid "%s - Info"
+msgstr ""
+
+#: src/menu-callbacks.inc:38
+#, c-format
+msgid "%s - Profiles"
+msgstr ""
+
+#: mixer-info.gob:28
+msgid ""
+"This is xfce4-mixer, a volume control program.\n"
+"It is released under the GPL-2 License which you find in the source "
+"directory.\n"
+"No warranty in any way."
+msgstr ""
+
+#~ msgid "Use _internal mixer"
+#~ msgstr "Ползва _вътрешен миксер"
+
+#~ msgid "Visible"
+#~ msgstr "Видим"

@@ -7,8 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-06-09 23:44+0200\n"
+"POT-Creation-Date: 2004-08-06 22:56+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,16 +15,16 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: mixer-settingsbox.gob:98
+#: mixer-settingsbox.gob:97
 msgid "Device"
 msgstr ""
 
-#: mixer-settingsbox.gob:101
+#: mixer-settingsbox.gob:100
 msgid "None"
 msgstr ""
 
 #. gtk_widget_show (GTK_WIDGET (self->dev_label));
-#: mixer-settingsbox.gob:104
+#: mixer-settingsbox.gob:103
 msgid "Useful Controls"
 msgstr ""
 
@@ -169,23 +168,23 @@ msgstr ""
 msgid "Volume: %d%%"
 msgstr ""
 
-#: panel-plugin/plugin.c:383 mixer-window.gob:111
+#: panel-plugin/plugin.c:387 mixer-window.gob:110
 msgid "Volume Control"
 msgstr ""
 
-#: settings/sound.c:70 settings/sound.c:88
+#: settings/sound.c:69 settings/sound.c:87
 msgid "Sound"
 msgstr ""
 
-#: mixer-view.gob:251
+#: mixer-view.gob:255
 msgid "Show Switches"
 msgstr ""
 
-#: mixer-view.gob:252
+#: mixer-view.gob:256
 msgid "Hide Switches"
 msgstr ""
 
-#: src/main.c:66
+#: src/main.c:69
 msgid "No working sound"
 msgstr ""
 
