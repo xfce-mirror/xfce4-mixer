@@ -128,7 +128,8 @@ class Xfce:Mixer:Mcs:Client from G:Object {
 		s = g_hash_table_lookup (self->hash, name);
 		if (!s) {
 			setting = NULL;
-			mcs_client_get_setting (self->client, name, self->channel, &setting); /* return val ? */
+			if (mcs_client_get_setting (self->client, name, self->channel, &setting) != MCS_SUCCESS)
+				return NULL;
 
 			if (setting && setting->type == MCS_TYPE_STRING && setting->data.v_string) {
 				s = g_strdup (setting->data.v_string);
