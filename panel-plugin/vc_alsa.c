@@ -44,6 +44,7 @@
 #endif
 
 #include <xfce4/libxfcegui4/dialogs.h>
+#include <libxfce4util/i18n.h>
 
 #include <alsa/asoundlib.h>
 #include <alsa/mixer.h>
