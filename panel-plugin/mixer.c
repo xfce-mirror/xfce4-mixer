@@ -212,6 +212,9 @@ xfce_mixer_new(gboolean *broken)
 static void
 mixer_do_options(t_mixer *mixer, int mode); /* 0: load; 1: store; 2: connect signals; 3: sensitivize/desensitivize */
 
+static void
+mixer_apply_options_cb(GtkWidget *button, t_mixer *mixer); /* verified: clicked */
+
 static void use_internal_changed_cb(t_mixer *m)
 {
 	mixer_do_options(m, 3);
@@ -583,6 +586,7 @@ static gboolean
 mixer_device_entry_lost_focus_cb(GtkWidget *w, GdkEvent *event, t_mixer *mixer) /* verified prototype: focus-out-event */
 {
 	if (mixer->options.device) {
+		mixer_apply_options_cb(NULL, mixer);
 		vc_set_device (mixer->options.device);
 	}
 	return FALSE;
@@ -789,6 +793,10 @@ mixer_do_options(t_mixer *mixer, int mode) /* 0: load; 1: store; 2: connect sign
 static void
 mixer_apply_options_cb(GtkWidget *button, t_mixer *mixer) /* verified: clicked */
 {
+
+	if (mixer->options.device) g_free(mixer->options.device);
+	mixer->options.device = NULL;
+
 	if (mixer->options.command) g_free(mixer->options.command);
 	mixer->options.command = NULL;
 	

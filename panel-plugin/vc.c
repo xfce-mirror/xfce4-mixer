@@ -173,21 +173,23 @@ void vc_close_device()
 	(*s->vc_close_device)();
 }
 
-GList *vc_list_devices()
+GList *vc_get_device_list()
 {
 	volchanger_t *s = selected_vc();
-	if (!s  || !s->vc_list_devices) {
+	if (!s  || !s->vc_get_device_list) {
 		return NULL;
 	}
 	
-	return (*s->vc_list_devices)();
+	return (*s->vc_get_device_list)();
 }
 
 /* frees device list */
-void vc_free_devices(GList *list_devices)
+void vc_free_device_list(GList *device_list)
 {
-	g_list_foreach (list_devices, (GFunc)g_free, NULL);
-	g_list_free (list_devices);
+	if (device_list) {
+		g_list_foreach (device_list, (GFunc)g_free, NULL);
+		g_list_free (device_list);
+	}
 	
 	/*g_list_foreach(list, (GFunc)g_free(), NULL); g_list_free(list);*/
 }

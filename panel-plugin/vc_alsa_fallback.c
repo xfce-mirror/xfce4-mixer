@@ -106,7 +106,7 @@ static void vc_close_device()
 	/* unsupported */
 }
 
-static GList *vc_list_devices()
+static GList *vc_get_device_list()
 {
 	return NULL;
 }

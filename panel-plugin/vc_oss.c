@@ -267,7 +267,7 @@ static void vc_close_device()
 	}
 }
 
-static GList *vc_list_devices()
+static GList *vc_get_device_list()
 {
 	GList *l;
 	GDir *dir;

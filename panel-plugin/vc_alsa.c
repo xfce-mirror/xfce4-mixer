@@ -345,7 +345,7 @@ static void vc_close_device()
 	handle = NULL;
 }
 
-static GList *vc_list_devices()
+static GList *vc_get_device_list()
 {
 	GList *l;
 	int card;
@@ -357,6 +357,10 @@ static GList *vc_list_devices()
 	if (snd_card_next (&card) < 0) {
 		return l;
 	}
+
+	/* FIXME remove this ? */
+	l = g_list_append (l, "default"); /* this is just to make sure */
+	
 
 	while (card >= 0) {
 		name = NULL;
