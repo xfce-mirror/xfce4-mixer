@@ -188,7 +188,7 @@ vc_set_volume(char const *which, int percent)
 	level = (vol << 8) | vol;
 
 	if (ioctl(mixer_handle, MIXER_WRITE(i), &level) < 0)
-		perror("oss: Unable to set master volume");
+		perror("oss: Unable to set volume");
 }
 
 #define LEFT(lvl)	((lvl) & 0x7f)
