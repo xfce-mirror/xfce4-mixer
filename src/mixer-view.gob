@@ -92,6 +92,19 @@ class Xfce:Mixer:View from Gtk:VBox {
 	{
 		control_list_free (self->controls);
 		self->controls = NULL;
+		self->switches_r = 0;
+		self->switches_c = 0;
+		self_switches_updated (self);
+	}
+
+	protected void switches_updated (self)
+	{
+		gboolean has_sw;
+		has_sw = (self->switches_r > 0) || (self->switches_c > 0);
+		if (has_sw)
+			gtk_widget_show (GTK_WIDGET (self->disclosure));
+		else
+			gtk_widget_hide (GTK_WIDGET (self->disclosure));
 	}
 
 	private void toggled_cb (self, gpointer user_data)
@@ -197,6 +210,7 @@ class Xfce:Mixer:View from Gtk:VBox {
 				self->switches_c = 0;
 				self->switches_r++;
 			}
+			self_switches_updated (self);
 		}
 	}
 

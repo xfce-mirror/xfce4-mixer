@@ -23,6 +23,7 @@ extern "C" {
 XfceMixerControl * 	xfce_mixer_view_add_control	(XfceMixerView * self, XfceMixerControl * c);
 void 	xfce_mixer_view_del_control	(XfceMixerView * self, XfceMixerControl * c);
 void 	xfce_mixer_view_clear_controls	(XfceMixerView * self);
+void 	xfce_mixer_view_switches_updated	(XfceMixerView * self);
 void 	xfce_mixer_view_init_containers	(XfceMixerView * self);
 void 	xfce_mixer_view_pack_control	(XfceMixerView * self, XfceMixerControl * c, t_mixer_profile_item * p);
 void 	xfce_mixer_view_view_item_updated	(XfceMixerView * self, XfceMixerControl * c, t_mixer_profile_item * p);

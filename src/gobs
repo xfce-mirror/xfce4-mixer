@@ -2,12 +2,15 @@
 
 for s in *.gob
 do
-	gob2 "$s" || {
-		X="$?"
+	t="xfce-${s%.gob}.c"
+	if [ ! -f "$t" -o "$s" -nt "$t" ] ; then
+		gob2 "$s" || {
+			X="$?"
 
-		echo "-- in file $s">&2
+			echo "-- in file $s">&2
 
-		exit "$X"
-	}
+			exit "$X"
+		}
+	fi
 done
 exit 0
