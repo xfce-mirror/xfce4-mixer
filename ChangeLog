@@ -1,3 +1,16 @@
+2003-07-19 11:08  huysmans
+
+	* config.h.in, configure, configure.ac, po/ca.gmo, po/ca.po,
+	po/de.gmo, po/de.po, po/fr.gmo, po/fr.po, po/hu.gmo, po/hu.po,
+	po/it.gmo, po/it.po, po/nl.gmo, po/nl.po, po/ru.gmo, po/ru.po,
+	po/tr.gmo, po/tr.po, po/xfce4-mixer.pot, po/zh_CN.gmo, po/zh_CN.po:
+	Update version numbers and po files for release
+
+2003-07-18 20:16  bmeurer
+
+	* ChangeLog, configure, configure.ac: Make this depend on the
+	latest panel.
+
 2003-07-18 17:58  huysmans
 
 	* panel-plugin/mixer.c: Change panel API again to prevent old
