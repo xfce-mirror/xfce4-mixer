@@ -389,7 +389,10 @@ static int alsa_cb(snd_mixer_t *ctl, unsigned int mask, snd_mixer_elem_t *elem)
 	} else {
 		which = NULL;
 	}
-	(*mycb) (which, mydata);
+	
+	if (mycb) 
+		(*mycb) (which, mydata);
+		
 	return 0;
 }
 
