@@ -312,21 +312,18 @@ mixer_set_size(Control *ctrl, int size)
 	int	r;
 #endif
 	
-	/* size: 0..3(HUGE), with 4- taken as huge too */
-
 	slider_width = 6 + 2 * size;
 	
-	if (slider_width < 0) slider_width = 1;
 #ifdef BIG_ICON
 	gtk_widget_set_size_request(GTK_WIDGET(mixer->ib), icon_size[size], icon_size[size]);
-	gtk_widget_set_size_request(GTK_WIDGET(mixer->slider), 6 + 2 * size, icon_size[size]);
+	gtk_widget_set_size_request(GTK_WIDGET(mixer->slider), slider_width, icon_size[size]);
 #else
 	all = icon_size[size];
 	r = all - slider_width;
-	if (r < 0) r = 1;
+	if (r < all / 2) r = slider_width = all / 2;
 		
-	gtk_widget_set_size_request(GTK_WIDGET(mixer->ib), r, r);
-	gtk_widget_set_size_request(GTK_WIDGET(mixer->slider), 6 + 2 * size, r /*icon_size[size]*/);
+	gtk_widget_set_size_request(GTK_WIDGET(mixer->ib), r, all);
+	gtk_widget_set_size_request(GTK_WIDGET(mixer->slider), slider_width, all);
 #endif
 
 	gtk_widget_queue_resize (GTK_WIDGET (mixer->slider));
