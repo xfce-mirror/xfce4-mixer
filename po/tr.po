@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer\n"
-"POT-Creation-Date: 2003-07-12 14:04+0200\n"
+"POT-Creation-Date: 2003-07-19 10:29+0200\n"
 "PO-Revision-Date: 2003-07-16 20:20+0300\n"
 "Last-Translator: Erçin EKER <erc.caldera@gmx.net>\n"
 "Language-Team: Turkish <tr@li.org>\n"
@@ -60,4 +60,3 @@ msgstr "alsa: Kontrol bulunamıyor '%s', %i\n"
 #: panel-plugin/vc_oss.c:134
 msgid "oss: No master"
 msgstr "oss: Master yok"
-

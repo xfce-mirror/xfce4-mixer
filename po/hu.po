@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: hu\n"
-"POT-Creation-Date: 2003-07-12 14:04+0200\n"
+"POT-Creation-Date: 2003-07-19 10:29+0200\n"
 "PO-Revision-Date: 2003-07-16 16:20+0200\n"
 "Last-Translator: Egmont Koblinger <egmont@uhulinux.hu>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
@@ -64,4 +64,3 @@ msgstr "alsa: Nem található az egyszerű '%s' vezérlő, %i\n"
 #: panel-plugin/vc_oss.c:134
 msgid "oss: No master"
 msgstr "oss: Nincsen master"
-
