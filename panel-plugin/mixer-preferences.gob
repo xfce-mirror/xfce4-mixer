@@ -28,16 +28,36 @@ extern xmlDocPtr xmlconfig;
 
 class Xfce:Mixer:Preferences from G:Object {
 	public gchar *device = NULL
-		destroywith g_free;
+		destroy {
+			if (VAR) {
+				g_free (VAR);
+				VAR = NULL;
+			}
+		};
 
 	private gchar *master = NULL
-		destroywith g_free;
+		destroy {
+			if (VAR) {
+				g_free (VAR);
+				VAR = NULL;
+			}
+		};
 
 	protected gchar *probably_master = NULL
-		destroywith g_free;
+		destroy {
+			if (VAR) {
+				g_free (VAR);
+				VAR = NULL;
+			}
+		};
 
 	public gchar *execu = NULL
-		destroywith g_free;
+		destroy {
+			if (VAR) {
+				g_free (VAR);
+				VAR = NULL;
+			}
+		};
 
 	public gboolean in_terminal = FALSE;
 	public gboolean startup_nf = FALSE;

@@ -25,7 +25,12 @@
 
 class Xfce:Mixer:Pxml from G:Object {
 	protected gchar *root = NULL
-		destroywith g_free;
+		destroy {
+			if (VAR) {
+				g_free (VAR);
+				VAR = NULL;
+			}
+		};
 
 	protected gboolean foreignDoc = TRUE;
 

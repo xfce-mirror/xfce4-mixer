@@ -43,11 +43,29 @@ class Xfce:Mixer:Window from Gtk:Window {
 	public Xfce:Mixer:Mcs:Client *mcsc = NULL
 		unrefwith g_object_unref;
 
-	protected gchar *fname = NULL
-		destroywith g_free; /* name of the xml config file containing the window position */
+	protected t_window_state *window_state = NULL
+		destroy {
+			if (VAR) {
+				g_free (VAR);
+				VAR = NULL;
+			}
+		};
 
-	protected gchar *accelmap_fname = NULL
-		destroywith g_free; /* name of the config file containing the menu accelerators */
+	protected gchar *fname = NULL /* name of the xml config file containing the window position */
+		destroy {
+			if (VAR) {
+				g_free (VAR);
+				VAR = NULL;
+			}
+		};
+
+	protected gchar *accelmap_fname = NULL /* name of the config file containing the menu accelerators */
+		destroy {
+			if (VAR) {
+				g_free (VAR);
+				VAR = NULL;
+			}
+		};
 
 	protected void load_accelgroup(self)
 	{
@@ -121,6 +139,7 @@ class Xfce:Mixer:Window from Gtk:Window {
 	init(self)
 	{
 		XfceMixerProfile *p;
+		self->window_state = g_new0 (t_window_state, 1);
 
 		self_set_my_icon (self);
 
@@ -219,12 +238,10 @@ class Xfce:Mixer:Window from Gtk:Window {
 		gint width, height;
 		gint isticky;
 
-		t_window_state *s;
-		s = g_new0 (t_window_state, 1);
-		s->valid = FALSE;
-		s->width = -1;
-		s->height = -1;
-		s->sticky = FALSE;
+		self->window_state->valid = FALSE;
+		self->window_state->width = -1;
+		self->window_state->height = -1;
+		self->window_state->sticky = FALSE;
 
 		tpath = my_config_get_path (self->fname, CONFIG_LOAD);
 		if (tpath) {
@@ -237,8 +254,8 @@ class Xfce:Mixer:Window from Gtk:Window {
 			if (xfce_mixer_pxml_goto_child_tag (xml, "size")) {
 				if (xfce_mixer_pxml_get_prop_int (xml, "width", &width)
 				&& xfce_mixer_pxml_get_prop_int (xml, "height", &height)) {
-					s->width = width;
-					s->height = height;
+					self->window_state->width = width;
+					self->window_state->height = height;
 				}
 			}
 
@@ -246,9 +263,9 @@ class Xfce:Mixer:Window from Gtk:Window {
 			if (xfce_mixer_pxml_goto_child_tag (xml, "position")) {
 				if (xfce_mixer_pxml_get_prop_int (xml, "x", &x) 
 				&& xfce_mixer_pxml_get_prop_int (xml, "y", &y)) {
-					s->x = x;
-					s->y = y;
-					s->valid = TRUE;
+					self->window_state->x = x;
+					self->window_state->y = y;
+					self->window_state->valid = TRUE;
 				}
 			}
 
@@ -258,7 +275,7 @@ class Xfce:Mixer:Window from Gtk:Window {
 			self_xml_goto_device (self, xml);
 			if (xfce_mixer_pxml_goto_child_tag (xml, "state")) {
 				if (xfce_mixer_pxml_get_prop_int (xml, "sticky", &isticky)) {
-					s->sticky = isticky;
+					self->window_state->sticky = isticky;
 				}
 			}
 
@@ -270,7 +287,7 @@ class Xfce:Mixer:Window from Gtk:Window {
 
 		}
 		xfce_hook_window_state_swapped
-			(GTK_WINDOW (self), s, 
+			(GTK_WINDOW (self), self->window_state, 
 			(XfceSizehookCallback)self_save_window_state_cb, self);
 	}
 

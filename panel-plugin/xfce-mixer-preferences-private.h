@@ -22,7 +22,7 @@ extern "C" {
 #line 25 "mixer-preferences.gob"
 #line 24 "xfce-mixer-preferences-private.h"
 struct _XfceMixerPreferencesPrivate {
-#line 33 "mixer-preferences.gob"
+#line 38 "mixer-preferences.gob"
 	gchar * master;
 #line 28 "xfce-mixer-preferences-private.h"
 };

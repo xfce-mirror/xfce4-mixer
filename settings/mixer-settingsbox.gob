@@ -60,7 +60,12 @@ class Xfce:Mixer:Settingsbox from Gtk:VBox {
 			VAR = NULL;
 		};
 	protected gchar *sel_device = NULL
-		destroywith g_free;
+		destroy {
+			if (VAR) {
+				g_free (VAR);
+				VAR = NULL;
+			}
+		};
 
 	public McsManager * manager = NULL;
 

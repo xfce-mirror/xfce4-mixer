@@ -29,9 +29,21 @@ static void profiles_free (GList *profiles)
 
 class Xfce:Mixer:Profiles from G:Object {
 	protected gchar *device = NULL
-		destroywith g_free;
+		destroy {
+			if (VAR) {
+				g_free (VAR);
+				VAR = NULL;
+			}
+		};
+
 	protected gchar *fname = NULL
-		destroywith g_free;
+		destroy {
+			if (VAR) {
+				g_free (VAR);
+				VAR = NULL;
+			}
+		};
+
 	protected gboolean modified = FALSE;
 	protected gint weird_number = 0;
 	protected guint profilesChangedDelayed = 0

@@ -95,7 +95,13 @@ class Xfce:Mixer:Control from Gtk:VBox {
 	}
 
 	protected gchar *location = NULL
-		destroywith g_free;
+		destroy {
+			if (VAR) {
+				g_free (VAR);
+				VAR = NULL;
+			}
+		};
+
 	protected int orderno = 0;
 	property INT orderno
 		(nick = "At which position the control is",
@@ -128,10 +134,21 @@ class Xfce:Mixer:Control from Gtk:VBox {
 		};
 
 	protected char *vcname = NULL
-		destroywith g_free;
+		destroy {
+			if (VAR) {
+				g_free (VAR);
+				VAR = NULL;
+			}
+		};
 
 	protected char *value = NULL 
-		destroywith g_free;
+		destroy {
+			if (VAR) {
+				g_free (VAR);
+				VAR = NULL;
+			}
+		};
+
 	property STRING value
 		(nick = "current value",
 		blurb = "The value shown in the control",

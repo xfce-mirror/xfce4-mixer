@@ -45,9 +45,21 @@ class Xfce:Mixer:Profilebox:Detail from Gtk:VBox {
 	protected XfceMixerProfile *profile = NULL
 		unrefwith g_object_unref;
 	protected gchar *valids = NULL /* TODO autoupdate */
-		destroywith g_free;
-	protected GHashTable *presents = NULL
-		destroywith g_hash_table_destroy; /* key = vcname, value = self */
+		destroy {
+			if (VAR) {
+				g_free (VAR);
+				VAR = NULL;
+			}
+		};
+
+	protected GHashTable *presents = NULL /* key = vcname, value = self */
+		destroy {
+			if (VAR) {
+				g_hash_table_destroy (VAR);
+				VAR = NULL;
+			}
+		};
+
 	protected GtkButton *detail_up_button;
 	protected GtkButton *detail_down_button;
 

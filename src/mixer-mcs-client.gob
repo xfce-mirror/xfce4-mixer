@@ -70,7 +70,12 @@ watch_cb (Window window, Bool is_start, long mask, void *cb_data)
 
 class Xfce:Mixer:Mcs:Client from G:Object {
 	protected gchar *channel = NULL
-		destroywith g_free;
+		destroy {
+			if (VAR) {
+				g_free (VAR);
+				VAR = NULL;
+			}
+		};
 
 	protected McsClient *client = NULL destroy 
 		{
@@ -81,7 +86,12 @@ class Xfce:Mixer:Mcs:Client from G:Object {
 		};
 
 	protected GHashTable *hash = NULL
-		destroywith g_hash_table_destroy;
+		destroy {
+			if (VAR) {
+				g_hash_table_destroy (VAR);
+				VAR = NULL;
+			}
+		};
 
 	property STRING channel (
 		nick = "The mcs channel to use",
