@@ -192,6 +192,10 @@ class Xfce:Mixer:Prefbox from Gtk:VBox {
 		dentry = GTK_WIDGET (self->device_cb->entry);
 		g_signal_connect_swapped (G_OBJECT (dentry), "changed", G_CALLBACK (self_device_changed_cb), self);
 
+		if (g_find_program_in_path ("xfce4-mixer")) {
+			gn = g_list_append (NULL, "xfce4-mixer");
+			gtk_combo_set_popdown_strings (self->execu_cb, gn);
+		}
 	}
 
 	protected gboolean device_changed_delayed_cb (self)
