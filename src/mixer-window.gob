@@ -16,6 +16,7 @@
 #include <gtk/gtk.h>
 #include <gdk/gdkx.h>
 #include <libxfce4util/libxfce4util.h>
+#include <libxfcegui4/libxfcegui4.h>
 #include "menus.h"
 #include "main.h"
 #include "stringlist.inc"
@@ -95,9 +96,34 @@ class Xfce:Mixer:Window from Gtk:Window {
 		xfce_mixer_view_set_profile (self->view, p);
 	}
 
+	protected void set_my_icon(self)
+	{
+		GdkPixbuf *pb;
+		XfceIconTheme *it;
+		GdkScreen *screen;
+		screen = gtk_window_get_screen (GTK_WINDOW (self));
+		if (!screen)
+			return;
+
+		it = xfce_icon_theme_get_for_screen (screen);
+		if (it) {
+			pb = xfce_icon_theme_load_category (it, XFCE_ICON_CATEGORY_SOUND, 48);
+			if (pb) {
+				gtk_window_set_icon (GTK_WINDOW (self), pb);
+				g_object_unref (G_OBJECT (pb));
+			}
+
+			g_object_unref (G_OBJECT (it));
+		}
+		/*g_object_unref (G_OBJECT (screen));*/
+	}
+
 	init(self)
 	{
 		XfceMixerProfile *p;
+
+		self_set_my_icon (self);
+
 		self->box = GTK_BOX (gtk_vbox_new (FALSE, 0));
 		gtk_widget_show (GTK_WIDGET (self->box));
 

@@ -23,6 +23,7 @@ extern "C" {
 void 	xfce_mixer_window_load_accelgroup	(XfceMixerWindow * self);
 void 	xfce_mixer_window_save_accelgroup	(XfceMixerWindow * self);
 void 	xfce_mixer_window_set_profile	(XfceMixerWindow * self, XfceMixerProfile * p);
+void 	xfce_mixer_window_set_my_icon	(XfceMixerWindow * self);
 void 	xfce_mixer_window_xml_goto_device	(XfceMixerWindow * self, XfceMixerPxml * xml);
 void 	xfce_mixer_window_load_window_state	(XfceMixerWindow * self);
 void 	xfce_mixer_window_save_window_state_cb	(XfceMixerWindow * self, t_window_state * s, GtkWindow * w);
