@@ -16,12 +16,18 @@
 #endif
 
 #include <gtk/gtk.h>
+#include <gdk/gdkx.h>
 #include <libxfce4util/i18n.h>
 
 #include "vc.h"
 #include "mixer_window.h"
 
 #undef USE_NEW_GTK_2_2
+#undef OLD_STYLE_WIDTH
+
+#ifndef OLD_STYLE_WIDTH
+#include <libxfcegui4/xinerama.h>
+#endif
 
 void change_vol_cb(GtkRange *range, gpointer data)
 {
@@ -89,7 +95,7 @@ mixer_slider_control_t *mixer_window_slider_control_new(mixer_window_t *w, char 
 		/*g_signal_connect (GTK_WIDGET(s->scale), "format-value", G_CALLBACK (format_value_callback), NULL);*/
 
 		
-		gtk_widget_set_size_request (GTK_WIDGET (s->scale), -1, 120);
+		gtk_widget_set_size_request (GTK_WIDGET (s->scale), -1, 150); /*120);*/
 		
 		gtk_range_set_inverted (GTK_RANGE (s->scale), TRUE);
 		
@@ -138,6 +144,19 @@ void control_glist_foreach_cb(gpointer data, gpointer user_data)
 	}
 }
 
+int my_screen_get_width (GdkScreen *s)
+{
+#ifdef OLD_STYLE_WIDTH
+	return gdk_screen_get_width (s);
+#else
+	/*MyDisplayWidth () - MyDisplayX(dpy, s, );*/
+	
+	return MyDisplayFullWidth (GDK_SCREEN_XDISPLAY (s), GDK_SCREEN_XNUMBER (s));
+#endif
+
+}
+
+
 gboolean mixer_window_map_cb(GtkWidget *widget, gpointer user_data)
 {
 	int		w, h, mw;
@@ -155,8 +174,8 @@ gboolean mixer_window_map_cb(GtkWidget *widget, gpointer user_data)
 	/*s = gdk_get_default_screen ();*/
 #endif
 	
-	mw = gdk_screen_get_width (s) * 2 / 3;
 
+	mw = my_screen_get_width (s) * 3 / 4;
 
 	a = (mixer_window_t *) user_data;
 	
