@@ -16,8 +16,12 @@
 static gboolean 
 idle_cb (gpointer data)
 {       
-	GtkWindow *win = GTK_WINDOW (data);
-	gtk_window_resize (GTK_WINDOW (win), 1, 1);
+	gint width;
+	gint height;
+	GtkWindow *win;
+	win = GTK_WINDOW (data);
+	gtk_window_get_size (GTK_WINDOW (win), &width, &height); /* FIXME gtk docs say this is bad */
+	gtk_window_resize (GTK_WINDOW (win), width, 1);
 
 	return FALSE;   
 }
