@@ -283,6 +283,8 @@ static void vc_set_volume(char const *which, int vol_p)
 		snd_mixer_selem_set_playback_switch_all (xelem, 0);
 	else /* unmute, just in case. */
 		snd_mixer_selem_set_playback_switch_all (xelem, 1);
+		
+	snd_mixer_selem_set_playback_volume_all (xelem, lval);
 
 #if 0		
 	for (chn = 0; chn <= SND_MIXER_SCHN_LAST; chn++) {
