@@ -371,8 +371,8 @@ xfce_mixer_status_button_cb (GtkWidget * widget, GdkEventButton *b, t_mixer *mix
 	int	sy; /* size */
 
 	y = (int)b->y;
-	
-	if (b->button == 3) {
+
+	if (b->button == 3 || b->button == 2) {
 		if (b->type == GDK_BUTTON_PRESS) {
 			y = 0;
 		} else {
