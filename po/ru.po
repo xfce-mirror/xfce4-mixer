@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ru\n"
-"POT-Creation-Date: 2003-07-12 14:04+0200\n"
+"POT-Creation-Date: 2003-07-30 09:35+0200\n"
 "PO-Revision-Date: 2003-07-18 01:28+0000\n"
 "Last-Translator: Poul Ionkin <wizzard@nmg.lv>\n"
 "Language-Team: Russian <none>\n"
@@ -15,20 +15,20 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.2beta2\n"
 
-#: panel-plugin/mixer.c:152
+#: panel-plugin/mixer.c:154
 msgid "No working sound"
 msgstr "Звук не работает"
 
-#: panel-plugin/mixer.c:287
+#: panel-plugin/mixer.c:293
 #, c-format
 msgid "Volume: %d%%"
 msgstr "Громкость: %d%%"
 
-#: panel-plugin/mixer.c:945
+#: panel-plugin/mixer.c:1001
 msgid "Use _internal mixer"
 msgstr "Использовать внутренний mixer"
 
-#: panel-plugin/mixer.c:1140
+#: panel-plugin/mixer.c:1211
 msgid "Volume Control"
 msgstr "Контроль звука"
 
@@ -57,7 +57,6 @@ msgstr "alsa: Ошибка загрузки mixer: %s"
 msgid "alsa: Unable to find simple control '%s',%i\n"
 msgstr "alsa: Unable to find simple control '%s',%i\n"
 
-#: panel-plugin/vc_oss.c:134
+#: panel-plugin/vc_oss.c:133
 msgid "oss: No master"
 msgstr "oss: No master"
-
