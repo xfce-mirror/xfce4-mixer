@@ -7,3 +7,4 @@ settings/sound.c
 settings/xfce-mixer-settingsbox.c
 src/disclosure-widget.c
 src/mcs_client.c
+src/main.c

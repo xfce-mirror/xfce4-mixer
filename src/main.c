@@ -2,6 +2,7 @@
 #include <config.h>
 #endif
 #include <gtk/gtk.h>
+#include <libxfce4util/i18n.h>
 #include "xfce-mixer-profile.h"
 #include "xfce-mixer-window.h"
 #include "vcs.h"
@@ -21,8 +22,11 @@ my_main_quit(GtkWidget *w, gpointer user_data)
 
 int main(int argc, char * argv[])
 {
-
-	register_vcs ();
+	int rc;
+	rc = register_vcs ();
+	if (rc < -1) {
+		g_warning (_ ("No working sound"));
+	}
 
 	gtk_init (&argc, &argv);
 	
