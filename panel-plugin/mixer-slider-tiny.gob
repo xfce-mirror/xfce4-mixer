@@ -110,6 +110,8 @@ class Xfce:Mixer:Slider:Tiny from Xfce:Mixer:Control {
 			} else y = 0;
 		} else return TRUE;
 
+		if (y < 0) { y = 0; }
+		if (y > 100) { y = 100; }
 		self_set_vval (self, y);
 		return TRUE;
 	}

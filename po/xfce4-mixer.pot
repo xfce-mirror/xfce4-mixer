@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-01-21 12:54+0100\n"
+"POT-Creation-Date: 2004-06-09 23:44+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -160,32 +160,32 @@ msgstr ""
 msgid "alsa: Unable to find simple control '%s',%i\n"
 msgstr ""
 
-#: lib/vc_oss.c:134
+#: lib/vc_oss.c:131
 msgid "oss: No master volume"
 msgstr ""
 
-#: panel-plugin/plugin.c:94
+#: panel-plugin/plugin.c:95
 #, c-format
 msgid "Volume: %d%%"
 msgstr ""
 
-#: panel-plugin/plugin.c:377 mixer-window.gob:62
+#: panel-plugin/plugin.c:383 mixer-window.gob:111
 msgid "Volume Control"
 msgstr ""
 
-#: settings/sound.c:72 settings/sound.c:90
+#: settings/sound.c:70 settings/sound.c:88
 msgid "Sound"
 msgstr ""
 
-#: mixer-view.gob:203
+#: mixer-view.gob:251
 msgid "Show Switches"
 msgstr ""
 
-#: mixer-view.gob:204
+#: mixer-view.gob:252
 msgid "Hide Switches"
 msgstr ""
 
-#: src/main.c:50
+#: src/main.c:66
 msgid "No working sound"
 msgstr ""
 
@@ -205,54 +205,70 @@ msgstr ""
 msgid "Profile"
 msgstr ""
 
-#: mixer-profilebox.gob:340
+#: mixer-profilebox.gob:374
 #, c-format
 msgid "Really delete those %d profiles?"
 msgstr ""
 
-#: mixer-profilebox.gob:343
+#: mixer-profilebox.gob:377
 #, c-format
 msgid "Really delete profile \"%s\"?"
 msgstr ""
 
-#: mixer-profilebox.gob:428
+#: mixer-profilebox.gob:491
 #, c-format
 msgid "%s - New"
 msgstr ""
 
-#: mixer-profilebox.gob:462
+#: mixer-profilebox.gob:528
 msgid "A profile needs a name"
 msgstr ""
 
-#: mixer-profilebox.gob:479
+#: mixer-profilebox.gob:542
 msgid "A profile with that name already exists"
 msgstr ""
 
-#: mixer-profilebox-detail.gob:76
+#: mixer-profilebox-detail.gob:151
 msgid "Control"
 msgstr ""
 
-#: mixer-profilebox-detail.gob:79
+#: mixer-profilebox-detail.gob:154
 msgid "Type"
 msgstr ""
 
-#: mixer-profilebox-detail.gob:92
+#: mixer-profilebox-detail.gob:166
+msgid "Up"
+msgstr ""
+
+#: mixer-profilebox-detail.gob:169
+msgid "Down"
+msgstr ""
+
+#: mixer-profilebox-detail.gob:176
+msgid "Move Entry Up"
+msgstr ""
+
+#: mixer-profilebox-detail.gob:179
+msgid "Move Entry Down"
+msgstr ""
+
+#: mixer-profilebox-detail.gob:188
 msgid "Profile Name:"
 msgstr ""
 
-#: mixer-profilebox-detail.gob:180
+#: mixer-profilebox-detail.gob:370 mixer-profilebox-detail.gob:435
 msgid "<unknown>"
 msgstr ""
 
-#: mixer-profilebox-detail.gob:182
+#: mixer-profilebox-detail.gob:372 mixer-profilebox-detail.gob:437
 msgid "<slider>"
 msgstr ""
 
-#: mixer-profilebox-detail.gob:183
+#: mixer-profilebox-detail.gob:373 mixer-profilebox-detail.gob:438
 msgid "<onoff>"
 msgstr ""
 
-#: mixer-profilebox-detail.gob:184
+#: mixer-profilebox-detail.gob:374 mixer-profilebox-detail.gob:439
 msgid "<select>"
 msgstr ""
 
