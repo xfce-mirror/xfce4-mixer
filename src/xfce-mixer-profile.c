@@ -287,12 +287,12 @@ xfce_mixer_profile_free_control_list(XfceMixerProfile *profile, GList *go)
 void
 xfce_mixer_profile_register_view(XfceMixerProfile *profile, XfceMixerView *view)
 {
-	g_return_if_fail (profile != NULL);
-	g_return_if_fail (XFCE_IS_MIXER_PROFILE (profile));
-
 	XfceMixerView *v;
 	GList *go;
 	GList *g;
+
+	g_return_if_fail (profile != NULL);
+	g_return_if_fail (XFCE_IS_MIXER_PROFILE (profile));
 	
 	go = profile->views;
 	g = go;
@@ -417,13 +417,14 @@ void xfce_mixer_profile_refresh_views (XfceMixerProfile *profile)
 void
 xfce_mixer_profile_update_control (XfceMixerProfile *profile, t_mixer_profile_item const *item)
 {
-	g_return_if_fail (profile != NULL);
-	g_return_if_fail (XFCE_IS_MIXER_PROFILE (profile));
-	
 	t_mixer_profile_item *p;
 /*	GList *g;*/
 	/*XfceMixerView *view;*/
 	gboolean dodel;
+
+	g_return_if_fail (profile != NULL);
+	g_return_if_fail (XFCE_IS_MIXER_PROFILE (profile));
+	
 	
 	if (!item || !item->vcname)
 		return;

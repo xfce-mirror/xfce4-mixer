@@ -7,11 +7,11 @@
 static
 void value_changed_cb(XfceMixerControl *control, gpointer whatsthat, gpointer user_data)
 {
+	gint v;
+	
 	if (!control || !control->vcname)
 		return;
 		
-	gint v;
-	
 	/*if (XFCE_IS_MIXER_SLIDER (control)) {*/
 		if (control->value && (sscanf (control->value, "%d", &v) > 0)) {
 			vc_set_volume (control->vcname, v);

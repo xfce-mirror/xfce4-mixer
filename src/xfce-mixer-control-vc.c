@@ -9,12 +9,12 @@
 static
 void value_changed_cb(XfceMixerControl *control, gpointer whatsthat, gpointer user_data)
 {
-	if (!control || !control->vcname)
-		return;
-		
 	gint v;
 	gboolean b;
 
+	if (!control || !control->vcname)
+		return;
+		
 	if (XFCE_IS_MIXER_SWITCH (control)) {
 		b = control->value && (control->value[0] == '1');
 		vc_set_switch (control->vcname, b);
