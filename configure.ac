@@ -10,7 +10,7 @@ AC_INIT([configure])
 
 AM_CONFIG_HEADER([config.h])
 
-AM_INIT_AUTOMAKE([xfce4-mixer], [0.2])
+AM_INIT_AUTOMAKE([xfce4-mixer], [3.99.1])
 
 AM_MAINTAINER_MODE
 
