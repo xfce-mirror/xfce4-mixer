@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mixer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-11-22 21:44+0100\n"
-"PO-Revision-Date: 2005-01-19 19:02+0200\n"
+"POT-Creation-Date: 2005-01-10 17:30+0100\n"
+"PO-Revision-Date: 2005-01-22 18:14+0200\n"
 "Last-Translator: Jari Rahkonen <jari.rahkonen@pp1.inet.fi>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -147,7 +147,7 @@ msgstr "ALSA: Mikserin %s lataamisessa virhe: %s\n"
 msgid "alsa: Unable to find simple control '%s',%i\n"
 msgstr "ALSA: Säädintä '%s',%i ei löytynyt\n"
 
-#: lib/vc_oss.c:131
+#: lib/vc_oss.c:138
 msgid "oss: No master volume"
 msgstr "OSS: Ei äänenvoimakkuussäädintä"
 
@@ -162,25 +162,25 @@ msgstr "Äänenvoimakkuus: %d%%"
 msgid "Volume Control"
 msgstr "Äänenvoimakkuuden säätö"
 
-#: settings/mixer-settingsbox.gob:102
-#: mixer-settingsbox.gob:102
+#: settings/mixer-settingsbox.gob:99
+#: mixer-settingsbox.gob:99
 msgid "Device"
 msgstr "Laite"
 
-#: settings/mixer-settingsbox.gob:105
-#: mixer-settingsbox.gob:105
+#: settings/mixer-settingsbox.gob:102
+#: mixer-settingsbox.gob:102
 msgid "None"
 msgstr "Ei mitään"
 
 #. gtk_widget_show (GTK_WIDGET (self->dev_label));
-#: settings/mixer-settingsbox.gob:108
-#: mixer-settingsbox.gob:108
+#: settings/mixer-settingsbox.gob:107
+#: mixer-settingsbox.gob:107
 msgid "Useful Controls"
 msgstr "Hyödylliset Säätimet"
 
 #: settings/sound.c:80
-#: settings/sound.c:102
-#: settings/sound.c:109
+#: settings/sound.c:100
+#: settings/sound.c:107
 msgid "Sound"
 msgstr "Ääni"
 
@@ -188,35 +188,31 @@ msgstr "Ääni"
 msgid "No working sound"
 msgstr "Ei toimivaa äänijärjestelmää"
 
-#: src/menus.c:9
+#: src/menus.c:12
 msgid "/_File"
 msgstr "/_Tiedosto"
 
-#: src/menus.c:10
+#: src/menus.c:13
 msgid "/File/_Options"
 msgstr "/Tiedosto/_Asetukset"
 
-#: src/menus.c:11
+#: src/menus.c:14
 msgid "/File/_Exit"
 msgstr "/Tiedosto/_Poistu"
 
-#: src/menus.c:12
+#: src/menus.c:15
 msgid "/_View"
 msgstr "/_Näytä"
 
-#: src/menus.c:13
-msgid "/View/sep"
-msgstr "/Näytä/sep"
-
-#: src/menus.c:14
+#: src/menus.c:16
 msgid "/View/_Manage"
 msgstr "/Näytä/_Hallitse"
 
-#: src/menus.c:15
+#: src/menus.c:17
 msgid "/_Help"
 msgstr "/_Ohje"
 
-#: src/menus.c:16
+#: src/menus.c:18
 msgid "/Help/_Info"
 msgstr "/Ohje/T_ietoja"
 
