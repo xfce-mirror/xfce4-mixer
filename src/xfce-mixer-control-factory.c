@@ -42,7 +42,7 @@ XfceMixerControl *xfce_mixer_control_factory_new_from_profile_item(
 			uct = g_strdup_printf ("@%s@", item->vcname);
 			if (uct) {
 				b = g_strrstr (uc, uct) != NULL;
-				printf ("%s %s %d", uc , uct, (int)b );
+				/*printf ("%s %s %d", uc , uct, (int)b );*/
 			}
 			g_free (uc);
 		}
