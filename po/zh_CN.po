@@ -8,25 +8,23 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-01-06 20:38+0100\n"
 "PO-Revision-Date: 2003-04-26 11:57--100\n"
-"Last-Translator: Benedikt Meurer <benedikt.meurer@unix-ag.uni-siegen.de>\n"
+"Last-Translator: Yongtao Yang <yongtao.yang@telia.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: mixer-settingsbox.gob:71 mixer-settingsbox.gob:88
-#, fuzzy
 msgid "Device"
 msgstr "设备："
 
 #: mixer-settingsbox.gob:91
 msgid "None"
-msgstr ""
+msgstr "无"
 
 #: mixer-settingsbox.gob:94
-#, fuzzy
 msgid "Useful Controls"
-msgstr "音量控制"
+msgstr "有用的控制"
 
 #: lib/vc_alsa.c:89
 #, c-format
@@ -44,7 +42,7 @@ msgid "alsa: Mixer register error: %s"
 msgstr "alsa: 混频器注册错误: %s"
 
 #: lib/vc_alsa.c:111
-#, fuzzy, c-format
+#,  c-format
 msgid "alsa: Mixer load error: %s: %s"
 msgstr "alsa: 混频器加载错误: %s"
 
@@ -58,7 +56,7 @@ msgid "oss: No master volume"
 msgstr "oss: 主控制器不存在"
 
 #: panel-plugin/plugin.c:82
-#, fuzzy, c-format
+#, c-format
 msgid "Volume: %d%%"
 msgstr "音量控制 %d%%"
 
@@ -68,7 +66,7 @@ msgstr "音量控制"
 
 #: settings/sound.c:72 settings/sound.c:90
 msgid "Sound"
-msgstr ""
+msgstr "声音"
 
 #: src/main.c:28
 msgid "No working sound"
