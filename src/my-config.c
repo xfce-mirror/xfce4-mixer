@@ -65,7 +65,7 @@ migrate_errno_print(
 }
 
 gchar *
-my_config_get_tmp_file_name(gchar const *origfilename)
+my_config_get_temp_file_name(gchar const *origfilename)
 {
 	gchar *nfilename;
 	pid_t	pid;
@@ -81,7 +81,7 @@ create_tmp_file(gchar const *origfilename)
 	int	handle;
 	gchar *nfilename;
 
-	nfilename = my_config_get_tmp_file_name (origfilename);
+	nfilename = my_config_get_temp_file_name (origfilename);
 	if (!nfilename) {
 		errno = ENOENT;
 		return -1;
@@ -93,12 +93,12 @@ create_tmp_file(gchar const *origfilename)
 }
 #endif
 
-static int
-rename_tmp_file(gchar const *origfilename)
+int
+my_config_commit_file(gchar const *origfilename)
 {
 	gchar *nfilename;
 	int	rc;
-	nfilename = my_config_get_tmp_file_name (origfilename);
+	nfilename = my_config_get_temp_file_name (origfilename);
 	if (!nfilename) {
 		errno = ENOENT;
 		return -1;
@@ -135,7 +135,7 @@ copy_from_old_config(gchar const *oldpath, gchar const *filename)
 		
 	withtemp = FALSE;
 	if (abspath) {
-		tmppath = my_config_get_tmp_file_name (abspath);
+		tmppath = my_config_get_temp_file_name (abspath);
 		if (tmppath) {
 			g_free (abspath);
 			abspath = tmppath;
@@ -201,7 +201,7 @@ endme:
 					
 				abspath = xfce_resource_save_location (XFCE_RESOURCE_CONFIG, filename, TRUE);
 				if (abspath)
-					rename_tmp_file (abspath); /* return value -1, didnt work */
+					my_config_commit_file (abspath); /* return value -1, didnt work */
 				else {
 					migrate_errno_print (oldpath, "???", ENOENT, TRUE, "xfce_resource_save_location");
 				}

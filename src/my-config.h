@@ -10,8 +10,10 @@ typedef enum {
 	CONFIG_LOAD
 } ConfigAction;
 
-gchar *my_config_get_path(gchar const *relpath, ConfigAction action);
-gchar *my_config_get_tmp_file_name(gchar const *origfilename);
+gchar *my_config_get_path(gchar const *relpath, ConfigAction action); /* direct */
 
+/* with temp file */
+gchar *my_config_get_temp_file_name(gchar const *origfilename);
+int my_config_commit_file(gchar const *origfilename);
 
 #endif

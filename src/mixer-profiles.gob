@@ -180,15 +180,26 @@ class Xfce:Mixer:Profiles from G:Object {
 		GList *g;
 		gchar const *n;
 		gchar *tpath;
+		gchar *tmppath;
+		gboolean withtemp;
 
 		if (!self_get_modified (self))
 			return;
 
+		withtemp = FALSE;
 		tpath = my_config_get_path (self->fname, CONFIG_SAVE);
 		if (tpath) {
-			g_object_set (G_OBJECT (self->xml), "fname", tpath, NULL);
-			g_free (tpath);
-		}
+			tmppath = my_config_get_temp_file_name (tpath);
+			withtemp = (tmppath != NULL);
+
+			if (withtemp) {
+				g_object_set (G_OBJECT (self->xml), "fname", tmppath, NULL);
+				g_free (tmppath);
+				tmppath = NULL;
+			} else 
+				g_object_set (G_OBJECT (self->xml), "fname", tpath, NULL);
+		} else
+			return;
 
 		xfce_mixer_pxml_goto_root (self->xml);
 		self_goto_device (self);
@@ -210,6 +221,14 @@ class Xfce:Mixer:Profiles from G:Object {
 			
 
 			g = g_list_next (g);
+		}
+
+		g_object_set (G_OBJECT (self->xml), "fname", NULL, NULL); /* save */
+
+		if (withtemp) {
+			/* tpath cannot be NULL */
+			my_config_commit_file (tpath);
+			g_free (tpath);
 		}
 
 		self_set_modified (self, FALSE);
