@@ -52,6 +52,26 @@ class Xfce:Mixer:Profiles from G:Object {
 		self->profiles = NULL;
 	}
 
+	public GList *get_profile_names (self)
+	{
+		GList *g;
+		GList *gn;
+		XfceMixerProfile *p;
+		gchar const *so;
+		gn = NULL;
+		g = self->profiles;
+		while (g) {
+			p = XFCE_MIXER_PROFILE (g->data);
+			so = xfce_mixer_profile_get_title (p);
+
+			gn = g_list_append (gn, g_strdup (so));
+
+			g = g_list_next (g);
+		}
+
+		return gn;
+	}
+
 	protected void goto_device (self)
 	{
 		gchar *n;
@@ -90,7 +110,7 @@ class Xfce:Mixer:Profiles from G:Object {
 			if (xfce_mixer_pxml_check_tag (self->xml, "profile")) {
 				n = xfce_mixer_pxml_get_prop (self->xml, "name");
 				if (n) {
-					p = self_create_profile (self, n);
+					p = XFCE_MIXER_PROFILE (xfce_mixer_profile_new (n));
 					if (p) {
 						/* TODO read data etc */
 					}
@@ -140,10 +160,15 @@ class Xfce:Mixer:Profiles from G:Object {
 		self_set_modified (self, FALSE);
 	}
 
-	public XfceMixerProfile *create_profile (self, gchar const *fixedname)
+	public void add_profile (self, XfceMixerProfile *pn)
 	{
 		XfceMixerProfile *p;
+		gchar const *fixedname;
 		gchar tmp[MAX_PATH];
+		if (!pn)
+			return;
+
+		fixedname = xfce_mixer_profile_get_title (pn);
 
 		if (fixedname)
 			g_snprintf (tmp, MAX_PATH, "%s", fixedname);
@@ -160,13 +185,17 @@ class Xfce:Mixer:Profiles from G:Object {
 			p = self_get_profile (self, tmp);
 			if (p) { /* hmpf. */
 				g_object_unref (G_OBJECT (p));
-				return NULL;
+				return;
 			}
 		}
+	}
 
+	/*public XfceMixerProfile *create_profile (self, gchar const *fixedname)
+	{
+		XfceMixerProfile *p;
 		p = XFCE_MIXER_PROFILE (xfce_mixer_profile_new (tmp));
 		return p;
-	}
+	}*/
 
 	public XfceMixerProfile *get_profile (self, gchar const *name)
 	{

@@ -13,12 +13,12 @@ extern "C" {
 
 #include <gtk/gtk.h>
 #include "xfce-mixer-profilebox-detail.h"
+#include "xfce-mixer-profiles.h"
 #include "xfce-mixer-profile.h"
 
 #line 6 "mixer-profilebox.gob"
-#line 20 "xfce-mixer-profilebox-private.h"
+#line 21 "xfce-mixer-profilebox-private.h"
 void 	xfce_mixer_profilebox_sel_changed_cb	(XfceMixerProfilebox * self, GtkTreeSelection * sel);
-gint 	xfce_mixer_profilebox_profile_pos	(XfceMixerProfilebox * self, gchar const * name);
 gboolean 	xfce_mixer_profilebox_profile_exists	(XfceMixerProfilebox * self, gchar const * name);
 void 	xfce_mixer_profilebox_row_inserted_cb	(XfceMixerProfilebox * self, GtkTreePath * path, GtkTreeIter * iter, GtkTreeModel * model);
 void 	xfce_mixer_profilebox_row_deleted_cb	(XfceMixerProfilebox * self, GtkTreePath * path, GtkTreeModel * model);

@@ -71,6 +71,7 @@ gboolean 	xfce_mixer_pxml_goto_child_tag	(XfceMixerPxml * self,
 gboolean 	xfce_mixer_pxml_has_parent	(XfceMixerPxml * self);
 void 	xfce_mixer_pxml_goto_parent	(XfceMixerPxml * self);
 void 	xfce_mixer_pxml_goto_children	(XfceMixerPxml * self);
+void 	xfce_mixer_pxml_goto_root	(XfceMixerPxml * self);
 void 	xfce_mixer_pxml_goto_node	(XfceMixerPxml * self,
 					xmlNodePtr nn);
 gboolean 	xfce_mixer_pxml_has_children	(XfceMixerPxml * self);

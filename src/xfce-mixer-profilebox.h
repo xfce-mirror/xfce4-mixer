@@ -13,6 +13,7 @@ extern "C" {
 
 #include <gtk/gtk.h>
 #include "xfce-mixer-profilebox-detail.h"
+#include "xfce-mixer-profiles.h"
 #include "xfce-mixer-profile.h"
 
 
@@ -49,8 +50,7 @@ struct _XfceMixerProfilebox {
 	GtkToolbar * profiles_toolbar; /* protected */
 	XfceMixerProfileboxDetail * detail; /* protected */
 	GtkBox * hbox; /* protected */
-	GList * profile_names; /* protected */
-	GList * profiles; /* protected */
+	XfceMixerProfiles * profilesa; /* protected */
 };
 
 /*

@@ -17,7 +17,7 @@ extern "C" {
 #include <libxml/tree.h>
 
 
-#line 6 "mixer-pxml.gob"
+#line 16 "mixer-pxml.gob"
 #line 22 "xfce-mixer-pxml-private.h"
 void 	xfce_mixer_pxml_set_file	(XfceMixerPxml * self, gchar const * fnamen);
 

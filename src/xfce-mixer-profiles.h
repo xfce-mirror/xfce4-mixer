@@ -59,10 +59,11 @@ struct _XfceMixerProfilesClass {
  */
 GType	xfce_mixer_profiles_get_type	(void);
 void 	xfce_mixer_profiles_clear	(XfceMixerProfiles * self);
+GList * 	xfce_mixer_profiles_get_profile_names	(XfceMixerProfiles * self);
 void 	xfce_mixer_profiles_load	(XfceMixerProfiles * self);
 void 	xfce_mixer_profiles_save	(XfceMixerProfiles * self);
-XfceMixerProfile * 	xfce_mixer_profiles_create_profile	(XfceMixerProfiles * self,
-					gchar const * fixedname);
+void 	xfce_mixer_profiles_add_profile	(XfceMixerProfiles * self,
+					XfceMixerProfile * pn);
 XfceMixerProfile * 	xfce_mixer_profiles_get_profile	(XfceMixerProfiles * self,
 					gchar const * name);
 void 	xfce_mixer_profiles_delete_profile	(XfceMixerProfiles * self,

@@ -36,7 +36,7 @@ typedef struct _XfceMixerProfileClass XfceMixerProfileClass;
 
 
 GtkType xfce_mixer_profile_get_type (void);
-GObject *xfce_mixer_profile_new (const gchar *title);
+XfceMixerProfile *xfce_mixer_profile_new (const gchar *title);
 void xfce_mixer_profile_set_title(XfceMixerProfile *profile, const gchar *title);
 gchar const *xfce_mixer_profile_get_title(XfceMixerProfile *profile);
 void xfce_mixer_profile_remove_control (XfceMixerProfile *profile, const gchar *vcname);

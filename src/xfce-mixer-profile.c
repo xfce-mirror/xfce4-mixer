@@ -133,7 +133,7 @@ xfce_mixer_profile_init (XfceMixerProfile *profile)
 	profile->views = NULL;
 }
 
-GObject *
+XfceMixerProfile *
 xfce_mixer_profile_new (const gchar *title)
 {
 	GObject *obj;
@@ -141,7 +141,7 @@ xfce_mixer_profile_new (const gchar *title)
 
 	xfce_mixer_profile_set_title (XFCE_MIXER_PROFILE (obj), title);	
 
-	return obj;
+	return XFCE_MIXER_PROFILE (obj);
 }
 
 void xfce_mixer_profile_set_title(XfceMixerProfile *profile, const gchar *title)
