@@ -42,8 +42,9 @@ struct _XfceMixerPxml {
 	xmlNodePtr node;
 	/*< private >*/
 	gchar * root; /* protected */
-	gchar * fname; /* protected */
+	gboolean foreignDoc; /* protected */
 	xmlDocPtr document; /* protected */
+	gchar * fname; /* protected */
 };
 
 /*
