@@ -76,4 +76,5 @@ lib/Makefile
 src/Makefile
 panel-plugin/Makefile
 settings/Makefile
+po/Makefile.in
 ])
