@@ -325,3 +325,11 @@ msgstr "Afficher les interrupteurs"
 #: src/mixer-view.gob:259 mixer-view.gob:259
 msgid "Hide Switches"
 msgstr "Masquer les interrupteurs"
+
+#: settings/xfce-mixer-settings.desktop.in:4
+msgid "Xfce 4 Mixer Settings"
+msgstr "Paramètres du mixer de Xfce 4"
+
+#: settings/xfce-mixer-settings.desktop.in:5
+msgid "Mixer Settings"
+msgstr "Paramétrage du mixer"

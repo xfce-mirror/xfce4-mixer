@@ -1,6 +1,6 @@
 Summary: 	Volume control plugin for the Xfce 4 panel
-Name: 		xfce4-mixer
-Version: 	@VERSION@
+Name: 		@PACKAGE_TARNAME@
+Version: 	@PACKAGE_VERSION@
 Release: 	1
 License:	BSD
 URL: 		http://www.xfce.org/

@@ -292,3 +292,11 @@ msgstr ""
 "소리크기 조정 프로그램인 xfce4-mixer입니다.\n"
 "GPL-2 라이선스로 배포되며, 라이선스는 소스 디렉토리에 있습니다.\n"
 "No warranty in any way."
+
+#: settings/xfce-mixer-settings.desktop.in:4
+msgid "Xfce 4 Mixer Settings"
+msgstr "Xfce 4 믹서 설정"
+
+#: settings/xfce-mixer-settings.desktop.in:5
+msgid "Mixer Settings"
+msgstr "믹서 설정"

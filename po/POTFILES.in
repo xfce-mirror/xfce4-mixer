@@ -122,3 +122,5 @@ src/xfce-mixer-window.h
 src/xfce-mixer-window-private.h
 src/xfce_sizehook.c
 src/xfce_sizehook.h
+# files added by intltool-prepare
+settings/xfce-mixer-settings.desktop.in

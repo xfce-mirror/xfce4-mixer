@@ -1,13 +1,8 @@
 dnl Process this file with autoconf to produce a configure script.
-AC_INIT(src/main.c)
-
-dnl Checks for programs.
-
-dnl Checks for libraries.
-
-
+AC_INIT([xfce4-mixer], [4.3.0], [xfce4-dev@xfce.org])
+AC_REVISION([$Id$])
 AM_CONFIG_HEADER([config.h])
-AM_INIT_AUTOMAKE([xfce4-mixer], [4.2.0])
+AM_INIT_AUTOMAKE([AC_PACKAGE_TARNAME()], [AC_PACKAGE_VERSION()])
 AM_MAINTAINER_MODE
 
 dnl Check for UNIX variants
@@ -56,7 +51,7 @@ elif test x"$with_sound" = x"alsa"; then
   AC_MSG_RESULT([alsa])
 
   dnl Check for ALSA library
-  BM_DEPEND([ALSA], [alsa], [0.9.0])
+  XDT_CHECK_PACKAGE([ALSA], [alsa], [0.9.0])
   CFLAGS="$CFLAGS $ALSA_CFLAGS"
   LIBS="$LIBS $ALSA_LIBS"
 elif test x"$with_sound" = x"sun"; then
@@ -66,18 +61,18 @@ else
   AC_MSG_ERROR([Unknown sound system "$with_sound"])
 fi
 
-dnl Check for i18n support
-BM_I18N([xfce4-mixer], [ar az be bg ca de en_GB es es_MX et eu fa fi fr gu he
-			hu it ja ko lt ms nl nb_NO pa pt_BR pt_PT ro ru sk tr
-			uk vi zh_CN zh_TW])
+XDT_CHECK_PACKAGE([XML], [libxml-2.0], [2.4.0])
+XDT_CHECK_PACKAGE([XFCE4_UTIL], [libxfce4util-1.0], [4.2.0])
+XDT_CHECK_PACKAGE([XFCE4_GUI], [libxfcegui4-1.0], [4.2.0])
+XDT_CHECK_PACKAGE([GTK], [gtk+-2.0], [2.2.0])
+XDT_CHECK_PACKAGE([XFCE_MCS_CLIENT], [libxfce4mcs-client-1.0], [4.2.0])
+XDT_XFCE_PANEL_PLUGIN([XFCE4_PANEL], [4.2.0])
+XDT_XFCE_MCS_PLUGIN([XFCE_MCS_MANAGER], [4.2.0])
 
-BM_DEPEND([XML], [libxml-2.0], [2.4.0])
-BM_DEPEND([XFCE4_UTIL], [libxfce4util-1.0], [4.2.0])
-BM_DEPEND([XFCE4_GUI], [libxfcegui4-1.0], [4.2.0])
-BM_DEPEND([GTK], [gtk+-2.0], [2.2.0])
-BM_DEPEND([XFCE_MCS_CLIENT], [libxfce4mcs-client-1.0], [4.2.0])
-XFCE_PANEL_PLUGIN([XFCE4_PANEL], [4.2.0])
-XFCE_MCS_PLUGIN([XFCE_MCS_MANAGER], [4.2.0])
+dnl Check for i18n support
+XDT_I18N([ar az be bg ca de en_GB es es_MX et eu fa fi fr gu he \
+			    hu it ja ko lt ms nl nb_NO pa pt_BR pt_PT ro ru sk tr \
+			    uk vi zh_CN zh_TW])
 
 AC_MSG_CHECKING([whether to build big mixer window])
 AC_ARG_ENABLE([big-mixer],
@@ -88,7 +83,7 @@ AC_MSG_RESULT([$enable_big_mixer])
 build_big_mixer="$enable_big_mixer"
 
 dnl Check for debugging support
-BM_DEBUG_SUPPORT
+BM_DEBUG_SUPPORT()
 
 
 dnl Checks for library functions.

@@ -358,3 +358,11 @@ msgstr "Näita lüliteid"
 msgid "Hide Switches"
 msgstr "Varja lüliteid"
 
+
+#: settings/xfce-mixer-settings.desktop.in:4
+msgid "Xfce 4 Mixer Settings"
+msgstr "Xfce 4 helitugevuse seaded"
+
+#: settings/xfce-mixer-settings.desktop.in:5
+msgid "Mixer Settings"
+msgstr "Helitugevuse seaded"

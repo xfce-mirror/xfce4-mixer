@@ -360,3 +360,11 @@ msgstr "Näytä kytkimet"
 msgid "Hide Switches"
 msgstr "Piilota kytkimet"
 
+
+#: settings/xfce-mixer-settings.desktop.in:4
+msgid "Xfce 4 Mixer Settings"
+msgstr "Xfce 4 Äänenvoimakkuusasetukset"
+
+#: settings/xfce-mixer-settings.desktop.in:5
+msgid "Mixer Settings"
+msgstr "Mixerin asetukset"

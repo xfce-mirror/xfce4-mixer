@@ -327,3 +327,11 @@ msgstr "הצג מתגים"
 msgid "Hide Switches"
 msgstr "הסתר מתגים"
 
+
+#: settings/xfce-mixer-settings.desktop.in:4
+msgid "Xfce 4 Mixer Settings"
+msgstr "הגדרות מערבל Xfce 4"
+
+#: settings/xfce-mixer-settings.desktop.in:5
+msgid "Mixer Settings"
+msgstr "הגדרות מערבל"

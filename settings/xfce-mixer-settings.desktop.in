@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+_Name=Xfce 4 Mixer Settings
+_Comment=Mixer Settings
+Exec=xfce-setting-show sound
+Icon=xfce4-mixer
+Terminal=false
+Type=Application
+Categories=X-XFCE;Settings;DesktopSettings;
+OnlyShowIn=XFCE;
+_GenericName=Mixer Settings

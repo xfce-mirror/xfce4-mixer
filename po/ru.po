@@ -331,3 +331,11 @@ msgstr "Показывать переключатели"
 msgid "Hide Switches"
 msgstr "Скрыть переключатели"
 
+
+#: settings/xfce-mixer-settings.desktop.in:4
+msgid "Xfce 4 Mixer Settings"
+msgstr "Настройки микшера Xfce 4"
+
+#: settings/xfce-mixer-settings.desktop.in:5
+msgid "Mixer Settings"
+msgstr "Настройки микшера"

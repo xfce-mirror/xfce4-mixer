@@ -338,3 +338,11 @@ msgstr "隱藏開關掣"
 
 #~ msgid "Visible"
 #~ msgstr "可見的"
+
+#: settings/xfce-mixer-settings.desktop.in:4
+msgid "Xfce 4 Mixer Settings"
+msgstr "Xfce 4 音量控制器設定"
+
+#: settings/xfce-mixer-settings.desktop.in:5
+msgid "Mixer Settings"
+msgstr "設定音量控制器"

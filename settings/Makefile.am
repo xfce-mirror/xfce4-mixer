@@ -26,12 +26,16 @@ sound_settings_la_LIBADD =						\
 sound_settings_la_DEPENDENCIES = $(top_builddir)/lib/libxfce4mixer.la
 
 desktopdir = $(datadir)/applications
-desktop_DATA = xfce-mixer-settings.desktop
+desktop_in_files = xfce-mixer-settings.desktop.in
+desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
+@INTLTOOL_DESKTOP_RULE@
 
 iconsdir = $(datadir)/icons/hicolor/48x48/apps
 icons_DATA = xfce4-mixer.png
 
 EXTRA_DIST =								\
-	$(desktop_DATA)							\
+	$(desktop_in_files)							\
 	$(icons_DATA)
 
+DISTCLEANFILES =							\
+	$(desktop_DATA)

@@ -330,3 +330,11 @@ msgstr "Verberg schakelaars"
 
 #~ msgid "%s - Profiles"
 #~ msgstr "%s - Profielen"
+
+#: settings/xfce-mixer-settings.desktop.in:4
+msgid "Xfce 4 Mixer Settings"
+msgstr "Instellingen Xfce 4 Volumeregelaar"
+
+#: settings/xfce-mixer-settings.desktop.in:5
+msgid "Mixer Settings"
+msgstr "Instellingen voor volume"
