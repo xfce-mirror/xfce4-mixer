@@ -27,6 +27,7 @@ AC_DISABLE_STATIC
 
 AC_PROG_LIBTOOL
 
+
 dnl Check what sound system to use
 AC_ARG_WITH([sound], [
 AC_HELP_STRING([--with-sound=alsa|oss], [Check what sound system to use (defaults to OSS)])], [], [with_sound=oss])
@@ -57,18 +58,16 @@ BM_I18N([xfce4-mixer], [ca de fr hu it lt ms nl pt_PT ru tr zh_CN zh_TW ko no])
 BM_DEPEND([XFCE4_UTIL], [libxfce4util-1.0], [4.0.0])
 BM_DEPEND([GTK], [gtk+-2.0], [2.0.6])
 BM_DEPEND([XFCE_MCS_CLIENT], [libxfce4mcs-client-1.0], [4.0.0])
-dnl BM_DEPEND([DBH], [dbh-1.0], [1.0]) #.15
-
 XFCE_PANEL_PLUGIN([XFCE4_PANEL], [4.0.0])
 XFCE_MCS_PLUGIN([XFCE_MCS_MANAGER], [4.0.0])
 
 dnl Check for debugging support
 BM_DEBUG_SUPPORT
 
-dnl Checks for typedefs, structures, and compiler characteristics.
-AC_C_CONST
 
 dnl Checks for library functions.
+dnl Checks for typedefs, structures, and compiler characteristics.
+AC_C_CONST
 
 AC_OUTPUT([
 Makefile

@@ -9611,6 +9611,7 @@ LIBTOOL='$(SHELL) $(top_builddir)/libtool'
 
 
 
+
 # Check whether --with-sound or --without-sound was given.
 if test "${with_sound+set}" = set; then
   withval="$with_sound"
@@ -11773,7 +11774,6 @@ echo "$as_me: error: Library requirements (libxfce4mcs-client-1.0 >= 4.0.0) not 
 
 
 
-
   succeeded=no
 
   if test -z "$PKG_CONFIG"; then
@@ -12069,6 +12069,7 @@ echo "${ECHO_T}yes" >&6
   fi
 
 
+
 echo "$as_me:$LINENO: checking for an ANSI C-conforming const" >&5
 echo $ECHO_N "checking for an ANSI C-conforming const... $ECHO_C" >&6
 if test "${ac_cv_c_const+set}" = set; then
@@ -12175,7 +12176,6 @@ cat >>confdefs.h <<\_ACEOF
 _ACEOF
 
 fi
-
 
 
                                                             ac_config_files="$ac_config_files Makefile lib/Makefile src/Makefile panel-plugin/Makefile settings/Makefile po/Makefile.in"

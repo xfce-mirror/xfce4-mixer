@@ -53,7 +53,6 @@ static void
 update_setting (const char *name, McsSetting * setting)
 {
 	delayer_restart (&refresh_delayer, 1000, (GSourceFunc) delayed_refresh_cb, (gpointer) name);
-
 }
 
 /* event handling */

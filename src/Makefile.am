@@ -20,14 +20,14 @@ xfce4_mixer_SOURCES = $(xfce4_mixer_CSOURCES) mixer-control.gob \
 	mixer-info.gob mixer-select.gob
 
 xfce4_mixer_CFLAGS =							\
+	@LIBXFCE4MCS_CLIENT_CFLAGS@ \
 	@XFCE4_UTIL_CFLAGS@						\
-	@GTK_CFLAGS@ \
-	@LIBXFCE4MCS_CLIENT_CFLAGS@
+	@GTK_CFLAGS@
 	
 xfce4_mixer_LDADD = 							\
+	@LIBXFCE4MCS_CLIENT_LIBS@ \
 	@XFCE4_UTIL_LIBS@						\
 	@GTK_LIBS@ \
-	@LIBXFCE4MCS_CLIENT_LIBS@ \
 	$(top_builddir)/lib/libxfce4mixer.la
 	
 OBJECTS = xfce-mixer-control.o xfce-mixer-slider.o xfce-mixer-profile.o \
