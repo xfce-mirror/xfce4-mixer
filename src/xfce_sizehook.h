@@ -2,6 +2,20 @@
 #define __XFCE_SIZEHOOK_H
 #include <gtk/gtk.h>
 
+/*
+usage:
+
+first create an instance of t_window_state (with g_new0(t_window_state, -1))
+
+set width,height to -1
+set sticky to FALSE
+
+load saved position into the t_window_state
+
+call one of xfce_hook_window_state*
+The callback will be called to save the position (on window close).
+
+*/
 
 typedef struct {
 	gboolean valid;
