@@ -106,7 +106,7 @@ static void     run_dialog(McsPlugin *plugin)
 	sb->manager = plugin->manager;
 	xfce_mixer_settingsbox_load (sb);
 
-	gtk_widget_show_all (GTK_WIDGET (dialog));
+	gtk_widget_show (GTK_WIDGET (dialog));
 }
 
 static gboolean save_settings(McsPlugin *plugin)

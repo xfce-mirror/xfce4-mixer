@@ -46,12 +46,9 @@ struct _XfceMixerSettingsbox {
 	GtkTreeView * useful_tv; /* protected */
 	GtkTreeStore * useful_model; /* protected */
 	GtkScrolledWindow * useful_sc; /* protected */
-	GtkTreeStore * devlist_model; /* protected */
-	GtkTreeView * devlist_tv; /* protected */
-	GtkScrolledWindow * devlist_sc; /* protected */
+	GtkOptionMenu * devlist_om; /* protected */
 	GtkBox * cols; /* protected */
 	GtkBox * right_box; /* protected */
-	GtkWidget * sep; /* protected */
 	GList * device_lst; /* protected */
 	gchar * sel_device; /* protected */
 };
