@@ -70,4 +70,3 @@ msgstr "可見的"
 #: panel-plugin/mvisible_opts.c:84
 msgid "Control"
 msgstr "控制"
-
