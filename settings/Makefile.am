@@ -34,6 +34,10 @@ noinst_DATA =								\
 	sound-icon.h
 
 EXTRA_DIST =								\
-	sound.png
+	sound.png								\
+	xfce-mixer-settings.desktop
 
 sound_settings_la_DEPENDENCIES = $(top_builddir)/lib/libxfce4mixer.la
+
+appsdir = $(datadir)/applications
+apps_DATA = xfce-mixer-settings.desktop
