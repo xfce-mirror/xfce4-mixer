@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer\n"
-"POT-Creation-Date: 2003-07-09 00:29+0200\n"
+"POT-Creation-Date: 2003-07-12 14:04+0200\n"
 "PO-Revision-Date: 2003-06-08 16:43+0300\n"
 "Last-Translator: Dan Korostelev <digger_temp@netman.ru>\n"
 "Language-Team: Russian <digger_temp@netman.ru>\n"
