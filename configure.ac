@@ -53,7 +53,7 @@ else
 fi
 
 dnl Check for i18n support
-BM_I18N([xfce4-mixer], [de])
+BM_I18N([xfce4-mixer], [de zh_CN])
 
 dnl configure the panel plugin
 XFCE_PANEL_PLUGIN([XFCE4_PANEL], [0.10.1])
