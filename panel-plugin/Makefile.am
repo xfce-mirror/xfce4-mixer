@@ -9,22 +9,14 @@ libmixer_la_LDFLAGS =							\
 	-module
 
 libmixer_la_SOURCES =							\
-	mixer.c								\
-	mixer_window.c							\
-	mixer_window.h							\
-	mvisible_opts.c							\
-	mvisible_opts.h							\
-	vc_alsa.c							\
-	vc_alsa_fallback.c						\
-	vc.c								\
-	vc.h								\
-	vc_oss.c
+	vc.c xfce-mixer-preferences.c plugin.c xfce-mixer-cache-vc.c \
+	xfce-mixer-pxml.c string_option_menu.c  xfce-mixer-control.c \
+	xfce-mixer-slider-tiny.c xfce-mixer-prefbox.c \
+	xfce-mixer-control-vc.c \
+	vc_oss.c vc_alsa.c
 
 libmixer_la_CFLAGS =							\
-	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"				\
-	@XFCE4_PANEL_CFLAGS@                                            \
-	@LIBSTARTUP_NOTIFICATION_CFLAGS@
+	@XFCE4_PANEL_CFLAGS@
 
 libmixer_la_LIBADD = 							\
-	@XFCE4_PANEL_LIBS@                                              \
-	@LIBSTARTUP_NOTIFICATION_LIBS@
+	@XFCE4_PANEL_LIBS@

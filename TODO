@@ -1,3 +1,18 @@
-card selection
-popup-slider
-mute/unmute
+finish xfce-mixer-switch
+xfce-mixer-select
+
+
+device_changed() {
+	cache_vc->refresh();
+	current_profile->refresh_views();
+	vc_profile_item_producer_produce(current_profile);
+}
+
+
+profile manager
+
+mcs settings
+
+save window position
+
+refresh mixer window after mcs for selected device changed

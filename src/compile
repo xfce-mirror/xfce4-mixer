@@ -1,0 +1,6 @@
+#!/bin/sh
+
+gob2 mixer-control.gob
+gob2 mixer-slider.gob
+
+gcc -o main main.c mixer_profile.c xfce-mixer-control.c xfce-mixer-slider.c $(pkg-config --cflags --libs gtk+-2.0)

@@ -1,17 +1,13 @@
-dnl configure.ac
-dnl
-dnl xfce4-mixer - Volume changer for XFce4
-dnl
-dnl 2003 Danny Milosavljevic <danny_milo@yahoo.com>
-dnl 2003 Benedikt Meurer <benedikt.meurer@unix-ag.uni-siegen.de>
-dnl
+dnl Process this file with autoconf to produce a configure script.
+AC_INIT(src/main.c)
 
-AC_INIT([configure])
+dnl Checks for programs.
+
+dnl Checks for libraries.
+
 
 AM_CONFIG_HEADER([config.h])
-
-AM_INIT_AUTOMAKE([xfce4-mixer], [4.1.0])
-
+AM_INIT_AUTOMAKE([xfce4-mixer], [4.0.0])
 AM_MAINTAINER_MODE
 
 dnl Check for UNIX variants
@@ -22,11 +18,25 @@ AC_MINIX
 dnl Check for basic programs
 AC_PROG_CC
 AC_PROG_INSTALL
-AC_PROG_LIBTOOL
 
-dnl Check for standard header files
+dnl Checks for header files.
 AC_HEADER_STDC
 AC_CHECK_HEADERS([fcntl.h limits.h sys/ioctl.h])
+
+dnl required versions of other packages
+dnl not AC_SUBST(PYGTK_REQ, 2.0.0)
+AC_SUBST(GLIB_REQ,  2.0.0)
+AC_SUBST(GTK_REQ,   2.0.0)
+
+AC_DISABLE_STATIC
+
+AC_PROG_LIBTOOL
+
+dnl check for glib
+AM_PATH_GLIB_2_0($GLIB_REQ,,[AC_MSG_ERROR(maybe you want the gtk-gnome-1-2 branch?)],$extra_mods)
+
+dnl check to make sure we can find gtk
+AM_PATH_GTK_2_0($GTK_REQ,,[AC_MSG_ERROR(maybe you want the gtk-gnome-1-2 branch?)],$extra_mods)
 
 dnl Check what sound system to use
 AC_ARG_WITH([sound], [
@@ -53,22 +63,23 @@ else
 fi
 
 dnl Check for i18n support
-BM_I18N([xfce4-mixer], [az ca cs de fr hi hu it ko lt ms nl no pl pt_PT ru ta
-	 tr uk vi zh_CN zh_TW])
+BM_I18N([xfce4-mixer], [ca de fr hu it lt ms nl pt_PT ru tr zh_CN zh_TW ko])
 
-dnl configure the panel plugin
-XFCE_PANEL_PLUGIN([XFCE4_PANEL], [4.0.0])
 
-dnl Check for startup notification
-BM_DEPEND_CHECK(LIBSTARTUP_NOTIFICATION, libstartup-notification-1.0, 0.5,
-  [startup-notification], [startup notification library], [yes])
+XFCE_PANEL_PLUGIN([XFCE4_PANEL], [0.10.1])
 
 dnl Check for debugging support
 BM_DEBUG_SUPPORT
 
+
+dnl Checks for typedefs, structures, and compiler characteristics.
+AC_C_CONST
+
+dnl Checks for library functions.
+
 AC_OUTPUT([
 Makefile
+src/Makefile
 panel-plugin/Makefile
-po/Makefile.in
-xfce4-mixer.spec
+settings/Makefile
 ])

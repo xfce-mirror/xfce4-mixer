@@ -1,0 +1,17 @@
+
+per card (device):
+	profile:
+		profile-item:
+			vcname
+			location
+			orderno
+
+	last window size + position
+	switches open/close state
+	[mixer values]
+
+global
+	currently selected card (device)
+
+parameter
+	to be selected card (device) [optional]
