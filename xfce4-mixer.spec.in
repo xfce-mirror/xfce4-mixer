@@ -30,7 +30,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root)
-%doc README TODO ChangeLog NOTES INSTALL COPYING AUTHORS
+%doc README TODO ChangeLog NOTES INSTALL COPYING AUTHORS NEWS
 %{_bindir}/*
 %{_libdir}/*
 %{_datadir}/*

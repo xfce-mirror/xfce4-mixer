@@ -13,7 +13,6 @@ static GtkItemFactoryEntry menubar_items[] =
 {N_("/File/_Options"), "<control>o", options_activate_cb, 0, "<Item>"},
 {N_("/File/_Exit"), "<control>x", appexit_activate_cb, 0, "<Item>"},
 {N_("/_View"), NULL, NULL, 0, "<Branch>"},
-{N_("/View/sep"), NULL, NULL, 0, "<Separator>"},
 {N_("/View/_Manage"), "<control>p", profile_mgr_activate_cb, 0, "<Item>"},
 {N_("/_Help"), NULL, NULL, 0, "<Branch>"},
 {N_("/Help/_Info"), NULL, info_activate_cb, 0, "<Item>"}

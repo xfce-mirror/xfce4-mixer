@@ -63,10 +63,10 @@ static int fd = -1;
 
 static int init(void)
 {
-  if (g_getenv ("AUDIODEV") != NULL)
-    g_strlcpy (mixer_device, g_getenv ("AUDIODEV"), PATH_MAX);
-  else
-    g_strlcpy (mixer_device, MIXER_BASE, PATH_MAX);
+	if (g_getenv ("AUDIODEV") != NULL)
+		g_strlcpy (mixer_device, g_getenv ("AUDIODEV"), PATH_MAX);
+	else
+		g_strlcpy (mixer_device, MIXER_BASE, PATH_MAX);
 
 	vc_set_device(mixer_device);
 	vc_reinit_device();
@@ -76,7 +76,7 @@ static int init(void)
 static void vc_close_device()
 {
 	if (fd != -1) {
-		(void)close (fd);
+		close (fd);
 		fd = -1;
 	}
 }
@@ -92,172 +92,72 @@ static int vc_reinit_device(void)
 
 static void vc_set_device(char const *name)
 {
-  /* Not supported */
-}
-
-
-static gboolean set_dev (const char *which, int *pport, gboolean *pinput)
-{
-  gboolean input = FALSE;
-  gint port = 0;
-  audio_info_t info;
-
-  if (strcmp (which, "Headphone") == 0)
-    {
-      input = FALSE;
-      port = AUDIO_HEADPHONE;
-    }
-  else if (strcmp (which, "Speaker") == 0)
-    {
-      input = FALSE;
-      port = AUDIO_SPEAKER;
-    }
-  else if (strcmp (which, "Line Out") == 0)
-    {
-      input = FALSE;
-      port = AUDIO_LINE_OUT;
-    }
-  else if (strcmp (which, "Microphone") == 0)
-    {
-      input = TRUE;
-      port = AUDIO_MICROPHONE;
-    }
-  else if (strcmp (which, "Line In") == 0)
-    {
-      input = TRUE;
-      port = AUDIO_LINE_IN;
-    }
-  else if (strcmp (which, "CD") == 0)
-    {
-      input = TRUE;
-      port = AUDIO_CD;
-    }
-  else if (strcmp (which, "SPDIF In") == 0)
-    {
-      input = TRUE;
-      port = AUDIO_SPDIF_IN;
-    }
-  else if (strcmp (which, "Aux1 In") == 0)
-    {
-      input = TRUE;
-      port = AUDIO_AUX1_IN;
-    }
-  else if (strcmp (which, "Aux2 In") == 0)
-    {
-      input = TRUE;
-      port = AUDIO_AUX2_IN;
-    }
-  else
-    {
-      return FALSE;
-    }
-
-  AUDIO_INITINFO (&info);
-
-  if (ioctl (fd, AUDIO_GETINFO, &info) < 0)
-    {
-      g_warning ("Unable to query audio info from %s: %s", MIXER_BASE, g_strerror (errno));
-      close (fd);
-      fd = -1;
-      return FALSE;
-    }
-
-  if (input)
-    {
-      if (info.record.port == port)
-        return TRUE;
-      info.record.port = port;
-    }
-  else
-    {
-      if (info.play.port == port)
-        return TRUE;
-      info.play.port = port;
-    }
-
-  if (ioctl (fd, AUDIO_SETINFO, &info) < 0)
-    {
-      g_warning ("Unable to set audio info on %s: %s", MIXER_BASE, g_strerror (errno));
-      close (fd);
-      fd = -1;
-      return FALSE;
-    }
-
-  *pport = port;
-  *pinput = input;
-
-  return TRUE;
+	g_strlcpy (mixer_device, name, PATH_MAX);
+	vc_reinit_device ();
 }
 
 static int vc_get_volume(char const *which)
 {
-  gboolean input;
-  gint port;
-  audio_info_t info;
-  gint gain;
+	audio_info_t info;
+	gint gain;
 
-  if (fd < 0)
-    return 0;
+	if (fd < 0)
+		return 0;
 
-  if (!set_dev (which, &port, &input))
-    return 0;
+	AUDIO_INITINFO (&info);
 
-  AUDIO_INITINFO (&info);
+	if (ioctl (fd, AUDIO_GETINFO, &info) < 0) {
+		g_warning ("Unable to query volume from %s: %s",
+			MIXER_BASE, g_strerror (errno));
+		return 0;
+	}
 
-  if (ioctl (fd, AUDIO_GETINFO, &info) < 0)
-    {
-      g_warning ("Unable to query volume from %s: %s", MIXER_BASE, g_strerror (errno));
-      close (fd);
-      fd = -1;
-      return 0;
-    }
+	if (strcmp (which, "Output Volume") == 0) {
+		gain = info.play.gain;
+	}
+	else if (strcmp (which, "Record Volume") == 0) {
+		gain = info.record.gain;
+	}
+	else {
+		gain = info.monitor_gain;
+	}
 
-  if (input)
-    gain = info.record.gain;
-  else
-    gain = info.play.gain;
-
-  gain = ((gain - AUDIO_MIN_GAIN) * 100) / (AUDIO_MAX_GAIN - AUDIO_MIN_GAIN);
+	gain = ((gain - AUDIO_MIN_GAIN) * 100) / (AUDIO_MAX_GAIN - AUDIO_MIN_GAIN);
 
 	return gain;
 }
 
 static void vc_set_volume(char const *which, int vol_p)
 {
-  gboolean input;
-  gint port;
-  audio_info_t info;
-  gint gain;
+	audio_info_t info;
+	gint gain;
 
-  if (fd < 0)
-    return;
+	if (fd < 0)
+		return;
 
-  if (!set_dev (which, &port, &input))
-    return;
+	if (ioctl (fd, AUDIO_GETINFO, &info) < 0) {
+		g_warning ("Unable to query volume from %s: %s",
+			MIXER_BASE, g_strerror (errno));
+		return;
+	}
+		
+	gain = vol_p * (AUDIO_MAX_GAIN - AUDIO_MIN_GAIN) / 100;
 
-  AUDIO_INITINFO (&info);
+	if (strcmp (which, "Output Volume") == 0) {
+		info.play.gain = gain;
+	}
+	else if (strcmp (which, "Record Volume") == 0) {
+		info.record.gain = gain;
+	}
+	else {
+		info.monitor_gain = gain;
+	}
 
-  if (ioctl (fd, AUDIO_GETINFO, &info) < 0)
-    {
-      g_warning ("Unable to query volume from %s: %s", MIXER_BASE, g_strerror (errno));
-      close (fd);
-      fd = -1;
-      return;
-    }
-
-  gain = vol_p * (AUDIO_MAX_GAIN - AUDIO_MIN_GAIN) / 100;
-  if (input)
-    info.record.gain = gain;
-  else
-    info.play.gain = gain;
-
-  if (ioctl (fd, AUDIO_SETINFO, &info) < 0)
-    {
-      g_warning ("Unable to set volume of %s: %s", MIXER_BASE, g_strerror (errno));
-      close (fd);
-      fd = -1;
-      return;
-    }
+	if (ioctl (fd, AUDIO_SETINFO, &info) < 0) {
+		g_warning ("Unable to set volume of %s: %s",
+			MIXER_BASE, g_strerror (errno));
+		return;
+	}
 }
 
 static volcontrol_t *create_volcontrol(char const *name)
@@ -272,20 +172,11 @@ static volcontrol_t *create_volcontrol(char const *name)
 /* returns list of volcontrol_t */
 static GList *vc_get_control_list()
 {
-  GList *lp = NULL;
+	GList *lp = NULL;
 
-  /* output ports */
-  lp = g_list_append (lp, create_volcontrol ("Headphone"));
-  lp = g_list_append (lp, create_volcontrol ("Speaker"));
-  lp = g_list_append (lp, create_volcontrol ("Line Out"));
-
-  /* input ports */
-  lp = g_list_append (lp, create_volcontrol ("Microphone"));
-  lp = g_list_append (lp, create_volcontrol ("Line In"));
-  lp = g_list_append (lp, create_volcontrol ("CD"));
-  lp = g_list_append (lp, create_volcontrol ("SPDIF In"));
-  lp = g_list_append (lp, create_volcontrol ("Aux1 In"));
-  lp = g_list_append (lp, create_volcontrol ("Aux2 In"));
+	lp = g_list_append (lp, create_volcontrol ("Output Volume"));
+	lp = g_list_append (lp, create_volcontrol ("Record Volume"));
+	lp = g_list_append (lp, create_volcontrol ("Monitor Volume"));
 
 	return lp;
 }
