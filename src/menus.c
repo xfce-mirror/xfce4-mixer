@@ -1,3 +1,6 @@
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include <gtk/gtk.h>
 #include <libxfce4util/libxfce4util.h>
 #include "xfce-mixer-info.h"
@@ -19,7 +22,7 @@ static GtkItemFactoryEntry menubar_items[] =
 static const char *
 translate_menu (const char *msg, gpointer data)
 {
-	return dgettext (GETTEXT_PACKAGE, msg);
+	return _(msg); /*dgettext (GETTEXT_PACKAGE, msg);*/
 } 
 
 GtkMenuBar *
