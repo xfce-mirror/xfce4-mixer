@@ -14,7 +14,6 @@ libmixer_la_SOURCES =							\
 			delayer.inc					\
 			helpers_h.inc					\
 			helpers.inc					\
-			main.c						\
 			plugin.c					\
 			stringlist.inc					\
 			string_option_menu.c				\
