@@ -1,0 +1,73 @@
+# Bulgarian translation of PACKAGE.
+# Copyright (C) 2004 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Miroslav Yordanov <miordanov@i-space.org>, 2004.
+# , fuzzy
+# 
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2003-11-11 16:08+0100\n"
+"PO-Revision-Date: 2004-03-09 18:43+0200\n"
+"Last-Translator: Miroslav Yordanov <miordanov@i-space.org>\n"
+"Language-Team: Bulgarian <bg@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit"
+
+#: panel-plugin/mixer.c:154
+msgid "No working sound"
+msgstr "Няма работещ звук"
+
+#: panel-plugin/mixer.c:293
+#, c-format
+msgid "Volume: %d%%"
+msgstr "Звук:·%d%%"
+
+#: panel-plugin/mixer.c:1001
+msgid "Use _internal mixer"
+msgstr "Ползва _вътрешен миксер"
+
+#: panel-plugin/mixer.c:1211
+msgid "Volume Control"
+msgstr "Контрол на звука"
+
+#: panel-plugin/vc_alsa.c:90
+#, c-format
+msgid "alsa: Mixer %s open error: %s\n"
+msgstr "alsa:·Mixer·%s·open·error:·%s\n"
+
+#: panel-plugin/vc_alsa.c:95
+#, c-format
+msgid "alsa: Mixer attach %s error: %s\n"
+msgstr ""
+
+#: panel-plugin/vc_alsa.c:103
+#, c-format
+msgid "alsa: Mixer register error: %s"
+msgstr ""
+
+#: panel-plugin/vc_alsa.c:112
+#, c-format
+msgid "alsa: Mixer load error: %s"
+msgstr ""
+
+#: panel-plugin/vc_alsa.c:122
+#, c-format
+msgid "alsa: Unable to find simple control '%s',%i\n"
+msgstr ""
+
+#: panel-plugin/vc_oss.c:133
+msgid "oss: No master volume"
+msgstr ""
+
+#: panel-plugin/mvisible_opts.c:76
+msgid "Visible"
+msgstr "Видим"
+
+#: panel-plugin/mvisible_opts.c:84
+msgid "Control"
+msgstr "Контрол"
+

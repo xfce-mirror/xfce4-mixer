@@ -1,278 +1,71 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# dave@gufi.org 2003
+# Davide D'Amico <dave@gufi.org>, 2003.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
+"Project-Id-Version: XFce4\n"
 "POT-Creation-Date: 2004-01-21 12:54+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2004-03-11 13:41+0100\n"
+"Last-Translator: Alex Dupre <ale@FreeBSD.org>\n"
+"Language-Team: GUFI <traduzioni@gufi.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: mixer-settingsbox.gob:98
-msgid "Device"
-msgstr ""
+#: panel-plugin/mixer.c:154
+msgid "No working sound"
+msgstr "Audio non funzionante"
 
-#: mixer-settingsbox.gob:101
-msgid "None"
-msgstr ""
-
-#. gtk_widget_show (GTK_WIDGET (self->dev_label));
-#: mixer-settingsbox.gob:104
-#, fuzzy
-msgid "Useful Controls"
-msgstr "Controllo Volume"
-
-#: lib/trans.c:6
-msgid "Vol"
-msgstr ""
-
-#. Master
-#: lib/trans.c:7
-msgid "Pcm"
-msgstr ""
-
-#. PCM output
-#: lib/trans.c:8
-msgid "Spkr"
-msgstr ""
-
-#. Internal speaker?
-#: lib/trans.c:9
-msgid "Line"
-msgstr ""
-
-#. Line in
-#: lib/trans.c:10
-msgid "Mic"
-msgstr ""
-
-#. Mic in
-#: lib/trans.c:11
-msgid "CD"
-msgstr ""
-
-#. CD in
-#: lib/trans.c:12
-msgid "Bass"
-msgstr ""
-
-#: lib/trans.c:13
-msgid "Trebl"
-msgstr ""
-
-#: lib/trans.c:14
-msgid "Synth"
-msgstr ""
-
-#: lib/trans.c:15
-msgid "Mix"
-msgstr ""
-
-#: lib/trans.c:16
-msgid "Pcm2"
-msgstr ""
-
-#: lib/trans.c:17
-msgid "Rec"
-msgstr ""
-
-#: lib/trans.c:18
-msgid "IGain"
-msgstr ""
-
-#: lib/trans.c:19
-msgid "OGain"
-msgstr ""
-
-#: lib/trans.c:20
-msgid "Line1"
-msgstr ""
-
-#: lib/trans.c:21
-msgid "Line2"
-msgstr ""
-
-#: lib/trans.c:22
-msgid "Line3"
-msgstr ""
-
-#: lib/trans.c:23
-msgid "Digital1"
-msgstr ""
-
-#: lib/trans.c:24
-msgid "Digital2"
-msgstr ""
-
-#: lib/trans.c:25
-msgid "Digital3"
-msgstr ""
-
-#: lib/trans.c:26
-msgid "PhoneIn"
-msgstr ""
-
-#: lib/trans.c:27
-msgid "PhoneOut"
-msgstr ""
-
-#: lib/trans.c:28
-msgid "Video"
-msgstr ""
-
-#: lib/trans.c:29
-msgid "Radio"
-msgstr ""
-
-#: lib/trans.c:30
-msgid "Monitor"
-msgstr ""
-
-#: lib/vc_alsa.c:94
-#, c-format
-msgid "alsa: Mixer %s open error: %s\n"
-msgstr "alsa: Errore apertura Mixer %s: %s\n"
-
-#: lib/vc_alsa.c:99
-#, c-format
-msgid "alsa: Mixer attach %s error: %s\n"
-msgstr "alsa: Errore connessione Mixer %s: %s\n"
-
-#: lib/vc_alsa.c:107
-#, c-format
-msgid "alsa: Mixer register error: %s\n"
-msgstr "alsa: Errore nella registrazione Mixer: %s\n"
-
-#: lib/vc_alsa.c:116
-#, fuzzy, c-format
-msgid "alsa: Mixer load error: %s: %s\n"
-msgstr "alsa: Errore nel caricamento Mixer: %s\n"
-
-#: lib/vc_alsa.c:126
-#, c-format
-msgid "alsa: Unable to find simple control '%s',%i\n"
-msgstr "alsa: Impossibile trovare il controllo base '%s',%i\n"
-
-#: lib/vc_oss.c:134
-#, fuzzy
-msgid "oss: No master volume"
-msgstr "oss: Nessun master"
-
-#: panel-plugin/plugin.c:94
+#: panel-plugin/mixer.c:293
 #, c-format
 msgid "Volume: %d%%"
 msgstr "Volume: %d%%"
 
-#: panel-plugin/plugin.c:377 mixer-window.gob:62
+#: panel-plugin/mixer.c:1001
+msgid "Use _internal mixer"
+msgstr "Usa mixer _interno"
+
+#: panel-plugin/mixer.c:1211
+#: panel-plugin/mixer_window.c:196
 msgid "Volume Control"
 msgstr "Controllo Volume"
 
-#: settings/sound.c:72 settings/sound.c:90
-msgid "Sound"
-msgstr ""
+#: panel-plugin/mvisible_opts.c:76
+msgid "Visible"
+msgstr "Visibile"
 
-#: mixer-view.gob:203
-msgid "Show Switches"
-msgstr ""
-
-#: mixer-view.gob:204
-msgid "Hide Switches"
-msgstr ""
-
-#: src/main.c:50
-msgid "No working sound"
-msgstr "Nessun sottosistema audio funzionante"
-
-#: mixer-profilebox.gob:88
-msgid "Device:"
-msgstr ""
-
-#: mixer-profilebox.gob:142
-msgid "Create new profile"
-msgstr ""
-
-#: mixer-profilebox.gob:151
-msgid "Delete this profile"
-msgstr ""
-
-#: mixer-profilebox.gob:170
-msgid "Profile"
-msgstr ""
-
-#: mixer-profilebox.gob:340
-#, c-format
-msgid "Really delete those %d profiles?"
-msgstr ""
-
-#: mixer-profilebox.gob:343
-#, c-format
-msgid "Really delete profile \"%s\"?"
-msgstr ""
-
-#: mixer-profilebox.gob:428
-#, c-format
-msgid "%s - New"
-msgstr ""
-
-#: mixer-profilebox.gob:462
-msgid "A profile needs a name"
-msgstr ""
-
-#: mixer-profilebox.gob:479
-msgid "A profile with that name already exists"
-msgstr ""
-
-#: mixer-profilebox-detail.gob:76
-#, fuzzy
+#: panel-plugin/mvisible_opts.c:84
 msgid "Control"
-msgstr "Controllo Volume"
+msgstr "Controllo"
 
-#: mixer-profilebox-detail.gob:79
-msgid "Type"
-msgstr ""
-
-#: mixer-profilebox-detail.gob:92
-msgid "Profile Name:"
-msgstr ""
-
-#: mixer-profilebox-detail.gob:180
-msgid "<unknown>"
-msgstr ""
-
-#: mixer-profilebox-detail.gob:182
-msgid "<slider>"
-msgstr ""
-
-#: mixer-profilebox-detail.gob:183
-msgid "<onoff>"
-msgstr ""
-
-#: mixer-profilebox-detail.gob:184
-msgid "<select>"
-msgstr ""
-
-#: src/menu-callbacks.inc:16
+#: panel-plugin/vc_alsa.c:90
 #, c-format
-msgid "%s - Info"
-msgstr ""
+msgid "alsa: Mixer %s open error: %s\n"
+msgstr "alsa: Errore di apertura mixer %s: %s\n"
 
-#: src/menu-callbacks.inc:38
+#: panel-plugin/vc_alsa.c:95
 #, c-format
-msgid "%s - Profiles"
-msgstr ""
+msgid "alsa: Mixer attach %s error: %s\n"
+msgstr "alsa: Errore di connessione mixer %s: %s\n"
 
-#: mixer-info.gob:28
-msgid ""
-"This is xfce4-mixer, a volume control program.\n"
-"It is released under the GPL-2 License which you find in the source "
-"directory.\n"
-"No warranty in any way."
-msgstr ""
+#: panel-plugin/vc_alsa.c:103
+#, c-format
+msgid "alsa: Mixer register error: %s"
+msgstr "alsa: Errore di registrazione mixer: %s"
+
+#: panel-plugin/vc_alsa.c:112
+#, c-format
+msgid "alsa: Mixer load error: %s"
+msgstr "alsa: Errore di caricamento mixer: %s"
+
+#: panel-plugin/vc_alsa.c:122
+#, c-format
+msgid "alsa: Unable to find simple control '%s',%i\n"
+msgstr "alsa: Impossibile trovare il controllo base '%s',%i\n"
+
+#: panel-plugin/vc_oss.c:133
+msgid "oss: No master volume"
+msgstr "oss: Nessun volume principale"
+
