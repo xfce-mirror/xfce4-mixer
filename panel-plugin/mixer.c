@@ -277,8 +277,11 @@ check_volume (t_mixer *mixer)
 {
 	int volume;
 
-	if (mixer->broken)
-		return FALSE; /* stop */
+	if (mixer->broken) {
+		return TRUE; /* this is just in case */
+	}
+	
+	/*	return FALSE;*/ /* stop */
 	
 	volume = get_master_volume();
 	if (volume != mixer->c_volume) {
