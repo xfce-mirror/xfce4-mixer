@@ -11,7 +11,7 @@ sound_settings_la_LDFLAGS =						\
 
 sound_settings_la_SOURCES =						\
 	sound.c								\
-	xfce-mixer-settingsbox.c 					\
+	xfce-mixer-settingsbox.c xfce-mixer-settingsbox.h xfce-mixer-settingsbox-private.h \
 	string_option_menu.c
 
 sound_settings_la_CFLAGS =						\
