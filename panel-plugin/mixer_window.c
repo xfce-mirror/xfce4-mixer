@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include <glib.h>
 #include <gtk/gtk.h>
+#include <libxfce4util/i18n.h>
+
 #include "vc.h"
 #include "mixer_window.h"
 
@@ -61,7 +63,6 @@ mixer_slider_control_t *mixer_window_slider_control_new(mixer_window_t *w, char 
 		gtk_scale_set_digits (GTK_SCALE(s->scale), 0);
 		/*g_signal_connect (GTK_WIDGET(s->scale), "format-value", G_CALLBACK (format_value_callback), NULL);*/
 
-		g_signal_connect (GTK_WIDGET(s->scale), "value-changed", G_CALLBACK (change_vol_cb), (gpointer) s);
 		
 		gtk_widget_set_size_request (GTK_WIDGET (s->scale), -1, 120);
 		
@@ -88,8 +89,10 @@ mixer_slider_control_t *mixer_window_slider_control_new(mixer_window_t *w, char 
 		if (!w->controls) w->controls = s;
 		w->last_control = s;
 		
-		
 		mixer_window_slider_control_refresh_value_p (w, s);
+
+		g_signal_connect (GTK_WIDGET(s->scale), "value-changed", G_CALLBACK (change_vol_cb), (gpointer) s);
+
 	}
 	return s;	
 }
@@ -121,6 +124,8 @@ mixer_window_t *mixer_window_new()
 		w->window = GTK_WINDOW (gtk_window_new (GTK_WINDOW_TOPLEVEL));
 		w->hbox = GTK_BOX (gtk_hbox_new (FALSE /* TRUE */, 5));
 		gtk_widget_show (GTK_WIDGET (w->hbox));
+
+		gtk_window_set_title (GTK_WINDOW (w->window),  _("Volume Control"));
 		
 		gtk_container_add (GTK_CONTAINER (w->window), GTK_WIDGET (w->hbox));
 		
