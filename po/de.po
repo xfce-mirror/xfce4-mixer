@@ -6,9 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2003-08-02 11:41+0200\n"
-"PO-Revision-Date: 2003-04-26 11:57--100\n"
-"Last-Translator: Benedikt Meurer <benedikt.meurer@unix-ag.uni-siegen.de>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2003-08-03 21:25+0200\n"
+"Last-Translator: Bernhard Walle <bernhard.walle@gmx.de>\n"
+"Language-Team: German <xfce4-dev@xfce.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -16,20 +16,20 @@ msgstr ""
 
 #: panel-plugin/mixer.c:157
 msgid "No working sound"
-msgstr "Kein funktionierendes Klangwiedergabegerät gefunden."
+msgstr "Keine funktionierende Soundkonfiguration gefunden"
 
 #: panel-plugin/mixer.c:296
-#, fuzzy, c-format
+#, c-format
 msgid "Volume: %d%%"
-msgstr "Lautstärke %d%%"
+msgstr "Lautstärke: %d %%"
 
 #: panel-plugin/mixer.c:1022
 msgid "Device:"
-msgstr ""
+msgstr "Gerät:"
 
 #: panel-plugin/mixer.c:1110
 msgid "Use _internal mixer"
-msgstr ""
+msgstr "_Internen Mixer verwenden"
 
 #: panel-plugin/mixer.c:1307
 msgid "Volume Control"
@@ -38,37 +38,36 @@ msgstr "Lautstärkenregler"
 #: panel-plugin/vc_alsa.c:90
 #, c-format
 msgid "alsa: Mixer %s open error: %s\n"
-msgstr ""
+msgstr "ALSA: Fehler beim Öffnen von Mixer %s: %s\n"
 
 #: panel-plugin/vc_alsa.c:95
 #, c-format
 msgid "alsa: Mixer attach %s error: %s\n"
-msgstr ""
+msgstr "ALSA: Mixer %s: Fehler beim Verbinden: %s\n"
 
 #: panel-plugin/vc_alsa.c:103
 #, c-format
 msgid "alsa: Mixer register error: %s"
-msgstr ""
+msgstr "ALSA: Mixer %s: Fehler beim Registrieren: %s"
 
 #: panel-plugin/vc_alsa.c:112
 #, c-format
 msgid "alsa: Mixer load error: %s"
-msgstr ""
+msgstr "ALSA: Mixer %s: Fehler beim Laden: %s"
 
 #: panel-plugin/vc_alsa.c:122
 #, c-format
 msgid "alsa: Unable to find simple control '%s',%i\n"
-msgstr ""
+msgstr "ALSA: Fehler beim Finden von Regler '%s', %i\n"
 
 #: panel-plugin/vc_oss.c:133
 msgid "oss: No master volume"
-msgstr ""
+msgstr "OSS: Kein Master"
 
 #: panel-plugin/mvisible_opts.c:76
 msgid "Visible"
-msgstr ""
+msgstr "Sichtbar"
 
 #: panel-plugin/mvisible_opts.c:84
-#, fuzzy
 msgid "Control"
-msgstr "Lautstärkenregler"
+msgstr "Regler"
