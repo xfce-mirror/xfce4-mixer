@@ -25,6 +25,8 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/* sf is weird(tm) */
+
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
