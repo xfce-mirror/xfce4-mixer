@@ -54,8 +54,8 @@ modename="$progname"
 
 # Constants.
 PROGRAM=ltmain.sh
-PACKAGE=
-VERSION=
+PACKAGE=libtool
+VERSION=1.5
 TIMESTAMP=" (1.1220.2.1 2003/04/14 22:48:00)"
 
 default_mode=

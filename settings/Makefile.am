@@ -7,7 +7,6 @@ sound_LTLIBRARIES = 							\
 
 sound_settings_la_LDFLAGS =						\
 	-avoid-version							\
-	-export-dynamic							\
 	-module
 
 sound_settings_la_SOURCES =						\
@@ -21,7 +20,6 @@ sound_settings_la_CFLAGS =						\
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"
 
 sound_settings_la_LIBADD =						\
-	@XFCE_MCS_MANAGER_LIBS@ \
 	$(top_builddir)/lib/libxfce4mixer.la
 
 
