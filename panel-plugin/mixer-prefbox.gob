@@ -281,7 +281,7 @@ class Xfce:Mixer:Prefbox from Gtk:VBox {
 			"in_terminal", in_terminal,
 			NULL
 		);
-		
+
 		if (master)
 			g_free (master);
 	}
