@@ -27,14 +27,15 @@ class Xfce:Mixer:Pxml from G:Object {
 
 	protected gboolean foreignDoc = TRUE;
 
-	protected xmlDocPtr document = NULL
-		destroy {
-			self_free_document (self);
-		};
-
 	protected gchar * fname = NULL
 		destroy {
 			self_set_file (self, NULL);
+		};
+
+
+	protected xmlDocPtr document = NULL
+		destroy {
+			self_free_document (self);
 		};
 
 	property STRING fname (
@@ -68,6 +69,8 @@ class Xfce:Mixer:Pxml from G:Object {
 	{
 		gchar *dir;
 		self->node = NULL;
+
+		/*g_warning ("here %X %X", self->fname, self->document);*/
 
 		if (self->fname && self->document) {
 			/* store blahblah if required */
@@ -194,7 +197,7 @@ class Xfce:Mixer:Pxml from G:Object {
 
 		nodex = self->node->children;
 		while (nodex) {
-			if (xmlStrEqual(self->node->name, (const xmlChar *)tagname)) {
+			if (xmlStrEqual(nodex->name, (const xmlChar *)tagname)) {
 				self->node = nodex;
 				return TRUE;
 			}
@@ -237,6 +240,7 @@ class Xfce:Mixer:Pxml from G:Object {
 
 		if (self->root && !self_check_tag (self, self->root)) {
 			self->node = NULL;
+			g_warning ("ouch");
 		}
 	}
 
@@ -256,6 +260,13 @@ class Xfce:Mixer:Pxml from G:Object {
 	public gchar *get_prop (self, gchar const *pname)
 	{
 		return xmlGetProp (self->node, pname);
+	}
+
+	public void set_prop_int (self, gchar const *pname, gint v)
+	{
+		gchar tmp[20];
+		g_snprintf (tmp, 20, "%d", v);
+		self_set_prop (self, pname, tmp);
 	}
 
 	public void set_prop (self, gchar const *pname, gchar const *value)

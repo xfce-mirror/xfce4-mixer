@@ -46,6 +46,7 @@ struct _XfceMixerWindow {
 	/*< private >*/
 	GtkMenuBar * menubar; /* protected */
 	GtkAccelGroup * accelgroup; /* protected */
+	gchar * fname; /* protected */
 };
 
 /*

@@ -14,11 +14,15 @@
 %{
 #include <gtk/gtk.h>
 #include <libxfce4util/i18n.h>
+#include <libxfce4util/util.h>
 #include "menus.h"
 #include "main.h"
 #include "stringlist.inc"
 #define CHANNEL "sound"
+#define MIXER_ROOT "Mixer"
+
 %}
+
 
 class Xfce:Mixer:Window from Gtk:Window {
 	public Xfce:Mixer:View *view = NULL;
@@ -29,6 +33,9 @@ class Xfce:Mixer:Window from Gtk:Window {
 	protected Gtk:Accel:Group *accelgroup = NULL;
 	public Xfce:Mixer:Mcs:Client *mcsc = NULL
 		unrefwith g_object_unref;
+
+	protected gchar *fname = NULL
+		destroywith g_free; /* name of the xml config file containing the window position */
 
 	protected void set_profile(self, XfceMixerProfile *p)
 	{
@@ -94,6 +101,69 @@ class Xfce:Mixer:Window from Gtk:Window {
 			G_CALLBACK(self_mcs_changed_cb), self);
 
 		self_update_profiles_menu (self);
+
+		g_signal_connect_swapped (G_OBJECT (self), "destroy",
+			G_CALLBACK(self_destroy_cb), self);
+
+		self->fname = xfce_get_userfile ("xfce4-mixer", "config.xml", NULL);
+		self_load_window_state (self);
+	}
+
+	/* TODO handle screen-changed */
+
+	protected void load_window_state(self)
+	{
+		XfceMixerPxml *xml;
+
+		xml = xfce_mixer_pxml_new (MIXER_ROOT);
+		g_object_set (G_OBJECT (xml), "fname", self->fname, NULL);
+
+		gtk_widget_set_size_request (GTK_WIDGET (self), 100, 100);
+		gtk_window_move (GTK_WINDOW (self), 100, 100);
+
+		g_object_unref (G_OBJECT (xml));
+	}
+
+	protected void save_window_state(self)
+	{
+		XfceMixerPxml *xml;
+		GtkRequisition req;
+		gint x, y;
+
+		xml = xfce_mixer_pxml_new (MIXER_ROOT);
+		g_object_set (G_OBJECT (xml), "fname", self->fname, NULL);
+
+		gtk_widget_size_request (GTK_WIDGET (self), &req);
+		gtk_window_get_position (GTK_WINDOW (self), &x, &y);
+
+		g_warning ("save pos %d %d, size %d %d", x, y, req.width, req.height);
+
+		xfce_mixer_pxml_goto_root (xml);
+
+		if (!xfce_mixer_pxml_goto_child_tag (xml, "position")) 
+			xfce_mixer_pxml_goto_node (xml, 
+				xfce_mixer_pxml_create_text_child (xml, "position", NULL)
+			);
+
+		xfce_mixer_pxml_set_prop_int (xml, "x", x);
+		xfce_mixer_pxml_set_prop_int (xml, "y", y);
+
+		xfce_mixer_pxml_goto_root (xml);
+		if (!xfce_mixer_pxml_goto_child_tag (xml, "size"))
+			xfce_mixer_pxml_goto_node (xml, 
+				xfce_mixer_pxml_create_text_child (xml, "size", NULL)
+			);
+		xfce_mixer_pxml_set_prop_int (xml, "width", req.width);
+		xfce_mixer_pxml_set_prop_int (xml, "height", req.height);
+
+		/*xfce_mixer_pxml_set_file (xml, NULL);*/
+
+		g_object_unref (G_OBJECT (xml));
+	}
+
+	protected void destroy_cb(self, GtkWidget *widget)
+	{
+		self_save_window_state(self);
 	}
 
 	protected void mcs_changed_cb(self, GtkWidget *widget)
