@@ -345,7 +345,6 @@ class Xfce:Mixer:Window from Gtk:Window {
 			g_free (tpath);
 			tpath = NULL;
 		}
-		g_free (s);
 	}
 
 	protected void mcs_changed_cb(self, GtkWidget *widget)

@@ -637,7 +637,6 @@ xfce_mixer_window_save_window_state (XfceMixerWindow * self, t_window_state * s)
 			g_free (tpath);
 			tpath = NULL;
 		}
-		g_free (s);
 	}}
 #line 643 "xfce-mixer-window.c"
 #undef __GOB_FUNCTION__
