@@ -871,6 +871,7 @@ my_create_command_option(GtkSizeGroup *sg)
     GtkWidget *hbox;
     GtkWidget *hbox2;
     GtkWidget *label;
+    GtkWidget *image;
     
     GtkWidget *command_entry = NULL;
     GtkWidget *command_browse_button = NULL;
@@ -896,10 +897,14 @@ my_create_command_option(GtkSizeGroup *sg)
     gtk_widget_show (command_entry);
     gtk_box_pack_start (GTK_BOX (hbox), command_entry, TRUE, TRUE, 0);
 
-    command_browse_button = gtk_button_new_with_label ("...");
+    command_browse_button = gtk_button_new ();
     gtk_widget_show (command_browse_button);
     gtk_box_pack_start (GTK_BOX (hbox), command_browse_button, FALSE, FALSE, 0);
 
+    image = gtk_image_new_from_stock(GTK_STOCK_OPEN, GTK_ICON_SIZE_BUTTON);
+    gtk_widget_show(image);
+    gtk_container_add(GTK_CONTAINER(command_browse_button), image);
+    
     g_signal_connect (command_browse_button, "clicked",
                       G_CALLBACK (command_browse_cb), command_entry);
 
