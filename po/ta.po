@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Tamil XFCE4 Mixer\n"
-"POT-Creation-Date: 2003-07-13 16:37+0200\n"
+"POT-Creation-Date: 2003-11-11 16:08+0100\n"
 "PO-Revision-Date: 2003-09-26 19:33-0600\n"
 "Last-Translator: Dinesh Nadarajah <dinesh_list@sbcglobal.net>\n"
 "Language-Team: Tamil <tamillinux-user@lists.sourceforge.net>\n"
@@ -14,24 +14,20 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: panel-plugin/mixer.c:157
+#: panel-plugin/mixer.c:154
 msgid "No working sound"
 msgstr "வேலை செய்யும் ஒலிக்கருவி ஏதும் இல்லை"
 
-#: panel-plugin/mixer.c:296
+#: panel-plugin/mixer.c:293
 #, c-format
 msgid "Volume: %d%%"
 msgstr "சத்தத்தின்-அளவு: %d%%"
 
-#: panel-plugin/mixer.c:1022
-msgid "Device:"
-msgstr "சாதனம்:"
-
-#: panel-plugin/mixer.c:1110
+#: panel-plugin/mixer.c:1001
 msgid "Use _internal mixer"
 msgstr "உள்நிலை கலவை பயன்படுத்தவும்"
 
-#: panel-plugin/mixer.c:1307
+#: panel-plugin/mixer.c:1211
 msgid "Volume Control"
 msgstr "சத்த-அளவு கட்டுப்பாடு"
 
@@ -72,3 +68,5 @@ msgstr "பார்வை"
 msgid "Control"
 msgstr "கட்டுப்பாடு"
 
+#~ msgid "Device:"
+#~ msgstr "சாதனம்:"

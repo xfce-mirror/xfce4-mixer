@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer\n"
-"POT-Creation-Date: 2003-08-02 11:41+0200\n"
+"POT-Creation-Date: 2003-11-11 16:08+0100\n"
 "PO-Revision-Date: 2003-07-16 20:20+0300\n"
 "Last-Translator: Erçin EKER <erc.caldera@gmx.net>\n"
 "Language-Team: Turkish <tr@li.org>\n"
@@ -15,24 +15,20 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.2\n"
 
-#: panel-plugin/mixer.c:157
+#: panel-plugin/mixer.c:154
 msgid "No working sound"
 msgstr "Ses çalışmıyor"
 
-#: panel-plugin/mixer.c:296
+#: panel-plugin/mixer.c:293
 #, c-format
 msgid "Volume: %d%%"
 msgstr "Ses Düzeyi: %%%d"
 
-#: panel-plugin/mixer.c:1022
-msgid "Device:"
-msgstr ""
-
-#: panel-plugin/mixer.c:1110
+#: panel-plugin/mixer.c:1001
 msgid "Use _internal mixer"
 msgstr "_Dahili karıştırıcıyı kullan"
 
-#: panel-plugin/mixer.c:1307
+#: panel-plugin/mixer.c:1211
 msgid "Volume Control"
 msgstr "Ses Denetimi"
 

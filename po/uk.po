@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer\n"
-"POT-Creation-Date: 2003-08-02 11:41+0200\n"
+"POT-Creation-Date: 2003-11-11 16:08+0100\n"
 "PO-Revision-Date: 2003-10-22 11:56+0200\n"
 "Last-Translator: Maxim Dziumanenko <mvd@mylinux.com.ua>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
@@ -15,24 +15,20 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: panel-plugin/mixer.c:157
+#: panel-plugin/mixer.c:154
 msgid "No working sound"
 msgstr "Звук не працює"
 
-#: panel-plugin/mixer.c:296
+#: panel-plugin/mixer.c:293
 #, c-format
 msgid "Volume: %d%%"
 msgstr "Гучність: %d%%"
 
-#: panel-plugin/mixer.c:1022
-msgid "Device:"
-msgstr "Пристрій:"
-
-#: panel-plugin/mixer.c:1110
+#: panel-plugin/mixer.c:1001
 msgid "Use _internal mixer"
 msgstr "Використовувати _внутрішній мікшер"
 
-#: panel-plugin/mixer.c:1307
+#: panel-plugin/mixer.c:1211
 msgid "Volume Control"
 msgstr "Контроль гучності"
 
@@ -72,3 +68,6 @@ msgstr "Видимість"
 #: panel-plugin/mvisible_opts.c:84
 msgid "Control"
 msgstr "Регулятор"
+
+#~ msgid "Device:"
+#~ msgstr "Пристрій:"

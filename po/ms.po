@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 3.99.3\n"
-"POT-Creation-Date: 2003-08-02 11:41+0200\n"
+"POT-Creation-Date: 2003-11-11 16:08+0100\n"
 "PO-Revision-Date: 2003-08-31 14:41+0800\n"
 "Last-Translator: Harun Musa <mharun@gmx.net>\n"
 "Language-Team: Malay <translation-team-ms@list.sourceforge.net>\n"
@@ -14,24 +14,20 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: panel-plugin/mixer.c:157
+#: panel-plugin/mixer.c:154
 msgid "No working sound"
 msgstr "Sound tidak bekerja"
 
-#: panel-plugin/mixer.c:296
+#: panel-plugin/mixer.c:293
 #, c-format
 msgid "Volume: %d%%"
 msgstr "Volume: %d%%"
 
-#: panel-plugin/mixer.c:1022
-msgid "Device:"
-msgstr "Peranti:"
-
-#: panel-plugin/mixer.c:1110
+#: panel-plugin/mixer.c:1001
 msgid "Use _internal mixer"
 msgstr "Guna mixer _dalaman"
 
-#: panel-plugin/mixer.c:1307
+#: panel-plugin/mixer.c:1211
 msgid "Volume Control"
 msgstr "Kawalan Volume"
 
@@ -71,3 +67,6 @@ msgstr "Bolehlihat"
 #: panel-plugin/mvisible_opts.c:84
 msgid "Control"
 msgstr "Kawalan"
+
+#~ msgid "Device:"
+#~ msgstr "Peranti:"

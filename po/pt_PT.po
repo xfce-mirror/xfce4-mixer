@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2003-08-02 11:41+0200\n"
+"POT-Creation-Date: 2003-11-11 16:08+0100\n"
 "PO-Revision-Date: 2003-09-12 01:29+0100\n"
 "Last-Translator: Nuno Donato <nunodonato@sapo.pt>\n"
 "Language-Team: Portuguese <pt@li.org>\n"
@@ -17,24 +17,20 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Report-Msgid-Bugs-To: \n"
 
-#: panel-plugin/mixer.c:157
+#: panel-plugin/mixer.c:154
 msgid "No working sound"
 msgstr "Sem som"
 
-#: panel-plugin/mixer.c:296
+#: panel-plugin/mixer.c:293
 #, c-format
 msgid "Volume: %d%%"
 msgstr "Volume: %d%%"
 
-#: panel-plugin/mixer.c:1022
-msgid "Device:"
-msgstr "Dispositivo:"
-
-#: panel-plugin/mixer.c:1110
+#: panel-plugin/mixer.c:1001
 msgid "Use _internal mixer"
 msgstr "Usar misturador interno"
 
-#: panel-plugin/mixer.c:1307
+#: panel-plugin/mixer.c:1211
 msgid "Volume Control"
 msgstr "Controlo de Volume"
 
@@ -74,3 +70,6 @@ msgstr "Vísivel"
 #: panel-plugin/mvisible_opts.c:84
 msgid "Control"
 msgstr "Controlo"
+
+#~ msgid "Device:"
+#~ msgstr "Dispositivo:"
