@@ -9,13 +9,14 @@
 
 typedef struct tagSCT {
 	GtkBox *vbox;
-	GtkLabel *label;
+	GtkButton *label;
 	GtkBox *hbox;
 	GtkScale *scale;
 	
 	//gboolean visible; -> check hbox visibility
 	
 	struct tagSCT *next, *prev;
+	char *name;
 } mixer_slider_control_t;
 
 typedef struct {
