@@ -1,3 +1,29 @@
+2003-07-12 15:27  huysmans
+
+	* po/: ca.gmo, ca.po, de.gmo, de.po, fr.gmo, fr.po, it.gmo, it.po,
+	nl.gmo, nl.po, ru.gmo, ru.po, tr.gmo, tr.po, zh_CN.gmo, zh_CN.po:
+	Update po files before release (again ;)
+
+2003-07-12 15:03  xfce
+
+	* panel-plugin/mixer_window.c, po/xfce4-mixer.pot: Set fixed width
+	and set hscrollbar policy to automatic
+
+2003-07-12 14:11  xfce
+
+	* configure, configure.ac, panel-plugin/Makefile.am,
+	panel-plugin/Makefile.in, panel-plugin/mixer_window.c, po/fr.gmo,
+	po/fr.po: Remove the hack for map event on mixer window.
+
+2003-07-12 11:08  dannym
+
+	* panel-plugin/: mixer_window.c, mixer_window.h, vc_alsa.c: Update,
+	breaks stored configuration, ow well
+
+2003-07-11 09:33  huysmans
+
+	* ChangeLog: Update ChangeLog's for release
+
 2003-07-11 09:18  huysmans
 
 	* po/: zh_CN.gmo, zh_CN.po: Update Chinese translations (2)
