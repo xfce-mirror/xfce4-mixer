@@ -69,6 +69,10 @@
 
 #include <libxfce4util/i18n.h>
 
+#ifndef PATH_MAX
+#define PATH_MAX 1024
+#endif
+
 #define VC_PLUGIN
 #include "vc.h"
 
