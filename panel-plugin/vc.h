@@ -75,18 +75,18 @@ void vc_free_device_list(GList *device_list);
 #else
 #define REGISTER_VC_PLUGIN(a) \
 static volchanger_t vc = { \
-        name: #a, \
-        vc_set_device: vc_set_device, \
-        vc_get_volume: vc_get_volume, \
-        vc_set_volume: vc_set_volume, \
-        vc_reinit_device: vc_reinit_device, \
-        vc_get_control_list: vc_get_control_list, \
-        vc_set_volume_callback: vc_set_volume_callback, \
-        vc_close_device: vc_close_device, \
-        vc_get_device_list: vc_get_device_list \
+        #a, \
+        vc_set_device, \
+        vc_reinit_device, \
+        vc_get_volume, \
+        vc_set_volume, \
+        vc_get_control_list, \
+        vc_set_volume_callback, \
+        vc_close_device, \
+        vc_get_device_list \
 }; \
 \
-int register_##a(void) \
+int register_##a( ) \
 { \
 	if (init()) { \
 	        register_vc(&vc); \
