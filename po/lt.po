@@ -8,14 +8,14 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.2\n"
-"POT-Creation-Date: 2004-08-06 22:56+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-09-21 00:02+0200\n"
 "PO-Revision-Date: 2004-06-11 20:49+0300\n"
 "Last-Translator:  <>\n"
 "Language-Team:  <komp_lt@konferencijos.lt>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-13\n"
 "Content-Transfer-Encoding: \n"
-"Report-Msgid-Bugs-To: \n"
 
 #: mixer-settingsbox.gob:97
 msgid "Device"
@@ -192,20 +192,20 @@ msgstr "oss: Nëra pagrindinio garso"
 msgid "Volume: %d%%"
 msgstr "Garsas: %d%%"
 
-#: panel-plugin/plugin.c:387 mixer-window.gob:110
+#: panel-plugin/plugin.c:387 mixer-window.gob:143
 msgid "Volume Control"
 msgstr "Garso Valdymas"
 
-#: settings/sound.c:69 settings/sound.c:87
+#: settings/sound.c:80 settings/sound.c:102 settings/sound.c:109
 msgid "Sound"
 msgstr "Garsas"
 
-#: mixer-view.gob:255
+#: mixer-view.gob:258
 #, fuzzy
 msgid "Show Switches"
 msgstr "Rodyti jungtukas"
 
-#: mixer-view.gob:256
+#: mixer-view.gob:259
 #, fuzzy
 msgid "Hide Switches"
 msgstr "Slëpti jungtukas"

@@ -6,14 +6,14 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: es\n"
-"POT-Creation-Date: 2004-08-06 22:56+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-09-21 00:02+0200\n"
 "PO-Revision-Date: 2004-09-13 15:25+0200\n"
 "Last-Translator: Piarres Beobide Egaña <pi@beobide.net>\n"
 "Language-Team: Euskara <librezale@librezale.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Report-Msgid-Bugs-To: \n"
 "X-Generator: KBabel 1.3.1\n"
 "Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
 
@@ -170,19 +170,19 @@ msgstr "oss: Bolumen nagusirik gabea"
 msgid "Volume: %d%%"
 msgstr "Bolumena: %% %d"
 
-#: panel-plugin/plugin.c:387 mixer-window.gob:110
+#: panel-plugin/plugin.c:387 mixer-window.gob:143
 msgid "Volume Control"
 msgstr "Bolumen Kontrola"
 
-#: settings/sound.c:69 settings/sound.c:87
+#: settings/sound.c:80 settings/sound.c:102 settings/sound.c:109
 msgid "Sound"
 msgstr "Sonido"
 
-#: mixer-view.gob:255
+#: mixer-view.gob:258
 msgid "Show Switches"
 msgstr "Konmutadoreak Bistarazi"
 
-#: mixer-view.gob:256
+#: mixer-view.gob:259
 msgid "Hide Switches"
 msgstr "Konmutadoreak Ezkutatu"
 
@@ -299,4 +299,3 @@ msgstr ""
 
 #~ msgid "Visible"
 #~ msgstr "Ikusgai"
-

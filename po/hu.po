@@ -8,14 +8,14 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: hu\n"
-"POT-Creation-Date: 2004-08-06 22:56+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-09-21 00:02+0200\n"
 "PO-Revision-Date: 2003-07-16 16:20+0200\n"
 "Last-Translator: Egmont Koblinger <egmont@uhulinux.hu>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Report-Msgid-Bugs-To: \n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: KBabel 1.0.1\n"
 
@@ -174,19 +174,19 @@ msgstr "oss: Nincsen master"
 msgid "Volume: %d%%"
 msgstr "Hangerő: %d%%"
 
-#: panel-plugin/plugin.c:387 mixer-window.gob:110
+#: panel-plugin/plugin.c:387 mixer-window.gob:143
 msgid "Volume Control"
 msgstr "Hangerő-szabályozó"
 
-#: settings/sound.c:69 settings/sound.c:87
+#: settings/sound.c:80 settings/sound.c:102 settings/sound.c:109
 msgid "Sound"
 msgstr ""
 
-#: mixer-view.gob:255
+#: mixer-view.gob:258
 msgid "Show Switches"
 msgstr ""
 
-#: mixer-view.gob:256
+#: mixer-view.gob:259
 msgid "Hide Switches"
 msgstr ""
 

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-08-26 00:04+0200\n"
+"POT-Creation-Date: 2004-09-21 00:02+0200\n"
 "PO-Revision-Date: 2004-02-03 10:04+0200\n"
 "Last-Translator: Peeter Vois <Peeter.Vois@mail.ee>\n"
 "Language-Team: Estonian <et@li.org>\n"
@@ -167,11 +167,11 @@ msgstr "oss: Ei ole peamist helitugevust"
 msgid "Volume: %d%%"
 msgstr "Helitugevus: %d%%"
 
-#: panel-plugin/plugin.c:387 mixer-window.gob:110
+#: panel-plugin/plugin.c:387 mixer-window.gob:143
 msgid "Volume Control"
 msgstr "Helitugevus"
 
-#: settings/sound.c:69 settings/sound.c:87
+#: settings/sound.c:80 settings/sound.c:102 settings/sound.c:109
 msgid "Sound"
 msgstr "Heli"
 
@@ -290,4 +290,3 @@ msgstr ""
 "See on xfce4-mixer, helivajuse juhtimise programm.\n"
 "See on väljastatud GPL-2 Litsentsi all, mida leiad lähtekoodi kataloogist.\n"
 "Mingil juhul ei ole garantiid."
-

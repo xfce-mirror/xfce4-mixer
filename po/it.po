@@ -6,7 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: XFce4\n"
-"POT-Creation-Date: 2004-08-06 22:56+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-09-21 00:02+0200\n"
 "PO-Revision-Date: 2004-03-11 13:41+0100\n"
 "Last-Translator: Alex Dupre <ale@FreeBSD.org>\n"
 "Language-Team: GUFI <traduzioni@gufi.org>\n"
@@ -168,19 +169,19 @@ msgstr "oss: Nessun volume principale"
 msgid "Volume: %d%%"
 msgstr "Volume: %d%%"
 
-#: panel-plugin/plugin.c:387 mixer-window.gob:110
+#: panel-plugin/plugin.c:387 mixer-window.gob:143
 msgid "Volume Control"
 msgstr "Controllo Volume"
 
-#: settings/sound.c:69 settings/sound.c:87
+#: settings/sound.c:80 settings/sound.c:102 settings/sound.c:109
 msgid "Sound"
 msgstr ""
 
-#: mixer-view.gob:255
+#: mixer-view.gob:258
 msgid "Show Switches"
 msgstr ""
 
-#: mixer-view.gob:256
+#: mixer-view.gob:259
 msgid "Hide Switches"
 msgstr ""
 

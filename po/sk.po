@@ -6,7 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer\n"
-"POT-Creation-Date: 2004-08-06 22:56+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-09-21 00:02+0200\n"
 "PO-Revision-Date: 2004-08-26 20:59+0200\n"
 "Last-Translator: Juraj Brosz <Juraj.Brosz@pobox.sk>\n"
 "Language-Team: Slovak <sk@li.org>\n"
@@ -168,19 +169,19 @@ msgstr ""
 msgid "Volume: %d%%"
 msgstr "Hlasitosť: %d%%"
 
-#: panel-plugin/plugin.c:387 mixer-window.gob:110
+#: panel-plugin/plugin.c:387 mixer-window.gob:143
 msgid "Volume Control"
 msgstr "Nastavenie hlasitosti"
 
-#: settings/sound.c:69 settings/sound.c:87
+#: settings/sound.c:80 settings/sound.c:102 settings/sound.c:109
 msgid "Sound"
 msgstr "Zvuk"
 
-#: mixer-view.gob:255
+#: mixer-view.gob:258
 msgid "Show Switches"
 msgstr "Zobraziť prepínače"
 
-#: mixer-view.gob:256
+#: mixer-view.gob:259
 msgid "Hide Switches"
 msgstr "Skryť prepínače"
 
@@ -288,4 +289,3 @@ msgid ""
 "directory.\n"
 "No warranty in any way."
 msgstr ""
-
