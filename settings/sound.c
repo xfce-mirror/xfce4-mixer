@@ -78,7 +78,7 @@ mcs_plugin_init(McsPlugin *plugin)
 	g_free(file);
 
 	plugin->plugin_name = g_strdup ("sound");
-	plugin->caption = g_strdup ( dgettext(GETTEXT_PACKAGE, "Sound"));
+	plugin->caption = g_strdup ( _("Sound"));
 	plugin->run_dialog = run_dialog;
 	plugin->icon = xfce_themed_icon_load ("xfce4-mixer", 48);
 	
