@@ -7,7 +7,7 @@ dnl Checks for libraries.
 
 
 AM_CONFIG_HEADER([config.h])
-AM_INIT_AUTOMAKE([xfce4-mixer], [4.2.0])
+AM_INIT_AUTOMAKE([xfce4-mixer], [4.2.1])
 AM_MAINTAINER_MODE
 
 dnl Check for UNIX variants
