@@ -37,8 +37,10 @@ XfceMixerControl *xfce_mixer_control_factory_new_from_profile_item(
 		if (mcsc)
 			uc = xfce_mixer_mcs_client_get_useful_controls (mcsc, 
 				vc_get_device ());
+		else
+			uc = NULL;
 			
-		if (mcsc && uc) {
+		if (uc) {
 			uct = g_strdup_printf ("@%s@", item->vcname);
 			if (uct) {
 				b = g_strrstr (uc, uct) != NULL;
