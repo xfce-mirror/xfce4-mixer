@@ -17,6 +17,7 @@ libmixer_la_SOURCES =							\
 	vc_oss.c
 
 libmixer_la_CFLAGS =							\
+	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"				\
 	@XFCE4_PANEL_CFLAGS@
 
 libmixer_la_LIBADD = 							\

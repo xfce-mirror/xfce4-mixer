@@ -1,6 +1,6 @@
 @SET_MAKE@
 
-SUBDIRS = panel-plugin
+SUBDIRS = panel-plugin po
 
 distclean-local:
 	rm -rf *.cache *~

@@ -65,118 +65,125 @@
 
 #include <glib.h>
 
+#include <libxfce4util/i18n.h>
+
 #define VC_PLUGIN
 #include "vc.h"
 
 #define MAX_AMP 100
 
-/* TODO */
-
 static char dev_name[PATH_MAX] = { "/dev/mixer" };
 
 static int mixer_handle = -1;
 static int devmask = 0;                /* Bitmask for supported mixer devices */
-static int	master_i = -1;
+static int master_i = -1;
 
-/*static int level[SOUND_MIXER_NRDEVICES];*/
 static char *label[SOUND_MIXER_NRDEVICES] = SOUND_DEVICE_LABELS;
-/*
-left = level[i] & 0x7f;
-right = (level[i] >> 8) & 0x7f;
-*/
 
-static void find_master()
+static void
+find_master(void)
 {
-	int	i;
+	int i;
+	
+	g_return_if_fail(mixer_handle != -1);
+
 	devmask = 0;
 	master_i = -1;
-	
-	if (mixer_handle == -1) return;
 
-	g_print("find_master()\n");
-	
-	if (ioctl(mixer_handle, SOUND_MIXER_READ_DEVMASK, &devmask) == -1)
-	{
-		perror("SOUND_MIXER_READ_DEVMASK");
-		close(mixer_handle); mixer_handle = -1;
+	if (ioctl(mixer_handle, SOUND_MIXER_READ_DEVMASK, &devmask) == -1) {
+		perror("Unable to get mixer device mask");
+		(void)close(mixer_handle);
+		mixer_handle = -1;
+		return;
 	}
 	
-	for(i = 0; i < SOUND_MIXER_NRDEVICES; i++) if (devmask & (1 << i)) {
-		if (master_i == -1) { master_i = 0; } /* if in doubt, choose the first */
-		/*level[i] = 0;*/
-		if ((!strcasecmp(label[i], "Master")) || (!strncasecmp(label[i], "Vol", 3))) {
-			master_i = i;
+	for (i = 0; i < SOUND_MIXER_NRDEVICES; i++) {
+		if (devmask & (1 << i)) {
+			/* if in doubt, choose the first */
+			if (master_i == -1)
+				master_i = 0;
+
+			if ((!strcasecmp(label[i], "Master"))
+		 	 || (!strncasecmp(label[i], "Vol", 3)))
+				master_i = i;
 		}
 	}
 }
 
-static void set_device(char const *name)
+static void
+set_device(const gchar *name)
 {
 	if (mixer_handle != -1) {
-		close(mixer_handle);
+		(void)close(mixer_handle);
 		mixer_handle = -1;
 	}
-	strncpy(dev_name, name, sizeof(dev_name) - 1);
-	dev_name[sizeof(dev_name) - 1] = 0;
+
+	g_strlcpy(dev_name, name, sizeof(dev_name) - 1);
 	mixer_handle = open(dev_name, O_RDWR, 0);
 	find_master();
 }
 
-static int reinit_device()
+static int
+reinit_device()
 {
 	find_master();
+
 	if (master_i == -1) {
-		g_warning("No master");
+		g_warning(_("No master"));
 		return -1;
 	}
 	
 	return 0;
 }
 
-static int init(void)
+static int
+init(void)
 {
 	set_device(dev_name);
 	return 1;
 }
 
-
-
-static void set_master_volume(int vol_p)
+/*
+ * Sets master volume in percent
+ */
+static void
+set_master_volume(int percent)
 {
-	int	vol;
-	int	level;
-	if (mixer_handle == -1 || master_i == -1) return;
+	int vol;
+	int level;
 
-	vol = (vol_p * MAX_AMP) / 100;
+	g_return_if_fail(master_i != -1);
+	g_return_if_fail(mixer_handle != -1);
 
+	vol = (percent * MAX_AMP) / 100;
 	level = (vol << 8) | vol;
 
-	ioctl(mixer_handle, MIXER_WRITE(master_i), &level);
+	if (ioctl(mixer_handle, MIXER_WRITE(master_i), &level) < 0)
+		perror("Unable to set master volume");
 }
 
-static int get_master_volume(void)
+#define LEFT(lvl)	((lvl) & 0x7f)
+#define RIGHT(lvl)	(((lvl) >> 8) & 0x7f)
+
+/*
+ * Returns master volume in percent
+ */
+static int
+get_master_volume(void)
 {
-	int	left;
-	int	right;
-	int	vol;
-	int	vol_p; /* % */
-	int	level;
+	int level;
 	
-	if (mixer_handle == -1 || master_i == -1) return 0;
+	g_return_val_if_fail(master_i != -1, 0);
+	g_return_val_if_fail(mixer_handle != -1, 0);
 
 	level = 0;
+
 	if (ioctl(mixer_handle, MIXER_READ(master_i), &level) == -1) {
-		perror("MIXER_READ");
-		/* nm */
+		perror("Unable to get master volume");
+		return(0);
 	}
 
-	left = level & 0x7f;
-	right = (level >> 8) & 0x7f;
-	
-	vol = (left + right) >> 1;
-	vol_p = (vol * 100) / MAX_AMP; /* I guess */
-
-	return vol_p;
+	return((((LEFT(level) + RIGHT(level)) >> 1) * 100) / MAX_AMP);
 }
 
 REGISTER_VC_PLUGIN(oss);

@@ -1,0 +1,5 @@
+panel-plugin/mixer.c
+panel-plugin/vc.c
+panel-plugin/vc_alsa.c
+panel-plugin/vc_alsa_fallback.c
+panel-plugin/vc_oss.c

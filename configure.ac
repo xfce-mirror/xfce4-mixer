@@ -2,6 +2,7 @@ dnl configure.ac
 dnl
 dnl xfce4-mixer - Volume changer for XFce4
 dnl
+dnl 2003 Danny Milosavljevic <danny_milo@yahoo.com>
 dnl 2003 Benedikt Meurer <benedikt.meurer@unix-ag.uni-siegen.de>
 dnl
 
@@ -51,6 +52,9 @@ else
   AC_MSG_ERROR([Unknown sound system "$with_sound"])
 fi
 
+dnl Check for i18n support
+BM_I18N([xfce4-mixer], [de])
+
 dnl configure the panel plugin
 XFCE_PANEL_PLUGIN([XFCE4_PANEL], [0.10.1])
 
@@ -60,4 +64,5 @@ BM_DEBUG_SUPPORT
 AC_OUTPUT([
 Makefile
 panel-plugin/Makefile
+po/Makefile.in
 ])

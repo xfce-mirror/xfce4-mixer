@@ -56,12 +56,9 @@
 #include <panel/plugins.h>
 #include <panel/xfce_support.h>
 #include <panel/item_dialog.h>
-/*#include <libxml/xml.h>*/
-/*#include <panel/settings.h>*/
 
 #include "vc.h"
 
-/*#define BORDER 6*/
 /* for xml: */
 #define MIXER_ROOT "Mixer"
 
@@ -133,7 +130,7 @@ static int find_working_sound(void)
 		v = next_vc(v);
 	}
 
-	g_warning("no working sound");
+	g_warning(_("No working sound"));
 	
 	return -1;
 }
@@ -158,13 +155,8 @@ xfce_mixer_get_pixbuf_for(gboolean broken)
 	pb = get_pixbuf_by_id(SOUND_ICON);
 	if (broken) {
 		pb2 = gdk_pixbuf_copy(pb);
-		/*pb = gdk_pixbuf_add_alpha(pb, FALSE, 0,0,0);*/ /* copies too */
 		gdk_pixbuf_saturate_and_pixelate(pb, pb2, 0, TRUE);
-		/*pb = gdk_pixbuf_copy(pb2);
-		composite_color(pb2, 0, 0, gdk_pixbuf_get_width(pb), 
-		get_pixbuf_get_height(pb), 0,0, 1.0,1.0, INTERPOL, 
-		255, 0,0, check_size, color1, color2); blah*/
-		
+
 		/*saturation, pixelate)*/
 		swap_pixbuf_ptrs(&pb, &pb2);
 
@@ -215,14 +207,12 @@ mixer_new (void)
     mixer->options.use_terminal = FALSE;
     
     mixer->hbox = GTK_BOX(gtk_hbox_new(FALSE, 0));
-    /*gtk_box_set_border(GTK_BOX(mixer->hbox), border_width);*/
     gtk_widget_set_name (GTK_WIDGET(mixer->hbox), "xfce_mixer");
     gtk_container_set_border_width(GTK_CONTAINER(mixer->hbox), border_width);
 
     gtk_widget_show(GTK_WIDGET(mixer->hbox));
 
     mixer->mixer = xfce_mixer_new (&mixer->broken);
-    /*gtk_widget_set_name(mixer->mixer, "xfce_mixer");*/
     gtk_widget_show (mixer->mixer);
     gtk_box_pack_start (GTK_BOX(mixer->hbox), GTK_WIDGET(mixer->mixer), FALSE, FALSE, 0);
 
@@ -236,27 +226,21 @@ mixer_new (void)
     
     if (rc) {
     	rc->color_flags[GTK_STATE_PRELIGHT] |= GTK_RC_BG; 
-    	/*rc->color_flags[GTK_STATE_NORMAL] |= GTK_RC_BG; */
         rc->bg[GTK_STATE_PRELIGHT] = color;
-        /*rc->bg[GTK_STATE_NORMAL] = color;*/
     }
    
-    /*gtk_rc_parse_string("gtk-progressbar-style"style);*/
-    /*bg[PRELIGHT]
-    bg[NORMAL]*/
-    
     gtk_widget_modify_style(GTK_WIDGET(mixer->status), rc); /* gone afterwards */
     
-    /*gtk_widget_set_size_request(GTK_WIDGET(mixer->status), 8, 32);*/
     gtk_widget_show(GTK_WIDGET(mixer->status));
 
     mixer->eventbox = gtk_event_box_new ();
-    /*gtk_widget_set_name (mixer->eventbox, "xfce_mixer");*/
     gtk_widget_show (mixer->eventbox);
     
-    gtk_container_add (GTK_CONTAINER (mixer->eventbox), GTK_WIDGET(mixer->status));
+    gtk_container_add (GTK_CONTAINER (mixer->eventbox),
+		    GTK_WIDGET(mixer->status));
 
-    gtk_box_pack_start (GTK_BOX(mixer->hbox), GTK_WIDGET(mixer->eventbox), FALSE, FALSE, 0);
+    gtk_box_pack_start (GTK_BOX(mixer->hbox), GTK_WIDGET(mixer->eventbox),
+		    FALSE, FALSE, 0);
     
     return mixer;
 }
@@ -264,9 +248,21 @@ mixer_new (void)
 static gboolean
 update_volume_display(t_mixer *mixer)
 {
-	gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(mixer->status), mixer->c_volume / 100.0);
+	gchar *caption;
+
+	caption = g_strdup_printf(_("Volume control - %d%%"), mixer->c_volume);
+	gtk_tooltips_set_tip(tooltips, GTK_WIDGET(mixer->hbox), caption,
+			NULL);
+	gtk_tooltips_set_tip(tooltips, GTK_WIDGET(mixer->mixer), caption,
+			NULL);
+	gtk_tooltips_set_tip(tooltips, GTK_WIDGET(mixer->eventbox), caption,
+			NULL);
+	g_free(caption);
+
+	gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(mixer->status),
+			mixer->c_volume / 100.0);
 	
-	return FALSE;
+	return(FALSE);
 }
 
 
@@ -279,7 +275,6 @@ check_volume (t_mixer *mixer)
 		return FALSE; /* stop */
 	
 	volume = get_master_volume();
-	/*xfce_info("%d %d", volume, mixer->c_volume);*/
 	if (volume != mixer->c_volume) {
 		mixer->c_volume = volume; /* atomic? lol */
 		g_idle_add((GSourceFunc) update_volume_display, mixer);
@@ -338,18 +333,10 @@ xfce_mixer_status_button_cb (GtkWidget * widget, GdkEventButton *b, t_mixer *mix
 {
 	int	y; /* pos */
 	int	sy; /* size */
-	/* b->type == GDK_BUTTON_PRESS|GDK_BUTTON_RELEASE|... */
-	/* b->button = 1 or 2 or 3 (4,5)*/
-	/* b->state = shift state (GdkModifierType) */
-	/* b->x_root */
-	/* b->y_root */
-	/*if (b->type != GDK_BUTTON_PRESS) return FALSE;*/
 
 	y = (int)b->y;
-	/*gtk_widget_get_size(GTK_WIDGET(widget), &sx, &sy);*/
 	
 	sy = widget->allocation.height;
-	/*xfce_info("%d/%d", y, sy);*/
 	if (sy != 0) {
 		/* this is a hack 'cause I dont know how to get the height 
 		   of the border of the progressbar yet ;) */
@@ -369,8 +356,8 @@ xfce_mixer_launch_button_cb(t_mixer *mixer)
 {
 	if (!mixer->options.command) return TRUE;
 	
-	exec_cmd(mixer->options.command, mixer->options.use_terminal, mixer->options.use_sn);
-	/*exec_cmd("aumix", FALSE, TRUE);*/
+	exec_cmd(mixer->options.command, mixer->options.use_terminal,
+			mixer->options.use_sn);
 	return TRUE;
 }
 
@@ -404,9 +391,6 @@ mixer_attach_callback (Control * control, const char *signal,
                        GCallback callback, gpointer data)
 {
     t_mixer *mixer = control->data;
-#if 0
-    g_signal_connect (mixer->eventbox, signal, callback, data);
-#endif
 
     g_signal_connect (mixer->mixer, signal, callback, data);
 }
@@ -423,7 +407,6 @@ mixer_set_size (Control *control, int size)
 	gtk_widget_set_size_request(GTK_WIDGET(mixer->status), 6 + 2 * size, icon_size[size]);
 
 	gtk_widget_queue_resize (GTK_WIDGET (mixer->status));
-	/*gtk_widget_queue_resize (GTK_WIDGET (mixer->hbox));*/
 }
 
 
@@ -446,14 +429,10 @@ create_mixer_control (Control * control)
 	control->with_popup = FALSE;
 
 	gtk_widget_set_size_request (control->base, -1, -1);
-	/*mixer_set_size (control, settings.size);*/
 
 	g_signal_connect(mixer->eventbox, "scroll-event", G_CALLBACK(xfce_mixer_scroll_cb), mixer);
 
 	g_signal_connect(mixer->hbox, "scroll-event", G_CALLBACK(xfce_mixer_scroll_cb), mixer);
-#if 0
-	g_signal_connect(mixer->status, "scroll-event", G_CALLBACK(xfce_mixer_scroll_cb), mixer);
-#endif
 	g_signal_connect(mixer->eventbox, "button-press-event", G_CALLBACK(xfce_mixer_status_button_cb), mixer);
 	g_signal_connect(mixer->eventbox, "button-release-event", G_CALLBACK(xfce_mixer_status_button_cb), mixer);
 	
@@ -465,23 +444,19 @@ create_mixer_control (Control * control)
 		mixer->timeout_id = g_timeout_add(5 * 1000, (GSourceFunc) check_volume, mixer);
 	}
 
-	gtk_tooltips_set_tip(tooltips, GTK_WIDGET(mixer->hbox), _("Volume Control"), NULL);
-	gtk_tooltips_set_tip(tooltips, GTK_WIDGET(mixer->mixer), _("Volume Control"), NULL);
-	gtk_tooltips_set_tip(tooltips, GTK_WIDGET(mixer->eventbox), _("Volume Control"), NULL);
-
 	return TRUE;
 }
 
-static
-void create_options_backup(t_mixer *mixer)
+static void
+create_options_backup(t_mixer *mixer)
 {
 	mixer->revert.command = g_strdup(mixer->options.command); 
 	mixer->revert.use_sn = mixer->options.use_sn;
 	mixer->revert.use_terminal = mixer->options.use_terminal;
 }
 
-static
-GtkWidget *mixer_options_get(GtkContainer *c, int index)
+static GtkWidget *
+mixer_options_get(GtkContainer *c, int index)
 {
 	GList	*list;
 	GList	*iter;
@@ -541,7 +516,6 @@ mixer_do_options(t_mixer *mixer, int mode) /* 0: load; 1: store; 2: connect reve
 	GtkCheckButton	*b_use_term = NULL;
 	GtkButton	*b_dotdotdot = NULL;
 	c = mixer->settings_c; /* vbox 1 */
-	/*c = GTK_CONTAINER(mixer_options_get(mixer->settings_c, 100));*/ /* vbox */
 
 	if (c) {
 		h1 = GTK_CONTAINER(mixer_options_get(c, 0));
@@ -553,11 +527,10 @@ mixer_do_options(t_mixer *mixer, int mode) /* 0: load; 1: store; 2: connect reve
 		b_use_term = GTK_CHECK_BUTTON(mixer_options_get(v2, 0));
 		b_use_sn = GTK_CHECK_BUTTON(mixer_options_get(v2, 1));
 	}
-	/*xfce_info("c: %X, h1: %X, h2: %X, v2: %X, e_command: %X, b_use_sn: %X, b_use_term: %X",
-		c, h1, h2, v2, e_command, b_use_sn, b_use_term);
-	*/
 	if (b_dotdotdot && mode == 2) {
-		g_signal_connect(GTK_WIDGET(b_dotdotdot), "clicked", G_CALLBACK(mixer_revert_make_sensitive), mixer->revert_b);
+		g_signal_connect(GTK_WIDGET(b_dotdotdot), "clicked",
+				G_CALLBACK(mixer_revert_make_sensitive),
+				mixer->revert_b);
 	}
 		
 	if (e_command) {
@@ -570,7 +543,6 @@ mixer_do_options(t_mixer *mixer, int mode) /* 0: load; 1: store; 2: connect reve
 			break;
 		case 0:
 			gtk_entry_set_text(GTK_ENTRY(e_command), g_strdup(mixer->options.command));
-			/*gtk_entry_set_text(GTK_ENTRY(e_command), g_strdup("test"));*/
 			break;
 		case 2:
 			g_signal_connect_swapped (e_command, "insert-at-cursor", G_CALLBACK (mixer_revert_make_sensitive), mixer->revert_b);
@@ -661,8 +633,6 @@ mixer_add_options(Control *control, GtkContainer *container, GtkWidget *revert, 
 	vbox = create_command_option(mixer->sg);
 	gtk_container_add(GTK_CONTAINER(container), GTK_WIDGET(vbox));
 	mixer->settings_c = GTK_CONTAINER(vbox);
-	/*g_signal_connect(GTK_WIDGET(vbox), "show-event", G_CALLBACK(mixer_fill_options), mixer);*/
-	/*g_signal_connect(GTK_WIDGET(vbox), "hide-event", G_CALLBACK(mixer_apply_options), mixer);*/
 	mixer_fill_options(mixer);
 	mixer_do_options(mixer, 2);
 	create_options_backup(mixer);
@@ -737,6 +707,13 @@ mixer_write_config(Control *control, xmlNodePtr parent)
 G_MODULE_EXPORT void
 xfce_control_class_init (ControlClass * cc)
 {
+#ifdef ENABLE_NLS
+    /* This is required for UTF-8 at least - Please don't remove it */
+    bindtextdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR);
+    bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
+    textdomain (GETTEXT_PACKAGE);
+#endif
+
     cc->name = "mixer";
     cc->caption = _("Volume Control");
 

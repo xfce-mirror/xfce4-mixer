@@ -84,18 +84,18 @@ static void find_master(void)
 	}
 	
 	if ((err = snd_mixer_open(&handle, 0)) < 0) {
-		error("Mixer %s open error: %s\n", card, snd_strerror(err));
+		error(_("Mixer %s open error: %s\n"), card, snd_strerror(err));
 		return;
 	}
 	
 	if ((err = snd_mixer_attach(handle, card)) < 0) {
-		error("Mixer attach %s error: %s", card, snd_strerror(err));
+		error(_("Mixer attach %s error: %s"), card, snd_strerror(err));
 		snd_mixer_close(handle);
 		return;
 	}
 	if ((err = snd_mixer_selem_register(handle, NULL, NULL)) < 0) {
 #ifdef DEBUG
-		xfce_info("Mixer register error: %s", snd_strerror(err));  
+		xfce_info(_("Mixer register error: %s"), snd_strerror(err));  
 #endif
 		snd_mixer_close(handle);
 		return;
@@ -103,7 +103,7 @@ static void find_master(void)
         err = snd_mixer_load(handle);
 	if (err < 0) {
 #ifdef DEBUG
-		xfce_info("Mixer load error: %s", card, snd_strerror(err));
+		xfce_info(_("Mixer load error: %s"), card, snd_strerror(err));
 #endif
 		snd_mixer_close(handle);
 		return;
@@ -113,7 +113,7 @@ static void find_master(void)
 		elem = snd_mixer_find_selem(handle, sid2);
 		if (!elem) {
 #ifdef DEBUG
-			xfce_info("Unable to find simple control '%s',%i\n", 
+			xfce_info(_("Unable to find simple control '%s',%i\n"),
 			snd_mixer_selem_id_get_name(sid), snd_mixer_selem_id_get_index(sid));
 #endif
 			snd_mixer_close(handle);
@@ -139,10 +139,6 @@ static int reinit_device(void)
 
 static int init(void)
 {
-/*	if (snd_mixer_open(&m, 0) < 0) {
-		m = NULL;
-	}
-*/
 	find_master();
 	return USE_THAT;
 }

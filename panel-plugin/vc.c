@@ -49,8 +49,6 @@ void register_vc(volchanger_t *vc)
 {
 	int	i;
 
-	g_print("register_vc()\n");
-
 	for(i = 0; i < MAX_VC; i++) {
 		if (vcs[i] == NULL) {
 			vcs[i] = vc;
