@@ -16,20 +16,15 @@ extern "C" {
 #include "xfce-mixer-profile.h"
 #include "main.h"
 #include "xfce-mixer-mcs-client.h"
+#include "xfce_sizehook.h"
 
 #line 7 "mixer-window.gob"
-#line 22 "xfce-mixer-window-private.h"
-struct _XfceMixerWindowPrivate {
-#line 41 "mixer-window.gob"
-	gboolean sticky;
-#line 26 "xfce-mixer-window-private.h"
-};
+#line 23 "xfce-mixer-window-private.h"
 void 	xfce_mixer_window_set_profile	(XfceMixerWindow * self, XfceMixerProfile * p);
-gboolean 	xfce_mixer_window_window_state_event_cb	(XfceMixerWindow * self, GdkEvent * event, GtkWidget * widget);
 void 	xfce_mixer_window_xml_goto_device	(XfceMixerWindow * self, XfceMixerPxml * xml);
 void 	xfce_mixer_window_load_window_state	(XfceMixerWindow * self);
-void 	xfce_mixer_window_save_window_state	(XfceMixerWindow * self);
-gboolean 	xfce_mixer_window_delete_event_cb	(XfceMixerWindow * self, GdkEvent * event, GtkWidget * widget);
+void 	xfce_mixer_window_save_window_state_cb	(XfceMixerWindow * self, t_window_state * s, GtkWindow * w);
+void 	xfce_mixer_window_save_window_state	(XfceMixerWindow * self, t_window_state * s);
 void 	xfce_mixer_window_mcs_changed_cb	(XfceMixerWindow * self, GtkWidget * widget);
 void 	xfce_mixer_window_profiles_changed_cb	(XfceMixerWindow * self, GObject * profiles);
 void 	xfce_mixer_window_view_profile_activate_cb	(XfceMixerWindow * self, GtkWidget * w);

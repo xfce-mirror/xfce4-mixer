@@ -74,7 +74,8 @@ am_xfce4_mixer_OBJECTS = xfce4_mixer-xfce-mixer-control.$(OBJEXT) \
 	xfce4_mixer-xfce-mixer-profilebox.$(OBJEXT) \
 	xfce4_mixer-xfce-mixer-profilebox-detail.$(OBJEXT) \
 	xfce4_mixer-xfce-mixer-pxml.$(OBJEXT) \
-	xfce4_mixer-xfce-mixer-profiles.$(OBJEXT)
+	xfce4_mixer-xfce-mixer-profiles.$(OBJEXT) \
+	xfce4_mixer-xfce_sizehook.$(OBJEXT)
 xfce4_mixer_OBJECTS = $(am_xfce4_mixer_OBJECTS)
 DEFAULT_INCLUDES = -I. -I$(srcdir) -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/depcomp
@@ -101,7 +102,8 @@ am__depfiles_maybe = depfiles
 @AMDEP_TRUE@	./$(DEPDIR)/xfce4_mixer-xfce-mixer-switch.Po \
 @AMDEP_TRUE@	./$(DEPDIR)/xfce4_mixer-xfce-mixer-view-tiny.Po \
 @AMDEP_TRUE@	./$(DEPDIR)/xfce4_mixer-xfce-mixer-view.Po \
-@AMDEP_TRUE@	./$(DEPDIR)/xfce4_mixer-xfce-mixer-window.Po
+@AMDEP_TRUE@	./$(DEPDIR)/xfce4_mixer-xfce-mixer-window.Po \
+@AMDEP_TRUE@	./$(DEPDIR)/xfce4_mixer-xfce_sizehook.Po
 COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
 	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 LTCOMPILE = $(LIBTOOL) --mode=compile $(CC) $(DEFS) \
@@ -266,7 +268,8 @@ xfce4_mixer_SOURCES = xfce-mixer-control.c xfce-mixer-slider.c \
 	xfce-mixer-select.c string_option_menu.c \
 	xfce-mixer-mcs-client.c xfce-mixer-profiledlg.c \
 	xfce-mixer-profilebox.c xfce-mixer-profilebox-detail.c \
-	xfce-mixer-pxml.c xfce-mixer-profiles.c
+	xfce-mixer-pxml.c xfce-mixer-profiles.c \
+	xfce_sizehook.c xfce_sizehook.h
 
 xfce4_mixer_GSOURCES = mixer-control.gob \
 	mixer-slider.gob mixer-view.gob mixer-view-tiny.gob \
@@ -395,6 +398,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/xfce4_mixer-xfce-mixer-view-tiny.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/xfce4_mixer-xfce-mixer-view.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/xfce4_mixer-xfce-mixer-window.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/xfce4_mixer-xfce_sizehook.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	if $(COMPILE) -MT $@ -MD -MP -MF "$(DEPDIR)/$*.Tpo" -c -o $@ $<; \
@@ -971,6 +975,30 @@ xfce4_mixer-xfce-mixer-profiles.lo: xfce-mixer-profiles.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/xfce4_mixer-xfce-mixer-profiles.Plo' tmpdepfile='$(DEPDIR)/xfce4_mixer-xfce-mixer-profiles.TPlo' @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(xfce4_mixer_CFLAGS) $(CFLAGS) -c -o xfce4_mixer-xfce-mixer-profiles.lo `test -f 'xfce-mixer-profiles.c' || echo '$(srcdir)/'`xfce-mixer-profiles.c
+
+xfce4_mixer-xfce_sizehook.o: xfce_sizehook.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(xfce4_mixer_CFLAGS) $(CFLAGS) -MT xfce4_mixer-xfce_sizehook.o -MD -MP -MF "$(DEPDIR)/xfce4_mixer-xfce_sizehook.Tpo" -c -o xfce4_mixer-xfce_sizehook.o `test -f 'xfce_sizehook.c' || echo '$(srcdir)/'`xfce_sizehook.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/xfce4_mixer-xfce_sizehook.Tpo" "$(DEPDIR)/xfce4_mixer-xfce_sizehook.Po"; else rm -f "$(DEPDIR)/xfce4_mixer-xfce_sizehook.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='xfce_sizehook.c' object='xfce4_mixer-xfce_sizehook.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/xfce4_mixer-xfce_sizehook.Po' tmpdepfile='$(DEPDIR)/xfce4_mixer-xfce_sizehook.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(xfce4_mixer_CFLAGS) $(CFLAGS) -c -o xfce4_mixer-xfce_sizehook.o `test -f 'xfce_sizehook.c' || echo '$(srcdir)/'`xfce_sizehook.c
+
+xfce4_mixer-xfce_sizehook.obj: xfce_sizehook.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(xfce4_mixer_CFLAGS) $(CFLAGS) -MT xfce4_mixer-xfce_sizehook.obj -MD -MP -MF "$(DEPDIR)/xfce4_mixer-xfce_sizehook.Tpo" -c -o xfce4_mixer-xfce_sizehook.obj `if test -f 'xfce_sizehook.c'; then $(CYGPATH_W) 'xfce_sizehook.c'; else $(CYGPATH_W) '$(srcdir)/xfce_sizehook.c'; fi`; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/xfce4_mixer-xfce_sizehook.Tpo" "$(DEPDIR)/xfce4_mixer-xfce_sizehook.Po"; else rm -f "$(DEPDIR)/xfce4_mixer-xfce_sizehook.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='xfce_sizehook.c' object='xfce4_mixer-xfce_sizehook.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/xfce4_mixer-xfce_sizehook.Po' tmpdepfile='$(DEPDIR)/xfce4_mixer-xfce_sizehook.TPo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(xfce4_mixer_CFLAGS) $(CFLAGS) -c -o xfce4_mixer-xfce_sizehook.obj `if test -f 'xfce_sizehook.c'; then $(CYGPATH_W) 'xfce_sizehook.c'; else $(CYGPATH_W) '$(srcdir)/xfce_sizehook.c'; fi`
+
+xfce4_mixer-xfce_sizehook.lo: xfce_sizehook.c
+@am__fastdepCC_TRUE@	if $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(xfce4_mixer_CFLAGS) $(CFLAGS) -MT xfce4_mixer-xfce_sizehook.lo -MD -MP -MF "$(DEPDIR)/xfce4_mixer-xfce_sizehook.Tpo" -c -o xfce4_mixer-xfce_sizehook.lo `test -f 'xfce_sizehook.c' || echo '$(srcdir)/'`xfce_sizehook.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/xfce4_mixer-xfce_sizehook.Tpo" "$(DEPDIR)/xfce4_mixer-xfce_sizehook.Plo"; else rm -f "$(DEPDIR)/xfce4_mixer-xfce_sizehook.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='xfce_sizehook.c' object='xfce4_mixer-xfce_sizehook.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	depfile='$(DEPDIR)/xfce4_mixer-xfce_sizehook.Plo' tmpdepfile='$(DEPDIR)/xfce4_mixer-xfce_sizehook.TPlo' @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(xfce4_mixer_CFLAGS) $(CFLAGS) -c -o xfce4_mixer-xfce_sizehook.lo `test -f 'xfce_sizehook.c' || echo '$(srcdir)/'`xfce_sizehook.c
 
 mostlyclean-libtool:
 	-rm -f *.lo

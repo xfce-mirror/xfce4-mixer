@@ -16,6 +16,7 @@ extern "C" {
 #include "xfce-mixer-profile.h"
 #include "main.h"
 #include "xfce-mixer-mcs-client.h"
+#include "xfce_sizehook.h"
 
 
 /*
@@ -28,9 +29,6 @@ extern "C" {
 #define XFCE_IS_MIXER_WINDOW(obj)	G_TYPE_CHECK_INSTANCE_TYPE((obj), xfce_mixer_window_get_type ())
 
 #define XFCE_MIXER_WINDOW_GET_CLASS(obj)	G_TYPE_INSTANCE_GET_CLASS((obj), xfce_mixer_window_get_type(), XfceMixerWindowClass)
-
-/* Private structure type */
-typedef struct _XfceMixerWindowPrivate XfceMixerWindowPrivate;
 
 /*
  * Main object structure
@@ -50,7 +48,6 @@ struct _XfceMixerWindow {
 	GtkMenuBar * menubar; /* protected */
 	GtkAccelGroup * accelgroup; /* protected */
 	gchar * fname; /* protected */
-	XfceMixerWindowPrivate *_priv;
 };
 
 /*

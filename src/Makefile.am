@@ -15,7 +15,8 @@ xfce4_mixer_SOURCES = xfce-mixer-control.c xfce-mixer-slider.c \
 	xfce-mixer-select.c string_option_menu.c \
 	xfce-mixer-mcs-client.c xfce-mixer-profiledlg.c \
 	xfce-mixer-profilebox.c xfce-mixer-profilebox-detail.c \
-	xfce-mixer-pxml.c xfce-mixer-profiles.c
+	xfce-mixer-pxml.c xfce-mixer-profiles.c \
+	xfce_sizehook.c xfce_sizehook.h
 
 xfce4_mixer_GSOURCES = mixer-control.gob \
 	mixer-slider.gob mixer-view.gob mixer-view-tiny.gob \
