@@ -1,0 +1,77 @@
+# translation of xfce4-mixer.po to Persian
+# Persian translation of xfce4-mixer.
+# Copyright (C) 2003 THE xfce4-mixer'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the xfce4-mixer package.
+# Abbas Izad <abbasizad@hotmail.com>, 2003.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4-mixer\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2003-08-02 11:41+0200\n"
+"PO-Revision-Date: 2003-12-26 17:37+0330\n"
+"Last-Translator: Abbas Izad <abbasizad@hotmail.com>\n"
+"Language-Team: Persian <fa@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.0.2\n"
+
+#: panel-plugin/mixer.c:157
+msgid "No working sound"
+msgstr "هیچ کارآرایی صوتی"
+
+#: panel-plugin/mixer.c:296
+#, c-format
+msgid "Volume: %d%%"
+msgstr "حجم: %d%%"
+
+#: panel-plugin/mixer.c:1022
+msgid "Device:"
+msgstr "دستگاه:"
+
+#: panel-plugin/mixer.c:1110
+msgid "Use _internal mixer"
+msgstr "استفاده از میکسر ـدرونی"
+
+#: panel-plugin/mixer.c:1307
+msgid "Volume Control"
+msgstr "کنترل حجم"
+
+#: panel-plugin/vc_alsa.c:90
+#, c-format
+msgid "alsa: Mixer %s open error: %s\n"
+msgstr "alsa: خطای باز کردن میکسر %s: %s\n"
+
+#: panel-plugin/vc_alsa.c:95
+#, c-format
+msgid "alsa: Mixer attach %s error: %s\n"
+msgstr "alsa: خطای %s ضمیمه کردن میکسر: %s\n"
+
+#: panel-plugin/vc_alsa.c:103
+#, c-format
+msgid "alsa: Mixer register error: %s"
+msgstr "alsa: خطای ثبت میکسر: %s"
+
+#: panel-plugin/vc_alsa.c:112
+#, c-format
+msgid "alsa: Mixer load error: %s"
+msgstr "alsa: خطای بار کردن میکسر: %s"
+
+#: panel-plugin/vc_alsa.c:122
+#, c-format
+msgid "alsa: Unable to find simple control '%s',%i\n"
+msgstr "alsa: قادر نبودن به یافتن کنترل ساده‌ی '%s',%i\n"
+
+#: panel-plugin/vc_oss.c:133
+msgid "oss: No master volume"
+msgstr "oss: هیچ حجم ارباب"
+
+#: panel-plugin/mvisible_opts.c:76
+msgid "Visible"
+msgstr "مرئی"
+
+#: panel-plugin/mvisible_opts.c:84
+msgid "Control"
+msgstr "کنترل"
+
