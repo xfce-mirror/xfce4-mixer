@@ -1,34 +1,21 @@
-# translation of cs.po to Czech
-# translation of xfce4-mixer.po to Czech
+# translation of cs.po to czech
+# translation of xfce4-mixer.po to czech
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
-# Alois Nespor <Alois.Nespor@seznam.cz>, 2004.
+# Alois Nespor <Alois.Nespor@seznam.cz>, 2005.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: cs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-10-02 10:36+0200\n"
-"PO-Revision-Date: 2004-10-28 09:10+0000\n"
+"POT-Creation-Date: 2005-03-12 10:07+0100\n"
+"PO-Revision-Date: 2005-03-24 23:39+0100\n"
 "Last-Translator: Alois Nespor <Alois.Nespor@seznam.cz>\n"
-"Language-Team: Czech <cs@li.org>\n"
+"Language-Team: czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.3\n"
-
-#: mixer-settingsbox.gob:97
-msgid "Device"
-msgstr "Zařízení"
-
-#: mixer-settingsbox.gob:100
-msgid "None"
-msgstr "Žádné"
-
-#. gtk_widget_show (GTK_WIDGET (self->dev_label));
-#: mixer-settingsbox.gob:103
-msgid "Useful Controls"
-msgstr "Užitečné ovládací prvky"
+"X-Generator: KBabel 1.9.1\n"
 
 #: lib/trans.c:6
 msgid "Vol"
@@ -37,22 +24,22 @@ msgstr "Hlasitost"
 #. Master
 #: lib/trans.c:7
 msgid "Pcm"
-msgstr "PCM"
+msgstr "Pcm"
 
 #. PCM output
 #: lib/trans.c:8
 msgid "Spkr"
-msgstr "Reproduktor"
+msgstr "Repro"
 
 #. Internal speaker?
 #: lib/trans.c:9
 msgid "Line"
-msgstr "Line"
+msgstr "Linka"
 
 #. Line in
 #: lib/trans.c:10
 msgid "Mic"
-msgstr "Mikrofon"
+msgstr "Mikrofón"
 
 #. Mic in
 #: lib/trans.c:11
@@ -74,11 +61,11 @@ msgstr "Synth"
 
 #: lib/trans.c:15
 msgid "Mix"
-msgstr "Mixér"
+msgstr "Mix"
 
 #: lib/trans.c:16
 msgid "Pcm2"
-msgstr "PCM2"
+msgstr "Pcm2"
 
 #: lib/trans.c:17
 msgid "Rec"
@@ -94,35 +81,35 @@ msgstr "OGain"
 
 #: lib/trans.c:20
 msgid "Line1"
-msgstr "Line1"
+msgstr "Linka1"
 
 #: lib/trans.c:21
 msgid "Line2"
-msgstr "Line2"
+msgstr "Linka2"
 
 #: lib/trans.c:22
 msgid "Line3"
-msgstr "Line3"
+msgstr "Linka3"
 
 #: lib/trans.c:23
 msgid "Digital1"
-msgstr "Digitální1"
+msgstr "Digital1"
 
 #: lib/trans.c:24
 msgid "Digital2"
-msgstr "Digitální2"
+msgstr "Digital2"
 
 #: lib/trans.c:25
 msgid "Digital3"
-msgstr "Digitální3"
+msgstr "Digital2"
 
 #: lib/trans.c:26
 msgid "PhoneIn"
-msgstr "Vstup z telefonu"
+msgstr "PhoneIn"
 
 #: lib/trans.c:27
 msgid "PhoneOut"
-msgstr "Výstup z telefonu"
+msgstr "PhoneOut"
 
 #: lib/trans.c:28
 msgid "Video"
@@ -139,158 +126,201 @@ msgstr "Monitor"
 #: lib/vc_alsa.c:94
 #, c-format
 msgid "alsa: Mixer %s open error: %s\n"
-msgstr "ALSA: Při otevírání mixéru %s nastala chyba: %s\n"
+msgstr "alsa: Chyba %s při otevření mixéru: %s\n"
 
 #: lib/vc_alsa.c:99
 #, c-format
 msgid "alsa: Mixer attach %s error: %s\n"
-msgstr "ALSA: Při připojení mixéru %s nastala chyba: %s\n"
+msgstr "alsa: Chyba %s při připojení mixéru: %s\n"
 
 #: lib/vc_alsa.c:107
 #, c-format
 msgid "alsa: Mixer register error: %s\n"
-msgstr "ALSA: Při registraci mixéru nastala chyba: %s\n"
+msgstr "alsa: Chyba %s při registraci mixéru: %s\n"
 
 #: lib/vc_alsa.c:116
 #, c-format
 msgid "alsa: Mixer load error: %s: %s\n"
-msgstr "ALSA: Při načítání mixéru  nastala chyba: %s:%s\n"
+msgstr "alsa: Chyba %s při načítání mixéru: %s\n"
 
 #: lib/vc_alsa.c:126
 #, c-format
 msgid "alsa: Unable to find simple control '%s',%i\n"
-msgstr "ALSA: Nelze najít jednoduchý ovladač '%s',%i\n"
+msgstr "alsa: Není možné najít ovladač '%s',%i\n"
 
-#: lib/vc_oss.c:131
+#: lib/vc_oss.c:138
+#, c-format
 msgid "oss: No master volume"
-msgstr "OSS: Žádný hlavní ovladač hlasitosti"
+msgstr "oss: Žádný hlavní ovladač hlasitosti"
 
 #: panel-plugin/plugin.c:95
 #, c-format
 msgid "Volume: %d%%"
 msgstr "Hlasitost: %d%%"
 
-#: panel-plugin/plugin.c:387 mixer-window.gob:169
+#: panel-plugin/plugin.c:384 src/mixer-window.gob:188 mixer-window.gob:188
 msgid "Volume Control"
-msgstr "Nastavené hlasitosti"
+msgstr "Nastavení hlasitosti"
 
-#: settings/sound.c:80 settings/sound.c:102 settings/sound.c:109
+#: settings/mixer-settingsbox.gob:99 mixer-settingsbox.gob:99
+msgid "Device"
+msgstr "Zařízení"
+
+#: settings/mixer-settingsbox.gob:102 mixer-settingsbox.gob:102
+msgid "None"
+msgstr "Žádné"
+
+#. gtk_widget_show (GTK_WIDGET (self->dev_label));
+#. debug_bindtextdomain();
+#: settings/mixer-settingsbox.gob:107 mixer-settingsbox.gob:107
+msgid "Useful Controls"
+msgstr "Užitečné ovládací prvky"
+
+#: settings/sound.c:80 settings/sound.c:100 settings/sound.c:107
 msgid "Sound"
 msgstr "Zvuk"
 
-#: mixer-view.gob:258
-msgid "Show Switches"
-msgstr "Zobrazit přepínače"
-
-#: mixer-view.gob:259
-msgid "Hide Switches"
-msgstr "Skrýt přepínače"
-
-#: src/main.c:69
+#: src/main.c:77
 msgid "No working sound"
-msgstr "Zvuk nefunguje"
+msgstr "Nefunkční zvuk"
 
-#: mixer-profilebox.gob:88
-msgid "Device:"
-msgstr "Zařízení:"
+#: src/menus.c:12
+msgid "/_File"
+msgstr "/_Soubor"
 
-#: mixer-profilebox.gob:142
-msgid "Create new profile"
-msgstr "Vytvořit nový profil"
+#: src/menus.c:13
+msgid "/File/_Options"
+msgstr "/Soubor/_Možnosti"
 
-#: mixer-profilebox.gob:151
-msgid "Delete this profile"
-msgstr "Smazat tento profil"
+#: src/menus.c:14
+msgid "/File/_Exit"
+msgstr "/Soubor/_Konec"
 
-#: mixer-profilebox.gob:170
-msgid "Profile"
-msgstr "Profil"
+#: src/menus.c:15
+msgid "/_View"
+msgstr "/_Zobrazit"
 
-#: mixer-profilebox.gob:374
-#, c-format
-msgid "Really delete those %d profiles?"
-msgstr "Skutečně chcete odstranit tyto %d profily ?"
+#: src/menus.c:16
+msgid "/View/_Manage"
+msgstr "/Zobrazit/_Nastavení"
 
-#: mixer-profilebox.gob:377
-#, c-format
-msgid "Really delete profile \"%s\"?"
-msgstr "Skutečně chcete odstranit profil \"%s\"?"
+#: src/menus.c:17
+msgid "/_Help"
+msgstr "/_Nápověda"
 
-#: mixer-profilebox.gob:491
-#, c-format
-msgid "%s - New"
-msgstr "%s - Nový"
+#: src/menus.c:18
+msgid "/Help/_Info"
+msgstr "/Nápověda/_Informace"
 
-#: mixer-profilebox.gob:528
-msgid "A profile needs a name"
-msgstr "Profil musí být pojmenovaný"
-
-#: mixer-profilebox.gob:542
-msgid "A profile with that name already exists"
-msgstr "Profil s týmto jménem již existuje"
-
-#: mixer-profilebox-detail.gob:151
-msgid "Control"
-msgstr "Ovládací prvek"
-
-#: mixer-profilebox-detail.gob:154
-msgid "Type"
-msgstr "Typ"
-
-#: mixer-profilebox-detail.gob:166
-msgid "Up"
-msgstr "Nahoru"
-
-#: mixer-profilebox-detail.gob:169
-msgid "Down"
-msgstr "Dolů"
-
-#: mixer-profilebox-detail.gob:176
-msgid "Move Entry Up"
-msgstr "Přesunout položku nahoru"
-
-#: mixer-profilebox-detail.gob:179
-msgid "Move Entry Down"
-msgstr "Přesunout položku dolů"
-
-#: mixer-profilebox-detail.gob:188
-msgid "Profile Name:"
-msgstr "Název profilu:"
-
-#: mixer-profilebox-detail.gob:370 mixer-profilebox-detail.gob:435
-msgid "<unknown>"
-msgstr "<neznámý>"
-
-#: mixer-profilebox-detail.gob:372 mixer-profilebox-detail.gob:437
-msgid "<slider>"
-msgstr "<posuvník>"
-
-#: mixer-profilebox-detail.gob:373 mixer-profilebox-detail.gob:438
-msgid "<onoff>"
-msgstr "<zapnout/vypnout>"
-
-#: mixer-profilebox-detail.gob:374 mixer-profilebox-detail.gob:439
-msgid "<select>"
-msgstr "<výběr>"
-
-#: src/menu-callbacks.inc:16
-#, c-format
-msgid "%s - Info"
-msgstr "%s - Informace"
-
-#: src/menu-callbacks.inc:38
-#, c-format
-msgid "%s - Profiles"
-msgstr "%s - Profily"
-
-#: mixer-info.gob:28
+#: src/mixer-info.gob:28 mixer-info.gob:28
 msgid ""
 "This is xfce4-mixer, a volume control program.\n"
 "It is released under the GPL-2 License which you find in the source "
 "directory.\n"
 "No warranty in any way."
 msgstr ""
-"Thoto je xfce4-mixér, ovládací program hlasitosti.\n"
-"Je vytvořen pod GPL-2 licencí, kterou najdete v adresáři se zdrojovými kódy.\n"
-"Žádná záruka, nenesu žádnou zodpovědnost !!"
+"Totoje xfce4-mixér, ovládací prgram hlaitosti. \n"
+"Je uvolněn pod licencí GPL2, kterounalaznete v adresáři se zdrojovým kódem.\n"
+"Bez záruky"
+
+#: src/mixer-profilebox-detail.gob:163 mixer-profilebox-detail.gob:163
+msgid "Control"
+msgstr "Ovládací prvek"
+
+#: src/mixer-profilebox-detail.gob:166 mixer-profilebox-detail.gob:166
+msgid "Type"
+msgstr "Typ"
+
+#: src/mixer-profilebox-detail.gob:178 mixer-profilebox-detail.gob:178
+msgid "Up"
+msgstr "Nahoru"
+
+#: src/mixer-profilebox-detail.gob:181 mixer-profilebox-detail.gob:181
+msgid "Down"
+msgstr "Dolů"
+
+#: src/mixer-profilebox-detail.gob:188 mixer-profilebox-detail.gob:188
+msgid "Move Entry Up"
+msgstr "Přesunout položku nahoru"
+
+#: src/mixer-profilebox-detail.gob:191 mixer-profilebox-detail.gob:191
+msgid "Move Entry Down"
+msgstr "Přesunout položku dolů"
+
+#: src/mixer-profilebox-detail.gob:200 mixer-profilebox-detail.gob:200
+msgid "Profile Name:"
+msgstr "Název profilu:"
+
+#: src/mixer-profilebox-detail.gob:382 src/mixer-profilebox-detail.gob:447
+#: mixer-profilebox-detail.gob:382 mixer-profilebox-detail.gob:447
+msgid "<unknown>"
+msgstr "<neznámý>"
+
+#: src/mixer-profilebox-detail.gob:384 src/mixer-profilebox-detail.gob:449
+#: mixer-profilebox-detail.gob:384 mixer-profilebox-detail.gob:449
+msgid "<slider>"
+msgstr "<posuvník>"
+
+#: src/mixer-profilebox-detail.gob:385 src/mixer-profilebox-detail.gob:450
+#: mixer-profilebox-detail.gob:385 mixer-profilebox-detail.gob:450
+msgid "<onoff>"
+msgstr "<zapnutovypnuto>"
+
+#: src/mixer-profilebox-detail.gob:386 src/mixer-profilebox-detail.gob:451
+#: mixer-profilebox-detail.gob:386 mixer-profilebox-detail.gob:451
+msgid "<select>"
+msgstr "<výběr>"
+
+#: src/mixer-profilebox.gob:88 mixer-profilebox.gob:88
+msgid "Device:"
+msgstr "Zařízení:"
+
+#: src/mixer-profilebox.gob:142 mixer-profilebox.gob:142
+msgid "Create new profile"
+msgstr "Vytvořit nový profil"
+
+#: src/mixer-profilebox.gob:151 mixer-profilebox.gob:151
+msgid "Delete this profile"
+msgstr "Smazat tento profil"
+
+#: src/mixer-profilebox.gob:170 mixer-profilebox.gob:170
+msgid "Profile"
+msgstr "Profil"
+
+#: src/mixer-profilebox.gob:374 mixer-profilebox.gob:374
+#, c-format
+msgid "Really delete those %d profiles?"
+msgstr "Skutečně odstranit tyto %d profily?"
+
+#: src/mixer-profilebox.gob:377 mixer-profilebox.gob:377
+#, c-format
+msgid "Really delete profile \"%s\"?"
+msgstr "Skutečně odstranit profil \"%s\"?"
+
+#: src/mixer-profilebox.gob:491 mixer-profilebox.gob:491
+#, c-format
+msgid "%s - New"
+msgstr "%s - Nový"
+
+#: src/mixer-profilebox.gob:528 mixer-profilebox.gob:528
+msgid "A profile needs a name"
+msgstr "Profil musí mít jméno"
+
+#: src/mixer-profilebox.gob:542 mixer-profilebox.gob:542
+msgid "A profile with that name already exists"
+msgstr "Profil s tímto jménem již existuje"
+
+#: src/mixer-profiles.gob:262 src/mixer-profiles.gob:269
+#: mixer-profiles.gob:262 mixer-profiles.gob:269
+#, c-format
+msgid "profile%d"
+msgstr "profil%d"
+
+#: src/mixer-view.gob:258 mixer-view.gob:258
+msgid "Show Switches"
+msgstr "Zobrazit přepínače"
+
+#: src/mixer-view.gob:259 mixer-view.gob:259
+msgid "Hide Switches"
+msgstr "Skrýt přepínače"
 
