@@ -72,7 +72,8 @@ XDT_XFCE_MCS_PLUGIN([XFCE_MCS_MANAGER], [4.2.0])
 
 dnl Check for i18n support
 XDT_I18N([ar az be bg ca de en_GB es es_MX et eu fa fi fr gu he \
-			    hu it ja ko lt ms nl nb_NO pa pt_BR pt_PT ro ru sk tr \
+			    hu it ja ko lt ms nl nb_NO pa pt_BR pt_PT
+			    ro ru sk sv tr \
 			    uk vi zh_CN zh_TW])
 
 AC_MSG_CHECKING([whether to build big mixer window])
