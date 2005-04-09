@@ -1,4 +1,4 @@
-# xfce4-mixer for XFCE
+# xfce4-panel for XFCE
 # Copyright (C) 2003 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the xfwm4 package.
 # Lâm Vĩnh Niên <nienvl@yahoo.ca>, 2004.
@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfwm4 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-11-22 21:44+0100\n"
+"POT-Creation-Date: 2005-03-17 21:45+0100\n"
 "PO-Revision-Date: 2004-09-08 15:40+9\n"
 "Last-Translator: Lâm Vĩnh Niên <nienvl@yahoo.ca>\n"
 "Language-Team: none <LL@li.org>\n"
@@ -15,317 +15,442 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: lib/trans.c:6
-msgid "Vol"
-msgstr "Vol"
+#: panel/xfce_support.c:557
+msgid "Select file"
+msgstr "Chọn tập tin"
 
-#. Master
-#: lib/trans.c:7
-msgid "Pcm"
-msgstr "Pcm"
+#: panel/settings.c:181
+msgid "No data was found. The panel will be empty."
+msgstr "Không tìm thấy dữ liệu"
 
-#. PCM output
-#: lib/trans.c:8
-msgid "Spkr"
-msgstr "Loa"
+#: panel/controls_dialog.c:89 panel/item_dialog.c:1178
+msgid "Position:"
+msgstr "Vị trí:"
 
-#. Internal speaker?
-#: lib/trans.c:9
-msgid "Line"
-msgstr "Đường"
+#: panel/controls_dialog.c:155
+msgid "Item properties"
+msgstr "Đặc tính đề mục"
 
-#. Line in
-#: lib/trans.c:10
-msgid "Mic"
-msgstr "Mic"
+#: panel/controls_dialog.c:209 panel/controls.c:711
+msgid "Removing the item will also remove its popup menu."
+msgstr "Gỡ bỏ đề mục cũng sẽ gỡ bỏ thực đơn tắt của nó."
 
-#. Mic in
-#: lib/trans.c:11
-msgid "CD"
-msgstr "CD"
+#: panel/item_dialog.c:124
+msgid "Select command"
+msgstr "Chọn lệnh"
 
-#. CD in
-#: lib/trans.c:12
-msgid "Bass"
-msgstr "Bass"
+#: panel/item_dialog.c:268
+msgid "Command:"
+msgstr "Lệnh"
 
-#: lib/trans.c:13
-msgid "Trebl"
-msgstr "Trebt"
+#: panel/item_dialog.c:311
+msgid "Run in _terminal"
+msgstr "Chạy ở _trạm cuối"
 
-#: lib/trans.c:14
-msgid "Synth"
-msgstr "Synth"
+#: panel/item_dialog.c:329
+msgid "Use startup _notification"
+msgstr "Dùng thô_ng báo lúc khởi động"
 
-#: lib/trans.c:15
-msgid "Mix"
-msgstr "Mix"
+#: panel/item_dialog.c:515
+msgid "Other Icon"
+msgstr "Biểu tượng khác"
 
-#: lib/trans.c:16
-msgid "Pcm2"
-msgstr "Pcm2"
+#: panel/item_dialog.c:626
+msgid "Drag file onto this frame to change the icon"
+msgstr "Kéo tập tin vào khung này để đổi biểu tượng"
 
-#: lib/trans.c:17
-msgid "Rec"
-msgstr "Thu"
+#: panel/item_dialog.c:938
+msgid "Caption:"
+msgstr "Chú thích:"
 
-#: lib/trans.c:18
-msgid "IGain"
-msgstr "IGain"
+#: panel/item_dialog.c:967
+msgid "Tooltip:"
+msgstr "Lời chú."
 
-#: lib/trans.c:19
-msgid "OGain"
-msgstr "OGain"
+#: panel/item_dialog.c:995
+msgid "Attach menu to launcher"
+msgstr "Thêm vào trình gọi"
 
-#: lib/trans.c:20
-msgid "Line1"
-msgstr "Đường1"
+#: panel/item_dialog.c:1215
+msgid "Change menu item"
+msgstr "Chuyển đề mục thực đơn"
 
-#: lib/trans.c:21
-msgid "Line2"
-msgstr "Đường2"
+#. add buttons
+#: panel/item_dialog.c:1221 panel/controls.c:748
+msgid "_Remove"
+msgstr "Gỡ _bỏ"
 
-#: lib/trans.c:22
-msgid "Line3"
-msgstr "Đường3"
+#: panel/item_dialog.c:1233 panel/item.c:738
+msgid "Launcher"
+msgstr "Trình gọi"
 
-#: lib/trans.c:23
-msgid "Digital1"
-msgstr "Digital1"
+#: panel/item.c:566
+msgid "Click mouse button 3 to change item"
+msgstr "Nhấp nút chuột 3 để đổi đề mục"
 
-#: lib/trans.c:24
-msgid "Digital2"
-msgstr "Digital2"
+#: panel/item.c:591
+msgid "Add launcher"
+msgstr "Thêm trình gọi"
 
-#: lib/trans.c:25
-msgid "Digital3"
-msgstr "Digital3"
+#: panel/item.c:596
+msgid "Add new item"
+msgstr "Thêm đề mục mới"
 
-#: lib/trans.c:26
-msgid "PhoneIn"
-msgstr "PhoneIn"
+#: panel/main.c:120
+msgid "Are you sure you want to exit?"
+msgstr "Bạn có chắc là bạn muốn thoát?"
 
-#: lib/trans.c:27
-msgid "PhoneOut"
-msgstr "PhoneOut"
-
-#: lib/trans.c:28
-msgid "Video"
-msgstr "Video"
-
-#: lib/trans.c:29
-msgid "Radio"
-msgstr "Radio"
-
-#: lib/trans.c:30
-msgid "Monitor"
-msgstr "Monitor"
-
-#: lib/vc_alsa.c:94
+#: panel/main.c:401
 #, c-format
-msgid "alsa: Mixer %s open error: %s\n"
-msgstr "alsa: Lỗi mở mixer %s: %s\n"
+msgid ""
+"\n"
+" The Xfce Panel\n"
+" Version %s\n"
+"\n"
+" Part of the Xfce Desktop Environment\n"
+" http://www.xfce.org\n"
+"\n"
+" Licensed under the GNU GPL.\n"
+"\n"
+msgstr ""
+"\n"
+" Xfce Panel\n"
+" Phiên bản %s\n"
+"\n"
+" Một phần của Môi trường Desktop Xfce \n"
+" http://www.xfce.org\n"
+"\n"
+"Giấy phép theo GNU GPL.\n"
+"\n"
 
-#: lib/vc_alsa.c:99
+#: panel/main.c:488
 #, c-format
-msgid "alsa: Mixer attach %s error: %s\n"
-msgstr "alsa: Lỗi gắn mixer %s: %s\n"
+msgid "%s: Successfully started without session management"
+msgstr "%s: Khởi động thành công không quản lí phiên làm việc"
 
-#: lib/vc_alsa.c:107
+#: panel/main.c:493
 #, c-format
-msgid "alsa: Mixer register error: %s\n"
-msgstr "alsa: Lỗi đăng kí mixer: %s\n"
+msgid "%s: Successfully started with session management"
+msgstr "%s: Khởi động thành công quản lí phiên làm việc"
 
-#: lib/vc_alsa.c:116
+#: panel/controls.c:666
 #, c-format
-msgid "alsa: Mixer load error: %s: %s\n"
-msgstr "alsa: Lỗi tải mixer: %s: %s\n"
+msgid "Could not create panel item \"%s\"."
+msgstr "Không thể tạo đề mục panel \"%s\"."
 
-#: lib/vc_alsa.c:126
-#, c-format
-msgid "alsa: Unable to find simple control '%s',%i\n"
-msgstr "alsa: Không tìm thấy bàn điều khiển đơn giản '%s',%i\n"
+#: panel/controls.c:743 panel/panel.c:647
+msgid "_Properties..."
+msgstr "Đặ_c tính"
 
-#: lib/vc_oss.c:131
-msgid "oss: No master volume"
-msgstr "oss: Không điểu chỉnh âm lượng chính"
+#: panel/controls.c:757 panel/panel.c:637
+msgid "Add _new item"
+msgstr "Thêm đề mục _mới"
 
-#: panel-plugin/plugin.c:95
-#, c-format
-msgid "Volume: %d%%"
-msgstr "Âm lượng: %d%%"
+#: panel/controls.c:1040
+msgid "This item has no configuration options"
+msgstr "Đề mục này không có tuỳ chọn cấu hình"
 
-#: panel-plugin/plugin.c:384 src/mixer-window.gob:188 mixer-window.gob:188
-msgid "Volume Control"
-msgstr "Điều chỉnh âm lượng"
+#: panel/panel.c:628 panel/panel.c:1055 settings/xfce_settings_plugin.c:86
+#: settings/xfce_settings_dialog.c:450
+msgid "Xfce Panel"
+msgstr "Panel Xfce"
 
-#: settings/mixer-settingsbox.gob:102 mixer-settingsbox.gob:102
-msgid "Device"
-msgstr "Thiết bị"
+#: panel/panel.c:652
+msgid "_About Xfce"
+msgstr "_Về Xfce"
 
-#: settings/mixer-settingsbox.gob:105 mixer-settingsbox.gob:105
-msgid "None"
-msgstr "Không"
+#: panel/panel.c:657
+msgid "_Help"
+msgstr "_Giúp đỡ"
 
-#. gtk_widget_show (GTK_WIDGET (self->dev_label));
-#: settings/mixer-settingsbox.gob:108 mixer-settingsbox.gob:108
-msgid "Useful Controls"
-msgstr "Các điều khiển hữu dụng"
+#: panel/panel.c:666
+msgid "_Lock screen"
+msgstr "_Khoá màn hình"
 
-#: settings/sound.c:80 settings/sound.c:102 settings/sound.c:109
+#: panel/panel.c:671
+msgid "_Restart"
+msgstr "Khở_i động lại"
+
+#: panel/panel.c:680
+msgid "E_xit"
+msgstr "_Thoát"
+
+#: panel/icons.c:63
+msgid "Default"
+msgstr "Mặc định"
+
+#: panel/icons.c:64
+msgid "Editor"
+msgstr "Trình biên tập"
+
+#: panel/icons.c:65
+msgid "File management"
+msgstr "Quản lí tập tin"
+
+#: panel/icons.c:66
+msgid "Utilities"
+msgstr "Công cụ"
+
+#: panel/icons.c:67
+msgid "Games"
+msgstr "Trò chơi"
+
+#: panel/icons.c:68
+msgid "Help browser"
+msgstr "Trình duyệt giúp đỡ"
+
+#: panel/icons.c:69
+msgid "Multimedia"
+msgstr "Đa phương tiện"
+
+#: panel/icons.c:70
+msgid "Network"
+msgstr "Mạng"
+
+#: panel/icons.c:71
+msgid "Graphics"
+msgstr "Đồ hoạ"
+
+#: panel/icons.c:72
+msgid "Printer"
+msgstr "Máy in"
+
+#: panel/icons.c:73
+msgid "Productivity"
+msgstr "Productivity"
+
+#: panel/icons.c:74
 msgid "Sound"
 msgstr "Âm thanh"
 
-#: src/main.c:77
-msgid "No working sound"
-msgstr "Không có âm thanh đang làm việc"
+#: panel/icons.c:75
+msgid "Terminal"
+msgstr "Trạm cuối"
 
-#: src/menus.c:9
-msgid "/_File"
-msgstr ""
+#: panel/mcs_client.c:170
+msgid "Settings manager not available"
+msgstr "Không có trình quản lí các thiết lập"
 
-#: src/menus.c:10
-msgid "/File/_Options"
-msgstr ""
+#: panel/popup.c:267
+msgid "Menu"
+msgstr "Thực đơn"
 
-#: src/menus.c:11
-msgid "/File/_Exit"
-msgstr ""
+#: settings/xfce_settings_dialog.c:87
+msgid "Small"
+msgstr "Nhỏ"
 
-#: src/menus.c:12
-msgid "/_View"
-msgstr ""
+#: settings/xfce_settings_dialog.c:91
+msgid "Medium"
+msgstr "Trung"
 
-#: src/menus.c:13
-msgid "/View/sep"
-msgstr ""
+#: settings/xfce_settings_dialog.c:95
+msgid "Large"
+msgstr "Lớn"
 
-#: src/menus.c:14
-msgid "/View/_Manage"
-msgstr ""
+#: settings/xfce_settings_dialog.c:99
+msgid "Huge"
+msgstr "Khổng lồ"
 
-#: src/menus.c:15
-msgid "/_Help"
-msgstr ""
+#: settings/xfce_settings_dialog.c:175
+msgid "Horizontal"
+msgstr "Ngang"
 
-#: src/menus.c:16
-msgid "/Help/_Info"
-msgstr ""
+#: settings/xfce_settings_dialog.c:179
+msgid "Vertical"
+msgstr "Dọc"
 
-#: src/mixer-info.gob:28 mixer-info.gob:28
+#: settings/xfce_settings_dialog.c:221
+msgid "Left"
+msgstr "Trái"
+
+#: settings/xfce_settings_dialog.c:225
+msgid "Right"
+msgstr "Phải"
+
+#: settings/xfce_settings_dialog.c:229
+msgid "Top"
+msgstr "Đỉnh"
+
+#: settings/xfce_settings_dialog.c:233
+msgid "Bottom"
+msgstr "Đáy"
+
+#: settings/xfce_settings_dialog.c:268
+msgid "Panel size:"
+msgstr "Kích thước panel:"
+
+#: settings/xfce_settings_dialog.c:284
+msgid "Panel orientation:"
+msgstr "Hướng panel:"
+
+#: settings/xfce_settings_dialog.c:303
+msgid "Popup position:"
+msgstr "Vị trí bật"
+
+#: settings/xfce_settings_dialog.c:343
+msgid "Always on top:"
+msgstr "Luôn luôn trên đỉnh:"
+
+#: settings/xfce_settings_dialog.c:397
+msgid "Autohide:"
+msgstr "Tự động ẩn:"
+
+#: settings/xfce_settings_dialog.c:467
+msgid "Xfce Panel Settings"
+msgstr "Các thiết lập Panel Xfce"
+
+#: settings/xfce_settings_dialog.c:477
+msgid "Appearance"
+msgstr "Diện mạo"
+
+#: settings/xfce_settings_dialog.c:492
+msgid "Behaviour"
+msgstr "Hành xử"
+
+#. Use format characters from strftime(3)
+#. * to get the proper string for your locale.
+#. * I used these:
+#. * %A  : full weekday name
+#. * %d  : day of the month
+#. * %B  : full month name
+#. * %Y  : four digit year
+#.
+#: plugins/clock/clock.c:192
+msgid "%A, %d %B %Y"
+msgstr "%A, %d %B %Y"
+
+#: plugins/clock/clock.c:422
+msgid "Clock type:"
+msgstr "Kiểu đồng hồ:"
+
+#: plugins/clock/clock.c:435
+msgid "Analog"
+msgstr "Tương tự"
+
+#: plugins/clock/clock.c:439
+msgid "Digital"
+msgstr "Số"
+
+#: plugins/clock/clock.c:443
+msgid "LED"
+msgstr "LED"
+
+#: plugins/clock/clock.c:505
+msgid "Hour mode:"
+msgstr "Chế độ giờ"
+
+#: plugins/clock/clock.c:512
+msgid "24 hour"
+msgstr "24 giờ"
+
+#: plugins/clock/clock.c:518
+msgid "12 hour"
+msgstr "12 giờ"
+
+#: plugins/clock/clock.c:524
+msgid "AM/PM"
+msgstr "AM/PM"
+
+#: plugins/clock/clock.c:562
+msgid "Show seconds:"
+msgstr "Hiện giây"
+
+#: plugins/clock/clock.c:675
+msgid "Xfce Clock"
+msgstr "Đồng hồ Xfce"
+
+#: plugins/pager/pager.c:314
+msgid "Number of rows:"
+msgstr "Số hàng:"
+
+#: plugins/pager/pager.c:316
+msgid "Number of columns:"
+msgstr "Số cột:"
+
+#: plugins/pager/pager.c:373
+msgid "Graphical pager"
+msgstr "Trình chuyển trang đồ hoạ"
+
+#: plugins/switcher/switcher.c:698
+msgid "Desktop switcher"
+msgstr "Trình chuyển desktop"
+
+#: plugins/systembuttons/systembuttons.c:85
 msgid ""
-"This is xfce4-mixer, a volume control program.\n"
-"It is released under the GPL-2 License which you find in the source "
-"directory.\n"
-"No warranty in any way."
+"Access to the configuration system has been disabled.\n"
+"\n"
+"Ask your system administrator for more information"
 msgstr ""
-"Đây là xfce4-mixer, chương trình điều khiển âm lượng.\n"
-"Nó được phát hành theo Giấy phép GPL-2 có kèm theo trong thư mục nguồn.\n"
-"Không bảo đảm dưới bất cứ hình thức nào."
+"Truy nhập hệ thống cấu hình đã bị bất hoạt.\n"
+"\n"
+"Hỏi nhà quản trị hệ thống để có thêm thông tin"
 
-#: src/mixer-profilebox-detail.gob:163 mixer-profilebox-detail.gob:163
-msgid "Control"
-msgstr "Điều khiển"
+#: plugins/systembuttons/systembuttons.c:170
+msgid "Lock the screen"
+msgstr "Khoá màn hình"
 
-#: src/mixer-profilebox-detail.gob:166 mixer-profilebox-detail.gob:166
-msgid "Type"
-msgstr "Loại"
+#: plugins/systembuttons/systembuttons.c:171
+#: plugins/systembuttons/systembuttons.c:519
+msgid "Exit"
+msgstr "Thoát"
 
-#: src/mixer-profilebox-detail.gob:178 mixer-profilebox-detail.gob:178
-msgid "Up"
-msgstr "Lên"
+#: plugins/systembuttons/systembuttons.c:172
+#: plugins/systembuttons/systembuttons.c:520
+msgid "Setup"
+msgstr "Thiết lập"
 
-#: src/mixer-profilebox-detail.gob:181 mixer-profilebox-detail.gob:181
-msgid "Down"
-msgstr "Xuống"
+#: plugins/systembuttons/systembuttons.c:173
+#: plugins/systembuttons/systembuttons.c:521
+msgid "Info"
+msgstr "Thông tin"
 
-#: src/mixer-profilebox-detail.gob:188 mixer-profilebox-detail.gob:188
-msgid "Move Entry Up"
-msgstr "Chuyển đề mục lên"
+#. set names to use in option menus
+#: plugins/systembuttons/systembuttons.c:518
+msgid "Lock"
+msgstr "Khoá"
 
-#: src/mixer-profilebox-detail.gob:191 mixer-profilebox-detail.gob:191
-msgid "Move Entry Down"
-msgstr "Chuyển đề mục xuống"
+#: plugins/systembuttons/systembuttons.c:550
+msgid "Button 1:"
+msgstr "Nút 1:"
 
-#: src/mixer-profilebox-detail.gob:200 mixer-profilebox-detail.gob:200
-msgid "Profile Name:"
-msgstr "Tên hồ sơ:"
+#: plugins/systembuttons/systembuttons.c:565
+msgid "Button 2:"
+msgstr "Nút 2:"
 
-#: src/mixer-profilebox-detail.gob:382 src/mixer-profilebox-detail.gob:447
-#: mixer-profilebox-detail.gob:382 mixer-profilebox-detail.gob:447
-msgid "<unknown>"
-msgstr "<không rõ>"
+#. checkbox
+#: plugins/systembuttons/systembuttons.c:579
+msgid "_Hide"
+msgstr "Ẩ_n"
 
-#: src/mixer-profilebox-detail.gob:384 src/mixer-profilebox-detail.gob:449
-#: mixer-profilebox-detail.gob:384 mixer-profilebox-detail.gob:449
-msgid "<slider>"
-msgstr "<thanh trượt>"
+#: plugins/systembuttons/systembuttons.c:616
+msgid "System buttons"
+msgstr "Các nút hệ thống"
 
-#: src/mixer-profilebox-detail.gob:385 src/mixer-profilebox-detail.gob:450
-#: mixer-profilebox-detail.gob:385 mixer-profilebox-detail.gob:450
-msgid "<onoff>"
-msgstr "<tắt/bật>"
+#: plugins/separator/separator.c:155
+msgid "Separator"
+msgstr "Dấu cách"
 
-#: src/mixer-profilebox-detail.gob:386 src/mixer-profilebox-detail.gob:451
-#: mixer-profilebox-detail.gob:386 mixer-profilebox-detail.gob:451
-msgid "<select>"
-msgstr "<chọn>"
+#: plugins/mailcheck/mailcheck.c:838
+msgid "Mail box:"
+msgstr "Hộp thư:"
 
-#: src/mixer-profilebox.gob:88 mixer-profilebox.gob:88
-msgid "Device:"
-msgstr "Thiết bị:"
+#: plugins/mailcheck/mailcheck.c:875
+msgid "New mail command:"
+msgstr "Lệnh thư mới:"
 
-#: src/mixer-profilebox.gob:142 mixer-profilebox.gob:142
-msgid "Create new profile"
-msgstr "Tạo hồ sơ mới"
+#: plugins/mailcheck/mailcheck.c:889
+msgid "Command to run when new mail arrives"
+msgstr "Lệnh thi hành khi có thư mới đến"
 
-#: src/mixer-profilebox.gob:151 mixer-profilebox.gob:151
-msgid "Delete this profile"
-msgstr "Xoá hồ sơ này"
+#: plugins/mailcheck/mailcheck.c:919
+msgid "Command to run when the button on the panel is clicked"
+msgstr "Lệnh thi hành khi nhấp vào nút trên panel"
 
-#: src/mixer-profilebox.gob:170 mixer-profilebox.gob:170
-msgid "Profile"
-msgstr "Hồ sơ"
+#: plugins/mailcheck/mailcheck.c:940
+msgid "Interval (sec):"
+msgstr "Thời khoảng (giây):"
 
-#: src/mixer-profilebox.gob:374 mixer-profilebox.gob:374
-#, c-format
-msgid "Really delete those %d profiles?"
-msgstr "Sẵn sàng xoà %d hồ sơ này?"
+#: plugins/mailcheck/mailcheck.c:1016
+msgid "Mail checker"
+msgstr "Kiểm thư"
 
-#: src/mixer-profilebox.gob:377 mixer-profilebox.gob:377
-#, c-format
-msgid "Really delete profile \"%s\"?"
-msgstr "Sẵn sàng xoá hồ sơ \"%s\"?"
-
-#: src/mixer-profilebox.gob:491 mixer-profilebox.gob:491
-#, c-format
-msgid "%s - New"
-msgstr "%s - Mới"
-
-#: src/mixer-profilebox.gob:528 mixer-profilebox.gob:528
-msgid "A profile needs a name"
-msgstr "Hồ sơ cần có tên"
-
-#: src/mixer-profilebox.gob:542 mixer-profilebox.gob:542
-msgid "A profile with that name already exists"
-msgstr "Hồ sơ với tên đó đã có rồi"
-
-#: src/mixer-profiles.gob:262 src/mixer-profiles.gob:269
-#: mixer-profiles.gob:262 mixer-profiles.gob:269
-#, fuzzy, c-format
-msgid "profile%d"
-msgstr "Hồ sơ"
-
-#: src/mixer-view.gob:258 mixer-view.gob:258
-msgid "Show Switches"
-msgstr "Hiển thị các nút chuyển"
-
-#: src/mixer-view.gob:259 mixer-view.gob:259
-msgid "Hide Switches"
-msgstr "Ẩn các nút chuyển"
-
-#~ msgid "%s - Info"
-#~ msgstr "%s - Giới thiệu"
-
-#~ msgid "%s - Profiles"
-#~ msgstr "%s - Hồ sơ"
