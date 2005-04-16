@@ -1,4 +1,4 @@
-# translation of ca.po to 
+# translation of ca.po to
 # translation of ca.po to
 # xfce4-mixer for XFce desktop environment.
 # Copyright (C) 2003, 2004 THE PACKAGE'S COPYRIGHT HOLDER
@@ -11,13 +11,13 @@ msgstr ""
 "Project-Id-Version: ca\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-11-22 21:44+0100\n"
-"PO-Revision-Date: 2005-04-09 03:57+0200\n"
+"PO-Revision-Date: 2005-04-09 14:22+0200\n"
 "Last-Translator: \n"
 "Language-Team:  <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.9.1\n"
+"X-Generator: KBabel 1.10\n"
 
 #: lib/trans.c:6
 msgid "Vol"
@@ -75,11 +75,11 @@ msgstr "Rec"
 
 #: lib/trans.c:18
 msgid "IGain"
-msgstr "Millora d'Entrada"
+msgstr "IGain"
 
 #: lib/trans.c:19
 msgid "OGain"
-msgstr "Millora de Sortida"
+msgstr "OGain"
 
 #: lib/trans.c:20
 msgid "Line1"
