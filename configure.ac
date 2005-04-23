@@ -67,7 +67,7 @@ else
 fi
 
 dnl Check for i18n support
-BM_I18N([xfce4-mixer], [ar az be bg bn_IN ca da de el_GR en_GB es es_MX et eu fa
+BM_I18N([xfce4-mixer], [ar az be bg bn_IN ca da de el en_GB es es_MX et eu fa
                         fi fr gu he hu it ja ko lt ms nl nb_NO pa pt_BR
 			pt_PT ro ru sk tr vi zh_CN zh_TW])
 
