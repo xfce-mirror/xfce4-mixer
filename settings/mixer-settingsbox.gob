@@ -68,10 +68,26 @@ class Xfce:Mixer:Settingsbox from Gtk:VBox {
 
 	public void load (self) /* load from manager */
 	{
+		McsSetting *setting;
+
 		if (!self->manager)
 			return;
 
+
 		self_devicelst_updated (self);
+
+
+		if (self->sel_device) {
+			g_free (self->sel_device);
+			self->sel_device = NULL;
+		}
+
+                if ((setting = mcs_manager_setting_lookup(self->manager,
+                                        MIXER_DEFAULT_DEVICE_FIELD, CHANNEL)) != NULL) {
+			self->sel_device = g_strdup (setting->data.v_string);
+		}
+
+		self_reselect_device (self);
 	}
 
 	public void save (self) /* save to manager */
@@ -80,6 +96,11 @@ class Xfce:Mixer:Settingsbox from Gtk:VBox {
 			return;
 
 		self_device_changed_cb (self);
+
+		if (self->sel_device) {
+	                mcs_manager_set_string (self->manager, MIXER_DEFAULT_DEVICE_FIELD, CHANNEL, self->sel_device);
+		}
+		mcs_manager_notify (self->manager, CHANNEL);
 	}
 
 	init (self)
@@ -244,12 +265,17 @@ class Xfce:Mixer:Settingsbox from Gtk:VBox {
 		gint	active;
 		active = 0;
 		gchar const *s;
+		gchar	*old_sel_device;
+
+		old_sel_device = NULL;
+		if (self->sel_device)
+			old_sel_device = g_strdup (self->sel_device);
+
 		if (self->device_lst) {
 			stringlist_free (self->device_lst);
 			self->device_lst = NULL;
 		}
 		self->device_lst = vc_get_device_list ();
-
 
 		fill_string_option_menu_2 (
 			self->devlist_om, 
@@ -266,18 +292,37 @@ class Xfce:Mixer:Settingsbox from Gtk:VBox {
 			gtk_option_menu_set_history (self->devlist_om, i);
 			self_device_changed_cb (self);
 			s = (gchar *)g_list_nth_data (self->device_lst, i);
-			if (s && g_str_equal (self->sel_device, s)) {
+			if (s && old_sel_device && g_str_equal (old_sel_device, s)) {
 				active = i;
 			}
 		}
-		if (cnt >= 0)
+		if (cnt > 0)
 			gtk_option_menu_set_history (self->devlist_om, active);
 
-		self_reselect_current_device (self);
+		if (old_sel_device)
+			g_free (old_sel_device);
 	}
 
-	protected void reselect_current_device(self)
+	protected void reselect_device(self)
 	{
+		gint cnt;
+		gint i;
+		gint active;
+		gchar const *s;
+
+		active = 0;
+		cnt = g_list_length (self->device_lst);
+		for(i = 0; i < cnt; i++) {
+			s = (gchar const *)g_list_nth_data (self->device_lst, i);
+			if (s && self->sel_device && g_str_equal (self->sel_device, s)) {
+				active = i;
+			}
+		}
+
+		if (cnt > 0) {
+			gtk_option_menu_set_history (self->devlist_om, active);
+			self_device_changed_cb (self);
+		}
 	}
 
 	private gchar *mcs_s_name(self)

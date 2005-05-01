@@ -149,12 +149,12 @@ class Xfce:Mixer:Mcs:Client from G:Object {
 
 			if (setting && setting->type == MCS_TYPE_STRING && setting->data.v_string) {
 				s = g_strdup (setting->data.v_string);
-				mcs_setting_free (setting);
+				/*mcs_setting_free (setting);*/
 				return s;
 			}
 
-			if (setting)
-				mcs_setting_free (setting);
+			/*if (setting)
+				mcs_setting_free (setting);*/
 
 			return NULL;
 		}
