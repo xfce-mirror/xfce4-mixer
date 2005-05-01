@@ -201,6 +201,9 @@ class Xfce:Mixer:Settingsbox from Gtk:VBox {
 			TRACE ("free selected device string");
 
 			/*g_free (s);*/
+
+			if (self->manager)
+				mcs_manager_set_string (self->manager, MIXER_DEFAULT_DEVICE_FIELD, CHANNEL, self->sel_device);
 		}
 
 		TRACE ("fill useful controls list");
@@ -238,6 +241,9 @@ class Xfce:Mixer:Settingsbox from Gtk:VBox {
 	{
 		gint	i;
 		gint	cnt;
+		gint	active;
+		active = 0;
+		gchar const *s;
 		if (self->device_lst) {
 			stringlist_free (self->device_lst);
 			self->device_lst = NULL;
@@ -259,9 +265,19 @@ class Xfce:Mixer:Settingsbox from Gtk:VBox {
 		for(i = 0; i < cnt; i++) {
 			gtk_option_menu_set_history (self->devlist_om, i);
 			self_device_changed_cb (self);
+			s = (gchar *)g_list_nth_data (self->device_lst, i);
+			if (s && g_str_equal (self->sel_device, s)) {
+				active = i;
+			}
 		}
 		if (cnt >= 0)
-			gtk_option_menu_set_history (self->devlist_om, 0);
+			gtk_option_menu_set_history (self->devlist_om, active);
+
+		self_reselect_current_device (self);
+	}
+
+	protected void reselect_current_device(self)
+	{
 	}
 
 	private gchar *mcs_s_name(self)

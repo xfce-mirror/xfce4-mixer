@@ -14,6 +14,7 @@
 #include "xfce-mixer-window.h"
 #include "xfce-mixer-mcs-client.h"
 #include "xfce-mixer-cache-vc.h"
+#include "mixer-mcs-names.h"
 #include "vcs.h"
 #include "main.h"
 
@@ -58,6 +59,20 @@ my_main_quit(GtkWidget *w, gpointer user_data)
 	gtk_main_quit ();
 }
 
+static void 
+select_default_device()
+{
+	XfceMixerMcsClient *mcs;
+	gchar	*value;
+	
+	mcs = xfce_mixer_mcs_client_new ();
+	value = xfce_mixer_mcs_client_get_setting (mcs, MIXER_DEFAULT_DEVICE_FIELD);
+	if (value) {
+		vc_set_device (value);
+		g_free (value);
+	}
+}
+
 int main(int argc, char * argv[])
 {
 	int rc;
@@ -95,6 +110,8 @@ int main(int argc, char * argv[])
 		vc_set_device (argv[1]);
 		device = g_strdup (argv[1]);
 	} else {
+		select_default_device ();
+		
 		dd = vc_get_device ();
 		if (dd)
 			device = g_strdup (dd);

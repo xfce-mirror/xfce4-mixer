@@ -20,6 +20,7 @@ extern "C" {
 #line 1 "mixer-settingsbox.gob"
 #line 22 "xfce-mixer-settingsbox-private.h"
 void 	xfce_mixer_settingsbox_device_changed_cb	(XfceMixerSettingsbox * self);
+void 	xfce_mixer_settingsbox_reselect_current_device	(XfceMixerSettingsbox * self);
 void 	xfce_mixer_settingsbox_fill_right_box	(XfceMixerSettingsbox * self);
 void 	xfce_mixer_settingsbox_apply_right_box	(XfceMixerSettingsbox * self);
 
