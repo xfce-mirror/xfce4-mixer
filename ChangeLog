@@ -1,223 +1,1406 @@
-2004-07-09 10:59  olivier
+2004-07-09 09:32  olivier
 
-	* configure, configure.ac, po/xfce4-mixer.pot: Update versions.
+	* xfce4-mixer/branches/xfce_4_0/ChangeLog: Update ChangeLog
 
-2004-07-09 09:53  olivier
+2004-07-09 08:59  olivier
 
-	* ChangeLog: Update ChangeLogs for 4.0.6
+	* xfce4-mixer/branches/xfce_4_0/configure,
+	  xfce4-mixer/branches/xfce_4_0/configure.ac,
+	  xfce4-mixer/branches/xfce_4_0/po/xfce4-mixer.pot: Update versions.
 
-2004-07-08 21:53  olivier
+2004-07-09 07:53  olivier
 
-	* ltmain.sh: Update tree for 4.0.6 release
+	* xfce4-mixer/branches/xfce_4_0/ChangeLog: Update ChangeLogs for
+	  4.0.6
 
-2004-07-06 17:58  pollux
+2004-07-08 19:53  olivier
 
-	* configure, configure.ac, po/eu.gmo, po/eu.po: add basque
-	  translation from ^pi^ <pi@beobide.net>
+	* xfce4-mixer/branches/xfce_4_0/ltmain.sh: Update tree for 4.0.6
+	  release
 
-2004-06-27 23:18  pollux
+2004-07-06 15:58  pollux
 
-	* po/: ru.gmo, ru.po: russian translations update from Anthony
-	  Ivanoff
+	* xfce4-mixer/branches/xfce_4_0/configure,
+	  xfce4-mixer/branches/xfce_4_0/configure.ac,
+	  xfce4-mixer/branches/xfce_4_0/po/eu.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/eu.po: add basque translation
+	  from ^pi^ <pi@beobide.net>
 
-2004-06-20 19:20  benny
+2004-06-27 21:18  pollux
 
-	* panel-plugin/vc_oss.c: PATH_MAX fixes to get it to compile on
-	  GNU/Hurd.
+	* xfce4-mixer/branches/xfce_4_0/po/ru.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/ru.po: russian translations
+	  update from Anthony Ivanoff
 
-2004-06-11 13:02  pollux
+2004-06-20 17:20  benny
 
-	* configure, configure.ac, ltmain.sh, po/et.gmo, po/et.po: Estonian
-	  translations from Peeter Vois <peeter.vois@proekspert.ee> added
+	* xfce4-mixer/branches/xfce_4_0/panel-plugin/vc_oss.c: PATH_MAX
+	  fixes to get it to compile on GNU/Hurd.
 
-2004-05-04 00:14  olivier
+2004-06-11 11:03  pollux
 
-	* Makefile.in, aclocal.m4, config.guess, config.sub, configure,
-	  install-sh, ltmain.sh, mkinstalldirs, panel-plugin/Makefile.in:
-	  Update zh_TW translations by umm <umm@pchome.com.tw>
+	* xfce4-mixer/branches/xfce_4_0/configure,
+	  xfce4-mixer/branches/xfce_4_0/configure.ac,
+	  xfce4-mixer/branches/xfce_4_0/ltmain.sh,
+	  xfce4-mixer/branches/xfce_4_0/po/et.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/et.po: Estonian translations from
+	  Peeter Vois <peeter.vois@proekspert.ee> added
 
-2004-03-18 13:17  benny
+2004-05-03 22:15  olivier
 
-	* panel-plugin/vc.h: Applied sun forte cc patch from #140.
+	* xfce4-mixer/branches/xfce_4_0/Makefile.in,
+	  xfce4-mixer/branches/xfce_4_0/aclocal.m4,
+	  xfce4-mixer/branches/xfce_4_0/config.guess,
+	  xfce4-mixer/branches/xfce_4_0/config.sub,
+	  xfce4-mixer/branches/xfce_4_0/configure,
+	  xfce4-mixer/branches/xfce_4_0/install-sh,
+	  xfce4-mixer/branches/xfce_4_0/ltmain.sh,
+	  xfce4-mixer/branches/xfce_4_0/mkinstalldirs,
+	  xfce4-mixer/branches/xfce_4_0/panel-plugin/Makefile.in: Update
+	  zh_TW translations by umm <umm@pchome.com.tw>
 
-2004-03-15 00:25  olivier
+2004-03-18 12:17  benny
 
-	* aclocal.m4, configure, configure.ac, po/ar.gmo, po/ar.po,
-	  po/bg.gmo, po/bg.po, po/it.gmo, po/it.po: Add/update i18n for:
-	  Bulgarian from Miroslav Yordanov <miordanov@i-space.org> and
-	  Peter Slavov <peshka@i-space.org> Italian from Alex Dupre
-	  <ale@FreeBSD.org> Arabic from Saleh Hathal
-	  <hathalsal@hotmail.com>
+	* xfce4-mixer/branches/xfce_4_0/panel-plugin/vc.h: Applied sun forte
+	  cc patch from #140.
 
-2004-03-02 22:32  olivier
+2004-03-14 23:25  olivier
 
-	* po/: POTFILES.in, az.gmo, az.po, ca.gmo, ca.po, cs.gmo, cs.po,
-	  de.gmo, de.po, es.gmo, es.po, fa_IR.gmo, fa_IR.po, fr.gmo, fr.po,
-	  hi.gmo, hi.po, hu.gmo, hu.po, it.gmo, it.po, ja.gmo, ja.po,
-	  ko.gmo, ko.po, lt.gmo, lt.po, ms.gmo, ms.po, nl.gmo, nl.po,
-	  no.gmo, no.po, pl.gmo, pl.po, pt_BR.gmo, pt_BR.po, pt_PT.gmo,
-	  pt_PT.po, ru.gmo, ru.po, ta.gmo, ta.po, tr.gmo, tr.po, uk.gmo,
-	  uk.po, vi.gmo, vi.po, xfce4-mixer.pot, zh_CN.gmo, zh_CN.po,
-	  zh_TW.gmo, zh_TW.po: Fix package not passing "make dist"
+	* xfce4-mixer/branches/xfce_4_0/aclocal.m4,
+	  xfce4-mixer/branches/xfce_4_0/configure,
+	  xfce4-mixer/branches/xfce_4_0/configure.ac,
+	  xfce4-mixer/branches/xfce_4_0/po/ar.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/ar.po,
+	  xfce4-mixer/branches/xfce_4_0/po/bg.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/bg.po,
+	  xfce4-mixer/branches/xfce_4_0/po/it.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/it.po: Add/update i18n for:
+	  Bulgarian from Miroslav Yordanov <miordanov@i-space.org> and Peter
+	  Slavov <peshka@i-space.org> Italian from Alex Dupre
+	  <ale@FreeBSD.org> Arabic from Saleh Hathal <hathalsal@hotmail.com>
 
-2004-02-28 18:23  olivier
+2004-03-02 21:32  olivier
 
-	* ltmain.sh: sync for 4.0.4 release
+	* xfce4-mixer/branches/xfce_4_0/po/POTFILES.in,
+	  xfce4-mixer/branches/xfce_4_0/po/az.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/az.po,
+	  xfce4-mixer/branches/xfce_4_0/po/ca.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/ca.po,
+	  xfce4-mixer/branches/xfce_4_0/po/cs.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/cs.po,
+	  xfce4-mixer/branches/xfce_4_0/po/de.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/de.po,
+	  xfce4-mixer/branches/xfce_4_0/po/es.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/es.po,
+	  xfce4-mixer/branches/xfce_4_0/po/fa_IR.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/fa_IR.po,
+	  xfce4-mixer/branches/xfce_4_0/po/fr.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/fr.po,
+	  xfce4-mixer/branches/xfce_4_0/po/hi.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/hi.po,
+	  xfce4-mixer/branches/xfce_4_0/po/hu.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/hu.po,
+	  xfce4-mixer/branches/xfce_4_0/po/it.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/it.po,
+	  xfce4-mixer/branches/xfce_4_0/po/ja.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/ja.po,
+	  xfce4-mixer/branches/xfce_4_0/po/ko.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/ko.po,
+	  xfce4-mixer/branches/xfce_4_0/po/lt.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/lt.po,
+	  xfce4-mixer/branches/xfce_4_0/po/ms.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/ms.po,
+	  xfce4-mixer/branches/xfce_4_0/po/nl.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/nl.po,
+	  xfce4-mixer/branches/xfce_4_0/po/no.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/no.po,
+	  xfce4-mixer/branches/xfce_4_0/po/pl.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/pl.po,
+	  xfce4-mixer/branches/xfce_4_0/po/pt_BR.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/pt_BR.po,
+	  xfce4-mixer/branches/xfce_4_0/po/pt_PT.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/pt_PT.po,
+	  xfce4-mixer/branches/xfce_4_0/po/ru.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/ru.po,
+	  xfce4-mixer/branches/xfce_4_0/po/ta.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/ta.po,
+	  xfce4-mixer/branches/xfce_4_0/po/tr.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/tr.po,
+	  xfce4-mixer/branches/xfce_4_0/po/uk.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/uk.po,
+	  xfce4-mixer/branches/xfce_4_0/po/vi.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/vi.po,
+	  xfce4-mixer/branches/xfce_4_0/po/xfce4-mixer.pot,
+	  xfce4-mixer/branches/xfce_4_0/po/zh_CN.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/zh_CN.po,
+	  xfce4-mixer/branches/xfce_4_0/po/zh_TW.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/zh_TW.po: Fix package not passing
+	  "make dist"
 
-2004-01-30 08:06  jasper
+2004-02-28 17:23  olivier
 
-	* ltmain.sh, po/es.gmo, po/es.po, po/fa_IR.gmo, po/fa_IR.po,
-	  po/ja.gmo, po/pt_BR.gmo, po/pt_BR.po, po/zh_CN.gmo, po/zh_CN.po:
-	  Update translations for spanish, persian, brasilian and chinese
+	* xfce4-mixer/branches/xfce_4_0/ltmain.sh: sync for 4.0.4 release
 
-2004-01-25 01:10  olivier
+2004-02-11 20:44  
 
-	* Makefile.in, aclocal.m4, compile, config.guess, config.sub,
-	  configure, configure.ac, depcomp, install-sh, ltmain.sh, missing,
-	  mkinstalldirs, panel-plugin/Makefile.in, po/fa_IR.gmo,
-	  po/fa_IR.po: Update libtool and other automake, autoconf and
-	  gettext.
+	* xfce4-mixer/branches/xfce_4_0/po/eu.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/eu.po: This commit was
+	  manufactured by cvs2svn to create branch 'xfce_4_0'.
 
-2004-01-21 12:54  dannym
+2004-01-30 07:06  jasper
 
-	* po/: az.gmo, az.po, ca.gmo, ca.po, cs.gmo, cs.po, de.gmo, de.po,
-	  es.po, fr.gmo, fr.po, hi.gmo, hi.po, hu.gmo, hu.po, it.gmo,
-	  it.po, ja.po, ko.gmo, ko.po, lt.gmo, lt.po, ms.gmo, ms.po,
-	  nl.gmo, nl.po, no.gmo, no.po, pl.gmo, pl.po, pt_BR.po, pt_PT.gmo,
-	  pt_PT.po, ru.gmo, ru.po, ta.gmo, ta.po, tr.gmo, tr.po, uk.gmo,
-	  uk.po, vi.gmo, vi.po, xfce4-mixer.pot, zh_CN.gmo, zh_CN.po,
-	  zh_TW.gmo, zh_TW.po: making more oss names translateable
-	  (optionally of course).  Dont kill me :)
+	* xfce4-mixer/branches/xfce_4_0/ltmain.sh,
+	  xfce4-mixer/branches/xfce_4_0/po/es.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/es.po,
+	  xfce4-mixer/branches/xfce_4_0/po/fa_IR.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/fa_IR.po,
+	  xfce4-mixer/branches/xfce_4_0/po/ja.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/pt_BR.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/pt_BR.po,
+	  xfce4-mixer/branches/xfce_4_0/po/zh_CN.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/zh_CN.po: Update translations for
+	  spanish, persian, brasilian and chinese
 
-2004-01-21 12:42  dannym
+2004-01-25 00:10  olivier
 
-	* Makefile.in, aclocal.m4, config.guess, config.sub, configure,
-	  configure.ac, depcomp, install-sh, ltmain.sh, missing,
-	  panel-plugin/mixer_window.c, po/POTFILES.in, po/az.po, po/ca.po,
-	  po/cs.po, po/de.po, po/es.po, po/fr.po, po/hi.po, po/hu.po,
-	  po/it.po, po/ja.po, po/ko.po, po/lt.po, po/ms.po, po/nl.po,
-	  po/no.po, po/pl.po, po/pt_BR.po, po/pt_PT.po, po/ru.po, po/ta.po,
-	  po/tr.po, po/uk.po, po/vi.po, po/xfce4-mixer.pot, po/zh_CN.po,
-	  po/zh_TW.po: make control names translateable (optional)
+	* xfce4-mixer/branches/xfce_4_0/Makefile.in,
+	  xfce4-mixer/branches/xfce_4_0/aclocal.m4,
+	  xfce4-mixer/branches/xfce_4_0/compile,
+	  xfce4-mixer/branches/xfce_4_0/config.guess,
+	  xfce4-mixer/branches/xfce_4_0/config.sub,
+	  xfce4-mixer/branches/xfce_4_0/configure,
+	  xfce4-mixer/branches/xfce_4_0/configure.ac,
+	  xfce4-mixer/branches/xfce_4_0/depcomp,
+	  xfce4-mixer/branches/xfce_4_0/install-sh,
+	  xfce4-mixer/branches/xfce_4_0/ltmain.sh,
+	  xfce4-mixer/branches/xfce_4_0/missing,
+	  xfce4-mixer/branches/xfce_4_0/mkinstalldirs,
+	  xfce4-mixer/branches/xfce_4_0/panel-plugin/Makefile.in,
+	  xfce4-mixer/branches/xfce_4_0/po/fa_IR.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/fa_IR.po: Update libtool and
+	  other automake, autoconf and gettext.
 
-2004-01-20 23:35  dannym
+2004-01-25 00:10  
 
-	* po/: es.po, ja.po, pt_BR.po: new translations for xfce_4_0
-	  branch.  Ran autogen. eeek.
+	* xfce4-mixer/branches/xfce_4_0/po/es.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/fa_IR.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/fa_IR.po,
+	  xfce4-mixer/branches/xfce_4_0/po/ja.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/pt_BR.gmo: This commit was
+	  manufactured by cvs2svn to create branch 'xfce_4_0'.
 
-2004-01-20 23:20  dannym
+2004-01-21 11:54  dannym
 
-	* panel-plugin/Makefile.in, po/zh_CN.gmo, po/zh_CN.po: added
-	  japanese, simplified chinese and brasilian portugese to mixer
-	  xfce_4_0 branch.  reran autogen. eeek.
+	* xfce4-mixer/branches/xfce_4_0/po/az.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/az.po,
+	  xfce4-mixer/branches/xfce_4_0/po/ca.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/ca.po,
+	  xfce4-mixer/branches/xfce_4_0/po/cs.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/cs.po,
+	  xfce4-mixer/branches/xfce_4_0/po/de.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/de.po,
+	  xfce4-mixer/branches/xfce_4_0/po/es.po,
+	  xfce4-mixer/branches/xfce_4_0/po/fr.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/fr.po,
+	  xfce4-mixer/branches/xfce_4_0/po/hi.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/hi.po,
+	  xfce4-mixer/branches/xfce_4_0/po/hu.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/hu.po,
+	  xfce4-mixer/branches/xfce_4_0/po/it.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/it.po,
+	  xfce4-mixer/branches/xfce_4_0/po/ja.po,
+	  xfce4-mixer/branches/xfce_4_0/po/ko.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/ko.po,
+	  xfce4-mixer/branches/xfce_4_0/po/lt.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/lt.po,
+	  xfce4-mixer/branches/xfce_4_0/po/ms.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/ms.po,
+	  xfce4-mixer/branches/xfce_4_0/po/nl.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/nl.po,
+	  xfce4-mixer/branches/xfce_4_0/po/no.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/no.po,
+	  xfce4-mixer/branches/xfce_4_0/po/pl.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/pl.po,
+	  xfce4-mixer/branches/xfce_4_0/po/pt_BR.po,
+	  xfce4-mixer/branches/xfce_4_0/po/pt_PT.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/pt_PT.po,
+	  xfce4-mixer/branches/xfce_4_0/po/ru.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/ru.po,
+	  xfce4-mixer/branches/xfce_4_0/po/ta.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/ta.po,
+	  xfce4-mixer/branches/xfce_4_0/po/tr.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/tr.po,
+	  xfce4-mixer/branches/xfce_4_0/po/uk.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/uk.po,
+	  xfce4-mixer/branches/xfce_4_0/po/vi.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/vi.po,
+	  xfce4-mixer/branches/xfce_4_0/po/xfce4-mixer.pot,
+	  xfce4-mixer/branches/xfce_4_0/po/zh_CN.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/zh_CN.po,
+	  xfce4-mixer/branches/xfce_4_0/po/zh_TW.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/zh_TW.po: making more oss names
+	  translateable (optionally of course). Dont kill me :)
 
-2004-01-07 21:38  olivier
+2004-01-21 11:42  dannym
 
-	* ChangeLog, po/ChangeLog: Huge update before 4.0.3 release,
-	  mainly: ChangeLog update, Version number updates.
+	* xfce4-mixer/branches/xfce_4_0/Makefile.in,
+	  xfce4-mixer/branches/xfce_4_0/aclocal.m4,
+	  xfce4-mixer/branches/xfce_4_0/config.guess,
+	  xfce4-mixer/branches/xfce_4_0/config.sub,
+	  xfce4-mixer/branches/xfce_4_0/configure,
+	  xfce4-mixer/branches/xfce_4_0/configure.ac,
+	  xfce4-mixer/branches/xfce_4_0/depcomp,
+	  xfce4-mixer/branches/xfce_4_0/install-sh,
+	  xfce4-mixer/branches/xfce_4_0/ltmain.sh,
+	  xfce4-mixer/branches/xfce_4_0/missing,
+	  xfce4-mixer/branches/xfce_4_0/panel-plugin/mixer_window.c,
+	  xfce4-mixer/branches/xfce_4_0/po/POTFILES.in,
+	  xfce4-mixer/branches/xfce_4_0/po/az.po,
+	  xfce4-mixer/branches/xfce_4_0/po/ca.po,
+	  xfce4-mixer/branches/xfce_4_0/po/cs.po,
+	  xfce4-mixer/branches/xfce_4_0/po/de.po,
+	  xfce4-mixer/branches/xfce_4_0/po/es.po,
+	  xfce4-mixer/branches/xfce_4_0/po/fr.po,
+	  xfce4-mixer/branches/xfce_4_0/po/hi.po,
+	  xfce4-mixer/branches/xfce_4_0/po/hu.po,
+	  xfce4-mixer/branches/xfce_4_0/po/it.po,
+	  xfce4-mixer/branches/xfce_4_0/po/ja.po,
+	  xfce4-mixer/branches/xfce_4_0/po/ko.po,
+	  xfce4-mixer/branches/xfce_4_0/po/lt.po,
+	  xfce4-mixer/branches/xfce_4_0/po/ms.po,
+	  xfce4-mixer/branches/xfce_4_0/po/nl.po,
+	  xfce4-mixer/branches/xfce_4_0/po/no.po,
+	  xfce4-mixer/branches/xfce_4_0/po/pl.po,
+	  xfce4-mixer/branches/xfce_4_0/po/pt_BR.po,
+	  xfce4-mixer/branches/xfce_4_0/po/pt_PT.po,
+	  xfce4-mixer/branches/xfce_4_0/po/ru.po,
+	  xfce4-mixer/branches/xfce_4_0/po/ta.po,
+	  xfce4-mixer/branches/xfce_4_0/po/tr.po,
+	  xfce4-mixer/branches/xfce_4_0/po/uk.po,
+	  xfce4-mixer/branches/xfce_4_0/po/vi.po,
+	  xfce4-mixer/branches/xfce_4_0/po/xfce4-mixer.pot,
+	  xfce4-mixer/branches/xfce_4_0/po/zh_CN.po,
+	  xfce4-mixer/branches/xfce_4_0/po/zh_TW.po: make control names
+	  translateable (optional)
 
-2003-12-29 16:19  olivier
+2004-01-20 22:35  dannym
 
-	* ChangeLog, configure, configure.ac, po/no.gmo, po/no.po: Update
-	  version number, Update ChangeLog Fix missing CHARSET in potfiles
+	* xfce4-mixer/branches/xfce_4_0/po/es.po,
+	  xfce4-mixer/branches/xfce_4_0/po/ja.po,
+	  xfce4-mixer/branches/xfce_4_0/po/pt_BR.po: new translations for
+	  xfce_4_0 branch. Ran autogen. eeek.
 
-2003-12-29 13:16  jasper
+2004-01-20 22:35  
 
-	* configure, configure.ac, po/no.gmo, po/no.po, po/tr.gmo,
-	  po/tr.po: Update Norwegian and Turkish translations
+	* xfce4-mixer/branches/xfce_4_0/po/pt_BR.po: This commit was
+	  manufactured by cvs2svn to create branch 'xfce_4_0'.
 
-2003-12-27 22:52  jasper
+2004-01-20 22:20  dannym
 
-	* configure, configure.ac, po/pl.gmo, po/pl.po: Update Polish
+	* xfce4-mixer/branches/xfce_4_0/panel-plugin/Makefile.in,
+	  xfce4-mixer/branches/xfce_4_0/po/zh_CN.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/zh_CN.po: added japanese,
+	  simplified chinese and brasilian portugese to mixer xfce_4_0
+	  branch. reran autogen. eeek.
+
+2004-01-07 20:38  olivier
+
+	* xfce4-mixer/branches/xfce_4_0/ChangeLog,
+	  xfce4-mixer/branches/xfce_4_0/po/ChangeLog: Huge update before
+	  4.0.3 release, mainly: ChangeLog update, Version number updates.
+
+2003-12-29 15:20  olivier
+
+	* xfce4-mixer/branches/xfce_4_0/ChangeLog,
+	  xfce4-mixer/branches/xfce_4_0/configure,
+	  xfce4-mixer/branches/xfce_4_0/configure.ac,
+	  xfce4-mixer/branches/xfce_4_0/po/no.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/no.po: Update version number,
+	  Update ChangeLog Fix missing CHARSET in potfiles
+
+2003-12-29 12:16  jasper
+
+	* xfce4-mixer/branches/xfce_4_0/configure,
+	  xfce4-mixer/branches/xfce_4_0/configure.ac,
+	  xfce4-mixer/branches/xfce_4_0/po/no.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/no.po,
+	  xfce4-mixer/branches/xfce_4_0/po/tr.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/tr.po: Update Norwegian and
+	  Turkish translations
+
+2003-12-29 12:16  
+
+	* xfce4-mixer/branches/xfce_4_0/po/no.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/no.po: This commit was
+	  manufactured by cvs2svn to create branch 'xfce_4_0'.
+
+2003-12-27 21:52  jasper
+
+	* xfce4-mixer/branches/xfce_4_0/configure,
+	  xfce4-mixer/branches/xfce_4_0/configure.ac,
+	  xfce4-mixer/branches/xfce_4_0/po/pl.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/pl.po: Update Polish translations
+
+2003-12-27 21:52  
+
+	* xfce4-mixer/branches/xfce_4_0/po/pl.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/pl.po: This commit was
+	  manufactured by cvs2svn to create branch 'xfce_4_0'.
+
+2003-12-17 23:00  olivier
+
+	* xfce4-mixer/branches/xfce_4_0/ChangeLog: Update ChangeLog(s)
+
+2003-12-16 22:36  olivier
+
+	* xfce4-mixer/branches/xfce_4_0/configure,
+	  xfce4-mixer/branches/xfce_4_0/configure.ac: Resync, update version
+	  number
+
+2003-12-15 21:35  jasper
+
+	* xfce4-mixer/branches/xfce_4_0/configure,
+	  xfce4-mixer/branches/xfce_4_0/configure.ac,
+	  xfce4-mixer/branches/xfce_4_0/po/az.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/az.po: Add Azerbaijani
 	  translations
 
-2003-12-18 00:00  olivier
+2003-12-15 21:35  
 
-	* ChangeLog: Update ChangeLog(s)
+	* xfce4-mixer/branches/xfce_4_0/po/az.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/az.po: This commit was
+	  manufactured by cvs2svn to create branch 'xfce_4_0'.
 
-2003-12-16 23:36  olivier
+2003-11-16 08:44  jasper
 
-	* configure, configure.ac: Resync, update version number
+	* xfce4-mixer/branches/xfce_4_0/po/cs.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/cs.po: Update Czech translations
 
-2003-12-15 22:35  jasper
+2003-11-12 07:02  jasper
 
-	* configure, configure.ac, po/az.gmo, po/az.po: Add Azerbaijani
-	  translations
-
-2003-11-16 09:44  jasper
-
-	* po/: cs.gmo, cs.po: Update Czech translations
-
-2003-11-12 08:02  jasper
-
-	* po/: ca.gmo, cs.gmo, de.gmo, fr.gmo, hi.gmo, hu.gmo, it.gmo,
-	  ko.gmo, lt.gmo, ms.gmo, nl.gmo, pt_PT.gmo, ru.gmo, ta.gmo,
-	  tr.gmo, uk.gmo, vi.gmo, zh_CN.gmo, zh_TW.gmo: Forgot gmo files
+	* xfce4-mixer/branches/xfce_4_0/po/ca.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/cs.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/de.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/fr.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/hi.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/hu.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/it.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/ko.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/lt.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/ms.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/nl.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/pt_PT.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/ru.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/ta.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/tr.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/uk.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/vi.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/zh_CN.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/zh_TW.gmo: Forgot gmo files
 	  update
 
-2003-11-11 19:35  jasper
+2003-11-11 18:35  jasper
 
-	* po/: ca.po, cs.po, de.po, fr.po, hi.po, hu.po, it.po, ko.po,
-	  lt.po, ms.po, nl.po, pt_PT.po, ru.po, ta.po, tr.po, uk.po, vi.po,
-	  xfce4-mixer.pot, zh_CN.po, zh_TW.po: Update po files, just in
-	  case something changed ...
+	* xfce4-mixer/branches/xfce_4_0/po/ca.po,
+	  xfce4-mixer/branches/xfce_4_0/po/cs.po,
+	  xfce4-mixer/branches/xfce_4_0/po/de.po,
+	  xfce4-mixer/branches/xfce_4_0/po/fr.po,
+	  xfce4-mixer/branches/xfce_4_0/po/hi.po,
+	  xfce4-mixer/branches/xfce_4_0/po/hu.po,
+	  xfce4-mixer/branches/xfce_4_0/po/it.po,
+	  xfce4-mixer/branches/xfce_4_0/po/ko.po,
+	  xfce4-mixer/branches/xfce_4_0/po/lt.po,
+	  xfce4-mixer/branches/xfce_4_0/po/ms.po,
+	  xfce4-mixer/branches/xfce_4_0/po/nl.po,
+	  xfce4-mixer/branches/xfce_4_0/po/pt_PT.po,
+	  xfce4-mixer/branches/xfce_4_0/po/ru.po,
+	  xfce4-mixer/branches/xfce_4_0/po/ta.po,
+	  xfce4-mixer/branches/xfce_4_0/po/tr.po,
+	  xfce4-mixer/branches/xfce_4_0/po/uk.po,
+	  xfce4-mixer/branches/xfce_4_0/po/vi.po,
+	  xfce4-mixer/branches/xfce_4_0/po/xfce4-mixer.pot,
+	  xfce4-mixer/branches/xfce_4_0/po/zh_CN.po,
+	  xfce4-mixer/branches/xfce_4_0/po/zh_TW.po: Update po files, just
+	  in case something changed ...
 
-2003-11-09 20:09  jasper
+2003-11-09 19:09  jasper
 
-	* configure, configure.ac, po/cs.gmo, po/cs.po: Add Check
+	* xfce4-mixer/branches/xfce_4_0/configure,
+	  xfce4-mixer/branches/xfce_4_0/configure.ac,
+	  xfce4-mixer/branches/xfce_4_0/po/cs.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/cs.po: Add Check translations
+
+2003-11-03 18:06  jasper
+
+	* xfce4-mixer/branches/xfce_4_0/configure,
+	  xfce4-mixer/branches/xfce_4_0/configure.ac,
+	  xfce4-mixer/branches/xfce_4_0/po/uk.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/uk.po: Add Ukranian translations
+
+2003-11-01 23:28  olivier
+
+	* xfce4-mixer/branches/xfce_4_0/configure,
+	  xfce4-mixer/branches/xfce_4_0/configure.ac,
+	  xfce4-mixer/branches/xfce_4_0/po/hi.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/hi.po: Add Hindi translation
+
+2003-10-24 22:31  jasper
+
+	* xfce4-mixer/branches/xfce_4_0/configure,
+	  xfce4-mixer/branches/xfce_4_0/configure.ac,
+	  xfce4-mixer/branches/xfce_4_0/po/vi.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/vi.po: Add vietnamese
+	  translations by Lam Vinh Nien <nienvl@yahoo.ca>.
+
+2003-10-24 22:31  
+
+	* xfce4-mixer/branches/xfce_4_0/po/vi.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/vi.po: This commit was
+	  manufactured by cvs2svn to create branch 'xfce_4_0'.
+
+2003-10-15 11:20  jasper
+
+	* xfce4-mixer/branches/xfce_4_0/po/ko.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/ko.po: Update korean translations
+
+2003-10-13 18:30  jasper
+
+	* xfce4-mixer/branches/xfce_4_0/ChangeLog: Update ChangeLog's after
+	  syncing with SF. Everything should now be up-to-date.
+
+2003-10-13 18:09  jasper
+
+	* xfce4-mixer/branches/xfce_4_0/panel-plugin/mixer_window.c: Bring
+	  up-to-date with SF repository. Only one commit missing. ChanLog
+	  entry follows: +++ 2003-10-10 22:50 dannym *
+	  xfce4-mixer/panel-plugin/mixer_window.c: fixed memory leak on
+	  mixer window close. +++
+
+2003-09-28 08:08  huysmans
+
+	* xfce4-mixer/branches/xfce_4_0/configure,
+	  xfce4-mixer/branches/xfce_4_0/configure.ac,
+	  xfce4-mixer/branches/xfce_4_0/po/ko.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/ko.po: Merge changes in HEAD to
+	  stable branch
+
+2003-09-28 08:08  
+
+	* xfce4-mixer/branches/xfce_4_0/po/ko.po: This commit was
+	  manufactured by cvs2svn to create branch 'xfce_4_0'.
+
+2003-09-27 11:18  huysmans
+
+	* xfce4-mixer/branches/xfce_4_0/configure,
+	  xfce4-mixer/branches/xfce_4_0/configure.ac,
+	  xfce4-mixer/branches/xfce_4_0/po/ta.gmo,
+	  xfce4-mixer/branches/xfce_4_0/po/ta.po: Update tamil translations
+
+2003-09-27 09:47  dannym
+
+	* xfce4-mixer/branches/xfce_4_0/panel-plugin/vc_alsa.c: header
+	  location fixed.
+
+2003-09-27 09:47  
+
+	* xfce4-mixer/branches/xfce_4_0,
+	  xfce4-mixer/branches/xfce_4_0/AUTHORS,
+	  xfce4-mixer/branches/xfce_4_0/INSTALL,
+	  xfce4-mixer/branches/xfce_4_0/TODO,
+	  xfce4-mixer/branches/xfce_4_0/autogen.sh,
+	  xfce4-mixer/branches/xfce_4_0/compile,
+	  xfce4-mixer/branches/xfce_4_0/depcomp,
+	  xfce4-mixer/branches/xfce_4_0/missing,
+	  xfce4-mixer/branches/xfce_4_0/mkinstalldirs: This commit was
+	  manufactured by cvs2svn to create branch 'xfce_4_0'.
+
+2003-09-22 20:56  huysmans
+
+	* xfce4-mixer/trunk/ChangeLog: Update ChangeLogs
+
+2003-09-22 20:44  huysmans
+
+	* xfce4-mixer/trunk/po/pt_PT.gmo, xfce4-mixer/trunk/po/pt_PT.po:
+	  Update version numbers and po files for release
+
+2003-09-21 22:43  xfce
+
+	* xfce4-mixer/trunk/configure, xfce4-mixer/trunk/configure.ac:
+	  Update version number to 4.0.0
+
+2003-09-15 21:08  huysmans
+
+	* xfce4-mixer/trunk/configure, xfce4-mixer/trunk/configure.ac,
+	  xfce4-mixer/trunk/po/pt_PT.gmo, xfce4-mixer/trunk/po/pt_PT.po: Big
+	  portugese translation update
+
+2003-09-10 07:57  huysmans
+
+	* xfce4-mixer/trunk/ChangeLog: Update ChangeLogs
+
+2003-09-10 07:49  huysmans
+
+	* xfce4-mixer/trunk/configure, xfce4-mixer/trunk/configure.ac,
+	  xfce4-mixer/trunk/po/zh_TW.po: Update version numbers and po files
+	  for release
+
+2003-09-02 07:17  huysmans
+
+	* xfce4-mixer/trunk/configure, xfce4-mixer/trunk/configure.ac,
+	  xfce4-mixer/trunk/po/ms.gmo, xfce4-mixer/trunk/po/ms.po: Add
+	  malaysian translations
+
+2003-08-30 12:49  huysmans
+
+	* xfce4-mixer/trunk/aclocal.m4, xfce4-mixer/trunk/configure,
+	  xfce4-mixer/trunk/configure.ac,
+	  xfce4-mixer/trunk/po/zh_TW.Big5.gmo,
+	  xfce4-mixer/trunk/po/zh_TW.Big5.po,
+	  xfce4-mixer/trunk/po/zh_TW.gmo, xfce4-mixer/trunk/po/zh_TW.po:
+	  Rename zh_TW.Big5 -> zh_TW
+
+2003-08-30 08:59  huysmans
+
+	* xfce4-mixer/trunk/po/zh_TW.Big5.gmo,
+	  xfce4-mixer/trunk/po/zh_TW.Big5.po: Add traditional chinese
 	  translations
 
-2003-11-03 19:06  jasper
+2003-08-26 07:38  huysmans
 
-	* configure, configure.ac, po/uk.gmo, po/uk.po: Add Ukranian
-	  translations
+	* xfce4-mixer/trunk/ChangeLog: Update changelogs
 
-2003-11-02 00:28  olivier
+2003-08-26 07:22  huysmans
 
-	* configure, configure.ac, po/hi.gmo, po/hi.po: Add Hindi
+	* xfce4-mixer/trunk/po/ca.po, xfce4-mixer/trunk/po/lt.gmo,
+	  xfce4-mixer/trunk/po/lt.po, xfce4-mixer/trunk/po/zh_CN.po: Update
+	  version numbers and po files for release
+
+2003-08-17 11:36  huysmans
+
+	* xfce4-mixer/trunk/configure, xfce4-mixer/trunk/configure.ac,
+	  xfce4-mixer/trunk/po/lt.gmo, xfce4-mixer/trunk/po/lt.po: Add
+	  lithuanian translations
+
+2003-08-10 19:54  huysmans
+
+	* xfce4-mixer/trunk/po/zh_CN.gmo, xfce4-mixer/trunk/po/zh_CN.po:
+	  Update chinese translations
+
+2003-08-07 21:57  huysmans
+
+	* xfce4-mixer/trunk/po/ca.gmo, xfce4-mixer/trunk/po/ca.po,
+	  xfce4-mixer/trunk/po/de.gmo, xfce4-mixer/trunk/po/fr.gmo,
+	  xfce4-mixer/trunk/po/hu.gmo, xfce4-mixer/trunk/po/it.gmo,
+	  xfce4-mixer/trunk/po/nl.gmo, xfce4-mixer/trunk/po/ru.gmo,
+	  xfce4-mixer/trunk/po/tr.gmo, xfce4-mixer/trunk/po/zh_CN.gmo:
+	  Update catalan translations
+
+2003-08-04 16:38  dannym
+
+	* xfce4-mixer/trunk/po/de.po: Bernhard Walle's translations
+
+2003-08-02 09:41  dannym
+
+	* xfce4-mixer/trunk/po/ca.po, xfce4-mixer/trunk/po/de.po,
+	  xfce4-mixer/trunk/po/fr.po, xfce4-mixer/trunk/po/hu.po,
+	  xfce4-mixer/trunk/po/it.po, xfce4-mixer/trunk/po/nl.po,
+	  xfce4-mixer/trunk/po/ru.po, xfce4-mixer/trunk/po/tr.po,
+	  xfce4-mixer/trunk/po/xfce4-mixer.pot,
+	  xfce4-mixer/trunk/po/zh_CN.po: added translateable strings for
+	  "Visible", "Control" (for the tree)
+
+2003-08-01 12:38  dannym
+
+	* xfce4-mixer/trunk/po/POTFILES.in: added mvisible_opts.c to
+	  translateable files
+
+2003-08-01 12:36  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/mvisible_opts.c: ups
+
+2003-08-01 12:34  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/mvisible_opts.c: translateable
+	  "Control" and "Visible"
+
+2003-07-30 20:34  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/string_option_menu.c,
+	  xfce4-mixer/trunk/panel-plugin/string_option_menu.h: small nice
+	  helpers
+
+2003-07-30 20:30  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/vc_alsa.c,
+	  xfce4-mixer/trunk/panel-plugin/vc_oss.c: device listing, alsa
+	  fixups for proper (hopefully) device selection...
+
+2003-07-30 11:31  huysmans
+
+	* xfce4-mixer/trunk/ChangeLog: Update changlogs
+
+2003-07-30 08:16  huysmans
+
+	* xfce4-mixer/trunk/configure, xfce4-mixer/trunk/configure.ac,
+	  xfce4-mixer/trunk/po/ca.gmo, xfce4-mixer/trunk/po/ca.po,
+	  xfce4-mixer/trunk/po/de.gmo, xfce4-mixer/trunk/po/de.po,
+	  xfce4-mixer/trunk/po/fr.gmo, xfce4-mixer/trunk/po/fr.po,
+	  xfce4-mixer/trunk/po/hu.gmo, xfce4-mixer/trunk/po/hu.po,
+	  xfce4-mixer/trunk/po/it.gmo, xfce4-mixer/trunk/po/it.po,
+	  xfce4-mixer/trunk/po/nl.gmo, xfce4-mixer/trunk/po/nl.po,
+	  xfce4-mixer/trunk/po/ru.gmo, xfce4-mixer/trunk/po/ru.po,
+	  xfce4-mixer/trunk/po/tr.gmo, xfce4-mixer/trunk/po/tr.po,
+	  xfce4-mixer/trunk/po/xfce4-mixer.pot,
+	  xfce4-mixer/trunk/po/zh_CN.gmo, xfce4-mixer/trunk/po/zh_CN.po:
+	  Update version numbers and po files for release
+
+2003-07-29 22:30  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/mixer_window.c: fixed source of a
+	  warning with --enable-debug=full
+
+2003-07-29 22:28  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/mixer.c: bugfix for when the
+	  internal mixer window is left open and USR1 is sent to the panel
+
+2003-07-29 22:07  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/mixer.c: free_optionsdialog bugfix
+
+2003-07-29 21:41  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/mixer.c: centered, resized icon
+
+2003-07-29 21:20  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/mixer.c: bugfix for treeview
+	  handling
+
+2003-07-29 19:37  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/mixer.c: temporarily removed device
+	  entry box for rc
+
+2003-07-29 06:28  huysmans
+
+	* xfce4-mixer/trunk/po/ru.gmo, xfce4-mixer/trunk/po/ru.po: Update
+	  russian translations
+
+2003-07-27 22:45  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/test_vc.c: test vc stuff
+
+2003-07-27 22:34  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/vc.c: more debugging messages
+
+2003-07-27 22:24  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/vc_oss.c: init() cleanup
+
+2003-07-27 22:22  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/vc_oss.c: find_master in init()
+
+2003-07-27 22:19  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/test_vc.c: testing
+
+2003-07-27 22:15  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/test_vc.c: testing...
+
+2003-07-27 22:08  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/test_vc.c:
+	  ----------------------------------------------------------------------
+	  test program for the vc stuff (oss so far)
+
+2003-07-27 21:59  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/vc_oss.c: mixer_handle + multiple
+	  devices
+
+2003-07-27 21:33  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/vc_oss.c: bugfix in list device
+	  function
+
+2003-07-27 21:26  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/mixer.c,
+	  xfce4-mixer/trunk/panel-plugin/vc.c,
+	  xfce4-mixer/trunk/panel-plugin/vc.h,
+	  xfce4-mixer/trunk/panel-plugin/vc_alsa.c,
+	  xfce4-mixer/trunk/panel-plugin/vc_alsa_fallback.c,
+	  xfce4-mixer/trunk/panel-plugin/vc_oss.c: Bugfix *sweatdrops*
+
+2003-07-27 20:40  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/mixer.c,
+	  xfce4-mixer/trunk/panel-plugin/vc.c,
+	  xfce4-mixer/trunk/panel-plugin/vc.h,
+	  xfce4-mixer/trunk/panel-plugin/vc_alsa.c,
+	  xfce4-mixer/trunk/panel-plugin/vc_alsa_fallback.c,
+	  xfce4-mixer/trunk/panel-plugin/vc_oss.c: bugfix set_device
+
+2003-07-27 19:57  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/vc_alsa.c,
+	  xfce4-mixer/trunk/panel-plugin/vc_alsa_fallback.c,
+	  xfce4-mixer/trunk/panel-plugin/vc_oss.c: close_device
+
+2003-07-27 19:38  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/mixer.c,
+	  xfce4-mixer/trunk/panel-plugin/vc.c,
+	  xfce4-mixer/trunk/panel-plugin/vc.h:
+	  ----------------------------------------------------------------------
+	  set_device by Toby :)
+
+2003-07-19 09:30  huysmans
+
+	* xfce4-mixer/trunk/ChangeLog: Update ChangeLogs
+
+2003-07-19 09:08  huysmans
+
+	* xfce4-mixer/trunk/config.h.in, xfce4-mixer/trunk/configure,
+	  xfce4-mixer/trunk/configure.ac, xfce4-mixer/trunk/po/ca.gmo,
+	  xfce4-mixer/trunk/po/ca.po, xfce4-mixer/trunk/po/de.gmo,
+	  xfce4-mixer/trunk/po/de.po, xfce4-mixer/trunk/po/fr.gmo,
+	  xfce4-mixer/trunk/po/fr.po, xfce4-mixer/trunk/po/hu.gmo,
+	  xfce4-mixer/trunk/po/hu.po, xfce4-mixer/trunk/po/it.gmo,
+	  xfce4-mixer/trunk/po/it.po, xfce4-mixer/trunk/po/nl.gmo,
+	  xfce4-mixer/trunk/po/nl.po, xfce4-mixer/trunk/po/ru.gmo,
+	  xfce4-mixer/trunk/po/ru.po, xfce4-mixer/trunk/po/tr.gmo,
+	  xfce4-mixer/trunk/po/tr.po, xfce4-mixer/trunk/po/xfce4-mixer.pot,
+	  xfce4-mixer/trunk/po/zh_CN.gmo, xfce4-mixer/trunk/po/zh_CN.po:
+	  Update version numbers and po files for release
+
+2003-07-18 18:16  bmeurer
+
+	* xfce4-mixer/trunk/ChangeLog, xfce4-mixer/trunk/configure,
+	  xfce4-mixer/trunk/configure.ac: Make this depend on the latest
+	  panel.
+
+2003-07-18 15:58  huysmans
+
+	* xfce4-mixer/trunk/panel-plugin/mixer.c: Change panel API again to
+	  prevent old plugins to crah the panel
+
+2003-07-18 10:57  huysmans
+
+	* xfce4-mixer/trunk/po/hu.gmo, xfce4-mixer/trunk/po/hu.po: Update
+	  hungarian translations
+
+2003-07-18 07:46  huysmans
+
+	* xfce4-mixer/trunk/po/tr.gmo, xfce4-mixer/trunk/po/tr.po: Update
+	  turkish translations
+
+2003-07-16 18:01  huysmans
+
+	* xfce4-mixer/trunk/po/nl.gmo, xfce4-mixer/trunk/po/nl.po: Update
+	  dutch translations
+
+2003-07-16 09:57  huysmans
+
+	* xfce4-mixer/trunk/configure, xfce4-mixer/trunk/configure.ac,
+	  xfce4-mixer/trunk/po/ca.po, xfce4-mixer/trunk/po/hu.gmo,
+	  xfce4-mixer/trunk/po/hu.po: Add hungarian translations
+
+2003-07-16 08:22  huysmans
+
+	* xfce4-mixer/trunk/po/ca.gmo, xfce4-mixer/trunk/po/ca.po: Update
+	  catalan translations
+
+2003-07-15 17:21  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/scroller_size.c,
+	  xfce4-mixer/trunk/panel-plugin/scroller_size.h: Moved the
+	  scroll-window be as big as possible, but without leaving empty
+	  space in the window, and smaller than the whole screen, to a
+	  function. TODO: mcs desktop borders
+
+2003-07-13 08:43  huysmans
+
+	* xfce4-mixer/trunk/ChangeLog: Update ChangeLogs for release
+
+2003-07-12 13:34  huysmans
+
+	* xfce4-mixer/trunk/ChangeLog: Update ChangeLog before release
+
+2003-07-12 13:27  huysmans
+
+	* xfce4-mixer/trunk/po/ca.gmo, xfce4-mixer/trunk/po/ca.po,
+	  xfce4-mixer/trunk/po/de.gmo, xfce4-mixer/trunk/po/de.po,
+	  xfce4-mixer/trunk/po/fr.gmo, xfce4-mixer/trunk/po/fr.po,
+	  xfce4-mixer/trunk/po/it.gmo, xfce4-mixer/trunk/po/it.po,
+	  xfce4-mixer/trunk/po/nl.gmo, xfce4-mixer/trunk/po/nl.po,
+	  xfce4-mixer/trunk/po/ru.gmo, xfce4-mixer/trunk/po/ru.po,
+	  xfce4-mixer/trunk/po/tr.gmo, xfce4-mixer/trunk/po/tr.po,
+	  xfce4-mixer/trunk/po/zh_CN.gmo, xfce4-mixer/trunk/po/zh_CN.po:
+	  Update po files before release (again ;)
+
+2003-07-12 13:04  xfce
+
+	* xfce4-mixer/trunk/panel-plugin/mixer_window.c,
+	  xfce4-mixer/trunk/po/xfce4-mixer.pot: Set fixed width and set
+	  hscrollbar policy to automatic
+
+2003-07-12 12:12  xfce
+
+	* xfce4-mixer/trunk/configure, xfce4-mixer/trunk/configure.ac,
+	  xfce4-mixer/trunk/panel-plugin/Makefile.am,
+	  xfce4-mixer/trunk/panel-plugin/Makefile.in,
+	  xfce4-mixer/trunk/panel-plugin/mixer_window.c,
+	  xfce4-mixer/trunk/po/fr.gmo, xfce4-mixer/trunk/po/fr.po: Remove
+	  the hack for map event on mixer window.
+
+2003-07-12 09:08  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/mixer_window.c,
+	  xfce4-mixer/trunk/panel-plugin/mixer_window.h,
+	  xfce4-mixer/trunk/panel-plugin/vc_alsa.c: Update, breaks stored
+	  configuration, ow well
+
+2003-07-11 07:33  huysmans
+
+	* xfce4-mixer/trunk/ChangeLog: Update ChangeLog's for release
+
+2003-07-11 07:18  huysmans
+
+	* xfce4-mixer/trunk/po/zh_CN.gmo, xfce4-mixer/trunk/po/zh_CN.po:
+	  Update Chinese translations (2)
+
+2003-07-10 09:56  huysmans
+
+	* xfce4-mixer/trunk/ChangeLog: Update ChangeLog's for release
+
+2003-07-10 09:45  huysmans
+
+	* xfce4-mixer/trunk/configure, xfce4-mixer/trunk/configure.ac: Bump
+	  versions for release and update po files
+
+2003-07-09 08:47  huysmans
+
+	* xfce4-mixer/trunk/configure, xfce4-mixer/trunk/configure.ac,
+	  xfce4-mixer/trunk/ltmain.sh,
+	  xfce4-mixer/trunk/panel-plugin/mixer.c,
+	  xfce4-mixer/trunk/po/ca.gmo, xfce4-mixer/trunk/po/ca.po,
+	  xfce4-mixer/trunk/po/de.gmo, xfce4-mixer/trunk/po/de.po,
+	  xfce4-mixer/trunk/po/it.gmo, xfce4-mixer/trunk/po/it.po,
+	  xfce4-mixer/trunk/po/nl.gmo, xfce4-mixer/trunk/po/nl.po,
+	  xfce4-mixer/trunk/po/ru.gmo, xfce4-mixer/trunk/po/ru.po,
+	  xfce4-mixer/trunk/po/tr.gmo, xfce4-mixer/trunk/po/tr.po,
+	  xfce4-mixer/trunk/po/xfce4-mixer.pot,
+	  xfce4-mixer/trunk/po/zh_CN.gmo, xfce4-mixer/trunk/po/zh_CN.po:
+	  Update to new plugin API
+
+2003-07-08 20:55  xfce
+
+	* xfce4-mixer/trunk/po/Makefile.in.in: Don't perform an update-po on
+	  make dist as it causes far too much trouble
+
+2003-07-08 18:01  huysmans
+
+	* xfce4-mixer/trunk/panel-plugin/mixer.c: Replave ... button with
+	  gtk stock open icon
+
+2003-07-07 21:22  huysmans
+
+	* xfce4-mixer/trunk/po/ca.gmo, xfce4-mixer/trunk/po/ca.po: Update
+	  catalan translations
+
+2003-07-07 20:46  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/mixer.c: trying to fix the
+	  one-pixel-below bug phrep_ reported...
+
+2003-07-07 20:43  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/mixer_window.c: Ok, since the
+	  draw_value from GtkScale is starting to annoy me, I just switched
+	  it off now. Bah.
+
+2003-07-06 20:14  huysmans
+
+	* xfce4-mixer/trunk/ChangeLog: Update ChangeLogs
+
+2003-07-06 13:35  xfce
+
+	* xfce4-mixer/trunk/Makefile.in, xfce4-mixer/trunk/ltconfig: libtool
+	  update
+
+2003-07-02 21:00  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/mixer_window.c: Added nice border
+
+2003-07-01 22:32  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/mixer_window.c: Small
+	  xinerama/xrandr fixup... needs work...
+
+2003-06-29 14:17  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/mixer_window.c: gtk < 2.2 compat
+	  code added...
+
+2003-06-29 14:09  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/mixer_window.c: Finally... scroller
+	  only has scrollbars if required. If possible, the window just gets
+	  bigger instead of adding scrollbars...
+
+2003-06-28 10:00  xfce
+
+	* xfce4-mixer/trunk/Makefile.in, xfce4-mixer/trunk/aclocal.m4,
+	  xfce4-mixer/trunk/config.h.in, xfce4-mixer/trunk/configure,
+	  xfce4-mixer/trunk/ltmain.sh,
+	  xfce4-mixer/trunk/panel-plugin/Makefile.in: Switch to GNU libtool
+	  1.5
+
+2003-06-24 22:38  xfce
+
+	* xfce4-mixer/trunk/po/it.gmo, xfce4-mixer/trunk/po/it.po: Fix it.po
+	  file
+
+2003-06-24 20:49  xfce
+
+	* xfce4-mixer/trunk/aclocal.m4, xfce4-mixer/trunk/configure,
+	  xfce4-mixer/trunk/configure.ac, xfce4-mixer/trunk/ltcf-c.sh,
+	  xfce4-mixer/trunk/ltconfig, xfce4-mixer/trunk/ltmain.sh,
+	  xfce4-mixer/trunk/po/it.po: Add Italian locale
+
+2003-06-19 11:19  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/vc_oss.c: grr. recommit.
+
+2003-06-18 17:40  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/vc_oss.c: Recommit
+
+2003-06-18 17:22  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/vc_alsa.c: Now unmutes alsa
+	  automatically (damn you, alsa). Needs more testing...
+
+2003-06-17 22:04  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/mixer.c: fix for muting
+
+2003-06-17 22:01  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/mixer.c: mute bugfix
+
+2003-06-17 21:55  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/mixer.c: Muting with middle or
+	  right mouse button on green bar
+
+2003-06-16 11:53  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/vc_oss.c: Fix
+
+2003-06-15 12:11  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/mixer.c,
+	  xfce4-mixer/trunk/panel-plugin/mixer_window.c,
+	  xfce4-mixer/trunk/panel-plugin/name_change,
+	  xfce4-mixer/trunk/panel-plugin/vc.c,
+	  xfce4-mixer/trunk/panel-plugin/vc.h,
+	  xfce4-mixer/trunk/panel-plugin/vc_alsa.c,
+	  xfce4-mixer/trunk/panel-plugin/vc_alsa_fallback.c,
+	  xfce4-mixer/trunk/panel-plugin/vc_oss.c: Name Change ;)
+
+2003-06-15 11:29  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/mixer.c: Load/Store visible mixer
+	  controls...
+
+2003-06-14 21:51  bmeurer
+
+	* xfce4-mixer/trunk/Makefile.in, xfce4-mixer/trunk/aclocal.m4,
+	  xfce4-mixer/trunk/config.guess, xfce4-mixer/trunk/config.sub,
+	  xfce4-mixer/trunk/configure, xfce4-mixer/trunk/install-sh,
+	  xfce4-mixer/trunk/ltcf-c.sh, xfce4-mixer/trunk/ltconfig,
+	  xfce4-mixer/trunk/ltmain.sh,
+	  xfce4-mixer/trunk/panel-plugin/Makefile.am,
+	  xfce4-mixer/trunk/panel-plugin/Makefile.in,
+	  xfce4-mixer/trunk/panel-plugin/mixer.c: Fixed forgotten file.
+
+2003-06-14 09:34  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/mixer.c,
+	  xfce4-mixer/trunk/panel-plugin/vc_alsa.c: small bugfixes for the
+	  case there is no working sound device...
+
+2003-06-14 08:35  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/vc.c: oops
+
+2003-06-14 08:32  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/vc.c: bugfix in next_vc
+
+2003-06-13 22:39  bmeurer
+
+	* xfce4-mixer/trunk/m4/i18n.m4: Fixed bind_textdomain_codeset()
+	  problem on linux.
+
+2003-06-12 18:16  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/Makefile.in: added two source
+	  files...
+
+2003-06-12 18:12  dannym
+
+	* xfce4-mixer/trunk/po/tr.po: Ercin Eker's translations... thankies
+	  :)
+
+2003-06-12 11:13  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/mixer_window.c,
+	  xfce4-mixer/trunk/panel-plugin/mixer_window.h,
+	  xfce4-mixer/trunk/panel-plugin/mvisible_opts.c,
+	  xfce4-mixer/trunk/panel-plugin/vc.c,
+	  xfce4-mixer/trunk/panel-plugin/vc_alsa.c,
+	  xfce4-mixer/trunk/panel-plugin/vc_oss.c: Update... mixer window
+	  and all
+
+2003-06-12 06:53  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/mvisible_opts.h: oops... hereby add
+	  missing file
+
+2003-06-10 21:47  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/mixer.c: Check for
+	  bind_textdomain_codeset before using it.
+
+2003-06-10 20:28  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/vc_oss.c: Fixed multiple controls
+	  handling for get_volume in OSS.
+
+2003-06-08 14:28  huysmans
+
+	* xfce4-mixer/trunk/po/ru.gmo, xfce4-mixer/trunk/po/ru.po: Really
+	  add russion translations
+
+2003-06-08 14:24  huysmans
+
+	* xfce4-mixer/trunk/Makefile.in, xfce4-mixer/trunk/aclocal.m4,
+	  xfce4-mixer/trunk/config.h.in, xfce4-mixer/trunk/configure,
+	  xfce4-mixer/trunk/configure.ac,
+	  xfce4-mixer/trunk/panel-plugin/Makefile.in: Add russian
 	  translation
 
-2003-10-25 00:31  jasper
+2003-06-07 18:14  bmeurer
 
-	* configure, configure.ac, po/vi.gmo, po/vi.po:
-	  Add vietnamese translations by Lam Vinh Nien <nienvl@yahoo.ca>.
+	* xfce4-mixer/trunk/panel-plugin/mixer.c: cosmetics
 
-2003-10-15 13:20  jasper
+2003-06-07 00:03  xfce
 
-	* po/: ko.gmo, ko.po: Update korean translations
+	* xfce4-mixer/trunk/po/ChangeLog: Add missing file
 
-2003-10-13 20:30  jasper
+2003-06-07 00:02  xfce
 
-	* ChangeLog: Update ChangeLog's after syncing with SF. Everything
-	  should now be up-to-date.
+	* xfce4-mixer/trunk/Makefile.am, xfce4-mixer/trunk/Makefile.in,
+	  xfce4-mixer/trunk/aclocal.m4, xfce4-mixer/trunk/config.h.in,
+	  xfce4-mixer/trunk/configure,
+	  xfce4-mixer/trunk/panel-plugin/Makefile.am,
+	  xfce4-mixer/trunk/panel-plugin/Makefile.in,
+	  xfce4-mixer/trunk/xfce4-mixer.spec.in: Fix a bunch of errors is
+	  build process!
 
-2003-10-13 20:09  jasper
+2003-06-05 11:47  huysmans
 
-	* panel-plugin/mixer_window.c:
-	  Bring up-to-date with SF repository. Only one commit missing.
-	  ChanLog entry follows:
-
-	  +++
-
-	  2003-10-10 22:50  dannym
-
-		  * xfce4-mixer/panel-plugin/mixer_window.c: fixed memory
-	  leak on
-		  mixer window close.
-
-	  +++
-
-2003-09-28 10:07  huysmans
-
-	* configure, configure.ac, po/ko.gmo, po/ko.po: Merge changes in
-	  HEAD to stable branch
-
-2003-09-27 13:18  huysmans
-
-	* configure, configure.ac, po/ta.gmo, po/ta.po: Update tamil
+	* xfce4-mixer/trunk/Makefile.am, xfce4-mixer/trunk/Makefile.in,
+	  xfce4-mixer/trunk/configure, xfce4-mixer/trunk/configure.ac,
+	  xfce4-mixer/trunk/po/Makefile.in.in, xfce4-mixer/trunk/po/ca.gmo,
+	  xfce4-mixer/trunk/po/ca.po, xfce4-mixer/trunk/po/de.gmo,
+	  xfce4-mixer/trunk/po/de.po, xfce4-mixer/trunk/po/nl.gmo,
+	  xfce4-mixer/trunk/po/nl.po, xfce4-mixer/trunk/po/tr.gmo,
+	  xfce4-mixer/trunk/po/tr.po, xfce4-mixer/trunk/po/xfce4-mixer.pot,
+	  xfce4-mixer/trunk/po/zh_CN.gmo, xfce4-mixer/trunk/po/zh_CN.po,
+	  xfce4-mixer/trunk/xfce4-mixer.spec.in: Add spec file and Dutch
 	  translations
 
-2003-09-27 11:47  dannym
+2003-06-05 07:31  huysmans
 
-	* panel-plugin/vc_alsa.c: header location fixed.
+	* xfce4-mixer/trunk/panel-plugin/Makefile.in,
+	  xfce4-mixer/trunk/po/tr.gmo, xfce4-mixer/trunk/po/tr.po: Updated
+	  translations
+
+2003-05-31 11:10  huysmans
+
+	* xfce4-mixer/trunk/po/tr.gmo, xfce4-mixer/trunk/po/tr.po: Update
+	  turkish translations
+
+2003-05-29 15:41  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/mixer.c: Internal Mixer Window
+	  uniqueified ^^
+
+2003-05-29 15:24  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/mixer_window.c,
+	  xfce4-mixer/trunk/panel-plugin/mixer_window.h: re-commit
+
+2003-05-29 12:35  huysmans
+
+	* xfce4-mixer/trunk/configure, xfce4-mixer/trunk/configure.ac,
+	  xfce4-mixer/trunk/po/ca.gmo, xfce4-mixer/trunk/po/ca.po: Update
+	  catalan translations
+
+2003-05-29 09:17  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/mixer_window.c: bug fix: first init
+	  graphics controls then connect changed signal.
+
+2003-05-28 22:29  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/mixer_window.c: format_value taken
+	  out.
+
+2003-05-28 22:04  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/mixer_window.h: part 2 of the mixer
+	  window ;)
+
+2003-05-28 21:36  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/mixer_window.c,
+	  xfce4-mixer/trunk/panel-plugin/vc_alsa.c,
+	  xfce4-mixer/trunk/panel-plugin/vc_oss.c: Mixer Window, part 2 ;)
+	  now can actually change volume
+
+2003-05-28 21:13  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/Makefile.am,
+	  xfce4-mixer/trunk/panel-plugin/Makefile.in: added
+	  mixer_window{.c,.h}
+
+2003-05-28 20:43  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/mixer.c,
+	  xfce4-mixer/trunk/panel-plugin/mixer_window.c,
+	  xfce4-mixer/trunk/panel-plugin/mixer_window.h,
+	  xfce4-mixer/trunk/panel-plugin/vc.c,
+	  xfce4-mixer/trunk/panel-plugin/vc.h,
+	  xfce4-mixer/trunk/panel-plugin/vc_alsa.c,
+	  xfce4-mixer/trunk/panel-plugin/vc_alsa_fallback.c,
+	  xfce4-mixer/trunk/panel-plugin/vc_oss.c: Beginning of a mixer
+	  window with sliders etc... leave the launch command of the panel
+	  plugin empty to use.
+
+2003-05-27 19:41  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/mixer.c: check_volume interval
+	  shortened...
+
+2003-05-22 12:33  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/mixer.c: Default app for mixer =
+	  None
+
+2003-05-21 21:43  huysmans
+
+	* xfce4-mixer/trunk/Makefile.in, xfce4-mixer/trunk/aclocal.m4,
+	  xfce4-mixer/trunk/config.guess, xfce4-mixer/trunk/config.sub,
+	  xfce4-mixer/trunk/configure, xfce4-mixer/trunk/configure.ac,
+	  xfce4-mixer/trunk/panel-plugin/Makefile.in,
+	  xfce4-mixer/trunk/po/tr.gmo, xfce4-mixer/trunk/po/tr.po: Add
+	  Turkish translations
+
+2003-05-08 19:17  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/vc_alsa.c: set_master_volume is
+	  more fault-tolerant now.
+
+2003-05-08 17:46  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/vc_alsa.c: trying something else...
+	  hmmmm alsa will you still play dumb?
+
+2003-05-08 17:21  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/vc_alsa.c: Removed snd_mixer_close
+	  in the error handling block of snd_mixer_attach, since that makes
+	  an assertion fail within alsa 0.9.2 lib's snd_mixer_close routine
+	  O_o
+
+2003-05-03 10:47  huysmans
+
+	* xfce4-mixer/trunk/po/zh_CN.gmo, xfce4-mixer/trunk/po/zh_CN.po: Add
+	  Chinese translations (really)
+
+2003-05-03 10:36  huysmans
+
+	* xfce4-mixer/trunk/Makefile.in, xfce4-mixer/trunk/aclocal.m4,
+	  xfce4-mixer/trunk/config.guess, xfce4-mixer/trunk/config.sub,
+	  xfce4-mixer/trunk/configure, xfce4-mixer/trunk/configure.ac,
+	  xfce4-mixer/trunk/ltcf-c.sh, xfce4-mixer/trunk/ltconfig,
+	  xfce4-mixer/trunk/ltmain.sh,
+	  xfce4-mixer/trunk/panel-plugin/Makefile.in: Add Chinese
+	  translations
+
+2003-05-01 18:49  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/mixer.c: Now using translations
+	  sourced from the panel (P_)
+
+2003-04-30 18:42  bmeurer
+
+	* xfce4-mixer/trunk/Makefile.in, xfce4-mixer/trunk/config.h.in,
+	  xfce4-mixer/trunk/panel-plugin/Makefile.in,
+	  xfce4-mixer/trunk/po/de.gmo: Added de.gmo for people w/o msgfmt.
+
+2003-04-30 17:24  bmeurer
+
+	* xfce4-mixer/trunk/configure, xfce4-mixer/trunk/configure.ac:
+	  BM_DEPEND_CHECK need to appear after BM_DEPENDs
+
+2003-04-30 15:22  dannym
+
+	* xfce4-mixer/trunk/configure.ac,
+	  xfce4-mixer/trunk/panel-plugin/Makefile.am: Added startup
+	  notification check for the options dialog ;)
+
+2003-04-30 14:52  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/mixer.c: Launcher dependent code
+	  copy-and-pasted to mixer (trying to fix what belial reported)
+
+2003-04-29 17:02  dannym
+
+	* xfce4-mixer/trunk/README: You README you, will you go into the
+	  right place, already? :)
+
+2003-04-29 11:33  dannym
+
+	* xfce4-mixer/trunk/README: This time the right one ;)
+
+2003-04-27 21:15  bmeurer
+
+	* xfce4-mixer/trunk/panel-plugin/mixer.c: Fixed bug: g_new->g_new0
+
+2003-04-27 21:01  bmeurer
+
+	* xfce4-mixer/trunk/aclocal.m4, xfce4-mixer/trunk/configure,
+	  xfce4-mixer/trunk/m4/debug.m4,
+	  xfce4-mixer/trunk/panel-plugin/mixer.c: Fixes.
+
+2003-04-27 20:43  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/mixer.c: Removed focus-out-event as
+	  it caused weird crashes. Hmz.
+
+2003-04-27 14:37  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/mixer.c: Fixed all the dialog
+	  callbacks. The options dialog should work fine now :)
+
+2003-04-27 13:24  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/mixer.c: disabled alsa_fallback
+	  completely.
+
+2003-04-27 10:02  xfce
+
+	* xfce4-mixer/trunk/panel-plugin/vc_alsa.c: Fix i18n
+
+2003-04-26 21:30  bmeurer
+
+	* xfce4-mixer/trunk/Makefile.am, xfce4-mixer/trunk/Makefile.in,
+	  xfce4-mixer/trunk/aclocal.m4, xfce4-mixer/trunk/m4/depends.m4:
+	  Updated autostuff.
+
+2003-04-26 21:11  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/vc.c: next_vc in another way
+
+2003-04-26 20:56  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/vc.c,
+	  xfce4-mixer/trunk/panel-plugin/vc_alsa.c,
+	  xfce4-mixer/trunk/panel-plugin/vc_oss.c: Now thats what you call a
+	  dumb bug :) Found it, anyways: vc.c: register: "break" was
+	  missing.
+
+2003-04-26 15:40  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/mixer.c: Right click on the volume
+	  indicator: Mute
+
+2003-04-26 13:42  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/mixer.c: Fixed leak that could
+	  happen if never going to the property dialog. (no freed
+	  options.command)
+
+2003-04-26 13:30  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/mixer.c: tooltip "Volume:" instead
+	  of "Volume -"
+
+2003-04-26 13:29  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/mixer.c: update_volume_display:
+	  caption: Tooltip: "Volume" instead "Volume control"
+
+2003-04-26 12:37  dannym
+
+	* xfce4-mixer/trunk/panel-plugin/mixer.c: Fixed bug in
+	  mixer_command_entry_lost_focus handler.
+
+2003-04-26 10:49  bmeurer
+
+	* xfce4-mixer/trunk/COPYING, xfce4-mixer/trunk/Makefile.am,
+	  xfce4-mixer/trunk/Makefile.in, xfce4-mixer/trunk/NOTES,
+	  xfce4-mixer/trunk/README, xfce4-mixer/trunk/aclocal.m4,
+	  xfce4-mixer/trunk/config.h.in, xfce4-mixer/trunk/configure,
+	  xfce4-mixer/trunk/configure.ac, xfce4-mixer/trunk/m4/i18n.m4,
+	  xfce4-mixer/trunk/panel-plugin/Makefile.am,
+	  xfce4-mixer/trunk/panel-plugin/Makefile.in,
+	  xfce4-mixer/trunk/panel-plugin/mixer.c,
+	  xfce4-mixer/trunk/panel-plugin/vc.c,
+	  xfce4-mixer/trunk/panel-plugin/vc_alsa.c,
+	  xfce4-mixer/trunk/panel-plugin/vc_oss.c, xfce4-mixer/trunk/po,
+	  xfce4-mixer/trunk/po/Makefile.in.in,
+	  xfce4-mixer/trunk/po/POTFILES.in, xfce4-mixer/trunk/po/de.po,
+	  xfce4-mixer/trunk/po/xfce4-mixer.pot: Added gettext framework.
+	  Some improvements to the OSS mixer stuff. Some fixes and cleanups.
+
+2003-04-26 09:01  bmeurer
+
+	* xfce4-mixer/trunk/AUTHORS, xfce4-mixer/trunk/COPYING,
+	  xfce4-mixer/trunk/ChangeLog, xfce4-mixer/trunk/INSTALL,
+	  xfce4-mixer/trunk/Makefile.am, xfce4-mixer/trunk/Makefile.in,
+	  xfce4-mixer/trunk/README, xfce4-mixer/trunk/TODO,
+	  xfce4-mixer/trunk/aclocal.m4, xfce4-mixer/trunk/autogen.sh,
+	  xfce4-mixer/trunk/compile, xfce4-mixer/trunk/config.guess,
+	  xfce4-mixer/trunk/config.h.in, xfce4-mixer/trunk/config.sub,
+	  xfce4-mixer/trunk/configure, xfce4-mixer/trunk/configure.ac,
+	  xfce4-mixer/trunk/depcomp, xfce4-mixer/trunk/install-sh,
+	  xfce4-mixer/trunk/ltcf-c.sh, xfce4-mixer/trunk/ltconfig,
+	  xfce4-mixer/trunk/ltmain.sh, xfce4-mixer/trunk/m4,
+	  xfce4-mixer/trunk/m4/debug.m4, xfce4-mixer/trunk/m4/depends.m4,
+	  xfce4-mixer/trunk/missing, xfce4-mixer/trunk/mkinstalldirs,
+	  xfce4-mixer/trunk/panel-plugin,
+	  xfce4-mixer/trunk/panel-plugin/Makefile.am,
+	  xfce4-mixer/trunk/panel-plugin/Makefile.in,
+	  xfce4-mixer/trunk/panel-plugin/mixer.c,
+	  xfce4-mixer/trunk/panel-plugin/vc.c,
+	  xfce4-mixer/trunk/panel-plugin/vc.h,
+	  xfce4-mixer/trunk/panel-plugin/vc_alsa.c,
+	  xfce4-mixer/trunk/panel-plugin/vc_alsa_fallback.c,
+	  xfce4-mixer/trunk/panel-plugin/vc_oss.c: Initial revision
+
+2003-04-26 09:01  
+
+	* xfce4-mixer/branches, xfce4-mixer/tags, xfce4-mixer/trunk: New
+	  repository initialized by cvs2svn.
 
