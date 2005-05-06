@@ -71,7 +71,7 @@ XDT_XFCE_PANEL_PLUGIN([XFCE4_PANEL], [4.2.0])
 XDT_XFCE_MCS_PLUGIN([XFCE_MCS_MANAGER], [4.2.0])
 
 dnl Check for i18n support
-XDT_I18N([ar az be bg ca de en_GB es es_MX et eu fa fi fr gu he \
+XDT_I18N([ar az be bg bn_IN ca de en_GB es es_MX et eu fa fi fr gu he \
           hu it ja ko lt mr ms nl nb_NO pa pt_BR pt_PT
 	  ro ru sk sv tr uk vi zh_CN zh_TW])
 
