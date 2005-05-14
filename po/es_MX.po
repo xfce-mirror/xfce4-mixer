@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-11-22 21:44+0100\n"
+"POT-Creation-Date: 2005-03-12 10:07+0100\n"
 "PO-Revision-Date: 2004-01-13 00:00+0100\n"
 "Last-Translator: edscott <edscott@edscott.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -147,7 +147,7 @@ msgstr "alsa: Error de carga del mezclador: %s: %s\n"
 msgid "alsa: Unable to find simple control '%s',%i\n"
 msgstr "alsa: Imposible encontrar un control sencillo '%s',%i\n"
 
-#: lib/vc_oss.c:131
+#: lib/vc_oss.c:138
 msgid "oss: No master volume"
 msgstr "oss: Sin volumen maestro"
 
@@ -160,20 +160,21 @@ msgstr "Volumen: %d%%"
 msgid "Volume Control"
 msgstr "Control de Volumen"
 
-#: settings/mixer-settingsbox.gob:102 mixer-settingsbox.gob:102
+#: settings/mixer-settingsbox.gob:99 mixer-settingsbox.gob:99
 msgid "Device"
 msgstr "Dispositivo"
 
-#: settings/mixer-settingsbox.gob:105 mixer-settingsbox.gob:105
+#: settings/mixer-settingsbox.gob:102 mixer-settingsbox.gob:102
 msgid "None"
 msgstr "Ninguno"
 
 #. gtk_widget_show (GTK_WIDGET (self->dev_label));
-#: settings/mixer-settingsbox.gob:108 mixer-settingsbox.gob:108
+#. debug_bindtextdomain();
+#: settings/mixer-settingsbox.gob:107 mixer-settingsbox.gob:107
 msgid "Useful Controls"
 msgstr "Controles útiles"
 
-#: settings/sound.c:80 settings/sound.c:102 settings/sound.c:109
+#: settings/sound.c:80 settings/sound.c:100 settings/sound.c:107
 msgid "Sound"
 msgstr "Sonido"
 
@@ -181,35 +182,31 @@ msgstr "Sonido"
 msgid "No working sound"
 msgstr "No hay sonido funcionando"
 
-#: src/menus.c:9
+#: src/menus.c:12
 msgid "/_File"
 msgstr ""
 
-#: src/menus.c:10
+#: src/menus.c:13
 msgid "/File/_Options"
 msgstr ""
 
-#: src/menus.c:11
+#: src/menus.c:14
 msgid "/File/_Exit"
 msgstr ""
 
-#: src/menus.c:12
+#: src/menus.c:15
 msgid "/_View"
 msgstr ""
 
-#: src/menus.c:13
-msgid "/View/sep"
-msgstr ""
-
-#: src/menus.c:14
+#: src/menus.c:16
 msgid "/View/_Manage"
 msgstr ""
 
-#: src/menus.c:15
+#: src/menus.c:17
 msgid "/_Help"
 msgstr ""
 
-#: src/menus.c:16
+#: src/menus.c:18
 msgid "/Help/_Info"
 msgstr ""
 

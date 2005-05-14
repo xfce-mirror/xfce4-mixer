@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.2.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-05-13 04:19+0900\n"
+"POT-Creation-Date: 2005-03-12 10:07+0100\n"
 "PO-Revision-Date: 2005-05-13 07:27+0900\n"
 "Last-Translator: Daichi Kawahata <daichik@users.sourceforge.net>\n"
 "Language-Team: xfce-users-jp <xfce-users-jp@ml.fdiary.net>\n"
@@ -156,27 +156,31 @@ msgstr "oss: マスター音量がありません"
 msgid "Volume: %d%%"
 msgstr "音量: %d%%"
 
-#: panel-plugin/plugin.c:384 mixer-window.gob:188
+#: panel-plugin/plugin.c:384 src/mixer-window.gob:188 mixer-window.gob:188
 msgid "Volume Control"
 msgstr "音量調節"
 
-#: settings/sound.c:80 settings/sound.c:100 settings/sound.c:107
-msgid "Sound"
-msgstr "サウンド"
-
-#: mixer-settingsbox.gob:99
+#: settings/mixer-settingsbox.gob:99 mixer-settingsbox.gob:99
 msgid "Device"
 msgstr "デバイス"
 
-#: mixer-settingsbox.gob:102
+#: settings/mixer-settingsbox.gob:102 mixer-settingsbox.gob:102
 msgid "None"
 msgstr "無し"
 
 #. gtk_widget_show (GTK_WIDGET (self->dev_label));
 #. debug_bindtextdomain();
-#: mixer-settingsbox.gob:107
+#: settings/mixer-settingsbox.gob:107 mixer-settingsbox.gob:107
 msgid "Useful Controls"
 msgstr "便利なコントロール"
+
+#: settings/sound.c:80 settings/sound.c:100 settings/sound.c:107
+msgid "Sound"
+msgstr "サウンド"
+
+#: src/main.c:77
+msgid "No working sound"
+msgstr ""
 
 #: src/menus.c:12
 msgid "/_File"
@@ -206,7 +210,7 @@ msgstr "/ヘルプ(_H)"
 msgid "/Help/_Info"
 msgstr "/ヘルプ(_H)/情報(_I)"
 
-#: mixer-info.gob:28
+#: src/mixer-info.gob:28 mixer-info.gob:28
 msgid ""
 "This is xfce4-mixer, a volume control program.\n"
 "It is released under the GPL-2 License which you find in the source "
@@ -217,98 +221,103 @@ msgstr ""
 "ソースフォルダにある GPL-2 ライセンスの下に配布されています。\n"
 "一切の保証はあります。"
 
-#: mixer-profilebox-detail.gob:163
+#: src/mixer-profilebox-detail.gob:163 mixer-profilebox-detail.gob:163
 msgid "Control"
 msgstr "コントロール"
 
-#: mixer-profilebox-detail.gob:166
+#: src/mixer-profilebox-detail.gob:166 mixer-profilebox-detail.gob:166
 msgid "Type"
 msgstr "種類"
 
-#: mixer-profilebox-detail.gob:178
+#: src/mixer-profilebox-detail.gob:178 mixer-profilebox-detail.gob:178
 msgid "Up"
 msgstr "上へ"
 
-#: mixer-profilebox-detail.gob:181
+#: src/mixer-profilebox-detail.gob:181 mixer-profilebox-detail.gob:181
 msgid "Down"
 msgstr "下へ"
 
-#: mixer-profilebox-detail.gob:188
+#: src/mixer-profilebox-detail.gob:188 mixer-profilebox-detail.gob:188
 msgid "Move Entry Up"
 msgstr "エントリーを上に移動"
 
-#: mixer-profilebox-detail.gob:191
+#: src/mixer-profilebox-detail.gob:191 mixer-profilebox-detail.gob:191
 msgid "Move Entry Down"
 msgstr "エントリーを下に移動"
 
-#: mixer-profilebox-detail.gob:200
+#: src/mixer-profilebox-detail.gob:200 mixer-profilebox-detail.gob:200
 msgid "Profile Name:"
 msgstr "プロファイル名:"
 
+#: src/mixer-profilebox-detail.gob:382 src/mixer-profilebox-detail.gob:447
 #: mixer-profilebox-detail.gob:382 mixer-profilebox-detail.gob:447
 msgid "<unknown>"
 msgstr "<不明>"
 
+#: src/mixer-profilebox-detail.gob:384 src/mixer-profilebox-detail.gob:449
 #: mixer-profilebox-detail.gob:384 mixer-profilebox-detail.gob:449
 msgid "<slider>"
 msgstr "<スライダー>"
 
+#: src/mixer-profilebox-detail.gob:385 src/mixer-profilebox-detail.gob:450
 #: mixer-profilebox-detail.gob:385 mixer-profilebox-detail.gob:450
 msgid "<onoff>"
 msgstr "<オン・オフ>"
 
+#: src/mixer-profilebox-detail.gob:386 src/mixer-profilebox-detail.gob:451
 #: mixer-profilebox-detail.gob:386 mixer-profilebox-detail.gob:451
 msgid "<select>"
 msgstr "<選択>"
 
-#: mixer-profilebox.gob:88
+#: src/mixer-profilebox.gob:88 mixer-profilebox.gob:88
 msgid "Device:"
 msgstr "デバイス:"
 
-#: mixer-profilebox.gob:142
+#: src/mixer-profilebox.gob:142 mixer-profilebox.gob:142
 msgid "Create new profile"
 msgstr "新規プロファイルを作成"
 
-#: mixer-profilebox.gob:151
+#: src/mixer-profilebox.gob:151 mixer-profilebox.gob:151
 msgid "Delete this profile"
 msgstr "このプロファイルを削除"
 
-#: mixer-profilebox.gob:170
+#: src/mixer-profilebox.gob:170 mixer-profilebox.gob:170
 msgid "Profile"
 msgstr "プロファイル"
 
-#: mixer-profilebox.gob:374
+#: src/mixer-profilebox.gob:374 mixer-profilebox.gob:374
 #, c-format
 msgid "Really delete those %d profiles?"
 msgstr "本当にこれら %d 件のプロファイルを削除していいですか？"
 
-#: mixer-profilebox.gob:377
+#: src/mixer-profilebox.gob:377 mixer-profilebox.gob:377
 #, c-format
 msgid "Really delete profile \"%s\"?"
 msgstr "本当にプロファイル \"%s\" を削除していいですか？"
 
-#: mixer-profilebox.gob:491
+#: src/mixer-profilebox.gob:491 mixer-profilebox.gob:491
 #, c-format
 msgid "%s - New"
 msgstr "%s - 新規"
 
-#: mixer-profilebox.gob:528
+#: src/mixer-profilebox.gob:528 mixer-profilebox.gob:528
 msgid "A profile needs a name"
 msgstr "プロファイルの名前が必要です"
 
-#: mixer-profilebox.gob:542
+#: src/mixer-profilebox.gob:542 mixer-profilebox.gob:542
 msgid "A profile with that name already exists"
 msgstr "その名前のプロファイルは既に存在しています"
 
+#: src/mixer-profiles.gob:262 src/mixer-profiles.gob:269
 #: mixer-profiles.gob:262 mixer-profiles.gob:269
 #, c-format
 msgid "profile%d"
 msgstr "プロファイル%d"
 
-#: mixer-view.gob:258
+#: src/mixer-view.gob:258 mixer-view.gob:258
 msgid "Show Switches"
 msgstr "スイッチを表示する"
 
-#: mixer-view.gob:259
+#: src/mixer-view.gob:259 mixer-view.gob:259
 msgid "Hide Switches"
 msgstr "スイッチを隠す"

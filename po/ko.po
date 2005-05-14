@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-12-11 18:32+0100\n"
+"POT-Creation-Date: 2005-03-12 10:07+0100\n"
 "PO-Revision-Date: 2005-03-20 21:09+0900\n"
 "Last-Translator: ByunHyun Choi<byunghyun.choi@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -199,18 +199,14 @@ msgid "/_View"
 msgstr "/보기(_V)"
 
 #: src/menus.c:16
-msgid "/View/sep"
-msgstr "/보기/분리"
-
-#: src/menus.c:17
 msgid "/View/_Manage"
 msgstr "/보기/관리(_M)"
 
-#: src/menus.c:18
+#: src/menus.c:17
 msgid "/_Help"
 msgstr "/도움말(_H)"
 
-#: src/menus.c:19
+#: src/menus.c:18
 msgid "/Help/_Info"
 msgstr "/도움말/정보(_I)"
 
@@ -325,3 +321,6 @@ msgstr "스위치 보이기"
 #: src/mixer-view.gob:259 mixer-view.gob:259
 msgid "Hide Switches"
 msgstr "스위치 숨기기"
+
+#~ msgid "/View/sep"
+#~ msgstr "/보기/분리"

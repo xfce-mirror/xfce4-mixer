@@ -9,13 +9,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-11-22 21:44+0100\n"
+"POT-Creation-Date: 2005-03-12 10:07+0100\n"
 "PO-Revision-Date: 2005-01-18 00:51+0200\n"
 "Last-Translator: Rimas Kudelis <rq@akl.lt>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit"
+"Content-Transfer-Encoding: 8bit\n"
 
 #: lib/trans.c:6
 msgid "Vol"
@@ -148,7 +148,7 @@ msgstr "alsa: Maišiklio įkėlimo klaida: %s: %s\n"
 msgid "alsa: Unable to find simple control '%s',%i\n"
 msgstr "alsa: Nepavyko surasti paprasto valdiklio „%s“,%i\n"
 
-#: lib/vc_oss.c:131
+#: lib/vc_oss.c:138
 msgid "oss: No master volume"
 msgstr "oss: Nėra pagrindinio garso valdiklio"
 
@@ -161,20 +161,21 @@ msgstr "Garsas: %d%%"
 msgid "Volume Control"
 msgstr "Garso valdymas"
 
-#: settings/mixer-settingsbox.gob:102 mixer-settingsbox.gob:102
+#: settings/mixer-settingsbox.gob:99 mixer-settingsbox.gob:99
 msgid "Device"
 msgstr "Įrenginys"
 
-#: settings/mixer-settingsbox.gob:105 mixer-settingsbox.gob:105
+#: settings/mixer-settingsbox.gob:102 mixer-settingsbox.gob:102
 msgid "None"
 msgstr "Joks"
 
 #. gtk_widget_show (GTK_WIDGET (self->dev_label));
-#: settings/mixer-settingsbox.gob:108 mixer-settingsbox.gob:108
+#. debug_bindtextdomain();
+#: settings/mixer-settingsbox.gob:107 mixer-settingsbox.gob:107
 msgid "Useful Controls"
 msgstr "Naudingi valdikliai"
 
-#: settings/sound.c:80 settings/sound.c:102 settings/sound.c:109
+#: settings/sound.c:80 settings/sound.c:100 settings/sound.c:107
 msgid "Sound"
 msgstr "Garsas"
 
@@ -182,35 +183,31 @@ msgstr "Garsas"
 msgid "No working sound"
 msgstr "Garsas neveikia"
 
-#: src/menus.c:9
+#: src/menus.c:12
 msgid "/_File"
 msgstr "/_Byla"
 
-#: src/menus.c:10
+#: src/menus.c:13
 msgid "/File/_Options"
 msgstr "/Byla/_Nustatymai"
 
-#: src/menus.c:11
+#: src/menus.c:14
 msgid "/File/_Exit"
 msgstr "/Byla/I_šeiti"
 
-#: src/menus.c:12
+#: src/menus.c:15
 msgid "/_View"
 msgstr "/_Vaizdas"
 
-#: src/menus.c:13
-msgid "/View/sep"
-msgstr "/Vaizdas/sep"
-
-#: src/menus.c:14
+#: src/menus.c:16
 msgid "/View/_Manage"
 msgstr "/Vaizdas/_Derinti"
 
-#: src/menus.c:15
+#: src/menus.c:17
 msgid "/_Help"
 msgstr "/_Pagalba"
 
-#: src/menus.c:16
+#: src/menus.c:18
 msgid "/Help/_Info"
 msgstr "/Pagalba/_Apie"
 
@@ -222,8 +219,8 @@ msgid ""
 "No warranty in any way."
 msgstr ""
 "Tai – xfce4-mikseris, garso valdymo programa.\n"
-"Ji platinama pagal GPL-2 licenciją, kurią galite rasti programos "
-"išeities tekstų aplanke.\n"
+"Ji platinama pagal GPL-2 licenciją, kurią galite rasti programos išeities "
+"tekstų aplanke.\n"
 "Nesuteikiama jokia garantija."
 
 #: src/mixer-profilebox-detail.gob:163 mixer-profilebox-detail.gob:163
@@ -327,3 +324,5 @@ msgstr "Rodyti jungiklius"
 msgid "Hide Switches"
 msgstr "Slėpti jungiklius"
 
+#~ msgid "/View/sep"
+#~ msgstr "/Vaizdas/sep"

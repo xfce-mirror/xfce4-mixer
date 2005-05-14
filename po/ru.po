@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-12-11 18:32+0100\n"
+"POT-Creation-Date: 2005-03-12 10:07+0100\n"
 "PO-Revision-Date: 2005-01-08 11:24+0500\n"
 "Last-Translator: Anthony Ivanoff <a-i@bk.ru>\n"
 "Language-Team: Russian\n"
@@ -203,18 +203,14 @@ msgid "/_View"
 msgstr "/Вид"
 
 #: src/menus.c:16
-msgid "/View/sep"
-msgstr "/Вид/sep"
-
-#: src/menus.c:17
 msgid "/View/_Manage"
 msgstr "/Вид/Управление"
 
-#: src/menus.c:18
+#: src/menus.c:17
 msgid "/_Help"
 msgstr "/Помощь"
 
-#: src/menus.c:19
+#: src/menus.c:18
 msgid "/Help/_Info"
 msgstr "/Помощь/Информация"
 
@@ -331,3 +327,5 @@ msgstr "Показывать переключатели"
 msgid "Hide Switches"
 msgstr "Скрыть переключатели"
 
+#~ msgid "/View/sep"
+#~ msgstr "/Вид/sep"

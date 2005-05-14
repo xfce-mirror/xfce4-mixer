@@ -3,12 +3,11 @@
 # This file is distributed under the same license as the xfwm4 package.
 # Mişu Moldovan <dumol@go.ro>, 2004.
 #
-
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.2 rc2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-12-11 18:32+0100\n"
+"POT-Creation-Date: 2005-03-12 10:07+0100\n"
 "PO-Revision-Date: 2004-12-13 01:09+0200\n"
 "Last-Translator: Mişu Moldovan <dumol@go.ro>\n"
 "Language-Team: Romanian <gnomero-list@lists.sourceforge.net>\n"
@@ -200,18 +199,14 @@ msgid "/_View"
 msgstr "/_Vizualizare"
 
 #: src/menus.c:16
-msgid "/View/sep"
-msgstr "/Vizualizare/sep"
-
-#: src/menus.c:17
 msgid "/View/_Manage"
 msgstr "/Vizualizare/_Administrare"
 
-#: src/menus.c:18
+#: src/menus.c:17
 msgid "/_Help"
 msgstr "/_Ajutor"
 
-#: src/menus.c:19
+#: src/menus.c:18
 msgid "/Help/_Info"
 msgstr "/Ajutor/_Despre"
 
@@ -223,8 +218,8 @@ msgid ""
 "No warranty in any way."
 msgstr ""
 "Acesta e xfce4-mixer, un program pentru controlul volumului.\n"
-"Este distribuit cu licenţă GPL-2, al cărei text poate fi găsit în "
-"directorul cu surse.\n"
+"Este distribuit cu licenţă GPL-2, al cărei text poate fi găsit în directorul "
+"cu surse.\n"
 "Nu se acordă nici un fel de garanţie."
 
 #: src/mixer-profilebox-detail.gob:163 mixer-profilebox-detail.gob:163
@@ -328,3 +323,5 @@ msgstr "Arată comutatoarele"
 msgid "Hide Switches"
 msgstr "Ascunde comutatoarele"
 
+#~ msgid "/View/sep"
+#~ msgstr "/Vizualizare/sep"

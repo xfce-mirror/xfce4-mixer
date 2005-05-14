@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-10 17:30+0100\n"
+"POT-Creation-Date: 2005-03-12 10:07+0100\n"
 "PO-Revision-Date: 2005-02-08 20:54+0100\n"
 "Last-Translator: Juraj Brosz <juro@jurajbrosz.info>\n"
 "Language-Team: Slovak <sk@li.org>\n"
@@ -218,7 +218,8 @@ msgid ""
 "No warranty in any way."
 msgstr ""
 "Toto je xfce4-mixér, ovládací program hlasitosti.\n"
-"Je uvoľnený pod licenciou GPL-2, ktorú nájdete v adresári so zdrojovými kódmi.\n"
+"Je uvoľnený pod licenciou GPL-2, ktorú nájdete v adresári so zdrojovými "
+"kódmi.\n"
 "Žiadna záruka."
 
 #: src/mixer-profilebox-detail.gob:163 mixer-profilebox-detail.gob:163
@@ -321,4 +322,3 @@ msgstr "Zobraziť prepínače"
 #: src/mixer-view.gob:259 mixer-view.gob:259
 msgid "Hide Switches"
 msgstr "Skryť prepínače"
-

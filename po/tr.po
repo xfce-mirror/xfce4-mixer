@@ -7,26 +7,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-09-21 00:02+0200\n"
+"POT-Creation-Date: 2005-03-12 10:07+0100\n"
 "PO-Revision-Date: 2004-10-10 11:21+0300\n"
 "Last-Translator: Erçin EKER <ercin.eker@linux.org.tr>\n"
 "Language-Team: Turkish <tr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-
-#: mixer-settingsbox.gob:97
-msgid "Device"
-msgstr "Aygıt"
-
-#: mixer-settingsbox.gob:100
-msgid "None"
-msgstr "Yok"
-
-#. gtk_widget_show (GTK_WIDGET (self->dev_label));
-#: mixer-settingsbox.gob:103
-msgid "Useful Controls"
-msgstr "Kullanışlı Denetimler"
 
 #: lib/trans.c:6
 msgid "Vol"
@@ -159,7 +146,7 @@ msgstr "alsa: Karıştırıcı yükleme hatası %s: %s\n"
 msgid "alsa: Unable to find simple control '%s',%i\n"
 msgstr "alsa: Kontrol bulunamıyor '%s', %i\n"
 
-#: lib/vc_oss.c:131
+#: lib/vc_oss.c:138
 msgid "oss: No master volume"
 msgstr "oss: Ana ses yok"
 
@@ -168,120 +155,61 @@ msgstr "oss: Ana ses yok"
 msgid "Volume: %d%%"
 msgstr "Ses Düzeyi: %%%d"
 
-#: panel-plugin/plugin.c:387 mixer-window.gob:143
+#: panel-plugin/plugin.c:384 src/mixer-window.gob:188 mixer-window.gob:188
 msgid "Volume Control"
 msgstr "Ses Denetimi"
 
-#: settings/sound.c:80 settings/sound.c:102 settings/sound.c:109
+#: settings/mixer-settingsbox.gob:99 mixer-settingsbox.gob:99
+msgid "Device"
+msgstr "Aygıt"
+
+#: settings/mixer-settingsbox.gob:102 mixer-settingsbox.gob:102
+msgid "None"
+msgstr "Yok"
+
+#. gtk_widget_show (GTK_WIDGET (self->dev_label));
+#. debug_bindtextdomain();
+#: settings/mixer-settingsbox.gob:107 mixer-settingsbox.gob:107
+msgid "Useful Controls"
+msgstr "Kullanışlı Denetimler"
+
+#: settings/sound.c:80 settings/sound.c:100 settings/sound.c:107
 msgid "Sound"
 msgstr "Ses"
 
-#: mixer-view.gob:258
-msgid "Show Switches"
-msgstr "Anahtarları Göster"
-
-#: mixer-view.gob:259
-msgid "Hide Switches"
-msgstr "Anahtarları Gizle"
-
-#: src/main.c:69
+#: src/main.c:77
 msgid "No working sound"
 msgstr "Ses çalışmıyor"
 
-#: mixer-profilebox.gob:88
-msgid "Device:"
-msgstr "Aygıt:"
+#: src/menus.c:12
+msgid "/_File"
+msgstr ""
 
-#: mixer-profilebox.gob:142
-msgid "Create new profile"
-msgstr "Yeni profil oluştur"
+#: src/menus.c:13
+msgid "/File/_Options"
+msgstr ""
 
-#: mixer-profilebox.gob:151
-msgid "Delete this profile"
-msgstr "Bu profili sil"
+#: src/menus.c:14
+msgid "/File/_Exit"
+msgstr ""
 
-#: mixer-profilebox.gob:170
-msgid "Profile"
-msgstr "Profil"
+#: src/menus.c:15
+msgid "/_View"
+msgstr ""
 
-#: mixer-profilebox.gob:374
-#, c-format
-msgid "Really delete those %d profiles?"
-msgstr "Bu %d profili gerçekten silinsin mi?"
+#: src/menus.c:16
+msgid "/View/_Manage"
+msgstr ""
 
-#: mixer-profilebox.gob:377
-#, c-format
-msgid "Really delete profile \"%s\"?"
-msgstr "\"%s\" profili gerçekten silinsin?"
+#: src/menus.c:17
+msgid "/_Help"
+msgstr ""
 
-#: mixer-profilebox.gob:491
-#, c-format
-msgid "%s - New"
-msgstr "%s - Yeni"
+#: src/menus.c:18
+msgid "/Help/_Info"
+msgstr ""
 
-#: mixer-profilebox.gob:528
-msgid "A profile needs a name"
-msgstr "Profilin bir isme ihtiyacı var"
-
-#: mixer-profilebox.gob:542
-msgid "A profile with that name already exists"
-msgstr "Bu isimde bir profil zaten bulunuyor"
-
-#: mixer-profilebox-detail.gob:151
-msgid "Control"
-msgstr "Denetimi"
-
-#: mixer-profilebox-detail.gob:154
-msgid "Type"
-msgstr "Tip"
-
-#: mixer-profilebox-detail.gob:166
-msgid "Up"
-msgstr "Yukarı"
-
-#: mixer-profilebox-detail.gob:169
-msgid "Down"
-msgstr "Aşağı"
-
-#: mixer-profilebox-detail.gob:176
-msgid "Move Entry Up"
-msgstr "Girdiyi Yukarı Taşı"
-
-#: mixer-profilebox-detail.gob:179
-msgid "Move Entry Down"
-msgstr "Girdiyi Aşağı Taşı"
-
-#: mixer-profilebox-detail.gob:188
-msgid "Profile Name:"
-msgstr "Profil İsmi:"
-
-#: mixer-profilebox-detail.gob:370 mixer-profilebox-detail.gob:435
-msgid "<unknown>"
-msgstr "<bilinmeyen>"
-
-#: mixer-profilebox-detail.gob:372 mixer-profilebox-detail.gob:437
-msgid "<slider>"
-msgstr "<sürgü>"
-
-#: mixer-profilebox-detail.gob:373 mixer-profilebox-detail.gob:438
-msgid "<onoff>"
-msgstr "<açkapa>"
-
-#: mixer-profilebox-detail.gob:374 mixer-profilebox-detail.gob:439
-msgid "<select>"
-msgstr "<seç>"
-
-#: src/menu-callbacks.inc:16
-#, c-format
-msgid "%s - Info"
-msgstr "%s - Bilgi"
-
-#: src/menu-callbacks.inc:38
-#, c-format
-msgid "%s - Profiles"
-msgstr "%s - Profil"
-
-#: mixer-info.gob:28
+#: src/mixer-info.gob:28 mixer-info.gob:28
 msgid ""
 "This is xfce4-mixer, a volume control program.\n"
 "It is released under the GPL-2 License which you find in the source "
@@ -289,9 +217,115 @@ msgid ""
 "No warranty in any way."
 msgstr ""
 "Bu ses denetim uygulaması xfce4-mixer.\n"
-"Kaynak kodu dizininde bulabileceğiniz GPL-2 lisansı ile "
-"dağıtılmaktadır.\n"
+"Kaynak kodu dizininde bulabileceğiniz GPL-2 lisansı ile dağıtılmaktadır.\n"
 "Hiçbir garantisi yoktur."
+
+#: src/mixer-profilebox-detail.gob:163 mixer-profilebox-detail.gob:163
+msgid "Control"
+msgstr "Denetimi"
+
+#: src/mixer-profilebox-detail.gob:166 mixer-profilebox-detail.gob:166
+msgid "Type"
+msgstr "Tip"
+
+#: src/mixer-profilebox-detail.gob:178 mixer-profilebox-detail.gob:178
+msgid "Up"
+msgstr "Yukarı"
+
+#: src/mixer-profilebox-detail.gob:181 mixer-profilebox-detail.gob:181
+msgid "Down"
+msgstr "Aşağı"
+
+#: src/mixer-profilebox-detail.gob:188 mixer-profilebox-detail.gob:188
+msgid "Move Entry Up"
+msgstr "Girdiyi Yukarı Taşı"
+
+#: src/mixer-profilebox-detail.gob:191 mixer-profilebox-detail.gob:191
+msgid "Move Entry Down"
+msgstr "Girdiyi Aşağı Taşı"
+
+#: src/mixer-profilebox-detail.gob:200 mixer-profilebox-detail.gob:200
+msgid "Profile Name:"
+msgstr "Profil İsmi:"
+
+#: src/mixer-profilebox-detail.gob:382 src/mixer-profilebox-detail.gob:447
+#: mixer-profilebox-detail.gob:382 mixer-profilebox-detail.gob:447
+msgid "<unknown>"
+msgstr "<bilinmeyen>"
+
+#: src/mixer-profilebox-detail.gob:384 src/mixer-profilebox-detail.gob:449
+#: mixer-profilebox-detail.gob:384 mixer-profilebox-detail.gob:449
+msgid "<slider>"
+msgstr "<sürgü>"
+
+#: src/mixer-profilebox-detail.gob:385 src/mixer-profilebox-detail.gob:450
+#: mixer-profilebox-detail.gob:385 mixer-profilebox-detail.gob:450
+msgid "<onoff>"
+msgstr "<açkapa>"
+
+#: src/mixer-profilebox-detail.gob:386 src/mixer-profilebox-detail.gob:451
+#: mixer-profilebox-detail.gob:386 mixer-profilebox-detail.gob:451
+msgid "<select>"
+msgstr "<seç>"
+
+#: src/mixer-profilebox.gob:88 mixer-profilebox.gob:88
+msgid "Device:"
+msgstr "Aygıt:"
+
+#: src/mixer-profilebox.gob:142 mixer-profilebox.gob:142
+msgid "Create new profile"
+msgstr "Yeni profil oluştur"
+
+#: src/mixer-profilebox.gob:151 mixer-profilebox.gob:151
+msgid "Delete this profile"
+msgstr "Bu profili sil"
+
+#: src/mixer-profilebox.gob:170 mixer-profilebox.gob:170
+msgid "Profile"
+msgstr "Profil"
+
+#: src/mixer-profilebox.gob:374 mixer-profilebox.gob:374
+#, c-format
+msgid "Really delete those %d profiles?"
+msgstr "Bu %d profili gerçekten silinsin mi?"
+
+#: src/mixer-profilebox.gob:377 mixer-profilebox.gob:377
+#, c-format
+msgid "Really delete profile \"%s\"?"
+msgstr "\"%s\" profili gerçekten silinsin?"
+
+#: src/mixer-profilebox.gob:491 mixer-profilebox.gob:491
+#, c-format
+msgid "%s - New"
+msgstr "%s - Yeni"
+
+#: src/mixer-profilebox.gob:528 mixer-profilebox.gob:528
+msgid "A profile needs a name"
+msgstr "Profilin bir isme ihtiyacı var"
+
+#: src/mixer-profilebox.gob:542 mixer-profilebox.gob:542
+msgid "A profile with that name already exists"
+msgstr "Bu isimde bir profil zaten bulunuyor"
+
+#: src/mixer-profiles.gob:262 src/mixer-profiles.gob:269
+#: mixer-profiles.gob:262 mixer-profiles.gob:269
+#, fuzzy, c-format
+msgid "profile%d"
+msgstr "Profil"
+
+#: src/mixer-view.gob:258 mixer-view.gob:258
+msgid "Show Switches"
+msgstr "Anahtarları Göster"
+
+#: src/mixer-view.gob:259 mixer-view.gob:259
+msgid "Hide Switches"
+msgstr "Anahtarları Gizle"
+
+#~ msgid "%s - Info"
+#~ msgstr "%s - Bilgi"
+
+#~ msgid "%s - Profiles"
+#~ msgstr "%s - Profil"
 
 #~ msgid "Use _internal mixer"
 #~ msgstr "_Dahili karıştırıcıyı kullan"

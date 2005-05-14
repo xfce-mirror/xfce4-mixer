@@ -1,7 +1,6 @@
 @SET_MAKE@
 
-EXTRA_DIST = config.rpath  \
-	xfce4-mixer.spec \
+EXTRA_DIST = xfce4-mixer.spec \
 	autogen.sh \
 	NOTES
 
