@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-12-11 18:32+0100\n"
-"PO-Revision-Date: 2005-03-22 22:26+0900\n"
+"PO-Revision-Date: 2005-06-25 22:32+0900\n"
 "Last-Translator: ByunHyun Choi<byunghyun.choi@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -60,7 +60,7 @@ msgstr "합성음"
 
 #: lib/trans.c:15
 msgid "Mix"
-msgstr ""
+msgstr "믹서"
 
 #: lib/trans.c:16
 msgid "Pcm2"
@@ -104,11 +104,11 @@ msgstr "디지털3"
 
 #: lib/trans.c:26
 msgid "PhoneIn"
-msgstr ""
+msgstr "음성입력"
 
 #: lib/trans.c:27
 msgid "PhoneOut"
-msgstr ""
+msgstr "음성출력"
 
 #: lib/trans.c:28
 msgid "Video"
