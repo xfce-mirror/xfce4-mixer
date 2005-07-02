@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: he\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-12-11 18:32+0100\n"
+"POT-Creation-Date: 2005-07-02 23:15+0200\n"
 "PO-Revision-Date: 2004-12-31 16:46+0200\n"
 "Last-Translator: Yuval Tanny <tanai@int.gov.il>\n"
 "Language-Team: Hebrew Team <xfce2004@yahoo.com>\n"
@@ -123,6 +123,10 @@ msgstr "רדיו"
 msgid "Monitor"
 msgstr "מוניטור"
 
+#: lib/trans.c:31
+msgid "RecSelect"
+msgstr ""
+
 #: lib/vc_alsa.c:94
 #, c-format
 msgid "alsa: Mixer %s open error: %s\n"
@@ -148,7 +152,7 @@ msgstr "alsa: שגיאת טעינת מיקסר: %s: %s\n"
 msgid "alsa: Unable to find simple control '%s',%i\n"
 msgstr "alsa: אין אפשרות למצוא בקר פשוט '%s',%i\n"
 
-#: lib/vc_oss.c:138
+#: lib/vc_oss.c:158
 msgid "oss: No master volume"
 msgstr "oss:אין עוצמת צליל ראשית"
 
@@ -161,17 +165,17 @@ msgstr "עוצמת צליל: %d%%"
 msgid "Volume Control"
 msgstr "בקרת עוצמת צליל"
 
-#: settings/mixer-settingsbox.gob:99 mixer-settingsbox.gob:99
+#: settings/mixer-settingsbox.gob:120 mixer-settingsbox.gob:120
 msgid "Device"
 msgstr "התקן"
 
-#: settings/mixer-settingsbox.gob:102 mixer-settingsbox.gob:102
+#: settings/mixer-settingsbox.gob:123 mixer-settingsbox.gob:123
 msgid "None"
 msgstr "אין"
 
 #. gtk_widget_show (GTK_WIDGET (self->dev_label));
 #. debug_bindtextdomain();
-#: settings/mixer-settingsbox.gob:107 mixer-settingsbox.gob:107
+#: settings/mixer-settingsbox.gob:128 mixer-settingsbox.gob:128
 msgid "Useful Controls"
 msgstr "בקרים שמישים"
 
@@ -179,7 +183,7 @@ msgstr "בקרים שמישים"
 msgid "Sound"
 msgstr "צליל"
 
-#: src/main.c:77
+#: src/main.c:95
 msgid "No working sound"
 msgstr "אין צליל עובד"
 
@@ -200,18 +204,14 @@ msgid "/_View"
 msgstr "/_תצוגה"
 
 #: src/menus.c:16
-msgid "/View/sep"
-msgstr "/תצוגה/sep"
-
-#: src/menus.c:17
 msgid "/View/_Manage"
 msgstr "/תצוגה/_ניהול"
 
-#: src/menus.c:18
+#: src/menus.c:17
 msgid "/_Help"
 msgstr "/_עזרה"
 
-#: src/menus.c:19
+#: src/menus.c:18
 msgid "/Help/_Info"
 msgstr "/_עזרה/_מידע"
 
@@ -319,19 +319,21 @@ msgstr "פרופיל עם שם זה כבר קיים"
 msgid "profile%d"
 msgstr "פרופיל%d"
 
-#: src/mixer-view.gob:258 mixer-view.gob:258
+#: src/mixer-view.gob:259 mixer-view.gob:259
 msgid "Show Switches"
 msgstr "הצג מתגים"
 
-#: src/mixer-view.gob:259 mixer-view.gob:259
+#: src/mixer-view.gob:260 mixer-view.gob:260
 msgid "Hide Switches"
 msgstr "הסתר מתגים"
 
+#: settings/xfce-mixer-settings.desktop.in.h:1
+msgid "Mixer Settings"
+msgstr "הגדרות מערבל"
 
-#: settings/xfce-mixer-settings.desktop.in:4
+#: settings/xfce-mixer-settings.desktop.in.h:2
 msgid "Xfce 4 Mixer Settings"
 msgstr "הגדרות מערבל Xfce 4"
 
-#: settings/xfce-mixer-settings.desktop.in:5
-msgid "Mixer Settings"
-msgstr "הגדרות מערבל"
+#~ msgid "/View/sep"
+#~ msgstr "/תצוגה/sep"

@@ -3,12 +3,11 @@
 # This file is distributed under the same license as the xfwm4 package.
 # Mişu Moldovan <dumol@go.ro>, 2004.
 #
-
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.2 rc2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-12-11 18:32+0100\n"
+"POT-Creation-Date: 2005-07-02 23:15+0200\n"
 "PO-Revision-Date: 2004-12-13 01:09+0200\n"
 "Last-Translator: Mişu Moldovan <dumol@go.ro>\n"
 "Language-Team: Romanian <gnomero-list@lists.sourceforge.net>\n"
@@ -123,6 +122,10 @@ msgstr "Radio"
 msgid "Monitor"
 msgstr "Monitor"
 
+#: lib/trans.c:31
+msgid "RecSelect"
+msgstr ""
+
 #: lib/vc_alsa.c:94
 #, c-format
 msgid "alsa: Mixer %s open error: %s\n"
@@ -148,7 +151,7 @@ msgstr "alsa: Eroare la încărcarea mixerului: %s: %s\n"
 msgid "alsa: Unable to find simple control '%s',%i\n"
 msgstr "alsa: Nu reuşesc să găsesc controlul „%s”, %i\n"
 
-#: lib/vc_oss.c:138
+#: lib/vc_oss.c:158
 msgid "oss: No master volume"
 msgstr "oss: Fără volum principal"
 
@@ -161,17 +164,17 @@ msgstr "Volum: %d%%"
 msgid "Volume Control"
 msgstr "Control volum"
 
-#: settings/mixer-settingsbox.gob:99 mixer-settingsbox.gob:99
+#: settings/mixer-settingsbox.gob:120 mixer-settingsbox.gob:120
 msgid "Device"
 msgstr "Dispozitiv"
 
-#: settings/mixer-settingsbox.gob:102 mixer-settingsbox.gob:102
+#: settings/mixer-settingsbox.gob:123 mixer-settingsbox.gob:123
 msgid "None"
 msgstr "Nicunul"
 
 #. gtk_widget_show (GTK_WIDGET (self->dev_label));
 #. debug_bindtextdomain();
-#: settings/mixer-settingsbox.gob:107 mixer-settingsbox.gob:107
+#: settings/mixer-settingsbox.gob:128 mixer-settingsbox.gob:128
 msgid "Useful Controls"
 msgstr "Controale utile"
 
@@ -179,7 +182,7 @@ msgstr "Controale utile"
 msgid "Sound"
 msgstr "Sunet"
 
-#: src/main.c:77
+#: src/main.c:95
 msgid "No working sound"
 msgstr "Sunet nefuncţional"
 
@@ -200,18 +203,14 @@ msgid "/_View"
 msgstr "/_Vizualizare"
 
 #: src/menus.c:16
-msgid "/View/sep"
-msgstr "/Vizualizare/sep"
-
-#: src/menus.c:17
 msgid "/View/_Manage"
 msgstr "/Vizualizare/_Administrare"
 
-#: src/menus.c:18
+#: src/menus.c:17
 msgid "/_Help"
 msgstr "/_Ajutor"
 
-#: src/menus.c:19
+#: src/menus.c:18
 msgid "/Help/_Info"
 msgstr "/Ajutor/_Despre"
 
@@ -223,8 +222,8 @@ msgid ""
 "No warranty in any way."
 msgstr ""
 "Acesta e xfce4-mixer, un program pentru controlul volumului.\n"
-"Este distribuit cu licenţă GPL-2, al cărei text poate fi găsit în "
-"directorul cu surse.\n"
+"Este distribuit cu licenţă GPL-2, al cărei text poate fi găsit în directorul "
+"cu surse.\n"
 "Nu se acordă nici un fel de garanţie."
 
 #: src/mixer-profilebox-detail.gob:163 mixer-profilebox-detail.gob:163
@@ -320,11 +319,21 @@ msgstr "Un profil cu acest nume există deja"
 msgid "profile%d"
 msgstr "profil%d"
 
-#: src/mixer-view.gob:258 mixer-view.gob:258
+#: src/mixer-view.gob:259 mixer-view.gob:259
 msgid "Show Switches"
 msgstr "Arată comutatoarele"
 
-#: src/mixer-view.gob:259 mixer-view.gob:259
+#: src/mixer-view.gob:260 mixer-view.gob:260
 msgid "Hide Switches"
 msgstr "Ascunde comutatoarele"
 
+#: settings/xfce-mixer-settings.desktop.in.h:1
+msgid "Mixer Settings"
+msgstr ""
+
+#: settings/xfce-mixer-settings.desktop.in.h:2
+msgid "Xfce 4 Mixer Settings"
+msgstr ""
+
+#~ msgid "/View/sep"
+#~ msgstr "/Vizualizare/sep"

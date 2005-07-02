@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-11-22 21:44+0100\n"
+"POT-Creation-Date: 2005-07-02 23:15+0200\n"
 "PO-Revision-Date: 2003-08-29 21:14+0800\n"
 "Last-Translator: Ambrose Li <acli@ada.dhs.org>\n"
 "Language-Team:  <>\n"
@@ -122,6 +122,10 @@ msgstr "收音機"
 msgid "Monitor"
 msgstr "顯示器"
 
+#: lib/trans.c:31
+msgid "RecSelect"
+msgstr ""
+
 #: lib/vc_alsa.c:94
 #, c-format
 msgid "alsa: Mixer %s open error: %s\n"
@@ -147,7 +151,7 @@ msgstr "alsa: 混頻器載入錯誤：%s：%s\n"
 msgid "alsa: Unable to find simple control '%s',%i\n"
 msgstr "alsa: 未找到初級控制器 '%s',%i\n"
 
-#: lib/vc_oss.c:131
+#: lib/vc_oss.c:158
 msgid "oss: No master volume"
 msgstr "oss: 沒有主控制器"
 
@@ -160,57 +164,54 @@ msgstr "音量：%d%%"
 msgid "Volume Control"
 msgstr "音量控制"
 
-#: settings/mixer-settingsbox.gob:102 mixer-settingsbox.gob:102
+#: settings/mixer-settingsbox.gob:120 mixer-settingsbox.gob:120
 msgid "Device"
 msgstr "裝置"
 
-#: settings/mixer-settingsbox.gob:105 mixer-settingsbox.gob:105
+#: settings/mixer-settingsbox.gob:123 mixer-settingsbox.gob:123
 msgid "None"
 msgstr "無"
 
 # NOTE 這個表示「那些控制器是使用者認為有用的」之意
 #. gtk_widget_show (GTK_WIDGET (self->dev_label));
-#: settings/mixer-settingsbox.gob:108 mixer-settingsbox.gob:108
+#. debug_bindtextdomain();
+#: settings/mixer-settingsbox.gob:128 mixer-settingsbox.gob:128
 msgid "Useful Controls"
 msgstr "可用的控制器"
 
-#: settings/sound.c:80 settings/sound.c:102 settings/sound.c:109
+#: settings/sound.c:80 settings/sound.c:100 settings/sound.c:107
 msgid "Sound"
 msgstr "聲音"
 
-#: src/main.c:77
+#: src/main.c:95
 msgid "No working sound"
 msgstr "音效卡運作不正常"
 
-#: src/menus.c:9
+#: src/menus.c:12
 msgid "/_File"
 msgstr ""
 
-#: src/menus.c:10
+#: src/menus.c:13
 msgid "/File/_Options"
 msgstr ""
 
-#: src/menus.c:11
+#: src/menus.c:14
 msgid "/File/_Exit"
 msgstr ""
 
-#: src/menus.c:12
+#: src/menus.c:15
 msgid "/_View"
 msgstr ""
 
-#: src/menus.c:13
-msgid "/View/sep"
-msgstr ""
-
-#: src/menus.c:14
+#: src/menus.c:16
 msgid "/View/_Manage"
 msgstr ""
 
-#: src/menus.c:15
+#: src/menus.c:17
 msgid "/_Help"
 msgstr ""
 
-#: src/menus.c:16
+#: src/menus.c:18
 msgid "/Help/_Info"
 msgstr ""
 
@@ -319,13 +320,21 @@ msgstr "已有其他記憶設定檔使用該名稱"
 msgid "profile%d"
 msgstr "記憶設定檔"
 
-#: src/mixer-view.gob:258 mixer-view.gob:258
+#: src/mixer-view.gob:259 mixer-view.gob:259
 msgid "Show Switches"
 msgstr "顯示開關掣"
 
-#: src/mixer-view.gob:259 mixer-view.gob:259
+#: src/mixer-view.gob:260 mixer-view.gob:260
 msgid "Hide Switches"
 msgstr "隱藏開關掣"
+
+#: settings/xfce-mixer-settings.desktop.in.h:1
+msgid "Mixer Settings"
+msgstr "設定音量控制器"
+
+#: settings/xfce-mixer-settings.desktop.in.h:2
+msgid "Xfce 4 Mixer Settings"
+msgstr "Xfce 4 音量控制器設定"
 
 #~ msgid "%s - Info"
 #~ msgstr "%s - 資訊"
@@ -338,11 +347,3 @@ msgstr "隱藏開關掣"
 
 #~ msgid "Visible"
 #~ msgstr "可見的"
-
-#: settings/xfce-mixer-settings.desktop.in:4
-msgid "Xfce 4 Mixer Settings"
-msgstr "Xfce 4 音量控制器設定"
-
-#: settings/xfce-mixer-settings.desktop.in:5
-msgid "Mixer Settings"
-msgstr "設定音量控制器"

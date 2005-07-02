@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-12-11 18:32+0100\n"
+"POT-Creation-Date: 2005-07-02 23:15+0200\n"
 "PO-Revision-Date: 2005-06-25 22:32+0900\n"
 "Last-Translator: ByunHyun Choi<byunghyun.choi@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -122,6 +122,10 @@ msgstr "라디오"
 msgid "Monitor"
 msgstr "감시"
 
+#: lib/trans.c:31
+msgid "RecSelect"
+msgstr ""
+
 #: lib/vc_alsa.c:94
 #, c-format
 msgid "alsa: Mixer %s open error: %s\n"
@@ -147,7 +151,7 @@ msgstr "alsa: 믹서 로드 오류 : %s\n"
 msgid "alsa: Unable to find simple control '%s',%i\n"
 msgstr "alsa: 단순 제어장치 '%s'를(을) 찾을 수 없습니다.: %i\n"
 
-#: lib/vc_oss.c:138
+#: lib/vc_oss.c:158
 msgid "oss: No master volume"
 msgstr "oss: 주 볼륨 장치가 없습니다."
 
@@ -160,17 +164,17 @@ msgstr "볼륨: %d%%"
 msgid "Volume Control"
 msgstr "볼륨 제어"
 
-#: settings/mixer-settingsbox.gob:99 mixer-settingsbox.gob:99
+#: settings/mixer-settingsbox.gob:120 mixer-settingsbox.gob:120
 msgid "Device"
 msgstr "장치"
 
-#: settings/mixer-settingsbox.gob:102 mixer-settingsbox.gob:102
+#: settings/mixer-settingsbox.gob:123 mixer-settingsbox.gob:123
 msgid "None"
 msgstr "없음"
 
 #. gtk_widget_show (GTK_WIDGET (self->dev_label));
 #. debug_bindtextdomain();
-#: settings/mixer-settingsbox.gob:107 mixer-settingsbox.gob:107
+#: settings/mixer-settingsbox.gob:128 mixer-settingsbox.gob:128
 msgid "Useful Controls"
 msgstr "볼륨 제어"
 
@@ -178,7 +182,7 @@ msgstr "볼륨 제어"
 msgid "Sound"
 msgstr "소리"
 
-#: src/main.c:77
+#: src/main.c:95
 msgid "No working sound"
 msgstr "사운드 장치를 찾을 수 없습니다."
 
@@ -199,18 +203,14 @@ msgid "/_View"
 msgstr "/보기(_V)"
 
 #: src/menus.c:16
-msgid "/View/sep"
-msgstr "/보기/분리"
-
-#: src/menus.c:17
 msgid "/View/_Manage"
 msgstr "/보기/관리(_M)"
 
-#: src/menus.c:18
+#: src/menus.c:17
 msgid "/_Help"
 msgstr "/도움말(_H)"
 
-#: src/menus.c:19
+#: src/menus.c:18
 msgid "/Help/_Info"
 msgstr "/도움말/정보(_I)"
 
@@ -318,10 +318,21 @@ msgstr "그 이름... 벌써 사용하고 있습니다."
 msgid "profile%d"
 msgstr "프로파일%d"
 
-#: src/mixer-view.gob:258 mixer-view.gob:258
+#: src/mixer-view.gob:259 mixer-view.gob:259
 msgid "Show Switches"
 msgstr "스위치 보이기"
 
-#: src/mixer-view.gob:259 mixer-view.gob:259
+#: src/mixer-view.gob:260 mixer-view.gob:260
 msgid "Hide Switches"
 msgstr "스위치 숨기기"
+
+#: settings/xfce-mixer-settings.desktop.in.h:1
+msgid "Mixer Settings"
+msgstr ""
+
+#: settings/xfce-mixer-settings.desktop.in.h:2
+msgid "Xfce 4 Mixer Settings"
+msgstr ""
+
+#~ msgid "/View/sep"
+#~ msgstr "/보기/분리"

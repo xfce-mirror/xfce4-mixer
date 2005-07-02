@@ -276,6 +276,8 @@ vc_free_choices(GList* choices)
 	    choice->name = NULL;
 	  }
 	  
+	  g_free (choice);
+	  
 	  item = g_list_next (item);
 	}
 	

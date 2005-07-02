@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-12-11 18:32+0100\n"
+"POT-Creation-Date: 2005-07-02 23:15+0200\n"
 "PO-Revision-Date: 2005-04-20 19:21+0530\n"
 "Last-Translator: Pallavi Nikam <pallavi_edu@rediffmail.com>\n"
 "Language-Team: Marathi <LL@li.org>\n"
@@ -122,6 +122,10 @@ msgstr "आकाशवाणी"
 msgid "Monitor"
 msgstr "देखरेख"
 
+#: lib/trans.c:31
+msgid "RecSelect"
+msgstr ""
+
 #: lib/vc_alsa.c:94
 #, c-format
 msgid "alsa: Mixer %s open error: %s\n"
@@ -147,7 +151,7 @@ msgstr "अल्सा: मिश्रण भार चूक: %s: %s\n"
 msgid "alsa: Unable to find simple control '%s',%i\n"
 msgstr "अल्सा: साधे नियंत्रण शोधू शकत नाही %s',%i\n"
 
-#: lib/vc_oss.c:138
+#: lib/vc_oss.c:158
 msgid "oss: No master volume"
 msgstr "ऑस: सर्वात महत्वाचा ध्वनी नाही"
 
@@ -160,17 +164,17 @@ msgstr "ध्वनी: %d%%"
 msgid "Volume Control"
 msgstr "ध्वनी नियंत्रण"
 
-#: settings/mixer-settingsbox.gob:99 mixer-settingsbox.gob:99
+#: settings/mixer-settingsbox.gob:120 mixer-settingsbox.gob:120
 msgid "Device"
 msgstr "भाग"
 
-#: settings/mixer-settingsbox.gob:102 mixer-settingsbox.gob:102
+#: settings/mixer-settingsbox.gob:123 mixer-settingsbox.gob:123
 msgid "None"
 msgstr "काहीही नाही"
 
 #. gtk_widget_show (GTK_WIDGET (self->dev_label));
 #. debug_bindtextdomain();
-#: settings/mixer-settingsbox.gob:107 mixer-settingsbox.gob:107
+#: settings/mixer-settingsbox.gob:128 mixer-settingsbox.gob:128
 msgid "Useful Controls"
 msgstr "उपयोगी नियंत्रण"
 
@@ -178,7 +182,7 @@ msgstr "उपयोगी नियंत्रण"
 msgid "Sound"
 msgstr "आवाज"
 
-#: src/main.c:77
+#: src/main.c:95
 msgid "No working sound"
 msgstr "आवाज येत नाही"
 
@@ -199,18 +203,14 @@ msgid "/_View"
 msgstr "/ दृष्टी पट(_V)"
 
 #: src/menus.c:16
-msgid "/View/sep"
-msgstr "/दृष्टी पट/sep"
-
-#: src/menus.c:17
 msgid "/View/_Manage"
 msgstr "/दृष्टी पट/व्यवस्थीत(_M)"
 
-#: src/menus.c:18
+#: src/menus.c:17
 msgid "/_Help"
 msgstr "/मदत(_H)"
 
-#: src/menus.c:19
+#: src/menus.c:18
 msgid "/Help/_Info"
 msgstr "/मदत/माहीती(_I)"
 
@@ -317,10 +317,21 @@ msgstr "नाव असलेले प्रोफाईल अगोदरच
 msgid "profile%d"
 msgstr "प्रोफाईल%d"
 
-#: src/mixer-view.gob:258 mixer-view.gob:258
+#: src/mixer-view.gob:259 mixer-view.gob:259
 msgid "Show Switches"
 msgstr "स्विच दाखवा"
 
-#: src/mixer-view.gob:259 mixer-view.gob:259
+#: src/mixer-view.gob:260 mixer-view.gob:260
 msgid "Hide Switches"
 msgstr "स्विच लपवा"
+
+#: settings/xfce-mixer-settings.desktop.in.h:1
+msgid "Mixer Settings"
+msgstr ""
+
+#: settings/xfce-mixer-settings.desktop.in.h:2
+msgid "Xfce 4 Mixer Settings"
+msgstr ""
+
+#~ msgid "/View/sep"
+#~ msgstr "/दृष्टी पट/sep"

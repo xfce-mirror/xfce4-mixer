@@ -1,7 +1,7 @@
+/* connector between worlds (vc). control_factory is the (value) part. */ 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
-/* connector between worlds (vc). control_factory is the (value) part. */ 
 #include <stdlib.h>
 #include <gtk/gtk.h>
 #include <libxfce4util/libxfce4util.h>
@@ -139,8 +139,8 @@ GList *xfce_mixer_cache_vc_get_choices (gchar const *vcname)
 			gn = NULL;
 			
 			while (g) {
-				choice = vc_choice_dup ((volchoice_t *)g->data);
-				
+				choice = vc_choice_dup ((volchoice_t const *)g->data);
+				#if 0
 				/* try to translate displayname */
 				tmp_displayname = choice->displayname;
 				choice->displayname = _(tmp_displayname);
@@ -150,6 +150,7 @@ GList *xfce_mixer_cache_vc_get_choices (gchar const *vcname)
 				}
 				
 				/* -- */
+				#endif
 				
 				gn = g_list_append (gn, choice);
 				g = g_list_next (g);

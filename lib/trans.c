@@ -27,5 +27,6 @@ char *oss_names[] = {
 	_("PhoneOut"),
 	_("Video"),
 	_("Radio"),
-	_("Monitor")
+	_("Monitor"),
+	_("RecSelect"), /* I made that up */
 };

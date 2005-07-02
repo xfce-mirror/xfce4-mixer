@@ -1,7 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer HEAD\n"
-"POT-Creation-Date: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-07-02 23:15+0200\n"
 "PO-Revision-Date: 2005-03-21 20:08+0100\n"
 "Last-Translator: Aron Stansvik <elvstone@gmail.com>\n"
 "Language-Team: Swedish <elvstone@gmail.com>\n"
@@ -118,6 +119,10 @@ msgstr "Radio"
 msgid "Monitor"
 msgstr "Monitor"
 
+#: lib/trans.c:31
+msgid "RecSelect"
+msgstr ""
+
 #: lib/vc_alsa.c:94
 #, c-format
 msgid "alsa: Mixer %s open error: %s\n"
@@ -143,7 +148,7 @@ msgstr "alsa: Fel vid laddning av mixer: %s: %s\n"
 msgid "alsa: Unable to find simple control '%s',%i\n"
 msgstr "alsa: Kunde inte hitta enkel kontroll '%s',%i\n"
 
-#: lib/vc_oss.c:138
+#: lib/vc_oss.c:158
 msgid "oss: No master volume"
 msgstr "oss: Ingen huvudvolym"
 
@@ -152,36 +157,29 @@ msgstr "oss: Ingen huvudvolym"
 msgid "Volume: %d%%"
 msgstr "Volym: %d%%"
 
-#: panel-plugin/plugin.c:384
-#: src/mixer-window.gob:188
-#: mixer-window.gob:188
+#: panel-plugin/plugin.c:384 src/mixer-window.gob:188 mixer-window.gob:188
 msgid "Volume Control"
 msgstr "Volymkontroll"
 
-#: settings/mixer-settingsbox.gob:99
-#: mixer-settingsbox.gob:99
+#: settings/mixer-settingsbox.gob:120 mixer-settingsbox.gob:120
 msgid "Device"
 msgstr "Enhet"
 
-#: settings/mixer-settingsbox.gob:102
-#: mixer-settingsbox.gob:102
+#: settings/mixer-settingsbox.gob:123 mixer-settingsbox.gob:123
 msgid "None"
 msgstr "Ingen"
 
 #. gtk_widget_show (GTK_WIDGET (self->dev_label));
 #. debug_bindtextdomain();
-#: settings/mixer-settingsbox.gob:107
-#: mixer-settingsbox.gob:107
+#: settings/mixer-settingsbox.gob:128 mixer-settingsbox.gob:128
 msgid "Useful Controls"
 msgstr "Användbara Kontroller"
 
-#: settings/sound.c:80
-#: settings/sound.c:100
-#: settings/sound.c:107
+#: settings/sound.c:80 settings/sound.c:100 settings/sound.c:107
 msgid "Sound"
 msgstr "Ljud"
 
-#: src/main.c:77
+#: src/main.c:95
 msgid "No working sound"
 msgstr "Inget fungerande ljud"
 
@@ -202,158 +200,136 @@ msgid "/_View"
 msgstr "/_Visa"
 
 #: src/menus.c:16
-msgid "/View/sep"
-msgstr "/Visa/sep"
-
-#: src/menus.c:17
 msgid "/View/_Manage"
 msgstr "/Visa/_Hantera"
 
-#: src/menus.c:18
+#: src/menus.c:17
 msgid "/_Help"
 msgstr "/_Hjälp"
 
-#: src/menus.c:19
+#: src/menus.c:18
 msgid "/Help/_Info"
 msgstr "/Hjälp/_Info"
 
-#: src/mixer-info.gob:28
-#: mixer-info.gob:28
+#: src/mixer-info.gob:28 mixer-info.gob:28
 msgid ""
 "This is xfce4-mixer, a volume control program.\n"
-"It is released under the GPL-2 License which you find in the source directory.\n"
+"It is released under the GPL-2 License which you find in the source "
+"directory.\n"
 "No warranty in any way."
 msgstr ""
 "Detta är xfce4-mixer, ett program för volymkontroll.\n"
 "Det är släppt under GPL-2-licensen som du kan hitta i källkatalogen.\n"
 "Inga garantier gives på något sätt."
 
-#: src/mixer-profilebox-detail.gob:163
-#: mixer-profilebox-detail.gob:163
+#: src/mixer-profilebox-detail.gob:163 mixer-profilebox-detail.gob:163
 msgid "Control"
 msgstr "Kontroll"
 
-#: src/mixer-profilebox-detail.gob:166
-#: mixer-profilebox-detail.gob:166
+#: src/mixer-profilebox-detail.gob:166 mixer-profilebox-detail.gob:166
 msgid "Type"
 msgstr "Typ"
 
-#: src/mixer-profilebox-detail.gob:178
-#: mixer-profilebox-detail.gob:178
+#: src/mixer-profilebox-detail.gob:178 mixer-profilebox-detail.gob:178
 msgid "Up"
 msgstr "Upp"
 
-#: src/mixer-profilebox-detail.gob:181
-#: mixer-profilebox-detail.gob:181
+#: src/mixer-profilebox-detail.gob:181 mixer-profilebox-detail.gob:181
 msgid "Down"
 msgstr "Ner"
 
-#: src/mixer-profilebox-detail.gob:188
-#: mixer-profilebox-detail.gob:188
+#: src/mixer-profilebox-detail.gob:188 mixer-profilebox-detail.gob:188
 msgid "Move Entry Up"
 msgstr "Flytta Upp Post"
 
-#: src/mixer-profilebox-detail.gob:191
-#: mixer-profilebox-detail.gob:191
+#: src/mixer-profilebox-detail.gob:191 mixer-profilebox-detail.gob:191
 msgid "Move Entry Down"
 msgstr "Flytta Ner Post"
 
-#: src/mixer-profilebox-detail.gob:200
-#: mixer-profilebox-detail.gob:200
+#: src/mixer-profilebox-detail.gob:200 mixer-profilebox-detail.gob:200
 msgid "Profile Name:"
 msgstr "Profilnamn:"
 
-#: src/mixer-profilebox-detail.gob:382
-#: src/mixer-profilebox-detail.gob:447
-#: mixer-profilebox-detail.gob:382
-#: mixer-profilebox-detail.gob:447
+#: src/mixer-profilebox-detail.gob:382 src/mixer-profilebox-detail.gob:447
+#: mixer-profilebox-detail.gob:382 mixer-profilebox-detail.gob:447
 msgid "<unknown>"
 msgstr "<okänd>"
 
-#: src/mixer-profilebox-detail.gob:384
-#: src/mixer-profilebox-detail.gob:449
-#: mixer-profilebox-detail.gob:384
-#: mixer-profilebox-detail.gob:449
+#: src/mixer-profilebox-detail.gob:384 src/mixer-profilebox-detail.gob:449
+#: mixer-profilebox-detail.gob:384 mixer-profilebox-detail.gob:449
 msgid "<slider>"
 msgstr "<stegkontroll>"
 
-#: src/mixer-profilebox-detail.gob:385
-#: src/mixer-profilebox-detail.gob:450
-#: mixer-profilebox-detail.gob:385
-#: mixer-profilebox-detail.gob:450
+#: src/mixer-profilebox-detail.gob:385 src/mixer-profilebox-detail.gob:450
+#: mixer-profilebox-detail.gob:385 mixer-profilebox-detail.gob:450
 msgid "<onoff>"
 msgstr "<påav>"
 
-#: src/mixer-profilebox-detail.gob:386
-#: src/mixer-profilebox-detail.gob:451
-#: mixer-profilebox-detail.gob:386
-#: mixer-profilebox-detail.gob:451
+#: src/mixer-profilebox-detail.gob:386 src/mixer-profilebox-detail.gob:451
+#: mixer-profilebox-detail.gob:386 mixer-profilebox-detail.gob:451
 msgid "<select>"
 msgstr "<markera>"
 
-#: src/mixer-profilebox.gob:88
-#: mixer-profilebox.gob:88
+#: src/mixer-profilebox.gob:88 mixer-profilebox.gob:88
 msgid "Device:"
 msgstr "Enhet:"
 
-#: src/mixer-profilebox.gob:142
-#: mixer-profilebox.gob:142
+#: src/mixer-profilebox.gob:142 mixer-profilebox.gob:142
 msgid "Create new profile"
 msgstr "Skapa ny profil"
 
-#: src/mixer-profilebox.gob:151
-#: mixer-profilebox.gob:151
+#: src/mixer-profilebox.gob:151 mixer-profilebox.gob:151
 msgid "Delete this profile"
 msgstr "Tag bort profil"
 
-#: src/mixer-profilebox.gob:170
-#: mixer-profilebox.gob:170
+#: src/mixer-profilebox.gob:170 mixer-profilebox.gob:170
 msgid "Profile"
 msgstr "Profil"
 
-#: src/mixer-profilebox.gob:374
-#: mixer-profilebox.gob:374
+#: src/mixer-profilebox.gob:374 mixer-profilebox.gob:374
 #, c-format
 msgid "Really delete those %d profiles?"
 msgstr "Verkligen ta bort dessa %d profiler?"
 
-#: src/mixer-profilebox.gob:377
-#: mixer-profilebox.gob:377
+#: src/mixer-profilebox.gob:377 mixer-profilebox.gob:377
 #, c-format
 msgid "Really delete profile \"%s\"?"
 msgstr "Verkligen ta bort profilen \"%s\"?"
 
-#: src/mixer-profilebox.gob:491
-#: mixer-profilebox.gob:491
+#: src/mixer-profilebox.gob:491 mixer-profilebox.gob:491
 #, c-format
 msgid "%s - New"
 msgstr "%s - Ny"
 
-#: src/mixer-profilebox.gob:528
-#: mixer-profilebox.gob:528
+#: src/mixer-profilebox.gob:528 mixer-profilebox.gob:528
 msgid "A profile needs a name"
 msgstr "En profil kräver ett namn"
 
-#: src/mixer-profilebox.gob:542
-#: mixer-profilebox.gob:542
+#: src/mixer-profilebox.gob:542 mixer-profilebox.gob:542
 msgid "A profile with that name already exists"
 msgstr "En profil med det namnet finns redan"
 
-#: src/mixer-profiles.gob:262
-#: src/mixer-profiles.gob:269
-#: mixer-profiles.gob:262
-#: mixer-profiles.gob:269
+#: src/mixer-profiles.gob:262 src/mixer-profiles.gob:269
+#: mixer-profiles.gob:262 mixer-profiles.gob:269
 #, c-format
 msgid "profile%d"
 msgstr "profil%d"
 
-#: src/mixer-view.gob:258
-#: mixer-view.gob:258
+#: src/mixer-view.gob:259 mixer-view.gob:259
 msgid "Show Switches"
 msgstr "Visa Väljare"
 
-#: src/mixer-view.gob:259
-#: mixer-view.gob:259
+#: src/mixer-view.gob:260 mixer-view.gob:260
 msgid "Hide Switches"
 msgstr "Dölj Väljare"
 
+#: settings/xfce-mixer-settings.desktop.in.h:1
+msgid "Mixer Settings"
+msgstr ""
+
+#: settings/xfce-mixer-settings.desktop.in.h:2
+msgid "Xfce 4 Mixer Settings"
+msgstr ""
+
+#~ msgid "/View/sep"
+#~ msgstr "/Visa/sep"

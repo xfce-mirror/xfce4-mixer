@@ -76,7 +76,7 @@
 
 #define MAX_AMP 100
 
-#define NAME_RECSELECTOR "Rselc" /* max 4 chars */
+#define NAME_RECSELECTOR "RecSelect"
 
 static char dev_name[PATH_MAX] = { "/dev/mixer" };
 
@@ -323,6 +323,7 @@ vc_get_control_list(void)
           c->choices = oss_recmask_to_choices();
           c->name = g_strdup (NAME_RECSELECTOR);
           g = g_list_append (g, c);
+          g_warning ("has recselector");
         }
         
 	return g;	
@@ -444,7 +445,7 @@ static gchar *vc_get_select(char const *which)
 		for (i = 0; i < SOUND_MIXER_NRDEVICES; i++) {
 			if (recsrc & (1 << i)) {
 				s = g_strdup (label[i]);
-				s = g_strchomp (s);
+				g_strchomp (s);
 				return s;
 			}
 		}
@@ -459,7 +460,7 @@ static gchar *vc_get_select(char const *which)
 		
 		 this is most likely the wrong answer but better than crashing
 		s = g_strdup (label[master_i]);
-		s = g_strchomp (s);
+		g_strchomp (s);
 		return s;
 		*/
 		

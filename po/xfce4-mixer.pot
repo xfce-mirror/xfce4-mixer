@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-12-11 18:32+0100\n"
+"POT-Creation-Date: 2005-07-02 23:15+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -122,6 +122,10 @@ msgstr ""
 msgid "Monitor"
 msgstr ""
 
+#: lib/trans.c:31
+msgid "RecSelect"
+msgstr ""
+
 #: lib/vc_alsa.c:94
 #, c-format
 msgid "alsa: Mixer %s open error: %s\n"
@@ -147,7 +151,7 @@ msgstr ""
 msgid "alsa: Unable to find simple control '%s',%i\n"
 msgstr ""
 
-#: lib/vc_oss.c:138
+#: lib/vc_oss.c:158
 msgid "oss: No master volume"
 msgstr ""
 
@@ -160,17 +164,17 @@ msgstr ""
 msgid "Volume Control"
 msgstr ""
 
-#: settings/mixer-settingsbox.gob:99 mixer-settingsbox.gob:99
+#: settings/mixer-settingsbox.gob:120 mixer-settingsbox.gob:120
 msgid "Device"
 msgstr ""
 
-#: settings/mixer-settingsbox.gob:102 mixer-settingsbox.gob:102
+#: settings/mixer-settingsbox.gob:123 mixer-settingsbox.gob:123
 msgid "None"
 msgstr ""
 
 #. gtk_widget_show (GTK_WIDGET (self->dev_label));
 #. debug_bindtextdomain();
-#: settings/mixer-settingsbox.gob:107 mixer-settingsbox.gob:107
+#: settings/mixer-settingsbox.gob:128 mixer-settingsbox.gob:128
 msgid "Useful Controls"
 msgstr ""
 
@@ -178,7 +182,7 @@ msgstr ""
 msgid "Sound"
 msgstr ""
 
-#: src/main.c:77
+#: src/main.c:95
 msgid "No working sound"
 msgstr ""
 
@@ -199,18 +203,14 @@ msgid "/_View"
 msgstr ""
 
 #: src/menus.c:16
-msgid "/View/sep"
-msgstr ""
-
-#: src/menus.c:17
 msgid "/View/_Manage"
 msgstr ""
 
-#: src/menus.c:18
+#: src/menus.c:17
 msgid "/_Help"
 msgstr ""
 
-#: src/menus.c:19
+#: src/menus.c:18
 msgid "/Help/_Info"
 msgstr ""
 
@@ -315,10 +315,18 @@ msgstr ""
 msgid "profile%d"
 msgstr ""
 
-#: src/mixer-view.gob:258 mixer-view.gob:258
+#: src/mixer-view.gob:259 mixer-view.gob:259
 msgid "Show Switches"
 msgstr ""
 
-#: src/mixer-view.gob:259 mixer-view.gob:259
+#: src/mixer-view.gob:260 mixer-view.gob:260
 msgid "Hide Switches"
+msgstr ""
+
+#: settings/xfce-mixer-settings.desktop.in.h:1
+msgid "Mixer Settings"
+msgstr ""
+
+#: settings/xfce-mixer-settings.desktop.in.h:2
+msgid "Xfce 4 Mixer Settings"
 msgstr ""

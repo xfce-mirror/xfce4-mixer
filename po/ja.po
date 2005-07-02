@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-03-10 18:35+0900\n"
+"POT-Creation-Date: 2005-07-02 23:15+0200\n"
 "PO-Revision-Date: 2005-03-12 05:08+0900\n"
 "Last-Translator: Daichi Kawahata <daichik@users.sourceforge.net>\n"
 "Language-Team: xfce-users-jp <xfce-users-jp@ml.fdiary.net>\n"
@@ -122,6 +122,10 @@ msgstr "ラジオ"
 msgid "Monitor"
 msgstr "モニタ"
 
+#: lib/trans.c:31
+msgid "RecSelect"
+msgstr ""
+
 #: lib/vc_alsa.c:94
 #, c-format
 msgid "alsa: Mixer %s open error: %s\n"
@@ -147,7 +151,7 @@ msgstr "alsa: ミキサー読込みエラー: %s: %s\n"
 msgid "alsa: Unable to find simple control '%s',%i\n"
 msgstr "alsa: シンプル・コントロール '%s' を見付けられません,%i\n"
 
-#: lib/vc_oss.c:138
+#: lib/vc_oss.c:158
 msgid "oss: No master volume"
 msgstr "oss: マスター音量がありません"
 
@@ -160,17 +164,17 @@ msgstr "音量: %d%%"
 msgid "Volume Control"
 msgstr "音量調節"
 
-#: settings/mixer-settingsbox.gob:99 mixer-settingsbox.gob:99
+#: settings/mixer-settingsbox.gob:120 mixer-settingsbox.gob:120
 msgid "Device"
 msgstr "デバイス"
 
-#: settings/mixer-settingsbox.gob:102 mixer-settingsbox.gob:102
+#: settings/mixer-settingsbox.gob:123 mixer-settingsbox.gob:123
 msgid "None"
 msgstr "無し"
 
 #. gtk_widget_show (GTK_WIDGET (self->dev_label));
 #. debug_bindtextdomain();
-#: settings/mixer-settingsbox.gob:107 mixer-settingsbox.gob:107
+#: settings/mixer-settingsbox.gob:128 mixer-settingsbox.gob:128
 msgid "Useful Controls"
 msgstr "便利なコントロール"
 
@@ -178,7 +182,7 @@ msgstr "便利なコントロール"
 msgid "Sound"
 msgstr "サウンド"
 
-#: src/main.c:77
+#: src/main.c:95
 msgid "No working sound"
 msgstr "サウンド機能が動作していません"
 
@@ -314,11 +318,11 @@ msgstr "その名前のプロファイルは既に存在しています"
 msgid "profile%d"
 msgstr "プロファイル%d"
 
-#: src/mixer-view.gob:258 mixer-view.gob:258
+#: src/mixer-view.gob:259 mixer-view.gob:259
 msgid "Show Switches"
 msgstr "スイッチを表示する"
 
-#: src/mixer-view.gob:259 mixer-view.gob:259
+#: src/mixer-view.gob:260 mixer-view.gob:260
 msgid "Hide Switches"
 msgstr "スイッチを隠す"
 

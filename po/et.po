@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mixer VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-10-02 10:36+0200\n"
+"POT-Creation-Date: 2005-07-02 23:15+0200\n"
 "PO-Revision-Date: 2004-12-09 20:59+0300\n"
 "Last-Translator: Mart Tõnso <mart.tonso@ttu.ee>\n"
 "Language-Team: Estonian <et@li.org>\n"
@@ -120,6 +120,10 @@ msgstr "Raadio"
 msgid "Monitor"
 msgstr "Monitor"
 
+#: lib/trans.c:31
+msgid "RecSelect"
+msgstr ""
+
 #: lib/vc_alsa.c:94
 #, c-format
 msgid "alsa: Mixer %s open error: %s\n"
@@ -145,7 +149,7 @@ msgstr "alsa: Mikseri laadimise viga: %s: %s\n"
 msgid "alsa: Unable to find simple control '%s',%i\n"
 msgstr "alsa: Ei suutnud leida lihtsat kontrolli '%s',%i\n"
 
-#: lib/vc_oss.c:131
+#: lib/vc_oss.c:158
 msgid "oss: No master volume"
 msgstr "oss: Ei ole peamist helitugevust"
 
@@ -154,215 +158,179 @@ msgstr "oss: Ei ole peamist helitugevust"
 msgid "Volume: %d%%"
 msgstr "Helitugevus: %d%%"
 
-#: panel-plugin/plugin.c:384
-#: src/mixer-window.gob:188
-#: mixer-window.gob:188
+#: panel-plugin/plugin.c:384 src/mixer-window.gob:188 mixer-window.gob:188
 msgid "Volume Control"
 msgstr "Helitugevus"
 
-#: settings/mixer-settingsbox.gob:102
-#: mixer-settingsbox.gob:102
+#: settings/mixer-settingsbox.gob:120 mixer-settingsbox.gob:120
 msgid "Device"
 msgstr "Seade"
 
-#: settings/mixer-settingsbox.gob:105
-#: mixer-settingsbox.gob:105
+#: settings/mixer-settingsbox.gob:123 mixer-settingsbox.gob:123
 msgid "None"
 msgstr "tühjus"
 
 #. gtk_widget_show (GTK_WIDGET (self->dev_label));
-#: settings/mixer-settingsbox.gob:108
-#: mixer-settingsbox.gob:108
+#. debug_bindtextdomain();
+#: settings/mixer-settingsbox.gob:128 mixer-settingsbox.gob:128
 msgid "Useful Controls"
 msgstr "Kasutatavad kanalid"
 
-#: settings/sound.c:80
-#: settings/sound.c:102
-#: settings/sound.c:109
+#: settings/sound.c:80 settings/sound.c:100 settings/sound.c:107
 msgid "Sound"
 msgstr "Heli"
 
-#: src/main.c:77
+#: src/main.c:95
 msgid "No working sound"
 msgstr "Heli ei tööta"
 
-#: src/menus.c:9
+#: src/menus.c:12
 msgid "/_File"
 msgstr "/_Fail"
 
-#: src/menus.c:10
+#: src/menus.c:13
 msgid "/File/_Options"
 msgstr "/Fail/_Seaded"
 
-#: src/menus.c:11
+#: src/menus.c:14
 msgid "/File/_Exit"
 msgstr "/Fail/_Välja"
 
-#: src/menus.c:12
+#: src/menus.c:15
 msgid "/_View"
 msgstr "/_Vaade"
 
-#: src/menus.c:13
-msgid "/View/sep"
-msgstr "/Vaade/sep"
-
-#: src/menus.c:14
+#: src/menus.c:16
 msgid "/View/_Manage"
 msgstr "/Vaade/_Halda"
 
-#: src/menus.c:15
+#: src/menus.c:17
 msgid "/_Help"
 msgstr "/_Abi"
 
-#: src/menus.c:16
+#: src/menus.c:18
 msgid "/Help/_Info"
 msgstr "/Abi/_Info"
 
-#: src/mixer-info.gob:28
-#: mixer-info.gob:28
+#: src/mixer-info.gob:28 mixer-info.gob:28
 msgid ""
 "This is xfce4-mixer, a volume control program.\n"
-"It is released under the GPL-2 License which you find in the source directory.\n"
+"It is released under the GPL-2 License which you find in the source "
+"directory.\n"
 "No warranty in any way."
 msgstr ""
 "See on xfce4-mixer, helivajuse juhtimise programm.\n"
 "See on väljastatud GPL-2 Litsentsi all, mida leiad lähtekoodi kataloogist.\n"
 "Mingil juhul ei ole garantiid."
 
-#: src/mixer-profilebox-detail.gob:163
-#: mixer-profilebox-detail.gob:163
+#: src/mixer-profilebox-detail.gob:163 mixer-profilebox-detail.gob:163
 msgid "Control"
 msgstr "Kanal"
 
-#: src/mixer-profilebox-detail.gob:166
-#: mixer-profilebox-detail.gob:166
+#: src/mixer-profilebox-detail.gob:166 mixer-profilebox-detail.gob:166
 msgid "Type"
 msgstr "Tüüp"
 
-#: src/mixer-profilebox-detail.gob:178
-#: mixer-profilebox-detail.gob:178
+#: src/mixer-profilebox-detail.gob:178 mixer-profilebox-detail.gob:178
 msgid "Up"
 msgstr "Üles"
 
-#: src/mixer-profilebox-detail.gob:181
-#: mixer-profilebox-detail.gob:181
+#: src/mixer-profilebox-detail.gob:181 mixer-profilebox-detail.gob:181
 msgid "Down"
 msgstr "Alla"
 
-#: src/mixer-profilebox-detail.gob:188
-#: mixer-profilebox-detail.gob:188
+#: src/mixer-profilebox-detail.gob:188 mixer-profilebox-detail.gob:188
 msgid "Move Entry Up"
 msgstr "Liiguta rida üles"
 
-#: src/mixer-profilebox-detail.gob:191
-#: mixer-profilebox-detail.gob:191
+#: src/mixer-profilebox-detail.gob:191 mixer-profilebox-detail.gob:191
 msgid "Move Entry Down"
 msgstr "Liiguta rida alla"
 
-#: src/mixer-profilebox-detail.gob:200
-#: mixer-profilebox-detail.gob:200
+#: src/mixer-profilebox-detail.gob:200 mixer-profilebox-detail.gob:200
 msgid "Profile Name:"
 msgstr "Profiili Nimi:"
 
-#: src/mixer-profilebox-detail.gob:382
-#: src/mixer-profilebox-detail.gob:447
-#: mixer-profilebox-detail.gob:382
-#: mixer-profilebox-detail.gob:447
+#: src/mixer-profilebox-detail.gob:382 src/mixer-profilebox-detail.gob:447
+#: mixer-profilebox-detail.gob:382 mixer-profilebox-detail.gob:447
 msgid "<unknown>"
 msgstr "<tundmatu>"
 
-#: src/mixer-profilebox-detail.gob:384
-#: src/mixer-profilebox-detail.gob:449
-#: mixer-profilebox-detail.gob:384
-#: mixer-profilebox-detail.gob:449
+#: src/mixer-profilebox-detail.gob:384 src/mixer-profilebox-detail.gob:449
+#: mixer-profilebox-detail.gob:384 mixer-profilebox-detail.gob:449
 msgid "<slider>"
 msgstr "<liugur>"
 
-#: src/mixer-profilebox-detail.gob:385
-#: src/mixer-profilebox-detail.gob:450
-#: mixer-profilebox-detail.gob:385
-#: mixer-profilebox-detail.gob:450
+#: src/mixer-profilebox-detail.gob:385 src/mixer-profilebox-detail.gob:450
+#: mixer-profilebox-detail.gob:385 mixer-profilebox-detail.gob:450
 msgid "<onoff>"
 msgstr "<seesväljas>"
 
-#: src/mixer-profilebox-detail.gob:386
-#: src/mixer-profilebox-detail.gob:451
-#: mixer-profilebox-detail.gob:386
-#: mixer-profilebox-detail.gob:451
+#: src/mixer-profilebox-detail.gob:386 src/mixer-profilebox-detail.gob:451
+#: mixer-profilebox-detail.gob:386 mixer-profilebox-detail.gob:451
 msgid "<select>"
 msgstr "<vali>"
 
-#: src/mixer-profilebox.gob:88
-#: mixer-profilebox.gob:88
+#: src/mixer-profilebox.gob:88 mixer-profilebox.gob:88
 msgid "Device:"
 msgstr "Seade:"
 
-#: src/mixer-profilebox.gob:142
-#: mixer-profilebox.gob:142
+#: src/mixer-profilebox.gob:142 mixer-profilebox.gob:142
 msgid "Create new profile"
 msgstr "Tekita uus profiil"
 
-#: src/mixer-profilebox.gob:151
-#: mixer-profilebox.gob:151
+#: src/mixer-profilebox.gob:151 mixer-profilebox.gob:151
 msgid "Delete this profile"
 msgstr "Kustuta see profiil"
 
-#: src/mixer-profilebox.gob:170
-#: mixer-profilebox.gob:170
+#: src/mixer-profilebox.gob:170 mixer-profilebox.gob:170
 msgid "Profile"
 msgstr "Profiil"
 
-#: src/mixer-profilebox.gob:374
-#: mixer-profilebox.gob:374
+#: src/mixer-profilebox.gob:374 mixer-profilebox.gob:374
 #, c-format
 msgid "Really delete those %d profiles?"
 msgstr "Kas tõesti kustutada %d profiili?"
 
-#: src/mixer-profilebox.gob:377
-#: mixer-profilebox.gob:377
+#: src/mixer-profilebox.gob:377 mixer-profilebox.gob:377
 #, c-format
 msgid "Really delete profile \"%s\"?"
 msgstr "Kas tõesti kustutada profiil \"%s\"?"
 
-#: src/mixer-profilebox.gob:491
-#: mixer-profilebox.gob:491
+#: src/mixer-profilebox.gob:491 mixer-profilebox.gob:491
 #, c-format
 msgid "%s - New"
 msgstr "%s - Uus"
 
-#: src/mixer-profilebox.gob:528
-#: mixer-profilebox.gob:528
+#: src/mixer-profilebox.gob:528 mixer-profilebox.gob:528
 msgid "A profile needs a name"
 msgstr "Profiil vajab nime"
 
-#: src/mixer-profilebox.gob:542
-#: mixer-profilebox.gob:542
+#: src/mixer-profilebox.gob:542 mixer-profilebox.gob:542
 msgid "A profile with that name already exists"
 msgstr "Selle nimega profiil juba eksisteerib"
 
-#: src/mixer-profiles.gob:262
-#: src/mixer-profiles.gob:269
-#: mixer-profiles.gob:262
-#: mixer-profiles.gob:269
+#: src/mixer-profiles.gob:262 src/mixer-profiles.gob:269
+#: mixer-profiles.gob:262 mixer-profiles.gob:269
 #, c-format
 msgid "profile%d"
 msgstr "profiil%d"
 
-#: src/mixer-view.gob:258
-#: mixer-view.gob:258
+#: src/mixer-view.gob:259 mixer-view.gob:259
 msgid "Show Switches"
 msgstr "Näita lüliteid"
 
-#: src/mixer-view.gob:259
-#: mixer-view.gob:259
+#: src/mixer-view.gob:260 mixer-view.gob:260
 msgid "Hide Switches"
 msgstr "Varja lüliteid"
 
+#: settings/xfce-mixer-settings.desktop.in.h:1
+msgid "Mixer Settings"
+msgstr "Helitugevuse seaded"
 
-#: settings/xfce-mixer-settings.desktop.in:4
+#: settings/xfce-mixer-settings.desktop.in.h:2
 msgid "Xfce 4 Mixer Settings"
 msgstr "Xfce 4 helitugevuse seaded"
 
-#: settings/xfce-mixer-settings.desktop.in:5
-msgid "Mixer Settings"
-msgstr "Helitugevuse seaded"
+#~ msgid "/View/sep"
+#~ msgstr "/Vaade/sep"

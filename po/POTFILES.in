@@ -5,7 +5,6 @@ lib/trans.c
 lib/vc_alsa.c
 lib/vc_alsa_fallback.c
 lib/vc.c
-lib/vc.h
 lib/vc_oss.c
 lib/vcs.c
 lib/vc_sun.c

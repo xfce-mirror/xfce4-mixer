@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-12-11 18:32+0100\n"
+"POT-Creation-Date: 2005-07-02 23:15+0200\n"
 "PO-Revision-Date: 2005-01-05 23:55+0200\n"
 "Last-Translator: Maxim Dziumanenko <mvd@mylinux.com.ua>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
@@ -121,6 +121,10 @@ msgstr "Радіо"
 msgid "Monitor"
 msgstr "Монітор"
 
+#: lib/trans.c:31
+msgid "RecSelect"
+msgstr ""
+
 #: lib/vc_alsa.c:94
 #, c-format
 msgid "alsa: Mixer %s open error: %s\n"
@@ -146,7 +150,7 @@ msgstr "alsa: Помилка завантаження мікшера: %s: %s\n"
 msgid "alsa: Unable to find simple control '%s',%i\n"
 msgstr "alsa: Неможливо знайти елемент керування '%s',%i\n"
 
-#: lib/vc_oss.c:138
+#: lib/vc_oss.c:158
 msgid "oss: No master volume"
 msgstr "oss: Немає головного регулятора гучності"
 
@@ -159,17 +163,17 @@ msgstr "Гучність: %d%%"
 msgid "Volume Control"
 msgstr "Контроль гучності"
 
-#: settings/mixer-settingsbox.gob:99 mixer-settingsbox.gob:99
+#: settings/mixer-settingsbox.gob:120 mixer-settingsbox.gob:120
 msgid "Device"
 msgstr "Пристрій"
 
-#: settings/mixer-settingsbox.gob:102 mixer-settingsbox.gob:102
+#: settings/mixer-settingsbox.gob:123 mixer-settingsbox.gob:123
 msgid "None"
 msgstr "Немає"
 
 #. gtk_widget_show (GTK_WIDGET (self->dev_label));
 #. debug_bindtextdomain();
-#: settings/mixer-settingsbox.gob:107 mixer-settingsbox.gob:107
+#: settings/mixer-settingsbox.gob:128 mixer-settingsbox.gob:128
 msgid "Useful Controls"
 msgstr "Контрольовані канали"
 
@@ -177,7 +181,7 @@ msgstr "Контрольовані канали"
 msgid "Sound"
 msgstr "Звук"
 
-#: src/main.c:77
+#: src/main.c:95
 msgid "No working sound"
 msgstr "Звук не працює"
 
@@ -198,18 +202,14 @@ msgid "/_View"
 msgstr "/_Вигляд"
 
 #: src/menus.c:16
-msgid "/View/sep"
-msgstr "/Вигляд/sep"
-
-#: src/menus.c:17
 msgid "/View/_Manage"
 msgstr "/Вигляд/_Керувати"
 
-#: src/menus.c:18
+#: src/menus.c:17
 msgid "/_Help"
 msgstr "/_Довідка"
 
-#: src/menus.c:19
+#: src/menus.c:18
 msgid "/Help/_Info"
 msgstr "/Довідка/_Інформація"
 
@@ -318,10 +318,21 @@ msgstr "Профіль з такою назвою вже існує"
 msgid "profile%d"
 msgstr "профіль%d"
 
-#: src/mixer-view.gob:258 mixer-view.gob:258
+#: src/mixer-view.gob:259 mixer-view.gob:259
 msgid "Show Switches"
 msgstr "Показувати перемикачі"
 
-#: src/mixer-view.gob:259 mixer-view.gob:259
+#: src/mixer-view.gob:260 mixer-view.gob:260
 msgid "Hide Switches"
 msgstr "Сховати перемикачі"
+
+#: settings/xfce-mixer-settings.desktop.in.h:1
+msgid "Mixer Settings"
+msgstr ""
+
+#: settings/xfce-mixer-settings.desktop.in.h:2
+msgid "Xfce 4 Mixer Settings"
+msgstr ""
+
+#~ msgid "/View/sep"
+#~ msgstr "/Вигляд/sep"

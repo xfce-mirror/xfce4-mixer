@@ -11,8 +11,6 @@
 #include "vc.h"
 %}
 %{
-#include "stringlist.inc"
-#include "string_option_menu.h"
 %}
 
 class Xfce:Mixer:Select from Xfce:Mixer:Control {
@@ -29,6 +27,7 @@ class Xfce:Mixer:Select from Xfce:Mixer:Control {
 		gint i;
 		gchar const *s;
 		volchoice_t const* choice;
+		
 		s = NULL;
 		i = gtk_option_menu_get_history (self->om);
 		if (i >= 0) {
@@ -90,6 +89,8 @@ class Xfce:Mixer:Select from Xfce:Mixer:Control {
 		GList			*choices;
 		
 		menu = GTK_MENU (gtk_menu_new ());
+
+g_warning ("fill option menu");
 		
 		choices = self->choices;
 		
@@ -104,7 +105,7 @@ class Xfce:Mixer:Select from Xfce:Mixer:Control {
 		}
 	
 		gtk_option_menu_set_menu (self->om, GTK_WIDGET (menu));
-		/*g_object_unref (menu); *//* FIXME is that right? */
+		/*g_object_unref (menu);*/ /* FIXME is that right? */
 	}
 
 	override (Xfce:Mixer:Control) void
