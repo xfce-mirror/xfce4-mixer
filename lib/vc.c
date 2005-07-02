@@ -258,20 +258,50 @@ void vc_free_device_list(GList *device_list)
 }
 
 
+void
+vc_free_choices(GList* choices)
+{
+	GList*	item;
+	volchoice_t* choice;
+	item = choices;
+	while (item) {
+	  choice = (volchoice_t*) item->data;
+	  if (choice->displayname) {
+	    g_free (choice->displayname);
+	    choice->displayname = NULL;
+	  }
+	  
+	  if (choice->name) {
+	    g_free (choice->name);
+	    choice->name = NULL;
+	  }
+	  
+	  item = g_list_next (item);
+	}
+	
+	g_list_free (choices);
+}
+
 void vc_free_control_list(GList *g)
 {
-/*	GList 			*f;*/
+	GList 			*item;
 	volcontrol_t		*c;
-	int			i = 0;
 	
-	while (i < 100) { /* safety */
-		c = g_list_nth_data (g, i);
+	item = g;
+	while (item) {
+		c = (volcontrol_t*) item->data;
+		
 		if (c) {
+			if (c->choices) {
+			  vc_free_choices (c->choices);
+			  c->choices = NULL;
+			}
+			
 			if (c->name) g_free (c->name);
 			g_free (c);
 		}
 	
-		++i;
+		item = g_list_next (item);
 	}
 
 	g_list_free (g);
@@ -311,3 +341,11 @@ volchanger_t **next_vc(volchanger_t **v)
 	return NULL;
 }
 
+volchoice_t* vc_choice_dup(const volchoice_t *choice)
+{
+  volchoice_t* nchoice;
+  nchoice = g_new0 (volchoice_t, 1);
+  nchoice->name = g_strdup (choice->name); /* no name -> boom */
+  nchoice->displayname = g_strdup (choice->displayname); /* no displayname -> boom */
+  return nchoice;
+}

@@ -307,6 +307,7 @@ GList *alsa_enum_to_glist(snd_mixer_elem_t *i)
 	gint j;
 	char tmp[257];
 	gint cnt;
+	volchoice_t* choice;
 	
 	g = NULL;
 	if (!snd_mixer_selem_is_enumerated (i))
@@ -317,7 +318,11 @@ GList *alsa_enum_to_glist(snd_mixer_elem_t *i)
 		g_snprintf (tmp, 256, "%d", j);
 		snd_mixer_selem_get_enum_item_name (i, j, 256, tmp);
 		
-		g = g_list_append (g, g_strdup (tmp));
+		choice = g_new0 (volchoice_t, 1);
+		choice->name = g_strdup (tmp);
+		choice->displayname = g_strdup (tmp);
+		
+		g = g_list_append (g, choice);
 	}
 			
 	return g;

@@ -25,6 +25,10 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+/* some soundcards are rumoured to support multiple recording sources at once. 
+   As I have no clue what use that should ever be, xfce4-mixer does not support that.
+   One recording source to rule them all. */
+   
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
@@ -72,11 +76,15 @@
 
 #define MAX_AMP 100
 
+#define NAME_RECSELECTOR "Rselc" /* max 4 chars */
+
 static char dev_name[PATH_MAX] = { "/dev/mixer" };
 
 static int mixer_handle = -1;
 static int devmask = 0;                /* Bitmask for supported mixer devices */
+static int avail_recmask = 0;  /* available recording devices */
 static int master_i = -1;
+static int has_recselector = 0;
 
 static char *label[SOUND_MIXER_NRDEVICES] = SOUND_DEVICE_LABELS;
 
@@ -96,12 +104,24 @@ find_master(void)
 
 	devmask = 0;
 	master_i = -1;
+	avail_recmask = 0;
+	has_recselector = 0;
 
 	if (ioctl(mixer_handle, SOUND_MIXER_READ_DEVMASK, &devmask) == -1) {
-		perror("Unable to get mixer device mask");
+		perror("oss: Unable to get mixer device mask");
 		/*(void)close(mixer_handle);
 		mixer_handle = -1;*/
 		return;
+	}
+
+	if (ioctl(mixer_handle, SOUND_MIXER_READ_RECMASK, &avail_recmask) == -1) {
+	   // nevermind
+		perror("oss: Unable to get possible recording channels");
+		/*(void)close(mixer_handle);
+		mixer_handle = -1;*/
+		/*return;*/
+	} else {
+	  has_recselector = 1;
 	}
 	
 	for (i = 0; i < SOUND_MIXER_NRDEVICES; i++) {
@@ -234,6 +254,33 @@ vc_get_volume(char const *which)
 	return((((LEFT(level) + RIGHT(level)) >> 1) * 100) / MAX_AMP);
 }
 
+/* reads recmask, returns choices list for recording device select control */
+static GList* 
+oss_recmask_to_choices(void)
+{ 
+	GList* res;
+	int i;
+	gchar* s;
+	volchoice_t*	choice;
+  
+	res = NULL;
+  
+	for (i = 0; i < SOUND_MIXER_NRDEVICES; i++) {
+		if (avail_recmask & (1 << i)) {
+			s = g_strdup(label[i]);
+			g_strchomp (s);
+			
+			choice = g_new0 (volchoice_t, 1);
+			choice->name = s;
+			choice->displayname = g_strdup (s);
+		  
+			res = g_list_append (res, choice);
+		}
+	}
+  
+	return res;
+}
+
 /* returns list of volcontrol_t */
 static GList *
 vc_get_control_list(void)
@@ -270,6 +317,14 @@ vc_get_control_list(void)
 		}
 	}
 
+        if (has_recselector) {
+          c = g_new0 (volcontrol_t, 1);
+          c->type = CT_SELECT;
+          c->choices = oss_recmask_to_choices();
+          c->name = g_strdup (NAME_RECSELECTOR);
+          g = g_list_append (g, c);
+        }
+        
 	return g;	
 }
 
@@ -341,10 +396,75 @@ static GList *vc_get_device_list()
 
 static void vc_set_select(char const *which, gchar const *v)
 {
+	int	i;
+	int	recsrc;
+	int	xrecsrc;
+	
+	if (has_recselector && g_str_equal (which, NAME_RECSELECTOR)) {
+		i = find_control (v);
+		if (i == -1) {
+		  g_warning ("oss: could not find control that the new recording source refers to. Not setting it.");
+		  return;
+		}
+		
+		recsrc = 1 << i;
+		 
+		//SOUND_MIXER_READ_RECSRC
+		if (ioctl(mixer_handle, SOUND_MIXER_WRITE_RECSRC, &recsrc) == -1) {
+			perror("oss: Unable to set mixer recording source");
+			return;
+		}
+		
+		if (ioctl(mixer_handle, SOUND_MIXER_READ_RECSRC, &xrecsrc) == -1) {
+			perror("oss: Unable to get mixer recording source back");  
+			return;
+		}
+		
+		if (xrecsrc != recsrc) {
+			g_warning ("oss: sound card driver messed with the recording source given. Thus, it is not guaranteed that the correct one is set now.");
+			return;
+		}
+
+		return;
+	}
 } 
 
 static gchar *vc_get_select(char const *which)
-{  
+{
+	int	recsrc;
+	gchar*	s;
+	int	i;
+	
+	if (has_recselector && g_str_equal (which, NAME_RECSELECTOR)) {
+		if (ioctl(mixer_handle, SOUND_MIXER_READ_RECSRC, &recsrc) == -1) {
+			perror("oss: Unable to get mixer recording source");  
+			return NULL;
+		}
+		
+		for (i = 0; i < SOUND_MIXER_NRDEVICES; i++) {
+			if (recsrc & (1 << i)) {
+				s = g_strdup (label[i]);
+				s = g_strchomp (s);
+				return s;
+			}
+		}
+		
+		/*
+		g_warning ("oss: could not get associated recording source name. BAD!");
+		
+		if (master_i == -1) {
+			g_warning ("oss: no master control found either. Giving up.");
+			return NULL;
+		}
+		
+		 this is most likely the wrong answer but better than crashing
+		s = g_strdup (label[master_i]);
+		s = g_strchomp (s);
+		return s;
+		*/
+		
+	}
+	
 	return NULL;
 }
 
