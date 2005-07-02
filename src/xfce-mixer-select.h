@@ -14,6 +14,7 @@ extern "C" {
 #include <gtk/gtk.h>
 #include "xfce-mixer-control.h"
 #include "xfce-mixer-cache-vc.h"
+#include "vc.h"
 
 
 /*

@@ -65,8 +65,13 @@ typedef struct {
 	volcontrol_type_t	type;
 	
 	/* only for type == CT_SELECT: */
-	GList		*choices;
+	GList		*choices; /* list item = volchoice_t */
 } volcontrol_t;
+
+typedef struct {
+  gchar* name;
+  gchar* displayname;
+} volchoice_t; /* choices entry for select */
 
 void register_vc(volchanger_t *vc);
 void unregister_vc(volchanger_t *vc);
@@ -87,8 +92,13 @@ void vc_set_switch(char const *which, gboolean v);
 gboolean vc_get_switch(char const *which);
 void vc_handle_events(void);
 
+/* returns list of volcontrol_t */
 GList *vc_get_control_list();
+
 void vc_free_control_list(GList *g);
+void vc_free_choices(GList* choices);
+volchoice_t* vc_choice_dup(const volchoice_t *choice);
+
 void vc_set_volume_callback (volchanger_callback_t cb, void *data);
 void vc_set_device(char const *which);
 void vc_close_device();

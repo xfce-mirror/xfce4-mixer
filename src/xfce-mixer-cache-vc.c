@@ -1,6 +1,11 @@
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 /* connector between worlds (vc). control_factory is the (value) part. */ 
 #include <stdlib.h>
 #include <gtk/gtk.h>
+#include <libxfce4util/libxfce4util.h>
+
 #include "xfce-mixer-cache-vc.h"
 #include "vc.h"
 
@@ -114,6 +119,9 @@ GList *xfce_mixer_cache_vc_get_choices (gchar const *vcname)
 	GList *g;
 	GList *gn;
 	volcontrol_t *vci;
+	volchoice_t *choice;
+	gchar* tmp_displayname;
+	
 	if (!vcname)
 		return NULL;
 		
@@ -131,7 +139,19 @@ GList *xfce_mixer_cache_vc_get_choices (gchar const *vcname)
 			gn = NULL;
 			
 			while (g) {
-				gn = g_list_append (gn, g_strdup ((gchar *)g->data));
+				choice = vc_choice_dup ((volchoice_t *)g->data);
+				
+				/* try to translate displayname */
+				tmp_displayname = choice->displayname;
+				choice->displayname = _(tmp_displayname);
+				if (tmp_displayname != choice->displayname) {
+					choice->displayname = g_strdup (choice->displayname);
+					g_free (tmp_displayname);
+				}
+				
+				/* -- */
+				
+				gn = g_list_append (gn, choice);
 				g = g_list_next (g);
 			}
 			

@@ -14,10 +14,12 @@ extern "C" {
 #include <gtk/gtk.h>
 #include "xfce-mixer-control.h"
 #include "xfce-mixer-cache-vc.h"
+#include "vc.h"
 
 #line 7 "mixer-select.gob"
-#line 20 "xfce-mixer-select-private.h"
+#line 21 "xfce-mixer-select-private.h"
 void 	xfce_mixer_select_changed_cb	(XfceMixerSelect * self, gpointer om);
+void 	xfce_mixer_select_fill_option_menu	(XfceMixerSelect * self);
 
 #ifdef __cplusplus
 }

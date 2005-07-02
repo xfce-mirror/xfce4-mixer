@@ -8,6 +8,7 @@
 #include <gtk/gtk.h>
 #include "xfce-mixer-control.h"
 #include "xfce-mixer-cache-vc.h"
+#include "vc.h"
 %}
 %{
 #include "stringlist.inc"
@@ -19,7 +20,7 @@ class Xfce:Mixer:Select from Xfce:Mixer:Control {
 	protected GtkLabel *label = NULL;
 	protected GList *choices = NULL
 		destroy {
-			stringlist_free(VAR);
+			vc_free_choices(VAR);
 			VAR = NULL;
 		};
 
@@ -27,10 +28,16 @@ class Xfce:Mixer:Select from Xfce:Mixer:Control {
 	{
 		gint i;
 		gchar const *s;
+		volchoice_t const* choice;
 		s = NULL;
 		i = gtk_option_menu_get_history (self->om);
 		if (i >= 0) {
-			s = g_list_nth_data (self->choices, i);
+			choice = (volchoice_t const*) g_list_nth_data (self->choices, i);
+			if (choice) {
+				s = choice->name;
+			} else {
+				s = NULL;
+			}
 		}
 
 		if (s) {
@@ -44,13 +51,16 @@ class Xfce:Mixer:Select from Xfce:Mixer:Control {
 		gchar *s;
                 Self *self;
 		gint i;
+		volchoice_t const       *choice;
+		
                 self = SELF (pself);
 
 		s = XFCE_MIXER_CONTROL (self)->value;
 
 		if (s)
 		for(i = 0; i < g_list_length (self->choices); i++) {
-			if (g_str_equal ((gchar *)g_list_nth_data (self->choices, i), s)) {
+			choice = (volchoice_t const*) g_list_nth_data (self->choices, i);
+			if (g_str_equal (choice->name, s)) {
 				gtk_option_menu_set_history (self->om, i);
 			}
 		}
@@ -70,6 +80,31 @@ class Xfce:Mixer:Select from Xfce:Mixer:Control {
 	public XfceMixerControl *new(void)
 	{
 		return XFCE_MIXER_CONTROL(GET_NEW);
+	}
+	
+	protected void fill_option_menu(self)
+	{
+		GtkMenu			*menu;
+		GtkWidget		*it;
+		volchoice_t const	*choice;
+		GList			*choices;
+		
+		menu = GTK_MENU (gtk_menu_new ());
+		
+		choices = self->choices;
+		
+		while (choices) {
+			choice = (volchoice_t const *) choices->data;
+		  
+			it = gtk_menu_item_new_with_label (choice->displayname);
+			gtk_menu_shell_append (GTK_MENU_SHELL (menu), it);
+			gtk_widget_show (it);
+			
+			choices = g_list_next (choices);
+		}
+	
+		gtk_option_menu_set_menu (self->om, GTK_WIDGET (menu));
+		/*g_object_unref (menu); *//* FIXME is that right? */
 	}
 
 	override (Xfce:Mixer:Control) void
@@ -95,13 +130,13 @@ class Xfce:Mixer:Select from Xfce:Mixer:Control {
 			g_free (sanename);
 
 		if (self->choices) {
-			stringlist_free (self->choices);
+			vc_free_choices (self->choices);
 			self->choices = NULL;
 		}
 
 		self->choices = xfce_mixer_cache_vc_get_choices (
 			XFCE_MIXER_CONTROL(self)->vcname
 		);
-		fill_string_option_menu (self->om, self->choices);
+		self_fill_option_menu (self);
         }
 }
