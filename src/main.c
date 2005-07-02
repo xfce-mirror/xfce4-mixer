@@ -70,7 +70,7 @@ select_default_device()
 	value = xfce_mixer_mcs_client_get_setting (mcs, MIXER_DEFAULT_DEVICE_FIELD);
 	if (value) {
 		vc_set_device (value);
-		g_warning ("using default device %s", value);
+		/*g_warning ("using default device %s", value);*/
 		g_free (value);
 	}
 	g_object_unref (G_OBJECT (mcs));
