@@ -94,8 +94,6 @@ class Xfce:Mixer:Select from Xfce:Mixer:Control {
 		
 		menu = GTK_MENU (gtk_menu_new ());
 
-g_warning ("fill option menu");
-		
 		choices = self->choices;
 		
 		while (choices) {
