@@ -60,7 +60,11 @@ class Xfce:Mixer:Select from Xfce:Mixer:Control {
 		for(i = 0; i < g_list_length (self->choices); i++) {
 			choice = (volchoice_t const*) g_list_nth_data (self->choices, i);
 			if (g_str_equal (choice->name, s)) {
-				gtk_option_menu_set_history (self->om, i);
+				if (gtk_option_menu_get_history (self->om) != i) {
+					/* soften gtk 2.600.7 bug where set_history on an open menu will
+					   replace the already selected item by a separator */
+					gtk_option_menu_set_history (self->om, i);
+				}
 			}
 		}
         }
