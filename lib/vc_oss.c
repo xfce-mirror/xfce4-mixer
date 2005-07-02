@@ -323,7 +323,6 @@ vc_get_control_list(void)
           c->choices = oss_recmask_to_choices();
           c->name = g_strdup (NAME_RECSELECTOR);
           g = g_list_append (g, c);
-          g_warning ("has recselector");
         }
         
 	return g;	
