@@ -1,17 +1,17 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Korean translations for xfce4-mixer package.
+# Copyright (C) 2002-2005 The Xfce development team
+# This file is distributed under the same license as the xfce4-mixer package.
+# ByungHyun Choi <byunghyun.choi@gmail.com>, 2005.
 #
-#, fuzzy
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: xfce4-mixer 4.2.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-03-12 10:07+0100\n"
-"PO-Revision-Date: 2005-06-25 23:04+0900\n"
+"PO-Revision-Date: 2005-07-02 00:25:15+0900\n"
 "Last-Translator: ByunHyun Choi<byunghyun.choi@gmail.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: xfce4-users-kr-i18n <xfce4-users-kr-i18n@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -140,7 +140,7 @@ msgstr "alsa: 믹서 등록 오류 : %s\n"
 #: lib/vc_alsa.c:116
 #, c-format
 msgid "alsa: Mixer load error: %s: %s\n"
-msgstr "alsa: 믹서 로드 오류 : %s\n"
+msgstr "alsa: 믹서 로드 오류 : %s: %s\n"
 
 #: lib/vc_alsa.c:126
 #, c-format
