@@ -1,5 +1,5 @@
-# Japanese translation for xfce4-mixer.
-# Copyright (C) 2003-2005, The Xfce development team.
+# Japanese translations for xfce4-mixer package.
+# Copyright (C) 2003-2005 The Xfce development team.
 # This file is distributed under the same license as the xfce4-mixer package.
 # Zhao Ji <zhao-ji@awz.ne.jp>, 2003.
 # Daichi Kawahata <daichik@users.sourceforge.net>, 2005.
@@ -8,213 +8,214 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-07-02 23:15+0200\n"
-"PO-Revision-Date: 2005-03-12 05:08+0900\n"
+"POT-Creation-Date: 2005-07-18 16:08+0900\n"
+"PO-Revision-Date: 2005-07-18 16:33+0900\n"
 "Last-Translator: Daichi Kawahata <daichik@users.sourceforge.net>\n"
 "Language-Team: xfce-users-jp <xfce-users-jp@ml.fdiary.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: lib/trans.c:6
+#: ../lib/trans.c:6
 msgid "Vol"
 msgstr "音量"
 
 #. Master
-#: lib/trans.c:7
+#: ../lib/trans.c:7
 msgid "Pcm"
 msgstr "PCM"
 
 #. PCM output
-#: lib/trans.c:8
+#: ../lib/trans.c:8
 msgid "Spkr"
 msgstr "スピーカー"
 
 #. Internal speaker?
-#: lib/trans.c:9
+#: ../lib/trans.c:9
 msgid "Line"
 msgstr "ライン入力"
 
 #. Line in
-#: lib/trans.c:10
+#: ../lib/trans.c:10
 msgid "Mic"
 msgstr "マイク"
 
 #. Mic in
-#: lib/trans.c:11
+#: ../lib/trans.c:11
 msgid "CD"
 msgstr "CD"
 
 #. CD in
-#: lib/trans.c:12
+#: ../lib/trans.c:12
 msgid "Bass"
 msgstr "低音"
 
-#: lib/trans.c:13
+#: ../lib/trans.c:13
 msgid "Trebl"
 msgstr "高音"
 
-#: lib/trans.c:14
+#: ../lib/trans.c:14
 msgid "Synth"
 msgstr "シンせ"
 
-#: lib/trans.c:15
+#: ../lib/trans.c:15
 msgid "Mix"
 msgstr "ミキサー"
 
-#: lib/trans.c:16
+#: ../lib/trans.c:16
 msgid "Pcm2"
 msgstr "PCM2"
 
-#: lib/trans.c:17
+#: ../lib/trans.c:17
 msgid "Rec"
 msgstr "REC"
 
-#: lib/trans.c:18
+#: ../lib/trans.c:18
 msgid "IGain"
 msgstr "入力ゲイン"
 
-#: lib/trans.c:19
+#: ../lib/trans.c:19
 msgid "OGain"
 msgstr "出力ゲイン"
 
-#: lib/trans.c:20
+#: ../lib/trans.c:20
 msgid "Line1"
 msgstr "ライン1"
 
-#: lib/trans.c:21
+#: ../lib/trans.c:21
 msgid "Line2"
 msgstr "ライン2"
 
-#: lib/trans.c:22
+#: ../lib/trans.c:22
 msgid "Line3"
 msgstr "ライン3"
 
-#: lib/trans.c:23
+#: ../lib/trans.c:23
 msgid "Digital1"
 msgstr "デジタル1"
 
-#: lib/trans.c:24
+#: ../lib/trans.c:24
 msgid "Digital2"
 msgstr "デジタル2"
 
-#: lib/trans.c:25
+#: ../lib/trans.c:25
 msgid "Digital3"
 msgstr "デジタル3"
 
-#: lib/trans.c:26
+#: ../lib/trans.c:26
 msgid "PhoneIn"
-msgstr "Phone入力"
+msgstr "音声入力"
 
-#: lib/trans.c:27
+#: ../lib/trans.c:27
 msgid "PhoneOut"
-msgstr "Phone出力"
+msgstr "音声出力"
 
-#: lib/trans.c:28
+#: ../lib/trans.c:28
 msgid "Video"
 msgstr "ビデオ"
 
-#: lib/trans.c:29
+#: ../lib/trans.c:29
 msgid "Radio"
 msgstr "ラジオ"
 
-#: lib/trans.c:30
+#: ../lib/trans.c:30
 msgid "Monitor"
 msgstr "モニタ"
 
-#: lib/trans.c:31
+#: ../lib/trans.c:31
 msgid "RecSelect"
-msgstr ""
+msgstr "Rec選択"
 
-#: lib/vc_alsa.c:94
+#: ../lib/vc_alsa.c:94
 #, c-format
 msgid "alsa: Mixer %s open error: %s\n"
 msgstr "alsa: ミキサー %s を開けません エラー: %s\n"
 
-#: lib/vc_alsa.c:99
+#: ../lib/vc_alsa.c:99
 #, c-format
 msgid "alsa: Mixer attach %s error: %s\n"
-msgstr "alsa: ミキサー付随 %s エラー: %s\n"
+msgstr "alsa: ミキサー・アタッチ %s エラー: %s\n"
 
-#: lib/vc_alsa.c:107
+#: ../lib/vc_alsa.c:107
 #, c-format
 msgid "alsa: Mixer register error: %s\n"
 msgstr "alsa: ミキサー登録エラー: %s\n"
 
-#: lib/vc_alsa.c:116
+#: ../lib/vc_alsa.c:116
 #, c-format
 msgid "alsa: Mixer load error: %s: %s\n"
 msgstr "alsa: ミキサー読込みエラー: %s: %s\n"
 
-#: lib/vc_alsa.c:126
+#: ../lib/vc_alsa.c:126
 #, c-format
 msgid "alsa: Unable to find simple control '%s',%i\n"
-msgstr "alsa: シンプル・コントロール '%s' を見付けられません,%i\n"
+msgstr "alsa: シンプル・コントロール '%s',%i を見つけられません\n"
 
-#: lib/vc_oss.c:158
+#: ../lib/vc_oss.c:158
 msgid "oss: No master volume"
 msgstr "oss: マスター音量がありません"
 
-#: panel-plugin/plugin.c:95
+#: ../panel-plugin/plugin.c:95
 #, c-format
 msgid "Volume: %d%%"
 msgstr "音量: %d%%"
 
-#: panel-plugin/plugin.c:384 src/mixer-window.gob:188 mixer-window.gob:188
+#: ../panel-plugin/plugin.c:384 ../src/mixer-window.gob:188
+#: mixer-window.gob:188
 msgid "Volume Control"
 msgstr "音量調節"
 
-#: settings/mixer-settingsbox.gob:120 mixer-settingsbox.gob:120
+#: ../settings/mixer-settingsbox.gob:120 mixer-settingsbox.gob:120
 msgid "Device"
 msgstr "デバイス"
 
-#: settings/mixer-settingsbox.gob:123 mixer-settingsbox.gob:123
+#: ../settings/mixer-settingsbox.gob:123 mixer-settingsbox.gob:123
 msgid "None"
 msgstr "無し"
 
 #. gtk_widget_show (GTK_WIDGET (self->dev_label));
 #. debug_bindtextdomain();
-#: settings/mixer-settingsbox.gob:128 mixer-settingsbox.gob:128
+#: ../settings/mixer-settingsbox.gob:128 mixer-settingsbox.gob:128
 msgid "Useful Controls"
 msgstr "便利なコントロール"
 
-#: settings/sound.c:80 settings/sound.c:100 settings/sound.c:107
+#: ../settings/sound.c:80 ../settings/sound.c:100 ../settings/sound.c:107
 msgid "Sound"
 msgstr "サウンド"
 
-#: src/main.c:95
+#: ../src/main.c:95
 msgid "No working sound"
 msgstr "サウンド機能が動作していません"
 
-#: src/menus.c:12
+#: ../src/menus.c:14
 msgid "/_File"
 msgstr "/ファイル(_F)"
 
-#: src/menus.c:13
+#: ../src/menus.c:15
 msgid "/File/_Options"
-msgstr "/ファイル(_F)/オプション(_O)"
+msgstr "/ファイル/オプション(_O)"
 
-#: src/menus.c:14
+#: ../src/menus.c:16
 msgid "/File/_Exit"
-msgstr "/ファイル(_F)/終了(_E)"
+msgstr "/ファイル/終了(_E)"
 
-#: src/menus.c:15
+#: ../src/menus.c:17
 msgid "/_View"
 msgstr "/表示(_V)"
 
-#: src/menus.c:16
+#: ../src/menus.c:18
 msgid "/View/_Manage"
-msgstr "/表示(_V)/管理(_M)"
+msgstr "/表示/管理(_M)"
 
-#: src/menus.c:17
+#: ../src/menus.c:19
 msgid "/_Help"
 msgstr "/ヘルプ(_H)"
 
-#: src/menus.c:18
+#: ../src/menus.c:20
 msgid "/Help/_Info"
-msgstr "/ヘルプ(_H)/情報(_I)"
+msgstr "/ヘルプ/情報(_I)"
 
-#: src/mixer-info.gob:28 mixer-info.gob:28
+#: ../src/mixer-info.gob:28 mixer-info.gob:28
 msgid ""
 "This is xfce4-mixer, a volume control program.\n"
 "It is released under the GPL-2 License which you find in the source "
@@ -223,113 +224,117 @@ msgid ""
 msgstr ""
 "これは xfce4-mixer 音量調節プログラムです。\n"
 "ソースフォルダにある GPL-2 ライセンスの下に配布されています。\n"
-"一切の保証はあります。"
+"一切の保証はありません。"
 
-#: src/mixer-profilebox-detail.gob:163 mixer-profilebox-detail.gob:163
+#: ../src/mixer-profilebox-detail.gob:163 mixer-profilebox-detail.gob:163
 msgid "Control"
 msgstr "コントロール"
 
-#: src/mixer-profilebox-detail.gob:166 mixer-profilebox-detail.gob:166
+#: ../src/mixer-profilebox-detail.gob:166 mixer-profilebox-detail.gob:166
 msgid "Type"
 msgstr "種類"
 
-#: src/mixer-profilebox-detail.gob:178 mixer-profilebox-detail.gob:178
+#: ../src/mixer-profilebox-detail.gob:178 mixer-profilebox-detail.gob:178
 msgid "Up"
 msgstr "上へ"
 
-#: src/mixer-profilebox-detail.gob:181 mixer-profilebox-detail.gob:181
+#: ../src/mixer-profilebox-detail.gob:181 mixer-profilebox-detail.gob:181
 msgid "Down"
 msgstr "下へ"
 
-#: src/mixer-profilebox-detail.gob:188 mixer-profilebox-detail.gob:188
+#: ../src/mixer-profilebox-detail.gob:188 mixer-profilebox-detail.gob:188
 msgid "Move Entry Up"
 msgstr "エントリーを上に移動"
 
-#: src/mixer-profilebox-detail.gob:191 mixer-profilebox-detail.gob:191
+#: ../src/mixer-profilebox-detail.gob:191 mixer-profilebox-detail.gob:191
 msgid "Move Entry Down"
 msgstr "エントリーを下に移動"
 
-#: src/mixer-profilebox-detail.gob:200 mixer-profilebox-detail.gob:200
+#: ../src/mixer-profilebox-detail.gob:200 mixer-profilebox-detail.gob:200
 msgid "Profile Name:"
 msgstr "プロファイル名:"
 
-#: src/mixer-profilebox-detail.gob:382 src/mixer-profilebox-detail.gob:447
-#: mixer-profilebox-detail.gob:382 mixer-profilebox-detail.gob:447
+#: ../src/mixer-profilebox-detail.gob:382
+#: ../src/mixer-profilebox-detail.gob:447 mixer-profilebox-detail.gob:382
+#: mixer-profilebox-detail.gob:447
 msgid "<unknown>"
 msgstr "<不明>"
 
-#: src/mixer-profilebox-detail.gob:384 src/mixer-profilebox-detail.gob:449
-#: mixer-profilebox-detail.gob:384 mixer-profilebox-detail.gob:449
+#: ../src/mixer-profilebox-detail.gob:384
+#: ../src/mixer-profilebox-detail.gob:449 mixer-profilebox-detail.gob:384
+#: mixer-profilebox-detail.gob:449
 msgid "<slider>"
 msgstr "<スライダー>"
 
-#: src/mixer-profilebox-detail.gob:385 src/mixer-profilebox-detail.gob:450
-#: mixer-profilebox-detail.gob:385 mixer-profilebox-detail.gob:450
+#: ../src/mixer-profilebox-detail.gob:385
+#: ../src/mixer-profilebox-detail.gob:450 mixer-profilebox-detail.gob:385
+#: mixer-profilebox-detail.gob:450
 msgid "<onoff>"
 msgstr "<オン・オフ>"
 
-#: src/mixer-profilebox-detail.gob:386 src/mixer-profilebox-detail.gob:451
-#: mixer-profilebox-detail.gob:386 mixer-profilebox-detail.gob:451
+#: ../src/mixer-profilebox-detail.gob:386
+#: ../src/mixer-profilebox-detail.gob:451 mixer-profilebox-detail.gob:386
+#: mixer-profilebox-detail.gob:451
 msgid "<select>"
 msgstr "<選択>"
 
-#: src/mixer-profilebox.gob:88 mixer-profilebox.gob:88
+#: ../src/mixer-profilebox.gob:88 mixer-profilebox.gob:88
 msgid "Device:"
 msgstr "デバイス:"
 
-#: src/mixer-profilebox.gob:142 mixer-profilebox.gob:142
+#: ../src/mixer-profilebox.gob:142 mixer-profilebox.gob:142
 msgid "Create new profile"
 msgstr "新規プロファイルを作成"
 
-#: src/mixer-profilebox.gob:151 mixer-profilebox.gob:151
+#: ../src/mixer-profilebox.gob:151 mixer-profilebox.gob:151
 msgid "Delete this profile"
 msgstr "このプロファイルを削除"
 
-#: src/mixer-profilebox.gob:170 mixer-profilebox.gob:170
+#: ../src/mixer-profilebox.gob:170 mixer-profilebox.gob:170
 msgid "Profile"
 msgstr "プロファイル"
 
-#: src/mixer-profilebox.gob:374 mixer-profilebox.gob:374
+#: ../src/mixer-profilebox.gob:374 mixer-profilebox.gob:374
 #, c-format
 msgid "Really delete those %d profiles?"
-msgstr "本当にこれら %d 件のプロファイルを削除していいですか?"
+msgstr "本当にこれら %d 件のプロファイルを削除していいですか？"
 
-#: src/mixer-profilebox.gob:377 mixer-profilebox.gob:377
+#: ../src/mixer-profilebox.gob:377 mixer-profilebox.gob:377
 #, c-format
 msgid "Really delete profile \"%s\"?"
-msgstr "本当にプロファイル \"%s\" を削除していいですか?"
+msgstr "本当にプロファイル \"%s\" を削除していいですか？"
 
-#: src/mixer-profilebox.gob:491 mixer-profilebox.gob:491
+#: ../src/mixer-profilebox.gob:491 mixer-profilebox.gob:491
 #, c-format
 msgid "%s - New"
 msgstr "%s - 新規"
 
-#: src/mixer-profilebox.gob:528 mixer-profilebox.gob:528
+#: ../src/mixer-profilebox.gob:528 mixer-profilebox.gob:528
 msgid "A profile needs a name"
 msgstr "プロファイルの名前が必要です"
 
-#: src/mixer-profilebox.gob:542 mixer-profilebox.gob:542
+#: ../src/mixer-profilebox.gob:542 mixer-profilebox.gob:542
 msgid "A profile with that name already exists"
 msgstr "その名前のプロファイルは既に存在しています"
 
-#: src/mixer-profiles.gob:262 src/mixer-profiles.gob:269
+#: ../src/mixer-profiles.gob:262 ../src/mixer-profiles.gob:269
 #: mixer-profiles.gob:262 mixer-profiles.gob:269
 #, c-format
 msgid "profile%d"
 msgstr "プロファイル%d"
 
-#: src/mixer-view.gob:259 mixer-view.gob:259
+#: ../src/mixer-view.gob:259 mixer-view.gob:259
 msgid "Show Switches"
 msgstr "スイッチを表示する"
 
-#: src/mixer-view.gob:260 mixer-view.gob:260
+#: ../src/mixer-view.gob:260 mixer-view.gob:260
 msgid "Hide Switches"
 msgstr "スイッチを隠す"
 
-#: settings/xfce-mixer-settings.desktop.in.h:1
+#: ../settings/xfce-mixer-settings.desktop.in.h:1
 msgid "Mixer Settings"
 msgstr "ミキサー設定"
 
-#: settings/xfce-mixer-settings.desktop.in.h:2
+#: ../settings/xfce-mixer-settings.desktop.in.h:2
 msgid "Xfce 4 Mixer Settings"
 msgstr "Xfce 4 ミキサー設定"
