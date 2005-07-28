@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: xfce4-mixer 4.2.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-03-12 10:07+0100\n"
-"PO-Revision-Date: 2005-05-13 07:27+0900\n"
+"PO-Revision-Date: 2005-07-25 22:14+0900\n"
 "Last-Translator: Daichi Kawahata <daichik@users.sourceforge.net>\n"
 "Language-Team: xfce-users-jp <xfce-users-jp@ml.fdiary.net>\n"
 "MIME-Version: 1.0\n"
@@ -180,7 +180,7 @@ msgstr "サウンド"
 
 #: src/main.c:77
 msgid "No working sound"
-msgstr ""
+msgstr "サウンド機能が動作していません"
 
 #: src/menus.c:12
 msgid "/_File"
@@ -188,11 +188,11 @@ msgstr "/ファイル(_F)"
 
 #: src/menus.c:13
 msgid "/File/_Options"
-msgstr "/ファイル(_F)/オプション(_O)"
+msgstr "/ファイル/オプション(_O)"
 
 #: src/menus.c:14
 msgid "/File/_Exit"
-msgstr "/ファイル(_F)/終了(_E)"
+msgstr "/ファイル/終了(_E)"
 
 #: src/menus.c:15
 msgid "/_View"
@@ -200,7 +200,7 @@ msgstr "/表示(_V)"
 
 #: src/menus.c:16
 msgid "/View/_Manage"
-msgstr "/表示(_V)/管理(_M)"
+msgstr "/表示/管理(_M)"
 
 #: src/menus.c:17
 msgid "/_Help"
@@ -208,7 +208,7 @@ msgstr "/ヘルプ(_H)"
 
 #: src/menus.c:18
 msgid "/Help/_Info"
-msgstr "/ヘルプ(_H)/情報(_I)"
+msgstr "/ヘルプ/情報(_I)"
 
 #: src/mixer-info.gob:28 mixer-info.gob:28
 msgid ""
@@ -219,7 +219,7 @@ msgid ""
 msgstr ""
 "これは xfce4-mixer 音量調節プログラムです。\n"
 "ソースフォルダにある GPL-2 ライセンスの下に配布されています。\n"
-"一切の保証はあります。"
+"一切の保証はありません。"
 
 #: src/mixer-profilebox-detail.gob:163 mixer-profilebox-detail.gob:163
 msgid "Control"
