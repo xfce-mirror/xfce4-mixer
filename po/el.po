@@ -1,0 +1,372 @@
+# translation of xfce4-mixer.po to Ελληνικά
+# This file is distributed under the same license as the xfce4-mixer package.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
+# Stavros Giannouris <StavrosG2002@freemail.gr>, 2005.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: el_GR\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-03-12 10:07+0100\n"
+"PO-Revision-Date: 2005-08-07 20:07+0200\n"
+"Last-Translator: Stavros Giannouris <stavrosg2002@freemail.gr>\n"
+"Language-Team: Ελληνικά\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.9.1\n"
+
+#: lib/trans.c:6
+msgid "Vol"
+msgstr ""
+
+#. Master
+#: lib/trans.c:7
+msgid "Pcm"
+msgstr ""
+
+#. PCM output
+#: lib/trans.c:8
+msgid "Spkr"
+msgstr ""
+
+#. Internal speaker?
+#: lib/trans.c:9
+msgid "Line"
+msgstr ""
+
+#. Line in
+#: lib/trans.c:10
+msgid "Mic"
+msgstr ""
+
+#. Mic in
+#: lib/trans.c:11
+msgid "CD"
+msgstr ""
+
+#. CD in
+#: lib/trans.c:12
+msgid "Bass"
+msgstr ""
+
+#: lib/trans.c:13
+msgid "Trebl"
+msgstr ""
+
+#: lib/trans.c:14
+msgid "Synth"
+msgstr ""
+
+#: lib/trans.c:15
+msgid "Mix"
+msgstr ""
+
+#: lib/trans.c:16
+msgid "Pcm2"
+msgstr ""
+
+#: lib/trans.c:17
+msgid "Rec"
+msgstr ""
+
+#: lib/trans.c:18
+msgid "IGain"
+msgstr "Κέρδος Εισόδου"
+
+#: lib/trans.c:19
+msgid "OGain"
+msgstr "Κέρδος Εξόδου"
+
+#: lib/trans.c:20
+msgid "Line1"
+msgstr "Γραμμή1"
+
+#: lib/trans.c:21
+msgid "Line2"
+msgstr "Γραμμή2"
+
+#: lib/trans.c:22
+msgid "Line3"
+msgstr "Γραμμή3"
+
+#: lib/trans.c:23
+msgid "Digital1"
+msgstr "Ψηφιακή1"
+
+#: lib/trans.c:24
+msgid "Digital2"
+msgstr "Ψηφιακή2"
+
+#: lib/trans.c:25
+msgid "Digital3"
+msgstr "Ψηφιακή3"
+
+#: lib/trans.c:26
+msgid "PhoneIn"
+msgstr ""
+
+#: lib/trans.c:27
+msgid "PhoneOut"
+msgstr ""
+
+#: lib/trans.c:28
+msgid "Video"
+msgstr "Βίντεο"
+
+#: lib/trans.c:29
+msgid "Radio"
+msgstr "Ραδιόφωνο"
+
+#: lib/trans.c:30
+msgid "Monitor"
+msgstr "Οθόνη"
+
+#: lib/trans.c:31
+msgid "RecSelect"
+msgstr ""
+
+#: lib/vc_alsa.c:94
+#, c-format
+msgid "alsa: Mixer %s open error: %s\n"
+msgstr "alsa: Μείκτης %s σφάλμα ανοίγματος: %s\n"
+
+#: lib/vc_alsa.c:99
+#, c-format
+msgid "alsa: Mixer attach %s error: %s\n"
+msgstr "alsa: Σύνδεση μείκτη %s λάθος: %s\n"
+
+#: lib/vc_alsa.c:107
+#, c-format
+msgid "alsa: Mixer register error: %s\n"
+msgstr "alsa: Λάθος εγγραφής μείκτη: %s\n"
+
+#: lib/vc_alsa.c:116
+#, c-format
+msgid "alsa: Mixer load error: %s: %s\n"
+msgstr "alsa: Λάθος φόρτωσης μείκτη: %s: %s\n"
+
+#: lib/vc_alsa.c:126
+#, c-format
+msgid "alsa: Unable to find simple control '%s',%i\n"
+msgstr "alsa: Αδυναμία εύρεσης απλού στοιχείου ελέγχου '%s',%i\n"
+
+#: lib/vc_oss.c:158
+msgid "oss: No master volume"
+msgstr "oss: Δεν υπάρχει η κύρια ένταση"
+
+#: panel-plugin/plugin.c:95
+#, c-format
+msgid "Volume: %d%%"
+msgstr "Ένταση: %d%%"
+
+#: panel-plugin/plugin.c:384
+#: src/mixer-window.gob:188
+#: mixer-window.gob:188
+msgid "Volume Control"
+msgstr "Έλεγχος έντασης"
+
+#: settings/mixer-settingsbox.gob:120
+#: mixer-settingsbox.gob:120
+msgid "Device"
+msgstr "Συσκευή"
+
+#: settings/mixer-settingsbox.gob:123
+#: mixer-settingsbox.gob:123
+msgid "None"
+msgstr "Κανένα"
+
+#. gtk_widget_show (GTK_WIDGET (self->dev_label));
+#. debug_bindtextdomain();
+#: settings/mixer-settingsbox.gob:128
+#: mixer-settingsbox.gob:128
+msgid "Useful Controls"
+msgstr "Χρήσιμα στοιχεία ελέγχου"
+
+#: settings/sound.c:80
+#: settings/sound.c:100
+#: settings/sound.c:107
+msgid "Sound"
+msgstr "Ήχος"
+
+#: src/main.c:95
+msgid "No working sound"
+msgstr "Ανυπαρξία λειτουργικού ήχου"
+
+#: src/menus.c:12
+msgid "/_File"
+msgstr "/_Αρχείο"
+
+#: src/menus.c:13
+msgid "/File/_Options"
+msgstr "/Αρχείο/Ε_πιλογές"
+
+#: src/menus.c:14
+msgid "/File/_Exit"
+msgstr "/Αρχείο/_Έξοδος"
+
+#: src/menus.c:15
+msgid "/_View"
+msgstr "/_Προβολή"
+
+#: src/menus.c:16
+msgid "/View/_Manage"
+msgstr "/Προβολή/_Διαχείρηση"
+
+#: src/menus.c:17
+msgid "/_Help"
+msgstr "/_Βοήθεια"
+
+#: src/menus.c:18
+msgid "/Help/_Info"
+msgstr "/Βοήθεια/Π_ληροφορίες"
+
+#: src/mixer-info.gob:28
+#: mixer-info.gob:28
+msgid ""
+"This is xfce4-mixer, a volume control program.\n"
+"It is released under the GPL-2 License which you find in the source directory.\n"
+"No warranty in any way."
+msgstr ""
+"Αυτός είναι ο μείκτης του xfce4, ένα πρόγραμμα ελέγχου της έντασης\n"
+"Διανέμεται υπό τους όρους της GPL-2 Άδειας που μπορείτε να βρείτε\n"
+"στον κατάλογο του πηγαίου κώδικα.\n"
+"Δεν δίνεται καμία εγγύηση με κανένα τρόπο."
+
+#: src/mixer-profilebox-detail.gob:163
+#: mixer-profilebox-detail.gob:163
+msgid "Control"
+msgstr "Έλεγχος"
+
+#: src/mixer-profilebox-detail.gob:166
+#: mixer-profilebox-detail.gob:166
+msgid "Type"
+msgstr "Τύπος"
+
+#: src/mixer-profilebox-detail.gob:178
+#: mixer-profilebox-detail.gob:178
+msgid "Up"
+msgstr "Πάνω"
+
+#: src/mixer-profilebox-detail.gob:181
+#: mixer-profilebox-detail.gob:181
+msgid "Down"
+msgstr "Κάτω"
+
+#: src/mixer-profilebox-detail.gob:188
+#: mixer-profilebox-detail.gob:188
+msgid "Move Entry Up"
+msgstr "Μετακίνηση της Καταχώρησης Επάνω"
+
+#: src/mixer-profilebox-detail.gob:191
+#: mixer-profilebox-detail.gob:191
+msgid "Move Entry Down"
+msgstr "Μετακίνηση της Καταχώρησης Κάτω"
+
+#: src/mixer-profilebox-detail.gob:200
+#: mixer-profilebox-detail.gob:200
+msgid "Profile Name:"
+msgstr "Όνομα προφίλ:"
+
+#: src/mixer-profilebox-detail.gob:382
+#: src/mixer-profilebox-detail.gob:447
+#: mixer-profilebox-detail.gob:382
+#: mixer-profilebox-detail.gob:447
+msgid "<unknown>"
+msgstr "<άγνωστο>"
+
+#: src/mixer-profilebox-detail.gob:384
+#: src/mixer-profilebox-detail.gob:449
+#: mixer-profilebox-detail.gob:384
+#: mixer-profilebox-detail.gob:449
+msgid "<slider>"
+msgstr "<ολισθητήρας>"
+
+#: src/mixer-profilebox-detail.gob:385
+#: src/mixer-profilebox-detail.gob:450
+#: mixer-profilebox-detail.gob:385
+#: mixer-profilebox-detail.gob:450
+msgid "<onoff>"
+msgstr "<ναιόχι>"
+
+#: src/mixer-profilebox-detail.gob:386
+#: src/mixer-profilebox-detail.gob:451
+#: mixer-profilebox-detail.gob:386
+#: mixer-profilebox-detail.gob:451
+msgid "<select>"
+msgstr "<επιλογή>"
+
+#: src/mixer-profilebox.gob:88
+#: mixer-profilebox.gob:88
+msgid "Device:"
+msgstr "Συσκευή:"
+
+#: src/mixer-profilebox.gob:142
+#: mixer-profilebox.gob:142
+msgid "Create new profile"
+msgstr "Δημιουργία νέου προφίλ"
+
+#: src/mixer-profilebox.gob:151
+#: mixer-profilebox.gob:151
+msgid "Delete this profile"
+msgstr "Διαγραφή αυτού του προφίλ"
+
+#: src/mixer-profilebox.gob:170
+#: mixer-profilebox.gob:170
+msgid "Profile"
+msgstr "Προφίλ"
+
+#: src/mixer-profilebox.gob:374
+#: mixer-profilebox.gob:374
+#, c-format
+msgid "Really delete those %d profiles?"
+msgstr "Θέλετε σίγουρα να διαγράψετε αυτά %d τα προφίλ?"
+
+#: src/mixer-profilebox.gob:377
+#: mixer-profilebox.gob:377
+#, c-format
+msgid "Really delete profile \"%s\"?"
+msgstr "Θέλετε σίγουρα να διαγράψετε το προφίλ \"%s\"?"
+
+#: src/mixer-profilebox.gob:491
+#: mixer-profilebox.gob:491
+#, c-format
+msgid "%s - New"
+msgstr "%s - Νέο"
+
+#: src/mixer-profilebox.gob:528
+#: mixer-profilebox.gob:528
+msgid "A profile needs a name"
+msgstr "Ένα προφίλ χρειάζεται όνομα"
+
+#: src/mixer-profilebox.gob:542
+#: mixer-profilebox.gob:542
+msgid "A profile with that name already exists"
+msgstr "Υπάρχει ήδη προφιλ με αυτό το όνομα"
+
+#: src/mixer-profiles.gob:262
+#: src/mixer-profiles.gob:269
+#: mixer-profiles.gob:262
+#: mixer-profiles.gob:269
+#, c-format
+msgid "profile%d"
+msgstr "προφίλ%d"
+
+#: src/mixer-view.gob:259
+#: mixer-view.gob:259
+msgid "Show Switches"
+msgstr "Προβολή Διακόπτων"
+
+#: src/mixer-view.gob:260
+#: mixer-view.gob:260
+msgid "Hide Switches"
+msgstr "Απόκρυψη Διακόπτων"
+
+#: settings/xfce-mixer-settings.desktop.in.h:1
+msgid "Mixer Settings"
+msgstr "Ρυθμίσεις Μείκτη"
+
+#: settings/xfce-mixer-settings.desktop.in.h:2
+msgid "Xfce 4 Mixer Settings"
+msgstr "Ρυθμίσεις Μείκτη του Xfce 4"
+
