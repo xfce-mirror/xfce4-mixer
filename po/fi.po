@@ -1,7 +1,6 @@
-# translation of Xfce4 mixer to Finnish
-# This file is distributed under the same license as the PACKAGE package.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
-#
+# translation of Xfce4-mixer to Finnish
+# This file is distributed under the same license as the xfce4-mixer package.
+# Copyright (C) 2003-2005 The Xfce Development Team.
 # Juha Kautto <kautto.juha@kolumbus.fi>, 2004.
 #
 msgid ""
@@ -9,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Mixer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-07-02 23:15+0200\n"
-"PO-Revision-Date: 2005-01-19 19:02+0200\n"
+"PO-Revision-Date: 2005-08-11 12:29+0200\n"
 "Last-Translator: Jari Rahkonen <jari.rahkonen@pp1.inet.fi>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -124,7 +123,7 @@ msgstr "Monitor"
 
 #: lib/trans.c:31
 msgid "RecSelect"
-msgstr ""
+msgstr "RecValinta"
 
 #: lib/vc_alsa.c:94
 #, c-format
@@ -176,7 +175,7 @@ msgstr "Ei mitään"
 #. debug_bindtextdomain();
 #: settings/mixer-settingsbox.gob:128 mixer-settingsbox.gob:128
 msgid "Useful Controls"
-msgstr "Hyödylliset Säätimet"
+msgstr "Hyödylliset säätimet"
 
 #: settings/sound.c:80 settings/sound.c:100 settings/sound.c:107
 msgid "Sound"
@@ -222,8 +221,9 @@ msgid ""
 "No warranty in any way."
 msgstr ""
 "Tämä on xfce4-mixer, äänenvoimakkuuden säätöohjelma.\n"
-"Se on julkaistu GPL-2 lisenssillä, jonka löydät lähdekoodihakemistosta.\n"
-"Toimivuudesta ei mitään takuita."
+"Se on julkaistu lähdekoodihakemistosta löytyvän GPL-2 lisenssin "
+"alaisena.\n"
+"Ei minkäänlaisia takuita."
 
 #: src/mixer-profilebox-detail.gob:163 mixer-profilebox-detail.gob:163
 msgid "Control"
@@ -292,12 +292,12 @@ msgstr "Profiili"
 #: src/mixer-profilebox.gob:374 mixer-profilebox.gob:374
 #, c-format
 msgid "Really delete those %d profiles?"
-msgstr "Halutko varmasti poistaa %d profiilia ?"
+msgstr "Halutko varmasti poistaa %d profiilia?"
 
 #: src/mixer-profilebox.gob:377 mixer-profilebox.gob:377
 #, c-format
 msgid "Really delete profile \"%s\"?"
-msgstr "Haluatko varmasti poistaa profiilin \"%s\" ?"
+msgstr "Haluatko varmasti poistaa profiilin \"%s\"?"
 
 #: src/mixer-profilebox.gob:491 mixer-profilebox.gob:491
 #, c-format
@@ -328,11 +328,8 @@ msgstr "Piilota kytkimet"
 
 #: settings/xfce-mixer-settings.desktop.in.h:1
 msgid "Mixer Settings"
-msgstr "Mixerin asetukset"
+msgstr "Mikserin asetukset"
 
 #: settings/xfce-mixer-settings.desktop.in.h:2
 msgid "Xfce 4 Mixer Settings"
-msgstr "Xfce 4 Äänenvoimakkuusasetukset"
-
-#~ msgid "/View/sep"
-#~ msgstr "/Näytä/sep"
+msgstr "Xfce 4 äänenvoimakkuusasetukset"
