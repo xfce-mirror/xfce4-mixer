@@ -1,18 +1,16 @@
-# Lithuania translation of xfce-mixer
-# Copyright (C) 2003 Free Software Foundation, Inc.
-# This file is distributed under the same license as the xfce-mixer package.
-# Mantas <zaz@xxx.lt>, 2003.
-# Mantas <zaz@xxx.lt>, 2004.
-# 
-# 
+# Lithuanian translation of xfce4-mixer.
+# Copyright (C) 2003-2005 The Xfce development team.
+# This file is distributed under the same license as the xfce4-mixer package.
+# Mantas <zaz@xxx.lt>, 2003-2004.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-mixer 4.2\n"
+"Project-Id-Version: xfce4-mixer 4.3.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-07-02 23:15+0200\n"
-"PO-Revision-Date: 2004-10-29 22:35+0300\n"
-"Last-Translator:  <>\n"
-"Language-Team:  <komp_lt@konferencijos.lt>\n"
+"PO-Revision-Date: 2005-08-18 00:35+0900\n"
+"Last-Translator: Mantas <zaz@xxx.lt>\n"
+"Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -161,7 +159,7 @@ msgid "alsa: Mixer register error: %s\n"
 msgstr "alsa: Mikserio registro klaida: %s\n"
 
 #: lib/vc_alsa.c:116
-#, c-format
+#, c-format, fuzzy
 msgid "alsa: Mixer load error: %s: %s\n"
 msgstr "alsa: Mikserio įkėlimo klaida: %s\n"
 
