@@ -14,7 +14,7 @@ msgstr ""
 "Last-Translator:  <>\n"
 "Language-Team:  <komp_lt@konferencijos.lt>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=iso-8859-13\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 
 #: lib/trans.c:6
@@ -139,7 +139,7 @@ msgstr "Radio"
 
 #: lib/trans.c:30
 msgid "Monitor"
-msgstr "Stebëti"
+msgstr "StebÄ—ti"
 
 #: lib/trans.c:31
 msgid "RecSelect"
@@ -163,7 +163,7 @@ msgstr "alsa: Mikserio registro klaida: %s\n"
 #: lib/vc_alsa.c:116
 #, c-format
 msgid "alsa: Mixer load error: %s: %s\n"
-msgstr "alsa: Mikserio ákëlimo klaida: %s\n"
+msgstr "alsa: Mikserio Ä¯kÄ—limo klaida: %s\n"
 
 #: lib/vc_alsa.c:126
 #, c-format
@@ -172,7 +172,7 @@ msgstr "alsa: Negalima surasti paprasto valdymo'%s',%i\n"
 
 #: lib/vc_oss.c:158
 msgid "oss: No master volume"
-msgstr "oss: Nëra pagrindinio garso"
+msgstr "oss: NÄ—ra pagrindinio garso"
 
 #: panel-plugin/plugin.c:95
 #, c-format
@@ -185,11 +185,11 @@ msgstr "Garso Valdymas"
 
 #: settings/mixer-settingsbox.gob:120 mixer-settingsbox.gob:120
 msgid "Device"
-msgstr "Árenginys"
+msgstr "Ä®renginys"
 
 #: settings/mixer-settingsbox.gob:123 mixer-settingsbox.gob:123
 msgid "None"
-msgstr "Nëra"
+msgstr "NÄ—ra"
 
 #. gtk_widget_show (GTK_WIDGET (self->dev_label));
 #. debug_bindtextdomain();
@@ -241,7 +241,7 @@ msgid ""
 "No warranty in any way."
 msgstr ""
 "Tai xfce4-mikseris, garso valdymo programa.\n"
-"Ði programa licencijuota pagal GPL-2 Licencijà.\n"
+"Å i programa licencijuota pagal GPL-2 LicencijÄ….\n"
 "Nesuteikiama jokia garantija."
 
 #: src/mixer-profilebox-detail.gob:163 mixer-profilebox-detail.gob:163
@@ -254,19 +254,19 @@ msgstr "Tipas"
 
 #: src/mixer-profilebox-detail.gob:178 mixer-profilebox-detail.gob:178
 msgid "Up"
-msgstr "Á virðø"
+msgstr "Ä® virÅ¡Å³"
 
 #: src/mixer-profilebox-detail.gob:181 mixer-profilebox-detail.gob:181
 msgid "Down"
-msgstr "Þemyn"
+msgstr "Å½emyn"
 
 #: src/mixer-profilebox-detail.gob:188 mixer-profilebox-detail.gob:188
 msgid "Move Entry Up"
-msgstr "Perkelti Áraðà Aukðtyn"
+msgstr "Perkelti Ä®raÅ¡Ä… AukÅ¡tyn"
 
 #: src/mixer-profilebox-detail.gob:191 mixer-profilebox-detail.gob:191
 msgid "Move Entry Down"
-msgstr "Perkelti Áraðà Þemyn"
+msgstr "Perkelti Ä®raÅ¡Ä… Å½emyn"
 
 #: src/mixer-profilebox-detail.gob:200 mixer-profilebox-detail.gob:200
 msgid "Profile Name:"
@@ -275,17 +275,17 @@ msgstr "Profilio pavadinimas:"
 #: src/mixer-profilebox-detail.gob:382 src/mixer-profilebox-detail.gob:447
 #: mixer-profilebox-detail.gob:382 mixer-profilebox-detail.gob:447
 msgid "<unknown>"
-msgstr "<neþinomas>"
+msgstr "<neÅ¾inomas>"
 
 #: src/mixer-profilebox-detail.gob:384 src/mixer-profilebox-detail.gob:449
 #: mixer-profilebox-detail.gob:384 mixer-profilebox-detail.gob:449
 msgid "<slider>"
-msgstr "<ðliauþiklis>"
+msgstr "<Å¡liauÅ¾iklis>"
 
 #: src/mixer-profilebox-detail.gob:385 src/mixer-profilebox-detail.gob:450
 #: mixer-profilebox-detail.gob:385 mixer-profilebox-detail.gob:450
 msgid "<onoff>"
-msgstr "<ájungtaiðjungta>"
+msgstr "<Ä¯jungtaiÅ¡jungta>"
 
 #: src/mixer-profilebox-detail.gob:386 src/mixer-profilebox-detail.gob:451
 #: mixer-profilebox-detail.gob:386 mixer-profilebox-detail.gob:451
@@ -294,15 +294,15 @@ msgstr "<pasirinkti>"
 
 #: src/mixer-profilebox.gob:88 mixer-profilebox.gob:88
 msgid "Device:"
-msgstr "Árenginys:"
+msgstr "Ä®renginys:"
 
 #: src/mixer-profilebox.gob:142 mixer-profilebox.gob:142
 msgid "Create new profile"
-msgstr "Sukurti naujà profilá"
+msgstr "Sukurti naujÄ… profilÄ¯"
 
 #: src/mixer-profilebox.gob:151 mixer-profilebox.gob:151
 msgid "Delete this profile"
-msgstr "Iðtrinti ðá profilá"
+msgstr "IÅ¡trinti Å¡Ä¯ profilÄ¯"
 
 #: src/mixer-profilebox.gob:170 mixer-profilebox.gob:170
 msgid "Profile"
@@ -311,12 +311,12 @@ msgstr "Profilis"
 #: src/mixer-profilebox.gob:374 mixer-profilebox.gob:374
 #, c-format
 msgid "Really delete those %d profiles?"
-msgstr "Ar tikrai iðtrinti ðiuos profilius %d profilius?"
+msgstr "Ar tikrai iÅ¡trinti Å¡iuos profilius %d profilius?"
 
 #: src/mixer-profilebox.gob:377 mixer-profilebox.gob:377
 #, c-format
 msgid "Really delete profile \"%s\"?"
-msgstr "Ar tikrai iðtrinti ðá profilá \"%s\"?"
+msgstr "Ar tikrai iÅ¡trinti Å¡Ä¯ profilÄ¯ \"%s\"?"
 
 #: src/mixer-profilebox.gob:491 mixer-profilebox.gob:491
 #, c-format
@@ -325,7 +325,7 @@ msgstr "%s - Naujas"
 
 #: src/mixer-profilebox.gob:528 mixer-profilebox.gob:528
 msgid "A profile needs a name"
-msgstr "Profilá reikia pavadinti"
+msgstr "ProfilÄ¯ reikia pavadinti"
 
 #: src/mixer-profilebox.gob:542 mixer-profilebox.gob:542
 msgid "A profile with that name already exists"
@@ -343,7 +343,7 @@ msgstr "Rodyti Jungiklius"
 
 #: src/mixer-view.gob:260 mixer-view.gob:260
 msgid "Hide Switches"
-msgstr "Slëpti Jungiklius"
+msgstr "SlÄ—pti Jungiklius"
 
 #: settings/xfce-mixer-settings.desktop.in.h:1
 msgid "Mixer Settings"
