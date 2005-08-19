@@ -1,17 +1,16 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Portuguese translations for xfce4-mixer package.
+# Copyright (C) 2003-2005 The Xfce development team.
+# This file is distributed under the same license as the xfce4-mixer package.
+# Rodrigo Coacci <rcoacci@gmail.com>, 2004.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: xfce4-mixer 4.2.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-03-12 10:07+0100\n"
-"PO-Revision-Date: 2004-12-06 18:23-0300\n"
+"PO-Revision-Date: 2005-08-19 23:53+0900\n"
 "Last-Translator: Rodrigo Coacci <rcoacci@gmail.com>\n"
-"Language-Team: pt_BR <LL@li.org>\n"
+"Language-Team: Portuguese <ldp-br@bazar.conectiva.com.br>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -190,7 +189,7 @@ msgstr "alsa: Erro ao registrar mixer %s\n"
 #: lib/vc_alsa.c:116
 #, c-format
 msgid "alsa: Mixer load error: %s: %s\n"
-msgstr "alsa: Erro ao carregar mixer %s\n"
+msgstr "alsa: Erro ao carregar mixer %s: %s\n"
 
 #: lib/vc_alsa.c:126
 #, c-format
@@ -372,6 +371,3 @@ msgstr "Mostrar Controles"
 #: src/mixer-view.gob:259 mixer-view.gob:259
 msgid "Hide Switches"
 msgstr "Esconder Controles"
-
-#~ msgid "/View/sep"
-#~ msgstr "/Ver/sep"

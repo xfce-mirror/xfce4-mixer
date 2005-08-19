@@ -1,17 +1,17 @@
-# translation of cs.po to czech
-# translation of xfce4-mixer.po to czech
-# This file is distributed under the same license as the PACKAGE package.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
+# translation of cs.po to Czech
+# translation of xfce4-mixer.po to Czech
+# This file is distributed under the same license as the xfce4-mixer package.
+# Copyright (C) 2003-2005 The Xfce development team.
 # Alois Nespor <Alois.Nespor@seznam.cz>, 2005.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: cs\n"
+"Project-Id-Version: xfce4-mixer 4.2.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-03-12 10:07+0100\n"
-"PO-Revision-Date: 2005-03-24 23:39+0100\n"
+"PO-Revision-Date: 2005-08-19 23:40+0900\n"
 "Last-Translator: Alois Nespor <Alois.Nespor@seznam.cz>\n"
-"Language-Team: czech <cs@li.org>\n"
+"Language-Team: Czech <translation-team-cs@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -134,7 +134,7 @@ msgid "alsa: Mixer attach %s error: %s\n"
 msgstr "alsa: Chyba %s při připojení mixéru: %s\n"
 
 #: lib/vc_alsa.c:107
-#, c-format
+#, c-format, fuzzy
 msgid "alsa: Mixer register error: %s\n"
 msgstr "alsa: Chyba %s při registraci mixéru: %s\n"
 

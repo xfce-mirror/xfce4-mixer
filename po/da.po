@@ -1,14 +1,14 @@
 # Danish translations for xfce4-mixer package.
-# Copyright (C) 2002-2005 Olivier Fourdan
+# Copyright (C) 2003-2005 The Xfce development team.
 # This file is distributed under the same license as the xfce4-mixer package.
 # Jesper Berth <bigsanta@berthit.dk>, 2005.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-mixer 4.2.0\n"
+"Project-Id-Version: xfce4-mixer 4.2.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-03-12 10:07+0100\n"
-"PO-Revision-Date: 2005-02-21 19:17+0100\n"
+"PO-Revision-Date: 2005-08-19 23:42+0900\n"
 "Last-Translator: Jesper Berth <bigsanta@berthit.dk>\n"
 "Language-Team: Danish <dansk@klid.dk>\n"
 "MIME-Version: 1.0\n"
@@ -132,7 +132,7 @@ msgid "alsa: Mixer attach %s error: %s\n"
 msgstr "alsa: Mixer vedlæg %s fejl: %s\n"
 
 #: lib/vc_alsa.c:107
-#, c-format
+#, c-format, fuzzy
 msgid "alsa: Mixer register error: %s\n"
 msgstr "alsa: Mixer registrer %s fejl: %s\n"
 
@@ -320,9 +320,3 @@ msgstr "Vis kontakter"
 #: src/mixer-view.gob:259 mixer-view.gob:259
 msgid "Hide Switches"
 msgstr "Gem kontakter"
-
-#~ msgid "%s - Info"
-#~ msgstr "%s - info"
-
-#~ msgid "%s - Profiles"
-#~ msgstr "%s - Profiler"

@@ -1,12 +1,15 @@
-# Xfce German translation
-# Copyright (C) 2003 XFce development team
+# German translations for xfce4-mixer package.
+# Copyright (C) 2003-2005 The Xfce development team.
+# This file is distributed under the same license as the xfce4-mixer package.
 # Benedikt Meurer <benedikt.meurer@unix-ag.org>, 2003.
+# Moritz Heiber <moe@xfce.org>, 2004.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: xfce4-mixer 4.2.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-03-12 10:07+0100\n"
-"PO-Revision-Date: 2004-11-22 16:21+0100\n"
+"PO-Revision-Date: 2005-08-19 23:44+0900\n"
 "Last-Translator: Moritz Heiber <moe@xfce.org>\n"
 "Language-Team: German <xfce4-dev@xfce.org>\n"
 "MIME-Version: 1.0\n"
@@ -130,7 +133,7 @@ msgid "alsa: Mixer attach %s error: %s\n"
 msgstr "ALSA: Mixer %s: Fehler beim Verbinden: %s\n"
 
 #: lib/vc_alsa.c:107
-#, c-format
+#, c-format, fuzzy
 msgid "alsa: Mixer register error: %s\n"
 msgstr "ALSA: Mixer %s: Fehler beim Registrieren: %s\n"
 
@@ -319,6 +322,3 @@ msgstr "Schalter anzeigen"
 #: src/mixer-view.gob:259 mixer-view.gob:259
 msgid "Hide Switches"
 msgstr "Schalter ausblenden"
-
-#~ msgid "/View/sep"
-#~ msgstr "/Ansicht/sep"
