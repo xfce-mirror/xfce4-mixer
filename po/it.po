@@ -1,14 +1,14 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Italian translations for xfce4-mixer package.
+# Copyright (C) 2003-2005 The Xfce development team.
+# This file is distributed under the same license as the xfce4-mixer package.
 # Davide D'Amico <dave@gufi.org>, 2003.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: XFce4\n"
+"Project-Id-Version: xfce4-mixer 4.3.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-07-02 23:15+0200\n"
-"PO-Revision-Date: 2004-03-11 13:41+0100\n"
+"PO-Revision-Date: 2005-08-18 17:05+0900\n"
 "Last-Translator: Alex Dupre <ale@FreeBSD.org>\n"
 "Language-Team: GUFI <traduzioni@gufi.org>\n"
 "MIME-Version: 1.0\n"
@@ -138,12 +138,12 @@ msgstr "alsa: Errore di connessione mixer %s: %s\n"
 #: lib/vc_alsa.c:107
 #, fuzzy, c-format
 msgid "alsa: Mixer register error: %s\n"
-msgstr "alsa: Errore di registrazione mixer: %s"
+msgstr "alsa: Errore di registrazione mixer: %s\n"
 
 #: lib/vc_alsa.c:116
 #, fuzzy, c-format
 msgid "alsa: Mixer load error: %s: %s\n"
-msgstr "alsa: Errore di caricamento mixer: %s"
+msgstr "alsa: Errore di caricamento mixer: %s\n"
 
 #: lib/vc_alsa.c:126
 #, c-format
@@ -330,9 +330,3 @@ msgstr ""
 #: settings/xfce-mixer-settings.desktop.in.h:2
 msgid "Xfce 4 Mixer Settings"
 msgstr ""
-
-#~ msgid "Use _internal mixer"
-#~ msgstr "Usa mixer _interno"
-
-#~ msgid "Visible"
-#~ msgstr "Visibile"
