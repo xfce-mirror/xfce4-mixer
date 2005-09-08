@@ -1,5 +1,5 @@
 
-#include <libxfce4util/i18n.h>
+#include <libxfce4util/libxfce4util.h>
 /* these are OSS translateable names */
 
 char *oss_names[] = {
