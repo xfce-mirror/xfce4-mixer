@@ -1,6 +1,13 @@
-plugindir = $(libdir)/xfce4/panel-plugins
+
+plugindir = $(libexecdir)/xfce4/panel-plugins
+plugin_PROGRAMS = xfce4-mixer-plugin
 
 INCLUDES = -I../include
+
+# @PANEL_EXTERNALPLUGINDIR@
+
+desktopdatadir = @PANEL_DESKTOPDATADIR@
+desktopdata_DATA = xfce4-mixer.desktop
 
 plugin_LTLIBRARIES =							\
 	libmixer.la
@@ -41,13 +48,38 @@ libmixer_la_CFLAGS =							\
 	-I$(top_srcdir)/include						\
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"                           \
 	@XFCE_MCS_CLIENT_CFLAGS@					\
-	@XFCE4_PANEL_CFLAGS@
+	@MIGHTY_MOUSE_CFLAGS@
 
 libmixer_la_LIBADD = 							\
 	@XFCE_MCS_CLIENT_LIBS@						\
-	@XFCE4_PANEL_LIBS@ \
+	@MIGHTY_MOUSE_LIBS@ \
 	$(top_builddir)/lib/libxfce4mixer.la
 
 libmixer_la_DEPENDENCIES = $(top_builddir)/lib/libxfce4mixer.la
 
-EXTRA_DIST = test_vc.c
+
+# .desktop file
+#
+# Some automake trickery here. Because we cannot use $(libexecdir) in the
+# automake stage, we'll use sed to get the full path into the .desktop file.
+# We also need to let intltool merge the translated fields, so we add an
+# additional level of indirection: a <name>.desktop.in.in file.
+# 
+desktop_in_in_files = testplugin.desktop.in.in
+desktop_in_files = $(desktop_in_in_files:.desktop.in.in=.desktop.in)
+	
+desktopdir = $(datadir)/xfce4/panel-plugins
+desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
+@INTLTOOL_DESKTOP_RULE@
+
+EXTRA_DIST =  test_vc.c xfce4-mixer.desktop \
+	$(desktop_in_in_files)
+
+DISTCLEANFILES = \
+	$(desktop_DATA) $(desktop_in_files)
+	
+# get full path into .desktop file
+%.desktop.in: %.desktop.in.in
+	sed -e "s^@EXTERNAL_PLUGIN_PATH@^$(libexecdir)/xfce4/panel-plugins^" \
+		$< > $@
+

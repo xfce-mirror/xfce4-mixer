@@ -6,8 +6,9 @@
 
 #include <libxfce4util/libxfce4util.h>  
 #include <libxfcegui4/dialogs.h>
-#include <panel/plugins.h>
-#include <panel/xfce.h>
+
+#include <libxfce4panel/xfce-panel-plugin.h>
+
 #include "xfce-mixer-slider-tiny.h"
 #include "xfce-mixer-prefbox.h"
 #include "xfce-mixer-preferences.h"
@@ -17,6 +18,97 @@
 
 /* DO: timeout -> update volume */
 #define UPDATE_TIMEOUT 1000
+
+#define PLUGIN_NAME "xfce4-mixer-plugin"
+
+/* Panel Plugin Interface */
+
+static void mixer_construct (XfcePanelPlugin *plugin);
+
+XFCE_PANEL_PLUGIN_REGISTER_EXTERNAL(mixer_construct);
+
+
+/* internal functions */
+
+static void
+mixer_orientation_changed (XfcePanelPlugin *plugin, GtkOrientation orientation, 
+                     GtkWidget *label)
+{
+    if ((gtk_major_version == 2 && gtk_minor_version >= 6) || 
+         gtk_major_version > 2)
+    {
+        gdouble angle = (orientation == GTK_ORIENTATION_HORIZONTAL) ? 0 : 90;
+
+        g_object_set (G_OBJECT (label), "angle", angle, NULL);
+    }
+}
+
+static void 
+mixer_free_data (XfcePanelPlugin *plugin)
+{
+    DBG ("Free data: %s", PLUGIN_NAME);
+    gtk_main_quit ();
+}
+
+static void 
+mixer_save (XfcePanelPlugin *plugin)
+{
+    XfceRc *rc;
+    
+    DBG ("Save: %s", PLUGIN_NAME);
+
+    rc = xfce_panel_plugin_get_rc_file (plugin, FALSE);
+
+    if (rc)
+    {
+        xfce_rc_write_entry (rc, "string", "stringvalue");
+        xfce_rc_write_bool_entry (rc, "bool", TRUE);
+        xfce_rc_write_int_entry (rc, "int", 12);
+
+        xfce_rc_close (rc);
+    }
+    else
+        g_critical (_("Could not save configuration"));
+}
+
+static void
+mixer_configure (XfcePanelPlugin *plugin)
+{
+    DBG ("Configure: %s", PLUGIN_NAME);
+
+    t_mixer	*mixer = (t_mixer *)ctrl->data;
+
+    GtkWidget *w;
+    XfceMixerPrefbox *pb;
+    w = xfce_mixer_prefbox_new (ctrl);
+    gtk_widget_show (w);
+    gtk_container_add (GTK_CONTAINER (con), w);
+
+    pb = XFCE_MIXER_PREFBOX (w);
+    mixer->pb = pb;
+    xfce_mixer_prefbox_fill_defaults (pb);
+	
+    xfce_mixer_prefbox_fill_preferences (pb, mixer->prefs);
+    g_signal_connect (G_OBJECT (done), "clicked", G_CALLBACK (mixer_prefs_ok_cb), mixer);
+}
+
+static void 
+mixer_set_size (XfcePanelPlugin *plugin, int size)
+{
+    DBG ("Set size to %d: %s", size, PLUGIN_NAME);
+
+    if (xfce_panel_plugin_get_orientation (plugin) == 
+        GTK_ORIENTATION_HORIZONTAL)
+    {
+        gtk_widget_set_size_request (GTK_WIDGET (plugin), -1, size);
+    }
+    else
+    {
+        gtk_widget_set_size_request (GTK_WIDGET (plugin), size, -1);
+    }
+}
+
+/* create widgets and connect to signals */ 
 
 typedef struct
 {
@@ -29,6 +121,67 @@ typedef struct
 	guint timer;
 } t_mixer;
 
+
+static void 
+mixer_construct (XfcePanelPlugin *plugin)
+{
+    GtkWidget *button;
+    XfceRc *rc;
+    t_mixer *mixer;
+
+    xfce_textdomain (GETTEXT_PACKAGE, LOCALEDIR, "UTF-8"); 
+
+    DBG ("Construct: %s", PLUGIN_NAME);
+    
+    DBG ("Properties: size = %d, panel_position = %d", 
+         xfce_panel_plugin_get_size (plugin),
+         xfce_panel_plugin_get_screen_position (plugin));
+
+    rc = xfce_panel_plugin_get_rc_file (plugin, TRUE);
+
+    if (rc)
+        xfce_rc_close (rc);
+
+    mixer = mixer_new ();
+    ctrl->data = (gpointer) mixer;
+    ctrl->with_popup = FALSE;
+
+    gtk_widget_show (mixer->box);
+    
+    if ((gtk_major_version == 2 && gtk_minor_version >= 6) || 
+         gtk_major_version > 2)
+    {
+        GtkOrientation orientation = 
+            xfce_panel_plugin_get_orientation (plugin);
+        gdouble angle = (orientation == GTK_ORIENTATION_HORIZONTAL) ? 0 : 90;
+
+        g_object_set (G_OBJECT (GTK_BIN (button)->child), 
+                      "angle", angle, NULL);
+    }
+    
+    gtk_container_add (GTK_CONTAINER (plugin), GTK_WIDGET(mixer->box));
+
+    xfce_panel_plugin_add_action_widget (plugin, mixer->box);
+
+    g_signal_connect (plugin, "orientation-changed", 
+                      G_CALLBACK (mixer_orientation_changed), 
+                      GTK_BIN (button)->child);
+
+    g_signal_connect (plugin, "free-data", 
+                      G_CALLBACK (mixer_free_data), NULL);
+
+    g_signal_connect (plugin, "save", 
+                      G_CALLBACK (mixer_save), NULL);
+
+    g_signal_connect (plugin, "size-changed", 
+                      G_CALLBACK (mixer_set_size), GTK_BIN (button)->child);
+
+    xfce_panel_plugin_menu_show_configure (plugin);
+    g_signal_connect (plugin, "configure-plugin", 
+                      G_CALLBACK (mixer_configure), NULL);
+}
+
+#if 0
 GtkTooltips *tooltips = NULL;
 
 static void
@@ -229,19 +382,6 @@ mixer_new(void)
 	return mixer;
 }
 
-static gboolean
-mixer_control_new (Control *ctrl)
-{
-	t_mixer *mixer;
-	mixer = mixer_new ();
-	gtk_container_add (GTK_CONTAINER(ctrl->base), mixer->box);
-	ctrl->data = (gpointer) mixer;
-	ctrl->with_popup = FALSE;
-
-	gtk_widget_set_size_request (ctrl->base, -1, -1);
-
-	return TRUE;	
-}
 
 static void
 mixer_control_free (Control *ctrl)
@@ -412,5 +552,5 @@ g_module_unload()
 	xfce_mixer_cache_vc_free ();
 }
 
-/* required! defined in panel/plugins.h */
-XFCE_PLUGIN_CHECK_INIT
+#endif
+

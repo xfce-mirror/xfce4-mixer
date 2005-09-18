@@ -1,3 +1,4 @@
+
 dnl Process this file with autoconf to produce a configure script.
 AC_INIT([xfce4-mixer], [4.3.0], [xfce4-dev@xfce.org])
 AC_REVISION([$Id$])
@@ -67,7 +68,6 @@ XDT_CHECK_PACKAGE([XFCE4_UTIL], [libxfce4util-1.0], [4.2.0])
 XDT_CHECK_PACKAGE([XFCE4_GUI], [libxfcegui4-1.0], [4.2.0])
 XDT_CHECK_PACKAGE([GTK], [gtk+-2.0], [2.2.0])
 XDT_CHECK_PACKAGE([XFCE_MCS_CLIENT], [libxfce4mcs-client-1.0], [4.2.0])
-XDT_XFCE_PANEL_PLUGIN([XFCE4_PANEL], [4.2.0])
 XDT_XFCE_MCS_PLUGIN([XFCE_MCS_MANAGER], [4.2.0])
 
 dnl Check for i18n support
@@ -82,6 +82,33 @@ AC_ARG_ENABLE([big-mixer],
 AM_CONDITIONAL([BUILD_BIG_MIXER], [test x"$enable_big_mixer" = x"yes"])
 AC_MSG_RESULT([$enable_big_mixer])
 build_big_mixer="$enable_big_mixer"
+
+BM_DEPEND_CHECK([MIGHTY_MOUSE], [libxfce4panel-1.0], [4.3.17], [mighty-mouse], [the new panel], [yes])
+dnl AM_CONDITIONAL([HAVE_MIGHTY_MOUSE], [test x"$ac_cv_MIGHTY_MOUSE_check" = x"yes"])
+AM_CONDITIONAL([HAVE_MIGHTY_MOUSE], [test ! -z "$MIGHTY_MOUSE_FOUND" ])
+
+AC_MSG_CHECKING([whether to build 4.4 panel plugin])
+AC_ARG_ENABLE([mighty-mouse-panel-plugin],
+AC_HELP_STRING([--disable-mighty-mouse-panel-plugin], [don't build 4.4 panel plugin]),
+ [], [enable_mighty_mouse_panel_plugin=yes])
+AM_CONDITIONAL([BUILD_MIGHTY_MOUSE_PANEL_PLUGIN], [test x"$enable_mighty_mouse_panel_plugin" = x"yes"])
+AC_MSG_RESULT([$enable_mighty_mouse_panel_plugin])
+build_mighty_mouse_panel_plugin=$enable_mighty_mouse_panel_plugin
+dnl if [ $enable_mighty_mouse_panel_plugin = yes -a ! -z $MIGHTY_MOUSE_FOUND ] ; then build_mighty_mouse_panel_plugin="yes" ; else build_mighty_mouse_panel_plugin="no" ; fi
+
+dnl AC_MSG_CHECKING([whether to build 4.2 panel])
+dnl AC_ARG_ENABLE([42-panel-plugin],
+dnl  AC_HELP_STRING([--disable-42-panel-plugin], [don't build big mixer window]),
+dnl [], [enable_42_panel_plugin=yes])
+dnl AM_CONDITIONAL([BUILD_42_PANEL_PLUGIN], [test x"$enable_42_panel_plugin" = x"yes"])
+dnl AC_MSG_RESULT([$enable_42_panel_plugin])
+dnl build_42_panel_plugin="$enable_42_panel_plugin"
+
+dnl old panel (fixme remove)
+dnl if [ "$build_42_panel_plugin" = "yes" ]
+dnl then
+dnl  XDT_XFCE_PANEL_PLUGIN([XFCE4_PANEL], [4.2.0])
+dnl fi
 
 dnl Check for debugging support
 BM_DEBUG_SUPPORT()
@@ -109,4 +136,5 @@ echo
 echo "Build Configuration:"
 echo " Sound System:  $build_sound_system"
 echo " Big Mixer:     $build_big_mixer"
+echo " 4.4 (Mighty Mouse) Panel Plugin:     $build_mighty_mouse_panel_plugin"
 echo

@@ -1,3 +1,6 @@
+
+ACLOCAL_AMFLAGS = -I m4
+
 EXTRA_DIST =								\
 	intltool-extract.in						\
 	intltool-merge.in						\
@@ -15,7 +18,13 @@ if BUILD_BIG_MIXER
 SUBDIR_BIG_MIXER = src settings
 endif
 
-SUBDIRS = lib panel-plugin $(SUBDIR_BIG_MIXER) po
+if BUILD_MIGHTY_MOUSE_PANEL_PLUGIN
+if HAVE_MIGHTY_MOUSE
+SUBDIR_MIGHTY_MOUSE_PANEL_PLUGIN = panel-plugin
+endif
+endif
+
+SUBDIRS = lib $(SUBDIR_MIGHTY_MOUSE_PANEL_PLUGIN) $(SUBDIR_BIG_MIXER) po
 DIST_SUBDIRS = include lib panel-plugin src settings po
 
 distclean-local:

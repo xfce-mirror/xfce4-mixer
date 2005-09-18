@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=X-XFCE-PanelPlugin
+Encoding=UTF-8
+Name=Volume Control
+Comment=
+Icon=xfce4-mixer
+X-XFCE-Exec=@EXTERNAL_PLUGIN_PATH@/xfce4-mixer-panel-plugin
