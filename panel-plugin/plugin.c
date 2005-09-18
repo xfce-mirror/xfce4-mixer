@@ -95,7 +95,7 @@ mixer_configure (XfcePanelPlugin *plugin)
     
     g_object_get (G_OBJECT (plugin), "t_mixer", &mixer, NULL);
 
-    w = xfce_mixer_prefbox_new (ctrl);
+    w = xfce_mixer_prefbox_new ();
     gtk_widget_show (w);
     gtk_container_add (GTK_CONTAINER (con), w);
 

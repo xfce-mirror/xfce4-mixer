@@ -34,7 +34,7 @@ void 	xfce_mixer_prefbox_fill_device_list	(XfceMixerPrefbox * self);
 void 	xfce_mixer_prefbox_fill_master_list	(XfceMixerPrefbox * self);
 gchar * 	xfce_mixer_prefbox_find_name_by_master_i	(XfceMixerPrefbox * self, gint master_i);
 gint 	xfce_mixer_prefbox_find_master_by_name	(XfceMixerPrefbox * self, gchar const * name);
-void 	xfce_mixer_prefbox_add_command_box	(XfceMixerPrefbox * self, Control * plugin);
+void 	xfce_mixer_prefbox_add_command_box	(XfceMixerPrefbox * self);
 gboolean 	xfce_mixer_prefbox_device_changed_delayed_cb	(XfceMixerPrefbox * self);
 void 	xfce_mixer_prefbox_device_changed_cb	(XfceMixerPrefbox * self, GtkEditable * e);
 

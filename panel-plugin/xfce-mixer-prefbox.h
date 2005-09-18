@@ -60,7 +60,6 @@ struct _XfceMixerPrefbox {
 	GtkCheckButton * in_terminal_c; /* protected */
 	CommandOptions * ic; /* protected */
 	GtkWidget * click_b; /* protected */
-	Control * plugin; /* protected */
 	XfceMixerPrefboxPrivate *_priv;
 };
 
@@ -80,7 +79,7 @@ struct _XfceMixerPrefboxClass {
 GType	xfce_mixer_prefbox_get_type	(void);
 void 	xfce_mixer_prefbox_fill_defaults	(XfceMixerPrefbox * self);
 void 	xfce_mixer_prefbox_device_changed	(XfceMixerPrefbox * self);
-GtkWidget * 	xfce_mixer_prefbox_new	(Control * plugin);
+GtkWidget * 	xfce_mixer_prefbox_new	(void);
 void 	xfce_mixer_prefbox_fill_preferences	(XfceMixerPrefbox * self,
 					XfceMixerPreferences * p);
 void 	xfce_mixer_prefbox_save_preferences	(XfceMixerPrefbox * self,

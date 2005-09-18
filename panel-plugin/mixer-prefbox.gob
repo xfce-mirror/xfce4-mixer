@@ -47,7 +47,6 @@ class Xfce:Mixer:Prefbox from Gtk:VBox {
 		destroy { delayer_free (VAR); };
 	protected CommandOptions *ic = NULL;
 	protected GtkWidget *click_b = NULL;
-	protected Control *plugin = NULL;
 
 	public void fill_defaults(self)
 	{
@@ -200,9 +199,8 @@ class Xfce:Mixer:Prefbox from Gtk:VBox {
 		}
 	}
 
-	protected void add_command_box (self, Control * plugin)
+	protected void add_command_box (self)
 	{
-		self->plugin = plugin;
 		self->ic = create_command_options (NULL);
 		self->execu_cb = NULL; /*self->ic->combo;*/
 		/*self->execu_entry = self->ic->command_entry;*/
@@ -227,11 +225,11 @@ class Xfce:Mixer:Prefbox from Gtk:VBox {
 		);
 	}
 
-	public GtkWidget *new(Control *plugin)
+	public GtkWidget *new(void)
 	{
 		GtkWidget *w;
 		w = GTK_WIDGET (GET_NEW);
-		xfce_mixer_prefbox_add_command_box (XFCE_MIXER_PREFBOX (w), plugin);
+		xfce_mixer_prefbox_add_command_box (XFCE_MIXER_PREFBOX (w));
 		return w;
 	}
 
