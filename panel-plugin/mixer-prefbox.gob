@@ -11,8 +11,6 @@
 #include "vc.h"
 #include "xfce-mixer-cache-vc.h"
 #include "xfce-mixer-pxml.h"
-#include <panel/item_dialog.h>
-#include <panel/plugins.h>
 
 /* why is this deprecated when it is needed by combo ? O_o */
 GtkWidget *gtk_list_item_new_with_label (const gchar *label);

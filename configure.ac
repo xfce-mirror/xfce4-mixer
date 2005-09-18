@@ -96,20 +96,6 @@ AC_MSG_RESULT([$enable_mighty_mouse_panel_plugin])
 build_mighty_mouse_panel_plugin=$enable_mighty_mouse_panel_plugin
 dnl if [ $enable_mighty_mouse_panel_plugin = yes -a ! -z $MIGHTY_MOUSE_FOUND ] ; then build_mighty_mouse_panel_plugin="yes" ; else build_mighty_mouse_panel_plugin="no" ; fi
 
-dnl AC_MSG_CHECKING([whether to build 4.2 panel])
-dnl AC_ARG_ENABLE([42-panel-plugin],
-dnl  AC_HELP_STRING([--disable-42-panel-plugin], [don't build big mixer window]),
-dnl [], [enable_42_panel_plugin=yes])
-dnl AM_CONDITIONAL([BUILD_42_PANEL_PLUGIN], [test x"$enable_42_panel_plugin" = x"yes"])
-dnl AC_MSG_RESULT([$enable_42_panel_plugin])
-dnl build_42_panel_plugin="$enable_42_panel_plugin"
-
-dnl old panel (fixme remove)
-dnl if [ "$build_42_panel_plugin" = "yes" ]
-dnl then
-dnl  XDT_XFCE_PANEL_PLUGIN([XFCE4_PANEL], [4.2.0])
-dnl fi
-
 dnl Check for debugging support
 BM_DEBUG_SUPPORT()
 

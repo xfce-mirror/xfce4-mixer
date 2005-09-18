@@ -5,7 +5,7 @@
 #include <gtk/gtk.h>
 
 #include <libxfce4util/libxfce4util.h>  
-#include <libxfcegui4/dialogs.h>
+#include <libxfcegui4/libxfcegui4.h>  
 
 #include <libxfce4panel/xfce-panel-plugin.h>
 
@@ -29,6 +29,17 @@ XFCE_PANEL_PLUGIN_REGISTER_EXTERNAL(mixer_construct);
 
 
 /* internal functions */
+
+typedef struct
+{
+	GtkWidget *box;
+	XfceMixerControl *slider;
+	XfceMixerPreferences *prefs;
+	XfceIconbutton *ib;
+	XfceMixerPrefbox *pb;
+	gboolean broken;
+	guint timer;
+} t_mixer;
 
 static void
 mixer_orientation_changed (XfcePanelPlugin *plugin, GtkOrientation orientation, 
@@ -74,12 +85,16 @@ mixer_save (XfcePanelPlugin *plugin)
 static void
 mixer_configure (XfcePanelPlugin *plugin)
 {
+    t_mixer* mixer;
+    GtkWidget* w;
+    XfceMixerPrefbox* pb;
+    
+    mixer = NULL;
+    
     DBG ("Configure: %s", PLUGIN_NAME);
+    
+    g_object_get (G_OBJECT (plugin), "t_mixer", &mixer, NULL);
 
-    t_mixer	*mixer = (t_mixer *)ctrl->data;
-
-    GtkWidget *w;
-    XfceMixerPrefbox *pb;
     w = xfce_mixer_prefbox_new (ctrl);
     gtk_widget_show (w);
     gtk_container_add (GTK_CONTAINER (con), w);
@@ -110,16 +125,6 @@ mixer_set_size (XfcePanelPlugin *plugin, int size)
 
 /* create widgets and connect to signals */ 
 
-typedef struct
-{
-	GtkWidget *box;
-	XfceMixerControl *slider;
-	XfceMixerPreferences *prefs;
-	XfceIconbutton *ib;
-	XfceMixerPrefbox *pb;
-	gboolean broken;
-	guint timer;
-} t_mixer;
 
 
 static void 
@@ -143,8 +148,7 @@ mixer_construct (XfcePanelPlugin *plugin)
         xfce_rc_close (rc);
 
     mixer = mixer_new ();
-    ctrl->data = (gpointer) mixer;
-    ctrl->with_popup = FALSE;
+    g_object_set (G_OBJECT (plugin), "t_mixer", &mixer, NULL);
 
     gtk_widget_show (mixer->box);
     

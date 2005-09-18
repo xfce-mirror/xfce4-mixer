@@ -48,10 +48,12 @@ libmixer_la_CFLAGS =							\
 	-I$(top_srcdir)/include						\
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"                           \
 	@XFCE_MCS_CLIENT_CFLAGS@					\
+	@XFCE4_GUI_CFLAGS@ @GTK_CFLAGS@ @XML_CFLAGS@ \
 	@MIGHTY_MOUSE_CFLAGS@
 
 libmixer_la_LIBADD = 							\
 	@XFCE_MCS_CLIENT_LIBS@						\
+	@XFCE4_GUI_LIBS@ @GTK_LIBS@ @XML_LIBS@ \
 	@MIGHTY_MOUSE_LIBS@ \
 	$(top_builddir)/lib/libxfce4mixer.la
 
