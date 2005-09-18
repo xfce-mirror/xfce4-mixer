@@ -9,15 +9,15 @@ INCLUDES = -I../include
 desktopdatadir = @PANEL_DESKTOPDATADIR@
 desktopdata_DATA = xfce4-mixer.desktop
 
-plugin_LTLIBRARIES =							\
-	libmixer.la
+xfce4_mixer_plugin_LDFLAGS = \
+	@MIGHTY_MOUSE_LIBS@ \
+	@XFCE_MCS_CLIENT_LIBS@                                          \
+	@XFCE4_GUI_LIBS@ @GTK_LIBS@ @XML_LIBS@ \
+	@MIGHTY_MOUSE_LIBS@ \
+	$(top_builddir)/lib/libxfce4mixer.la
+                                        
 
-libmixer_la_LDFLAGS =							\
-	-avoid-version							\
-	-export-dynamic							\
-	-module
-
-libmixer_la_SOURCES =							\
+xfce4_mixer_plugin_SOURCES =							\
 			delayer.inc					\
 			helpers_h.inc					\
 			helpers.inc					\
@@ -44,20 +44,14 @@ libmixer_la_SOURCES =							\
 			xfce-mixer-slider-tiny.h			\
 			xfce-mixer-slider-tiny-private.h
 
-libmixer_la_CFLAGS =							\
+xfce4_mixer_plugin_CFLAGS =							\
 	-I$(top_srcdir)/include						\
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"                           \
 	@XFCE_MCS_CLIENT_CFLAGS@					\
 	@XFCE4_GUI_CFLAGS@ @GTK_CFLAGS@ @XML_CFLAGS@ \
 	@MIGHTY_MOUSE_CFLAGS@
 
-libmixer_la_LIBADD = 							\
-	@XFCE_MCS_CLIENT_LIBS@						\
-	@XFCE4_GUI_LIBS@ @GTK_LIBS@ @XML_LIBS@ \
-	@MIGHTY_MOUSE_LIBS@ \
-	$(top_builddir)/lib/libxfce4mixer.la
-
-libmixer_la_DEPENDENCIES = $(top_builddir)/lib/libxfce4mixer.la
+dnl libmixer_la_DEPENDENCIES = $(top_builddir)/lib/libxfce4mixer.la
 
 
 # .desktop file
