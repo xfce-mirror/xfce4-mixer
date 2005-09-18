@@ -83,11 +83,19 @@ mixer_save (XfcePanelPlugin *plugin)
 }
 
 static void
+response_cb(GtkDialog* dialog, gint arg1, gpointer user_data)
+{
+    t_mixer *mixer = (t_mixer *) user_data;
+    xfce_mixer_prefbox_save_preferences (mixer->pb, mixer->prefs);
+}
+
+static void
 mixer_configure (XfcePanelPlugin *plugin)
 {
     t_mixer* mixer;
     GtkWidget* w;
     XfceMixerPrefbox* pb;
+    GtkDialog* dialog;
     
     mixer = NULL;
     
@@ -95,16 +103,28 @@ mixer_configure (XfcePanelPlugin *plugin)
     
     g_object_get (G_OBJECT (plugin), "t_mixer", &mixer, NULL);
 
-    w = xfce_mixer_prefbox_new ();
+    /* TODO TRANSLATE TITLE OR SOMETHING */
+
+    dialog = GTK_DIALOG (
+             gtk_dialog_new_with_buttons (xfce_panel_plugin_get_name (plugin), 
+                                          GTK_WINDOW(gtk_widget_get_toplevel(GTK_WIDGET(plugin))), 
+                                          GTK_DIALOG_DESTROY_WITH_PARENT,
+                                          GTK_STOCK_CLOSE, GTK_RESPONSE_CLOSE, 
+                                          NULL));
+
+    w = xfce_mixer_prefbox_new ();	
     gtk_widget_show (w);
-    gtk_container_add (GTK_CONTAINER (con), w);
+    gtk_container_add (GTK_CONTAINER (dialog), w);
 
     pb = XFCE_MIXER_PREFBOX (w);
     mixer->pb = pb;
     xfce_mixer_prefbox_fill_defaults (pb);
 	
     xfce_mixer_prefbox_fill_preferences (pb, mixer->prefs);
-    g_signal_connect (G_OBJECT (done), "clicked", G_CALLBACK (mixer_prefs_ok_cb), mixer);
+    
+    g_signal_connect (G_OBJECT (dialog), "response", G_CALLBACK (response_cb), mixer);
+    
+    gtk_widget_show (GTK_WIDGET (dialog));
 }
 
 static void 
@@ -473,12 +493,6 @@ mixer_set_size(Control *ctrl, int size)
 	gtk_widget_queue_resize (GTK_WIDGET (mixer->slider));
 }
 
-static void
-mixer_prefs_ok_cb (GtkWidget *w, gpointer user_data)
-{
-	t_mixer *mixer = (t_mixer *) user_data;
-	xfce_mixer_prefbox_save_preferences (mixer->pb, mixer->prefs);
-}
 
 
 static void
@@ -511,43 +525,6 @@ mixer_set_theme(Control * control, const char *theme)
 	pb = get_pixbuf_for(mixer->broken);
 	xfce_iconbutton_set_pixbuf(XFCE_ICONBUTTON(mixer->ib), pb);
 	g_object_unref(pb);
-}
-
-/* initialization */
-G_MODULE_EXPORT void
-xfce_control_class_init(ControlClass *cc)
-{
-	xfce_textdomain(GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");
-
-	if (!tooltips)
-		tooltips = gtk_tooltips_new ();
-	register_vcs ();
-
-	/* these are required */
-	cc->name                = "mixer";
-	cc->caption             = _("Volume Control");
-	cc->create_control      = (CreateControlFunc)mixer_control_new;
-	cc->free                = mixer_control_free;
-	cc->attach_callback     = mixer_attach_callback;
-
-	/* options; don't define if you don't have any ;) */
-	cc->read_config         = mixer_read_config;
-	cc->write_config        = mixer_write_config;
-	cc->create_options      = mixer_create_options;
-
-	/* Don't use this function at all if you want xfce to
-	 * do the sizing.
-	 * Just define the set_size function to NULL, or rather, don't
-         * set it to something else.
-         */
-	cc->set_size            = mixer_set_size;
-	cc->set_theme		= mixer_set_theme;
-
-	/* unused in the sample:
-	 * ->set_orientation
-	 */
-	 
-	control_class_set_unique (cc, TRUE);
 }
 
 G_MODULE_EXPORT void 
