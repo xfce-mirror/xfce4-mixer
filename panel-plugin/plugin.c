@@ -154,7 +154,7 @@ mixer_construct (XfcePanelPlugin *plugin)
     XfceRc *rc;
     t_mixer *mixer;
 
-    xfce_textdomain (GETTEXT_PACKAGE, LOCALEDIR, "UTF-8"); 
+    xfce_textdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8"); 
 
     DBG ("Construct: %s", PLUGIN_NAME);
     
