@@ -61,17 +61,6 @@
 static char mixer_device[PATH_MAX + 1] = MIXER_BASE;
 static int fd = -1;
 
-static int init(void)
-{
-	if (g_getenv ("AUDIODEV") != NULL)
-		g_strlcpy (mixer_device, g_getenv ("AUDIODEV"), PATH_MAX);
-	else
-		g_strlcpy (mixer_device, MIXER_BASE, PATH_MAX);
-
-	vc_set_device(mixer_device);
-	vc_reinit_device();
-	return USE_THAT;
-}
 
 static void vc_close_device()
 {
@@ -217,6 +206,18 @@ static char const *vc_get_device()
 
 static void vc_handle_events()
 {
+}
+
+static int init(void)
+{
+	if (g_getenv ("AUDIODEV") != NULL)
+		g_strlcpy (mixer_device, g_getenv ("AUDIODEV"), PATH_MAX);
+	else
+		g_strlcpy (mixer_device, MIXER_BASE, PATH_MAX);
+
+	vc_set_device(mixer_device);
+	vc_reinit_device();
+	return USE_THAT;
 }
 
 REGISTER_VC_PLUGIN(sun);
