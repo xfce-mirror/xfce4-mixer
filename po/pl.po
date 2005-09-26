@@ -215,9 +215,10 @@ msgid ""
 "It is released under the GPL-2 License which you find in the source "
 "directory.\n"
 "No warranty in any way."
-msgstr "To jest xfce4-mikser, aplikacja do konfiguracji dźwięku.\n"
-"Rozprowadzana jest pod licencją GPL-2, której treść znajdziesz w głównym katalogu"
-"aplikacji.\n"
+msgstr ""
+"To jest xfce4-mikser, aplikacja do konfiguracji dźwięku.\n"
+"Rozprowadzana jest pod licencją GPL-2, której treść znajdziesz w głównym "
+"kataloguaplikacji.\n"
 "Nie ma żadnej gwarancji."
 
 #: src/mixer-profilebox-detail.gob:163 mixer-profilebox-detail.gob:163

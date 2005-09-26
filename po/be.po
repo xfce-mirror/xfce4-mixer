@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-03-12 10:07+0100\n"
+"POT-Creation-Date: 2005-09-26 12:06+0900\n"
 "PO-Revision-Date: 2004-09-12 12:46+0300\n"
 "Last-Translator: Ales Nyakhaychyk <nab@mail.by>\n"
 "Language-Team: Belarusian <i18n@mova.org>\n"
@@ -322,9 +322,3 @@ msgstr "Паказаць пераключальнікі"
 #: src/mixer-view.gob:259 mixer-view.gob:259
 msgid "Hide Switches"
 msgstr "Схаваць пераключальнікі"
-
-#~ msgid "%s - Info"
-#~ msgstr "%s - зьвесткі"
-
-#~ msgid "%s - Profiles"
-#~ msgstr "%s - профілі"

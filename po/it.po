@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.2.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-03-12 10:07+0100\n"
+"POT-Creation-Date: 2005-09-26 12:06+0900\n"
 "PO-Revision-Date: 2005-08-21 15:07+0900\n"
 "Last-Translator: Alex Dupre <ale@FreeBSD.org>\n"
 "Language-Team: GUFI <traduzioni@gufi.org>\n"
@@ -132,12 +132,12 @@ msgid "alsa: Mixer attach %s error: %s\n"
 msgstr "alsa: Errore di connessione mixer %s: %s\n"
 
 #: lib/vc_alsa.c:107
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "alsa: Mixer register error: %s\n"
 msgstr "alsa: Errore di registrazione mixer: %s\n"
 
 #: lib/vc_alsa.c:116
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "alsa: Mixer load error: %s: %s\n"
 msgstr "alsa: Errore di caricamento mixer: %s: %s\n"
 

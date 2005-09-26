@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: es\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-03-12 10:07+0100\n"
+"POT-Creation-Date: 2005-09-26 12:06+0900\n"
 "PO-Revision-Date: 2005-03-20 22:12+0100\n"
 "Last-Translator: Piarres Beobide Egaña <pi@beobide.net>\n"
 "Language-Team: Euskara <librezale@librezale.org>\n"
@@ -322,18 +322,3 @@ msgstr "Konmutadoreak Bistarazi"
 #: src/mixer-view.gob:259 mixer-view.gob:259
 msgid "Hide Switches"
 msgstr "Konmutadoreak Ezkutatu"
-
-#~ msgid "/View/sep"
-#~ msgstr "/Ikusi/sep"
-
-#~ msgid "%s - Info"
-#~ msgstr "%s - Argibidea"
-
-#~ msgid "%s - Profiles"
-#~ msgstr "%s - Profilak"
-
-#~ msgid "Use _internal mixer"
-#~ msgstr "Erabili _barne nahaslea"
-
-#~ msgid "Visible"
-#~ msgstr "Ikusgai"

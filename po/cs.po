@@ -134,7 +134,7 @@ msgid "alsa: Mixer attach %s error: %s\n"
 msgstr "alsa: Chyba %s při připojení mixéru: %s\n"
 
 #: lib/vc_alsa.c:107
-#, c-format, fuzzy
+#, fuzzy, c-format
 msgid "alsa: Mixer register error: %s\n"
 msgstr "alsa: Chyba %s při registraci mixéru: %s\n"
 
@@ -323,4 +323,3 @@ msgstr "Zobrazit přepínače"
 #: src/mixer-view.gob:259 mixer-view.gob:259
 msgid "Hide Switches"
 msgstr "Skrýt přepínače"
-

@@ -6,7 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.2\n"
-"POT-Creation-Date: 2005-01-10 17:30+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-09-26 12:06+0900\n"
 "PO-Revision-Date: 2005-08-02 23:36+0200\n"
 "Last-Translator: Petri Jooste <petri.jooste@gmail.com>\n"
 "Language-Team: Afrikaans\n"
@@ -14,7 +15,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Report-Msgid-Bugs-To: \n"
 "X-Generator: KBabel 1.10\n"
 
 #: lib/trans.c:6
@@ -219,7 +219,8 @@ msgid ""
 "No warranty in any way."
 msgstr ""
 "This is die xfce4-menger, 'n volumebeheerprogram.\n"
-"Dit word vrygestel onder die GPL-2 Lisensie wat te kry is in die source-gids.\n"
+"Dit word vrygestel onder die GPL-2 Lisensie wat te kry is in die source-"
+"gids.\n"
 "Geen waarborg op enige manier nie."
 
 #: src/mixer-profilebox-detail.gob:163 mixer-profilebox-detail.gob:163
@@ -322,4 +323,3 @@ msgstr "Wys skakelaars"
 #: src/mixer-view.gob:259 mixer-view.gob:259
 msgid "Hide Switches"
 msgstr "Versteek skakelaars"
-

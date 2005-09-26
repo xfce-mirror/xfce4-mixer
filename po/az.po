@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: az\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-03-12 10:07+0100\n"
+"POT-Creation-Date: 2005-09-26 12:06+0900\n"
 "PO-Revision-Date: 2003-12-15 17:21+0200\n"
 "Last-Translator: Mətin Əmirov <metin@karegen.com>\n"
 "Language-Team: Azerbaijani Turkish <gnome@azitt.com>\n"
@@ -321,9 +321,3 @@ msgstr ""
 #: src/mixer-view.gob:259 mixer-view.gob:259
 msgid "Hide Switches"
 msgstr ""
-
-#~ msgid "Use _internal mixer"
-#~ msgstr "_Daxili mikseri işlət"
-
-#~ msgid "Visible"
-#~ msgstr "Görünən"

@@ -71,4 +71,3 @@ msgstr "பார்வை"
 #: panel-plugin/mvisible_opts.c:84
 msgid "Control"
 msgstr "கட்டுப்பாடு"
-

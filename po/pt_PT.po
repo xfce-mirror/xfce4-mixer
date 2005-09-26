@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-03-12 10:07+0100\n"
+"POT-Creation-Date: 2005-09-26 12:06+0900\n"
 "PO-Revision-Date: 2004-10-09 21:49+0100\n"
 "Last-Translator: Nuno Donato <nunodonato@gmail.com>\n"
 "Language-Team: Portuguese <pt@li.org>\n"
@@ -321,15 +321,3 @@ msgstr "Mostrar Controlos"
 #: src/mixer-view.gob:259 mixer-view.gob:259
 msgid "Hide Switches"
 msgstr "Esconder Controlos"
-
-#~ msgid "%s - Info"
-#~ msgstr "%s - Informação"
-
-#~ msgid "%s - Profiles"
-#~ msgstr "%s - Perfis"
-
-#~ msgid "Use _internal mixer"
-#~ msgstr "Usar misturador interno"
-
-#~ msgid "Visible"
-#~ msgstr "Vísivel"

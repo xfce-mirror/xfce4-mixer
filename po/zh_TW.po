@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-03-12 10:07+0100\n"
+"POT-Creation-Date: 2005-09-26 12:06+0900\n"
 "PO-Revision-Date: 2003-08-29 21:14+0800\n"
 "Last-Translator: Ambrose Li <acli@ada.dhs.org>\n"
 "Language-Team:  <>\n"
@@ -323,15 +323,3 @@ msgstr "顯示開關掣"
 #: src/mixer-view.gob:259 mixer-view.gob:259
 msgid "Hide Switches"
 msgstr "隱藏開關掣"
-
-#~ msgid "%s - Info"
-#~ msgstr "%s - 資訊"
-
-#~ msgid "%s - Profiles"
-#~ msgstr "%s - 記憶設定檔"
-
-#~ msgid "Use _internal mixer"
-#~ msgstr "使用內建混頻器(_I)"
-
-#~ msgid "Visible"
-#~ msgstr "可見的"

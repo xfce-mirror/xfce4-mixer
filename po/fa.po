@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer-fa\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-03-12 10:07+0100\n"
+"POT-Creation-Date: 2005-09-26 12:06+0900\n"
 "PO-Revision-Date: 2004-09-28 20:08+0330\n"
 "Last-Translator: Abbas Izad <abbasizad@hotmail.com>\n"
 "Language-Team: Persian\n"
@@ -324,9 +324,3 @@ msgstr "نشان دادن سوئیچ‌ها"
 #: src/mixer-view.gob:259 mixer-view.gob:259
 msgid "Hide Switches"
 msgstr "پنهان کردن سوئیچ‌ها"
-
-#~ msgid "%s - Info"
-#~ msgstr "%s - اطلاعات"
-
-#~ msgid "%s - Profiles"
-#~ msgstr "%s - نمایه‌ها"
