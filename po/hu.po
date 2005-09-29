@@ -1,17 +1,17 @@
-# translation of hu.po to Hungarian
-# Hungarian translations for xfce package.
-# Copyright (C) 2003 THE xfce'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the xfce package.
+# Hungarian translations for xfce4-mixer package.
+# Copyright (C) 2003-2005 The Xfce development team.
+# This file is distributed under the same license as the xfce4-mixer package.
 # Somogyi Peter <jerry@gnu>, 2003.
 # Egmont Koblinger <egmont@uhulinux.hu>, 2003
 # Servitore <sas@321 uh:))>, 2004
+# SZERVÁC Attila <sas@321.hu>, 2005.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: hu\n"
+"Project-Id-Version: xfce4-mixer 4.2.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-09-26 12:06+0900\n"
-"PO-Revision-Date: 2005-03-10 10:57+0100\n"
+"POT-Creation-Date: 2005-09-29 13:15+0900\n"
+"PO-Revision-Date: 2005-09-29 13:08+0900\n"
 "Last-Translator: SZERVÁC Attila <sas@321.hu>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
 "MIME-Version: 1.0\n"

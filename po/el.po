@@ -1,15 +1,14 @@
-# translation of el_GR.po to Ελληνικά
 # translation of xfce4-mixer.po to Ελληνικά
+# Copyright (C) 2003-2005 The Xfce development team.
 # This file is distributed under the same license as the xfce4-mixer package.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
 # Stavros Giannouris <StavrosG2002@freemail.gr>, 2005.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: el_GR\n"
+"Project-Id-Version: xfce4-mixer 4.2.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-09-26 12:06+0900\n"
-"PO-Revision-Date: 2005-04-10 20:36+0200\n"
+"POT-Creation-Date: 2005-09-29 13:15+0900\n"
+"PO-Revision-Date: 2005-09-29 13:03+0900\n"
 "Last-Translator: Stavros Giannouris <stavrosg2002@freemail.gr>\n"
 "Language-Team: Ελληνικά\n"
 "MIME-Version: 1.0\n"

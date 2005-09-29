@@ -1,15 +1,14 @@
-# translation of cs.po to Czech
-# translation of xfce4-mixer.po to Czech
-# This file is distributed under the same license as the xfce4-mixer package.
+# Czech translations for xfce4-mixer package.
 # Copyright (C) 2003-2005 The Xfce development team.
+# This file is distributed under the same license as the xfce4-mixer package.
 # Alois Nespor <Alois.Nespor@seznam.cz>, 2005.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-mixer 4.2.2\n"
+"Project-Id-Version: xfce4-mixer 4.2.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-03-12 10:07+0100\n"
-"PO-Revision-Date: 2005-08-19 23:40+0900\n"
+"POT-Creation-Date: 2005-09-29 13:15+0900\n"
+"PO-Revision-Date: 2005-09-29 13:02+0900\n"
 "Last-Translator: Alois Nespor <Alois.Nespor@seznam.cz>\n"
 "Language-Team: Czech <translation-team-cs@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -149,7 +148,6 @@ msgid "alsa: Unable to find simple control '%s',%i\n"
 msgstr "alsa: Není možné najít ovladač '%s',%i\n"
 
 #: lib/vc_oss.c:138
-#, c-format
 msgid "oss: No master volume"
 msgstr "oss: Žádný hlavní ovladač hlasitosti"
 

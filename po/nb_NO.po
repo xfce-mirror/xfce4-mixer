@@ -5,9 +5,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-mixer 4.2.2\n"
+"Project-Id-Version: xfce4-mixer 4.2.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-09-26 12:06+0900\n"
+"POT-Creation-Date: 2005-09-29 13:15+0900\n"
 "PO-Revision-Date: 2005-08-19 23:50+0900\n"
 "Last-Translator: Eskild Hustvedt <zerodogg@skolelinux.no>\n"
 "Language-Team: Norwegian Bokmal <i18n-nb@lister.ping.uio.no>\n"

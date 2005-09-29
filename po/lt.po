@@ -1,16 +1,15 @@
-# Lithuania translation of xfce-mixer
-# Copyright (C) 2003 Free Software Foundation, Inc.
-# This file is distributed under the same license as the xfce-mixer package.
+# Lithuania translation of xfce4-mixer.
+# Copyright (C) 2003-2005 The Xfce development team.
+# This file is distributed under the same license as the xfce4-mixer package.
 # Mantas <zaz@xxx.lt>, 2003 - 2004.
 # Rimas Kudelis <rq@akl.lt>, 2005.
-# 
-# 
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-mixer 4.2\n"
+"Project-Id-Version: xfce4-mixer 4.2.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-09-26 12:06+0900\n"
-"PO-Revision-Date: 2005-01-18 00:51+0200\n"
+"POT-Creation-Date: 2005-09-29 13:15+0900\n"
+"PO-Revision-Date: 2005-09-29 13:11+0900\n"
 "Last-Translator: Rimas Kudelis <rq@akl.lt>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
 "MIME-Version: 1.0\n"
