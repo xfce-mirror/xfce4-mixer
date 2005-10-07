@@ -1,220 +1,220 @@
 # Korean translations for xfce4-mixer package.
-# Copyright (C) 2002-2005 The Xfce development team
+# Copyright (C) 2003-2005 The Xfce development team.
 # This file is distributed under the same license as the xfce4-mixer package.
 # ByungHyun Choi <byunghyun.choi@gmail.com>, 2005.
 #
-#
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-mixer trunk\n"
+"Project-Id-Version: xfce4-mixer 4.3.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-12-11 18:32+0100\n"
-"PO-Revision-Date: 2005-07-02 00:25:02+0900\n"
-"Last-Translator: ByunHyun Choi<byunghyun.choi@gmail.com>\n"
-"Language-Team: xfce4-users-kr-i18n <xfce4-users-kr-i18n@lists.sourceforge.net>\n"
+"POT-Creation-Date: 2005-10-08 08:35+0900\n"
+"PO-Revision-Date: 2005-10-08 08:28+0900\n"
+"Last-Translator: ByunHyun Choi <byunghyun.choi@gmail.com>\n"
+"Language-Team: xfce4-users-kr-i18n <xfce4-users-kr-i18n@lists.sourceforge."
+"net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: lib/trans.c:6
+#: ../lib/trans.c:6
 msgid "Vol"
 msgstr "통합 볼륨"
 
 #. Master
-#: lib/trans.c:7
+#: ../lib/trans.c:7
 msgid "Pcm"
 msgstr "PCM"
 
 #. PCM output
-#: lib/trans.c:8
+#: ../lib/trans.c:8
 msgid "Spkr"
 msgstr "스피커"
 
 #. Internal speaker?
-#: lib/trans.c:9
+#: ../lib/trans.c:9
 msgid "Line"
 msgstr "라인입력"
 
 #. Line in
-#: lib/trans.c:10
+#: ../lib/trans.c:10
 msgid "Mic"
 msgstr "마이크"
 
 #. Mic in
-#: lib/trans.c:11
+#: ../lib/trans.c:11
 msgid "CD"
 msgstr "CD"
 
 #. CD in
-#: lib/trans.c:12
+#: ../lib/trans.c:12
 msgid "Bass"
 msgstr "저음부"
 
-#: lib/trans.c:13
+#: ../lib/trans.c:13
 msgid "Trebl"
 msgstr "고음부"
 
-#: lib/trans.c:14
+#: ../lib/trans.c:14
 msgid "Synth"
 msgstr "합성음"
 
-#: lib/trans.c:15
+#: ../lib/trans.c:15
 msgid "Mix"
 msgstr "믹서"
 
-#: lib/trans.c:16
+#: ../lib/trans.c:16
 msgid "Pcm2"
 msgstr "PCM2"
 
-#: lib/trans.c:17
+#: ../lib/trans.c:17
 msgid "Rec"
 msgstr "녹음"
 
-#: lib/trans.c:18
+#: ../lib/trans.c:18
 msgid "IGain"
 msgstr "입력 가중치"
 
-#: lib/trans.c:19
+#: ../lib/trans.c:19
 msgid "OGain"
 msgstr "출력 가중치"
 
-#: lib/trans.c:20
+#: ../lib/trans.c:20
 msgid "Line1"
 msgstr "라인1"
 
-#: lib/trans.c:21
+#: ../lib/trans.c:21
 msgid "Line2"
 msgstr "라인2"
 
-#: lib/trans.c:22
+#: ../lib/trans.c:22
 msgid "Line3"
 msgstr "라인3"
 
-#: lib/trans.c:23
+#: ../lib/trans.c:23
 msgid "Digital1"
 msgstr "디지털1"
 
-#: lib/trans.c:24
+#: ../lib/trans.c:24
 msgid "Digital2"
 msgstr "디지털2"
 
-#: lib/trans.c:25
+#: ../lib/trans.c:25
 msgid "Digital3"
 msgstr "디지털3"
 
-#: lib/trans.c:26
+#: ../lib/trans.c:26
 msgid "PhoneIn"
 msgstr "음성입력"
 
-#: lib/trans.c:27
+#: ../lib/trans.c:27
 msgid "PhoneOut"
 msgstr "음성출력"
 
-#: lib/trans.c:28
+#: ../lib/trans.c:28
 msgid "Video"
 msgstr "비디오"
 
-#: lib/trans.c:29
+#: ../lib/trans.c:29
 msgid "Radio"
 msgstr "라디오"
 
-#: lib/trans.c:30
+#: ../lib/trans.c:30
 msgid "Monitor"
 msgstr "감시"
 
-#: lib/vc_alsa.c:94
+#: ../lib/trans.c:31
+msgid "RecSelect"
+msgstr ""
+
+#: ../lib/vc_alsa.c:94
 #, c-format
 msgid "alsa: Mixer %s open error: %s\n"
 msgstr "alsa: 믹서 %s 열기 오류 : %s\n"
 
-#: lib/vc_alsa.c:99
+#: ../lib/vc_alsa.c:99
 #, c-format
 msgid "alsa: Mixer attach %s error: %s\n"
 msgstr "alsa: 믹서 추가 %s 오류 : %s\n"
 
-#: lib/vc_alsa.c:107
+#: ../lib/vc_alsa.c:107
 #, c-format
 msgid "alsa: Mixer register error: %s\n"
 msgstr "alsa: 믹서 등록 오류 : %s\n"
 
-#: lib/vc_alsa.c:116
+#: ../lib/vc_alsa.c:116
 #, c-format
 msgid "alsa: Mixer load error: %s: %s\n"
 msgstr "alsa: 믹서 로드 오류 : %s: %s\n"
 
-#: lib/vc_alsa.c:126
+#: ../lib/vc_alsa.c:126
 #, c-format
 msgid "alsa: Unable to find simple control '%s',%i\n"
 msgstr "alsa: 단순 제어장치 '%s'를(을) 찾을 수 없습니다.: %i\n"
 
-#: lib/vc_oss.c:138
+#: ../lib/vc_oss.c:158
 msgid "oss: No master volume"
 msgstr "oss: 주 볼륨 장치가 없습니다."
 
-#: panel-plugin/plugin.c:95
+#: ../panel-plugin/plugin.c:82
+msgid "Could not save configuration"
+msgstr ""
+
+#: ../panel-plugin/plugin.c:272
 #, c-format
 msgid "Volume: %d%%"
 msgstr "볼륨: %d%%"
 
-#: panel-plugin/plugin.c:384 src/mixer-window.gob:188 mixer-window.gob:188
-msgid "Volume Control"
-msgstr "볼륨 제어"
-
-#: settings/mixer-settingsbox.gob:99 mixer-settingsbox.gob:99
+#: ../settings/mixer-settingsbox.gob:120 mixer-settingsbox.gob:120
 msgid "Device"
 msgstr "장치"
 
-#: settings/mixer-settingsbox.gob:102 mixer-settingsbox.gob:102
+#: ../settings/mixer-settingsbox.gob:123 mixer-settingsbox.gob:123
 msgid "None"
 msgstr "없음"
 
 #. gtk_widget_show (GTK_WIDGET (self->dev_label));
 #. debug_bindtextdomain();
-#: settings/mixer-settingsbox.gob:107 mixer-settingsbox.gob:107
+#: ../settings/mixer-settingsbox.gob:128 mixer-settingsbox.gob:128
 msgid "Useful Controls"
 msgstr "볼륨 제어"
 
-#: settings/sound.c:80 settings/sound.c:100 settings/sound.c:107
+#: ../settings/sound.c:80 ../settings/sound.c:100 ../settings/sound.c:107
 msgid "Sound"
 msgstr "소리"
 
-#: src/main.c:77
+#: ../src/main.c:95
 msgid "No working sound"
 msgstr "사운드 장치를 찾을 수 없습니다."
 
-#: src/menus.c:12
+#: ../src/menus.c:12
 msgid "/_File"
 msgstr "/화일(_F)"
 
-#: src/menus.c:13
+#: ../src/menus.c:13
 msgid "/File/_Options"
 msgstr "/화일/선택사항(_O)"
 
-#: src/menus.c:14
+#: ../src/menus.c:14
 msgid "/File/_Exit"
 msgstr "/화일/종료(_E)"
 
-#: src/menus.c:15
+#: ../src/menus.c:15
 msgid "/_View"
 msgstr "/보기(_V)"
 
-#: src/menus.c:16
-msgid "/View/sep"
-msgstr "/보기/분리"
-
-#: src/menus.c:17
+#: ../src/menus.c:16
 msgid "/View/_Manage"
 msgstr "/보기/관리(_M)"
 
-#: src/menus.c:18
+#: ../src/menus.c:17
 msgid "/_Help"
 msgstr "/도움말(_H)"
 
-#: src/menus.c:19
+#: ../src/menus.c:18
 msgid "/Help/_Info"
 msgstr "/도움말/정보(_I)"
 
-#: src/mixer-info.gob:28 mixer-info.gob:28
+#: ../src/mixer-info.gob:28 mixer-info.gob:28
 msgid ""
 "This is xfce4-mixer, a volume control program.\n"
 "It is released under the GPL-2 License which you find in the source "
@@ -225,103 +225,119 @@ msgstr ""
 "GPL-2 라이선스로 배포되며, 라이선스는 소스 디렉토리에 있습니다.\n"
 "어찌 되었건 보증은 못 합니다."
 
-#: src/mixer-profilebox-detail.gob:163 mixer-profilebox-detail.gob:163
+#: ../src/mixer-profilebox-detail.gob:163 mixer-profilebox-detail.gob:163
 msgid "Control"
 msgstr "볼륨 제어"
 
-#: src/mixer-profilebox-detail.gob:166 mixer-profilebox-detail.gob:166
+#: ../src/mixer-profilebox-detail.gob:166 mixer-profilebox-detail.gob:166
 msgid "Type"
 msgstr "종류"
 
-#: src/mixer-profilebox-detail.gob:178 mixer-profilebox-detail.gob:178
+#: ../src/mixer-profilebox-detail.gob:178 mixer-profilebox-detail.gob:178
 msgid "Up"
 msgstr "위로"
 
-#: src/mixer-profilebox-detail.gob:181 mixer-profilebox-detail.gob:181
+#: ../src/mixer-profilebox-detail.gob:181 mixer-profilebox-detail.gob:181
 msgid "Down"
 msgstr "아래로"
 
-#: src/mixer-profilebox-detail.gob:188 mixer-profilebox-detail.gob:188
+#: ../src/mixer-profilebox-detail.gob:188 mixer-profilebox-detail.gob:188
 msgid "Move Entry Up"
 msgstr "위로 보냅니다."
 
-#: src/mixer-profilebox-detail.gob:191 mixer-profilebox-detail.gob:191
+#: ../src/mixer-profilebox-detail.gob:191 mixer-profilebox-detail.gob:191
 msgid "Move Entry Down"
 msgstr "아래로 보냅니다."
 
-#: src/mixer-profilebox-detail.gob:200 mixer-profilebox-detail.gob:200
+#: ../src/mixer-profilebox-detail.gob:200 mixer-profilebox-detail.gob:200
 msgid "Profile Name:"
 msgstr "프로파일 이름:"
 
-#: src/mixer-profilebox-detail.gob:382 src/mixer-profilebox-detail.gob:447
-#: mixer-profilebox-detail.gob:382 mixer-profilebox-detail.gob:447
+#: ../src/mixer-profilebox-detail.gob:382
+#: ../src/mixer-profilebox-detail.gob:447 mixer-profilebox-detail.gob:382
+#: mixer-profilebox-detail.gob:447
 msgid "<unknown>"
 msgstr "<모름>"
 
-#: src/mixer-profilebox-detail.gob:384 src/mixer-profilebox-detail.gob:449
-#: mixer-profilebox-detail.gob:384 mixer-profilebox-detail.gob:449
+#: ../src/mixer-profilebox-detail.gob:384
+#: ../src/mixer-profilebox-detail.gob:449 mixer-profilebox-detail.gob:384
+#: mixer-profilebox-detail.gob:449
 msgid "<slider>"
 msgstr "<막대기>"
 
-#: src/mixer-profilebox-detail.gob:385 src/mixer-profilebox-detail.gob:450
-#: mixer-profilebox-detail.gob:385 mixer-profilebox-detail.gob:450
+#: ../src/mixer-profilebox-detail.gob:385
+#: ../src/mixer-profilebox-detail.gob:450 mixer-profilebox-detail.gob:385
+#: mixer-profilebox-detail.gob:450
 msgid "<onoff>"
 msgstr "<켜고 끔>"
 
-#: src/mixer-profilebox-detail.gob:386 src/mixer-profilebox-detail.gob:451
-#: mixer-profilebox-detail.gob:386 mixer-profilebox-detail.gob:451
+#: ../src/mixer-profilebox-detail.gob:386
+#: ../src/mixer-profilebox-detail.gob:451 mixer-profilebox-detail.gob:386
+#: mixer-profilebox-detail.gob:451
 msgid "<select>"
 msgstr "<선택>"
 
-#: src/mixer-profilebox.gob:88 mixer-profilebox.gob:88
+#: ../src/mixer-profilebox.gob:88 mixer-profilebox.gob:88
 msgid "Device:"
 msgstr "장치:"
 
-#: src/mixer-profilebox.gob:142 mixer-profilebox.gob:142
+#: ../src/mixer-profilebox.gob:142 mixer-profilebox.gob:142
 msgid "Create new profile"
 msgstr "새로운 프로파일을 작성합니다."
 
-#: src/mixer-profilebox.gob:151 mixer-profilebox.gob:151
+#: ../src/mixer-profilebox.gob:151 mixer-profilebox.gob:151
 msgid "Delete this profile"
 msgstr "이 프로파일을 지웁니다."
 
-#: src/mixer-profilebox.gob:170 mixer-profilebox.gob:170
+#: ../src/mixer-profilebox.gob:170 mixer-profilebox.gob:170
 msgid "Profile"
 msgstr "프로파일"
 
-#: src/mixer-profilebox.gob:374 mixer-profilebox.gob:374
+#: ../src/mixer-profilebox.gob:374 mixer-profilebox.gob:374
 #, c-format
 msgid "Really delete those %d profiles?"
 msgstr "진정으로 프로파일 %d개를 지울겁니까?"
 
-#: src/mixer-profilebox.gob:377 mixer-profilebox.gob:377
+#: ../src/mixer-profilebox.gob:377 mixer-profilebox.gob:377
 #, c-format
 msgid "Really delete profile \"%s\"?"
 msgstr "정말로 \"%s\"라는 프로파일을 지울겁니까?"
 
-#: src/mixer-profilebox.gob:491 mixer-profilebox.gob:491
+#: ../src/mixer-profilebox.gob:491 mixer-profilebox.gob:491
 #, c-format
 msgid "%s - New"
 msgstr "새로운 - %s"
 
-#: src/mixer-profilebox.gob:528 mixer-profilebox.gob:528
+#: ../src/mixer-profilebox.gob:528 mixer-profilebox.gob:528
 msgid "A profile needs a name"
 msgstr "프로파일에 이름을 지어 주십시오."
 
-#: src/mixer-profilebox.gob:542 mixer-profilebox.gob:542
+#: ../src/mixer-profilebox.gob:542 mixer-profilebox.gob:542
 msgid "A profile with that name already exists"
 msgstr "그 이름... 벌써 사용하고 있습니다."
 
-#: src/mixer-profiles.gob:262 src/mixer-profiles.gob:269
+#: ../src/mixer-profiles.gob:262 ../src/mixer-profiles.gob:269
 #: mixer-profiles.gob:262 mixer-profiles.gob:269
 #, c-format
 msgid "profile%d"
 msgstr "프로파일%d"
 
-#: src/mixer-view.gob:258 mixer-view.gob:258
+#: ../src/mixer-view.gob:259 mixer-view.gob:259
 msgid "Show Switches"
 msgstr "스위치 보이기"
 
-#: src/mixer-view.gob:259 mixer-view.gob:259
+#: ../src/mixer-view.gob:260 mixer-view.gob:260
 msgid "Hide Switches"
 msgstr "스위치 숨기기"
+
+#: ../src/mixer-window.gob:188 mixer-window.gob:188
+msgid "Volume Control"
+msgstr "볼륨 제어"
+
+#: ../settings/xfce-mixer-settings.desktop.in.h:1
+msgid "Mixer Settings"
+msgstr ""
+
+#: ../settings/xfce-mixer-settings.desktop.in.h:2
+msgid "Xfce 4 Mixer Settings"
+msgstr ""

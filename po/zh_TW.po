@@ -1,221 +1,223 @@
-# Copyright (C) 2003 THE PACKAGE'S COPYRIGHT HOLDER
+# Traditional Chinese translations for xfce4-mixer package.
+# Copyright (C) 2003-2005 The Xfce development team.
 # This file is distributed under the same license as the xfce4-mixer package.
 # umm <umm@pchome.com.tw>, 2003.
 # Ambrose Li <acli@ada.dhs.org>, 2004.
-# Hydonsingore Cia <hydonsingore@mail.educities.edu.tw>
+# Hydonsingore Cia <hydonsingore@mail.educities.edu.tw>, 2005.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-mixer\n"
+"Project-Id-Version: xfce4-mixer 4.3.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-11-22 21:44+0100\n"
-"PO-Revision-Date: 2005-06-30 15:47+0800\n"
+"POT-Creation-Date: 2005-10-08 08:35+0900\n"
+"PO-Revision-Date: 2005-10-08 08:41+0900\n"
 "Last-Translator: Hydonsingore Cia <hydonsingore@mail.educities.edu.tw>\n"
-"Language-Team:  <>\n"
+"Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: lib/trans.c:6
+#: ../lib/trans.c:6
 msgid "Vol"
 msgstr "音量"
 
 #. Master
-#: lib/trans.c:7
+#: ../lib/trans.c:7
 msgid "Pcm"
 msgstr "PCM"
 
 #. PCM output
-#: lib/trans.c:8
+#: ../lib/trans.c:8
 msgid "Spkr"
 msgstr "揚聲器"
 
 #. Internal speaker?
-#: lib/trans.c:9
+#: ../lib/trans.c:9
 msgid "Line"
 msgstr "Line"
 
 #. Line in
-#: lib/trans.c:10
+#: ../lib/trans.c:10
 msgid "Mic"
 msgstr "麥克風"
 
 #. Mic in
-#: lib/trans.c:11
+#: ../lib/trans.c:11
 msgid "CD"
 msgstr "CD"
 
 #. CD in
-#: lib/trans.c:12
+#: ../lib/trans.c:12
 msgid "Bass"
 msgstr "低音"
 
-#: lib/trans.c:13
+#: ../lib/trans.c:13
 msgid "Trebl"
 msgstr "高音"
 
-#: lib/trans.c:14
+#: ../lib/trans.c:14
 msgid "Synth"
 msgstr "合成器"
 
-#: lib/trans.c:15
+#: ../lib/trans.c:15
 msgid "Mix"
 msgstr "混音"
 
-#: lib/trans.c:16
+#: ../lib/trans.c:16
 msgid "Pcm2"
 msgstr "PCM2"
 
-#: lib/trans.c:17
+#: ../lib/trans.c:17
 msgid "Rec"
 msgstr "錄音"
 
 # NOTE 參見http://www.rolandtaiwan.com.tw/MI/glossary/i.htm
-#: lib/trans.c:18
+#: ../lib/trans.c:18
 msgid "IGain"
 msgstr "輸入感度"
 
-#: lib/trans.c:19
+#: ../lib/trans.c:19
 msgid "OGain"
 msgstr "輸出感度"
 
-#: lib/trans.c:20
+#: ../lib/trans.c:20
 msgid "Line1"
 msgstr "Line1"
 
-#: lib/trans.c:21
+#: ../lib/trans.c:21
 msgid "Line2"
 msgstr "Line2"
 
-#: lib/trans.c:22
+#: ../lib/trans.c:22
 msgid "Line3"
 msgstr "Line3"
 
-#: lib/trans.c:23
+#: ../lib/trans.c:23
 msgid "Digital1"
 msgstr "數碼1"
 
-#: lib/trans.c:24
+#: ../lib/trans.c:24
 msgid "Digital2"
 msgstr "數碼2"
 
-#: lib/trans.c:25
+#: ../lib/trans.c:25
 msgid "Digital3"
 msgstr "數碼3"
 
-#: lib/trans.c:26
+#: ../lib/trans.c:26
 msgid "PhoneIn"
 msgstr "Phone輸入"
 
-#: lib/trans.c:27
+#: ../lib/trans.c:27
 msgid "PhoneOut"
 msgstr "Phone輸出"
 
-#: lib/trans.c:28
+#: ../lib/trans.c:28
 msgid "Video"
 msgstr "視訊"
 
-#: lib/trans.c:29
+#: ../lib/trans.c:29
 msgid "Radio"
 msgstr "收音機"
 
-#: lib/trans.c:30
+#: ../lib/trans.c:30
 msgid "Monitor"
 msgstr "顯示器"
 
-#: lib/vc_alsa.c:94
+#: ../lib/trans.c:31
+msgid "RecSelect"
+msgstr ""
+
+#: ../lib/vc_alsa.c:94
 #, c-format
 msgid "alsa: Mixer %s open error: %s\n"
 msgstr "alsa: 混頻器 %s 開啟錯誤： %s\n"
 
-#: lib/vc_alsa.c:99
+#: ../lib/vc_alsa.c:99
 #, c-format
 msgid "alsa: Mixer attach %s error: %s\n"
 msgstr "alsa: 混頻器連接至 %s 途中發生錯誤：%s\n"
 
-#: lib/vc_alsa.c:107
+#: ../lib/vc_alsa.c:107
 #, c-format
 msgid "alsa: Mixer register error: %s\n"
 msgstr "alsa: 混頻器註冊錯誤：%s\n"
 
-#: lib/vc_alsa.c:116
+#: ../lib/vc_alsa.c:116
 #, c-format
 msgid "alsa: Mixer load error: %s: %s\n"
 msgstr "alsa: 混頻器載入錯誤：%s：%s\n"
 
-#: lib/vc_alsa.c:126
+#: ../lib/vc_alsa.c:126
 #, c-format
 msgid "alsa: Unable to find simple control '%s',%i\n"
 msgstr "alsa: 未找到初級控制器 '%s',%i\n"
 
-#: lib/vc_oss.c:131
+#: ../lib/vc_oss.c:158
 msgid "oss: No master volume"
 msgstr "oss: 沒有主控制器"
 
-#: panel-plugin/plugin.c:95
+#: ../panel-plugin/plugin.c:82
+msgid "Could not save configuration"
+msgstr ""
+
+#: ../panel-plugin/plugin.c:272
 #, c-format
 msgid "Volume: %d%%"
 msgstr "音量：%d%%"
 
-#: panel-plugin/plugin.c:384 src/mixer-window.gob:188 mixer-window.gob:188
-msgid "Volume Control"
-msgstr "音量控制"
-
-#: settings/mixer-settingsbox.gob:102 mixer-settingsbox.gob:102
+#: ../settings/mixer-settingsbox.gob:120 mixer-settingsbox.gob:120
 msgid "Device"
 msgstr "裝置"
 
-#: settings/mixer-settingsbox.gob:105 mixer-settingsbox.gob:105
+#: ../settings/mixer-settingsbox.gob:123 mixer-settingsbox.gob:123
 msgid "None"
 msgstr "無"
 
 # NOTE 這個表示「那些控制器是使用者認為有用的」之意
 #. gtk_widget_show (GTK_WIDGET (self->dev_label));
-#: settings/mixer-settingsbox.gob:108 mixer-settingsbox.gob:108
+#. debug_bindtextdomain();
+#: ../settings/mixer-settingsbox.gob:128 mixer-settingsbox.gob:128
 msgid "Useful Controls"
 msgstr "可用的控制器"
 
-#: settings/sound.c:80 settings/sound.c:102 settings/sound.c:109
+#: ../settings/sound.c:80 ../settings/sound.c:100 ../settings/sound.c:107
 msgid "Sound"
 msgstr "聲音"
 
-#: src/main.c:77
+#: ../src/main.c:95
 msgid "No working sound"
 msgstr "音效卡運作不正常"
 
-#: src/menus.c:9
+#: ../src/menus.c:12
 msgid "/_File"
 msgstr "/檔案(_F)"
 
-#: src/menus.c:10
+#: ../src/menus.c:13
 msgid "/File/_Options"
 msgstr "/檔案/選項(_O)"
 
-#: src/menus.c:11
+#: ../src/menus.c:14
 msgid "/File/_Exit"
 msgstr "/檔案/離開(_E)"
 
-#: src/menus.c:12
+#: ../src/menus.c:15
 msgid "/_View"
 msgstr "/檢視(_V)"
 
-#: src/menus.c:13
-msgid "/View/sep"
-msgstr "/檢視/sep"
-
-#: src/menus.c:14
+#: ../src/menus.c:16
 msgid "/View/_Manage"
 msgstr "/檢視/管理(_M)"
 
-#: src/menus.c:15
+#: ../src/menus.c:17
 msgid "/_Help"
 msgstr "/說明(_H)"
 
-#: src/menus.c:16
+#: ../src/menus.c:18
 msgid "/Help/_Info"
 msgstr "/說明/資訊(_I)"
 
-#: src/mixer-info.gob:28 mixer-info.gob:28
+#: ../src/mixer-info.gob:28 mixer-info.gob:28
 msgid ""
 "This is xfce4-mixer, a volume control program.\n"
 "It is released under the GPL-2 License which you find in the source "
@@ -226,111 +228,119 @@ msgstr ""
 "授權乃按照 GPL 第2版發放，授權書可在含原始碼的目錄找到。\n"
 "xfce4-mixer 不提供任何保證。"
 
-#: src/mixer-profilebox-detail.gob:163 mixer-profilebox-detail.gob:163
+#: ../src/mixer-profilebox-detail.gob:163 mixer-profilebox-detail.gob:163
 msgid "Control"
 msgstr "控制器"
 
-#: src/mixer-profilebox-detail.gob:166 mixer-profilebox-detail.gob:166
+#: ../src/mixer-profilebox-detail.gob:166 mixer-profilebox-detail.gob:166
 msgid "Type"
 msgstr "種類"
 
-#: src/mixer-profilebox-detail.gob:178 mixer-profilebox-detail.gob:178
+#: ../src/mixer-profilebox-detail.gob:178 mixer-profilebox-detail.gob:178
 msgid "Up"
 msgstr "上移"
 
-#: src/mixer-profilebox-detail.gob:181 mixer-profilebox-detail.gob:181
+#: ../src/mixer-profilebox-detail.gob:181 mixer-profilebox-detail.gob:181
 msgid "Down"
 msgstr "下移"
 
-#: src/mixer-profilebox-detail.gob:188 mixer-profilebox-detail.gob:188
+#: ../src/mixer-profilebox-detail.gob:188 mixer-profilebox-detail.gob:188
 msgid "Move Entry Up"
 msgstr "將項目向上移"
 
-#: src/mixer-profilebox-detail.gob:191 mixer-profilebox-detail.gob:191
+#: ../src/mixer-profilebox-detail.gob:191 mixer-profilebox-detail.gob:191
 msgid "Move Entry Down"
 msgstr "將項目向下移"
 
-#: src/mixer-profilebox-detail.gob:200 mixer-profilebox-detail.gob:200
+#: ../src/mixer-profilebox-detail.gob:200 mixer-profilebox-detail.gob:200
 msgid "Profile Name:"
 msgstr "記憶設定檔名稱："
 
-#: src/mixer-profilebox-detail.gob:382 src/mixer-profilebox-detail.gob:447
-#: mixer-profilebox-detail.gob:382 mixer-profilebox-detail.gob:447
+#: ../src/mixer-profilebox-detail.gob:382
+#: ../src/mixer-profilebox-detail.gob:447 mixer-profilebox-detail.gob:382
+#: mixer-profilebox-detail.gob:447
 msgid "<unknown>"
 msgstr "<不明>"
 
-#: src/mixer-profilebox-detail.gob:384 src/mixer-profilebox-detail.gob:449
-#: mixer-profilebox-detail.gob:384 mixer-profilebox-detail.gob:449
+#: ../src/mixer-profilebox-detail.gob:384
+#: ../src/mixer-profilebox-detail.gob:449 mixer-profilebox-detail.gob:384
+#: mixer-profilebox-detail.gob:449
 msgid "<slider>"
 msgstr "<滑塊>"
 
-#: src/mixer-profilebox-detail.gob:385 src/mixer-profilebox-detail.gob:450
-#: mixer-profilebox-detail.gob:385 mixer-profilebox-detail.gob:450
+#: ../src/mixer-profilebox-detail.gob:385
+#: ../src/mixer-profilebox-detail.gob:450 mixer-profilebox-detail.gob:385
+#: mixer-profilebox-detail.gob:450
 msgid "<onoff>"
 msgstr "<開關>"
 
-#: src/mixer-profilebox-detail.gob:386 src/mixer-profilebox-detail.gob:451
-#: mixer-profilebox-detail.gob:386 mixer-profilebox-detail.gob:451
+#: ../src/mixer-profilebox-detail.gob:386
+#: ../src/mixer-profilebox-detail.gob:451 mixer-profilebox-detail.gob:386
+#: mixer-profilebox-detail.gob:451
 msgid "<select>"
 msgstr "<選擇>"
 
-#: src/mixer-profilebox.gob:88 mixer-profilebox.gob:88
+#: ../src/mixer-profilebox.gob:88 mixer-profilebox.gob:88
 msgid "Device:"
 msgstr "裝置："
 
-#: src/mixer-profilebox.gob:142 mixer-profilebox.gob:142
+#: ../src/mixer-profilebox.gob:142 mixer-profilebox.gob:142
 msgid "Create new profile"
 msgstr "建立記憶設定檔"
 
-#: src/mixer-profilebox.gob:151 mixer-profilebox.gob:151
+#: ../src/mixer-profilebox.gob:151 mixer-profilebox.gob:151
 msgid "Delete this profile"
 msgstr "移除記憶設定檔"
 
-#: src/mixer-profilebox.gob:170 mixer-profilebox.gob:170
+#: ../src/mixer-profilebox.gob:170 mixer-profilebox.gob:170
 msgid "Profile"
 msgstr "記憶設定檔"
 
-#: src/mixer-profilebox.gob:374 mixer-profilebox.gob:374
+#: ../src/mixer-profilebox.gob:374 mixer-profilebox.gob:374
 #, c-format
 msgid "Really delete those %d profiles?"
 msgstr "確要移除該 %d 個記憶設定檔？"
 
-#: src/mixer-profilebox.gob:377 mixer-profilebox.gob:377
+#: ../src/mixer-profilebox.gob:377 mixer-profilebox.gob:377
 #, c-format
 msgid "Really delete profile \"%s\"?"
 msgstr "確要移除記憶設定檔「%s」？"
 
-#: src/mixer-profilebox.gob:491 mixer-profilebox.gob:491
+#: ../src/mixer-profilebox.gob:491 mixer-profilebox.gob:491
 #, c-format
 msgid "%s - New"
 msgstr "%s - 新增"
 
-#: src/mixer-profilebox.gob:528 mixer-profilebox.gob:528
+#: ../src/mixer-profilebox.gob:528 mixer-profilebox.gob:528
 msgid "A profile needs a name"
 msgstr "必須為記憶設定檔輸入名稱"
 
-#: src/mixer-profilebox.gob:542 mixer-profilebox.gob:542
+#: ../src/mixer-profilebox.gob:542 mixer-profilebox.gob:542
 msgid "A profile with that name already exists"
 msgstr "已有其他記憶設定檔使用該名稱"
 
-#: src/mixer-profiles.gob:262 src/mixer-profiles.gob:269
+#: ../src/mixer-profiles.gob:262 ../src/mixer-profiles.gob:269
 #: mixer-profiles.gob:262 mixer-profiles.gob:269
 #, c-format
 msgid "profile%d"
 msgstr "記憶設定檔%d"
 
-#: src/mixer-view.gob:258 mixer-view.gob:258
+#: ../src/mixer-view.gob:259 mixer-view.gob:259
 msgid "Show Switches"
 msgstr "顯示開關掣"
 
-#: src/mixer-view.gob:259 mixer-view.gob:259
+#: ../src/mixer-view.gob:260 mixer-view.gob:260
 msgid "Hide Switches"
 msgstr "隱藏開關掣"
 
-#: settings/xfce-mixer-settings.desktop.in:4
-msgid "Xfce 4 Mixer Settings"
-msgstr "Xfce 4 音量控制器設定"
+#: ../src/mixer-window.gob:188 mixer-window.gob:188
+msgid "Volume Control"
+msgstr "音量控制"
 
-#: settings/xfce-mixer-settings.desktop.in:5
+#: ../settings/xfce-mixer-settings.desktop.in.h:1
 msgid "Mixer Settings"
 msgstr "設定音量控制器"
+
+#: ../settings/xfce-mixer-settings.desktop.in.h:2
+msgid "Xfce 4 Mixer Settings"
+msgstr "Xfce 4 音量控制器設定"
