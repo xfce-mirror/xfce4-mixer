@@ -195,7 +195,7 @@ msgstr "/Αρχείο/Έ_ξοδος"
 
 #: src/menus.c:15
 msgid "/_View"
-msgstr "/Προβολή"
+msgstr "/_Προβολή"
 
 #: src/menus.c:16
 msgid "/View/_Manage"
