@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-10-08 08:35+0900\n"
-"PO-Revision-Date: 2005-10-08 08:41+0900\n"
+"PO-Revision-Date: 2005-10-09 14:29+0800\n"
 "Last-Translator: Hydonsingore Cia <hydonsingore@mail.educities.edu.tw>\n"
 "Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>\n"
 "MIME-Version: 1.0\n"
@@ -126,7 +126,7 @@ msgstr "顯示器"
 
 #: ../lib/trans.c:31
 msgid "RecSelect"
-msgstr ""
+msgstr "錄音選擇"
 
 #: ../lib/vc_alsa.c:94
 #, c-format
@@ -159,7 +159,7 @@ msgstr "oss: 沒有主控制器"
 
 #: ../panel-plugin/plugin.c:82
 msgid "Could not save configuration"
-msgstr ""
+msgstr "無法儲存組態設定"
 
 #: ../panel-plugin/plugin.c:272
 #, c-format
