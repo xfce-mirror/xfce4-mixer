@@ -1,7 +1,7 @@
 # translation of Xfce4-mixer to Finnish.
 # Copyright (C) 2003-2005 The Xfce development team.
 # This file is distributed under the same license as the xfce4-mixer package.
-# Juha Kautto <Juha@xfce.org>, 2004.
+# Juha Kautto <juha@xfce.org>, 2004.
 # Jari Rahkonen <jari.rahkonen@pp1.inet.fi>, 2005.
 #
 msgid ""
