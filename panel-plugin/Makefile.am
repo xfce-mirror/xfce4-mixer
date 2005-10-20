@@ -42,7 +42,9 @@ xfce4_mixer_plugin_SOURCES =							\
 			xfce-mixer-pxml-private.h			\
 			xfce-mixer-slider-tiny.c			\
 			xfce-mixer-slider-tiny.h			\
-			xfce-mixer-slider-tiny-private.h
+			xfce-mixer-slider-tiny-private.h                \
+			launcher-entry.c \
+			launcher-entry.h
 
 xfce4_mixer_plugin_CFLAGS =							\
 	-I$(top_srcdir)/include						\
