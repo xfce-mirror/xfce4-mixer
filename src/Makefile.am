@@ -32,7 +32,8 @@ xfce4_mixer_SOURCES = \
 	xfce-mixer-profiles.c xfce-mixer-profiles.h xfce-mixer-profiles-private.h \
 	xfce_sizehook.c xfce_sizehook.h \
 	my-config.c my-config.h \
-	stringlist.inc helpers3.inc msgdlg.inc
+	stringlist.inc helpers3.inc msgdlg.inc \
+	launcher-entry.c launcher-entry.h
 
 xfce4_mixer_GSOURCES = mixer-control.gob \
 	mixer-slider.gob mixer-view.gob mixer-view-tiny.gob \
