@@ -42,6 +42,7 @@ typedef struct
 } t_mixer;
 
 GtkTooltips* tooltips; /* used by slider tiny */
+static XfceIconTheme* icontheme;
 
 static void
 mixer_orientation_changed (XfcePanelPlugin *plugin, GtkOrientation orientation, 
@@ -88,6 +89,11 @@ mixer_free_data (XfcePanelPlugin *plugin)
     if (tooltips) {
         g_object_unref (tooltips);
         tooltips = NULL;
+    }
+    
+    if (icontheme)  {
+    	g_object_unref (icontheme);
+    	icontheme = NULL;
     }
 
     gtk_main_quit ();
@@ -189,6 +195,7 @@ mixer_construct (XfcePanelPlugin *plugin)
     XfceRc *rc;
     t_mixer *mixer;
 
+    icontheme = xfce_icon_theme_get_for_screen (gtk_widget_get_screen (GTK_WIDGET (plugin)));
     tooltips = gtk_tooltips_new ();
 
     xfce_textdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8"); 
@@ -344,6 +351,27 @@ mixer_timer_cb (gpointer userdata)
 	return TRUE;
 }
 
+static GdkPixbuf *
+get_status_pixbuf(gboolean broken)
+{
+	GdkPixbuf	*pb;
+	GdkPixbuf	*pb2;
+	
+	pb = xfce_icon_theme_load_category (icontheme, XFCE_ICON_CATEGORY_SOUND, 128); /* ??? */
+	/* xfce_icon_theme_load_category */
+	
+	if (broken) {
+		pb2 = gdk_pixbuf_copy(pb);
+		gdk_pixbuf_saturate_and_pixelate(pb, pb2, 0, TRUE);
+
+		/*saturation, pixelate)*/
+		swap_pixbuf_ptrs(&pb, &pb2);
+
+		g_object_unref(pb2);
+	}
+	return pb;
+}
+
 
 static t_mixer *
 mixer_new(void)
@@ -361,7 +389,7 @@ mixer_new(void)
 	mixer->broken = FALSE; 
 	gtk_widget_show (mixer->box);
 
-	pb = get_pixbuf_for (mixer->broken);
+	pb = get_status_pixbuf (mixer->broken);
 	mixer->ib = (XfceIconbutton *)xfce_iconbutton_new_from_pixbuf (pb);
 	g_object_unref (pb);
 	gtk_button_set_relief (GTK_BUTTON(mixer->ib), GTK_RELIEF_NONE);
@@ -425,24 +453,6 @@ swap_pixbuf_ptrs (GdkPixbuf **a, GdkPixbuf **b)
 	*b = tmp;
 }
                                 
-static GdkPixbuf *
-get_pixbuf_for(gboolean broken)
-{
-	GdkPixbuf	*pb;
-	GdkPixbuf	*pb2;
-	
-	pb = get_pixbuf_by_id(SOUND_ICON);
-	if (broken) {
-		pb2 = gdk_pixbuf_copy(pb);
-		gdk_pixbuf_saturate_and_pixelate(pb, pb2, 0, TRUE);
-
-		/*saturation, pixelate)*/
-		swap_pixbuf_ptrs(&pb, &pb2);
-
-		g_object_unref(pb2);
-	}
-	return pb;
-}
 
 
 
@@ -541,7 +551,7 @@ mixer_set_theme(Control * control, const char *theme)
 	
 	mixer = (t_mixer *)control->data;
 	
-	pb = get_pixbuf_for(mixer->broken);
+	pb = get_status_pixbuf(mixer->broken);
 	xfce_iconbutton_set_pixbuf(XFCE_ICONBUTTON(mixer->ib), pb);
 	g_object_unref(pb);
 }
