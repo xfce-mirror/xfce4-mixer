@@ -1,20 +1,84 @@
+#include <libxfce4util/libxfce4util.h>
+#include <string.h>
+#include <assert.h>
 #include "launcher-entry.h"
 
-/* copied from xfce4-panel launcher plugin as-is */
+/* copied from xfce4-panel launcher plugin as-is, added laucher_entry_set_command, ... */
+
+struct _LauncherEntry
+{
+    GtkWidget* widget;
+    GtkWidget* exec_widget;
+    GtkWidget* terminal_widget;
+    GtkWidget* startup_widget;
+    
+    /*char *name;
+    char *comment;*/
+    
+    char *exec;
+
+    /*LauncherIcon icon; */
+
+    unsigned int terminal:1;
+    unsigned int startup:1;
+};
+
 
 LauncherEntry *
 launcher_entry_new (void)
 {
-    return g_new0 (LauncherEntry, 1);
+    LauncherEntry* launcher_entry;
+    launcher_entry = g_new0 (LauncherEntry, 1);
+    
+    launcher_entry->widget = gtk_vbox_new (FALSE, 5);
+    
+    gtk_container_set_border_width (GTK_CONTAINER (launcher_entry->widget), 7);
+    
+    launcher_entry->exec_widget = gtk_entry_new ();
+    gtk_widget_show (GTK_WIDGET (launcher_entry->exec_widget));
+    
+    launcher_entry->terminal_widget = gtk_check_button_new_with_label ("TODO");
+    gtk_widget_show (GTK_WIDGET (launcher_entry->terminal_widget));
+    
+    launcher_entry->startup_widget = gtk_check_button_new_with_label ("TODO2");
+    gtk_widget_show (GTK_WIDGET (launcher_entry->startup_widget));
+    
+    gtk_box_pack_start (GTK_BOX (launcher_entry->widget), GTK_WIDGET (launcher_entry->exec_widget), FALSE, TRUE, 5);
+    gtk_box_pack_start (GTK_BOX (launcher_entry->widget), GTK_WIDGET (launcher_entry->terminal_widget), FALSE, FALSE, 5);
+    gtk_box_pack_start (GTK_BOX (launcher_entry->widget), GTK_WIDGET (launcher_entry->startup_widget), FALSE, FALSE, 5);
+    
+    return launcher_entry;
+}
+
+void
+launcher_entry_set_command (LauncherEntry *e, gchar const* command, gboolean terminal, gboolean startupnotification)
+{
+    if (e->exec) {
+      g_free (e->exec);
+      e->exec = NULL;
+    }
+    
+    assert (command != NULL);
+    e->exec = g_strdup (command);
+    
+    e->terminal = terminal != 0;
+    e->startup = startupnotification != 0;
 }
 
 void
 launcher_entry_free (LauncherEntry *e)
 {
-    g_free (e->name);
+    if (e->widget) {
+      g_object_ref (G_OBJECT (e->widget));
+      gtk_object_sink (GTK_OBJECT (e->widget));
+      g_object_unref (G_OBJECT (e->widget));
+    }
+      
+/*    g_free (e->name);
     g_free (e->comment);
     if (e->icon.type == LAUNCHER_ICON_TYPE_NAME)
         g_free (e->icon.icon.name);
+*/
     g_free (e->exec);
 
     g_free (e);
@@ -25,7 +89,7 @@ launcher_entry_exec (LauncherEntry *entry)
 {
     GError *error = NULL;
     
-    if (!entry->exec || !strlen (entry->exec))
+    if (!entry->exec || !entry->exec[0])
         return;
     
     xfce_exec (entry->exec, entry->terminal, entry->startup, &error);
@@ -33,7 +97,7 @@ launcher_entry_exec (LauncherEntry *entry)
     if (error)
     {
         char *first = 
-            g_strdup_printf (_("Could not run \"%s\""), entry->name);
+            g_strdup_printf (_("Could not run \"%s\""), entry->exec);
     
         xfce_message_dialog (NULL, _("Xfce Panel"), 
                              GTK_STOCK_DIALOG_ERROR, first, error->message,
@@ -78,7 +142,7 @@ launcher_entry_drop_cb (GdkScreen *screen, LauncherEntry *entry,
     if (!xfce_exec_argv (argv, entry->terminal, entry->startup, &error))
     {
         char *first = 
-            g_strdup_printf (_("Could not run \"%s\""), entry->name);
+            g_strdup_printf (_("Could not run \"%s\""), entry->exec);
     
         xfce_message_dialog (NULL, _("Xfce Panel"), 
                              GTK_STOCK_DIALOG_ERROR, first, error->message,
@@ -90,6 +154,91 @@ launcher_entry_drop_cb (GdkScreen *screen, LauncherEntry *entry,
     }
 
     g_free (argv);
+}
+
+GPtrArray *
+launcher_get_file_list_from_selection_data (GtkSelectionData *data)
+{
+    GPtrArray *files;
+    const char *s1, *s2;
+
+    if (data->length < 1)
+        return NULL;
+
+    files = g_ptr_array_new ();
+
+    /* Assume text/uri-list (RFC2483):
+     * - Commented lines are allowed; they start with #.
+     * - Lines are separated by CRLF (\r\n)
+     * - We also allow LF (\n) as separator
+     * - We strip "file:" and multiple slashes ("/") at the start
+     */
+    for (s1 = (const char *)data->data; s1 != NULL && strlen(s1); ++s1)
+    {
+        if (*s1 != '#')
+        {
+            while (isspace ((int)*s1))
+                ++s1;
+            
+            if (!strncmp (s1, "file:", 5))
+            {
+                s1 += 5;
+                while (*(s1 + 1) == '/')
+                    ++s1;
+            }
+            
+            for (s2 = s1; *s2 != '\0' && *s2 != '\r' && *s2 != '\n'; ++s2)
+                /* */;
+            
+            if (s2 > s1)
+            {
+                while (isspace ((int)*(s2-1)))
+                    --s2;
+                
+                if (s2 > s1)
+                {
+                    int len, i;
+                    char *file;
+                    
+                    len = s2 - s1;
+                    file = g_new (char, len + 1);
+                    
+                    /* decode % escaped characters */
+                    for (i = 0, s2 = s1; s2 - s1 <= len; ++i, ++s2)
+                    {
+                        if (*s2 != '%' || s2 + 3 -s1 > len)
+                        {
+                            file[i] = *s2;
+                        }
+                        else
+                        {
+                            guint c;
+                            
+                            if (sscanf (s2+1, "%2x", &c) == 1)
+                                file[i] = (char)c;
+
+                            s2 += 2;
+                        }
+                    }
+
+                    file[i-1] = '\0';
+                    g_ptr_array_add (files, file);
+                }
+            }
+        }
+        
+        if (!(s1 = strchr (s1, '\n')))
+            break;
+    }
+    
+    if (files->len > 0)
+    {
+        return files;
+    }
+
+    g_ptr_array_free (files, TRUE);
+
+    return NULL;    
 }
 
 static void
@@ -110,12 +259,29 @@ launcher_entry_data_received (GtkWidget *widget, GdkDragContext *context,
         g_ptr_array_free (files, TRUE);
     }
 
-    if (open_launcher)
+/*    if (open_launcher)
     {
         gtk_widget_hide (GTK_MENU (open_launcher->menu)->toplevel);
         gtk_toggle_button_set_active (
                 GTK_TOGGLE_BUTTON (open_launcher->arrowbutton), FALSE);
         open_launcher = NULL;
-    }
+    }*/
+}
+
+GtkWidget* launcher_entry_get_widget (LauncherEntry* e)
+{
+  return e->widget;
+}
+
+void launcher_entry_get_command (LauncherEntry *e, gchar** command, gboolean* terminal, gboolean* startupnotification)
+{
+  if (e->exec) {
+    *command = g_strdup (e->exec);
+  } else {
+    *command = NULL;
+  }
+  
+  *terminal = e->terminal;
+  *startupnotification = e->startup;
 }
 

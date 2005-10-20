@@ -11,6 +11,7 @@
 #include "vc.h"
 #include "xfce-mixer-cache-vc.h"
 #include "xfce-mixer-pxml.h"
+#include "launcher-entry.h"
 
 /* why is this deprecated when it is needed by combo ? O_o */
 GtkWidget *gtk_list_item_new_with_label (const gchar *label);
@@ -41,16 +42,16 @@ class Xfce:Mixer:Prefbox from Gtk:VBox {
 
 	protected GtkCombo *execu_cb;
 	/*protected GtkEntry *execu_entry;*/
-	protected GtkCheckButton *startup_nf_c;
-	protected GtkCheckButton *in_terminal_c;
+	/*protected GtkCheckButton *startup_nf_c;*/
+	/*protected GtkCheckButton *in_terminal_c;*/
 	private delayer_t device_entry_delayer = 0
 		destroy { delayer_free (VAR); };
-	protected CommandOptions *ic = NULL;
+	protected LauncherEntry *launcher_entry = NULL;
 	protected GtkWidget *click_b = NULL;
 
 	public void fill_defaults(self)
 	{
-		command_options_set_command (self->ic, "xfce4-mixer", FALSE, TRUE);
+		launcher_entry_set_command (self->launcher_entry, "xfce4-mixer", FALSE, TRUE);
 		gtk_entry_set_text (GTK_ENTRY (self->device_cb->entry), "");
 		emit self_device_changed (self);
 	}
@@ -201,12 +202,12 @@ class Xfce:Mixer:Prefbox from Gtk:VBox {
 
 	protected void add_command_box (self)
 	{
-		self->ic = create_command_options (NULL);
+		self->launcher_entry = launcher_entry_new ();
 		self->execu_cb = NULL; /*self->ic->combo;*/
 		/*self->execu_entry = self->ic->command_entry;*/
-		self->startup_nf_c = GTK_CHECK_BUTTON (self->ic->sn_checkbutton);
-		self->in_terminal_c = GTK_CHECK_BUTTON (self->ic->term_checkbutton);
-		gtk_box_pack_start (GTK_BOX (self->click_b), GTK_WIDGET (self->ic->base), FALSE, FALSE, 0);
+		/*self->startup_nf_c = GTK_CHECK_BUTTON (self->ic->sn_checkbutton);*/
+		/*self->in_terminal_c = GTK_CHECK_BUTTON (self->ic->term_checkbutton);*/
+		gtk_box_pack_start (GTK_BOX (self->click_b), GTK_WIDGET (launcher_entry_get_widget (self->launcher_entry)), FALSE, FALSE, 0);
 	}
 
 	protected gboolean device_changed_delayed_cb (self)
@@ -242,7 +243,7 @@ class Xfce:Mixer:Prefbox from Gtk:VBox {
 			return;
 		}
 
-		command_options_set_command (self->ic, 
+		launcher_entry_set_command (self->launcher_entry, 
 			nvl (p->execu, "xfce4-mixer"),
 			p->in_terminal,
 			p->startup_nf
@@ -278,7 +279,7 @@ class Xfce:Mixer:Prefbox from Gtk:VBox {
 		omi = gtk_option_menu_get_history (self->master_om);
 		master = self_find_name_by_master_i (self, omi);
 
-		command_options_get_command (self->ic, &execu, &in_terminal, &startup_nf);
+		launcher_entry_get_command (self->launcher_entry, &execu, &in_terminal, &startup_nf);
 
 		g_object_set (G_OBJECT (p),
 			"device", device,

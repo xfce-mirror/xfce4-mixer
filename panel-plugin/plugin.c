@@ -41,6 +41,8 @@ typedef struct
 	guint timer;
 } t_mixer;
 
+GtkTooltips* tooltips; /* used by slider tiny */
+
 static void
 mixer_orientation_changed (XfcePanelPlugin *plugin, GtkOrientation orientation, 
                      GtkWidget *label)
@@ -54,10 +56,40 @@ mixer_orientation_changed (XfcePanelPlugin *plugin, GtkOrientation orientation,
     }
 }
 
+static void
+mixer_free (t_mixer* mixer)
+{
+	g_return_if_fail(mixer != NULL);
+	vc_set_volume_callback (NULL, NULL);
+
+	if (mixer->timer) {
+		g_source_remove (mixer->timer);
+		mixer->timer = 0;
+	}
+	
+	if (mixer->prefs) {
+		g_object_unref (G_OBJECT (mixer->prefs));
+		mixer->prefs = NULL;
+	}
+	
+	g_free (mixer);
+}
+
+
 static void 
 mixer_free_data (XfcePanelPlugin *plugin)
 {
     DBG ("Free data: %s", PLUGIN_NAME);
+
+    t_mixer* mixer;
+    g_object_get (G_OBJECT (plugin), "t_mixer", &mixer, NULL);
+    mixer_free (mixer);
+
+    if (tooltips) {
+        g_object_unref (tooltips);
+        tooltips = NULL;
+    }
+
     gtk_main_quit ();
 }
 
@@ -145,6 +177,9 @@ mixer_set_size (XfcePanelPlugin *plugin, int size)
 
 /* create widgets and connect to signals */ 
 
+static t_mixer * mixer_new(void);
+
+
 
 
 static void 
@@ -153,6 +188,8 @@ mixer_construct (XfcePanelPlugin *plugin)
     GtkWidget *button;
     XfceRc *rc;
     t_mixer *mixer;
+
+    tooltips = gtk_tooltips_new ();
 
     xfce_textdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8"); 
 
@@ -166,6 +203,7 @@ mixer_construct (XfcePanelPlugin *plugin)
 
     if (rc)
         xfce_rc_close (rc);
+
 
     mixer = mixer_new ();
     g_object_set (G_OBJECT (plugin), "t_mixer", &mixer, NULL);
@@ -205,35 +243,29 @@ mixer_construct (XfcePanelPlugin *plugin)
                       G_CALLBACK (mixer_configure), NULL);
 }
 
-#if 0
-GtkTooltips *tooltips = NULL;
-
 static void
-swap_pixbuf_ptrs (GdkPixbuf **a, GdkPixbuf **b)
+mixer_update_tips(t_mixer *mixer)
 {
-	GdkPixbuf *tmp;
-	tmp = *a;
-	*a = *b;
-	*b = tmp;
-}
-                                
-static GdkPixbuf *
-get_pixbuf_for(gboolean broken)
-{
-	GdkPixbuf	*pb;
-	GdkPixbuf	*pb2;
+        gchar caption[128];
+        
+	g_snprintf(caption, sizeof(caption), _("Volume: %d%%"), 
+	  xfce_mixer_control_calc_num_value (mixer->slider)
+	);
 	
-	pb = get_pixbuf_by_id(SOUND_ICON);
-	if (broken) {
-		pb2 = gdk_pixbuf_copy(pb);
-		gdk_pixbuf_saturate_and_pixelate(pb, pb2, 0, TRUE);
+	gtk_tooltips_set_tip(tooltips, GTK_WIDGET(mixer->ib), caption, NULL);
+	gtk_tooltips_set_tip(tooltips, GTK_WIDGET(
+		XFCE_MIXER_SLIDER_TINY (mixer->slider)->eb
+	), caption,NULL);
+}
 
-		/*saturation, pixelate)*/
-		swap_pixbuf_ptrs(&pb, &pb2);
 
-		g_object_unref(pb2);
-	}
-	return pb;
+static void callback_vc_cb(char const *which, void *privdata)
+{
+	t_mixer *mixer;
+	mixer = (t_mixer *) privdata;
+	
+	xfce_mixer_control_vc_feed_value (mixer->slider);
+	mixer_update_tips (mixer);
 }
 
 static void
@@ -258,26 +290,20 @@ xfce_mixer_launch_cb (GtkWidget *w, gpointer user_data)
 		else
 			tmp = g_strdup ("xfce4-mixer");
 	}
-	/*g_spawn_command_line_async (tmp, NULL);*/
-	exec_cmd(tmp, mixer->prefs->in_terminal, mixer->prefs->startup_nf);
+	g_spawn_command_line_async (tmp, NULL);
+	/* gone, it seems. exec_cmd(tmp, mixer->prefs->in_terminal, mixer->prefs->startup_nf); */
 	                        
 	g_free (tmp);
 }
 
 static void
-mixer_update_tips(t_mixer *mixer)
+mixer_value_changed_cb (GtkWidget *w, gpointer whatsthat, gpointer user_data)
 {
-        gchar caption[128];
-        
-	g_snprintf(caption, sizeof(caption), _("Volume: %d%%"), 
-	  xfce_mixer_control_calc_num_value (mixer->slider)
-	);
-
-	gtk_tooltips_set_tip(tooltips, GTK_WIDGET(mixer->ib), caption, NULL);
-	gtk_tooltips_set_tip(tooltips, GTK_WIDGET(
-		XFCE_MIXER_SLIDER_TINY (mixer->slider)->eb
-	), caption,NULL);
+	t_mixer *mixer;
+	mixer = (t_mixer *) user_data;
+	mixer_update_tips (mixer);
 }
+
 
 static void
 mixer_prefs_master_changed_cb (XfceMixerPreferences *prefs, gpointer whatsthat,  gpointer user_data)
@@ -304,40 +330,20 @@ mixer_prefs_master_changed_cb (XfceMixerPreferences *prefs, gpointer whatsthat, 
 	}
 }
 
-static void
-mixer_value_changed_cb (GtkWidget *w, gpointer whatsthat, gpointer user_data)
-{
-	t_mixer *mixer;
-	mixer = (t_mixer *) user_data;
-	mixer_update_tips (mixer);
-}
-
 static gboolean
 mixer_timer_cb (gpointer userdata)
 {
 	t_mixer *mixer;
-	XFCE_PANEL_LOCK ();
 	mixer = (t_mixer *) userdata;
 	
 	vc_handle_events ();
 
 	xfce_mixer_control_vc_feed_value (mixer->slider);
 	mixer_update_tips (mixer);
-	XFCE_PANEL_UNLOCK ();
 	
 	return TRUE;
 }
 
-static void callback_vc_cb(char const *which, void *privdata)
-{
-	t_mixer *mixer;
-	XFCE_PANEL_LOCK ();
-	mixer = (t_mixer *) privdata;
-	
-	xfce_mixer_control_vc_feed_value (mixer->slider);
-	mixer_update_tips (mixer);
-	XFCE_PANEL_UNLOCK ();
-}
 
 static t_mixer *
 mixer_new(void)
@@ -348,6 +354,7 @@ mixer_new(void)
 	
 	mixer = g_new0 (t_mixer, 1);
 
+	
 	mixer->prefs = XFCE_MIXER_PREFERENCES (xfce_mixer_preferences_new ());
 
 	mixer->box = gtk_hbox_new (FALSE, 0);
@@ -382,7 +389,7 @@ mixer_new(void)
 
 	align = gtk_alignment_new (0,0,0,0);
 	gtk_widget_show (align);
-	gtk_widget_set_size_request (align, border_width, -1);
+	/* what the... gtk_widget_set_size_request (align, border_width, -1); */
 	gtk_box_pack_start (GTK_BOX (mixer->box), align, FALSE, FALSE, 0);	
 	
 
@@ -407,26 +414,38 @@ mixer_new(void)
 }
 
 
-static void
-mixer_control_free (Control *ctrl)
-{
-	t_mixer *mixer;
-	g_return_if_fail(ctrl != NULL);
-	g_return_if_fail(ctrl->data != NULL);
-	vc_set_volume_callback (NULL, NULL);
+#if 0
 
-	mixer = (t_mixer *)ctrl->data;
-	if (mixer) {
-		if (mixer->timer) {
-			g_source_remove (mixer->timer);
-			mixer->timer = 0;
-		}
-		if (mixer->prefs)
-			g_object_unref (G_OBJECT (mixer->prefs));
-		mixer->prefs = NULL;
-	}
-	g_free (mixer);
+static void
+swap_pixbuf_ptrs (GdkPixbuf **a, GdkPixbuf **b)
+{
+	GdkPixbuf *tmp;
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
 }
+                                
+static GdkPixbuf *
+get_pixbuf_for(gboolean broken)
+{
+	GdkPixbuf	*pb;
+	GdkPixbuf	*pb2;
+	
+	pb = get_pixbuf_by_id(SOUND_ICON);
+	if (broken) {
+		pb2 = gdk_pixbuf_copy(pb);
+		gdk_pixbuf_saturate_and_pixelate(pb, pb2, 0, TRUE);
+
+		/*saturation, pixelate)*/
+		swap_pixbuf_ptrs(&pb, &pb2);
+
+		g_object_unref(pb2);
+	}
+	return pb;
+}
+
+
+
 
 static void
 mixer_read_config (Control *ctrl, xmlNodePtr parent)

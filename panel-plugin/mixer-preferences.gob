@@ -10,9 +10,7 @@
 #include "helpers_h.inc"
 %}
 %{
-#include <libxfcegui4/xfce_framebox.h>
 #include <libxfce4util/libxfce4util.h>
-#include <panel/global.h>
 #include "xfce-mixer-cache-vc.h"
 #include "vc.h"
 #include "helpers.inc"
@@ -233,14 +231,14 @@ class Xfce:Mixer:Preferences from G:Object {
 				n = 0;
 				if (tmp) {
 					n = atoi (tmp);
-					g_free (tmp);
+					g_free (tmp); /* actually xmlFree */
 				}
 				
 				tmp = xfce_mixer_pxml_get_prop (self->xml, "sn");
 				n2 = 0;
 				if (tmp) {
 					n2 = atoi (tmp);
-					g_free (tmp);
+					g_free (tmp); /* actually xmlFree */
 				}
 				
 				g_object_set (G_OBJECT (self), 
@@ -266,7 +264,7 @@ class Xfce:Mixer:Preferences from G:Object {
 	{
 		xmlNodePtr root;
 		xmlNodePtr cnode;
-		char value[MAXSTRLEN + 1];
+		char value[4 + 1];
 
 		xfce_mixer_pxml_goto_node (self->xml, parent);
 

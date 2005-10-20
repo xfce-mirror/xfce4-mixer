@@ -18,17 +18,18 @@ extern "C" {
 #include "vc.h"
 #include "xfce-mixer-cache-vc.h"
 #include "xfce-mixer-pxml.h"
+#include "launcher-entry.h"
 
 /* why is this deprecated when it is needed by combo ? O_o */
 GtkWidget *gtk_list_item_new_with_label (const gchar *label);
 
 
 #line 6 "mixer-prefbox.gob"
-#line 28 "xfce-mixer-prefbox-private.h"
+#line 29 "xfce-mixer-prefbox-private.h"
 struct _XfceMixerPrefboxPrivate {
-#line 46 "mixer-prefbox.gob"
+#line 47 "mixer-prefbox.gob"
 	delayer_t device_entry_delayer;
-#line 32 "xfce-mixer-prefbox-private.h"
+#line 33 "xfce-mixer-prefbox-private.h"
 };
 void 	xfce_mixer_prefbox_fill_device_list	(XfceMixerPrefbox * self);
 void 	xfce_mixer_prefbox_fill_master_list	(XfceMixerPrefbox * self);

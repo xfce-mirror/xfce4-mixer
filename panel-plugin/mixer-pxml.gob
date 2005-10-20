@@ -111,8 +111,8 @@ class Xfce:Mixer:Pxml from G:Object {
 			/* create document etc */
 
 			if (!self->document && self->root) {
-				self->document = xmlNewDoc ("1.0");
-				self->document->children = xmlNewDocRawNode (self->document, NULL, self->root, NULL);
+				self->document = xmlNewDoc ((const xmlChar*) "1.0");
+				self->document->children = xmlNewDocRawNode (self->document, NULL, (const xmlChar*) self->root, NULL);
 				self->foreignDoc = FALSE;
 				xmlDocSetRootElement (self->document, self->document->children);
 			}
@@ -263,7 +263,7 @@ class Xfce:Mixer:Pxml from G:Object {
 
 	public gchar *get_prop (self, gchar const *pname)
 	{
-		return xmlGetProp (self->node, pname);
+		return (gchar*) xmlGetProp (self->node, (const xmlChar*) pname);
 	}
 
 	public gboolean get_prop_int (self, gchar const *pname, gint *result)
@@ -293,7 +293,7 @@ class Xfce:Mixer:Pxml from G:Object {
 
 	public void set_prop (self, gchar const *pname, gchar const *value)
 	{
-		xmlSetProp (self->node, pname, (const xmlChar *) value);
+		xmlSetProp (self->node, (const xmlChar*) pname, (const xmlChar *) value);
 	}
 
 	public xmlNodePtr create_text_child (self, gchar const *name, gchar const *opt_text)
@@ -318,7 +318,7 @@ class Xfce:Mixer:Pxml from G:Object {
 		if (!self->node)
 			return NULL;
 
-		return xmlNodeListGetString(self->document, self->node->children, 1);
+		return (gchar*) xmlNodeListGetString(self->document, self->node->children, 1);
 	}
 
 }

@@ -18,6 +18,7 @@ extern "C" {
 #include "vc.h"
 #include "xfce-mixer-cache-vc.h"
 #include "xfce-mixer-pxml.h"
+#include "launcher-entry.h"
 
 /* why is this deprecated when it is needed by combo ? O_o */
 GtkWidget *gtk_list_item_new_with_label (const gchar *label);
@@ -56,9 +57,7 @@ struct _XfceMixerPrefbox {
 	GtkOptionMenu * master_om; /* protected */
 	GList * master_lst; /* protected */
 	GtkCombo * execu_cb; /* protected */
-	GtkCheckButton * startup_nf_c; /* protected */
-	GtkCheckButton * in_terminal_c; /* protected */
-	CommandOptions * ic; /* protected */
+	LauncherEntry * launcher_entry; /* protected */
 	GtkWidget * click_b; /* protected */
 	XfceMixerPrefboxPrivate *_priv;
 };
