@@ -443,19 +443,6 @@ mixer_new(void)
 #if 0
 
 static void
-swap_pixbuf_ptrs (GdkPixbuf **a, GdkPixbuf **b)
-{
-	GdkPixbuf *tmp;
-	tmp = *a;
-	*a = *b;
-	*b = tmp;
-}
-                                
-
-
-
-
-static void
 mixer_read_config (Control *ctrl, xmlNodePtr parent)
 {
 	t_mixer *mixer;
