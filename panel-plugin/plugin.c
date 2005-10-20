@@ -363,11 +363,9 @@ get_status_pixbuf(gboolean broken)
 	if (broken) {
 		pb2 = gdk_pixbuf_copy(pb);
 		gdk_pixbuf_saturate_and_pixelate(pb, pb2, 0, TRUE);
-
-		/*saturation, pixelate)*/
-		swap_pixbuf_ptrs(&pb, &pb2);
-
-		g_object_unref(pb2);
+		
+		g_object_unref (pb);
+		return pb2;
 	}
 	return pb;
 }
