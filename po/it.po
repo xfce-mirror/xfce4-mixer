@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xfce4-mixer 4.2.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-10-08 06:13+0900\n"
-"PO-Revision-Date: 2005-08-21 15:07+0900\n"
+"PO-Revision-Date: 2005-10-20 12:24+0100\n"
 "Last-Translator: Alex Dupre <ale@FreeBSD.org>\n"
 "Language-Team: GUFI <traduzioni@gufi.org>\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,7 @@ msgstr ""
 
 #: lib/trans.c:6
 msgid "Vol"
-msgstr ""
+msgstr "Vol"
 
 #. Master
 #: lib/trans.c:7
@@ -37,29 +37,29 @@ msgstr ""
 #. Line in
 #: lib/trans.c:10
 msgid "Mic"
-msgstr ""
+msgstr "Mic"
 
 #. Mic in
 #: lib/trans.c:11
 msgid "CD"
-msgstr ""
+msgstr "CD"
 
 #. CD in
 #: lib/trans.c:12
 msgid "Bass"
-msgstr ""
+msgstr "Bassi"
 
 #: lib/trans.c:13
 msgid "Trebl"
-msgstr ""
+msgstr "Alti"
 
 #: lib/trans.c:14
 msgid "Synth"
-msgstr ""
+msgstr "Sint"
 
 #: lib/trans.c:15
 msgid "Mix"
-msgstr ""
+msgstr "Mix"
 
 #: lib/trans.c:16
 msgid "Pcm2"
@@ -155,26 +155,32 @@ msgstr "oss: Nessun volume principale"
 msgid "Volume: %d%%"
 msgstr "Volume: %d%%"
 
-#: panel-plugin/plugin.c:384 src/mixer-window.gob:188 mixer-window.gob:188
+#: panel-plugin/plugin.c:384
+#: src/mixer-window.gob:188
+#: mixer-window.gob:188
 msgid "Volume Control"
 msgstr "Controllo Volume"
 
-#: settings/mixer-settingsbox.gob:99 mixer-settingsbox.gob:99
+#: settings/mixer-settingsbox.gob:99
+#: mixer-settingsbox.gob:99
 msgid "Device"
 msgstr ""
 
-#: settings/mixer-settingsbox.gob:102 mixer-settingsbox.gob:102
+#: settings/mixer-settingsbox.gob:102
+#: mixer-settingsbox.gob:102
 msgid "None"
 msgstr ""
 
 #. gtk_widget_show (GTK_WIDGET (self->dev_label));
 #. debug_bindtextdomain();
-#: settings/mixer-settingsbox.gob:107 mixer-settingsbox.gob:107
-#, fuzzy
+#: settings/mixer-settingsbox.gob:107
+#: mixer-settingsbox.gob:107
 msgid "Useful Controls"
-msgstr "Controllo"
+msgstr "Controlli Utili"
 
-#: settings/sound.c:80 settings/sound.c:100 settings/sound.c:107
+#: settings/sound.c:80
+#: settings/sound.c:100
+#: settings/sound.c:107
 msgid "Sound"
 msgstr ""
 
@@ -210,111 +216,140 @@ msgstr ""
 msgid "/Help/_Info"
 msgstr ""
 
-#: src/mixer-info.gob:28 mixer-info.gob:28
+#: src/mixer-info.gob:28
+#: mixer-info.gob:28
 msgid ""
 "This is xfce4-mixer, a volume control program.\n"
-"It is released under the GPL-2 License which you find in the source "
-"directory.\n"
+"It is released under the GPL-2 License which you find in the source directory.\n"
 "No warranty in any way."
 msgstr ""
 
-#: src/mixer-profilebox-detail.gob:163 mixer-profilebox-detail.gob:163
+#: src/mixer-profilebox-detail.gob:163
+#: mixer-profilebox-detail.gob:163
 msgid "Control"
 msgstr "Controllo"
 
-#: src/mixer-profilebox-detail.gob:166 mixer-profilebox-detail.gob:166
+#: src/mixer-profilebox-detail.gob:166
+#: mixer-profilebox-detail.gob:166
 msgid "Type"
 msgstr ""
 
-#: src/mixer-profilebox-detail.gob:178 mixer-profilebox-detail.gob:178
+#: src/mixer-profilebox-detail.gob:178
+#: mixer-profilebox-detail.gob:178
 msgid "Up"
-msgstr ""
+msgstr "Su"
 
-#: src/mixer-profilebox-detail.gob:181 mixer-profilebox-detail.gob:181
+#: src/mixer-profilebox-detail.gob:181
+#: mixer-profilebox-detail.gob:181
 msgid "Down"
 msgstr ""
 
-#: src/mixer-profilebox-detail.gob:188 mixer-profilebox-detail.gob:188
+#: src/mixer-profilebox-detail.gob:188
+#: mixer-profilebox-detail.gob:188
 msgid "Move Entry Up"
 msgstr ""
 
-#: src/mixer-profilebox-detail.gob:191 mixer-profilebox-detail.gob:191
+#: src/mixer-profilebox-detail.gob:191
+#: mixer-profilebox-detail.gob:191
 msgid "Move Entry Down"
 msgstr ""
 
-#: src/mixer-profilebox-detail.gob:200 mixer-profilebox-detail.gob:200
+#: src/mixer-profilebox-detail.gob:200
+#: mixer-profilebox-detail.gob:200
 msgid "Profile Name:"
-msgstr ""
+msgstr "Nome Profilo:"
 
-#: src/mixer-profilebox-detail.gob:382 src/mixer-profilebox-detail.gob:447
-#: mixer-profilebox-detail.gob:382 mixer-profilebox-detail.gob:447
+#: src/mixer-profilebox-detail.gob:382
+#: src/mixer-profilebox-detail.gob:447
+#: mixer-profilebox-detail.gob:382
+#: mixer-profilebox-detail.gob:447
 msgid "<unknown>"
 msgstr ""
 
-#: src/mixer-profilebox-detail.gob:384 src/mixer-profilebox-detail.gob:449
-#: mixer-profilebox-detail.gob:384 mixer-profilebox-detail.gob:449
+#: src/mixer-profilebox-detail.gob:384
+#: src/mixer-profilebox-detail.gob:449
+#: mixer-profilebox-detail.gob:384
+#: mixer-profilebox-detail.gob:449
 msgid "<slider>"
 msgstr ""
 
-#: src/mixer-profilebox-detail.gob:385 src/mixer-profilebox-detail.gob:450
-#: mixer-profilebox-detail.gob:385 mixer-profilebox-detail.gob:450
+#: src/mixer-profilebox-detail.gob:385
+#: src/mixer-profilebox-detail.gob:450
+#: mixer-profilebox-detail.gob:385
+#: mixer-profilebox-detail.gob:450
 msgid "<onoff>"
 msgstr ""
 
-#: src/mixer-profilebox-detail.gob:386 src/mixer-profilebox-detail.gob:451
-#: mixer-profilebox-detail.gob:386 mixer-profilebox-detail.gob:451
+#: src/mixer-profilebox-detail.gob:386
+#: src/mixer-profilebox-detail.gob:451
+#: mixer-profilebox-detail.gob:386
+#: mixer-profilebox-detail.gob:451
 msgid "<select>"
 msgstr ""
 
-#: src/mixer-profilebox.gob:88 mixer-profilebox.gob:88
+#: src/mixer-profilebox.gob:88
+#: mixer-profilebox.gob:88
 msgid "Device:"
-msgstr ""
+msgstr "Dispositivo:"
 
-#: src/mixer-profilebox.gob:142 mixer-profilebox.gob:142
+#: src/mixer-profilebox.gob:142
+#: mixer-profilebox.gob:142
 msgid "Create new profile"
-msgstr ""
+msgstr "Crea nuovo profilo"
 
-#: src/mixer-profilebox.gob:151 mixer-profilebox.gob:151
+#: src/mixer-profilebox.gob:151
+#: mixer-profilebox.gob:151
 msgid "Delete this profile"
-msgstr ""
+msgstr "Elimina questo profilo"
 
-#: src/mixer-profilebox.gob:170 mixer-profilebox.gob:170
+#: src/mixer-profilebox.gob:170
+#: mixer-profilebox.gob:170
 msgid "Profile"
-msgstr ""
+msgstr "Profilo"
 
-#: src/mixer-profilebox.gob:374 mixer-profilebox.gob:374
+#: src/mixer-profilebox.gob:374
+#: mixer-profilebox.gob:374
 #, c-format
 msgid "Really delete those %d profiles?"
 msgstr ""
 
-#: src/mixer-profilebox.gob:377 mixer-profilebox.gob:377
+#: src/mixer-profilebox.gob:377
+#: mixer-profilebox.gob:377
 #, c-format
 msgid "Really delete profile \"%s\"?"
 msgstr ""
 
-#: src/mixer-profilebox.gob:491 mixer-profilebox.gob:491
+#: src/mixer-profilebox.gob:491
+#: mixer-profilebox.gob:491
 #, c-format
 msgid "%s - New"
-msgstr ""
+msgstr "%s - Nuovo"
 
-#: src/mixer-profilebox.gob:528 mixer-profilebox.gob:528
+#: src/mixer-profilebox.gob:528
+#: mixer-profilebox.gob:528
 msgid "A profile needs a name"
 msgstr ""
 
-#: src/mixer-profilebox.gob:542 mixer-profilebox.gob:542
+#: src/mixer-profilebox.gob:542
+#: mixer-profilebox.gob:542
 msgid "A profile with that name already exists"
 msgstr ""
 
-#: src/mixer-profiles.gob:262 src/mixer-profiles.gob:269
-#: mixer-profiles.gob:262 mixer-profiles.gob:269
+#: src/mixer-profiles.gob:262
+#: src/mixer-profiles.gob:269
+#: mixer-profiles.gob:262
+#: mixer-profiles.gob:269
 #, c-format
 msgid "profile%d"
-msgstr ""
+msgstr "profilo%d"
 
-#: src/mixer-view.gob:258 mixer-view.gob:258
+#: src/mixer-view.gob:258
+#: mixer-view.gob:258
 msgid "Show Switches"
 msgstr ""
 
-#: src/mixer-view.gob:259 mixer-view.gob:259
+#: src/mixer-view.gob:259
+#: mixer-view.gob:259
 msgid "Hide Switches"
 msgstr ""
+
