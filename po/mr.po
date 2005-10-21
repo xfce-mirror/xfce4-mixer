@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-10-17 07:01+0900\n"
+"POT-Creation-Date: 2005-10-21 21:20+0900\n"
 "PO-Revision-Date: 2005-10-08 08:29+0900\n"
 "Last-Translator: Pallavi Nikam <pallavi_edu@rediffmail.com>\n"
 "Language-Team: Marathi <LL@li.org>\n"
@@ -155,11 +155,11 @@ msgstr "अल्सा: साधे नियंत्रण शोधू श�
 msgid "oss: No master volume"
 msgstr "ऑस: सर्वात महत्वाचा ध्वनी नाही"
 
-#: ../panel-plugin/plugin.c:82
+#: ../panel-plugin/plugin.c:120
 msgid "Could not save configuration"
 msgstr ""
 
-#: ../panel-plugin/plugin.c:272
+#: ../panel-plugin/plugin.c:258
 #, c-format
 msgid "Volume: %d%%"
 msgstr "ध्वनी: %d%%"

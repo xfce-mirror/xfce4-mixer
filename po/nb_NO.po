@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-10-17 07:01+0900\n"
+"POT-Creation-Date: 2005-10-21 21:20+0900\n"
 "PO-Revision-Date: 2005-08-18 00:21+0900\n"
 "Last-Translator: Eskild Hustvedt <zerodogg@skolelinux.no>\n"
 "Language-Team: Norwegian Bokmal <i18n-nb@lister.ping.uio.no>\n"
@@ -154,11 +154,11 @@ msgstr "alsa: Klarte ikke å finne enkel kontroll '%s',%i\n"
 msgid "oss: No master volume"
 msgstr "oss: Hovedvolum av"
 
-#: ../panel-plugin/plugin.c:82
+#: ../panel-plugin/plugin.c:120
 msgid "Could not save configuration"
 msgstr ""
 
-#: ../panel-plugin/plugin.c:272
+#: ../panel-plugin/plugin.c:258
 #, c-format
 msgid "Volume: %d%%"
 msgstr "Volum: %d%%"

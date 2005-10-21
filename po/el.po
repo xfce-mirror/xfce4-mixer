@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-10-17 07:01+0900\n"
+"POT-Creation-Date: 2005-10-21 21:20+0900\n"
 "PO-Revision-Date: 2005-10-08 08:22+0900\n"
 "Last-Translator: Stavros Giannouris <stavrosg2002@freemail.gr>\n"
 "Language-Team: Greek <nls@tux.hellug.gr>\n"
@@ -155,11 +155,11 @@ msgstr "alsa: Αδυναμία εύρεσης απλού στοιχείου ελ
 msgid "oss: No master volume"
 msgstr "oss: Δεν υπάρχει η κύρια ένταση"
 
-#: ../panel-plugin/plugin.c:82
+#: ../panel-plugin/plugin.c:120
 msgid "Could not save configuration"
 msgstr "Δεν ήταν δυνατή η αποθήκευση των ρυθμίσεων"
 
-#: ../panel-plugin/plugin.c:272
+#: ../panel-plugin/plugin.c:258
 #, c-format
 msgid "Volume: %d%%"
 msgstr "Ένταση: %d%%"
