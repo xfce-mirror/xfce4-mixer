@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-10-21 21:20+0900\n"
-"PO-Revision-Date: 2005-10-08 08:28+0900\n"
+"PO-Revision-Date: 2005-11-01 01:34+0900\n"
 "Last-Translator: ByunHyun Choi <byunghyun.choi@gmail.com>\n"
 "Language-Team: xfce4-users-kr-i18n <xfce4-users-kr-i18n@lists.sourceforge."
 "net>\n"
@@ -124,7 +124,7 @@ msgstr "감시"
 
 #: ../lib/trans.c:31
 msgid "RecSelect"
-msgstr ""
+msgstr "녹음 선택"
 
 #: ../lib/vc_alsa.c:94
 #, c-format
@@ -157,7 +157,7 @@ msgstr "oss: 주 볼륨 장치가 없습니다."
 
 #: ../panel-plugin/plugin.c:120
 msgid "Could not save configuration"
-msgstr ""
+msgstr "설정을 저장하지 못 했습니다."
 
 #: ../panel-plugin/plugin.c:258
 #, c-format
@@ -336,8 +336,8 @@ msgstr "볼륨 제어"
 
 #: ../settings/xfce-mixer-settings.desktop.in.h:1
 msgid "Mixer Settings"
-msgstr ""
+msgstr "믹서 설정"
 
 #: ../settings/xfce-mixer-settings.desktop.in.h:2
 msgid "Xfce 4 Mixer Settings"
-msgstr ""
+msgstr "Xfce 4 믹서 설정"
