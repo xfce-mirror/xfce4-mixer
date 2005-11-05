@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the xfce4-mixer package.
 # Benedikt Meurer <benedikt.meurer@unix-ag.org>, 2003.
 # Moritz Heiber <moe@xfce.org>, 2004.
-#
+
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.2.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-10-08 06:13+0900\n"
-"PO-Revision-Date: 2005-09-29 13:02+0900\n"
+"PO-Revision-Date: 2005-11-05 11:47+0200\n"
 "Last-Translator: Moritz Heiber <moe@xfce.org>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -133,9 +133,9 @@ msgid "alsa: Mixer attach %s error: %s\n"
 msgstr "ALSA: Mixer %s: Fehler beim Verbinden: %s\n"
 
 #: lib/vc_alsa.c:107
-#, fuzzy, c-format
+#, c-format
 msgid "alsa: Mixer register error: %s\n"
-msgstr "ALSA: Mixer %s: Fehler beim Registrieren: %s\n"
+msgstr "ALSA: Fehler beim Registrieren von Mixer: %s\n"
 
 #: lib/vc_alsa.c:116
 #, c-format
