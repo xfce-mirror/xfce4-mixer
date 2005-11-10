@@ -148,19 +148,32 @@ mixer_configure (XfcePanelPlugin *plugin, gpointer user_data)
 }
 
 static void 
-mixer_set_size (XfcePanelPlugin *plugin, int size)
+mixer_size_changed_cb (XfcePanelPlugin *plugin, int size, t_mixer* mixer)
 {
+	int	slider_width;
+#ifndef BIG_ICON
+	int	all;
+	int	r;
+#endif
+
     DBG ("Set size to %d: %s", size, PLUGIN_NAME);
+
+    slider_width = 6; /* + 2 * size;*/
 
     if (xfce_panel_plugin_get_orientation (plugin) == 
         GTK_ORIENTATION_HORIZONTAL)
     {
         gtk_widget_set_size_request (GTK_WIDGET (plugin), -1, size);
+	gtk_widget_set_size_request(GTK_WIDGET(mixer->slider), slider_width, -1);
     }
     else
     {
         gtk_widget_set_size_request (GTK_WIDGET (plugin), size, -1);
+	gtk_widget_set_size_request(GTK_WIDGET(mixer->slider), -1, slider_width);
     }
+    
+    
+    gtk_widget_queue_resize (GTK_WIDGET (mixer->slider));
 }
 
 /* create widgets and connect to signals */ 
@@ -218,7 +231,7 @@ mixer_construct (XfcePanelPlugin *plugin)
                       G_CALLBACK (mixer_free_data), mixer);
 
     g_signal_connect (plugin, "size-changed", 
-                      G_CALLBACK (mixer_set_size), GTK_BIN (button)->child);
+                      G_CALLBACK (mixer_size_changed_cb), mixer);
 
     mixer_read_config (plugin, mixer);                      
     g_signal_connect (plugin, "save", 
