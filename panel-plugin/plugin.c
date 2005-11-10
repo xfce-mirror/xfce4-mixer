@@ -158,7 +158,7 @@ mixer_size_changed_cb (XfcePanelPlugin *plugin, int size, t_mixer* mixer)
 
     DBG ("Set size to %d: %s", size, PLUGIN_NAME);
 
-    slider_width = 6; /* + 2 * size;*/
+    slider_width = 8; /* + 2 * size;*/
 
     if (xfce_panel_plugin_get_orientation (plugin) == 
         GTK_ORIENTATION_HORIZONTAL)
