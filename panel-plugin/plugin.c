@@ -81,12 +81,13 @@ mixer_free (t_mixer* mixer)
 
 
 static void 
-mixer_free_data (XfcePanelPlugin *plugin)
+mixer_free_data (XfcePanelPlugin *plugin, gpointer user_data)
 {
+    t_mixer* mixer;
+    
     DBG ("Free data: %s", PLUGIN_NAME);
 
-    t_mixer* mixer;
-    g_object_get (G_OBJECT (plugin), "t_mixer", &mixer, NULL);
+    mixer = (t_mixer *) user_data;
     mixer_free (mixer);
 
     if (tooltips) {
@@ -111,19 +112,18 @@ response_cb(GtkDialog* dialog, gint arg1, gpointer user_data)
 }
 
 static void
-mixer_configure (XfcePanelPlugin *plugin)
+mixer_configure (XfcePanelPlugin *plugin, gpointer user_data)
 {
     t_mixer* mixer;
     GtkWidget* w;
     XfceMixerPrefbox* pb;
     GtkDialog* dialog;
     
-    mixer = NULL;
     
     DBG ("Configure: %s", PLUGIN_NAME);
-    
-    g_object_get (G_OBJECT (plugin), "t_mixer", &mixer, NULL);
 
+    mixer = (t_mixer *) user_data;
+    
     /* TODO TRANSLATE TITLE OR SOMETHING */
 
     dialog = GTK_DIALOG (
@@ -217,7 +217,7 @@ mixer_construct (XfcePanelPlugin *plugin)
                       GTK_BIN (button)->child);
 
     g_signal_connect (plugin, "free-data", 
-                      G_CALLBACK (mixer_free_data), NULL);
+                      G_CALLBACK (mixer_free_data), mixer);
 
     g_signal_connect (plugin, "size-changed", 
                       G_CALLBACK (mixer_set_size), GTK_BIN (button)->child);
@@ -228,7 +228,7 @@ mixer_construct (XfcePanelPlugin *plugin)
 
     xfce_panel_plugin_menu_show_configure (plugin);
     g_signal_connect (plugin, "configure-plugin", 
-                      G_CALLBACK (mixer_configure), NULL);
+                      G_CALLBACK (mixer_configure), mixer);
 }
 
 static void
