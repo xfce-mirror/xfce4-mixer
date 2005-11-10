@@ -1,6 +1,13 @@
-#include <libxfce4util/libxfce4util.h>
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif /* HAVE_CONFIG_H */
+#ifdef HAVE_STRING_H
 #include <string.h>
+#endif /* HAVE_STRING_H */
+#include <libxfce4util/libxfce4util.h>
+#include <libxfcegui4/libxfcegui4.h>
 #include <assert.h>
+#include <ctype.h>
 #include "launcher-entry.h"
 
 /* copied from xfce4-panel launcher plugin as-is, added laucher_entry_set_command, ... */
@@ -37,15 +44,16 @@ launcher_entry_new (void)
     launcher_entry->exec_widget = gtk_entry_new ();
     gtk_widget_show (GTK_WIDGET (launcher_entry->exec_widget));
     
-    launcher_entry->terminal_widget = gtk_check_button_new_with_label ("TODO");
+    launcher_entry->terminal_widget = gtk_check_button_new_with_label (_("Run in Terminal"));
     gtk_widget_show (GTK_WIDGET (launcher_entry->terminal_widget));
     
-    launcher_entry->startup_widget = gtk_check_button_new_with_label ("TODO2");
+    launcher_entry->startup_widget = gtk_check_button_new_with_label (_("Use Startup Notification"));
     gtk_widget_show (GTK_WIDGET (launcher_entry->startup_widget));
     
     gtk_box_pack_start (GTK_BOX (launcher_entry->widget), GTK_WIDGET (launcher_entry->exec_widget), FALSE, TRUE, 5);
     gtk_box_pack_start (GTK_BOX (launcher_entry->widget), GTK_WIDGET (launcher_entry->terminal_widget), FALSE, FALSE, 5);
     gtk_box_pack_start (GTK_BOX (launcher_entry->widget), GTK_WIDGET (launcher_entry->startup_widget), FALSE, FALSE, 5);
+    /* TODO launcher_entry_data_received */
     
     return launcher_entry;
 }
@@ -84,14 +92,17 @@ launcher_entry_free (LauncherEntry *e)
     g_free (e);
 }
 
-static void
-launcher_entry_exec (LauncherEntry *entry)
+void
+launcher_entry_execute (LauncherEntry *entry)
 {
-    GError *error = NULL;
+    GError *error;
     
     if (!entry->exec || !entry->exec[0])
         return;
+        
+    error = NULL;
     
+    /*g_spawn_command_line_async (entry->exec, &error);*/
     xfce_exec (entry->exec, entry->terminal, entry->startup, &error);
         
     if (error)

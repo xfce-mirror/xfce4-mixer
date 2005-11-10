@@ -4,12 +4,14 @@ static GtkWidget *headline(gchar const *title, GtkWidget **box_o)
 {
 	GtkWidget *w;
 	GtkWidget *f;
+	GtkWidget* bin;
 
 	w = gtk_vbox_new (FALSE, 5);
 	gtk_widget_show (GTK_WIDGET (w));
 
-	f = xfce_framebox_new (title, TRUE);
-	xfce_framebox_add (XFCE_FRAMEBOX (f), w);
+	f = xfce_create_framebox (title, &bin);
+
+	gtk_container_add (GTK_CONTAINER (bin), w);
 	gtk_widget_show (GTK_WIDGET (f));
 
 	*box_o = w;
