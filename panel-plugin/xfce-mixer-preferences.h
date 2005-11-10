@@ -12,6 +12,7 @@ extern "C" {
 
 
 #include <gtk/gtk.h>
+#include <libxfce4util/libxfce4util.h>
 
 
 
@@ -19,7 +20,6 @@ extern "C" {
 
 
 
-#include "xfce-mixer-pxml.h"
 
 
 /*
@@ -45,15 +45,9 @@ typedef struct _XfceMixerPreferences XfceMixerPreferences;
 #endif
 struct _XfceMixerPreferences {
 	GObject __parent__;
-	/*< public >*/
-	gchar * device;
-	gchar * execu;
-	gboolean in_terminal;
-	gboolean startup_nf;
 	/*< private >*/
 	gchar * probably_master; /* protected */
 	GList * master_lst; /* protected */
-	XfceMixerPxml * xml; /* protected */
 	XfceMixerPreferencesPrivate *_priv;
 };
 
@@ -72,9 +66,9 @@ struct _XfceMixerPreferencesClass {
 GType	xfce_mixer_preferences_get_type	(void);
 XfceMixerPreferences * 	xfce_mixer_preferences_new	(void);
 void 	xfce_mixer_preferences_load	(XfceMixerPreferences * self,
-					xmlNodePtr parent);
+					XfceRc * rc);
 void 	xfce_mixer_preferences_save	(XfceMixerPreferences * self,
-					xmlNodePtr parent);
+					XfceRc * rc);
 
 /*
  * Argument wrapping macros
@@ -84,23 +78,23 @@ void 	xfce_mixer_preferences_save	(XfceMixerPreferences * self,
 #define XFCE_MIXER_PREFERENCES_GET_PROP_DEVICE(arg)	"device", __extension__ ({gchar **z = (arg); z;})
 #define XFCE_MIXER_PREFERENCES_PROP_MASTER(arg)    	"master", __extension__ ({gchar *z = (arg); z;})
 #define XFCE_MIXER_PREFERENCES_GET_PROP_MASTER(arg)	"master", __extension__ ({gchar **z = (arg); z;})
-#define XFCE_MIXER_PREFERENCES_PROP_EXECU(arg)    	"execu", __extension__ ({gchar *z = (arg); z;})
-#define XFCE_MIXER_PREFERENCES_GET_PROP_EXECU(arg)	"execu", __extension__ ({gchar **z = (arg); z;})
-#define XFCE_MIXER_PREFERENCES_PROP_IN_TERMINAL(arg)    	"in_terminal", __extension__ ({gboolean z = (arg); z;})
-#define XFCE_MIXER_PREFERENCES_GET_PROP_IN_TERMINAL(arg)	"in_terminal", __extension__ ({gboolean *z = (arg); z;})
-#define XFCE_MIXER_PREFERENCES_PROP_STARTUP_NF(arg)    	"startup_nf", __extension__ ({gboolean z = (arg); z;})
-#define XFCE_MIXER_PREFERENCES_GET_PROP_STARTUP_NF(arg)	"startup_nf", __extension__ ({gboolean *z = (arg); z;})
+#define XFCE_MIXER_PREFERENCES_PROP_LAUNCHER_COMMAND(arg)    	"launcher_command", __extension__ ({gchar *z = (arg); z;})
+#define XFCE_MIXER_PREFERENCES_GET_PROP_LAUNCHER_COMMAND(arg)	"launcher_command", __extension__ ({gchar **z = (arg); z;})
+#define XFCE_MIXER_PREFERENCES_PROP_LAUNCHER_RUN_IN_TERMINAL(arg)    	"launcher_run_in_terminal", __extension__ ({gboolean z = (arg); z;})
+#define XFCE_MIXER_PREFERENCES_GET_PROP_LAUNCHER_RUN_IN_TERMINAL(arg)	"launcher_run_in_terminal", __extension__ ({gboolean *z = (arg); z;})
+#define XFCE_MIXER_PREFERENCES_PROP_LAUNCHER_USE_STARTUP_NOTIFICATION(arg)    	"launcher_use_startup_notification", __extension__ ({gboolean z = (arg); z;})
+#define XFCE_MIXER_PREFERENCES_GET_PROP_LAUNCHER_USE_STARTUP_NOTIFICATION(arg)	"launcher_use_startup_notification", __extension__ ({gboolean *z = (arg); z;})
 #else /* __GNUC__ && !__STRICT_ANSI__ */
 #define XFCE_MIXER_PREFERENCES_PROP_DEVICE(arg)    	"device",(gchar *)(arg)
 #define XFCE_MIXER_PREFERENCES_GET_PROP_DEVICE(arg)	"device",(gchar **)(arg)
 #define XFCE_MIXER_PREFERENCES_PROP_MASTER(arg)    	"master",(gchar *)(arg)
 #define XFCE_MIXER_PREFERENCES_GET_PROP_MASTER(arg)	"master",(gchar **)(arg)
-#define XFCE_MIXER_PREFERENCES_PROP_EXECU(arg)    	"execu",(gchar *)(arg)
-#define XFCE_MIXER_PREFERENCES_GET_PROP_EXECU(arg)	"execu",(gchar **)(arg)
-#define XFCE_MIXER_PREFERENCES_PROP_IN_TERMINAL(arg)    	"in_terminal",(gboolean )(arg)
-#define XFCE_MIXER_PREFERENCES_GET_PROP_IN_TERMINAL(arg)	"in_terminal",(gboolean *)(arg)
-#define XFCE_MIXER_PREFERENCES_PROP_STARTUP_NF(arg)    	"startup_nf",(gboolean )(arg)
-#define XFCE_MIXER_PREFERENCES_GET_PROP_STARTUP_NF(arg)	"startup_nf",(gboolean *)(arg)
+#define XFCE_MIXER_PREFERENCES_PROP_LAUNCHER_COMMAND(arg)    	"launcher_command",(gchar *)(arg)
+#define XFCE_MIXER_PREFERENCES_GET_PROP_LAUNCHER_COMMAND(arg)	"launcher_command",(gchar **)(arg)
+#define XFCE_MIXER_PREFERENCES_PROP_LAUNCHER_RUN_IN_TERMINAL(arg)    	"launcher_run_in_terminal",(gboolean )(arg)
+#define XFCE_MIXER_PREFERENCES_GET_PROP_LAUNCHER_RUN_IN_TERMINAL(arg)	"launcher_run_in_terminal",(gboolean *)(arg)
+#define XFCE_MIXER_PREFERENCES_PROP_LAUNCHER_USE_STARTUP_NOTIFICATION(arg)    	"launcher_use_startup_notification",(gboolean )(arg)
+#define XFCE_MIXER_PREFERENCES_GET_PROP_LAUNCHER_USE_STARTUP_NOTIFICATION(arg)	"launcher_use_startup_notification",(gboolean *)(arg)
 #endif /* __GNUC__ && !__STRICT_ANSI__ */
 
 

@@ -17,7 +17,6 @@ extern "C" {
 #include "xfce-mixer-preferences.h"
 #include "vc.h"
 #include "xfce-mixer-cache-vc.h"
-#include "xfce-mixer-pxml.h"
 #include "launcher-entry.h"
 
 /* why is this deprecated when it is needed by combo ? O_o */

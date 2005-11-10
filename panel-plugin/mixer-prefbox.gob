@@ -10,7 +10,6 @@
 #include "xfce-mixer-preferences.h"
 #include "vc.h"
 #include "xfce-mixer-cache-vc.h"
-#include "xfce-mixer-pxml.h"
 #include "launcher-entry.h"
 
 /* why is this deprecated when it is needed by combo ? O_o */
@@ -238,25 +237,57 @@ class Xfce:Mixer:Prefbox from Gtk:VBox {
 	{
 		gint omi;
 		gchar *s;
+		gchar* launcher_command;
+		gboolean launcher_run_in_terminal;
+		gboolean launcher_use_startup_notification;
+		gchar* device;
+		gchar* master_control;
+
+		launcher_command = NULL;
+		launcher_run_in_terminal = FALSE;
+		launcher_use_startup_notification = FALSE;
+		device = NULL;
+
 		if (!p) {
 			self_fill_defaults (self);
 			return;
 		}
 
-		launcher_entry_set_command (self->launcher_entry, 
-			nvl (p->execu, "xfce4-mixer"),
-			p->in_terminal,
-			p->startup_nf
+		g_object_get (G_OBJECT (p),
+			"launcher_command", &launcher_command, 
+			"launcher_run_in_terminal", &launcher_run_in_terminal,
+			"launcher_use_startup_notification", &launcher_use_startup_notification,
+			"device", &device,
+			"master", &master_control,
+			NULL
 		);
 
-		gtk_entry_set_text (GTK_ENTRY (self->device_cb->entry), nvl (p->device, ""));
+		launcher_entry_set_command (self->launcher_entry, 
+			nvl (launcher_command, "xfce4-mixer"),
+			launcher_run_in_terminal,
+			launcher_use_startup_notification
+		);
 
-		g_object_get (G_OBJECT (p), "master", &s, NULL);
-		omi = self_find_master_by_name (self, s);
-		g_free (s);
-		s = NULL;
+		gtk_entry_set_text (GTK_ENTRY (self->device_cb->entry), nvl (device, ""));
+
+		omi = self_find_master_by_name (self, master_control);
 
 		gtk_option_menu_set_history (self->master_om, omi);
+
+		if (master_control) {
+			g_free (master_control);
+			master_control = NULL;
+		}
+
+		if (device) {
+			g_free (device);
+			device = NULL;
+		}
+
+		if (launcher_command) {
+			g_free (launcher_command);
+			launcher_command = NULL;
+		}
 
 		emit self_device_changed (self);
 	}

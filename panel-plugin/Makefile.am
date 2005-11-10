@@ -37,9 +37,6 @@ xfce4_mixer_plugin_SOURCES =							\
 			xfce-mixer-preferences.c			\
 			xfce-mixer-preferences.h			\
 			xfce-mixer-preferences-private.h		\
-			xfce-mixer-pxml.c				\
-			xfce-mixer-pxml.h				\
-			xfce-mixer-pxml-private.h			\
 			xfce-mixer-slider-tiny.c			\
 			xfce-mixer-slider-tiny.h			\
 			xfce-mixer-slider-tiny-private.h                \
@@ -53,7 +50,7 @@ xfce4_mixer_plugin_CFLAGS =							\
 	@XFCE4_GUI_CFLAGS@ @GTK_CFLAGS@ @XML_CFLAGS@ \
 	@MIGHTY_MOUSE_CFLAGS@
 
-dnl libmixer_la_DEPENDENCIES = $(top_builddir)/lib/libxfce4mixer.la
+# libmixer_la_DEPENDENCIES = $(top_builddir)/lib/libxfce4mixer.la
 
 
 # .desktop file
@@ -63,7 +60,7 @@ dnl libmixer_la_DEPENDENCIES = $(top_builddir)/lib/libxfce4mixer.la
 # We also need to let intltool merge the translated fields, so we add an
 # additional level of indirection: a <name>.desktop.in.in file.
 # 
-desktop_in_in_files = testplugin.desktop.in.in
+desktop_in_in_files = xfce4-mixer.desktop.in.in
 desktop_in_files = $(desktop_in_in_files:.desktop.in.in=.desktop.in)
 	
 desktopdir = $(datadir)/xfce4/panel-plugins

@@ -1,6 +1,8 @@
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
+#include <stdio.h>
+#include <stdlib.h>
 
 #include <gtk/gtk.h>
 
@@ -20,6 +22,7 @@
 #define UPDATE_TIMEOUT 1000
 
 #define PLUGIN_NAME "xfce4-mixer-plugin"
+#define MIXER_RC_GROUP "mixer-plugin"
 
 /* Panel Plugin Interface */
 
@@ -99,26 +102,6 @@ mixer_free_data (XfcePanelPlugin *plugin)
     gtk_main_quit ();
 }
 
-static void 
-mixer_save (XfcePanelPlugin *plugin)
-{
-    XfceRc *rc;
-    
-    DBG ("Save: %s", PLUGIN_NAME);
-
-    rc = xfce_panel_plugin_get_rc_file (plugin, FALSE);
-
-    if (rc)
-    {
-        xfce_rc_write_entry (rc, "string", "stringvalue");
-        xfce_rc_write_bool_entry (rc, "bool", TRUE);
-        xfce_rc_write_int_entry (rc, "int", 12);
-
-        xfce_rc_close (rc);
-    }
-    else
-        g_critical (_("Could not save configuration"));
-}
 
 static void
 response_cb(GtkDialog* dialog, gint arg1, gpointer user_data)
@@ -186,13 +169,15 @@ mixer_set_size (XfcePanelPlugin *plugin, int size)
 static t_mixer * mixer_new(void);
 
 
+static void mixer_read_config(XfcePanelPlugin* plugin, gpointer user_data);
 
+
+static void mixer_write_config(XfcePanelPlugin* plugin, gpointer user_data);
 
 static void 
 mixer_construct (XfcePanelPlugin *plugin)
 {
     GtkWidget *button;
-    XfceRc *rc;
     t_mixer *mixer;
 
     icontheme = xfce_icon_theme_get_for_screen (gtk_widget_get_screen (GTK_WIDGET (plugin)));
@@ -206,13 +191,8 @@ mixer_construct (XfcePanelPlugin *plugin)
          xfce_panel_plugin_get_size (plugin),
          xfce_panel_plugin_get_screen_position (plugin));
 
-    rc = xfce_panel_plugin_get_rc_file (plugin, TRUE);
-
-    if (rc)
-        xfce_rc_close (rc);
-
-
     mixer = mixer_new ();
+    button = GTK_WIDGET(mixer->ib);
     g_object_set (G_OBJECT (plugin), "t_mixer", &mixer, NULL);
 
     gtk_widget_show (mixer->box);
@@ -239,11 +219,12 @@ mixer_construct (XfcePanelPlugin *plugin)
     g_signal_connect (plugin, "free-data", 
                       G_CALLBACK (mixer_free_data), NULL);
 
-    g_signal_connect (plugin, "save", 
-                      G_CALLBACK (mixer_save), NULL);
-
     g_signal_connect (plugin, "size-changed", 
                       G_CALLBACK (mixer_set_size), GTK_BIN (button)->child);
+
+    mixer_read_config (plugin, mixer);                      
+    g_signal_connect (plugin, "save", 
+                      G_CALLBACK (mixer_write_config), mixer);                    
 
     xfce_panel_plugin_menu_show_configure (plugin);
     g_signal_connect (plugin, "configure-plugin", 
@@ -286,21 +267,43 @@ xfce_mixer_launch_cb (GtkWidget *w, gpointer user_data)
 	if (!mixer || !mixer->prefs)
 		return;
 		
-	internal = mixer->prefs->execu && 
-	  g_str_has_prefix(mixer->prefs->execu, "xfce4-mixer");
+	gchar* launcher_command;
+	gchar* device;
+	
+	launcher_command = NULL;
+	device = NULL;
+
+	g_object_get (G_OBJECT (mixer->prefs), 
+		"launcher_command", &launcher_command, 
+		"device", &device,
+		NULL);
+
+		
+	internal = launcher_command && g_str_has_prefix(launcher_command, "xfce4-mixer");
 	  
-	if (mixer && mixer->prefs && mixer->prefs->device && internal) {
-		tmp = g_strdup_printf ("xfce4-mixer \"%s\"", mixer->prefs->device); /* TODO: pass device from cfg */
+	if (mixer && mixer->prefs && device && internal) {
+		tmp = g_strdup_printf ("xfce4-mixer \"%s\"", device); /* TODO: pass device from cfg */
 	} else {
-		if (mixer->prefs->execu)
-			tmp = g_strdup (mixer->prefs->execu);
-		else
+		if (launcher_command) {
+			tmp = g_strdup (launcher_command);
+		} else {
 			tmp = g_strdup ("xfce4-mixer");
+		}
 	}
 	g_spawn_command_line_async (tmp, NULL);
 	/* gone, it seems. exec_cmd(tmp, mixer->prefs->in_terminal, mixer->prefs->startup_nf); */
 	                        
 	g_free (tmp);
+	
+	if (device) {
+		g_free (device);
+		device = NULL;
+	}
+	
+	if (launcher_command) {
+		g_free (launcher_command);
+		launcher_command = NULL;
+	}
 }
 
 static void
@@ -439,31 +442,80 @@ mixer_new(void)
 	return mixer;
 }
 
+static void
+mixer_read_config(XfcePanelPlugin* plugin, gpointer user_data)
+{
+	XfceRc* rc;
+	gchar* path;
+
+	t_mixer *mixer;
+	mixer = (t_mixer *) user_data;
+  
+	if (mixer->prefs == NULL) {
+		return;
+	}
+  
+	rc = NULL;
+	path = xfce_panel_plugin_lookup_rc_file (plugin);
+
+	if (path) {  
+		rc = xfce_rc_simple_open (path, TRUE);
+	}
+  
+	if (rc) {
+		xfce_rc_set_group (rc, MIXER_RC_GROUP);
+    
+		xfce_mixer_preferences_load (mixer->prefs, rc);
+  
+		xfce_rc_close (rc);
+	}
+
+	if (path) {  
+		g_free (path);
+		path = NULL;
+	}
+}
+
+static void
+mixer_write_config(XfcePanelPlugin* plugin, gpointer user_data)
+{
+    DBG ("Save: %s", PLUGIN_NAME);
+
+
+	XfceRc* rc;
+	gchar* path;
+
+	t_mixer *mixer;
+	mixer = (t_mixer *) user_data;
+	
+	if (mixer->prefs == NULL) {
+		return;
+	}
+
+	rc = NULL;
+	path = xfce_panel_plugin_save_location (plugin, TRUE);
+
+	if (path) {  
+		rc = xfce_rc_simple_open (path, TRUE);
+	}
+	
+	if (rc) {
+		xfce_rc_set_group (rc, MIXER_RC_GROUP);
+    
+		xfce_mixer_preferences_save (mixer->prefs, rc);
+		
+		xfce_rc_close (rc);	
+	} else {
+	        g_critical ("%s: %s", PLUGIN_NAME, _("Could not save configuration"));
+	}
+	
+	if (path) {
+		g_free (path);
+		path = NULL;
+	}
+}
 
 #if 0
-
-static void
-mixer_read_config (Control *ctrl, xmlNodePtr parent)
-{
-	t_mixer *mixer;
-	mixer = (t_mixer *) ctrl->data;
-	if (!mixer->prefs)
-		return;
-		
-	xfce_mixer_preferences_load (mixer->prefs, parent);
-}
-
-static void
-mixer_write_config (Control *ctrl, xmlNodePtr parent)
-{
-	t_mixer *mixer;
-	mixer = (t_mixer *) ctrl->data;
-	
-	if (!mixer->prefs)
-		return;
-		
-	xfce_mixer_preferences_save (mixer->prefs, parent);
-}
 
 static void
 mixer_attach_callback(Control *ctrl, const gchar *signal, GCallback cb,

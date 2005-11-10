@@ -12,19 +12,27 @@ extern "C" {
 
 
 #include <gtk/gtk.h>
+#include <libxfce4util/libxfce4util.h>
 
 #line 6 "mixer-preferences.gob"
-#line 18 "xfce-mixer-preferences-private.h"
+#line 19 "xfce-mixer-preferences-private.h"
 
 
-#include "xfce-mixer-pxml.h"
 
-#line 23 "mixer-preferences.gob"
+#line 22 "mixer-preferences.gob"
 #line 24 "xfce-mixer-preferences-private.h"
 struct _XfceMixerPreferencesPrivate {
-#line 36 "mixer-preferences.gob"
+#line 26 "mixer-preferences.gob"
+	gchar * device;
+#line 34 "mixer-preferences.gob"
 	gchar * master;
-#line 28 "xfce-mixer-preferences-private.h"
+#line 50 "mixer-preferences.gob"
+	gchar * launcher_command;
+#line 58 "mixer-preferences.gob"
+	gboolean launcher_run_in_terminal;
+#line 59 "mixer-preferences.gob"
+	gboolean launcher_use_startup_notification;
+#line 36 "xfce-mixer-preferences-private.h"
 };
 void 	xfce_mixer_preferences_fill_probably_master	(XfceMixerPreferences * self);
 gchar * 	xfce_mixer_preferences_find_probably_master	(XfceMixerPreferences * self);
