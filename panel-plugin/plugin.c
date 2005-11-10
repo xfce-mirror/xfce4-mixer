@@ -193,7 +193,6 @@ mixer_construct (XfcePanelPlugin *plugin)
 
     mixer = mixer_new ();
     button = GTK_WIDGET(mixer->ib);
-    g_object_set (G_OBJECT (plugin), "t_mixer", &mixer, NULL);
 
     gtk_widget_show (mixer->box);
     
