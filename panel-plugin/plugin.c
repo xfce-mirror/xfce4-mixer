@@ -39,7 +39,7 @@ typedef struct
 	XfceMixerControl *slider;
 	XfceMixerPreferences *prefs;
 	XfceIconbutton *ib;
-	XfceMixerPrefbox *pb;
+	XfceMixerPrefbox *prefbox;
 	gboolean broken;
 	guint timer;
 } t_mixer;
@@ -89,6 +89,11 @@ mixer_free_data (XfcePanelPlugin *plugin, gpointer user_data)
     mixer = (t_mixer *) user_data;
     mixer_free (mixer);
 
+    if (mixer->prefbox) { 
+      gtk_object_sink (GTK_OBJECT (mixer->prefbox));
+      mixer->prefbox = NULL;
+    }
+    
     if (tooltips) {
         g_object_unref (tooltips);
         tooltips = NULL;
@@ -107,7 +112,7 @@ static void
 response_cb(GtkDialog* dialog, gint arg1, gpointer user_data)
 {
     t_mixer *mixer = (t_mixer *) user_data;
-    xfce_mixer_prefbox_save_preferences (mixer->pb, mixer->prefs);
+    xfce_mixer_prefbox_save_preferences (mixer->prefbox, mixer->prefs);
 }
 
 static void
@@ -117,7 +122,6 @@ mixer_configure (XfcePanelPlugin *plugin, gpointer user_data)
     GtkWidget* w;
     XfceMixerPrefbox* pb;
     GtkDialog* dialog;
-    
     
     DBG ("Configure: %s", PLUGIN_NAME);
 
@@ -132,12 +136,11 @@ mixer_configure (XfcePanelPlugin *plugin, gpointer user_data)
                                           GTK_STOCK_CLOSE, GTK_RESPONSE_CLOSE, 
                                           NULL));
 
-    w = xfce_mixer_prefbox_new ();	
+    w = GTK_WIDGET (mixer->prefbox);
     gtk_widget_show (w);
     gtk_container_add (GTK_CONTAINER (dialog), w);
 
-    pb = XFCE_MIXER_PREFBOX (w);
-    mixer->pb = pb;
+    pb = XFCE_MIXER_PREFBOX (mixer->prefbox);
     xfce_mixer_prefbox_fill_defaults (pb);
 	
     xfce_mixer_prefbox_fill_preferences (pb, mixer->prefs);
@@ -192,6 +195,8 @@ mixer_construct (XfcePanelPlugin *plugin)
     GtkWidget *button;
     t_mixer *mixer;
 
+    register_vcs ();
+
     icontheme = xfce_icon_theme_get_for_screen (gtk_widget_get_screen (GTK_WIDGET (plugin)));
     tooltips = gtk_tooltips_new ();
 
@@ -205,6 +210,9 @@ mixer_construct (XfcePanelPlugin *plugin)
 
     mixer = mixer_new ();
     button = GTK_WIDGET(mixer->ib);
+
+    mixer->prefbox = xfce_mixer_prefbox_new ();	
+    xfce_mixer_prefbox_fill_defaults (mixer->prefbox);
 
     gtk_widget_show (mixer->box);
     
@@ -584,7 +592,7 @@ mixer_create_options (Control *ctrl, GtkContainer *con, GtkWidget *done)
 	gtk_container_add (GTK_CONTAINER (con), w);
 
 	pb = XFCE_MIXER_PREFBOX (w);
-	mixer->pb = pb;
+	mixer->prefbox = pb;
 	xfce_mixer_prefbox_fill_defaults (pb);
 	
 	xfce_mixer_prefbox_fill_preferences (pb, mixer->prefs);

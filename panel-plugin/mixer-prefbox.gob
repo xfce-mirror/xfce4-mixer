@@ -138,10 +138,11 @@ class Xfce:Mixer:Prefbox from Gtk:VBox {
 		gint omi;
 		gchar const *txt;
 		gchar *master;
-
 		txt = gtk_entry_get_text (GTK_ENTRY (self->device_cb->entry));
 		if (txt && txt[0]) {
 			vc_set_device (txt);
+		} else {
+			vc_set_device (vc_get_device ());
 		}
 
 		omi = gtk_option_menu_get_history (self->master_om);

@@ -13,12 +13,15 @@ int main(int argc, char *argv[])
 	extern int register_alsa (void);
 
         register_alsa ();
+        
+        g_warning ("device now %s", vc_get_device());
+        
         	
 	gtk_init (&argc, &argv);
 	
 	tooltips = gtk_tooltips_new ();
 	
-	w = xfce_mixer_prefbox_new (NULL);
+	w = xfce_mixer_prefbox_new ();
 	gtk_widget_show (w);
 
 	xfce_mixer_prefbox_fill_defaults (XFCE_MIXER_PREFBOX (w));

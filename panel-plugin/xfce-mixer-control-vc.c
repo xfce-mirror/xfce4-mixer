@@ -8,7 +8,7 @@ static
 void value_changed_cb(XfceMixerControl *control, gpointer whatsthat, gpointer user_data)
 {
 	gint v;
-	
+
 	if (!control || !control->vcname)
 		return;
 		
