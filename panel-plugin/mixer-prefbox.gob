@@ -140,8 +140,9 @@ class Xfce:Mixer:Prefbox from Gtk:VBox {
 		gchar *master;
 
 		txt = gtk_entry_get_text (GTK_ENTRY (self->device_cb->entry));
-		if (txt)
+		if (txt && txt[0]) {
 			vc_set_device (txt);
+		}
 
 		omi = gtk_option_menu_get_history (self->master_om);
 		master = self_find_name_by_master_i (self, omi);
@@ -206,6 +207,7 @@ class Xfce:Mixer:Prefbox from Gtk:VBox {
 		/*self->execu_entry = self->ic->command_entry;*/
 		/*self->startup_nf_c = GTK_CHECK_BUTTON (self->ic->sn_checkbutton);*/
 		/*self->in_terminal_c = GTK_CHECK_BUTTON (self->ic->term_checkbutton);*/
+		gtk_widget_show (GTK_WIDGET (launcher_entry_get_widget (self->launcher_entry)));
 		gtk_box_pack_start (GTK_BOX (self->click_b), GTK_WIDGET (launcher_entry_get_widget (self->launcher_entry)), FALSE, FALSE, 0);
 	}
 
@@ -246,6 +248,7 @@ class Xfce:Mixer:Prefbox from Gtk:VBox {
 		launcher_run_in_terminal = FALSE;
 		launcher_use_startup_notification = FALSE;
 		device = NULL;
+		master_control = NULL;
 
 		if (!p) {
 			self_fill_defaults (self);
