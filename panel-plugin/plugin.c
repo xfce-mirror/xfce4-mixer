@@ -56,7 +56,7 @@ mixer_orientation_changed (XfcePanelPlugin *plugin, GtkOrientation orientation,
     {
         gdouble angle = (orientation == GTK_ORIENTATION_HORIZONTAL) ? 0 : 90;
 
-        g_object_set (G_OBJECT (label), "angle", angle, NULL);
+        /* ??? g_object_set (G_OBJECT (label), "angle", angle, NULL); */
     }
 }
 
@@ -202,10 +202,10 @@ mixer_construct (XfcePanelPlugin *plugin)
     {
         GtkOrientation orientation = 
             xfce_panel_plugin_get_orientation (plugin);
-        gdouble angle = (orientation == GTK_ORIENTATION_HORIZONTAL) ? 0 : 90;
+        /*gdouble angle = (orientation == GTK_ORIENTATION_HORIZONTAL) ? 0 : 90;
 
         g_object_set (G_OBJECT (GTK_BIN (button)->child), 
-                      "angle", angle, NULL);
+                      "angle", angle, NULL);*/
     }
     
     gtk_container_add (GTK_CONTAINER (plugin), GTK_WIDGET(mixer->box));
