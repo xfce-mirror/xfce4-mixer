@@ -49,13 +49,12 @@ static XfceIconTheme* icontheme;
 
 static void
 mixer_orientation_changed (XfcePanelPlugin *plugin, GtkOrientation orientation, 
-                     GtkWidget *label)
+                     t_mixer* mixer)
 {
     if ((gtk_major_version == 2 && gtk_minor_version >= 6) || 
          gtk_major_version > 2)
     {
-        gdouble angle = (orientation == GTK_ORIENTATION_HORIZONTAL) ? 0 : 90;
-
+        /*gdouble angle = (orientation == GTK_ORIENTATION_HORIZONTAL) ? 0 : 90;*/
         /* ??? g_object_set (G_OBJECT (label), "angle", angle, NULL); */
     }
 }
@@ -199,8 +198,8 @@ mixer_construct (XfcePanelPlugin *plugin)
     if ((gtk_major_version == 2 && gtk_minor_version >= 6) || 
          gtk_major_version > 2)
     {
-        GtkOrientation orientation = 
-            xfce_panel_plugin_get_orientation (plugin);
+        /*GtkOrientation orientation = 
+            xfce_panel_plugin_get_orientation (plugin);*/
         /*gdouble angle = (orientation == GTK_ORIENTATION_HORIZONTAL) ? 0 : 90;
 
         g_object_set (G_OBJECT (GTK_BIN (button)->child), 
@@ -213,7 +212,7 @@ mixer_construct (XfcePanelPlugin *plugin)
 
     g_signal_connect (plugin, "orientation-changed", 
                       G_CALLBACK (mixer_orientation_changed), 
-                      GTK_BIN (button)->child);
+                      mixer);
 
     g_signal_connect (plugin, "free-data", 
                       G_CALLBACK (mixer_free_data), mixer);
