@@ -1,3 +1,22 @@
+2005-11-06 09:26  Olivier Fourdan <fourdan@xfce.org>
+
+	* hu.po: Update Hungarian translation by Attila SZERVAC
+	  <sas@321.hu>
+
+2005-11-05 13:13  Moritz Heiber <moe@xfce.org>
+
+	* de.po: Updated german translations for the upcoming release.
+
+2005-11-03 13:25  Daichi Kawahata <daichi@xfce.org>
+
+	* sl.po: Added Slovenian translations by Bostjan Spetic
+	  <igzebedze@auch.eu.org>.
+
+2005-10-28 12:08  Daichi Kawahata <daichi@xfce.org>
+
+	* be.po: Updated Belorussian translations by Ales Nyakhaychyk
+	  <nab@mail.by>.
+
 2005-10-20 12:37  Alex Dupre <ale@FreeBSD.org>
 
 	* it.po: Update Italian translations.
