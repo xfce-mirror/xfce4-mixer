@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: eu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-10-21 21:20+0900\n"
+"POT-Creation-Date: 2005-11-22 00:17+0900\n"
 "PO-Revision-Date: 2005-10-27 21:55+0200\n"
 "Last-Translator: Piarres Beobide <pi@beobide.net>\n"
 "Language-Team: librezale.org <librezale@librezale.org>\n"
@@ -157,14 +157,31 @@ msgstr "alsa: Ezinezkoa kontrol sinplerik aurkitzea '%s',%i\n"
 msgid "oss: No master volume"
 msgstr "oss: Bolumen nagusirik gabea"
 
-#: ../panel-plugin/plugin.c:120
-msgid "Could not save configuration"
-msgstr "Ezin da konfigurazioa gorde"
+#: ../panel-plugin/launcher-entry.c:47
+msgid "Run in Terminal"
+msgstr ""
+
+#: ../panel-plugin/launcher-entry.c:50
+msgid "Use Startup Notification"
+msgstr ""
+
+#: ../panel-plugin/launcher-entry.c:111 ../panel-plugin/launcher-entry.c:156
+#, c-format
+msgid "Could not run \"%s\""
+msgstr ""
+
+#: ../panel-plugin/launcher-entry.c:113 ../panel-plugin/launcher-entry.c:158
+msgid "Xfce Panel"
+msgstr ""
 
 #: ../panel-plugin/plugin.c:258
 #, c-format
 msgid "Volume: %d%%"
 msgstr "Bolumena: %% %d"
+
+#: ../panel-plugin/plugin.c:528
+msgid "Could not save configuration"
+msgstr "Ezin da konfigurazioa gorde"
 
 #: ../settings/mixer-settingsbox.gob:120 mixer-settingsbox.gob:120
 msgid "Device"
@@ -183,10 +200,6 @@ msgstr "Kontrol erabilgarriak"
 #: ../settings/sound.c:80 ../settings/sound.c:100 ../settings/sound.c:107
 msgid "Sound"
 msgstr "Soinua"
-
-#: ../src/main.c:95
-msgid "No working sound"
-msgstr "Ez dago soinurik martxan"
 
 #: ../src/menus.c:12
 msgid "/_File"
@@ -344,3 +357,5 @@ msgstr "Nahasle Ezarpenak"
 msgid "Xfce 4 Mixer Settings"
 msgstr "Xfce 4 Nahasle Ezarpenak"
 
+#~ msgid "No working sound"
+#~ msgstr "Ez dago soinurik martxan"

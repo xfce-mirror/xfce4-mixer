@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ca\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-10-21 21:20+0900\n"
+"POT-Creation-Date: 2005-11-22 00:17+0900\n"
 "PO-Revision-Date: 2005-10-27 22:30+0200\n"
 "Last-Translator: paurullan <paurullan@bulma.net>\n"
 "Language-Team: català\n"
@@ -153,32 +153,27 @@ msgid "RecSelect"
 msgstr "RecSelect"
 
 #: ../lib/vc_alsa.c:94
-#, c-format
-#, fuzzy
+#, fuzzy, c-format
 msgid "alsa: Mixer %s open error: %s\n"
 msgstr "alsa: Mesclador %s error al obrir: %s\n"
 
 #: ../lib/vc_alsa.c:99
-#, c-format
-#, fuzzy
+#, fuzzy, c-format
 msgid "alsa: Mixer attach %s error: %s\n"
 msgstr "alsa: Error %s en l'adjunt del mesclador: %s\n"
 
 #: ../lib/vc_alsa.c:107
-#, c-format
-#, fuzzy
+#, fuzzy, c-format
 msgid "alsa: Mixer register error: %s\n"
 msgstr "alsa: Error al registrar el mesclador: %s\n"
 
 #: ../lib/vc_alsa.c:116
-#, c-format
-#, fuzzy
+#, fuzzy, c-format
 msgid "alsa: Mixer load error: %s: %s\n"
 msgstr "alsa: Error en la càrrega del mesclador: %s: %s\n"
 
 #: ../lib/vc_alsa.c:126
-#, c-format
-#, fuzzy
+#, fuzzy, c-format
 msgid "alsa: Unable to find simple control '%s',%i\n"
 msgstr "alsa: No es pot trobar el control «%s»,%i\n"
 
@@ -187,16 +182,32 @@ msgstr "alsa: No es pot trobar el control «%s»,%i\n"
 msgid "oss: No master volume"
 msgstr "oss: No hi és el control principal de volum"
 
-#: ../panel-plugin/plugin.c:120
+#: ../panel-plugin/launcher-entry.c:47
+msgid "Run in Terminal"
+msgstr ""
+
+#: ../panel-plugin/launcher-entry.c:50
+msgid "Use Startup Notification"
+msgstr ""
+
+#: ../panel-plugin/launcher-entry.c:111 ../panel-plugin/launcher-entry.c:156
+#, c-format
+msgid "Could not run \"%s\""
+msgstr ""
+
+#: ../panel-plugin/launcher-entry.c:113 ../panel-plugin/launcher-entry.c:158
+msgid "Xfce Panel"
+msgstr ""
+
+#: ../panel-plugin/plugin.c:258
+#, fuzzy, c-format
+msgid "Volume: %d%%"
+msgstr "Volum: %d%%"
+
+#: ../panel-plugin/plugin.c:528
 #, fuzzy
 msgid "Could not save configuration"
 msgstr "no desa"
-
-#: ../panel-plugin/plugin.c:258
-#, c-format
-#, fuzzy
-msgid "Volume: %d%%"
-msgstr "Volum: %d%%"
 
 #: ../settings/mixer-settingsbox.gob:120 mixer-settingsbox.gob:120
 #, fuzzy
@@ -219,11 +230,6 @@ msgstr "Controls útils"
 #, fuzzy
 msgid "Sound"
 msgstr "So"
-
-#: ../src/main.c:95
-#, fuzzy
-msgid "No working sound"
-msgstr "El so no funciona"
 
 #: ../src/menus.c:12
 #, fuzzy
@@ -357,20 +363,17 @@ msgid "Profile"
 msgstr "Perfil"
 
 #: ../src/mixer-profilebox.gob:374 mixer-profilebox.gob:374
-#, c-format
-#, fuzzy
+#, fuzzy, c-format
 msgid "Really delete those %d profiles?"
 msgstr "Realment voleu eliminar aquests %d perfils?"
 
 #: ../src/mixer-profilebox.gob:377 mixer-profilebox.gob:377
-#, c-format
-#, fuzzy
+#, fuzzy, c-format
 msgid "Really delete profile \"%s\"?"
 msgstr "Voleu realment esborrar el perfil «%s»?"
 
 #: ../src/mixer-profilebox.gob:491 mixer-profilebox.gob:491
-#, c-format
-#, fuzzy
+#, fuzzy, c-format
 msgid "%s - New"
 msgstr "%s - Nou"
 
@@ -386,8 +389,7 @@ msgstr "Ja existeix un perfil amb aquest nom"
 
 #: ../src/mixer-profiles.gob:262 ../src/mixer-profiles.gob:269
 #: mixer-profiles.gob:262 mixer-profiles.gob:269
-#, c-format
-#, fuzzy
+#, fuzzy, c-format
 msgid "profile%d"
 msgstr "perfil%d"
 
@@ -416,3 +418,6 @@ msgstr "Mesclador: Paràmetres"
 msgid "Xfce 4 Mixer Settings"
 msgstr "Mesclador: Paràmetres"
 
+#, fuzzy
+#~ msgid "No working sound"
+#~ msgstr "El so no funciona"

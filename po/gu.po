@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-10-21 21:20+0900\n"
+"POT-Creation-Date: 2005-11-22 00:17+0900\n"
 "PO-Revision-Date: 2005-10-08 08:26+0900\n"
 "Last-Translator: Ankit Patel <ankit644@yahoo.com>\n"
 "Language-Team: Gujarati <indianoss-gujarati@lists.sourceforge.net>\n"
@@ -156,14 +156,31 @@ msgstr "alsa: સાદુ નિયંત્રણ શોધવામાં સ
 msgid "oss: No master volume"
 msgstr "oss: કોઈ મુખ્ય અવાજ નથી"
 
-#: ../panel-plugin/plugin.c:120
-msgid "Could not save configuration"
+#: ../panel-plugin/launcher-entry.c:47
+msgid "Run in Terminal"
+msgstr ""
+
+#: ../panel-plugin/launcher-entry.c:50
+msgid "Use Startup Notification"
+msgstr ""
+
+#: ../panel-plugin/launcher-entry.c:111 ../panel-plugin/launcher-entry.c:156
+#, c-format
+msgid "Could not run \"%s\""
+msgstr ""
+
+#: ../panel-plugin/launcher-entry.c:113 ../panel-plugin/launcher-entry.c:158
+msgid "Xfce Panel"
 msgstr ""
 
 #: ../panel-plugin/plugin.c:258
 #, c-format
 msgid "Volume: %d%%"
 msgstr "અવાજ: %d%%"
+
+#: ../panel-plugin/plugin.c:528
+msgid "Could not save configuration"
+msgstr ""
 
 #: ../settings/mixer-settingsbox.gob:120 mixer-settingsbox.gob:120
 msgid "Device"
@@ -182,10 +199,6 @@ msgstr "ઉપયોગી નિયંત્રકો"
 #: ../settings/sound.c:80 ../settings/sound.c:100 ../settings/sound.c:107
 msgid "Sound"
 msgstr "ધ્વનિ"
-
-#: ../src/main.c:95
-msgid "No working sound"
-msgstr "કોઈ કામ આપતું ધ્વનિ નથી"
 
 #: ../src/menus.c:12
 msgid "/_File"
@@ -342,3 +355,6 @@ msgstr "મિક્સર સુયોજનો"
 #: ../settings/xfce-mixer-settings.desktop.in.h:2
 msgid "Xfce 4 Mixer Settings"
 msgstr "Xfce 4 મિક્સર સુયોજનો"
+
+#~ msgid "No working sound"
+#~ msgstr "કોઈ કામ આપતું ધ્વનિ નથી"

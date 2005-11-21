@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-10-21 21:20+0900\n"
+"POT-Creation-Date: 2005-11-22 00:17+0900\n"
 "PO-Revision-Date: 2005-10-08 08:32+0900\n"
 "Last-Translator: Anthony Ivanoff <a-i@bk.ru>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -158,14 +158,31 @@ msgstr "alsa: Не найден элемент управления '%s' ,%i\n"
 msgid "oss: No master volume"
 msgstr "oss: Нет громкости"
 
-#: ../panel-plugin/plugin.c:120
-msgid "Could not save configuration"
+#: ../panel-plugin/launcher-entry.c:47
+msgid "Run in Terminal"
+msgstr ""
+
+#: ../panel-plugin/launcher-entry.c:50
+msgid "Use Startup Notification"
+msgstr ""
+
+#: ../panel-plugin/launcher-entry.c:111 ../panel-plugin/launcher-entry.c:156
+#, c-format
+msgid "Could not run \"%s\""
+msgstr ""
+
+#: ../panel-plugin/launcher-entry.c:113 ../panel-plugin/launcher-entry.c:158
+msgid "Xfce Panel"
 msgstr ""
 
 #: ../panel-plugin/plugin.c:258
 #, c-format
 msgid "Volume: %d%%"
 msgstr "Громкость: %d%%"
+
+#: ../panel-plugin/plugin.c:528
+msgid "Could not save configuration"
+msgstr ""
 
 #: ../settings/mixer-settingsbox.gob:120 mixer-settingsbox.gob:120
 msgid "Device"
@@ -184,10 +201,6 @@ msgstr "Контролируемые каналы"
 #: ../settings/sound.c:80 ../settings/sound.c:100 ../settings/sound.c:107
 msgid "Sound"
 msgstr "Звук"
-
-#: ../src/main.c:95
-msgid "No working sound"
-msgstr "Звук не работает"
 
 #: ../src/menus.c:12
 msgid "/_File"
@@ -345,3 +358,6 @@ msgstr "Настройки микшера"
 #: ../settings/xfce-mixer-settings.desktop.in.h:2
 msgid "Xfce 4 Mixer Settings"
 msgstr "Настройки микшера Xfce 4"
+
+#~ msgid "No working sound"
+#~ msgstr "Звук не работает"

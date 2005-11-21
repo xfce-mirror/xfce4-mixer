@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-10-21 21:20+0900\n"
+"POT-Creation-Date: 2005-11-22 00:17+0900\n"
 "PO-Revision-Date: 2005-04-06 15:07+0530\n"
 "Last-Translator: Runa Bhattacharjee <runab@redhat.com>\n"
 "Language-Team: Bangla INDIA <LL@li.org>\n"
@@ -155,14 +155,31 @@ msgstr "alsa: সাধারণ নিয়ন্ত্রক '%s' পাওয়�
 msgid "oss: No master volume"
 msgstr "oss: কোনো মাস্টার ভলিউম উপস্থিত নেই"
 
-#: ../panel-plugin/plugin.c:120
-msgid "Could not save configuration"
+#: ../panel-plugin/launcher-entry.c:47
+msgid "Run in Terminal"
+msgstr ""
+
+#: ../panel-plugin/launcher-entry.c:50
+msgid "Use Startup Notification"
+msgstr ""
+
+#: ../panel-plugin/launcher-entry.c:111 ../panel-plugin/launcher-entry.c:156
+#, c-format
+msgid "Could not run \"%s\""
+msgstr ""
+
+#: ../panel-plugin/launcher-entry.c:113 ../panel-plugin/launcher-entry.c:158
+msgid "Xfce Panel"
 msgstr ""
 
 #: ../panel-plugin/plugin.c:258
 #, c-format
 msgid "Volume: %d%%"
 msgstr "আওয়াজ: %d%%"
+
+#: ../panel-plugin/plugin.c:528
+msgid "Could not save configuration"
+msgstr ""
 
 #: ../settings/mixer-settingsbox.gob:120 mixer-settingsbox.gob:120
 msgid "Device"
@@ -181,10 +198,6 @@ msgstr "উপযোগী নিয়ন্ত্রক"
 #: ../settings/sound.c:80 ../settings/sound.c:100 ../settings/sound.c:107
 msgid "Sound"
 msgstr "শব্দ"
-
-#: ../src/main.c:95
-msgid "No working sound"
-msgstr "কোনো কার্যকরী শব্দ উপস্থিত নেই"
 
 #: ../src/menus.c:12
 msgid "/_File"
@@ -342,3 +355,6 @@ msgstr ""
 #: ../settings/xfce-mixer-settings.desktop.in.h:2
 msgid "Xfce 4 Mixer Settings"
 msgstr ""
+
+#~ msgid "No working sound"
+#~ msgstr "কোনো কার্যকরী শব্দ উপস্থিত নেই"

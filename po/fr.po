@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-10-21 21:20+0900\n"
+"POT-Creation-Date: 2005-11-22 00:17+0900\n"
 "PO-Revision-Date: 2005-08-18 00:33+0900\n"
 "Last-Translator: Olivier Fourdan <fourdan@xfce.org>\n"
 "Language-Team: French <traduc@traduc.org>\n"
@@ -154,14 +154,31 @@ msgstr "alsa: Impossible de trouver les contrôle '%s',%i\n"
 msgid "oss: No master volume"
 msgstr "oss: Pas de volume principal"
 
-#: ../panel-plugin/plugin.c:120
-msgid "Could not save configuration"
+#: ../panel-plugin/launcher-entry.c:47
+msgid "Run in Terminal"
+msgstr ""
+
+#: ../panel-plugin/launcher-entry.c:50
+msgid "Use Startup Notification"
+msgstr ""
+
+#: ../panel-plugin/launcher-entry.c:111 ../panel-plugin/launcher-entry.c:156
+#, c-format
+msgid "Could not run \"%s\""
+msgstr ""
+
+#: ../panel-plugin/launcher-entry.c:113 ../panel-plugin/launcher-entry.c:158
+msgid "Xfce Panel"
 msgstr ""
 
 #: ../panel-plugin/plugin.c:258
 #, c-format
 msgid "Volume: %d%%"
 msgstr "Volume: %d%%"
+
+#: ../panel-plugin/plugin.c:528
+msgid "Could not save configuration"
+msgstr ""
 
 #: ../settings/mixer-settingsbox.gob:120 mixer-settingsbox.gob:120
 msgid "Device"
@@ -180,10 +197,6 @@ msgstr "Contrôles utiles"
 #: ../settings/sound.c:80 ../settings/sound.c:100 ../settings/sound.c:107
 msgid "Sound"
 msgstr "Son"
-
-#: ../src/main.c:95
-msgid "No working sound"
-msgstr "Le son de fonctionne pas"
 
 #: ../src/menus.c:12
 msgid "/_File"
@@ -340,3 +353,6 @@ msgstr "Paramétrage du mixer"
 #: ../settings/xfce-mixer-settings.desktop.in.h:2
 msgid "Xfce 4 Mixer Settings"
 msgstr "Paramètres du mixer de Xfce 4"
+
+#~ msgid "No working sound"
+#~ msgstr "Le son de fonctionne pas"

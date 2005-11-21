@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-10-21 21:20+0900\n"
+"POT-Creation-Date: 2005-11-22 00:17+0900\n"
 "PO-Revision-Date: 2005-10-08 08:27+0900\n"
 "Last-Translator: Egmont Koblinger <egmont@uhulinux.hu>\n"
 "Language-Team: Hungarian <translation-team-hu@lists.sourceforge.net>\n"
@@ -158,14 +158,31 @@ msgstr "alsa: Nem található az egyszerű '%s' vezérlő, %i\n"
 msgid "oss: No master volume"
 msgstr "oss: Nincsen master"
 
-#: ../panel-plugin/plugin.c:120
-msgid "Could not save configuration"
+#: ../panel-plugin/launcher-entry.c:47
+msgid "Run in Terminal"
+msgstr ""
+
+#: ../panel-plugin/launcher-entry.c:50
+msgid "Use Startup Notification"
+msgstr ""
+
+#: ../panel-plugin/launcher-entry.c:111 ../panel-plugin/launcher-entry.c:156
+#, c-format
+msgid "Could not run \"%s\""
+msgstr ""
+
+#: ../panel-plugin/launcher-entry.c:113 ../panel-plugin/launcher-entry.c:158
+msgid "Xfce Panel"
 msgstr ""
 
 #: ../panel-plugin/plugin.c:258
 #, c-format
 msgid "Volume: %d%%"
 msgstr "Hangerő: %d%%"
+
+#: ../panel-plugin/plugin.c:528
+msgid "Could not save configuration"
+msgstr ""
 
 #: ../settings/mixer-settingsbox.gob:120 mixer-settingsbox.gob:120
 msgid "Device"
@@ -185,10 +202,6 @@ msgstr "Hangerő-szabályozó"
 #: ../settings/sound.c:80 ../settings/sound.c:100 ../settings/sound.c:107
 msgid "Sound"
 msgstr ""
-
-#: ../src/main.c:95
-msgid "No working sound"
-msgstr "Nincsen működő hang"
 
 #: ../src/menus.c:12
 msgid "/_File"
@@ -343,3 +356,6 @@ msgstr ""
 #: ../settings/xfce-mixer-settings.desktop.in.h:2
 msgid "Xfce 4 Mixer Settings"
 msgstr ""
+
+#~ msgid "No working sound"
+#~ msgstr "Nincsen működő hang"
