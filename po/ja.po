@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-11-22 00:17+0900\n"
-"PO-Revision-Date: 2005-10-08 08:46+0900\n"
+"PO-Revision-Date: 2005-11-15 18:54+0900\n"
 "Last-Translator: Daichi Kawahata <daichi@xfce.org>\n"
 "Language-Team: Japanese <xfce-users-jp@ml.fdiary.net>\n"
 "MIME-Version: 1.0\n"
@@ -159,20 +159,20 @@ msgstr "oss: マスター音量がありません"
 
 #: ../panel-plugin/launcher-entry.c:47
 msgid "Run in Terminal"
-msgstr ""
+msgstr "ターミナルで実行する"
 
 #: ../panel-plugin/launcher-entry.c:50
 msgid "Use Startup Notification"
-msgstr ""
+msgstr "起動通知を使用する"
 
 #: ../panel-plugin/launcher-entry.c:111 ../panel-plugin/launcher-entry.c:156
 #, c-format
 msgid "Could not run \"%s\""
-msgstr ""
+msgstr "\"%s\" を実行できません"
 
 #: ../panel-plugin/launcher-entry.c:113 ../panel-plugin/launcher-entry.c:158
 msgid "Xfce Panel"
-msgstr ""
+msgstr "Xfce パネル"
 
 #: ../panel-plugin/plugin.c:258
 #, c-format
@@ -356,6 +356,3 @@ msgstr "ミキサー設定"
 #: ../settings/xfce-mixer-settings.desktop.in.h:2
 msgid "Xfce 4 Mixer Settings"
 msgstr "Xfce 4 ミキサー設定"
-
-#~ msgid "No working sound"
-#~ msgstr "サウンド機能が動作していません"
