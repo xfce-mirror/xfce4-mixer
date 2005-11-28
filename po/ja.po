@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-11-22 00:17+0900\n"
-"PO-Revision-Date: 2005-11-15 18:54+0900\n"
+"POT-Creation-Date: 2005-11-28 21:20+0900\n"
+"PO-Revision-Date: 2005-11-28 21:57+0900\n"
 "Last-Translator: Daichi Kawahata <daichi@xfce.org>\n"
 "Language-Team: Japanese <xfce-users-jp@ml.fdiary.net>\n"
 "MIME-Version: 1.0\n"
@@ -122,11 +122,11 @@ msgstr "ラジオ"
 
 #: ../lib/trans.c:30
 msgid "Monitor"
-msgstr "モニタ"
+msgstr "モニター"
 
 #: ../lib/trans.c:31
 msgid "RecSelect"
-msgstr "Rec選択"
+msgstr "録音選択"
 
 #: ../lib/vc_alsa.c:94
 #, c-format
@@ -227,7 +227,7 @@ msgstr "/ヘルプ(_H)"
 
 #: ../src/menus.c:18
 msgid "/Help/_Info"
-msgstr "/ヘルプ/情報(_I)"
+msgstr "/ヘルプ/このプログラムについて(_I)"
 
 #: ../src/mixer-info.gob:28 mixer-info.gob:28
 msgid ""
@@ -236,9 +236,9 @@ msgid ""
 "directory.\n"
 "No warranty in any way."
 msgstr ""
-"これは xfce4-mixer 音量調節プログラムです。\n"
-"ソースフォルダにある GPL-2 ライセンスの下に配布されています。\n"
-"一切の保証はありません。"
+"xfce4-mixer は音量調整プログラムです。\n"
+"ソースフォルダにある GPL-2 ライセンスの条件下に配布されています。\n"
+"使用の上でのいかなる保証もありません。"
 
 #: ../src/mixer-profilebox-detail.gob:163 mixer-profilebox-detail.gob:163
 msgid "Control"
@@ -284,7 +284,7 @@ msgstr "<スライダー>"
 #: ../src/mixer-profilebox-detail.gob:450 mixer-profilebox-detail.gob:385
 #: mixer-profilebox-detail.gob:450
 msgid "<onoff>"
-msgstr "<オン・オフ>"
+msgstr "<オン/オフ>"
 
 #: ../src/mixer-profilebox-detail.gob:386
 #: ../src/mixer-profilebox-detail.gob:451 mixer-profilebox-detail.gob:386
@@ -343,11 +343,11 @@ msgstr "スイッチを表示する"
 
 #: ../src/mixer-view.gob:260 mixer-view.gob:260
 msgid "Hide Switches"
-msgstr "スイッチを隠す"
+msgstr "スイッチを表示しない"
 
 #: ../src/mixer-window.gob:188 mixer-window.gob:188
 msgid "Volume Control"
-msgstr "音量調節"
+msgstr "音量調整"
 
 #: ../settings/xfce-mixer-settings.desktop.in.h:1
 msgid "Mixer Settings"
