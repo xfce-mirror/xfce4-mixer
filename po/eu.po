@@ -159,20 +159,20 @@ msgstr "oss: Bolumen nagusirik gabea"
 
 #: ../panel-plugin/launcher-entry.c:47
 msgid "Run in Terminal"
-msgstr ""
+msgstr "Terminalean abiarazi"
 
 #: ../panel-plugin/launcher-entry.c:50
 msgid "Use Startup Notification"
-msgstr ""
+msgstr "Abiarazte berri-emateak erabili"
 
 #: ../panel-plugin/launcher-entry.c:111 ../panel-plugin/launcher-entry.c:156
 #, c-format
 msgid "Could not run \"%s\""
-msgstr ""
+msgstr "Ezin da \"%s\" abiarazi"
 
 #: ../panel-plugin/launcher-entry.c:113 ../panel-plugin/launcher-entry.c:158
 msgid "Xfce Panel"
-msgstr ""
+msgstr "Xfce Panela"
 
 #: ../panel-plugin/plugin.c:258
 #, c-format
