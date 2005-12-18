@@ -8,8 +8,7 @@ static GtkWidget *headline(gchar const *title, GtkWidget **box_o)
 	w = gtk_vbox_new (FALSE, 5);
 	gtk_widget_show (GTK_WIDGET (w));
 
-	f = xfce_framebox_new (title, TRUE);
-	xfce_framebox_add (XFCE_FRAMEBOX (f), w);
+	f = xfce_create_framebox (title, w);
 	gtk_widget_show (GTK_WIDGET (f));
 
 	*box_o = w;
