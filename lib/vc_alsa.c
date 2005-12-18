@@ -85,7 +85,7 @@ static void find_master(void)
 	snd_mixer_selem_id_set_index(sid2, 0);
 	snd_mixer_selem_id_set_name(sid2, buf2);
 
-	if (handle) {
+	if (handle != NULL) {
 		snd_mixer_close(handle);
 		handle = NULL;
 	}
@@ -116,6 +116,7 @@ static void find_master(void)
 		error(_("alsa: Mixer load error: %s: %s\n"), card, snd_strerror(err));
 #endif
 		snd_mixer_close(handle);
+		handle = NULL;
 		return;
 	}
 	elem = snd_mixer_find_selem(handle, sid);
@@ -127,6 +128,7 @@ static void find_master(void)
 			snd_mixer_selem_id_get_name(sid), snd_mixer_selem_id_get_index(sid));
 #endif
 			snd_mixer_close(handle);
+			handle = NULL;
 			return;
 		}
 	}
