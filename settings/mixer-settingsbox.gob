@@ -69,23 +69,27 @@ class Xfce:Mixer:Settingsbox from Gtk:VBox {
 	public void load (self) /* load from manager */
 	{
 		McsSetting *setting;
+		gchar* sel_device;
 
-		if (!self->manager)
+		if (self->manager == NULL)
 			return;
 
 
+		sel_device = NULL;
+                if ((setting = mcs_manager_setting_lookup(self->manager,
+                                        MIXER_DEFAULT_DEVICE_FIELD, CHANNEL)) != NULL) {
+			sel_device = g_strdup (setting->data.v_string);
+		}
+
+		/* this will munge the mcs setting of MIXER_DEFAULT_DEVICE_FIELD: */
 		self_devicelst_updated (self);
 
-
-		if (self->sel_device) {
+		if (self->sel_device != NULL) {
 			g_free (self->sel_device);
 			self->sel_device = NULL;
 		}
-
-                if ((setting = mcs_manager_setting_lookup(self->manager,
-                                        MIXER_DEFAULT_DEVICE_FIELD, CHANNEL)) != NULL) {
-			self->sel_device = g_strdup (setting->data.v_string);
-		}
+		self->sel_device = sel_device;
+		sel_device = NULL;
 
 		self_reselect_device (self);
 	}
