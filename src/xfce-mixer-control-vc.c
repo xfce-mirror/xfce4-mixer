@@ -7,7 +7,7 @@
 #include "vc.h"
 
 static
-void value_changed_cb(XfceMixerControl *control, gpointer whatsthat, gpointer user_data)
+void value_changed_cb(XfceMixerControl *control, GParamSpec* arg1, gpointer user_data)
 {
 	gint v;
 	gboolean b;
