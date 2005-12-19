@@ -539,6 +539,7 @@ mixer_write_config(XfcePanelPlugin* plugin, gpointer user_data)
 	}
 }
 
+#if 0
 static void
 mixer_set_theme(Control * control, const char *theme)
 {
