@@ -211,7 +211,7 @@ mixer_construct (XfcePanelPlugin *plugin)
     mixer = mixer_new ();
     button = GTK_WIDGET(mixer->ib);
 
-    mixer->prefbox = xfce_mixer_prefbox_new ();	
+    mixer->prefbox = (XfceMixerPrefbox*) xfce_mixer_prefbox_new ();	
     xfce_mixer_prefbox_fill_defaults (mixer->prefbox);
 
     gtk_widget_show (mixer->box);
@@ -229,7 +229,7 @@ mixer_construct (XfcePanelPlugin *plugin)
     
     gtk_container_add (GTK_CONTAINER (plugin), GTK_WIDGET(mixer->box));
 
-    xfce_panel_plugin_add_action_widget (plugin, mixer->box);
+    xfce_panel_plugin_add_action_widget (plugin, mixer->ib);
 
     g_signal_connect (plugin, "orientation-changed", 
                       G_CALLBACK (mixer_orientation_changed), 
@@ -413,10 +413,14 @@ mixer_new(void)
 	mixer->ib = (XfceIconbutton *)xfce_iconbutton_new_from_pixbuf (pb);
 	g_object_unref (pb);
 	gtk_button_set_relief (GTK_BUTTON(mixer->ib), GTK_RELIEF_NONE);
+	
+	gtk_button_set_focus_on_click (GTK_BUTTON (mixer->ib), FALSE);
+	
 	gtk_widget_show (GTK_WIDGET (mixer->ib));
 	
 	g_signal_connect (G_OBJECT (mixer->ib), 
 		"clicked", G_CALLBACK (xfce_mixer_launch_cb), mixer);
+
 
 	gtk_box_pack_start (GTK_BOX (mixer->box), GTK_WIDGET (mixer->ib), TRUE, TRUE, 0);
 
@@ -515,6 +519,7 @@ mixer_write_config(XfcePanelPlugin* plugin, gpointer user_data)
 	path = xfce_panel_plugin_save_location (plugin, TRUE);
 
 	if (path) {  
+	/*g_warning ("path %s", path);*/
 		rc = xfce_rc_simple_open (path, TRUE);
 	}
 	
