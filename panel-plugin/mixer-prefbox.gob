@@ -228,10 +228,10 @@ class Xfce:Mixer:Prefbox from Gtk:VBox {
 		);
 	}
 
-	public GtkWidget *new(void)
+	public XfceMixerPrefbox *new(void)
 	{
-		GtkWidget *w;
-		w = GTK_WIDGET (GET_NEW);
+		XfceMixerPrefbox* w;
+		w = (XfceMixerPrefbox*) (GET_NEW);
 		xfce_mixer_prefbox_add_command_box (XFCE_MIXER_PREFBOX (w));
 		return w;
 	}
