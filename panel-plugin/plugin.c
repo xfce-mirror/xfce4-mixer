@@ -154,10 +154,6 @@ static void
 mixer_size_changed_cb (XfcePanelPlugin *plugin, int size, t_mixer* mixer)
 {
 	int	slider_width;
-#ifndef BIG_ICON
-	int	all;
-	int	r;
-#endif
 
     DBG ("Set size to %d: %s", size, PLUGIN_NAME);
 
@@ -229,7 +225,7 @@ mixer_construct (XfcePanelPlugin *plugin)
     
     gtk_container_add (GTK_CONTAINER (plugin), GTK_WIDGET(mixer->box));
 
-    xfce_panel_plugin_add_action_widget (plugin, mixer->ib);
+    xfce_panel_plugin_add_action_widget (plugin, GTK_WIDGET(mixer->ib));
 
     g_signal_connect (plugin, "orientation-changed", 
                       G_CALLBACK (mixer_orientation_changed), 
