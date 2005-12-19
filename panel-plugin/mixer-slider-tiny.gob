@@ -108,7 +108,9 @@ class Xfce:Mixer:Slider:Tiny from Xfce:Mixer:Control {
 				y = (sy + 2 - y) * 100 / sy;
 				if (y <= 0) y = 0;
 			} else y = 0;
-		} else return TRUE;
+		} else {
+			return FALSE;
+		}
 
 		if (y < 0) { y = 0; }
 		if (y > 100) { y = 100; }
