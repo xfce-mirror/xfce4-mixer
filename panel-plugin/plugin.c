@@ -138,7 +138,7 @@ mixer_configure (XfcePanelPlugin *plugin, gpointer user_data)
 
     w = GTK_WIDGET (mixer->prefbox);
     gtk_widget_show (w);
-    gtk_container_add (GTK_CONTAINER (dialog), w);
+    gtk_container_add (GTK_CONTAINER (dialog->vbox), w);
 
     pb = XFCE_MIXER_PREFBOX (mixer->prefbox);
     xfce_mixer_prefbox_fill_defaults (pb);
@@ -519,7 +519,7 @@ mixer_write_config(XfcePanelPlugin* plugin, gpointer user_data)
 	path = xfce_panel_plugin_save_location (plugin, TRUE);
 
 	if (path) {  
-	/*g_warning ("path %s", path);*/
+	g_warning ("path %s", path);
 		rc = xfce_rc_simple_open (path, TRUE);
 	}
 	
