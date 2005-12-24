@@ -15,9 +15,9 @@
 struct _LauncherEntry
 {
     GtkWidget* widget;
-    GtkWidget* exec_widget;
-    GtkWidget* terminal_widget;
-    GtkWidget* startup_widget;
+    GtkEntry* exec_widget;
+    GtkCheckButton* terminal_widget;
+    GtkCheckButton* startup_widget;
     
     /*char *name;
     char *comment;*/
@@ -34,7 +34,10 @@ struct _LauncherEntry
 static void
 launcher_entry_update_data_from_gui(LauncherEntry* e)
 {
-  gchar const* exec = gtk_entry_get_text(e->exec_widget);
+  gchar const* exec = gtk_entry_get_text(GTK_ENTRY(e->exec_widget));
+
+  e->terminal = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(e->terminal_widget));
+  e->startup = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(e->startup_widget));
   
   if (e->exec != NULL) {
     g_free (e->exec);
@@ -57,13 +60,17 @@ launcher_entry_new (void)
     
     gtk_container_set_border_width (GTK_CONTAINER (launcher_entry->widget), 7);
     
-    launcher_entry->exec_widget = gtk_entry_new ();
+    launcher_entry->exec_widget = GTK_ENTRY (gtk_entry_new ());
     gtk_widget_show (GTK_WIDGET (launcher_entry->exec_widget));
     
-    launcher_entry->terminal_widget = gtk_check_button_new_with_label (_("Run in Terminal"));
+    launcher_entry->terminal_widget = GTK_CHECK_BUTTON (
+      gtk_check_button_new_with_label (_("Run in Terminal"))
+    );
     gtk_widget_show (GTK_WIDGET (launcher_entry->terminal_widget));
     
-    launcher_entry->startup_widget = gtk_check_button_new_with_label (_("Use Startup Notification"));
+    launcher_entry->startup_widget = GTK_CHECK_BUTTON (
+      gtk_check_button_new_with_label (_("Use Startup Notification"))
+    );
     gtk_widget_show (GTK_WIDGET (launcher_entry->startup_widget));
     
     gtk_box_pack_start (GTK_BOX (launcher_entry->widget), GTK_WIDGET (launcher_entry->exec_widget), FALSE, TRUE, 5);
@@ -108,6 +115,7 @@ launcher_entry_free (LauncherEntry *e)
     g_free (e);
 }
 
+/*
 void
 launcher_entry_execute (LauncherEntry *entry)
 {
@@ -119,7 +127,8 @@ launcher_entry_execute (LauncherEntry *entry)
         
     error = NULL;
     
-    /*g_spawn_command_line_async (entry->exec, &error);*/
+    g_warning ("terminal %d", entry->terminal);
+    
     xfce_exec (entry->exec, entry->terminal, entry->startup, &error);
         
     if (error)
@@ -136,6 +145,7 @@ launcher_entry_execute (LauncherEntry *entry)
         g_error_free (error);
     }
 }
+*/
 
 static void
 launcher_entry_drop_cb (GdkScreen *screen, LauncherEntry *entry, 

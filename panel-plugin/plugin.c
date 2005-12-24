@@ -283,6 +283,7 @@ xfce_mixer_launch_cb (GtkWidget *w, gpointer user_data)
 {
 	t_mixer *mixer;
 	gchar *tmp;
+	GError* error;
 	gboolean internal;
 	
 	mixer = (t_mixer *) user_data;
@@ -291,12 +292,17 @@ xfce_mixer_launch_cb (GtkWidget *w, gpointer user_data)
 		
 	gchar* launcher_command;
 	gchar* device;
+	gboolean launcher_run_in_terminal;
+	gboolean launcher_use_startup_notification;
+	gchar* message;
 	
 	launcher_command = NULL;
 	device = NULL;
 
 	g_object_get (G_OBJECT (mixer->prefs), 
 		"launcher_command", &launcher_command, 
+		"launcher_run_in_terminal", &launcher_run_in_terminal,
+		"launcher_use_startup_notification", &launcher_use_startup_notification,
 		"device", &device,
 		NULL);
 
@@ -305,6 +311,8 @@ xfce_mixer_launch_cb (GtkWidget *w, gpointer user_data)
 	  
 	if (mixer && mixer->prefs && device && internal) {
 		tmp = g_strdup_printf ("xfce4-mixer \"%s\"", device); /* TODO: pass device from cfg */
+		launcher_run_in_terminal = FALSE;
+		launcher_use_startup_notification = TRUE;
 	} else {
 		if (launcher_command) {
 			tmp = g_strdup (launcher_command);
@@ -312,8 +320,26 @@ xfce_mixer_launch_cb (GtkWidget *w, gpointer user_data)
 			tmp = g_strdup ("xfce4-mixer");
 		}
 	}
-	g_spawn_command_line_async (tmp, NULL);
-	/* gone, it seems. exec_cmd(tmp, mixer->prefs->in_terminal, mixer->prefs->startup_nf); */
+	
+	/*g_spawn_command_line_async (tmp, NULL);*/
+	
+	error = NULL;
+	
+	xfce_exec (tmp, launcher_run_in_terminal, launcher_use_startup_notification, &error);
+	/* gone, it seems: exec_cmd(tmp, mixer->prefs->in_terminal, mixer->prefs->startup_nf); */
+
+	if (error) {
+		message = g_strdup_printf (_("Could not run \"%s\""), tmp);
+	    
+		xfce_message_dialog (NULL, _("Xfce Panel"), 
+		  GTK_STOCK_DIALOG_ERROR, message, error->message,
+		  GTK_STOCK_CLOSE, GTK_RESPONSE_OK, NULL);
+
+		g_free (message);
+                                    
+		g_error_free (error);
+	}
+
 	                        
 	g_free (tmp);
 	

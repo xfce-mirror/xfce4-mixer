@@ -12,6 +12,6 @@ void launcher_entry_free (LauncherEntry *e);
 void launcher_entry_set_command (LauncherEntry *e, gchar const* command, gboolean terminal, gboolean startupnotification);
 void launcher_entry_get_command (LauncherEntry *e, gchar** command, gboolean* terminal, gboolean* startupnotification);
 GtkWidget* launcher_entry_get_widget (LauncherEntry* e);
-void launcher_entry_execute (LauncherEntry *entry);
+/*void launcher_entry_execute (LauncherEntry *entry);*/
 
 #endif
