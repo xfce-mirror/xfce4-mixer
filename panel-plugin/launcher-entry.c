@@ -50,6 +50,14 @@ launcher_entry_update_data_from_gui(LauncherEntry* e)
   
 }
 
+static void
+launcher_entry_update_gui_from_data(LauncherEntry* e)
+{
+  gtk_entry_set_text(GTK_ENTRY(e->exec_widget), e->exec);
+  gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(e->terminal_widget), e->terminal);
+  gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(e->startup_widget), e->startup);
+}
+
 LauncherEntry *
 launcher_entry_new (void)
 {
@@ -94,6 +102,7 @@ launcher_entry_set_command (LauncherEntry *e, gchar const* command, gboolean ter
     
     e->terminal = terminal != 0;
     e->startup = startupnotification != 0;
+    launcher_entry_update_gui_from_data(e);
 }
 
 void
