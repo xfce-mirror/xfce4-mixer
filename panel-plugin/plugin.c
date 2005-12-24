@@ -517,7 +517,7 @@ mixer_read_config(XfcePanelPlugin* plugin, gpointer user_data)
 	rc = NULL;
 	path = xfce_panel_plugin_lookup_rc_file (plugin);
 
-	if (path) {  
+	if (path != NULL) {  
 		rc = xfce_rc_simple_open (path, TRUE);
 	}
   
@@ -529,7 +529,7 @@ mixer_read_config(XfcePanelPlugin* plugin, gpointer user_data)
 		xfce_rc_close (rc);
 	}
 
-	if (path) {  
+	if (path != NULL) {  
 		g_free (path);
 		path = NULL;
 	}
@@ -539,8 +539,6 @@ static void
 mixer_write_config(XfcePanelPlugin* plugin, gpointer user_data)
 {
     DBG ("Save: %s", PLUGIN_NAME);
-    g_warning ("SAVING");
-
 
 	XfceRc* rc;
 	gchar* path;
@@ -555,12 +553,11 @@ mixer_write_config(XfcePanelPlugin* plugin, gpointer user_data)
 	rc = NULL;
 	path = xfce_panel_plugin_save_location (plugin, TRUE);
 
-	if (path) {  
-	g_warning ("path %s", path);
-		rc = xfce_rc_simple_open (path, TRUE);
+	if (path != NULL) {  
+		rc = xfce_rc_simple_open (path, FALSE);
 	}
 	
-	if (rc) {
+	if (rc != NULL) {
 		xfce_rc_set_group (rc, MIXER_RC_GROUP);
     
 		xfce_mixer_preferences_save (mixer->prefs, rc);
@@ -570,7 +567,7 @@ mixer_write_config(XfcePanelPlugin* plugin, gpointer user_data)
 	        g_critical ("%s: %s", PLUGIN_NAME, _("Could not save configuration"));
 	}
 	
-	if (path) {
+	if (path != NULL) {
 		g_free (path);
 		path = NULL;
 	}
