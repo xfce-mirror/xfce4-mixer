@@ -31,6 +31,22 @@ struct _LauncherEntry
 };
 
 
+static void
+launcher_entry_update_data_from_gui(LauncherEntry* e)
+{
+  gchar const* exec = gtk_entry_get_text(e->exec_widget);
+  
+  if (e->exec != NULL) {
+    g_free (e->exec);
+    e->exec = NULL;
+  }
+  
+  if (exec != NULL) {
+    e->exec = g_strdup (exec);
+  }
+  
+}
+
 LauncherEntry *
 launcher_entry_new (void)
 {
@@ -97,6 +113,7 @@ launcher_entry_execute (LauncherEntry *entry)
 {
     GError *error;
     
+    launcher_entry_update_data_from_gui(entry);
     if (!entry->exec || !entry->exec[0])
         return;
         
@@ -286,6 +303,8 @@ GtkWidget* launcher_entry_get_widget (LauncherEntry* e)
 
 void launcher_entry_get_command (LauncherEntry *e, gchar** command, gboolean* terminal, gboolean* startupnotification)
 {
+  launcher_entry_update_data_from_gui(e);
+
   if (e->exec) {
     *command = g_strdup (e->exec);
   } else {

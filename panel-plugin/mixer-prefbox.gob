@@ -315,6 +315,8 @@ class Xfce:Mixer:Prefbox from Gtk:VBox {
 
 		launcher_entry_get_command (self->launcher_entry, &execu, &in_terminal, &startup_nf);
 
+		g_warning ("launcher command %s", execu);
+
 		g_object_set (G_OBJECT (p),
 			"device", device,
 			"launcher_command", execu,
