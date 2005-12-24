@@ -115,10 +115,11 @@ response_cb(GtkDialog* dialog, gint arg1, gpointer user_data)
 {
     t_mixer *mixer = (t_mixer *) user_data;
 
+    xfce_mixer_prefbox_save_preferences (mixer->prefbox, mixer->prefs);
+ 
     mixer_write_config(mixer->temp_plugin, user_data);
 
-    xfce_mixer_prefbox_save_preferences (mixer->prefbox, mixer->prefs);
-    
+   
     gtk_container_remove (GTK_CONTAINER(dialog->vbox), GTK_WIDGET(mixer->prefbox));
     
     gtk_widget_destroy (GTK_WIDGET(dialog));

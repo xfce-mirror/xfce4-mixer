@@ -253,13 +253,13 @@ class Xfce:Mixer:Preferences from G:Object {
 		device = self->_priv->device;
 		master_control = self->_priv->master;
 
-		if (device) {
+		if (device != NULL) {
 			xfce_rc_write_entry (rc, "Device", device);
 		} else {
 			xfce_rc_delete_entry (rc, "Device", FALSE);
 		}
 
-		if (launcher_command) {
+		if (launcher_command != NULL) {
 			xfce_rc_write_entry (rc, "LauncherCommand", launcher_command);
 		} else {
 			xfce_rc_delete_entry (rc, "LauncherCommand", FALSE);
@@ -268,7 +268,7 @@ class Xfce:Mixer:Preferences from G:Object {
 		xfce_rc_write_bool_entry (rc, "LauncherRunInTerminal", launcher_run_in_terminal);
 		xfce_rc_write_bool_entry (rc, "LauncherUseStartupNotification", launcher_use_startup_notification);
 
-		if (master_control) {
+		if (master_control != NULL) {
 			xfce_rc_write_entry (rc, "MasterControl", master_control);
 		} else {
 			xfce_rc_delete_entry (rc, "MasterControl", FALSE);
