@@ -90,7 +90,7 @@ mixer_free_data (XfcePanelPlugin *plugin, gpointer user_data)
     mixer_free (mixer);
 
     if (mixer->prefbox) { 
-      gtk_object_sink (GTK_OBJECT (mixer->prefbox));
+      g_object_unref (G_OBJECT(mixer->prefbox));
       mixer->prefbox = NULL;
     }
     
@@ -113,6 +113,10 @@ response_cb(GtkDialog* dialog, gint arg1, gpointer user_data)
 {
     t_mixer *mixer = (t_mixer *) user_data;
     xfce_mixer_prefbox_save_preferences (mixer->prefbox, mixer->prefs);
+    
+    gtk_container_remove (GTK_CONTAINER(dialog->vbox), GTK_WIDGET(mixer->prefbox));
+    
+    gtk_widget_destroy (GTK_WIDGET(dialog));
 }
 
 static void
@@ -208,6 +212,9 @@ mixer_construct (XfcePanelPlugin *plugin)
     button = GTK_WIDGET(mixer->ib);
 
     mixer->prefbox = (XfceMixerPrefbox*) xfce_mixer_prefbox_new ();	
+    g_object_ref (G_OBJECT(mixer->prefbox));
+    gtk_object_sink (GTK_OBJECT(mixer->prefbox));
+    
     xfce_mixer_prefbox_fill_defaults (mixer->prefbox);
 
     gtk_widget_show (mixer->box);
