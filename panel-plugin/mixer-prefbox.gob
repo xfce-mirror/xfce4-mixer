@@ -317,10 +317,10 @@ class Xfce:Mixer:Prefbox from Gtk:VBox {
 
 		g_object_set (G_OBJECT (p),
 			"device", device,
-			"execu", execu,
+			"launcher_command", execu,
 			"master", master,
-			"startup_nf", startup_nf,
-			"in_terminal", in_terminal,
+			"launcher_use_startup_notification", startup_nf,
+			"launcher_run_in_terminal", in_terminal,
 			NULL
 		);
 
