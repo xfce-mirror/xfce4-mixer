@@ -27,6 +27,7 @@
 /* Panel Plugin Interface */
 
 static void mixer_construct (XfcePanelPlugin *plugin);
+static void mixer_write_config(XfcePanelPlugin* plugin, gpointer user_data);
 
 XFCE_PANEL_PLUGIN_REGISTER_EXTERNAL(mixer_construct);
 
@@ -41,6 +42,7 @@ typedef struct
 	XfceIconbutton *ib;
 	XfceMixerPrefbox *prefbox;
 	gboolean broken;
+	XfcePanelPlugin* temp_plugin; /* for response_cb only! */
 	guint timer;
 } t_mixer;
 
@@ -112,6 +114,9 @@ static void
 response_cb(GtkDialog* dialog, gint arg1, gpointer user_data)
 {
     t_mixer *mixer = (t_mixer *) user_data;
+
+    mixer_write_config(mixer->temp_plugin, user_data);
+
     xfce_mixer_prefbox_save_preferences (mixer->prefbox, mixer->prefs);
     
     gtk_container_remove (GTK_CONTAINER(dialog->vbox), GTK_WIDGET(mixer->prefbox));
@@ -148,6 +153,8 @@ mixer_configure (XfcePanelPlugin *plugin, gpointer user_data)
     xfce_mixer_prefbox_fill_defaults (pb);
 	
     xfce_mixer_prefbox_fill_preferences (pb, mixer->prefs);
+    
+    mixer->temp_plugin = plugin;
     
     g_signal_connect (G_OBJECT (dialog), "response", G_CALLBACK (response_cb), mixer);
     
@@ -532,6 +539,7 @@ static void
 mixer_write_config(XfcePanelPlugin* plugin, gpointer user_data)
 {
     DBG ("Save: %s", PLUGIN_NAME);
+    g_warning ("SAVING");
 
 
 	XfceRc* rc;
