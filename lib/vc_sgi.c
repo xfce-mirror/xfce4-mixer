@@ -91,7 +91,7 @@ static int vc_reinit_device(void)
         */
         cnt_interfaces = alQueryValues(mixer_resource, AL_INTERFACE, interfaces, sizeof(interfaces)/sizeof(interfaces[0]), 0, 0); /* why 16? */
         if (cnt_interfaces >= 0) {
-          vc_get_resource_name (interfaces[i].i);
+          /*vc_get_resource_name (interfaces[i].i);*/
         }
         else {
             g_warning ("failed to get list of interfaces of device %s: %s\n", mixer_device_name, alGetErrorString(oserror()));
