@@ -1,6 +1,6 @@
 #include <stdio.h>
 /*
- gcc -o test_vc test_vc.c vc_oss.c -I../include `pkg-config --cflags --libs gtk+-2.0 libxfce4util-1.0` vc.c vcs.c -DUSE_OSS
+ gcc -o test_vc test_vc.c vc_oss.c -I../include `pkg-config --cflags --libs gtk+-2.0 libxfce4util-1.0` vc.c vcs.c -DUSE_OSS -DHAVE_CONFIG_H -g3 -I..
  */
 #include "vc.h"
 
