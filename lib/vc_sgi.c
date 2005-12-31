@@ -281,7 +281,7 @@ static int vc_get_device_resource_by_name(gchar const* name)
     int cnt_devices;
     ALvalue devices[32];
     GList* res;
-    gchar+ xname;
+    gchar* xname;
     
     res = NULL;
     cnt_devices = alQueryValues(AL_SYSTEM, AL_DEVICES, devices, 16, 0, 0); /* why 16? */
