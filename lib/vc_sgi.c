@@ -127,6 +127,8 @@ static int vc_get_volume(char const *which)
       * gain.
       */
      alGetParamInfo(mixer_resource, AL_GAIN, &ainfo);
+     
+  printf("==========\n");
   printf("%s\n", ainfo.name);
   printf("no val: %d\n", ainfo.valueType == AL_NO_VAL);
   printf("vector val: %d\n", ainfo.valueType == AL_VECTOR_VAL);
