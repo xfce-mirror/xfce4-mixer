@@ -29,11 +29,15 @@ AC_PROG_INTLTOOL
 
 dnl Check what sound system to use
 AC_ARG_WITH([sound], [
-AC_HELP_STRING([--with-sound=auto|alsa|oss|sun], [Check what sound system to use (defaults to auto)])], [],[with_sound=auto])
+AC_HELP_STRING([--with-sound=auto|alsa|oss|sun|sgi], [Check what sound system to use (defaults to auto)])], [],[with_sound=auto])
 
-if test x"$with_sound" != x"alsa" -a x"$with_sound" != x"oss" -a x"$with_sound" != x"sun"; then
+if test x"$with_sound" != x"alsa" -a x"$with_sound" != x"oss" -a x"$with_sound" != x"sun" -a x"$with_sound" != x"sgi"; then
   if test x`uname -s` != x"SunOS"; then
-    with_sound=oss
+    if test x`uname -s` != x"IRIX"; then
+      with_sound=oss
+    else
+      with_sound=sgi
+    fi
   else
     with_sound=sun
   fi
@@ -59,6 +63,13 @@ elif test x"$with_sound" = x"alsa"; then
 elif test x"$with_sound" = x"sun"; then
   AC_DEFINE([USE_SUN], [1], [Define for Sun sound system])
   AC_MSG_RESULT([sun])
+elif  test x"$with_sound" = x"sgi"; then
+  AC_DEFINE([USE_SGI], [1], [Define for SGI sound system])
+  AC_MSG_RESULT([sgi])
+
+  dnl Check for IRIX audio includes and library
+  AC_CHECK_LIB([audio], [ALnewconfig])
+  LIBS="-laudio"
 else
   AC_MSG_ERROR([Unknown sound system "$with_sound"])
 fi

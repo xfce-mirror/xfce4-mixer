@@ -14,6 +14,10 @@ extern int register_oss ();
 extern int register_sun ();
 #endif
 
+#ifdef USE_SGI
+extern int register_sgi ();
+#endif
+
 int register_vcs ()
 {
 #ifdef USE_ALSA
@@ -26,6 +30,10 @@ int register_vcs ()
 
 #ifdef USE_SUN
 	return register_sun ();
+#endif
+
+#ifdef USE_SGI
+	return register_sgi ();
 #endif
 
 	return -1;
