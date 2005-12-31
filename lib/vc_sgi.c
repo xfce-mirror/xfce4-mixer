@@ -54,7 +54,7 @@
 #define VC_PLUGIN
 #include "vc.h"
 
-#define MAX_MIXERS 10
+#define MAX_CHANNELS 10
 #define MIXER_BASE AL_DEFAULT_OUTPUT
 #define STRING_SIZE 32
 
@@ -110,22 +110,23 @@ static void vc_set_device(char const *name)
 
 static int vc_get_volume(char const *which)
 {
-     int rv;
-     ALpv x[4];
+     ALpv parameters[4];
      ALpv y;
      ALparamInfo ainfo;
-     ALfixed gain[8];
+     ALfixed gains[MAX_CHANNELS];
+     int cnt_channels;
+     
      int i;
      char min[30];
 
-
-     return 0;
+     double median;
+     double max;
      
      /*
       * Now get information about the supported values for
       * gain.
       */
-     alGetParamInfo(rv, AL_GAIN, &ainfo);
+     alGetParamInfo(mixer_resource, AL_GAIN, &ainfo);
 
      /*
       * One of the "special" values not described in the normal
@@ -139,6 +140,8 @@ static int vc_get_volume(char const *which)
          sprintf(min, "%lf", alFixedToDouble(ainfo.min.ll));
      }
 
+     max = alFixedToDouble(ainfo.max.ll);
+
      /*
       * Print out the gain range.
       */
@@ -148,28 +151,42 @@ static int vc_get_volume(char const *which)
       * Now get the current value of gain
       */
 
-     x[0].param = AL_GAIN;
-     x[0].value.ptr = gain;
-     x[0].sizeIn = 8;                   /* we've provided an 8-channel
-                                           vector */
-     x[1].param = AL_CHANNELS;
-     if (alGetParams(rv, x, 2) < 0) {
-        printf("getparams failed: %d\n", oserror());
-     }
-     else {
-        if (x[0].sizeOut < 0) {
-            printf("AL_GAIN was an unrecognized parameter\n");
-        }
-        else {
-            printf("(%d channels) gain:\n       ", x[0].sizeOut);
-            for (i = 0; i < x[0].sizeOut; i++) {
-                printf("%lf dB ", alFixedToDouble(gain[i]));
-            }
-            printf("\n");
-        }
+     parameters[0].param = AL_GAIN;
+     parameters[0].value.ptr = gains;
+     parameters[0].sizeIn = MAX_CHANNELS;   /* we've provided an 8-channel vector */
+     parameters[1].param = AL_CHANNELS;
+     /* ^--- ??? */
+     
+     if (alGetParams(mixer_resource, parameters, 2) < 0) {
+        g_warning ("vc_sgi.c: vc_get_volume: alGetParams failed: %s\n", alGetErrorString(oserror()));
+        return 0;
      }
 
-	return 0;
+     if (parameters[0].sizeOut < 0) {
+        g_warning ("vc_sgi.c: vc_get_volume: AL_GAIN was an unrecognized parameter");
+        return 0;
+     }
+     
+     cnt_channels = parameters[0].sizeOut;
+     printf("(%d channels) gain:\n       ", cnt_channels);
+            
+     for (i = 0; i < cnt_channels; i++) {
+        /* FIXME is that guaranteed to be fixed point? */
+        printf("%d: %lf dB\n", i, alFixedToDouble(gains[i]));
+                
+        median = median + alFixedToDouble(gains[i]);
+     }
+     if (cnt_channels > 0) {
+        median = median / cnt_channels;
+     } else {
+        median = 0;
+     }
+	    
+     if (max > 0) {
+        return 100 * median / max;
+     }
+
+     return 0;
 }
 
 static void vc_set_volume(char const *which, int vol_p)
