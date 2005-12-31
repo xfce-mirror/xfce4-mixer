@@ -207,7 +207,7 @@ static void vc_set_volume_callback(volchanger_callback_t cb, void *data)
 }
 
 
-static void *vc_get_device_list_irix(ALvalue devices[], int cnt_devices, GList** res)
+static void vc_get_device_list_irix(ALvalue devices[], int cnt_devices, GList** res)
 {
     ALpv parameters[2];
     char device_name[STRING_SIZE];
@@ -249,7 +249,7 @@ static void *vc_get_device_list_irix(ALvalue devices[], int cnt_devices, GList**
                 vc_get_device_list_irix(interfaces, cnt_interfaces, res);
             }
             else {
-                printf("queryset failed: %s\n", alGetErrorString(oserror()));
+                g_warning ("failed to get list of interfaces of device %s (\"%s\"): %s\n", device_name, device_label, alGetErrorString(oserror()));
             }
         }
     }
@@ -270,10 +270,11 @@ static GList *vc_get_device_list()
     cnt_devices = alQueryValues(AL_SYSTEM, AL_DEVICES, devices, 16, 0, 0); /* why 16? */
     
     if (cnt_devices >= 0) {
-        return vc_get_device_list_irix(devices, cnt_devices, &res));
+        vc_get_device_list_irix(devices, cnt_devices, &res));
     } else {
-        printf("queryset failed: %d\n", oserror());
+        g_warning ("vc_sgi: failed to get list of devices: %d\n", oserror());
     }
+    return res;
 }
 
 static void vc_set_select(char const *which, gchar const *v)
