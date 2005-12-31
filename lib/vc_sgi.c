@@ -259,7 +259,7 @@ static gchar* vc_get_resource_name(int resource)
     parameters[0].sizeIn = STRING_SIZE;      /* pass in max size of string */
 
     if (alGetParams(resource, parameters, sizeof(parameters) / sizeof(parameters[0])) < 0) { /* get the resource name & label */
-      g_warning ("vc_sgi: failed to get parameters LABEL and NAME of interface %d", resource);
+      g_warning ("vc_sgi: failed to get parameter NAME of interface %d", resource);
       return NULL;
     }
     
