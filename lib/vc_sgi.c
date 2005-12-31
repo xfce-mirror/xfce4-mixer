@@ -89,7 +89,7 @@ static int vc_reinit_device(void)
         * We call alQueryValues to get the set of interfaces
         * on this device
         */
-        cnt_interfaces = alQueryValues(resource, AL_INTERFACE, interfaces, sizeof(interfaces)/sizeof(interfaces[0]), 0, 0); /* why 16? */
+        cnt_interfaces = alQueryValues(mixer_resource, AL_INTERFACE, interfaces, sizeof(interfaces)/sizeof(interfaces[0]), 0, 0); /* why 16? */
         if (cnt_interfaces >= 0) {
           vc_get_resource_name (interfaces[i].i);
         }
@@ -169,7 +169,7 @@ static int vc_get_volume(char const *which)
         }
      }
 
-	return gain;
+	return 0;
 }
 
 static void vc_set_volume(char const *which, int vol_p)
