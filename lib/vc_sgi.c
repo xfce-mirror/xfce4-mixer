@@ -115,6 +115,7 @@ static int vc_get_volume(char const *which)
      ALparamInfo ainfo;
      ALfixed gains[MAX_CHANNELS];
      int cnt_channels;
+     int vol_p;
      
      int i;
 
@@ -178,7 +179,16 @@ static int vc_get_volume(char const *which)
      }
 	    
      if (max > 0.0) {
-        return (int)(100.0 * median / max);
+        vol_p = (int)(100.0 * median / max);
+        if (vol_p < 0) {
+          vol_p = 0;
+        }
+        
+        if (vol_p > 100) {
+          vol_p = 100;
+        }
+        
+        return vol_p;
      }
 
      return 0;
@@ -186,39 +196,65 @@ static int vc_get_volume(char const *which)
 
 static void vc_set_volume(char const *which, int vol_p)
 {
-     int fd;
-     int rv;
-     double rate;
-     ALpv x[2];
-     
-     return;
+     ALpv parameters[2];
+     ALfixed raw_value;
+     ALfixed gains[MAX_CHANNELS];
+     int cnt_channels;
+     int i;
+     ALparamInfo ainfo;
 
      /*
-      * Now set the nominal rate to the given number, and
-      * set AL_MASTER_CLOCK to be AL_CRYSTAL_MCLK_TYPE.
+      * Now get information about the supported values for
+      * gain.
       */
-     x[0].param = AL_RATE;
-     x[0].value.ll = alDoubleToFixed(rate);
-     x[1].param = AL_MASTER_CLOCK;
-     x[1].value.i = AL_CRYSTAL_MCLK_TYPE;
+     alGetParamInfo(mixer_resource, AL_GAIN, &ainfo);
 
-     if (alSetParams(rv,x, 2)<0) {
-        printf("setparams failed: %s\n",alGetErrorString(oserror()));
-     }
-     if (x[0].sizeOut < 0) {
-        /*
-         * Not all devices will allow setting of AL_RATE (for example, digital 
-         * inputs run only at the frequency of the external device).  Check
-         * to see if the rate was accepted.
-         */
-        printf("AL_RATE was not accepted on the given resource\n");
+     if (vol_p == 0) {
+       if (ainfo.specialVals & AL_NEG_INFINITY_BIT) {
+         raw_value = AL_NEG_INFINITY;
+       } else {
+         raw_value = ainfo.min.ll;
+       }
+     } else {
+       raw_value = ainfo.max.ll * vol_p / 100;
      }
 
-     if (alGetParams(rv,x, 1)<0) {
-        printf("getparams failed: %s\n",alGetErrorString(oserror()));
+     /* now get the number of channels in an extremely inefficient way */
+     
+     parameters[0].param = AL_GAIN;
+     parameters[0].value.ptr = gains;
+     parameters[0].sizeIn = MAX_CHANNELS;   /* we've provided an 8-channel vector */
+     parameters[1].param = AL_CHANNELS;
+     /* ^--- ??? */
+     
+     if (alGetParams(mixer_resource, parameters, 2) < 0) {
+        g_warning ("vc_sgi.c: vc_set_volume: alGetParams failed: %s\n", alGetErrorString(oserror()));
+        return 0;
      }
-     printf("rate is now %lf\n",alFixedToDouble(x[0].value.ll));
 
+     if (parameters[0].sizeOut < 0) {
+        g_warning ("vc_sgi.c: vc_set_volume: AL_GAIN was an unrecognized parameter");
+        return 0;
+     }
+     
+     cnt_channels = parameters[0].sizeOut;
+     
+     /* and set the new value for all channels */
+     
+     for (i = 0; i < cnt_channels; i++) {
+       gains[i] = raw_value;
+     }
+     
+     parameters[0].param = AL_GAIN;
+     parameters[0].value.ptr = gains;
+     parameters[0].sizeIn = MAX_CHANNELS;   /* we've provided an 8-channel vector */
+     parameters[1].param = AL_CHANNELS;
+     /* ^--- ??? */
+     
+     if (alSetParams(mixer_resource, parameters, 2) < 0) {
+        g_warning ("vc_sgi.c: vc_set_volume: alSetParams failed: %s\n", alGetErrorString(oserror()));
+        return 0;
+     }
 }
 
 static volcontrol_t *create_volcontrol_slider(char const *name)
