@@ -229,12 +229,12 @@ static void vc_set_volume(char const *which, int vol_p)
      
      if (alGetParams(mixer_resource, parameters, 2) < 0) {
         g_warning ("vc_sgi.c: vc_set_volume: alGetParams failed: %s\n", alGetErrorString(oserror()));
-        return 0;
+        return;
      }
 
      if (parameters[0].sizeOut < 0) {
         g_warning ("vc_sgi.c: vc_set_volume: AL_GAIN was an unrecognized parameter");
-        return 0;
+        return;
      }
      
      cnt_channels = parameters[0].sizeOut;
@@ -253,7 +253,7 @@ static void vc_set_volume(char const *which, int vol_p)
      
      if (alSetParams(mixer_resource, parameters, 2) < 0) {
         g_warning ("vc_sgi.c: vc_set_volume: alSetParams failed: %s\n", alGetErrorString(oserror()));
-        return 0;
+        return;
      }
 }
 
