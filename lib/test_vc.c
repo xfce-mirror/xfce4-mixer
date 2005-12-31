@@ -29,7 +29,7 @@ int main()
       while (control_item != NULL) {
         control1 = (volcontrol_t*) control_item->data;
         
-        printf("   Control: %s\n", control1->name);
+        printf("   Control: %s Volume: %d\n", control1->name, vc_get_volume (control1->name));
         
         control_item = g_list_next (control_item);
       }
