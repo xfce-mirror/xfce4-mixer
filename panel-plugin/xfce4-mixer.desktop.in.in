@@ -1,7 +1,7 @@
 [Xfce Panel]
 Type=X-XFCE-PanelPlugin
 Encoding=UTF-8
-Name=Volume Control
-Comment=
+_Name=Volume Control
+_Comment=Change the Volume
 Icon=xfce4-mixer
 X-XFCE-Exec=@EXTERNAL_PLUGIN_PATH@/xfce4-mixer-plugin
