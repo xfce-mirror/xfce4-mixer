@@ -128,7 +128,7 @@ static int vc_get_volume(char const *which)
       */
      alGetParamInfo(mixer_resource, AL_GAIN, &ainfo);
      
-     min = alFixedToDouble(ainfo.min.ll);
+     /*min = alFixedToDouble(ainfo.min.ll);*/
      max = alFixedToDouble(ainfo.max.ll);
 
      /*printf("min: %s dB; max: %lf dB; min delta: %lf dB\n\n",
