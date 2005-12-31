@@ -58,8 +58,11 @@
 #define MIXER_BASE AL_DEFAULT_OUTPUT
 #define STRING_SIZE 32
 
-static char *mixer_device;
+static int mixer_resource = -1;
 static int fd = -1;
+
+static int cnt_interfaces = 0;
+static ALvalue interfaces[16];
 
 static void vc_close_device()
 {
@@ -69,19 +72,40 @@ static void vc_close_device()
 	}
 }
 
+static int vc_get_device_resource_by_name(gchar const* name);
+static gchar* vc_get_resource_name(int resource);
+
 static int vc_reinit_device(void)
 {
-	vc_close_device ();
-	if ((fd = open(mixer_device, O_RDONLY)) < 0)
-		return -1;
+    gchar* mixer_device_name;
+    int i;
+    
+    vc_close_device ();
 
-	return 0;
+    mixer_device_name = vc_get_resource_name (mixer_resource);
+    
+    if (alIsSubtype(AL_DEVICE_TYPE, mixer_resource)) {
+       /*
+        * We call alQueryValues to get the set of interfaces
+        * on this device
+        */
+        cnt_interfaces = alQueryValues(resource, AL_INTERFACE, interfaces, sizeof(interfaces)/sizeof(interfaces[0]), 0, 0); /* why 16? */
+        if (cnt_interfaces >= 0) {
+          vc_get_resource_name (interfaces[i].i);
+        }
+        else {
+            g_warning ("failed to get list of interfaces of device %s: %s\n", mixer_device_name, alGetErrorString(oserror()));
+        }
+    }
+
+    g_free (mixer_device_name);
+    return 0;
 }
 
 static void vc_set_device(char const *name)
 {
-	g_strlcpy (mixer_device, name, PATH_MAX);
-	vc_reinit_device ();
+    mixer_resource = vc_get_device_resource_by_name(name);
+    vc_reinit_device ();
 }
 
 static int vc_get_volume(char const *which)
@@ -94,6 +118,9 @@ static int vc_get_volume(char const *which)
      int i;
      char min[30];
 
+
+     return 0;
+     
      /*
       * Now get information about the supported values for
       * gain.
@@ -151,6 +178,8 @@ static void vc_set_volume(char const *which, int vol_p)
      int rv;
      double rate;
      ALpv x[2];
+     
+     return;
 
      /*
       * Now set the nominal rate to the given number, and
@@ -182,23 +211,36 @@ static void vc_set_volume(char const *which, int vol_p)
 
 static volcontrol_t *create_volcontrol_slider(char const *name)
 {
-	volcontrol_t *vc;
-	vc = g_new0 (volcontrol_t, 1);
-	vc->name = g_strdup (name);
-	vc->type = CT_SLIDER;
-	return vc;
+    volcontrol_t *vc;
+    vc = g_new0 (volcontrol_t, 1); 
+    vc->name = g_strdup (name);
+    vc->type = CT_SLIDER;
+    return vc;
 }
 
 /* returns list of volcontrol_t */
 static GList *vc_get_control_list()
 {
-	GList *lp = NULL;
+    GList *controls;
+    gchar* name;
+    int i;
 
-	lp = g_list_append (lp, create_volcontrol_slider ("Output Volume"));
-	lp = g_list_append (lp, create_volcontrol_slider ("Record Volume"));
-	lp = g_list_append (lp, create_volcontrol_slider ("Monitor Volume"));
+    controls = NULL;
+    
+    for (i = 0; i < cnt_interfaces; i++) {
+      name = vc_get_resource_name (interfaces[i].i);
+      if (name != NULL) {
+        controls = g_list_append (controls, create_volcontrol_slider (name));
+        g_free (name);
+      }
+    }
+    
+    /*controls = g_list_append (controls, create_volcontrol_slider ("Output Volume"));
+    controls = g_list_append (controls, create_volcontrol_slider ("Record Volume"));
+    controls = g_list_append (controls, create_volcontrol_slider ("Monitor Volume"));
+    */
 
-	return lp;
+    return controls;
 }
 
 static void vc_set_volume_callback(volchanger_callback_t cb, void *data)
@@ -206,16 +248,76 @@ static void vc_set_volume_callback(volchanger_callback_t cb, void *data)
 	/* unsupported */
 }
 
+static gchar* vc_get_resource_name(int resource)
+{
+    ALpv parameters[1];
+    char device_name[STRING_SIZE];
+    /*char device_label[STRING_SIZE];*/
+    
+    parameters[0].param = AL_NAME;
+    parameters[0].value.ptr = device_name;
+    parameters[0].sizeIn = STRING_SIZE;      /* pass in max size of string */
 
-static void vc_get_device_list_irix(ALvalue devices[], int cnt_devices, GList** res)
+    if (alGetParams(resource, parameters, sizeof(parameters) / sizeof(parameters[0])) < 0) { /* get the resource name & label */
+      g_warning ("vc_sgi: failed to get parameters LABEL and NAME of interface %d", sub_resource);
+      return NULL;
+    }
+    
+/*        parameters[1].param = AL_LABEL;
+        parameters[1].value.ptr = device_label;
+        parameters[1].sizeIn = STRING_SIZE;      /* pass in max size of string 
+*/
+
+    return g_strdup (device_name);
+
+}
+
+static int vc_get_device_resource_by_name(gchar const* name)
+{
+    /* slow */
+  
+    int i;
+    int resource;
+    int cnt_devices;
+    ALvalue devices[32];
+    GList* res;
+    gchar+ xname;
+    
+    res = NULL;
+    cnt_devices = alQueryValues(AL_SYSTEM, AL_DEVICES, devices, 16, 0, 0); /* why 16? */
+
+    for (i = 0; i < cnt_devices; i++) {
+        /*
+         * Get the text labels associated with the source and
+         * destination resources, so our printout is more readable.
+         */
+        resource = devices[i].i;
+        
+        xname = vc_get_resource_name (resource);
+        if (xname != NULL) {
+          if (name == "default" || g_str_equal (xname, name)) { /* first as default for now */
+            g_free (xname);
+            return resource;
+          }
+          
+          g_free (xname);
+        }
+    }
+    
+    g_warning ("vc_sgi: could not find device \"%s\"", name);
+    return -1;
+}
+
+static GList* vc_get_device_list_irix(ALvalue devices[], int cnt_devices)
 {
     ALpv parameters[2];
     char device_name[STRING_SIZE];
     char device_label[STRING_SIZE];
     int i;
     int resource;
-    int cnt_interfaces;
-    ALvalue interfaces[32];
+    GList* res;
+    
+    res = NULL;
 
     for (i = 0; i < cnt_devices; i++) {
 
@@ -231,35 +333,22 @@ static void vc_get_device_list_irix(ALvalue devices[], int cnt_devices, GList** 
         parameters[1].sizeIn = STRING_SIZE;      /* pass in max size of string */
         
         resource = devices[i].i;
-        if (alGetParams(sub_resource, parameters, sizeof(parameters) / sizeof(parameters[0])) < 0) { /* get the resource name & label */
+        if (alGetParams(resource, parameters, sizeof(parameters) / sizeof(parameters[0])) < 0) { /* get the resource name & label */
           g_warning ("vc_sgi: failed to get parameters LABEL and NAME of interface %d", sub_resource);
           continue;
         }
         
-        *res = g_list_append (*res, g_strdup (device_name)); /* add name to list */
-
-        if (alIsSubtype(AL_DEVICE_TYPE, sub_resource)) {
-
-            /*
-             * We call alQueryValues to get the set of interfaces
-             * on this device
-             */
-            cnt_interfaces = alQueryValues(resource, AL_INTERFACE, interfaces, 16, 0, 0); /* why 16? */
-            if (cnt_interfaces >= 0) {
-                vc_get_device_list_irix(interfaces, cnt_interfaces, res);
-            }
-            else {
-                g_warning ("failed to get list of interfaces of device %s (\"%s\"): %s\n", device_name, device_label, alGetErrorString(oserror()));
-            }
-        }
+        res = g_list_append (res, g_strdup (device_name)); /* add name to list */
     }
+    
+    return res;
 }
 
 static GList *vc_get_device_list()
 {
     int fd, i;
     int cnt_devices;
-    ALvalue x[32];
+    ALvalue devices[32];
     GList* res;
     res = NULL;
 
@@ -270,7 +359,7 @@ static GList *vc_get_device_list()
     cnt_devices = alQueryValues(AL_SYSTEM, AL_DEVICES, devices, 16, 0, 0); /* why 16? */
     
     if (cnt_devices >= 0) {
-        vc_get_device_list_irix(devices, cnt_devices, &res));
+        res = vc_get_device_list_irix(devices, cnt_devices);
     } else {
         g_warning ("vc_sgi: failed to get list of devices: %d\n", oserror());
     }
@@ -306,12 +395,7 @@ static void vc_handle_events()
 
 static int init(void)
 {
-	if (g_getenv ("AUDIODEV") != NULL)
-		g_strlcpy (mixer_device, g_getenv ("AUDIODEV"), PATH_MAX);
-	else
-		g_strlcpy (mixer_device, MIXER_BASE, PATH_MAX);
-
-	vc_set_device(mixer_device);
+	vc_set_device("default");
 	vc_reinit_device();
 	return USE_THAT;
 }
