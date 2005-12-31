@@ -104,6 +104,10 @@ static int vc_reinit_device(void)
 
 static void vc_set_device(char const *name)
 {
+    if (name == NULL) {
+      name = "default";
+    }
+    
     mixer_resource = vc_get_device_resource_by_name(name);
     vc_reinit_device ();
 }

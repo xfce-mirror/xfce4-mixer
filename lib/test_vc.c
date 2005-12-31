@@ -31,6 +31,8 @@ int main()
         
         printf("   Control: %s Volume: %d\n", control1->name, vc_get_volume (control1->name));
         
+        vc_set_volume(control1->name, 20);
+        
         control_item = g_list_next (control_item);
       }
       
