@@ -122,7 +122,6 @@ static int vc_get_volume(char const *which)
      double median;
      double max;
      int cnt_on_channels;
-     char min[100];
      
      /*
       * Now get information about the supported values for
@@ -130,47 +129,11 @@ static int vc_get_volume(char const *which)
       */
      alGetParamInfo(mixer_resource, AL_GAIN, &ainfo);
 
-  printf("==========\n");
-  printf("%s\n", ainfo.name);
-  printf("no val: %d\n", ainfo.valueType == AL_NO_VAL);
-  printf("vector val: %d\n", ainfo.valueType == AL_VECTOR_VAL);
-  printf("scalar val: %d\n", ainfo.valueType == AL_SCALAR_VAL);
-  printf("set val: %d\n", ainfo.valueType == AL_SET_VAL);
-  printf("string val: %d\n", ainfo.valueType == AL_STRING_VAL);
-  printf("matrix val: %d\n", ainfo.valueType == AL_MATRIX_VAL);
-  printf("no val: %d\n", ainfo.valueType == AL_NO_VAL);
-  printf("no val: %d\n", ainfo.valueType == AL_NO_VAL);
-  printf("max elems: %d\n", ainfo.maxElems);
-  
-  printf("get op: %d\n", ainfo.operations & AL_GET_OP);
-  printf("set op: %d\n", ainfo.operations & AL_SET_OP);
-  printf("query op: %d\n", ainfo.operations & AL_QUERY_OP);
-  printf("event op: %d\n", ainfo.operations & AL_EVENT_OP);
-  
-  printf("elem type int32: %d\n", ainfo.elementType & AL_INT32_ELEM);
-  printf("elem type int64: %d\n", ainfo.elementType & AL_INT64_ELEM);
-  printf("elem type fixed: %d\n", ainfo.elementType & AL_FIXED_ELEM);
-  printf("elem type enum: %d\n", ainfo.elementType & AL_ENUM_ELEM);
-
-  
-
-     /*
-      * One of the "special" values not described in the normal
-      * min->max range is negative infinity. See if this value
-      * is supported.
-      */
-     if (ainfo.specialVals & AL_NEG_INFINITY_BIT) {
-         sprintf(min, "-inf, %lf", alFixedToDouble(ainfo.min.ll));
-     }
-     else {
-         sprintf(min, "%lf", alFixedToDouble(ainfo.min.ll));
-     }
-     
      /*min = alFixedToDouble(ainfo.min.ll);*/
      max = alFixedToDouble(ainfo.max.ll);
 
-     printf("min: %s dB; max: %lf dB; min delta: %lf dB\n\n",
-        min,alFixedToDouble(ainfo.max.ll), alFixedToDouble(ainfo.minDelta.ll));
+     /*printf("min: %s dB; max: %lf dB; min delta: %lf dB\n\n",
+        min,alFixedToDouble(ainfo.max.ll), alFixedToDouble(ainfo.minDelta.ll));*/
         
      /*
       * Now get the current value of gain
