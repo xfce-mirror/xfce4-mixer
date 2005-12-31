@@ -121,6 +121,7 @@ static int vc_get_volume(char const *which)
 
      double median;
      double max;
+     int cnt_on_channels;
      
      /*
       * Now get information about the supported values for
@@ -194,20 +195,27 @@ static int vc_get_volume(char const *which)
      printf("(%d channels) gain:\n       ", cnt_channels);
             
      median = 0.0;
+     cnt_on_channels = 0;
      for (i = 0; i < cnt_channels; i++) {
         /* FIXME is that guaranteed to be fixed point? */
-        printf("%d: %lf dB\n", i, alFixedToDouble(gains[i]));
-                
-        median = median + alFixedToDouble(gains[i]);
+        
+        if (gains[i] == AL_NEG_INFINITY) { /* off */
+          printf("%d: off\n", i);
+        } else {
+          ++cnt_on_channels;
+          
+          printf("%d: %lf dB\n", i, alFixedToDouble(gains[i]));
+          median = median + alFixedToDouble(gains[i]);
+        }
      }
-     if (cnt_channels > 0) {
-        median = median / cnt_channels;
+     if (cnt_on_channels > 0) {
+        median = median / cnt_on_channels;
      } else {
-        median = 0;
+        median = 0.0;
      }
 	    
-     if (max > 0) {
-        return 100 * median / max;
+     if (max > 0.0) {
+        return (int)(100.0 * median / max);
      }
 
      return 0;
