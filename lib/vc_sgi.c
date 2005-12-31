@@ -215,6 +215,7 @@ static void vc_get_device_list_irix(ALvalue devices[], int cnt_devices, GList** 
     int i;
     int resource;
     int cnt_interfaces;
+    ALvalue interfaces[32];
 
     for (i = 0; i < cnt_devices; i++) {
 
@@ -238,13 +239,12 @@ static void vc_get_device_list_irix(ALvalue devices[], int cnt_devices, GList** 
         *res = g_list_append (*res, g_strdup (device_name)); /* add name to list */
 
         if (alIsSubtype(AL_DEVICE_TYPE, sub_resource)) {
-            ALvalue interfaces[32];
 
             /*
              * We call alQueryValues to get the set of interfaces
              * on this device
              */
-            cnt_interfaces = alQueryValues(resource, AL_INTERFACE, z, 16, 0, 0); /* why 16? */
+            cnt_interfaces = alQueryValues(resource, AL_INTERFACE, interfaces, 16, 0, 0); /* why 16? */
             if (cnt_interfaces >= 0) {
                 vc_get_device_list_irix(interfaces, cnt_interfaces, res);
             }
