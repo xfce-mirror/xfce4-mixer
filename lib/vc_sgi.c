@@ -170,6 +170,7 @@ static int vc_get_volume(char const *which)
      cnt_channels = parameters[0].sizeOut;
      printf("(%d channels) gain:\n       ", cnt_channels);
             
+     median = 0.0;
      for (i = 0; i < cnt_channels; i++) {
         /* FIXME is that guaranteed to be fixed point? */
         printf("%d: %lf dB\n", i, alFixedToDouble(gains[i]));
