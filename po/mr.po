@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-11-22 00:17+0900\n"
+"POT-Creation-Date: 2006-01-02 02:26+0900\n"
 "PO-Revision-Date: 2005-10-08 08:29+0900\n"
 "Last-Translator: Pallavi Nikam <pallavi_edu@rediffmail.com>\n"
 "Language-Team: Marathi <LL@li.org>\n"
@@ -146,7 +146,7 @@ msgstr "अल्सा: मिश्रण  नोदंणी चूक: %s\n"
 msgid "alsa: Mixer load error: %s: %s\n"
 msgstr "अल्सा: मिश्रण भार चूक: %s: %s\n"
 
-#: ../lib/vc_alsa.c:126
+#: ../lib/vc_alsa.c:127
 #, c-format
 msgid "alsa: Unable to find simple control '%s',%i\n"
 msgstr "अल्सा: साधे नियंत्रण शोधू शकत नाही %s',%i\n"
@@ -155,43 +155,43 @@ msgstr "अल्सा: साधे नियंत्रण शोधू श�
 msgid "oss: No master volume"
 msgstr "ऑस: सर्वात महत्वाचा ध्वनी नाही"
 
-#: ../panel-plugin/launcher-entry.c:47
+#: ../panel-plugin/launcher-entry.c:75
 msgid "Run in Terminal"
 msgstr ""
 
-#: ../panel-plugin/launcher-entry.c:50
+#: ../panel-plugin/launcher-entry.c:80
 msgid "Use Startup Notification"
 msgstr ""
 
-#: ../panel-plugin/launcher-entry.c:111 ../panel-plugin/launcher-entry.c:156
+#: ../panel-plugin/launcher-entry.c:192 ../panel-plugin/plugin.c:340
 #, c-format
 msgid "Could not run \"%s\""
 msgstr ""
 
-#: ../panel-plugin/launcher-entry.c:113 ../panel-plugin/launcher-entry.c:158
+#: ../panel-plugin/launcher-entry.c:194 ../panel-plugin/plugin.c:342
 msgid "Xfce Panel"
 msgstr ""
 
-#: ../panel-plugin/plugin.c:258
+#: ../panel-plugin/plugin.c:269
 #, c-format
 msgid "Volume: %d%%"
 msgstr "ध्वनी: %d%%"
 
-#: ../panel-plugin/plugin.c:528
+#: ../panel-plugin/plugin.c:568
 msgid "Could not save configuration"
 msgstr ""
 
-#: ../settings/mixer-settingsbox.gob:120 mixer-settingsbox.gob:120
+#: ../settings/mixer-settingsbox.gob:124 mixer-settingsbox.gob:124
 msgid "Device"
 msgstr "भाग"
 
-#: ../settings/mixer-settingsbox.gob:123 mixer-settingsbox.gob:123
+#: ../settings/mixer-settingsbox.gob:127 mixer-settingsbox.gob:127
 msgid "None"
 msgstr "काहीही नाही"
 
 #. gtk_widget_show (GTK_WIDGET (self->dev_label));
 #. debug_bindtextdomain();
-#: ../settings/mixer-settingsbox.gob:128 mixer-settingsbox.gob:128
+#: ../settings/mixer-settingsbox.gob:132 mixer-settingsbox.gob:132
 msgid "Useful Controls"
 msgstr "उपयोगी नियंत्रण"
 
@@ -343,8 +343,13 @@ msgid "Hide Switches"
 msgstr "स्विच लपवा"
 
 #: ../src/mixer-window.gob:188 mixer-window.gob:188
+#: ../panel-plugin/xfce4-mixer.desktop.in.in.h:2
 msgid "Volume Control"
 msgstr "ध्वनी नियंत्रण"
+
+#: ../panel-plugin/xfce4-mixer.desktop.in.in.h:1
+msgid "Change the Volume"
+msgstr ""
 
 #: ../settings/xfce-mixer-settings.desktop.in.h:1
 msgid "Mixer Settings"

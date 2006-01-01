@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ca\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-11-22 00:17+0900\n"
+"POT-Creation-Date: 2006-01-02 02:26+0900\n"
 "PO-Revision-Date: 2005-10-27 22:30+0200\n"
 "Last-Translator: paurullan <paurullan@bulma.net>\n"
 "Language-Team: català\n"
@@ -172,7 +172,7 @@ msgstr "alsa: Error al registrar el mesclador: %s\n"
 msgid "alsa: Mixer load error: %s: %s\n"
 msgstr "alsa: Error en la càrrega del mesclador: %s: %s\n"
 
-#: ../lib/vc_alsa.c:126
+#: ../lib/vc_alsa.c:127
 #, fuzzy, c-format
 msgid "alsa: Unable to find simple control '%s',%i\n"
 msgstr "alsa: No es pot trobar el control «%s»,%i\n"
@@ -182,46 +182,46 @@ msgstr "alsa: No es pot trobar el control «%s»,%i\n"
 msgid "oss: No master volume"
 msgstr "oss: No hi és el control principal de volum"
 
-#: ../panel-plugin/launcher-entry.c:47
+#: ../panel-plugin/launcher-entry.c:75
 msgid "Run in Terminal"
 msgstr ""
 
-#: ../panel-plugin/launcher-entry.c:50
+#: ../panel-plugin/launcher-entry.c:80
 msgid "Use Startup Notification"
 msgstr ""
 
-#: ../panel-plugin/launcher-entry.c:111 ../panel-plugin/launcher-entry.c:156
+#: ../panel-plugin/launcher-entry.c:192 ../panel-plugin/plugin.c:340
 #, c-format
 msgid "Could not run \"%s\""
 msgstr ""
 
-#: ../panel-plugin/launcher-entry.c:113 ../panel-plugin/launcher-entry.c:158
+#: ../panel-plugin/launcher-entry.c:194 ../panel-plugin/plugin.c:342
 msgid "Xfce Panel"
 msgstr ""
 
-#: ../panel-plugin/plugin.c:258
+#: ../panel-plugin/plugin.c:269
 #, fuzzy, c-format
 msgid "Volume: %d%%"
 msgstr "Volum: %d%%"
 
-#: ../panel-plugin/plugin.c:528
+#: ../panel-plugin/plugin.c:568
 #, fuzzy
 msgid "Could not save configuration"
 msgstr "no desa"
 
-#: ../settings/mixer-settingsbox.gob:120 mixer-settingsbox.gob:120
+#: ../settings/mixer-settingsbox.gob:124 mixer-settingsbox.gob:124
 #, fuzzy
 msgid "Device"
 msgstr "Dispositiu"
 
-#: ../settings/mixer-settingsbox.gob:123 mixer-settingsbox.gob:123
+#: ../settings/mixer-settingsbox.gob:127 mixer-settingsbox.gob:127
 #, fuzzy
 msgid "None"
 msgstr "Cap"
 
 #. gtk_widget_show (GTK_WIDGET (self->dev_label));
 #. debug_bindtextdomain();
-#: ../settings/mixer-settingsbox.gob:128 mixer-settingsbox.gob:128
+#: ../settings/mixer-settingsbox.gob:132 mixer-settingsbox.gob:132
 #, fuzzy
 msgid "Useful Controls"
 msgstr "Controls útils"
@@ -404,9 +404,14 @@ msgid "Hide Switches"
 msgstr "Amaga els interruptors"
 
 #: ../src/mixer-window.gob:188 mixer-window.gob:188
+#: ../panel-plugin/xfce4-mixer.desktop.in.in.h:2
 #, fuzzy
 msgid "Volume Control"
 msgstr "Control del volum"
+
+#: ../panel-plugin/xfce4-mixer.desktop.in.in.h:1
+msgid "Change the Volume"
+msgstr ""
 
 #: ../settings/xfce-mixer-settings.desktop.in.h:1
 #, fuzzy
