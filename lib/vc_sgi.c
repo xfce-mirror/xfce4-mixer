@@ -97,7 +97,7 @@ static int vc_reinit_device(void)
           /*vc_get_resource_name (interfaces[i].i);*/
         }
         else {
-            g_warning ("failed to get list of interfaces of device %s: %s\n",
+            g_warning ("irixal: Unable to get list of interfaces of device %s: %s\n",
                        mixer_device_name, alGetErrorString(oserror()));
         }
     }
@@ -152,13 +152,13 @@ static int vc_get_volume(char const *unused_which)
     /* ^--- ??? */
 
     if (alGetParams(mixer_resource, parameters, 2) < 0) {
-        g_warning ("vc_sgi.c: vc_get_volume: alGetParams failed: %s\n",
+        g_warning ("irixal: vc_get_volume(): alGetParams() failed: %s\n",
                    alGetErrorString(oserror()));
         return 0;
     }
 
     if (parameters[0].sizeOut < 0) {
-        g_warning ("vc_sgi.c: vc_get_volume: AL_GAIN was an unrecognized parameter");
+        g_warning ("irixal: vc_get_volume(): AL_GAIN was an unrecognized parameter");
         return 0;
     }
 
@@ -236,13 +236,13 @@ static void vc_set_volume(char const *unused_which, int vol_p)
      /* ^--- ??? */
 
      if (alGetParams(mixer_resource, parameters, 2) < 0) {
-         g_warning ("vc_sgi.c: vc_set_volume: alGetParams failed: %s\n",
+         g_warning ("irixal: vc_set_volume(): alGetParams() failed: %s\n",
                     alGetErrorString(oserror()));
          return;
      }
 
      if (parameters[0].sizeOut < 0) {
-         g_warning ("vc_sgi.c: vc_set_volume: AL_GAIN was an unrecognized parameter");
+         g_warning ("irixal: vc_set_volume(): AL_GAIN was an unrecognized parameter");
          return;
      }
 
@@ -261,7 +261,7 @@ static void vc_set_volume(char const *unused_which, int vol_p)
      /* ^--- ??? */
 
      if (alSetParams(mixer_resource, parameters, 2) < 0) {
-         g_warning ("vc_sgi.c: vc_set_volume: alSetParams failed: %s\n",
+         g_warning ("irixal: vc_set_volume(): alSetParams() failed: %s\n",
                     alGetErrorString(oserror()));
          return;
      }
@@ -308,7 +308,6 @@ static gchar* vc_get_resource_name(int resource)
 {
     ALpv parameters[1];
     char device_name[STRING_SIZE];
-    /*char device_label[STRING_SIZE];*/
 
     parameters[0].param = AL_NAME;
     parameters[0].value.ptr = device_name;
@@ -317,7 +316,7 @@ static gchar* vc_get_resource_name(int resource)
     /* get the resource name & label */
     if (alGetParams(resource, parameters,
                     sizeof(parameters) / sizeof(parameters[0])) < 0) {
-        g_warning ("vc_sgi: failed to get parameter NAME of interface %d",
+        g_warning ("irixal: Unable to get parameter NAME of interface %d",
                    resource);
         return NULL;
     }
@@ -359,7 +358,7 @@ static int vc_get_device_resource_by_name(gchar const* name)
         }
     }
 
-    g_warning ("vc_sgi: could not find device \"%s\"", name);
+    g_warning ("irixal: Unable to find device \"%s\"", name);
     return -1;
 }
 
@@ -391,7 +390,7 @@ static GList* vc_get_device_list_irix(ALvalue devices[], int cnt_devices)
         resource = devices[i].i;
         if (alGetParams(resource, parameters,
                         sizeof(parameters) / sizeof(parameters[0])) < 0) {
-            g_warning ("vc_sgi: failed to get parameters LABEL and NAME of interface %d",
+            g_warning ("irixal: Unable to get parameters LABEL and NAME of interface %d",
                        resource);
             continue;
         }
@@ -418,7 +417,7 @@ static GList *vc_get_device_list()
     if (cnt_devices >= 0) {
         res = vc_get_device_list_irix(devices, cnt_devices);
     } else {
-        g_warning ("vc_sgi: failed to get list of devices: %d\n", oserror());
+        g_warning ("irixal: Unable to get list of devices: %d\n", oserror());
     }
     return res;
 }
