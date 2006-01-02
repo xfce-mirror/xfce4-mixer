@@ -32,6 +32,8 @@
  * OSS translateable names
  */
 
+#ifdef USE_OSS
+
 char *oss_names[] = {
 	_("Vol"),			/* Master				*/
 	_("Pcm"),			/* PCM output			*/
@@ -61,6 +63,8 @@ char *oss_names[] = {
 	_("RecSelect"),		/* I made that up */
 };
 
+#endif /* USE_OSS */
+
 /*
  * IRIX AL translatable names
  *
@@ -72,20 +76,24 @@ char *oss_names[] = {
  * 
  */
 
-char *sgi_names[] = {
-	/* Device */			/* Label	 		*/
-	_("Analog In"),			/* A3.AnalogIn		*/
-	_("Analog Out"),		/* A3.AnalogOut		*/
-	_("Analog Out 2"),		/* A3.AnalogOut2	*/
+#ifdef USE_SGI
+
+char *irixal_names[] = {
+	/* Device */			/* Label			*/
+	_("A3.AnalogIn"),		/* Analog In		*/
+	_("A3.AnalogOut"),		/* Analog Out		*/
+	_("A3.AnalogOut2"),		/* Analog Out 2		*/
 	/* Interface */
-	_("Camera Mic"),		/* A3.CameraMic		*/
-	_("Microphone"),		/* A3.Microphone	*/
-	_("Line In"),			/* A3.LineIn		*/
-	_("DAC1 In"),			/* A3.DAC1In		*/
-	_("DAC2 In"),			/* A3.DAC2In		*/
-	_("Speaker/Line Out"),	/* A3.Speaker		*/
-	_("Line Out 2"),		/* A3.LineOut2		*/
+	_("A3.CameraMic"),		/* Camera Mic		*/
+	_("A3.Microphone"),		/* Microphone		*/
+	_("A3.LineIn"),			/* Line In			*/
+	_("A3.DAC1In"),			/* DAC1 In			*/
+	_("A3.DAC2In"),			/* DAC2 In			*/
+	_("A3.Speaker"),		/* Speaker/Line Out	*/
+	_("A3.LineOut2"),		/* Line Out 2		*/
 };
+
+#endif /* USE_SGI */
 
 /* vi: set ts=4 sw=4 cindent: */
 
