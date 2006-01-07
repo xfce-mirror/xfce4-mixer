@@ -1,5 +1,5 @@
 # Italian translations for xfce4-mixer package.
-# Copyright (C) 2003-2005 The Xfce development team.
+# Copyright (C) 2003-2006 The Xfce development team.
 # This file is distributed under the same license as the xfce4-mixer package.
 # Davide D'Amico <dave@gufi.org>, 2003.
 # Alex Dupre <ale@FreeBSD.org>, 2005.
@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-02 02:26+0900\n"
+"POT-Creation-Date: 2006-01-07 12:17+0900\n"
 "PO-Revision-Date: 2005-10-20 12:15+0100\n"
 "Last-Translator: Alex Dupre <ale@FreeBSD.org>\n"
 "Language-Team: GUFI <traduzioni@gufi.org>\n"
@@ -16,114 +16,166 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../lib/trans.c:6
+#: ../lib/trans.c:36
 msgid "Vol"
 msgstr "Vol"
 
 #. Master
-#: ../lib/trans.c:7
+#: ../lib/trans.c:37
 msgid "Pcm"
 msgstr ""
 
 #. PCM output
-#: ../lib/trans.c:8
+#: ../lib/trans.c:38
 msgid "Spkr"
 msgstr ""
 
 #. Internal speaker?
-#: ../lib/trans.c:9
+#: ../lib/trans.c:39
 msgid "Line"
 msgstr ""
 
 #. Line in
-#: ../lib/trans.c:10
+#: ../lib/trans.c:40
 msgid "Mic"
 msgstr "Mic"
 
 #. Mic in
-#: ../lib/trans.c:11
+#: ../lib/trans.c:41
 msgid "CD"
 msgstr "CD"
 
 #. CD in
-#: ../lib/trans.c:12
+#: ../lib/trans.c:42
 msgid "Bass"
 msgstr "Bassi"
 
-#: ../lib/trans.c:13
+#: ../lib/trans.c:43
 msgid "Trebl"
 msgstr "Alti"
 
-#: ../lib/trans.c:14
+#: ../lib/trans.c:44
 msgid "Synth"
 msgstr "Sint"
 
-#: ../lib/trans.c:15
+#: ../lib/trans.c:45
 msgid "Mix"
 msgstr "Mix"
 
-#: ../lib/trans.c:16
+#: ../lib/trans.c:46
 msgid "Pcm2"
 msgstr ""
 
-#: ../lib/trans.c:17
+#: ../lib/trans.c:47
 msgid "Rec"
 msgstr ""
 
-#: ../lib/trans.c:18
+#: ../lib/trans.c:48
 msgid "IGain"
 msgstr ""
 
-#: ../lib/trans.c:19
+#: ../lib/trans.c:49
 msgid "OGain"
 msgstr ""
 
-#: ../lib/trans.c:20
+#: ../lib/trans.c:50
 msgid "Line1"
 msgstr ""
 
-#: ../lib/trans.c:21
+#: ../lib/trans.c:51
 msgid "Line2"
 msgstr ""
 
-#: ../lib/trans.c:22
+#: ../lib/trans.c:52
 msgid "Line3"
 msgstr ""
 
-#: ../lib/trans.c:23
+#: ../lib/trans.c:53
 msgid "Digital1"
 msgstr ""
 
-#: ../lib/trans.c:24
+#: ../lib/trans.c:54
 msgid "Digital2"
 msgstr ""
 
-#: ../lib/trans.c:25
+#: ../lib/trans.c:55
 msgid "Digital3"
 msgstr ""
 
-#: ../lib/trans.c:26
+#: ../lib/trans.c:56
 msgid "PhoneIn"
 msgstr ""
 
-#: ../lib/trans.c:27
+#: ../lib/trans.c:57
 msgid "PhoneOut"
 msgstr ""
 
-#: ../lib/trans.c:28
+#: ../lib/trans.c:58
 msgid "Video"
 msgstr ""
 
-#: ../lib/trans.c:29
+#: ../lib/trans.c:59
 msgid "Radio"
 msgstr ""
 
-#: ../lib/trans.c:30
+#: ../lib/trans.c:60
 msgid "Monitor"
 msgstr ""
 
-#: ../lib/trans.c:31
+#: ../lib/trans.c:61
 msgid "RecSelect"
+msgstr ""
+
+#. Device
+#. Label
+#: ../lib/trans.c:77
+msgid "A3.AnalogIn"
+msgstr ""
+
+#. Analog In
+#: ../lib/trans.c:78
+msgid "A3.AnalogOut"
+msgstr ""
+
+#. Analog Out
+#: ../lib/trans.c:79
+msgid "A3.AnalogOut2"
+msgstr ""
+
+#. Analog Out 2
+#. Interface
+#: ../lib/trans.c:81
+msgid "A3.CameraMic"
+msgstr ""
+
+#. Camera Mic
+#: ../lib/trans.c:82
+msgid "A3.Microphone"
+msgstr ""
+
+#. Microphone
+#: ../lib/trans.c:83
+msgid "A3.LineIn"
+msgstr ""
+
+#. Line In
+#: ../lib/trans.c:84
+msgid "A3.DAC1In"
+msgstr ""
+
+#. DAC1 In
+#: ../lib/trans.c:85
+msgid "A3.DAC2In"
+msgstr ""
+
+#. DAC2 In
+#: ../lib/trans.c:86
+msgid "A3.Speaker"
+msgstr ""
+
+#. Speaker/Line Out
+#: ../lib/trans.c:87
+msgid "A3.LineOut2"
 msgstr ""
 
 #: ../lib/vc_alsa.c:94
@@ -179,6 +231,19 @@ msgstr "Volume: %d%%"
 
 #: ../panel-plugin/plugin.c:568
 msgid "Could not save configuration"
+msgstr ""
+
+#: mixer-prefbox.gob:177 ../src/mixer-profilebox.gob:88
+#: mixer-profilebox.gob:88
+msgid "Device:"
+msgstr "Dispositivo:"
+
+#: mixer-prefbox.gob:178
+msgid "Wannabe Master:"
+msgstr ""
+
+#: mixer-prefbox.gob:180
+msgid "When clicked"
 msgstr ""
 
 #: ../settings/mixer-settingsbox.gob:124 mixer-settingsbox.gob:124
@@ -286,10 +351,6 @@ msgstr ""
 #: mixer-profilebox-detail.gob:451
 msgid "<select>"
 msgstr ""
-
-#: ../src/mixer-profilebox.gob:88 mixer-profilebox.gob:88
-msgid "Device:"
-msgstr "Dispositivo:"
 
 #: ../src/mixer-profilebox.gob:142 mixer-profilebox.gob:142
 msgid "Create new profile"

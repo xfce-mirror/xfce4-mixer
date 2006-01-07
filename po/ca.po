@@ -1,13 +1,13 @@
 # translation of ca.po to català
+# Copyright (C) 2003-2006 The Xfce development team.
 # This file is distributed under the same license as the PACKAGE package.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
 # paurullan <paurullan@bulma.net>, 2005.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: ca\n"
+"Project-Id-Version: xfce4-mixer 4.3.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-02 02:26+0900\n"
+"POT-Creation-Date: 2006-01-07 12:17+0900\n"
 "PO-Revision-Date: 2005-10-27 22:30+0200\n"
 "Last-Translator: paurullan <paurullan@bulma.net>\n"
 "Language-Team: català\n"
@@ -16,141 +16,195 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.10.2\n"
 
-#: ../lib/trans.c:6
+#: ../lib/trans.c:36
 #, fuzzy
 msgid "Vol"
 msgstr "Volum"
 
 #. Master
-#: ../lib/trans.c:7
+#: ../lib/trans.c:37
 #, fuzzy
 msgid "Pcm"
 msgstr "Pcm"
 
 #. PCM output
-#: ../lib/trans.c:8
+#: ../lib/trans.c:38
 #, fuzzy
 msgid "Spkr"
 msgstr "Altaveu"
 
 #. Internal speaker?
-#: ../lib/trans.c:9
+#: ../lib/trans.c:39
 #, fuzzy
 msgid "Line"
 msgstr "Línia"
 
 #. Line in
-#: ../lib/trans.c:10
+#: ../lib/trans.c:40
 #, fuzzy
 msgid "Mic"
 msgstr "Mic"
 
 #. Mic in
-#: ../lib/trans.c:11
+#: ../lib/trans.c:41
 #, fuzzy
 msgid "CD"
 msgstr "CD"
 
 #. CD in
-#: ../lib/trans.c:12
+#: ../lib/trans.c:42
 #, fuzzy
 msgid "Bass"
 msgstr "Bass"
 
-#: ../lib/trans.c:13
+#: ../lib/trans.c:43
 #, fuzzy
 msgid "Trebl"
 msgstr "To"
 
-#: ../lib/trans.c:14
+#: ../lib/trans.c:44
 #, fuzzy
 msgid "Synth"
 msgstr "Sintetitzador"
 
-#: ../lib/trans.c:15
+#: ../lib/trans.c:45
 #, fuzzy
 msgid "Mix"
 msgstr "Mescla"
 
-#: ../lib/trans.c:16
+#: ../lib/trans.c:46
 #, fuzzy
 msgid "Pcm2"
 msgstr "Pcm2"
 
-#: ../lib/trans.c:17
+#: ../lib/trans.c:47
 #, fuzzy
 msgid "Rec"
 msgstr "Rec"
 
-#: ../lib/trans.c:18
+#: ../lib/trans.c:48
 #, fuzzy
 msgid "IGain"
 msgstr "IGain"
 
-#: ../lib/trans.c:19
+#: ../lib/trans.c:49
 #, fuzzy
 msgid "OGain"
 msgstr "OGain"
 
-#: ../lib/trans.c:20
+#: ../lib/trans.c:50
 #, fuzzy
 msgid "Line1"
 msgstr "Línia1"
 
-#: ../lib/trans.c:21
+#: ../lib/trans.c:51
 #, fuzzy
 msgid "Line2"
 msgstr "Línia2"
 
-#: ../lib/trans.c:22
+#: ../lib/trans.c:52
 #, fuzzy
 msgid "Line3"
 msgstr "Línia3"
 
-#: ../lib/trans.c:23
+#: ../lib/trans.c:53
 #, fuzzy
 msgid "Digital1"
 msgstr "Digital1"
 
-#: ../lib/trans.c:24
+#: ../lib/trans.c:54
 #, fuzzy
 msgid "Digital2"
 msgstr "Digital2"
 
-#: ../lib/trans.c:25
+#: ../lib/trans.c:55
 #, fuzzy
 msgid "Digital3"
 msgstr "Digital3"
 
-#: ../lib/trans.c:26
+#: ../lib/trans.c:56
 #, fuzzy
 msgid "PhoneIn"
 msgstr "Línia de telèfon"
 
-#: ../lib/trans.c:27
+#: ../lib/trans.c:57
 #, fuzzy
 msgid "PhoneOut"
 msgstr "Sortida de telèfon"
 
-#: ../lib/trans.c:28
+#: ../lib/trans.c:58
 #, fuzzy
 msgid "Video"
 msgstr "Vídeo"
 
-#: ../lib/trans.c:29
+#: ../lib/trans.c:59
 #, fuzzy
 msgid "Radio"
 msgstr "Ràdio"
 
-#: ../lib/trans.c:30
+#: ../lib/trans.c:60
 #, fuzzy
 msgid "Monitor"
 msgstr "Monitor"
 
-#: ../lib/trans.c:31
+#: ../lib/trans.c:61
 #, fuzzy
 msgid "RecSelect"
 msgstr "RecSelect"
+
+#. Device
+#. Label
+#: ../lib/trans.c:77
+msgid "A3.AnalogIn"
+msgstr ""
+
+#. Analog In
+#: ../lib/trans.c:78
+msgid "A3.AnalogOut"
+msgstr ""
+
+#. Analog Out
+#: ../lib/trans.c:79
+msgid "A3.AnalogOut2"
+msgstr ""
+
+#. Analog Out 2
+#. Interface
+#: ../lib/trans.c:81
+msgid "A3.CameraMic"
+msgstr ""
+
+#. Camera Mic
+#: ../lib/trans.c:82
+msgid "A3.Microphone"
+msgstr ""
+
+#. Microphone
+#: ../lib/trans.c:83
+#, fuzzy
+msgid "A3.LineIn"
+msgstr "Línia"
+
+#. Line In
+#: ../lib/trans.c:84
+msgid "A3.DAC1In"
+msgstr ""
+
+#. DAC1 In
+#: ../lib/trans.c:85
+msgid "A3.DAC2In"
+msgstr ""
+
+#. DAC2 In
+#: ../lib/trans.c:86
+msgid "A3.Speaker"
+msgstr ""
+
+#. Speaker/Line Out
+#: ../lib/trans.c:87
+#, fuzzy
+msgid "A3.LineOut2"
+msgstr "Línia2"
 
 #: ../lib/vc_alsa.c:94
 #, fuzzy, c-format
@@ -208,6 +262,20 @@ msgstr "Volum: %d%%"
 #, fuzzy
 msgid "Could not save configuration"
 msgstr "no desa"
+
+#: mixer-prefbox.gob:177 ../src/mixer-profilebox.gob:88
+#: mixer-profilebox.gob:88
+#, fuzzy
+msgid "Device:"
+msgstr "Dispositiu:"
+
+#: mixer-prefbox.gob:178
+msgid "Wannabe Master:"
+msgstr ""
+
+#: mixer-prefbox.gob:180
+msgid "When clicked"
+msgstr ""
 
 #: ../settings/mixer-settingsbox.gob:124 mixer-settingsbox.gob:124
 #, fuzzy
@@ -341,11 +409,6 @@ msgstr "<encén-apaga>"
 #, fuzzy
 msgid "<select>"
 msgstr "<elecciona>"
-
-#: ../src/mixer-profilebox.gob:88 mixer-profilebox.gob:88
-#, fuzzy
-msgid "Device:"
-msgstr "Dispositiu:"
 
 #: ../src/mixer-profilebox.gob:142 mixer-profilebox.gob:142
 #, fuzzy
