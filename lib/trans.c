@@ -32,8 +32,6 @@
  * OSS translateable names
  */
 
-#ifdef USE_OSS
-
 char *oss_names[] = {
 	_("Vol"),			/* Master				*/
 	_("Pcm"),			/* PCM output			*/
@@ -63,8 +61,6 @@ char *oss_names[] = {
 	_("RecSelect"),		/* I made that up */
 };
 
-#endif /* USE_OSS */
-
 /*
  * IRIX AL translatable names
  *
@@ -75,8 +71,6 @@ char *oss_names[] = {
  * Device/Interface names, let me <daichi@xfce.org> know.
  * 
  */
-
-#ifdef USE_SGI
 
 char *irixal_names[] = {
 	/* Device */			/* Label			*/
@@ -92,8 +86,6 @@ char *irixal_names[] = {
 	_("A3.Speaker"),		/* Speaker/Line Out	*/
 	_("A3.LineOut2"),		/* Line Out 2		*/
 };
-
-#endif /* USE_SGI */
 
 /* vi: set ts=4 sw=4 cindent: */
 
