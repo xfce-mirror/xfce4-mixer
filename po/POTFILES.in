@@ -7,6 +7,7 @@ panel-plugin/launcher-entry.c
 panel-plugin/mixer-control.gob
 panel-plugin/plugin.c
 panel-plugin/xfce-mixer-control.c
+panel-plugin/xfce-mixer-prefbox.c
 settings/mixer-settingsbox.gob
 settings/sound.c
 settings/xfce-mixer-settingsbox.c
