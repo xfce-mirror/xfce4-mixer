@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-01-07 12:17+0900\n"
-"PO-Revision-Date: 2005-12-31 12:46+0900\n"
+"PO-Revision-Date: 2006-01-03 10:51+0900\n"
 "Last-Translator: Daichi Kawahata <daichi@xfce.org>\n"
 "Language-Team: Japanese <xfce-users-jp@ml.fdiary.net>\n"
 "MIME-Version: 1.0\n"
@@ -132,55 +132,53 @@ msgstr "録音選択"
 #. Label
 #: ../lib/trans.c:77
 msgid "A3.AnalogIn"
-msgstr ""
+msgstr "アナログ入力"
 
 #. Analog In
 #: ../lib/trans.c:78
 msgid "A3.AnalogOut"
-msgstr ""
+msgstr "アナログ出力"
 
 #. Analog Out
 #: ../lib/trans.c:79
 msgid "A3.AnalogOut2"
-msgstr ""
+msgstr "アナログ出力2"
 
 #. Analog Out 2
 #. Interface
 #: ../lib/trans.c:81
 msgid "A3.CameraMic"
-msgstr ""
+msgstr "カメラ・マイク"
 
 #. Camera Mic
 #: ../lib/trans.c:82
 msgid "A3.Microphone"
-msgstr ""
+msgstr "マイク"
 
 #. Microphone
 #: ../lib/trans.c:83
-#, fuzzy
 msgid "A3.LineIn"
 msgstr "ライン入力"
 
 #. Line In
 #: ../lib/trans.c:84
 msgid "A3.DAC1In"
-msgstr ""
+msgstr "アナログ入力1"
 
 #. DAC1 In
 #: ../lib/trans.c:85
 msgid "A3.DAC2In"
-msgstr ""
+msgstr "アナログ入力2"
 
 #. DAC2 In
 #: ../lib/trans.c:86
 msgid "A3.Speaker"
-msgstr ""
+msgstr "スピーカー出力"
 
 #. Speaker/Line Out
 #: ../lib/trans.c:87
-#, fuzzy
 msgid "A3.LineOut2"
-msgstr "ライン2"
+msgstr "ライン出力2"
 
 #: ../lib/vc_alsa.c:94
 #, c-format
@@ -244,11 +242,11 @@ msgstr "デバイス:"
 
 #: mixer-prefbox.gob:178
 msgid "Wannabe Master:"
-msgstr ""
+msgstr "マスター:"
 
 #: mixer-prefbox.gob:180
 msgid "When clicked"
-msgstr ""
+msgstr "クリック時に実行"
 
 #: ../settings/mixer-settingsbox.gob:124 mixer-settingsbox.gob:124
 msgid "Device"
@@ -258,6 +256,7 @@ msgstr "デバイス"
 msgid "None"
 msgstr "無し"
 
+# FIXME: should be revised
 #. gtk_widget_show (GTK_WIDGET (self->dev_label));
 #. debug_bindtextdomain();
 #: ../settings/mixer-settingsbox.gob:132 mixer-settingsbox.gob:132
