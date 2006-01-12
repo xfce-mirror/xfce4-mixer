@@ -207,6 +207,8 @@ mixer_construct (XfcePanelPlugin *plugin)
 
     icontheme = xfce_icon_theme_get_for_screen (gtk_widget_get_screen (GTK_WIDGET (plugin)));
     tooltips = gtk_tooltips_new ();
+    g_object_ref (G_OBJECT(tooltips));
+    gtk_object_sink (GTK_OBJECT(tooltips));
 
     xfce_textdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8"); 
 
