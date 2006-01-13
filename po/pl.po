@@ -1,7 +1,7 @@
 # Polish translations for xfce4-mixer package.
 # Copyright (C) 2003-2006 The Xfce development team.
 # This file is distributed under the same license as the xfce4-mixer package.
-# Piotr Maliński <admin@rk.edu.pl> 2005-09-20.
+# Piotr Maliński <admin@rk.edu.pl> 2005, 2006.
 #
 msgid ""
 msgstr ""
@@ -129,55 +129,55 @@ msgstr "RecSelect"
 #. Label
 #: ../lib/trans.c:77
 msgid "A3.AnalogIn"
-msgstr ""
+msgstr "A3.AnalogIn"
 
 #. Analog In
 #: ../lib/trans.c:78
 msgid "A3.AnalogOut"
-msgstr ""
+msgstr "A3.AnalogOut"
 
 #. Analog Out
 #: ../lib/trans.c:79
 msgid "A3.AnalogOut2"
-msgstr ""
+msgstr "A3.AnalogOut2"
 
 #. Analog Out 2
 #. Interface
 #: ../lib/trans.c:81
 msgid "A3.CameraMic"
-msgstr ""
+msgstr "A3.CameraMic"
 
 #. Camera Mic
 #: ../lib/trans.c:82
 msgid "A3.Microphone"
-msgstr ""
+msgstr "A3.Microphone"
 
 #. Microphone
 #: ../lib/trans.c:83
 #, fuzzy
 msgid "A3.LineIn"
-msgstr "Line"
+msgstr "A3.LineIn"
 
 #. Line In
 #: ../lib/trans.c:84
 msgid "A3.DAC1In"
-msgstr ""
+msgstr "A3.DAC1In"
 
 #. DAC1 In
 #: ../lib/trans.c:85
 msgid "A3.DAC2In"
-msgstr ""
+msgstr "A3.DAC2In"
 
 #. DAC2 In
 #: ../lib/trans.c:86
 msgid "A3.Speaker"
-msgstr ""
+msgstr "A3.Speaker"
 
 #. Speaker/Line Out
 #: ../lib/trans.c:87
 #, fuzzy
 msgid "A3.LineOut2"
-msgstr "Line2"
+msgstr "A3.LineOut2"
 
 #: ../lib/vc_alsa.c:94
 #, c-format
@@ -210,20 +210,20 @@ msgstr "oss: Brak ogólnej głośności"
 
 #: ../panel-plugin/launcher-entry.c:75
 msgid "Run in Terminal"
-msgstr ""
+msgstr "Wykona w terminalu"
 
 #: ../panel-plugin/launcher-entry.c:80
 msgid "Use Startup Notification"
-msgstr ""
+msgstr "Użyj powiadomień przy uruchamianiu"
 
 #: ../panel-plugin/launcher-entry.c:192 ../panel-plugin/plugin.c:340
 #, c-format
 msgid "Could not run \"%s\""
-msgstr ""
+msgstr "Nie mogę wykonać \"%s\""
 
 #: ../panel-plugin/launcher-entry.c:194 ../panel-plugin/plugin.c:342
 msgid "Xfce Panel"
-msgstr ""
+msgstr "Panel XFCE"
 
 #: ../panel-plugin/plugin.c:269
 #, c-format
@@ -232,7 +232,7 @@ msgstr "Głośność: %d%%"
 
 #: ../panel-plugin/plugin.c:568
 msgid "Could not save configuration"
-msgstr ""
+msgstr "Nie mogę zapisać konfiguracji"
 
 #: mixer-prefbox.gob:177 ../src/mixer-profilebox.gob:88
 #: mixer-profilebox.gob:88
@@ -241,11 +241,11 @@ msgstr "Urządzenie:"
 
 #: mixer-prefbox.gob:178
 msgid "Wannabe Master:"
-msgstr ""
+msgstr "Porządany Master:"
 
 #: mixer-prefbox.gob:180
 msgid "When clicked"
-msgstr ""
+msgstr "Gdy kliknięte"
 
 #: ../settings/mixer-settingsbox.gob:124 mixer-settingsbox.gob:124
 msgid "Device"
@@ -413,7 +413,7 @@ msgstr "Kontrola Głośności"
 
 #: ../panel-plugin/xfce4-mixer.desktop.in.in.h:1
 msgid "Change the Volume"
-msgstr ""
+msgstr "Zmień głośność"
 
 #: ../settings/xfce-mixer-settings.desktop.in.h:1
 msgid "Mixer Settings"
