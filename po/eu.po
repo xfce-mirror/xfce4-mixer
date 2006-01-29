@@ -8,14 +8,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-07 12:17+0900\n"
+"POT-Creation-Date: 2006-01-26 20:04+0900\n"
 "PO-Revision-Date: 2006-01-15 22:12+0100\n"
 "Last-Translator: Piarres Beobide <pi@beobide.net>\n"
 "Language-Team: librezale.org <librezale@librezale.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;"
+"Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: ../lib/trans.c:36
 msgid "Vol"
@@ -216,21 +216,21 @@ msgstr "Terminalean abiarazi"
 msgid "Use Startup Notification"
 msgstr "Abiarazte berri-emateak erabili"
 
-#: ../panel-plugin/launcher-entry.c:192 ../panel-plugin/plugin.c:340
+#: ../panel-plugin/launcher-entry.c:192 ../panel-plugin/plugin.c:342
 #, c-format
 msgid "Could not run \"%s\""
 msgstr "Ezin da \"%s\" abiarazi"
 
-#: ../panel-plugin/launcher-entry.c:194 ../panel-plugin/plugin.c:342
+#: ../panel-plugin/launcher-entry.c:194 ../panel-plugin/plugin.c:344
 msgid "Xfce Panel"
 msgstr "Xfce Panela"
 
-#: ../panel-plugin/plugin.c:269
+#: ../panel-plugin/plugin.c:271
 #, c-format
 msgid "Volume: %d%%"
 msgstr "Bolumena: %% %d"
 
-#: ../panel-plugin/plugin.c:568
+#: ../panel-plugin/plugin.c:570
 msgid "Could not save configuration"
 msgstr "Ezin da konfigurazioa gorde"
 
@@ -421,6 +421,3 @@ msgstr "Nahasle Ezarpenak"
 #: ../settings/xfce-mixer-settings.desktop.in.h:2
 msgid "Xfce 4 Mixer Settings"
 msgstr "Xfce 4 Nahasle Ezarpenak"
-
-#~ msgid "No working sound"
-#~ msgstr "Ez dago soinurik martxan"

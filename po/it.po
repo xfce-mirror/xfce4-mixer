@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-07 12:17+0900\n"
+"POT-Creation-Date: 2006-01-26 20:04+0900\n"
 "PO-Revision-Date: 2005-10-20 12:15+0100\n"
 "Last-Translator: Alex Dupre <ale@FreeBSD.org>\n"
 "Language-Team: GUFI <traduzioni@gufi.org>\n"
@@ -215,21 +215,21 @@ msgstr ""
 msgid "Use Startup Notification"
 msgstr ""
 
-#: ../panel-plugin/launcher-entry.c:192 ../panel-plugin/plugin.c:340
+#: ../panel-plugin/launcher-entry.c:192 ../panel-plugin/plugin.c:342
 #, c-format
 msgid "Could not run \"%s\""
 msgstr ""
 
-#: ../panel-plugin/launcher-entry.c:194 ../panel-plugin/plugin.c:342
+#: ../panel-plugin/launcher-entry.c:194 ../panel-plugin/plugin.c:344
 msgid "Xfce Panel"
 msgstr ""
 
-#: ../panel-plugin/plugin.c:269
+#: ../panel-plugin/plugin.c:271
 #, c-format
 msgid "Volume: %d%%"
 msgstr "Volume: %d%%"
 
-#: ../panel-plugin/plugin.c:568
+#: ../panel-plugin/plugin.c:570
 msgid "Could not save configuration"
 msgstr ""
 
@@ -417,6 +417,3 @@ msgstr "Impostazioni del Mixer"
 #: ../settings/xfce-mixer-settings.desktop.in.h:2
 msgid "Xfce 4 Mixer Settings"
 msgstr ""
-
-#~ msgid "No working sound"
-#~ msgstr "Audio non funzionante"
