@@ -1,22 +1,23 @@
+# translation of he.po to Hebrew
 # Hebrew translations for xfce4-mixer package.
 # Copyright (C) 2003-2006 The Xfce development team.
 # This file is distributed under the same license as the xfce4-mixer package.
-# Dotan Kamber <kamberd@yahoo.com>, 2004.
+#
+# Dotan Kamber <kamberd@yahoo.com>, 2004, 2006.
 # Jonatan Perry <Jonatan443@walla.co.il>, 2004.
 # Yuval Tanny <tanai@int.gov.il>, 2004.
-#
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-mixer 4.3.0\n"
+"Project-Id-Version: he\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-26 20:04+0900\n"
-"PO-Revision-Date: 2005-10-08 08:26+0900\n"
-"Last-Translator: Yuval Tanny <tanai@int.gov.il>\n"
-"Language-Team: Hebrew Team <xfce2004@yahoo.com>\n"
+"POT-Creation-Date: 2006-01-07 12:17+0900\n"
+"PO-Revision-Date: 2006-01-29 21:57+0200\n"
+"Last-Translator: Dotan Kamber <kamberd@yahoo.com>\n"
+"Language-Team: Hebrew\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.9.1\n"
+"X-Generator: KBabel 1.11\n"
 
 #: ../lib/trans.c:36
 msgid "Vol"
@@ -58,11 +59,11 @@ msgstr "גובה צליל"
 
 #: ../lib/trans.c:44
 msgid "Synth"
-msgstr "ערבול"
+msgstr "סינססיזר"
 
 #: ../lib/trans.c:45
 msgid "Mix"
-msgstr "מיקס"
+msgstr "עירבול"
 
 #: ../lib/trans.c:46
 msgid "Pcm2"
@@ -74,11 +75,11 @@ msgstr "הקלטה"
 
 #: ../lib/trans.c:48
 msgid "IGain"
-msgstr "IGain"
+msgstr "הגברת כניסה"
 
 #: ../lib/trans.c:49
 msgid "OGain"
-msgstr "OGain"
+msgstr "הגברת יציאה"
 
 #: ../lib/trans.c:50
 msgid "Line1"
@@ -106,11 +107,11 @@ msgstr "דיגיטלי3"
 
 #: ../lib/trans.c:56
 msgid "PhoneIn"
-msgstr "PhoneIn"
+msgstr "טלפון נכנס"
 
 #: ../lib/trans.c:57
 msgid "PhoneOut"
-msgstr "PhoneOut"
+msgstr "טלפון יוצא"
 
 #: ../lib/trans.c:58
 msgid "Video"
@@ -122,85 +123,85 @@ msgstr "רדיו"
 
 #: ../lib/trans.c:60
 msgid "Monitor"
-msgstr "מוניטור"
+msgstr "צג"
 
 #: ../lib/trans.c:61
 msgid "RecSelect"
-msgstr ""
+msgstr "בחירת הקלטה"
 
 #. Device
 #. Label
 #: ../lib/trans.c:77
 msgid "A3.AnalogIn"
-msgstr ""
+msgstr "A3.כניסה אנלוגית"
 
 #. Analog In
 #: ../lib/trans.c:78
 msgid "A3.AnalogOut"
-msgstr ""
+msgstr "A3.יציאה אנלוגית"
 
 #. Analog Out
 #: ../lib/trans.c:79
 msgid "A3.AnalogOut2"
-msgstr ""
+msgstr "A3.יציאה אנלוגית2"
 
 #. Analog Out 2
 #. Interface
 #: ../lib/trans.c:81
 msgid "A3.CameraMic"
-msgstr ""
+msgstr "A3.מיקרופון מצלמה"
 
 #. Camera Mic
 #: ../lib/trans.c:82
 msgid "A3.Microphone"
-msgstr ""
+msgstr "A3.מיקרופון"
 
 #. Microphone
 #: ../lib/trans.c:83
 #, fuzzy
 msgid "A3.LineIn"
-msgstr "קו"
+msgstr "A3.כניסה"
 
 #. Line In
 #: ../lib/trans.c:84
 msgid "A3.DAC1In"
-msgstr ""
+msgstr "A3.כניסתDAC1"
 
 #. DAC1 In
 #: ../lib/trans.c:85
 msgid "A3.DAC2In"
-msgstr ""
+msgstr "A3.כניסתDAC2"
 
 #. DAC2 In
 #: ../lib/trans.c:86
 msgid "A3.Speaker"
-msgstr ""
+msgstr "A3.רמקול"
 
 #. Speaker/Line Out
 #: ../lib/trans.c:87
 #, fuzzy
 msgid "A3.LineOut2"
-msgstr "קו2"
+msgstr "A3.יציאה2"
 
 #: ../lib/vc_alsa.c:94
 #, c-format
 msgid "alsa: Mixer %s open error: %s\n"
-msgstr "alsa: מיקסר %s שגיאת פתיחה: %s\n"
+msgstr "alsa: מערבל קול %s שגיאת פתיחה: %s\n"
 
 #: ../lib/vc_alsa.c:99
 #, c-format
 msgid "alsa: Mixer attach %s error: %s\n"
-msgstr "alsa: מיקסר מחובר %s שיגאה: %s\n"
+msgstr "alsa: מערבל קול מחובר %s שגיאה: %s\n"
 
 #: ../lib/vc_alsa.c:107
 #, c-format
 msgid "alsa: Mixer register error: %s\n"
-msgstr "alsa: שגיאת רישום מיקסר: %s\n"
+msgstr "alsa: שגיאת רישום מערבל קול: %s\n"
 
 #: ../lib/vc_alsa.c:116
 #, c-format
 msgid "alsa: Mixer load error: %s: %s\n"
-msgstr "alsa: שגיאת טעינת מיקסר: %s: %s\n"
+msgstr "alsa: שגיאת טעינת מערבל קול: %s: %s\n"
 
 #: ../lib/vc_alsa.c:127
 #, c-format
@@ -209,33 +210,33 @@ msgstr "alsa: אין אפשרות למצוא בקר פשוט '%s',%i\n"
 
 #: ../lib/vc_oss.c:158
 msgid "oss: No master volume"
-msgstr "oss:אין עוצמת צליל ראשית"
+msgstr "oss:אין עוצמת קול ראשית"
 
 #: ../panel-plugin/launcher-entry.c:75
 msgid "Run in Terminal"
-msgstr ""
+msgstr "הפעל במסוף"
 
 #: ../panel-plugin/launcher-entry.c:80
 msgid "Use Startup Notification"
-msgstr ""
+msgstr "השתמש בהתרעת פתיחה"
 
-#: ../panel-plugin/launcher-entry.c:192 ../panel-plugin/plugin.c:342
+#: ../panel-plugin/launcher-entry.c:192 ../panel-plugin/plugin.c:340
 #, c-format
 msgid "Could not run \"%s\""
-msgstr ""
+msgstr "כשל בהרצת \"%s\""
 
-#: ../panel-plugin/launcher-entry.c:194 ../panel-plugin/plugin.c:344
+#: ../panel-plugin/launcher-entry.c:194 ../panel-plugin/plugin.c:342
 msgid "Xfce Panel"
-msgstr ""
+msgstr "לוח Xfce"
 
-#: ../panel-plugin/plugin.c:271
+#: ../panel-plugin/plugin.c:269
 #, c-format
 msgid "Volume: %d%%"
-msgstr "עוצמת צליל: %d%%"
+msgstr "עוצמת קול: %d%%"
 
-#: ../panel-plugin/plugin.c:570
+#: ../panel-plugin/plugin.c:568
 msgid "Could not save configuration"
-msgstr ""
+msgstr "כשל בשמירת המאפיינים"
 
 #: mixer-prefbox.gob:177 ../src/mixer-profilebox.gob:88
 #: mixer-profilebox.gob:88
@@ -244,11 +245,11 @@ msgstr "התקן:"
 
 #: mixer-prefbox.gob:178
 msgid "Wannabe Master:"
-msgstr ""
+msgstr "ערוץ ראשי:"
 
 #: mixer-prefbox.gob:180
 msgid "When clicked"
-msgstr ""
+msgstr "בעת לחיצה"
 
 #: ../settings/mixer-settingsbox.gob:124 mixer-settingsbox.gob:124
 msgid "Device"
@@ -256,17 +257,17 @@ msgstr "התקן"
 
 #: ../settings/mixer-settingsbox.gob:127 mixer-settingsbox.gob:127
 msgid "None"
-msgstr "אין"
+msgstr "ללא"
 
 #. gtk_widget_show (GTK_WIDGET (self->dev_label));
 #. debug_bindtextdomain();
 #: ../settings/mixer-settingsbox.gob:132 mixer-settingsbox.gob:132
 msgid "Useful Controls"
-msgstr "בקרים שמישים"
+msgstr "בקרים שימושיים"
 
 #: ../settings/sound.c:80 ../settings/sound.c:100 ../settings/sound.c:107
 msgid "Sound"
-msgstr "צליל"
+msgstr "קול"
 
 #: ../src/menus.c:12
 msgid "/_File"
@@ -294,7 +295,7 @@ msgstr "/_עזרה"
 
 #: ../src/menus.c:18
 msgid "/Help/_Info"
-msgstr "/_עזרה/_מידע"
+msgstr "/עזרה/_מידע"
 
 #: ../src/mixer-info.gob:28 mixer-info.gob:28
 msgid ""
@@ -303,13 +304,13 @@ msgid ""
 "directory.\n"
 "No warranty in any way."
 msgstr ""
-"זה הוא מיקסר צליל xfce4, תוכנת בקרת צליל.\n"
-"תוכנה זו מופצת תחת רישיוןה GPL-2 שאפשר למצוא בתיקיית הקוד מקור.\n"
-"אין שום אחריות בכל מקרה."
+"זה הוא מערבל הקול של xfce4, תוכנה לבקרת עוצמת קול.\n"
+"תוכנה זו מופצת תחת רישיון ה- GPL-2 אותו ניתן למצוא בתיקיית קוד המקור.\n"
+"אין אחריות בכל מקרה שהוא."
 
 #: ../src/mixer-profilebox-detail.gob:163 mixer-profilebox-detail.gob:163
 msgid "Control"
-msgstr "בקרה"
+msgstr "בקר"
 
 #: ../src/mixer-profilebox-detail.gob:166 mixer-profilebox-detail.gob:166
 msgid "Type"
@@ -317,19 +318,19 @@ msgstr "סוג"
 
 #: ../src/mixer-profilebox-detail.gob:178 mixer-profilebox-detail.gob:178
 msgid "Up"
-msgstr "למעלה"
+msgstr "מעלה"
 
 #: ../src/mixer-profilebox-detail.gob:181 mixer-profilebox-detail.gob:181
 msgid "Down"
-msgstr "למטה"
+msgstr "מטה"
 
 #: ../src/mixer-profilebox-detail.gob:188 mixer-profilebox-detail.gob:188
 msgid "Move Entry Up"
-msgstr "הזז פריט למעלה"
+msgstr "הזז פריט מעלה"
 
 #: ../src/mixer-profilebox-detail.gob:191 mixer-profilebox-detail.gob:191
 msgid "Move Entry Down"
-msgstr "הזז פריט למטה"
+msgstr "הזז פריט מטה"
 
 #: ../src/mixer-profilebox-detail.gob:200 mixer-profilebox-detail.gob:200
 msgid "Profile Name:"
@@ -345,19 +346,19 @@ msgstr "<לא ידוע>"
 #: ../src/mixer-profilebox-detail.gob:449 mixer-profilebox-detail.gob:384
 #: mixer-profilebox-detail.gob:449
 msgid "<slider>"
-msgstr "<גולש>"
+msgstr "<מחוון>"
 
 #: ../src/mixer-profilebox-detail.gob:385
 #: ../src/mixer-profilebox-detail.gob:450 mixer-profilebox-detail.gob:385
 #: mixer-profilebox-detail.gob:450
 msgid "<onoff>"
-msgstr "<פועל מכובה>"
+msgstr "<הדק>"
 
 #: ../src/mixer-profilebox-detail.gob:386
 #: ../src/mixer-profilebox-detail.gob:451 mixer-profilebox-detail.gob:386
 #: mixer-profilebox-detail.gob:451
 msgid "<select>"
-msgstr "<בחר>"
+msgstr "<בחירה>"
 
 #: ../src/mixer-profilebox.gob:142 mixer-profilebox.gob:142
 msgid "Create new profile"
@@ -374,12 +375,12 @@ msgstr "פרופיל"
 #: ../src/mixer-profilebox.gob:374 mixer-profilebox.gob:374
 #, c-format
 msgid "Really delete those %d profiles?"
-msgstr "האם למחוק את הפרופיל %d ?"
+msgstr "האם באמת למחוק את %d הפרופילים ?"
 
 #: ../src/mixer-profilebox.gob:377 mixer-profilebox.gob:377
 #, c-format
 msgid "Really delete profile \"%s\"?"
-msgstr "האם למחוק את הפרופיל \"%s\" ?"
+msgstr "האם באמת למחוק את פרופיל \"%s\" ?"
 
 #: ../src/mixer-profilebox.gob:491 mixer-profilebox.gob:491
 #, c-format
@@ -388,7 +389,7 @@ msgstr "%s - חדש"
 
 #: ../src/mixer-profilebox.gob:528 mixer-profilebox.gob:528
 msgid "A profile needs a name"
-msgstr "הפרופיל צריך שם"
+msgstr "פרופיל צריך שם"
 
 #: ../src/mixer-profilebox.gob:542 mixer-profilebox.gob:542
 msgid "A profile with that name already exists"
@@ -411,11 +412,11 @@ msgstr "הסתר מתגים"
 #: ../src/mixer-window.gob:188 mixer-window.gob:188
 #: ../panel-plugin/xfce4-mixer.desktop.in.in.h:2
 msgid "Volume Control"
-msgstr "בקרת עוצמת צליל"
+msgstr "בקרת עוצמה"
 
 #: ../panel-plugin/xfce4-mixer.desktop.in.in.h:1
 msgid "Change the Volume"
-msgstr ""
+msgstr "שנה את העוצמה"
 
 #: ../settings/xfce-mixer-settings.desktop.in.h:1
 msgid "Mixer Settings"
@@ -424,3 +425,4 @@ msgstr "הגדרות מערבל"
 #: ../settings/xfce-mixer-settings.desktop.in.h:2
 msgid "Xfce 4 Mixer Settings"
 msgstr "הגדרות מערבל Xfce 4"
+
