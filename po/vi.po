@@ -2,18 +2,20 @@
 # Copyright (C) 2003-2006 The Xfce development team.
 # This file is distributed under the same license as the xfce4-mixer package.
 # Lâm Vĩnh Niên <nienvl@yahoo.ca>, 2004.
+# Phan Vĩnh Thịnh <teppi@vnlinux.org>, 2006.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-01-26 20:04+0900\n"
-"PO-Revision-Date: 2005-10-08 08:40+0900\n"
-"Last-Translator: Lâm Vĩnh Niên <nienvl@yahoo.ca>\n"
-"Language-Team: Vietnamese <gnomevi-list@lists.sourceforge.net>\n"
+"PO-Revision-Date: 2006-02-11 21:19+0300\n"
+"Last-Translator: Phan Vĩnh Thịnh <teppi@vnlinux.org>\n"
+"Language-Team: Vietnamese <none@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.9.1\n"
 
 #: ../lib/trans.c:36
 msgid "Vol"
@@ -123,7 +125,7 @@ msgstr "Monitor"
 
 #: ../lib/trans.c:61
 msgid "RecSelect"
-msgstr ""
+msgstr "ChọnGhi"
 
 #. Device
 #. Label
@@ -145,39 +147,37 @@ msgstr ""
 #. Interface
 #: ../lib/trans.c:81
 msgid "A3.CameraMic"
-msgstr ""
+msgstr "A3.MáyquayMic"
 
 #. Camera Mic
 #: ../lib/trans.c:82
 msgid "A3.Microphone"
-msgstr ""
+msgstr "A3.Micrô"
 
 #. Microphone
 #: ../lib/trans.c:83
-#, fuzzy
 msgid "A3.LineIn"
-msgstr "Đường"
+msgstr "A3.Đườngvào"
 
 #. Line In
 #: ../lib/trans.c:84
 msgid "A3.DAC1In"
-msgstr ""
+msgstr "A3.DAC1Vào"
 
 #. DAC1 In
 #: ../lib/trans.c:85
 msgid "A3.DAC2In"
-msgstr ""
+msgstr "A3.DAC2Vào"
 
 #. DAC2 In
 #: ../lib/trans.c:86
 msgid "A3.Speaker"
-msgstr ""
+msgstr "A3.Loa"
 
 #. Speaker/Line Out
 #: ../lib/trans.c:87
-#, fuzzy
 msgid "A3.LineOut2"
-msgstr "Đường2"
+msgstr "A3.Đườngra2"
 
 #: ../lib/vc_alsa.c:94
 #, c-format
@@ -210,20 +210,20 @@ msgstr "oss: Không điểu chỉnh âm lượng chính"
 
 #: ../panel-plugin/launcher-entry.c:75
 msgid "Run in Terminal"
-msgstr ""
+msgstr "Chạy trong Terminal"
 
 #: ../panel-plugin/launcher-entry.c:80
 msgid "Use Startup Notification"
-msgstr ""
+msgstr "Dùng thông báo khởi động"
 
 #: ../panel-plugin/launcher-entry.c:192 ../panel-plugin/plugin.c:342
 #, c-format
 msgid "Could not run \"%s\""
-msgstr ""
+msgstr "Không chạy được \"%s\""
 
 #: ../panel-plugin/launcher-entry.c:194 ../panel-plugin/plugin.c:344
 msgid "Xfce Panel"
-msgstr ""
+msgstr "Thanh panel Xfce"
 
 #: ../panel-plugin/plugin.c:271
 #, c-format
@@ -232,7 +232,7 @@ msgstr "Âm lượng: %d%%"
 
 #: ../panel-plugin/plugin.c:570
 msgid "Could not save configuration"
-msgstr ""
+msgstr "Không ghi được cấu hình"
 
 #: mixer-prefbox.gob:177 ../src/mixer-profilebox.gob:88
 #: mixer-profilebox.gob:88
@@ -241,11 +241,11 @@ msgstr "Thiết bị:"
 
 #: mixer-prefbox.gob:178
 msgid "Wannabe Master:"
-msgstr ""
+msgstr "Chính:"
 
 #: mixer-prefbox.gob:180
 msgid "When clicked"
-msgstr ""
+msgstr "Khi nhấn"
 
 #: ../settings/mixer-settingsbox.gob:124 mixer-settingsbox.gob:124
 msgid "Device"
@@ -267,31 +267,31 @@ msgstr "Âm thanh"
 
 #: ../src/menus.c:12
 msgid "/_File"
-msgstr ""
+msgstr "/_Tập tin"
 
 #: ../src/menus.c:13
 msgid "/File/_Options"
-msgstr ""
+msgstr "/Tập tin/Tùy _chọn"
 
 #: ../src/menus.c:14
 msgid "/File/_Exit"
-msgstr ""
+msgstr "/Tập tin/Th_oát"
 
 #: ../src/menus.c:15
 msgid "/_View"
-msgstr ""
+msgstr "/_Hiển thị"
 
 #: ../src/menus.c:16
 msgid "/View/_Manage"
-msgstr ""
+msgstr "/Hiển thị/_Quản lý"
 
 #: ../src/menus.c:17
 msgid "/_Help"
-msgstr ""
+msgstr "/Trợ _giúp"
 
 #: ../src/menus.c:18
 msgid "/Help/_Info"
-msgstr ""
+msgstr "/Trợ giúp/_Thông tin"
 
 #: ../src/mixer-info.gob:28 mixer-info.gob:28
 msgid ""
@@ -393,9 +393,9 @@ msgstr "Hồ sơ với tên đó đã có rồi"
 
 #: ../src/mixer-profiles.gob:262 ../src/mixer-profiles.gob:269
 #: mixer-profiles.gob:262 mixer-profiles.gob:269
-#, fuzzy, c-format
+#, c-format
 msgid "profile%d"
-msgstr "Hồ sơ"
+msgstr "xác lập%d"
 
 #: ../src/mixer-view.gob:259 mixer-view.gob:259
 msgid "Show Switches"
@@ -412,12 +412,13 @@ msgstr "Điều chỉnh âm lượng"
 
 #: ../panel-plugin/xfce4-mixer.desktop.in.in.h:1
 msgid "Change the Volume"
-msgstr ""
+msgstr "Tăng giảm Âm lượng"
 
 #: ../settings/xfce-mixer-settings.desktop.in.h:1
 msgid "Mixer Settings"
-msgstr ""
+msgstr "Thiết lập Bộ hoà âm"
 
 #: ../settings/xfce-mixer-settings.desktop.in.h:2
 msgid "Xfce 4 Mixer Settings"
-msgstr ""
+msgstr "Thiết lập bộ hoà âm Xfce4"
+
