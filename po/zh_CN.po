@@ -1,20 +1,21 @@
-# #-#-#-#-#  zh_CN.po (xfce4-mixer 4.3.0)  #-#-#-#-#
-# Simplified Chinese translations for xfce4-mixer package.
+# ----zh_CN.po (xfce4-mixer 4.3.0)  ----Simplified Chinese translations for xfce4-mixer package.
 # Copyright (C) 2003-2006 The Xfce development team.
 # This file is distributed under the same license as the xfce4-mixer package.
 # Yongtao Yang <yongtao.yang@telia.com>, 2004.
-#
+# Huang Huan <unicon221@gmail.com>, 2006.
+# 
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-01-26 20:04+0900\n"
-"PO-Revision-Date: 2005-10-08 08:41+0900\n"
-"Last-Translator: Yongtao Yang <yongtao.yang@telia.com>\n"
-"Language-Team: Simplified Chinese <i18n-translation@lists.linux.net.cn>\n"
+"PO-Revision-Date: 2006-02-16 22:32+0800\n"
+"Last-Translator: Huang Huan <unicon221@gmail.com>\n"
+"Language-Team: Chinese/Simplified <i18n-translation@lists.linux.net.cn>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"Content-Transfer-Encoding: 8bit"
 
 #: ../lib/trans.c:36
 msgid "Vol"
@@ -33,7 +34,7 @@ msgstr "扬声器"
 #. Internal speaker?
 #: ../lib/trans.c:39
 msgid "Line"
-msgstr ""
+msgstr "线路"
 
 #. Line in
 #: ../lib/trans.c:40
@@ -43,7 +44,7 @@ msgstr "麦克风"
 #. Mic in
 #: ../lib/trans.c:41
 msgid "CD"
-msgstr ""
+msgstr "CD"
 
 #. CD in
 #: ../lib/trans.c:42
@@ -84,23 +85,23 @@ msgstr ""
 
 #: ../lib/trans.c:51
 msgid "Line2"
-msgstr ""
+msgstr "线路2"
 
 #: ../lib/trans.c:52
 msgid "Line3"
-msgstr ""
+msgstr "线路3"
 
 #: ../lib/trans.c:53
 msgid "Digital1"
-msgstr ""
+msgstr "数码1"
 
 #: ../lib/trans.c:54
 msgid "Digital2"
-msgstr ""
+msgstr "数码2"
 
 #: ../lib/trans.c:55
 msgid "Digital3"
-msgstr ""
+msgstr "数码3"
 
 #: ../lib/trans.c:56
 msgid "PhoneIn"
@@ -124,7 +125,7 @@ msgstr "监视"
 
 #: ../lib/trans.c:61
 msgid "RecSelect"
-msgstr ""
+msgstr "录音选择"
 
 #. Device
 #. Label
@@ -146,17 +147,17 @@ msgstr ""
 #. Interface
 #: ../lib/trans.c:81
 msgid "A3.CameraMic"
-msgstr ""
+msgstr "A3.视频麦克风"
 
 #. Camera Mic
 #: ../lib/trans.c:82
 msgid "A3.Microphone"
-msgstr ""
+msgstr "A3.麦克风"
 
 #. Microphone
 #: ../lib/trans.c:83
 msgid "A3.LineIn"
-msgstr ""
+msgstr "A3.线路输入"
 
 #. Line In
 #: ../lib/trans.c:84
@@ -171,12 +172,12 @@ msgstr ""
 #. DAC2 In
 #: ../lib/trans.c:86
 msgid "A3.Speaker"
-msgstr ""
+msgstr "A3.话筒"
 
 #. Speaker/Line Out
 #: ../lib/trans.c:87
 msgid "A3.LineOut2"
-msgstr ""
+msgstr "A3.线路输出2"
 
 #: ../lib/vc_alsa.c:94
 #, c-format
@@ -209,20 +210,20 @@ msgstr "oss: 主控制器不存在"
 
 #: ../panel-plugin/launcher-entry.c:75
 msgid "Run in Terminal"
-msgstr ""
+msgstr "在终端运行"
 
 #: ../panel-plugin/launcher-entry.c:80
 msgid "Use Startup Notification"
-msgstr ""
+msgstr "使用启动通知"
 
 #: ../panel-plugin/launcher-entry.c:192 ../panel-plugin/plugin.c:342
 #, c-format
 msgid "Could not run \"%s\""
-msgstr ""
+msgstr "不能运行 \"%s\""
 
 #: ../panel-plugin/launcher-entry.c:194 ../panel-plugin/plugin.c:344
 msgid "Xfce Panel"
-msgstr ""
+msgstr "Xfce面板"
 
 #: ../panel-plugin/plugin.c:271
 #, c-format
@@ -231,7 +232,7 @@ msgstr "音量控制 %d%%"
 
 #: ../panel-plugin/plugin.c:570
 msgid "Could not save configuration"
-msgstr ""
+msgstr "不能保存配置"
 
 #: mixer-prefbox.gob:177 ../src/mixer-profilebox.gob:88
 #: mixer-profilebox.gob:88
@@ -240,11 +241,11 @@ msgstr "设备："
 
 #: mixer-prefbox.gob:178
 msgid "Wannabe Master:"
-msgstr ""
+msgstr "成为主设备："
 
 #: mixer-prefbox.gob:180
 msgid "When clicked"
-msgstr ""
+msgstr "当点击后"
 
 #: ../settings/mixer-settingsbox.gob:124 mixer-settingsbox.gob:124
 msgid "Device"
@@ -290,7 +291,7 @@ msgstr "/帮助(_H)"
 
 #: ../src/menus.c:18
 msgid "/Help/_Info"
-msgstr "/文件(F)/选项(_O)"
+msgstr "/帮助/信息(_I)"
 
 #: ../src/mixer-info.gob:28 mixer-info.gob:28
 msgid ""
@@ -411,12 +412,13 @@ msgstr "音量控制"
 
 #: ../panel-plugin/xfce4-mixer.desktop.in.in.h:1
 msgid "Change the Volume"
-msgstr ""
+msgstr "改变音量"
 
 #: ../settings/xfce-mixer-settings.desktop.in.h:1
 msgid "Mixer Settings"
-msgstr ""
+msgstr "混音设定"
 
 #: ../settings/xfce-mixer-settings.desktop.in.h:2
 msgid "Xfce 4 Mixer Settings"
-msgstr ""
+msgstr "Xfce 4混音器设定"
+
