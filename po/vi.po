@@ -421,4 +421,3 @@ msgstr "Thiết lập Bộ hoà âm"
 #: ../settings/xfce-mixer-settings.desktop.in.h:2
 msgid "Xfce 4 Mixer Settings"
 msgstr "Thiết lập bộ hoà âm Xfce4"
-
