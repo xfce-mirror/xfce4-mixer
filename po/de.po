@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the xfce4-mixer package.
 # Benedikt Meurer <benny@xfce.org>, 2003.
 # Moritz Heiber <moe@xfce.org>, 2004.
+# Fabian Nowak <timystery@arcor.de>, 2006.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-01-26 20:04+0900\n"
-"PO-Revision-Date: 2005-10-08 08:22+0900\n"
-"Last-Translator: Moritz Heiber <moe@xfce.org>\n"
+"PO-Revision-Date: 2005-10-22 11:53+0200\n"
+"Last-Translator: Fabian Nowak <timystery@arcor.de>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -130,55 +131,53 @@ msgstr "Aufnahmequelle"
 #. Label
 #: ../lib/trans.c:77
 msgid "A3.AnalogIn"
-msgstr ""
+msgstr "A3.AnalogIn"
 
 #. Analog In
 #: ../lib/trans.c:78
 msgid "A3.AnalogOut"
-msgstr ""
+msgstr "A3.AnalogOut"
 
 #. Analog Out
 #: ../lib/trans.c:79
 msgid "A3.AnalogOut2"
-msgstr ""
+msgstr "A3.AnalogOut2"
 
 #. Analog Out 2
 #. Interface
 #: ../lib/trans.c:81
 msgid "A3.CameraMic"
-msgstr ""
+msgstr "A3.CameraMic"
 
 #. Camera Mic
 #: ../lib/trans.c:82
 msgid "A3.Microphone"
-msgstr ""
+msgstr "A3.Mikrofon"
 
 #. Microphone
 #: ../lib/trans.c:83
-#, fuzzy
 msgid "A3.LineIn"
-msgstr "Line"
+msgstr "A3.LineIn"
 
 #. Line In
 #: ../lib/trans.c:84
 msgid "A3.DAC1In"
-msgstr ""
+msgstr "A3.DAC1In"
 
 #. DAC1 In
 #: ../lib/trans.c:85
 msgid "A3.DAC2In"
-msgstr ""
+msgstr "A3.DAC2In"
 
 #. DAC2 In
 #: ../lib/trans.c:86
 msgid "A3.Speaker"
-msgstr ""
+msgstr "A3.Lautsprecher"
 
 #. Speaker/Line Out
 #: ../lib/trans.c:87
-#, fuzzy
 msgid "A3.LineOut2"
-msgstr "Line2"
+msgstr "A3.LineOut2"
 
 #: ../lib/vc_alsa.c:94
 #, c-format
@@ -191,14 +190,14 @@ msgid "alsa: Mixer attach %s error: %s\n"
 msgstr "ALSA: Mixer %s: Fehler beim Verbinden: %s\n"
 
 #: ../lib/vc_alsa.c:107
-#, fuzzy, c-format
+#, c-format
 msgid "alsa: Mixer register error: %s\n"
-msgstr "ALSA: Mixer %s: Fehler beim Registrieren: %s\n"
+msgstr "alsa: Fehler beim Registrieren des Mixers: %s\n"
 
 #: ../lib/vc_alsa.c:116
 #, c-format
 msgid "alsa: Mixer load error: %s: %s\n"
-msgstr "ALSA: Mixer %s: Fehler beim Laden: %s\n"
+msgstr "alsa: Fehler beim Laden des Mixers: %s: %s\n"
 
 #: ../lib/vc_alsa.c:127
 #, c-format
@@ -211,20 +210,20 @@ msgstr "OSS: Kein Master"
 
 #: ../panel-plugin/launcher-entry.c:75
 msgid "Run in Terminal"
-msgstr ""
+msgstr "In Terminal ausführen"
 
 #: ../panel-plugin/launcher-entry.c:80
 msgid "Use Startup Notification"
-msgstr ""
+msgstr "Startup-Benachrichtigung verwenden"
 
 #: ../panel-plugin/launcher-entry.c:192 ../panel-plugin/plugin.c:342
 #, c-format
 msgid "Could not run \"%s\""
-msgstr ""
+msgstr "Konnten \"%s\" nicht ausführen"
 
 #: ../panel-plugin/launcher-entry.c:194 ../panel-plugin/plugin.c:344
 msgid "Xfce Panel"
-msgstr ""
+msgstr "Xfce 4 Leiste"
 
 #: ../panel-plugin/plugin.c:271
 #, c-format
@@ -233,7 +232,7 @@ msgstr "Lautstärke: %d %%"
 
 #: ../panel-plugin/plugin.c:570
 msgid "Could not save configuration"
-msgstr ""
+msgstr "Konnte Konfiguration nicht speichern"
 
 #: mixer-prefbox.gob:177 ../src/mixer-profilebox.gob:88
 #: mixer-profilebox.gob:88
@@ -242,11 +241,11 @@ msgstr "Gerät:"
 
 #: mixer-prefbox.gob:178
 msgid "Wannabe Master:"
-msgstr ""
+msgstr "Möchtegern-Master"
 
 #: mixer-prefbox.gob:180
 msgid "When clicked"
-msgstr ""
+msgstr "Bei Klick"
 
 #: ../settings/mixer-settingsbox.gob:124 mixer-settingsbox.gob:124
 msgid "Device"
@@ -414,12 +413,12 @@ msgstr "Lautstärkenregler"
 
 #: ../panel-plugin/xfce4-mixer.desktop.in.in.h:1
 msgid "Change the Volume"
-msgstr ""
+msgstr "Lautstärke ändern"
 
 #: ../settings/xfce-mixer-settings.desktop.in.h:1
 msgid "Mixer Settings"
-msgstr ""
+msgstr "Mixereinstellungen"
 
 #: ../settings/xfce-mixer-settings.desktop.in.h:2
 msgid "Xfce 4 Mixer Settings"
-msgstr ""
+msgstr "Xfce 4 Mixereinstellungen"
