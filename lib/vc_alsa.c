@@ -71,9 +71,10 @@ static char card[64] = "default";
 static void find_master(void)
 {
 	int		err;
-	snd_mixer_selem_id_t	*sid, *sid2;
+	snd_mixer_selem_id_t	*sid, *sid2, *sid3;
 	char buf[12] = "Master";
 	char buf2[12] = "PCM";
+	char buf3[13] = "Analog Front";
 	
 	elem = NULL;
 
@@ -84,6 +85,10 @@ static void find_master(void)
 	snd_mixer_selem_id_alloca(&sid2);
 	snd_mixer_selem_id_set_index(sid2, 0);
 	snd_mixer_selem_id_set_name(sid2, buf2);
+
+	snd_mixer_selem_id_alloca(&sid3);
+	snd_mixer_selem_id_set_index(sid2, 0);
+	snd_mixer_selem_id_set_name(sid2, buf3);
 
 	if (handle != NULL) {
 		snd_mixer_close(handle);
@@ -122,15 +127,18 @@ static void find_master(void)
 	elem = snd_mixer_find_selem(handle, sid);
 	if (!elem) {
 		elem = snd_mixer_find_selem(handle, sid2);
-		if (!elem) {
+        }
+	if (!elem) {
+		elem = snd_mixer_find_selem(handle, sid3);
+        }
+        if (!elem) {
 #ifdef DEBUG
-			error(_("alsa: Unable to find simple control '%s',%i\n"),
-			snd_mixer_selem_id_get_name(sid), snd_mixer_selem_id_get_index(sid));
+		error(_("alsa: Unable to find simple control '%s',%i\n"),
+		snd_mixer_selem_id_get_name(sid), snd_mixer_selem_id_get_index(sid));
 #endif
-			snd_mixer_close(handle);
-			handle = NULL;
-			return;
-		}
+		snd_mixer_close(handle);
+		handle = NULL;
+		return;
 	}
 }
 
