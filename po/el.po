@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-26 20:04+0900\n"
+"POT-Creation-Date: 2006-03-04 19:26+0900\n"
 "PO-Revision-Date: 2005-10-08 08:22+0900\n"
 "Last-Translator: Stavros Giannouris <stavrosg2002@freemail.gr>\n"
 "Language-Team: Greek <nls@tux.hellug.gr>\n"
@@ -180,27 +180,27 @@ msgstr ""
 msgid "A3.LineOut2"
 msgstr "Γραμμή2"
 
-#: ../lib/vc_alsa.c:94
+#: ../lib/vc_alsa.c:99
 #, c-format
 msgid "alsa: Mixer %s open error: %s\n"
 msgstr "alsa: Μείκτης %s σφάλμα ανοίγματος: %s\n"
 
-#: ../lib/vc_alsa.c:99
+#: ../lib/vc_alsa.c:104
 #, c-format
 msgid "alsa: Mixer attach %s error: %s\n"
 msgstr "alsa: Σύνδεση μείκτη %s λάθος: %s\n"
 
-#: ../lib/vc_alsa.c:107
+#: ../lib/vc_alsa.c:112
 #, c-format
 msgid "alsa: Mixer register error: %s\n"
 msgstr "alsa: Λάθος εγγραφής μείκτη: %s\n"
 
-#: ../lib/vc_alsa.c:116
+#: ../lib/vc_alsa.c:121
 #, c-format
 msgid "alsa: Mixer load error: %s: %s\n"
 msgstr "alsa: Λάθος φόρτωσης μείκτη: %s: %s\n"
 
-#: ../lib/vc_alsa.c:127
+#: ../lib/vc_alsa.c:136
 #, c-format
 msgid "alsa: Unable to find simple control '%s',%i\n"
 msgstr "alsa: Αδυναμία εύρεσης απλού στοιχείου ελέγχου '%s',%i\n"

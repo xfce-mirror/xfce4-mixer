@@ -8,13 +8,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-26 20:04+0900\n"
+"POT-Creation-Date: 2006-03-04 19:26+0900\n"
 "PO-Revision-Date: 2006-02-28 15:01+0200\n"
 "Last-Translator: Mart Tõnso <mart.tonso@ttu.ee>\n"
 "Language-Team: Estonian <et@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit"
+"Content-Transfer-Encoding: 8bit\n"
 
 #: ../lib/trans.c:36
 msgid "Vol"
@@ -178,27 +178,27 @@ msgstr "A3.Piiksur"
 msgid "A3.LineOut2"
 msgstr "A3.Liiniväljund2"
 
-#: ../lib/vc_alsa.c:94
+#: ../lib/vc_alsa.c:99
 #, c-format
 msgid "alsa: Mixer %s open error: %s\n"
 msgstr "alsa: Mikseri %s avamisel tekkis viga: %s\n"
 
-#: ../lib/vc_alsa.c:99
+#: ../lib/vc_alsa.c:104
 #, c-format
 msgid "alsa: Mixer attach %s error: %s\n"
 msgstr "alsa: Mikseri %s lisamise viga: %s\n"
 
-#: ../lib/vc_alsa.c:107
+#: ../lib/vc_alsa.c:112
 #, c-format
 msgid "alsa: Mixer register error: %s\n"
 msgstr "alsa: Mikseri registri viga: %s\n"
 
-#: ../lib/vc_alsa.c:116
+#: ../lib/vc_alsa.c:121
 #, c-format
 msgid "alsa: Mixer load error: %s: %s\n"
 msgstr "alsa: Mikseri laadimise viga: %s: %s\n"
 
-#: ../lib/vc_alsa.c:127
+#: ../lib/vc_alsa.c:136
 #, c-format
 msgid "alsa: Unable to find simple control '%s',%i\n"
 msgstr "alsa: Ei suutnud leida lihtsat kontrolli '%s',%i\n"
@@ -420,4 +420,3 @@ msgstr "Helitugevuse seaded"
 #: ../settings/xfce-mixer-settings.desktop.in.h:2
 msgid "Xfce 4 Mixer Settings"
 msgstr "Xfce 4 helitugevuse seaded"
-

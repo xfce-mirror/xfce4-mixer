@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-26 20:04+0900\n"
+"POT-Creation-Date: 2006-03-04 19:26+0900\n"
 "PO-Revision-Date: 2005-10-08 08:31+0900\n"
 "Last-Translator: Rodrigo Coacci <rcoacci@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <ldp-br@bazar.conectiva.com.br>\n"
@@ -233,27 +233,27 @@ msgstr ""
 "Linha2\n"
 " "
 
-#: ../lib/vc_alsa.c:94
+#: ../lib/vc_alsa.c:99
 #, c-format
 msgid "alsa: Mixer %s open error: %s\n"
 msgstr "alsa: Erro ao abrir mixer %s: %s\n"
 
-#: ../lib/vc_alsa.c:99
+#: ../lib/vc_alsa.c:104
 #, c-format
 msgid "alsa: Mixer attach %s error: %s\n"
 msgstr "alsa: Erro %s ao acoplar mixer: %s\n"
 
-#: ../lib/vc_alsa.c:107
+#: ../lib/vc_alsa.c:112
 #, c-format
 msgid "alsa: Mixer register error: %s\n"
 msgstr "alsa: Erro ao registrar mixer %s\n"
 
-#: ../lib/vc_alsa.c:116
+#: ../lib/vc_alsa.c:121
 #, fuzzy, c-format
 msgid "alsa: Mixer load error: %s: %s\n"
 msgstr "alsa: Erro ao carregar mixer %s\n"
 
-#: ../lib/vc_alsa.c:127
+#: ../lib/vc_alsa.c:136
 #, c-format
 msgid "alsa: Unable to find simple control '%s',%i\n"
 msgstr "alsa: Não foi possível encontrar o controle simples '%s',%i\n"

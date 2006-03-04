@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-26 20:04+0900\n"
+"POT-Creation-Date: 2006-03-04 19:26+0900\n"
 "PO-Revision-Date: 2005-10-08 08:35+0900\n"
 "Last-Translator: Dinesh Nadarajah <dinesh_list@sbcglobal.net>\n"
 "Language-Team: Tamil <tamillinux-user@lists.sourceforge.net>\n"
@@ -177,27 +177,27 @@ msgstr ""
 msgid "A3.LineOut2"
 msgstr ""
 
-#: ../lib/vc_alsa.c:94
+#: ../lib/vc_alsa.c:99
 #, c-format
 msgid "alsa: Mixer %s open error: %s\n"
 msgstr "alsa: கலவை %s திறப்பு பிழை: %s\n"
 
-#: ../lib/vc_alsa.c:99
+#: ../lib/vc_alsa.c:104
 #, c-format
 msgid "alsa: Mixer attach %s error: %s\n"
 msgstr "alsa: கலவை %s இணைப்பு பிழை: %s\n"
 
-#: ../lib/vc_alsa.c:107
+#: ../lib/vc_alsa.c:112
 #, c-format
 msgid "alsa: Mixer register error: %s\n"
 msgstr "alsa: கலவை பதிவேடு பிழை: %s\n"
 
-#: ../lib/vc_alsa.c:116
+#: ../lib/vc_alsa.c:121
 #, fuzzy, c-format
 msgid "alsa: Mixer load error: %s: %s\n"
 msgstr "alsa: கலவை ஏற்றல் பிழை: %s\n"
 
-#: ../lib/vc_alsa.c:127
+#: ../lib/vc_alsa.c:136
 #, c-format
 msgid "alsa: Unable to find simple control '%s',%i\n"
 msgstr "alsa: சாதாரன கட்டுப்பாடு கண்டுபிடிக்க முடியவில்லை '%s',%i\n"

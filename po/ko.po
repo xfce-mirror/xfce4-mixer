@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-26 20:04+0900\n"
+"POT-Creation-Date: 2006-03-04 19:26+0900\n"
 "PO-Revision-Date: 2005-11-01 01:34+0900\n"
 "Last-Translator: ByunHyun Choi <byunghyun.choi@gmail.com>\n"
 "Language-Team: xfce4-users-kr-i18n <xfce4-users-kr-i18n@lists.sourceforge."
@@ -180,27 +180,27 @@ msgstr ""
 msgid "A3.LineOut2"
 msgstr "라인2"
 
-#: ../lib/vc_alsa.c:94
+#: ../lib/vc_alsa.c:99
 #, c-format
 msgid "alsa: Mixer %s open error: %s\n"
 msgstr "alsa: 믹서 %s 열기 오류 : %s\n"
 
-#: ../lib/vc_alsa.c:99
+#: ../lib/vc_alsa.c:104
 #, c-format
 msgid "alsa: Mixer attach %s error: %s\n"
 msgstr "alsa: 믹서 추가 %s 오류 : %s\n"
 
-#: ../lib/vc_alsa.c:107
+#: ../lib/vc_alsa.c:112
 #, c-format
 msgid "alsa: Mixer register error: %s\n"
 msgstr "alsa: 믹서 등록 오류 : %s\n"
 
-#: ../lib/vc_alsa.c:116
+#: ../lib/vc_alsa.c:121
 #, c-format
 msgid "alsa: Mixer load error: %s: %s\n"
 msgstr "alsa: 믹서 로드 오류 : %s: %s\n"
 
-#: ../lib/vc_alsa.c:127
+#: ../lib/vc_alsa.c:136
 #, c-format
 msgid "alsa: Unable to find simple control '%s',%i\n"
 msgstr "alsa: 단순 제어장치 '%s'를(을) 찾을 수 없습니다.: %i\n"
