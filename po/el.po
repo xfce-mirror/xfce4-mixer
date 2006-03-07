@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-04 19:26+0900\n"
-"PO-Revision-Date: 2005-10-08 08:22+0900\n"
+"PO-Revision-Date: 2006-03-06 17:25+0200\n"
 "Last-Translator: Stavros Giannouris <stavrosg2002@freemail.gr>\n"
 "Language-Team: Greek <nls@tux.hellug.gr>\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,7 @@ msgstr ""
 
 #: ../lib/trans.c:36
 msgid "Vol"
-msgstr "Vol"
+msgstr "Εντ"
 
 #. Master
 #: ../lib/trans.c:37
@@ -28,17 +28,17 @@ msgstr "Pcm"
 #. PCM output
 #: ../lib/trans.c:38
 msgid "Spkr"
-msgstr "Spkr"
+msgstr "Ηχεία"
 
 #. Internal speaker?
 #: ../lib/trans.c:39
 msgid "Line"
-msgstr "Line"
+msgstr "Γραμμή"
 
 #. Line in
 #: ../lib/trans.c:40
 msgid "Mic"
-msgstr "Mic"
+msgstr "Μικ"
 
 #. Mic in
 #: ../lib/trans.c:41
@@ -48,7 +48,7 @@ msgstr "CD"
 #. CD in
 #: ../lib/trans.c:42
 msgid "Bass"
-msgstr "Bass"
+msgstr "Μπάσο"
 
 #: ../lib/trans.c:43
 msgid "Trebl"
@@ -56,7 +56,7 @@ msgstr "Trebl"
 
 #: ../lib/trans.c:44
 msgid "Synth"
-msgstr "Synth"
+msgstr "Συνθ"
 
 #: ../lib/trans.c:45
 msgid "Mix"
@@ -130,55 +130,53 @@ msgstr "RecSelect"
 #. Label
 #: ../lib/trans.c:77
 msgid "A3.AnalogIn"
-msgstr ""
+msgstr "Α3.ΑναλογικήΕισ"
 
 #. Analog In
 #: ../lib/trans.c:78
 msgid "A3.AnalogOut"
-msgstr ""
+msgstr "Α3.ΑναλογικήΕξ"
 
 #. Analog Out
 #: ../lib/trans.c:79
 msgid "A3.AnalogOut2"
-msgstr ""
+msgstr "Α3.ΑναλογικήΕξ2"
 
 #. Analog Out 2
 #. Interface
 #: ../lib/trans.c:81
 msgid "A3.CameraMic"
-msgstr ""
+msgstr "Α3.ΚάμεραΜικ"
 
 #. Camera Mic
 #: ../lib/trans.c:82
 msgid "A3.Microphone"
-msgstr ""
+msgstr "Α3.Μικρόφωνο"
 
 #. Microphone
 #: ../lib/trans.c:83
-#, fuzzy
 msgid "A3.LineIn"
-msgstr "Line"
+msgstr "A3.ΓραμμήΕισ"
 
 #. Line In
 #: ../lib/trans.c:84
 msgid "A3.DAC1In"
-msgstr ""
+msgstr "A3.DAC1In"
 
 #. DAC1 In
 #: ../lib/trans.c:85
 msgid "A3.DAC2In"
-msgstr ""
+msgstr "A3.DAC2In"
 
 #. DAC2 In
 #: ../lib/trans.c:86
 msgid "A3.Speaker"
-msgstr ""
+msgstr "Α3.Ηχείο"
 
 #. Speaker/Line Out
 #: ../lib/trans.c:87
-#, fuzzy
 msgid "A3.LineOut2"
-msgstr "Γραμμή2"
+msgstr "A3.ΓραμμήΕξ2"
 
 #: ../lib/vc_alsa.c:99
 #, c-format
@@ -211,20 +209,20 @@ msgstr "oss: Δεν υπάρχει η κύρια ένταση"
 
 #: ../panel-plugin/launcher-entry.c:75
 msgid "Run in Terminal"
-msgstr ""
+msgstr "Εκτέλεση στο Τερματικό"
 
 #: ../panel-plugin/launcher-entry.c:80
 msgid "Use Startup Notification"
-msgstr ""
+msgstr "Χρήση Ειδοποίηση Εκκίνησης"
 
 #: ../panel-plugin/launcher-entry.c:192 ../panel-plugin/plugin.c:342
 #, c-format
 msgid "Could not run \"%s\""
-msgstr ""
+msgstr "Δεν ήταν δυνατή η εκτέλεση του \"%s\""
 
 #: ../panel-plugin/launcher-entry.c:194 ../panel-plugin/plugin.c:344
 msgid "Xfce Panel"
-msgstr ""
+msgstr "Ταμπλό του Xfce"
 
 #: ../panel-plugin/plugin.c:271
 #, c-format
@@ -242,11 +240,11 @@ msgstr "Συσκευή:"
 
 #: mixer-prefbox.gob:178
 msgid "Wannabe Master:"
-msgstr ""
+msgstr "Εν δυνάμει Μάστερ:"
 
 #: mixer-prefbox.gob:180
 msgid "When clicked"
-msgstr ""
+msgstr "Στο κλικ"
 
 #: ../settings/mixer-settingsbox.gob:124 mixer-settingsbox.gob:124
 msgid "Device"
@@ -414,7 +412,7 @@ msgstr "Έλεγχος έντασης"
 
 #: ../panel-plugin/xfce4-mixer.desktop.in.in.h:1
 msgid "Change the Volume"
-msgstr ""
+msgstr "Αλλαγή της έντασης"
 
 #: ../settings/xfce-mixer-settings.desktop.in.h:1
 msgid "Mixer Settings"
