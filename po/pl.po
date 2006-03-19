@@ -154,7 +154,6 @@ msgstr "A3.Microphone"
 
 #. Microphone
 #: ../lib/trans.c:83
-#, fuzzy
 msgid "A3.LineIn"
 msgstr "A3.LineIn"
 
@@ -175,7 +174,6 @@ msgstr "A3.Speaker"
 
 #. Speaker/Line Out
 #: ../lib/trans.c:87
-#, fuzzy
 msgid "A3.LineOut2"
 msgstr "A3.LineOut2"
 
