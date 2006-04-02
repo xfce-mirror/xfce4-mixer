@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ca\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-04 19:26+0900\n"
-"PO-Revision-Date: 2006-03-19 17:38+0100\n"
+"PO-Revision-Date: 2006-04-02 22:26+0200\n"
 "Last-Translator: Pau Rul·lan Ferragut <paurullan@bulma.net>\n"
 "Language-Team: Catalan\n"
 "MIME-Version: 1.0\n"
@@ -215,29 +215,29 @@ msgid "A3.LineOut2"
 msgstr "A3 (297 x 420 mm)"
 
 #: ../lib/vc_alsa.c:99
-#, fuzzy, c-format
+#, c-format
 msgid "alsa: Mixer %s open error: %s\n"
-msgstr "Mesclador: obre error n"
+msgstr "alsa: el mesclador %s ha mostrat l'error d'engegada: %s\n"
 
 #: ../lib/vc_alsa.c:104
-#, fuzzy, c-format
+#, c-format
 msgid "alsa: Mixer attach %s error: %s\n"
-msgstr "Mesclador: adjunta error n"
+msgstr "alsa: el mesclador ha adjuntat %s errors d'engegada: %s\n"
 
 #: ../lib/vc_alsa.c:112
-#, fuzzy, c-format
+#, c-format
 msgid "alsa: Mixer register error: %s\n"
-msgstr "Mesclador: error n"
+msgstr "alsa: el registre del mesclador ha mostrat l'error: %s\n"
 
 #: ../lib/vc_alsa.c:121
-#, fuzzy, c-format
+#, c-format
 msgid "alsa: Mixer load error: %s: %s\n"
-msgstr "Mesclador: càrrega error n"
+msgstr "alsa: el carregador del mesclador ha mostrat l'error: %s: %s\n"
 
 #: ../lib/vc_alsa.c:136
-#, fuzzy, c-format
+#, c-format
 msgid "alsa: Unable to find simple control '%s',%i\n"
-msgstr "a  cerca tecla de control n"
+msgstr "alsa: no s'ha pogut trobar un control senzill '%s', %i\n"
 
 #: ../lib/vc_oss.c:158
 #, fuzzy
@@ -258,7 +258,7 @@ msgstr "Utilitza Inici Notificació"
 #, c-format
 #, fuzzy
 msgid "Could not run \"%s\""
-msgstr "No s'ha pogut executar «%s»"
+msgstr "No s'ha pogut executar \"%s\""
 
 #: ../panel-plugin/launcher-entry.c:194 ../panel-plugin/plugin.c:344
 #, fuzzy
@@ -435,19 +435,19 @@ msgid "Profile"
 msgstr "Mesura de rendiment"
 
 #: ../src/mixer-profilebox.gob:374 mixer-profilebox.gob:374
-#, fuzzy, c-format
+#, c-format
 msgid "Really delete those %d profiles?"
-msgstr "suprimeix?"
+msgstr "Segur que voleu suprimir els %d perfils?"
 
 #: ../src/mixer-profilebox.gob:377 mixer-profilebox.gob:377
-#, fuzzy, c-format
+#, c-format
 msgid "Really delete profile \"%s\"?"
-msgstr "suprimeix?"
+msgstr "Segur que voleu suprimir el perfil \"%s\"?"
 
 #: ../src/mixer-profilebox.gob:491 mixer-profilebox.gob:491
-#, fuzzy, c-format
+#, c-format
 msgid "%s - New"
-msgstr "Nou"
+msgstr "%s - Nou"
 
 #: ../src/mixer-profilebox.gob:528 mixer-profilebox.gob:528
 #, fuzzy
