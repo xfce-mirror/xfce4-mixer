@@ -1,3 +1,115 @@
+2006-03-05 06:23  daichi
+
+	* libxfcegui4/branches/xfce_4_2/configure.ac,
+	  libxfcegui4/branches/xfce_4_2/po/sq.po,
+	  xfcalendar/branches/xfce_4_2/configure.ac,
+	  xfcalendar/branches/xfce_4_2/po/sq.po,
+	  xfce-mcs-manager/branches/xfce_4_2/configure.ac,
+	  xfce-mcs-manager/branches/xfce_4_2/po/sq.po,
+	  xfce-mcs-plugins/branches/xfce_4_2/configure.ac,
+	  xfce-mcs-plugins/branches/xfce_4_2/po/sq.po,
+	  xfce-utils/branches/xfce_4_2/configure.ac,
+	  xfce-utils/branches/xfce_4_2/po/sq.po,
+	  xfce-utils/branches/xfce_4_2/xfce4-about/AUTHORS,
+	  xfce-utils/branches/xfce_4_2/xfce4-about/AUTHORS.az,
+	  xfce-utils/branches/xfce_4_2/xfce4-about/AUTHORS.ca,
+	  xfce-utils/branches/xfce_4_2/xfce4-about/AUTHORS.de,
+	  xfce-utils/branches/xfce_4_2/xfce4-about/AUTHORS.es,
+	  xfce-utils/branches/xfce_4_2/xfce4-about/AUTHORS.eu,
+	  xfce-utils/branches/xfce_4_2/xfce4-about/AUTHORS.fi,
+	  xfce-utils/branches/xfce_4_2/xfce4-about/AUTHORS.fr,
+	  xfce-utils/branches/xfce_4_2/xfce4-about/AUTHORS.he,
+	  xfce-utils/branches/xfce_4_2/xfce4-about/AUTHORS.html,
+	  xfce-utils/branches/xfce_4_2/xfce4-about/AUTHORS.html.az,
+	  xfce-utils/branches/xfce_4_2/xfce4-about/AUTHORS.html.ca,
+	  xfce-utils/branches/xfce_4_2/xfce4-about/AUTHORS.html.de,
+	  xfce-utils/branches/xfce_4_2/xfce4-about/AUTHORS.html.es,
+	  xfce-utils/branches/xfce_4_2/xfce4-about/AUTHORS.html.eu,
+	  xfce-utils/branches/xfce_4_2/xfce4-about/AUTHORS.html.fi,
+	  xfce-utils/branches/xfce_4_2/xfce4-about/AUTHORS.html.fr,
+	  xfce-utils/branches/xfce_4_2/xfce4-about/AUTHORS.html.it,
+	  xfce-utils/branches/xfce_4_2/xfce4-about/AUTHORS.html.ja,
+	  xfce-utils/branches/xfce_4_2/xfce4-about/AUTHORS.html.lt,
+	  xfce-utils/branches/xfce_4_2/xfce4-about/AUTHORS.html.ro,
+	  xfce-utils/branches/xfce_4_2/xfce4-about/AUTHORS.html.ru,
+	  xfce-utils/branches/xfce_4_2/xfce4-about/AUTHORS.html.sk,
+	  xfce-utils/branches/xfce_4_2/xfce4-about/AUTHORS.html.vi,
+	  xfce-utils/branches/xfce_4_2/xfce4-about/AUTHORS.html.zh_TW,
+	  xfce-utils/branches/xfce_4_2/xfce4-about/AUTHORS.it,
+	  xfce-utils/branches/xfce_4_2/xfce4-about/AUTHORS.ja,
+	  xfce-utils/branches/xfce_4_2/xfce4-about/AUTHORS.lt,
+	  xfce-utils/branches/xfce_4_2/xfce4-about/AUTHORS.ro,
+	  xfce-utils/branches/xfce_4_2/xfce4-about/AUTHORS.ru,
+	  xfce-utils/branches/xfce_4_2/xfce4-about/AUTHORS.sk,
+	  xfce-utils/branches/xfce_4_2/xfce4-about/AUTHORS.uk,
+	  xfce-utils/branches/xfce_4_2/xfce4-about/AUTHORS.vi,
+	  xfce-utils/branches/xfce_4_2/xfce4-about/AUTHORS.zh_TW,
+	  xfce4-appfinder/branches/xfce_4_2/configure.ac,
+	  xfce4-appfinder/branches/xfce_4_2/po/sq.po,
+	  xfce4-iconbox/branches/xfce_4_2/configure.ac,
+	  xfce4-iconbox/branches/xfce_4_2/po/sq.po,
+	  xfce4-mixer/branches/xfce_4_2/configure.ac,
+	  xfce4-mixer/branches/xfce_4_2/po/sq.po,
+	  xfce4-panel/branches/xfce_4_2/configure.ac,
+	  xfce4-panel/branches/xfce_4_2/po/sq.po,
+	  xfce4-session/branches/xfce_4_2/configure.ac,
+	  xfce4-session/branches/xfce_4_2/po/sq.po,
+	  xfce4-toys/branches/xfce_4_2/configure.ac,
+	  xfce4-toys/branches/xfce_4_2/po/sq.po,
+	  xfce4-trigger-launcher/branches/xfce_4_2/configure.ac,
+	  xfce4-trigger-launcher/branches/xfce_4_2/po/sq.po,
+	  xfdesktop/branches/xfce_4_2/configure.ac,
+	  xfdesktop/branches/xfce_4_2/po/sq.po,
+	  xffm/branches/xfce_4_2/configure.ac,
+	  xffm/branches/xfce_4_2/po/sq.po,
+	  xfprint/branches/xfce_4_2/configure.ac,
+	  xfprint/branches/xfce_4_2/po/sq.po,
+	  xfwm4/branches/xfce_4_2/configure.ac,
+	  xfwm4/branches/xfce_4_2/po/sq.po: Added Albanian translations by
+	  Besnik Bleta <besnik@spymac.com>.
+
+2006-01-30 23:16  daichi
+
+	* xfce4-mixer/branches/xfce_4_2/po/vi.po,
+	  xfwm4/branches/xfce_4_2/po/vi.po: Updated Vietnamese
+	  translations by Phan Vinh Thinh <teppi@vnlinux.org>.
+
+2005-11-14 23:54  daichi
+
+	* libxfcegui4/branches/xfce_4_2/po/ChangeLog,
+	  xfcalendar/branches/xfce_4_2/po/ChangeLog,
+	  xfce-mcs-manager/branches/xfce_4_2/po/ChangeLog,
+	  xfce-mcs-plugins/branches/xfce_4_2/po/ChangeLog,
+	  xfce-utils/branches/xfce_4_2/po/ChangeLog,
+	  xfce4-appfinder/branches/xfce_4_2/po/ChangeLog,
+	  xfce4-iconbox/branches/xfce_4_2/po/ChangeLog,
+	  xfce4-mixer/branches/xfce_4_2/po/ChangeLog,
+	  xfce4-panel/branches/xfce_4_2/po/ChangeLog,
+	  xfce4-session/branches/xfce_4_2/po/ChangeLog,
+	  xfce4-toys/branches/xfce_4_2/po/ChangeLog,
+	  xfce4-trigger-launcher/branches/xfce_4_2/po/ChangeLog,
+	  xfdesktop/branches/xfce_4_2/po/ChangeLog,
+	  xffm/branches/xfce_4_2/po/ChangeLog,
+	  xfprint/branches/xfce_4_2/po/ChangeLog,
+	  xfwm4/branches/xfce_4_2/po/ChangeLog: Updated.
+
+2005-11-06 09:26  olivier
+
+	* xfce4-mixer/branches/xfce_4_2/po/hu.po: Update Hungarian
+	  translation by Attila SZERVÁC <sas@321.hu>
+
+2005-11-05 14:19  olivier
+
+	* xfce4-mixer/branches/xfce_4_2/ChangeLog: Update ChangeLog
+
+2005-11-05 13:13  moe
+
+	* xfce4-appfinder/branches/xfce_4_2/po/de.po,
+	  xfce4-mixer/branches/xfce_4_2/po/de.po,
+	  xfprint/branches/xfce_4_2/po/de.po,
+	  xfwm4/branches/xfce_4_2/po/de.po: Updated german translations
+	  for the upcoming release.
+
 2005-11-03 13:25  daichi
 
 	* xfce4-mixer/branches/xfce_4_2/configure.ac,
@@ -190,20 +302,29 @@
 2005-10-09 09:13  daichi
 
 	* xfce-mcs-manager/branches/xfce_4_2/xfce-setting-show/xfce-settings-manager.desktop,
+	  
 	  xfce-mcs-plugins/branches/xfce_4_2/plugins/display_plugin/xfce-display-settings.desktop,
+	  
 	  xfce-mcs-plugins/branches/xfce_4_2/plugins/keyboard_plugin/xfce-keyboard-settings.desktop,
+	  
 	  xfce-mcs-plugins/branches/xfce_4_2/plugins/mouse_plugin/xfce-mouse-settings.desktop,
+	  
 	  xfce-mcs-plugins/branches/xfce_4_2/plugins/ui_plugin/xfce-ui-settings.desktop,
 	  xfce-utils/branches/xfce_4_2/gdm/xfce.desktop,
 	  xfce-utils/branches/xfce_4_2/xftaskbar/plugin/xfce-taskbar-settings.desktop,
 	  xfce4-appfinder/branches/xfce_4_2/src/xfce4-appfinder.desktop,
 	  xfce4-iconbox/branches/xfce_4_2/settings/xfce-iconbox-settings.desktop,
+	  
 	  xfce4-mixer/branches/xfce_4_2/settings/xfce-mixer-settings.desktop,
+	  
 	  xfce4-panel/branches/xfce_4_2/settings/xfce-panel-settings.desktop,
+	  
 	  xfce4-session/branches/xfce_4_2/settings/session/xfce-session-settings.desktop,
+	  
 	  xfce4-session/branches/xfce_4_2/settings/splash/xfce-splash-settings.desktop,
 	  xfdesktop/branches/xfce_4_2/menueditor/xfce-menueditor.desktop,
 	  xfdesktop/branches/xfce_4_2/settings/xfce-backdrop-settings.desktop,
+	  
 	  xffm/branches/xfce_4_2/plugin-mcs/xfce-filemanager-settings.desktop,
 	  xffm/branches/xfce_4_2/src/Xfbook.desktop,
 	  xffm/branches/xfce_4_2/src/Xfdiff.desktop,
@@ -214,21 +335,35 @@
 	  xffm/branches/xfce_4_2/src/Xfsamba.desktop,
 	  xffm/branches/xfce_4_2/src/Xftree.desktop,
 	  xfprint/branches/xfce_4_2/mcs-plugin/xfce-xfprint-settings.desktop,
+	  
 	  xfprint/branches/xfce_4_2/xfprint-manager/xfprint-manager.desktop,
 	  xfprint/branches/xfce_4_2/xfprint/xfprint.desktop,
 	  xfwm4/branches/xfce_4_2/mcs-plugin/xfce-wm-settings.desktop,
 	  xfwm4/branches/xfce_4_2/mcs-plugin/xfce-workspaces-settings.desktop:
-	  .desktop * Added Swedish translations by Alexander Toresson
-	  <alexander.toresson@gmail.com>. * Added Japanese translations by
-	  Daichi Kawahata <daichi@xfce.org>. * Changed orders
-	  alphabetically at each places. * Fixed errors emitted by
-	  'desktop-file-validate', however there're still errors:
-	  Xfmime_edit.desktop: warning: the fields "Name" and "Comment"
-	  have the same value xfce-settings-manager.desktop: warning: the
-	  fields "Name" and "Comment" have the same value
+	  .desktop
+	  
+	  * Added Swedish translations by
+	  Alexander Toresson <alexander.toresson@gmail.com>.
+	  
+	  * Added Japanese translations by
+	  Daichi Kawahata <daichi@xfce.org>.
+	  
+	  * Changed orders alphabetically at each places.
+	  
+	  * Fixed errors emitted by 'desktop-file-validate', however
+	  there're
+	  still errors:
+	  
+	  Xfmime_edit.desktop: warning: the fields "Name" and
+	  "Comment" have the same value
+	  xfce-settings-manager.desktop: warning: the fields "Name"
+	  and "Comment" have the same value
 	  xfce4-appfinder.desktop: warning: the fields "Name" and
-	  "Comment" have the same value xfce.desktop * Removed executable
-	  attribute.
+	  "Comment" have the same value
+	  
+	  xfce.desktop
+	  
+	  * Removed executable attribute.
 
 2005-10-09 07:00  daichi
 
@@ -251,8 +386,8 @@
 	  xffm/branches/xfce_4_2/po/sv.po,
 	  xfprint/branches/xfce_4_2/po/sv.po,
 	  xfwm4/branches/xfce_4_2/po/sv.po: Added and updated Swedish
-	  translations by Alexander Toresson
-	  <alexander.toresson@gmail.com>.
+	  translations by
+	  Alexander Toresson <alexander.toresson@gmail.com>.
 
 2005-10-08 15:38  stavrosg
 
@@ -260,9 +395,9 @@
 	  xfce4-mixer/branches/xfce_4_2/po/el.po,
 	  xfce4-panel/branches/xfce_4_2/po/el.po,
 	  xfdesktop/branches/xfce_4_2/po/el.po,
-	  xfprint/branches/xfce_4_2/po/el.po: Fix missing accelerators for
-	  xfce-utils , xfprint, xfce4-panel, xfce4-mixer & xfdesktop in
-	  4.2 branch (EL)
+	  xfprint/branches/xfce_4_2/po/el.po: Fix missing accelerators
+	  for xfce-utils , xfprint, xfce4-panel,
+	  xfce4-mixer & xfdesktop in 4.2 branch (EL)
 
 2005-10-07 21:46  daichi
 
@@ -1007,8 +1142,8 @@
 	* xfcalendar/trunk/po/el.po,
 	  xfce4-mailwatch-plugin/trunk/po/el.po,
 	  xfce4-mixer/branches/xfce_4_2/po/el.po,
-	  xfce4-mixer/trunk/po/el.po, xfce4-panel/trunk/po/el.po: Minor
-	  updates & polishing for the Greek translations
+	  xfce4-mixer/trunk/po/el.po, xfce4-panel/trunk/po/el.po:
+	  Minor updates & polishing for the Greek translations
 
 2005-09-30 14:08  dannym
 
@@ -1067,9 +1202,13 @@
 	  xfce4-mixer/branches/xfce_4_2/po/vi.po,
 	  xfce4-mixer/branches/xfce_4_2/po/zh_CN.po,
 	  xfce4-mixer/branches/xfce_4_2/po/zh_TW.po: * Bumped version at
-	  the "Project-Id-Version: " for the next release. * Added fall
-	  back address at the "Language-Team: ", according to the
+	  the "Project-Id-Version: " for the next release.
+	  
+	  * Added fall back address at the "Language-Team: ", according to
+	  the
+	  
 	  http://www.iro.umontreal.ca/translation/registry.cgi?team=index
+	  
 	  Modified initial comment strings using template by "msginit".
 
 2005-09-27 05:40  daichi
@@ -1799,7 +1938,9 @@
 	  xfwm4/branches/xfce_4_2/po/vi.po,
 	  xfwm4/branches/xfce_4_2/po/zh_CN.po,
 	  xfwm4/branches/xfce_4_2/po/zh_TW.po: Sorry, I really hope this
-	  doesn't cause disaster. * Updated with the re-created POT files.
+	  doesn't cause disaster.
+	  
+	  * Updated with the re-created POT files.
 	  * Discarded obsolete translations.
 
 2005-09-21 02:20  daichi
@@ -1819,8 +1960,10 @@
 	  xfdesktop/branches/xfce_4_2/po/ja.po,
 	  xffm/branches/xfce_4_2/po/ja.po,
 	  xfprint/branches/xfce_4_2/po/ja.po,
-	  xfwm4/branches/xfce_4_2/po/ja.po: Added initial '$Id$'. Bumped
-	  version at the 'Project-Id-Version: ' for the next release.
+	  xfwm4/branches/xfce_4_2/po/ja.po: Added initial '$Id$'.
+	  
+	  Bumped version at the 'Project-Id-Version: ' for the next
+	  release.
 
 2005-09-21 02:04  daichi
 
@@ -1841,12 +1984,19 @@
 	  xffm/branches/xfce_4_2/po/pl.po,
 	  xfprint/branches/xfce_4_2/po/pl.po,
 	  xfwm4/branches/xfce_4_2/po/pl.po: Added Polish translations by
-	  by Piotr Malinski. Updated Polish translations by Piotr
-	  Malinski. Added fall back address at the 'Language-Team: ',
-	  according to the
+	  by Piotr Malinski.
+	  
+	  Updated Polish translations by Piotr Malinski.
+	  
+	  Added fall back address at the 'Language-Team: ', according to
+	  the
+	  
 	  http://www.iro.umontreal.ca/translation/registry.cgi?team=index
+	  
 	  Bumped version at the 'Project-Id-Version: ' for the next
-	  release. Modified initial comment strings.
+	  release.
+	  
+	  Modified initial comment strings.
 
 2005-09-10 16:57  daichi
 
@@ -1865,26 +2015,37 @@
 	  xfdesktop/branches/xfce_4_2/po/pt_BR.po,
 	  xffm/branches/xfce_4_2/po/pt_BR.po,
 	  xfprint/branches/xfce_4_2/po/pt_BR.po,
-	  xfwm4/branches/xfce_4_2/po/pt_BR.po: Corrected a typo. Bumped
-	  version at the 'Project-Id-Version: ' for the next release.
+	  xfwm4/branches/xfce_4_2/po/pt_BR.po: Corrected a typo.
+	  
+	  Bumped version at the 'Project-Id-Version: ' for the next
+	  release.
+	  
 	  Modified initial comment strings.
 
 2005-09-02 16:26  pollux
 
 	* xfce-mcs-manager/branches/xfce_4_2/xfce-setting-show/xfce-settings-manager.desktop,
+	  
 	  xfce-mcs-plugins/branches/xfce_4_2/plugins/display_plugin/xfce-display-settings.desktop,
+	  
 	  xfce-mcs-plugins/branches/xfce_4_2/plugins/keyboard_plugin/xfce-keyboard-settings.desktop,
+	  
 	  xfce-mcs-plugins/branches/xfce_4_2/plugins/mouse_plugin/xfce-mouse-settings.desktop,
+	  
 	  xfce-mcs-plugins/branches/xfce_4_2/plugins/ui_plugin/xfce-ui-settings.desktop,
 	  xfce-utils/branches/xfce_4_2/gdm/xfce.desktop,
 	  xfce-utils/branches/xfce_4_2/xftaskbar/plugin/xfce-taskbar-settings.desktop,
 	  xfce4-appfinder/branches/xfce_4_2/src/xfce4-appfinder.desktop,
 	  xfce4-mixer/branches/xfce_4_2/settings/xfce-mixer-settings.desktop,
+	  
 	  xfce4-panel/branches/xfce_4_2/settings/xfce-panel-settings.desktop,
+	  
 	  xfce4-session/branches/xfce_4_2/settings/session/xfce-session-settings.desktop,
+	  
 	  xfce4-session/branches/xfce_4_2/settings/splash/xfce-splash-settings.desktop,
 	  xfdesktop/branches/xfce_4_2/menueditor/xfce-menueditor.desktop,
 	  xfdesktop/branches/xfce_4_2/settings/xfce-backdrop-settings.desktop,
+	  
 	  xffm/branches/xfce_4_2/plugin-mcs/xfce-filemanager-settings.desktop,
 	  xffm/branches/xfce_4_2/src/Xfbook.desktop,
 	  xffm/branches/xfce_4_2/src/Xfdiff.desktop,
@@ -1897,9 +2058,9 @@
 	  xfprint/branches/xfce_4_2/xfprint-manager/xfprint-manager.desktop,
 	  xfwm4/branches/xfce_4_2/mcs-plugin/xfce-wm-settings.desktop,
 	  xfwm4/branches/xfce_4_2/mcs-plugin/xfce-workspaces-settings.desktop:
-	  * Added Greek translations by Stavros Giannouris. * Changed
-	  language order alphabetically. * Removed extra trailer white
-	  space.
+	  * Added Greek translations by Stavros Giannouris.
+	  * Changed language order alphabetically.
+	  * Removed extra trailer white space.
 
 2005-08-29 21:42  daichi
 
@@ -1919,8 +2080,8 @@
 	  xffm/branches/xfce_4_2/po/ku.po,
 	  xfprint/branches/xfce_4_2/po/ku.po,
 	  xfwm4/branches/xfce_4_2/po/ku.po: Added Kurdish translations by
-	  Erdal Ronahi, in which removed unnecessary strings from initial
-	  comments.
+	  Erdal Ronahi, in which
+	  removed unnecessary strings from initial comments.
 
 2005-08-29 21:34  daichi
 
@@ -1939,8 +2100,8 @@
 	  xffm/branches/xfce_4_2/configure.ac,
 	  xfprint/branches/xfce_4_2/configure.ac,
 	  xfwm4/branches/xfce_4_2/configure.ac: Added 'ku' at BM_I18N().
-	  Changed language code order alphabetically. Wrapped lines so
-	  they're within the 72 characters per line.
+	  Changed language code order alphabetically.
+	  Wrapped lines so they're within the 72 characters per line.
 
 2005-08-21 06:38  daichi
 
@@ -1955,10 +2116,15 @@
 	  xfce4-panel/branches/xfce_4_2/po/ta.po,
 	  xfce4-panel/branches/xfce_4_2/po/uk.po: Added missing '\n',
 	  which causes parsing error at
-	  http://xfce.org/~kelnos/xfce4/i18n/ Added fall back address at
-	  the 'Language-Team: ', according to the
+	  http://xfce.org/~kelnos/xfce4/i18n/
+	  
+	  Added fall back address at the 'Language-Team: ', according to
+	  the
+	  
 	  http://www.iro.umontreal.ca/translation/registry.cgi?team=index
+	  
 	  Modified initial comment strings with template by 'msginit'.
+	  
 	  Discarded obsolete translations.
 
 2005-08-20 07:44  daichi
@@ -1992,10 +2158,15 @@
 	  xfce4-mixer/branches/xfce_4_2/po/pt_BR.po,
 	  xfce4-mixer/branches/xfce_4_2/po/uk.po,
 	  xfce4-mixer/branches/xfce_4_2/po/zh_CN.po: Fixed errors emitted
-	  by 'msgfmt -c'. Added fall back address at the 'Language-Team:
-	  ', according to the
+	  by 'msgfmt -c'.
+	  
+	  Added fall back address at the 'Language-Team: ', according to
+	  the
+	  
 	  http://www.iro.umontreal.ca/translation/registry.cgi?team=index
+	  
 	  Modified initial comment strings with template by 'msginit'.
+	  
 	  Discarded obsolete translations.
 
 2005-08-18 12:08  daichi
@@ -2759,9 +2930,11 @@
 2004-11-22 22:15  dannym
 
 	* xfce4-mixer/trunk/settings/sound.c: dgettext(GETTEXT_PACKAGE,
-	  "Sound") works fine in translating the header (not window title)
-	  in the settings dialog. _() doesnt. O_o I leave dgettext() in
-	  for now. Hand checking if all translations apply.
+	  "Sound") works fine in translating the header (not
+	  window title) in the settings dialog. _() doesnt. O_o
+	  
+	  I leave dgettext() in for now.
+	  Hand checking if all translations apply.
 
 2004-11-22 21:49  dannym
 
@@ -2967,8 +3140,9 @@
 	  xfce4-mixer/trunk/settings/Makefile.in,
 	  xfce4-mixer/trunk/src/Makefile.in: Update
 	  automake/autoconf/libtool/gettext versions to generate the
-	  configure scripts and Makefiles, Update versions of all packages
-	  to 4.1.99.1 (ie 4.2 RC1), Update ChangeLogs.
+	  configure scripts and Makefiles,
+	  Update versions of all packages to 4.1.99.1 (ie 4.2 RC1),
+	  Update ChangeLogs.
 
 2004-10-30 19:03  olivier
 
@@ -3042,9 +3216,11 @@
 	  xfce4-mixer/trunk/src/xfce-mixer-pxml.c,
 	  xfce4-mixer/trunk/src/xfce-mixer-window.c,
 	  xfce4-mixer/trunk/src/xfce-mixer-window.h: fixed a few remaining
-	  bugs: - free window state properly - remove timer before its too
-	  late - prevent strict aliasing rules from kicking in by
-	  preventing useless casting
+	  bugs:
+	  - free window state properly
+	  - remove timer before its too late
+	  - prevent strict aliasing rules from kicking in by preventing
+	  useless casting
 
 2004-10-29 19:59  dannym
 
@@ -3089,7 +3265,8 @@
 	* xfce4-mixer/trunk/src/xfce-mixer-mcs-client.c,
 	  xfce4-mixer/trunk/src/xfce-mixer-profilebox-detail.c: Fix
 	  casting bug that breaks gcc34 based plattforms. Danny, please
-	  get rid of gob as soon as possible, it generates faulty code!
+	  get rid
+	  of gob as soon as possible, it generates faulty code!
 
 2004-10-21 17:35  benny
 
@@ -3122,12 +3299,14 @@
 2004-10-11 18:10  benny
 
 	* xfce4-mixer/trunk/lib/vc_sun.c: Here we go, Sun mixer support.
-	  Just what I have so far. Seems to block the mixer device, tho it
-	  shouldn't. Since I merged this from my test .c files, it may not
-	  even compile. I'll check once I get my hands on Solaris next
+	  Just what I have so far. Seems to block the
+	  mixer device, tho it shouldn't. Since I merged this from my test
+	  .c files,
+	  it may not even compile. I'll check once I get my hands on
+	  Solaris next
 	  time. Other than that, the code is very straight forward,
-	  nothing glorious (just like the solaris audio/mixer system
-	  itself :-).
+	  nothing glorious
+	  (just like the solaris audio/mixer system itself :-).
 
 2004-10-11 16:30  benny
 
@@ -3181,7 +3360,8 @@
 	  xfce4-mixer/trunk/panel-plugin/Makefile.in,
 	  xfce4-mixer/trunk/settings/Makefile.in,
 	  xfce4-mixer/trunk/src/Makefile.in: Added --enable-final (-O1 for
-	  GNU ld) as per Jaspers request. Added missing m4 files.
+	  GNU ld) as per Jaspers request. Added missing
+	  m4 files.
 
 2004-10-03 16:14  pollux
 
@@ -3358,9 +3538,9 @@
 2004-09-18 00:02  moe
 
 	* xfce4-mixer/trunk/po/de.po: Updating these for alpha release.
-	  Not yet finished .. but I'm just too tired to continue. Needs
-	  extensive spell checking and approvement (Note to myself: Write
-	  mail to the list!).
+	  Not yet finished .. but I'm
+	  just too tired to continue. Needs extensive spell checking
+	  and approvement (Note to myself: Write mail to the list!).
 
 2004-09-16 22:10  pollux
 
@@ -3439,8 +3619,9 @@
 	* xfce4-mixer/trunk/src/mixer-mcs-client.gob,
 	  xfce4-mixer/trunk/src/xfce-mixer-mcs-client.c:
 	  mixer-mcs-client.gob:76: warning: function called through a
-	  non-compatible type mixer-mcs-client.gob:76: note: if this code
-	  is reached, the program will abort
+	  non-compatible type
+	  mixer-mcs-client.gob:76: note: if this code is reached, the
+	  program will abort
 
 2004-09-11 21:05  dannym
 
@@ -3584,9 +3765,9 @@
 2004-08-26 14:38  dannym
 
 	* xfce4-mixer/trunk/panel-plugin/Makefile.in: ran autogen...
-	  heavens help me. To be on the safe side, someone that knows how
-	  to force the correct autotools versions should run it again.
-	  Thanks :)
+	  heavens help me.
+	  To be on the safe side, someone that knows how to force the
+	  correct autotools versions should run it again. Thanks :)
 
 2004-08-26 13:17  dannym
 
@@ -3657,10 +3838,13 @@
 	  xfce4-mixer/trunk/po/zh_CN.gmo, xfce4-mixer/trunk/po/zh_CN.po,
 	  xfce4-mixer/trunk/po/zh_TW.gmo, xfce4-mixer/trunk/po/zh_TW.po,
 	  xfce4-mixer/trunk/settings/xfce-mixer-settings.desktop: Resync
-	  with repository, most notably: - libxfcegui4 fixes with gtk 2.2
-	  - xfwm4 updates - Present panel plugins in alphabetical order -
-	  Fix add plugin dialog being placed over the panel when using SM
-	  - French po updates - Other various small bug fixes
+	  with repository, most notably:
+	  - libxfcegui4 fixes with gtk 2.2
+	  - xfwm4 updates
+	  - Present panel plugins in alphabetical order
+	  - Fix add plugin dialog being placed over the panel when using SM
+	  - French po updates
+	  - Other various small bug fixes
 
 2004-08-08 22:14  dannym
 
@@ -3671,7 +3855,8 @@
 2004-07-28 21:22  benny
 
 	* xfce4-mixer/trunk/m4/depends.m4: Fixed (module)_FOUND bug
-	  reported by brian. Hopefully nothing else broke this time.
+	  reported by brian. Hopefully nothing else broke
+	  this time.
 
 2004-07-25 15:38  benny
 
@@ -3689,8 +3874,8 @@
 2004-07-24 18:52  benny
 
 	* xfce4-mixer/trunk/m4/depends.m4: Readded XFCE_MCS_PLUGIN()
-	  again, dunno how I manage to remove it everytime I edit
-	  depends.m4!
+	  again, dunno how I manage to remove it everytime
+	  I edit depends.m4!
 
 2004-07-24 17:30  benny
 
@@ -3806,8 +3991,8 @@
 2004-07-20 20:58  benny
 
 	* xfce4-mixer/trunk/m4/depends.m4: Modifed panel plugin check, so
-	  one (the installer) can choose to install into a different
-	  plugin dir.
+	  one (the installer) can choose to install
+	  into a different plugin dir.
 
 2004-07-19 21:47  dannym
 
@@ -3889,14 +4074,17 @@
 
 	* xfce4-mixer/trunk/po/ca.gmo, xfce4-mixer/trunk/po/ca.po: VS:
 	  ----------------------------------------------------------------------
-	  Update catalan translations by Carles Mu&#65533;&#65533;oz Gorriz
+	  Update catalan translations by Carles Mu��oz Gorriz
 
 2004-04-10 12:28  dannym
 
 	* xfce4-mixer/trunk/m4/debug.m4: got rid of GTK_DISABLE_DEPRECATED
-	  as with gtk+ 2.4 it deprecated GtkCombo and GtkOptionMenu which
-	  are perfectly normal to use with gtk+ 2.2 (and since xfce
-	  supports both gtk+ 2.2 and 2.4 ...) Do I have to autogen now ?
+	  as with gtk+ 2.4 it deprecated GtkCombo and
+	  GtkOptionMenu which are perfectly normal to use with gtk+ 2.2
+	  (and since xfce
+	  supports both gtk+ 2.2 and 2.4 ...)
+	  
+	  Do I have to autogen now ?
 
 2004-03-31 19:46  benny
 
@@ -3941,8 +4129,8 @@
 	  xfce4-mixer/trunk/src/xfce-mixer-mcs-client.c,
 	  xfce4-mixer/trunk/src/xfce-mixer-profiles.c,
 	  xfce4-mixer/trunk/src/xfce-mixer-window.c: <libxfce4util/*.h> ->
-	  <libxfce4util/libxfce4util.h>, Fixed compile problems with sun
-	  forte cc (resolves bug #140). Make compiler happy.
+	  <libxfce4util/libxfce4util.h>, Fixed compile problems
+	  with sun forte cc (resolves bug #140). Make compiler happy.
 
 2004-03-15 07:36  olivier
 
@@ -3951,10 +4139,11 @@
 	  xfce4-mixer/trunk/po/ar.gmo, xfce4-mixer/trunk/po/ar.po,
 	  xfce4-mixer/trunk/po/bg.gmo, xfce4-mixer/trunk/po/bg.po,
 	  xfce4-mixer/trunk/po/it.gmo, xfce4-mixer/trunk/po/it.po:
-	  Add/update i18n for: Bulgarian from Miroslav Yordanov
-	  <miordanov@i-space.org> and Peter Slavov <peshka@i-space.org>
-	  Italian from Alex Dupre <ale@FreeBSD.org> Arabic from Saleh
-	  Hathal <hathalsal@hotmail.com>
+	  Add/update i18n for:
+	  Bulgarian from Miroslav Yordanov <miordanov@i-space.org> and
+	  Peter Slavov <peshka@i-space.org>
+	  Italian from Alex Dupre <ale@FreeBSD.org>
+	  Arabic from Saleh Hathal <hathalsal@hotmail.com>
 
 2004-03-10 23:58  benny
 
@@ -3972,7 +4161,8 @@
 2004-03-01 21:09  benny
 
 	* xfce4-mixer/trunk/m4/debug.m4: Added --enable-gcov to compile
-	  xfce with support for coverage tests. Very useful.
+	  xfce with support for coverage tests. Very
+	  useful.
 
 2004-02-28 22:59  dannym
 
@@ -4093,8 +4283,9 @@
 	  xfce4-mixer/trunk/src/xfce-mixer-profilebox.c,
 	  xfce4-mixer/trunk/src/xfce-mixer-profilebox.h: fix bug when
 	  entering profile manager, creating profile, leaving profile
-	  manager, then entering profile manager, deleting the recently
-	  created profile, leaving profile manager: crashed
+	  manager,
+	  then entering profile manager, deleting the recently created
+	  profile, leaving profile manager: crashed
 
 2004-02-20 12:40  dannym
 
@@ -4221,7 +4412,8 @@
 2004-02-08 21:10  dannym
 
 	* xfce4-mixer/trunk/TODO: updated todo file :P things list in
-	  order of descending importance, and removed stuff already done.
+	  order of descending importance, and removed
+	  stuff already done.
 
 2004-02-01 21:57  dannym
 
@@ -4273,7 +4465,10 @@
 	  xfce4-mixer/trunk/panel-plugin/xfce-mixer-pxml.c,
 	  xfce4-mixer/trunk/panel-plugin/xfce-mixer-slider-tiny.c: make
 	  mixer plugin unique since current mixer api doesnt allow for
-	  anything more fancy :P misc. additions to xml wrapper...
+	  anything
+	  more fancy :P
+	  
+	  misc. additions to xml wrapper...
 
 2004-01-29 15:51  jasper
 
@@ -4301,8 +4496,10 @@
 	  xfce4-mixer/trunk/src/xfce-mixer-view.c,
 	  xfce4-mixer/trunk/src/xfce-mixer-window-private.h,
 	  xfce4-mixer/trunk/src/xfce-mixer-window.c: profile <-> xml
-	  profiles <-> xml window: set_profile fix leaks fix profile load
-	  bugs
+	  profiles <-> xml
+	  window: set_profile
+	  fix leaks
+	  fix profile load bugs
 
 2004-01-25 17:10  dannym
 
@@ -4374,9 +4571,12 @@
 	  xfce4-mixer/trunk/src/xfce-mixer-profiles.h,
 	  xfce4-mixer/trunk/src/xfce-mixer-pxml-private.h,
 	  xfce4-mixer/trunk/src/xfce-mixer-pxml.c: hm, cvs, work, will you
-	  ? what did I change ? profiles data and view seperated.
+	  ?
+	  what did I change ? profiles data and view seperated.
 	  Translations and autogen seem to have been recompiled by someone
-	  else. Thats good :) mkdir() fixes. hopefully.
+	  else.
+	  Thats good :)
+	  mkdir() fixes. hopefully.
 
 2004-01-21 18:41  dannym
 
@@ -4450,8 +4650,8 @@
 	  xfce4-mixer/trunk/src/xfce-mixer-profiles.h,
 	  xfce4-mixer/trunk/src/xfce-mixer-pxml.c,
 	  xfce4-mixer/trunk/src/xfce-mixer-pxml.h: made (oss) mixer names
-	  translateable in po files. added (non-working) mixer-profiles
-	  storage class.
+	  translateable in po files.
+	  added (non-working) mixer-profiles storage class.
 
 2004-01-20 23:30  dannym
 
@@ -4474,7 +4674,8 @@
 2004-01-20 23:05  dannym
 
 	* xfce4-mixer/trunk/src/menus.c: fixed menus.c not getting
-	  translated, I think. I knew I forgot something... *sweatdrop*
+	  translated, I think.
+	  I knew I forgot something... *sweatdrop*
 
 2004-01-20 22:59  dannym
 
@@ -4604,8 +4805,8 @@
 	  xfce4-mixer/trunk/panel-plugin/xfce-mixer-pxml.h,
 	  xfce4-mixer/trunk/panel-plugin/xfce-mixer-slider-tiny.c,
 	  xfce4-mixer/trunk/po/POTFILES.in: since jasper added the command
-	  option stuff, here you go with new simplified panel-plugin,
-	  among other things ;)
+	  option stuff, here you go with new simplified
+	  panel-plugin, among other things ;)
 
 2004-01-16 02:20  dannym
 
@@ -4706,7 +4907,8 @@
 	  xfce4-mixer/trunk/src/xfce-mixer-view-tiny.c,
 	  xfce4-mixer/trunk/src/xfce-mixer-view.c,
 	  xfce4-mixer/trunk/src/xfce-mixer-window.c: pretty formatting of
-	  mcs settings device options menu. include config.h in all gobs
+	  mcs settings device options menu.
+	  include config.h in all gobs
 
 2004-01-08 23:06  dannym
 
@@ -4766,8 +4968,8 @@
 	  xfce4-mixer/trunk/panel-plugin/xfce-mixer-slider-tiny.c,
 	  xfce4-mixer/trunk/src/mixer-control.gob,
 	  xfce4-mixer/trunk/src/mixer-slider-tiny.gob: make autogen.sh
-	  work as i want it to, i.e. not #define const make
-	  --enable-debug=full work correctly
+	  work as i want it to, i.e. not #define const
+	  make --enable-debug=full work correctly
 
 2004-01-08 18:45  dannym
 
@@ -5100,7 +5302,8 @@
 	* xfce4-mixer/trunk/src/Makefile.am,
 	  xfce4-mixer/trunk/src/Makefile.in,
 	  xfce4-mixer/trunk/src/vc_sun.c: prototype for sun audio / BSD
-	  from bmeurer... unfinished.
+	  from bmeurer...
+	  unfinished.
 
 2004-01-05 22:50  dannym
 
@@ -5125,7 +5328,8 @@
 	  xfce4-mixer/trunk/src/xfce-mixer-view-private.h,
 	  xfce4-mixer/trunk/src/xfce-mixer-view.c,
 	  xfce4-mixer/trunk/src/xfce-mixer-view.h: added select (option
-	  menu) support. tables = vbox(switches, selects)
+	  menu) support.
+	  tables = vbox(switches, selects)
 	  disclosure.add(tables)
 
 2004-01-05 20:09  dannym
@@ -5139,7 +5343,8 @@
 	  xfce4-mixer/trunk/src/xfce-mixer-select.c,
 	  xfce4-mixer/trunk/src/xfce-mixer-select.h,
 	  xfce4-mixer/trunk/src/xfce-mixer-view.c: add preliminary select
-	  support. fix event order bug.
+	  support.
+	  fix event order bug.
 
 2004-01-05 19:49  dannym
 
@@ -5650,7 +5855,8 @@
 2003-07-29 22:28  dannym
 
 	* xfce4-mixer/trunk/panel-plugin/mixer.c: bugfix for when the
-	  internal mixer window is left open and USR1 is sent to the panel
+	  internal mixer window is left open and USR1 is sent
+	  to the panel
 
 2003-07-29 22:07  dannym
 
@@ -5808,8 +6014,9 @@
 
 	* xfce4-mixer/trunk/panel-plugin/scroller_size.c,
 	  xfce4-mixer/trunk/panel-plugin/scroller_size.h: Moved the
-	  scroll-window be as big as possible, but without leaving empty
-	  space in the window, and smaller than the whole screen, to a
+	  scroll-window be as big as possible, but without leaving
+	  empty space in the window, and smaller than the whole screen, to
+	  a
 	  function. TODO: mcs desktop borders
 
 2003-07-13 08:43  huysmans
@@ -5939,8 +6146,8 @@
 2003-06-29 14:09  dannym
 
 	* xfce4-mixer/trunk/panel-plugin/mixer_window.c: Finally...
-	  scroller only has scrollbars if required. If possible, the
-	  window just gets bigger instead of adding scrollbars...
+	  scroller only has scrollbars if required. If possible,
+	  the window just gets bigger instead of adding scrollbars...
 
 2003-06-28 10:00  xfce
 
@@ -6183,8 +6390,8 @@
 	  xfce4-mixer/trunk/panel-plugin/vc_alsa.c,
 	  xfce4-mixer/trunk/panel-plugin/vc_alsa_fallback.c,
 	  xfce4-mixer/trunk/panel-plugin/vc_oss.c: Beginning of a mixer
-	  window with sliders etc... leave the launch command of the panel
-	  plugin empty to use.
+	  window with sliders etc... leave the launch command
+	  of the panel plugin empty to use.
 
 2003-05-27 19:41  dannym
 
@@ -6262,7 +6469,8 @@
 2003-04-30 14:52  dannym
 
 	* xfce4-mixer/trunk/panel-plugin/mixer.c: Launcher dependent code
-	  copy-and-pasted to mixer (trying to fix what belial reported)
+	  copy-and-pasted to mixer (trying to fix
+	  what belial reported)
 
 2003-04-29 17:02  dannym
 
@@ -6291,7 +6499,8 @@
 2003-04-27 14:37  dannym
 
 	* xfce4-mixer/trunk/panel-plugin/mixer.c: Fixed all the dialog
-	  callbacks. The options dialog should work fine now :)
+	  callbacks. The options dialog should work fine now
+	  :)
 
 2003-04-27 13:24  dannym
 
@@ -6317,8 +6526,8 @@
 	* xfce4-mixer/trunk/panel-plugin/vc.c,
 	  xfce4-mixer/trunk/panel-plugin/vc_alsa.c,
 	  xfce4-mixer/trunk/panel-plugin/vc_oss.c: Now thats what you call
-	  a dumb bug :) Found it, anyways: vc.c: register: "break" was
-	  missing.
+	  a dumb bug :) Found it, anyways: vc.c: register:
+	  "break" was missing.
 
 2003-04-26 15:40  dannym
 
@@ -6328,8 +6537,8 @@
 2003-04-26 13:42  dannym
 
 	* xfce4-mixer/trunk/panel-plugin/mixer.c: Fixed leak that could
-	  happen if never going to the property dialog. (no freed
-	  options.command)
+	  happen if never going to the property dialog. (no
+	  freed options.command)
 
 2003-04-26 13:30  dannym
 
@@ -6339,7 +6548,8 @@
 2003-04-26 13:29  dannym
 
 	* xfce4-mixer/trunk/panel-plugin/mixer.c: update_volume_display:
-	  caption: Tooltip: "Volume" instead "Volume control"
+	  caption: Tooltip: "Volume" instead "Volume
+	  control"
 
 2003-04-26 12:37  dannym
 
@@ -6362,8 +6572,8 @@
 	  xfce4-mixer/trunk/po/Makefile.in.in,
 	  xfce4-mixer/trunk/po/POTFILES.in, xfce4-mixer/trunk/po/de.po,
 	  xfce4-mixer/trunk/po/xfce4-mixer.pot: Added gettext framework.
-	  Some improvements to the OSS mixer stuff. Some fixes and
-	  cleanups.
+	  Some improvements to the OSS mixer stuff. Some
+	  fixes and cleanups.
 
 2003-04-26 09:01  bmeurer
 
