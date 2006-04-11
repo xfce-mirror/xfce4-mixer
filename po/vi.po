@@ -7,9 +7,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-mixer 4.2.3\n"
+"Project-Id-Version: xfce4-mixer 4.2.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-10-08 06:13+0900\n"
+"POT-Creation-Date: 2005-10-28 20:57+0900\n"
 "PO-Revision-Date: 2006-01-30 16:20+0300\n"
 "Last-Translator: Phan Vĩnh Thịnh <teppi@vnlinux.org>\n"
 "Language-Team: Vietnamese <gnomevi-list@lists.sourceforge.net>\n"
@@ -323,4 +323,3 @@ msgstr "Hiện Cái chuyển"
 #: src/mixer-view.gob:259 mixer-view.gob:259
 msgid "Hide Switches"
 msgstr "Ẩn Cái chuyển"
-
