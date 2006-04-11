@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-04 19:26+0900\n"
-"PO-Revision-Date: 2005-10-08 08:25+0900\n"
+"PO-Revision-Date: 2006-04-09 16:36+0300\n"
 "Last-Translator: Jari Rahkonen <jari.rahkonen@pp1.inet.fi>\n"
 "Language-Team: Finnish <translation-team-fi@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,7 @@ msgstr ""
 
 #: ../lib/trans.c:36
 msgid "Vol"
-msgstr "Vol"
+msgstr "Voimakkuus"
 
 #. Master
 #: ../lib/trans.c:37
@@ -38,7 +38,7 @@ msgstr "Linja"
 #. Line in
 #: ../lib/trans.c:40
 msgid "Mic"
-msgstr "Mic"
+msgstr "Mikrofoni"
 
 #. Mic in
 #: ../lib/trans.c:41
@@ -56,11 +56,11 @@ msgstr "Diskantti"
 
 #: ../lib/trans.c:44
 msgid "Synth"
-msgstr "Synth"
+msgstr "Synteesi"
 
 #: ../lib/trans.c:45
 msgid "Mix"
-msgstr "Mix"
+msgstr "Miksaus"
 
 #: ../lib/trans.c:46
 msgid "Pcm2"
@@ -68,7 +68,7 @@ msgstr "Pcm2"
 
 #: ../lib/trans.c:47
 msgid "Rec"
-msgstr "Rec"
+msgstr "Nauhoitus"
 
 #: ../lib/trans.c:48
 msgid "IGain"
@@ -80,27 +80,27 @@ msgstr "OGain"
 
 #: ../lib/trans.c:50
 msgid "Line1"
-msgstr "Line1"
+msgstr "Linja1"
 
 #: ../lib/trans.c:51
 msgid "Line2"
-msgstr "Line2"
+msgstr "Linja2"
 
 #: ../lib/trans.c:52
 msgid "Line3"
-msgstr "Line3"
+msgstr "Linja3"
 
 #: ../lib/trans.c:53
 msgid "Digital1"
-msgstr "Digital1"
+msgstr "Digitaali1"
 
 #: ../lib/trans.c:54
 msgid "Digital2"
-msgstr "Digital2"
+msgstr "Digitaali2"
 
 #: ../lib/trans.c:55
 msgid "Digital3"
-msgstr "Digital3"
+msgstr "Digitaali3"
 
 #: ../lib/trans.c:56
 msgid "PhoneIn"
@@ -120,7 +120,7 @@ msgstr "Radio"
 
 #: ../lib/trans.c:60
 msgid "Monitor"
-msgstr "Monitor"
+msgstr "Monitori"
 
 #: ../lib/trans.c:61
 msgid "RecSelect"
@@ -130,101 +130,99 @@ msgstr "RecValinta"
 #. Label
 #: ../lib/trans.c:77
 msgid "A3.AnalogIn"
-msgstr ""
+msgstr "A3.AnalogiSis"
 
 #. Analog In
 #: ../lib/trans.c:78
 msgid "A3.AnalogOut"
-msgstr ""
+msgstr "A3.AnalogiUlos"
 
 #. Analog Out
 #: ../lib/trans.c:79
 msgid "A3.AnalogOut2"
-msgstr ""
+msgstr "A3.AnalogiUlos"
 
 #. Analog Out 2
 #. Interface
 #: ../lib/trans.c:81
 msgid "A3.CameraMic"
-msgstr ""
+msgstr "A3.KameraMikr."
 
 #. Camera Mic
 #: ../lib/trans.c:82
 msgid "A3.Microphone"
-msgstr ""
+msgstr "A3.Mikrofoni"
 
 #. Microphone
 #: ../lib/trans.c:83
-#, fuzzy
 msgid "A3.LineIn"
-msgstr "Linja"
+msgstr "A3.LinjaSis"
 
 #. Line In
 #: ../lib/trans.c:84
 msgid "A3.DAC1In"
-msgstr ""
+msgstr "A3.DAC1Sis"
 
 #. DAC1 In
 #: ../lib/trans.c:85
 msgid "A3.DAC2In"
-msgstr ""
+msgstr "A3.DAC2Sis"
 
 #. DAC2 In
 #: ../lib/trans.c:86
 msgid "A3.Speaker"
-msgstr ""
+msgstr "A3.Kaiutin"
 
 #. Speaker/Line Out
 #: ../lib/trans.c:87
-#, fuzzy
 msgid "A3.LineOut2"
-msgstr "Line2"
+msgstr "A3.LinjaUlos2"
 
 #: ../lib/vc_alsa.c:99
 #, c-format
 msgid "alsa: Mixer %s open error: %s\n"
-msgstr "ALSA: Mikserin %s avaamisessa virhe: %s\n"
+msgstr "alsa: Mikserin %s avaamisessa virhe: %s\n"
 
 #: ../lib/vc_alsa.c:104
 #, c-format
 msgid "alsa: Mixer attach %s error: %s\n"
-msgstr "ALSA: Mikserin %s liittämisessä virhe: %s\n"
+msgstr "alsa: Mikserin %s liittämisessä virhe: %s\n"
 
 #: ../lib/vc_alsa.c:112
 #, c-format
 msgid "alsa: Mixer register error: %s\n"
-msgstr "ALSA: Mikserin rekisteröinnissä virhe: %s\n"
+msgstr "alsa: Mikserin rekisteröinnissä virhe: %s\n"
 
 #: ../lib/vc_alsa.c:121
 #, c-format
 msgid "alsa: Mixer load error: %s: %s\n"
-msgstr "ALSA: Mikserin %s lataamisessa virhe: %s\n"
+msgstr "alsa: Mikserin %s lataamisessa virhe: %s\n"
 
 #: ../lib/vc_alsa.c:136
 #, c-format
 msgid "alsa: Unable to find simple control '%s',%i\n"
-msgstr "ALSA: Säädintä '%s',%i ei löytynyt\n"
+msgstr "alsa: Säädintä '%s',%i ei löytynyt\n"
 
 #: ../lib/vc_oss.c:158
 msgid "oss: No master volume"
-msgstr "OSS: Ei äänenvoimakkuussäädintä"
+msgstr "oss: Ei äänenvoimakkuussäädintä"
 
 #: ../panel-plugin/launcher-entry.c:75
 msgid "Run in Terminal"
-msgstr ""
+msgstr "Suorita päätteessä"
 
 #: ../panel-plugin/launcher-entry.c:80
 msgid "Use Startup Notification"
-msgstr ""
+msgstr "Käytä käynnistyksen huomautusta"
 
 #: ../panel-plugin/launcher-entry.c:192 ../panel-plugin/plugin.c:342
 #, c-format
 msgid "Could not run \"%s\""
-msgstr ""
+msgstr "Komentoa \"%s\" ei voitu suorittaa"
 
 #: ../panel-plugin/launcher-entry.c:194 ../panel-plugin/plugin.c:344
 msgid "Xfce Panel"
-msgstr ""
+msgstr "Xfce:n paneeli"
 
 #: ../panel-plugin/plugin.c:271
 #, c-format
@@ -233,7 +231,7 @@ msgstr "Äänenvoimakkuus: %d%%"
 
 #: ../panel-plugin/plugin.c:570
 msgid "Could not save configuration"
-msgstr ""
+msgstr "Asetuksia ei voitu tallentaa"
 
 #: mixer-prefbox.gob:177 ../src/mixer-profilebox.gob:88
 #: mixer-profilebox.gob:88
@@ -242,11 +240,11 @@ msgstr "Laite:"
 
 #: mixer-prefbox.gob:178
 msgid "Wannabe Master:"
-msgstr ""
+msgstr "Master-ehdokas:"
 
 #: mixer-prefbox.gob:180
 msgid "When clicked"
-msgstr ""
+msgstr "Napsautettaessa"
 
 #: ../settings/mixer-settingsbox.gob:124 mixer-settingsbox.gob:124
 msgid "Device"
@@ -413,11 +411,11 @@ msgstr "Äänenvoimakkuuden säätö"
 
 #: ../panel-plugin/xfce4-mixer.desktop.in.in.h:1
 msgid "Change the Volume"
-msgstr ""
+msgstr "Säädä äänenvoimakkuutta"
 
 #: ../settings/xfce-mixer-settings.desktop.in.h:1
 msgid "Mixer Settings"
-msgstr "Mikserin asetukset"
+msgstr "Äänenvoimakkuusasetukset"
 
 #: ../settings/xfce-mixer-settings.desktop.in.h:2
 msgid "Xfce 4 Mixer Settings"
