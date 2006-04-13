@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-04 19:26+0900\n"
-"PO-Revision-Date: 2006-04-09 16:36+0300\n"
+"PO-Revision-Date: 2006-04-11 14:49+0300\n"
 "Last-Translator: Jari Rahkonen <jari.rahkonen@pp1.inet.fi>\n"
 "Language-Team: Finnish <translation-team-fi@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -140,7 +140,7 @@ msgstr "A3.AnalogiUlos"
 #. Analog Out
 #: ../lib/trans.c:79
 msgid "A3.AnalogOut2"
-msgstr "A3.AnalogiUlos"
+msgstr "A3.AnalogiUlos2"
 
 #. Analog Out 2
 #. Interface
