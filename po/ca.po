@@ -5,7 +5,7 @@
 # Pau Rul·lan Ferragut <paurullan@bulma.net> 2005, 2006.
 msgid ""
 msgstr ""
-"Project-Id-Version: ca\n"
+"Project-Id-Version: xfce4-mixer 4.3.90.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-04 19:26+0900\n"
 "PO-Revision-Date: 2006-04-02 22:26+0200\n"
@@ -255,8 +255,7 @@ msgid "Use Startup Notification"
 msgstr "Utilitza Inici Notificació"
 
 #: ../panel-plugin/launcher-entry.c:192 ../panel-plugin/plugin.c:342
-#, c-format
-#, fuzzy
+#, fuzzy, c-format
 msgid "Could not run \"%s\""
 msgstr "No s'ha pogut executar \"%s\""
 
@@ -354,7 +353,9 @@ msgid ""
 "It is released under the GPL-2 License which you find in the source "
 "directory.\n"
 "No warranty in any way."
-msgstr "és a volum tecla de control programa és   GPL Llicència tu cerca po   font po qualsevol."
+msgstr ""
+"és a volum tecla de control programa és   GPL Llicència tu cerca po   font "
+"po qualsevol."
 
 #: ../src/mixer-profilebox-detail.gob:163 mixer-profilebox-detail.gob:163
 #, fuzzy
@@ -495,4 +496,3 @@ msgstr "Mesclador: Paràmetres"
 #, fuzzy
 msgid "Xfce 4 Mixer Settings"
 msgstr "Mesclador: Paràmetres"
-
