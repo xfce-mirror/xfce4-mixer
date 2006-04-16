@@ -70,3 +70,21 @@ xfce4_mixer_LDADD = 							\
 ACLOCAL_AMFLAGS = -I m4
 
 xfce4_mixer_DEPENDENCIES = $(top_builddir)/lib/libxfce4mixer.la
+
+EXTRA_DIST =								\
+	mixer-control.gob						\
+	mixer-info.gob							\
+	mixer-mcs-client.gob						\
+	mixer-profilebox-detail.gob					\
+	mixer-profilebox.gob						\
+	mixer-profiledlg.gob						\
+	mixer-profiles.gob						\
+	mixer-pxml.gob							\
+	mixer-select.gob						\
+	mixer-slider-tiny.gob						\
+	mixer-slider.gob						\
+	mixer-switch.gob						\
+	mixer-view-tiny.gob						\
+	mixer-view.gob							\
+	mixer-window.gob
+

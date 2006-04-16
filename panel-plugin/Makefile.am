@@ -68,7 +68,11 @@ desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
 @INTLTOOL_DESKTOP_RULE@
 
 EXTRA_DIST =  test_vc.c xfce4-mixer.desktop \
-	$(desktop_in_in_files)
+	$(desktop_in_in_files)	\
+	mixer-control.gob \
+	mixer-preferences.gob \
+	mixer-prefbox.gob \
+	mixer-slider-tiny.gob
 
 DISTCLEANFILES = \
 	$(desktop_DATA) $(desktop_in_files)

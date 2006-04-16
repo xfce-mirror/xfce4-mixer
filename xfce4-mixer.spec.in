@@ -7,8 +7,8 @@ URL: 		http://www.xfce.org/
 Source0: 	%{name}-%{version}.tar.gz
 Group: 		User Interface/Desktops
 BuildRoot: 	%{_tmppath}/%{name}-root
-Requires:	xfce4-panel >= @XFCE4_PANEL_REQUIRED_VERSION@
-BuildRequires:	xfce4-panel >= @XFCE4_PANEL_REQUIRED_VERSION@
+Requires:	xfce4-panel >= @MIGHTY_MOUSE_REQUIRED_VERSION@
+BuildRequires:	xfce4-panel >= @MIGHTY_MOUSE_REQUIRED_VERSION@
 
 %description
 xfce4-mixer is the volume control plugin for the Xfce 4 panel. Includes a
@@ -18,7 +18,7 @@ simple sound mixer.
 %setup -q
 
 %build
-%configure
+%configure --enable-final
 make
 
 %install
@@ -27,6 +27,18 @@ make install DESTDIR=$RPM_BUILD_ROOT mandir=%{_mandir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post
+touch --no-create %{_datadir}/icons/hicolor || :
+if [ -x %{_bindir}/gtk-update-icon-cache ]; then
+   %{_bindir}/gtk-update-icon-cache --quiet %{_datadir}/icons/hicolor || :
+fi
+
+%postun
+touch --no-create %{_datadir}/icons/hicolor || :
+if [ -x %{_bindir}/gtk-update-icon-cache ]; then
+   %{_bindir}/gtk-update-icon-cache --quiet %{_datadir}/icons/hicolor || :
+fi
 
 %files
 %defattr(-,root,root)
