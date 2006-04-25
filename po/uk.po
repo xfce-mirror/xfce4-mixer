@@ -1,15 +1,15 @@
 # Ukrainian translation of xfce4-mixer.
 # Copyright (C) 2003-2006 The Xfce development team.
 # This file is distributed under the same license as the xfce4-mixer package.
-# Maxim Dziumanenko <mvd@mylinux.com.ua>, 2003-2005.
+# Maxim Dziumanenko <mvd@mylinux.ua>, 2003-2006.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-mixer 4.3.90.1\n"
+"Project-Id-Version: xfce4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-03-04 19:26+0900\n"
 "PO-Revision-Date: 2005-01-05 23:55+0200\n"
-"Last-Translator: Maxim Dziumanenko <mvd@mylinux.com.ua>\n"
+"Last-Translator: Maxim Dziumanenko <mvd@mylinux.ua>\n"
 "Language-Team: Ukrainian <translation-team-uk@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,7 +22,7 @@ msgstr "Гучність"
 #. Master
 #: ../lib/trans.c:37
 msgid "Pcm"
-msgstr "Pcm"
+msgstr "КІМ"
 
 #. PCM output
 #: ../lib/trans.c:38
@@ -123,61 +123,59 @@ msgstr "Монітор"
 
 #: ../lib/trans.c:61
 msgid "RecSelect"
-msgstr ""
+msgstr "ВибірЗапису"
 
 #. Device
 #. Label
 #: ../lib/trans.c:77
 msgid "A3.AnalogIn"
-msgstr ""
+msgstr "A3.АналогВх"
 
 #. Analog In
 #: ../lib/trans.c:78
 msgid "A3.AnalogOut"
-msgstr ""
+msgstr "A3.АналогВих"
 
 #. Analog Out
 #: ../lib/trans.c:79
 msgid "A3.AnalogOut2"
-msgstr ""
+msgstr "A3.АналогВих2"
 
 #. Analog Out 2
 #. Interface
 #: ../lib/trans.c:81
 msgid "A3.CameraMic"
-msgstr ""
+msgstr "A3.МікрКамери"
 
 #. Camera Mic
 #: ../lib/trans.c:82
 msgid "A3.Microphone"
-msgstr ""
+msgstr "A3.Мікрофон"
 
 #. Microphone
 #: ../lib/trans.c:83
-#, fuzzy
 msgid "A3.LineIn"
-msgstr "Лін. вхід"
+msgstr "A3.Лін. вхід"
 
 #. Line In
 #: ../lib/trans.c:84
 msgid "A3.DAC1In"
-msgstr ""
+msgstr "A3.ЦАП1Вх"
 
 #. DAC1 In
 #: ../lib/trans.c:85
 msgid "A3.DAC2In"
-msgstr ""
+msgstr "A3.ЦАП2Вх"
 
 #. DAC2 In
 #: ../lib/trans.c:86
 msgid "A3.Speaker"
-msgstr ""
+msgstr "A3.Динамік"
 
 #. Speaker/Line Out
 #: ../lib/trans.c:87
-#, fuzzy
 msgid "A3.LineOut2"
-msgstr "Лін. вхід 2"
+msgstr "A3.Лін. вхід 2"
 
 #: ../lib/vc_alsa.c:99
 #, c-format
@@ -210,20 +208,20 @@ msgstr "oss: Немає головного регулятора гучності
 
 #: ../panel-plugin/launcher-entry.c:75
 msgid "Run in Terminal"
-msgstr ""
+msgstr "Запустити у терміналі"
 
 #: ../panel-plugin/launcher-entry.c:80
 msgid "Use Startup Notification"
-msgstr ""
+msgstr "Використовувати сповіщення про запуск"
 
 #: ../panel-plugin/launcher-entry.c:192 ../panel-plugin/plugin.c:342
 #, c-format
 msgid "Could not run \"%s\""
-msgstr ""
+msgstr "Не вдається запустити \"%s\""
 
 #: ../panel-plugin/launcher-entry.c:194 ../panel-plugin/plugin.c:344
 msgid "Xfce Panel"
-msgstr ""
+msgstr "Панель Xfce"
 
 #: ../panel-plugin/plugin.c:271
 #, c-format
@@ -232,7 +230,7 @@ msgstr "Гучність: %d%%"
 
 #: ../panel-plugin/plugin.c:570
 msgid "Could not save configuration"
-msgstr ""
+msgstr "Не вдається зберегти конфігурацію"
 
 #: mixer-prefbox.gob:177 ../src/mixer-profilebox.gob:88
 #: mixer-profilebox.gob:88
@@ -241,11 +239,11 @@ msgstr "Пристрій:"
 
 #: mixer-prefbox.gob:178
 msgid "Wannabe Master:"
-msgstr ""
+msgstr "Головний:"
 
 #: mixer-prefbox.gob:180
 msgid "When clicked"
-msgstr ""
+msgstr "При клацанні"
 
 #: ../settings/mixer-settingsbox.gob:124 mixer-settingsbox.gob:124
 msgid "Device"
@@ -271,7 +269,7 @@ msgstr "/_Файл"
 
 #: ../src/menus.c:13
 msgid "/File/_Options"
-msgstr "/Файл/П_араметри"
+msgstr "/Файл/_Параметри"
 
 #: ../src/menus.c:14
 msgid "/File/_Exit"
@@ -413,12 +411,12 @@ msgstr "Контроль гучності"
 
 #: ../panel-plugin/xfce4-mixer.desktop.in.in.h:1
 msgid "Change the Volume"
-msgstr ""
+msgstr "Змінити гучність"
 
 #: ../settings/xfce-mixer-settings.desktop.in.h:1
 msgid "Mixer Settings"
-msgstr ""
+msgstr "Параметри міксера"
 
 #: ../settings/xfce-mixer-settings.desktop.in.h:2
 msgid "Xfce 4 Mixer Settings"
-msgstr ""
+msgstr "Параметри міксера Xfce 4"
