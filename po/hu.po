@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.90.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-05-01 15:45+0900\n"
-"PO-Revision-Date: 2006-04-16 09:26+0100\n"
+"PO-Revision-Date: 2006-05-01 09:19+0100\n"
 "Last-Translator: SZERVÑC Attila <sas@321.hu>\n"
 "Language-Team: Hungarian <translation-team-hu@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -217,12 +217,14 @@ msgstr "Futtatás terminálban"
 msgid "Use Startup Notification"
 msgstr "Indítási jelentés használata"
 
-#: ../panel-plugin/launcher-entry.c:192 ../panel-plugin/plugin.c:342
+#: ../panel-plugin/launcher-entry.c:192
+#: ../panel-plugin/plugin.c:342
 #, c-format
 msgid "Could not run \"%s\""
 msgstr "\"%s\" nem futtatható"
 
-#: ../panel-plugin/launcher-entry.c:194 ../panel-plugin/plugin.c:344
+#: ../panel-plugin/launcher-entry.c:194
+#: ../panel-plugin/plugin.c:344
 msgid "Xfce Panel"
 msgstr "Xfce panel"
 
@@ -235,7 +237,8 @@ msgstr "Hangerő: %d%%"
 msgid "Could not save configuration"
 msgstr "A beállítás nem menthető"
 
-#: mixer-prefbox.gob:177 ../src/mixer-profilebox.gob:88
+#: mixer-prefbox.gob:177
+#: ../src/mixer-profilebox.gob:88
 #: mixer-profilebox.gob:88
 msgid "Device:"
 msgstr "Eszköz:"
@@ -248,26 +251,30 @@ msgstr "Kívánt mester:"
 msgid "When clicked"
 msgstr "Kattintáskor"
 
-#: ../settings/mixer-settingsbox.gob:124 mixer-settingsbox.gob:124
+#: ../settings/mixer-settingsbox.gob:124
+#: mixer-settingsbox.gob:124
 msgid "Device"
 msgstr "Eszköz"
 
-#: ../settings/mixer-settingsbox.gob:127 mixer-settingsbox.gob:127
+#: ../settings/mixer-settingsbox.gob:127
+#: mixer-settingsbox.gob:127
 msgid "None"
 msgstr "Nincs"
 
 #. gtk_widget_show (GTK_WIDGET (self->dev_label));
 #. debug_bindtextdomain();
-#: ../settings/mixer-settingsbox.gob:132 mixer-settingsbox.gob:132
+#: ../settings/mixer-settingsbox.gob:132
+#: mixer-settingsbox.gob:132
 msgid "Useful Controls"
 msgstr "Használható szabályzók"
 
 #. the button label in the xfce-mcs-manager dialog
 #: ../settings/sound.c:81
 msgid "Button Label|Sound"
-msgstr ""
+msgstr "Hang"
 
-#: ../settings/sound.c:101 ../settings/sound.c:108
+#: ../settings/sound.c:101
+#: ../settings/sound.c:108
 msgid "Sound"
 msgstr "Hang"
 
@@ -299,119 +306,143 @@ msgstr "/_Súgó"
 msgid "/Help/_Info"
 msgstr "/Súgó/_Névjegy"
 
-#: ../src/mixer-info.gob:28 mixer-info.gob:28
+#: ../src/mixer-info.gob:28
+#: mixer-info.gob:28
 msgid ""
 "This is xfce4-mixer, a volume control program.\n"
-"It is released under the GPL-2 License which you find in the source "
-"directory.\n"
+"It is released under the GPL-2 License which you find in the source directory.\n"
 "No warranty in any way."
 msgstr ""
 "Ez az xfce4-mixer, egy hangerő-szabályozó program.\n"
 "GPL-2 lienc alatt áll, melyet megtalálsz a forrás könyvtárban.\n"
 "Nincs jótállás."
 
-#: ../src/mixer-profilebox-detail.gob:163 mixer-profilebox-detail.gob:163
+#: ../src/mixer-profilebox-detail.gob:163
+#: mixer-profilebox-detail.gob:163
 msgid "Control"
 msgstr "Szabályzó"
 
-#: ../src/mixer-profilebox-detail.gob:166 mixer-profilebox-detail.gob:166
+#: ../src/mixer-profilebox-detail.gob:166
+#: mixer-profilebox-detail.gob:166
 msgid "Type"
 msgstr "Típus"
 
-#: ../src/mixer-profilebox-detail.gob:178 mixer-profilebox-detail.gob:178
+#: ../src/mixer-profilebox-detail.gob:178
+#: mixer-profilebox-detail.gob:178
 msgid "Up"
 msgstr "Fel"
 
-#: ../src/mixer-profilebox-detail.gob:181 mixer-profilebox-detail.gob:181
+#: ../src/mixer-profilebox-detail.gob:181
+#: mixer-profilebox-detail.gob:181
 msgid "Down"
 msgstr "Le"
 
-#: ../src/mixer-profilebox-detail.gob:188 mixer-profilebox-detail.gob:188
+#: ../src/mixer-profilebox-detail.gob:188
+#: mixer-profilebox-detail.gob:188
 msgid "Move Entry Up"
 msgstr "Elem mozgatása fel"
 
-#: ../src/mixer-profilebox-detail.gob:191 mixer-profilebox-detail.gob:191
+#: ../src/mixer-profilebox-detail.gob:191
+#: mixer-profilebox-detail.gob:191
 msgid "Move Entry Down"
 msgstr "Elem mozgatása le"
 
-#: ../src/mixer-profilebox-detail.gob:200 mixer-profilebox-detail.gob:200
+#: ../src/mixer-profilebox-detail.gob:200
+#: mixer-profilebox-detail.gob:200
 msgid "Profile Name:"
 msgstr "Profil név:"
 
 #: ../src/mixer-profilebox-detail.gob:382
-#: ../src/mixer-profilebox-detail.gob:447 mixer-profilebox-detail.gob:382
+#: ../src/mixer-profilebox-detail.gob:447
+#: mixer-profilebox-detail.gob:382
 #: mixer-profilebox-detail.gob:447
 msgid "<unknown>"
 msgstr "<ismeretlen>"
 
 #: ../src/mixer-profilebox-detail.gob:384
-#: ../src/mixer-profilebox-detail.gob:449 mixer-profilebox-detail.gob:384
+#: ../src/mixer-profilebox-detail.gob:449
+#: mixer-profilebox-detail.gob:384
 #: mixer-profilebox-detail.gob:449
 msgid "<slider>"
 msgstr "<csúszka>"
 
 #: ../src/mixer-profilebox-detail.gob:385
-#: ../src/mixer-profilebox-detail.gob:450 mixer-profilebox-detail.gob:385
+#: ../src/mixer-profilebox-detail.gob:450
+#: mixer-profilebox-detail.gob:385
 #: mixer-profilebox-detail.gob:450
 msgid "<onoff>"
 msgstr "<ki/be>"
 
 #: ../src/mixer-profilebox-detail.gob:386
-#: ../src/mixer-profilebox-detail.gob:451 mixer-profilebox-detail.gob:386
+#: ../src/mixer-profilebox-detail.gob:451
+#: mixer-profilebox-detail.gob:386
 #: mixer-profilebox-detail.gob:451
 msgid "<select>"
 msgstr "<kijelöl>"
 
-#: ../src/mixer-profilebox.gob:142 mixer-profilebox.gob:142
+#: ../src/mixer-profilebox.gob:142
+#: mixer-profilebox.gob:142
 msgid "Create new profile"
 msgstr "Új profil létrehozása"
 
-#: ../src/mixer-profilebox.gob:151 mixer-profilebox.gob:151
+#: ../src/mixer-profilebox.gob:151
+#: mixer-profilebox.gob:151
 msgid "Delete this profile"
 msgstr "E profil törlése"
 
-#: ../src/mixer-profilebox.gob:170 mixer-profilebox.gob:170
+#: ../src/mixer-profilebox.gob:170
+#: mixer-profilebox.gob:170
 msgid "Profile"
 msgstr "Profil"
 
-#: ../src/mixer-profilebox.gob:374 mixer-profilebox.gob:374
+#: ../src/mixer-profilebox.gob:374
+#: mixer-profilebox.gob:374
 #, c-format
 msgid "Really delete those %d profiles?"
 msgstr "Tényleg törlöd e %d profilt?"
 
-#: ../src/mixer-profilebox.gob:377 mixer-profilebox.gob:377
+#: ../src/mixer-profilebox.gob:377
+#: mixer-profilebox.gob:377
 #, c-format
 msgid "Really delete profile \"%s\"?"
 msgstr "Tényleg törlöd e profilt: \"%s\"?"
 
-#: ../src/mixer-profilebox.gob:491 mixer-profilebox.gob:491
+#: ../src/mixer-profilebox.gob:491
+#: mixer-profilebox.gob:491
 #, c-format
 msgid "%s - New"
 msgstr "%s - Új"
 
-#: ../src/mixer-profilebox.gob:528 mixer-profilebox.gob:528
+#: ../src/mixer-profilebox.gob:528
+#: mixer-profilebox.gob:528
 msgid "A profile needs a name"
 msgstr "Adj nevet a profilnak"
 
-#: ../src/mixer-profilebox.gob:542 mixer-profilebox.gob:542
+#: ../src/mixer-profilebox.gob:542
+#: mixer-profilebox.gob:542
 msgid "A profile with that name already exists"
 msgstr "Már van ilyen profil"
 
-#: ../src/mixer-profiles.gob:262 ../src/mixer-profiles.gob:269
-#: mixer-profiles.gob:262 mixer-profiles.gob:269
+#: ../src/mixer-profiles.gob:262
+#: ../src/mixer-profiles.gob:269
+#: mixer-profiles.gob:262
+#: mixer-profiles.gob:269
 #, c-format
 msgid "profile%d"
 msgstr "%d. profil"
 
-#: ../src/mixer-view.gob:259 mixer-view.gob:259
+#: ../src/mixer-view.gob:259
+#: mixer-view.gob:259
 msgid "Show Switches"
 msgstr "Kapcsolók mutatása"
 
-#: ../src/mixer-view.gob:260 mixer-view.gob:260
+#: ../src/mixer-view.gob:260
+#: mixer-view.gob:260
 msgid "Hide Switches"
 msgstr "Kapcsolók rejtése"
 
-#: ../src/mixer-window.gob:188 mixer-window.gob:188
+#: ../src/mixer-window.gob:188
+#: mixer-window.gob:188
 #: ../panel-plugin/xfce4-mixer.desktop.in.in.h:2
 msgid "Volume Control"
 msgstr "Hangerő-szabályozó"
@@ -427,3 +458,4 @@ msgstr "Keverő beállítások"
 #: ../settings/xfce-mixer-settings.desktop.in.h:2
 msgid "Xfce 4 Mixer Settings"
 msgstr "Xfce 4 hangkeverő beállítások"
+
