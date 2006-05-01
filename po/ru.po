@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.90.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-05-01 15:45+0900\n"
-"PO-Revision-Date: 2006-03-25 22:21+0500\n"
+"PO-Revision-Date: 2006-04-01 18:24+0600\n"
 "Last-Translator: Andrey Fedoseev <andrey.fedoseev@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -266,7 +266,7 @@ msgstr "Контролируемые каналы"
 #. the button label in the xfce-mcs-manager dialog
 #: ../settings/sound.c:81
 msgid "Button Label|Sound"
-msgstr ""
+msgstr "Звук"
 
 #: ../settings/sound.c:101 ../settings/sound.c:108
 msgid "Sound"
