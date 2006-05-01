@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.90.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-03-04 19:26+0900\n"
+"POT-Creation-Date: 2006-05-01 15:45+0900\n"
 "PO-Revision-Date: 2005-08-18 00:35+0900\n"
 "Last-Translator: Mantas Zapolskas <mantaz@users.sf.net>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
@@ -279,7 +279,12 @@ msgstr "Nėra"
 msgid "Useful Controls"
 msgstr "Naudingi valdikliai"
 
-#: ../settings/sound.c:80 ../settings/sound.c:100 ../settings/sound.c:107
+#. the button label in the xfce-mcs-manager dialog
+#: ../settings/sound.c:81
+msgid "Button Label|Sound"
+msgstr ""
+
+#: ../settings/sound.c:101 ../settings/sound.c:108
 msgid "Sound"
 msgstr "Garsas"
 

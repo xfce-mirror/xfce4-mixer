@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.90.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-03-04 19:26+0900\n"
+"POT-Creation-Date: 2006-05-01 15:45+0900\n"
 "PO-Revision-Date: 2006-03-30 02:36+0300\n"
 "Last-Translator: Phan Vinh Thinh <teppi@vnlinux.org>\n"
 "Language-Team: Vietnamese <none@li.org>\n"
@@ -261,7 +261,12 @@ msgstr "Không"
 msgid "Useful Controls"
 msgstr "Các điều khiển hữu dụng"
 
-#: ../settings/sound.c:80 ../settings/sound.c:100 ../settings/sound.c:107
+#. the button label in the xfce-mcs-manager dialog
+#: ../settings/sound.c:81
+msgid "Button Label|Sound"
+msgstr ""
+
+#: ../settings/sound.c:101 ../settings/sound.c:108
 msgid "Sound"
 msgstr "Âm thanh"
 

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.90.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-03-04 19:26+0900\n"
+"POT-Creation-Date: 2006-05-01 15:45+0900\n"
 "PO-Revision-Date: 2005-10-09 14:29+0800\n"
 "Last-Translator: Hydonsingore Cia <hydonsingore@mail.educities.edu.tw>\n"
 "Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>\n"
@@ -265,7 +265,12 @@ msgstr "無"
 msgid "Useful Controls"
 msgstr "可用的控制器"
 
-#: ../settings/sound.c:80 ../settings/sound.c:100 ../settings/sound.c:107
+#. the button label in the xfce-mcs-manager dialog
+#: ../settings/sound.c:81
+msgid "Button Label|Sound"
+msgstr ""
+
+#: ../settings/sound.c:101 ../settings/sound.c:108
 msgid "Sound"
 msgstr "聲音"
 

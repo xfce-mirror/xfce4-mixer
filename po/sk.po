@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.90.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-03-04 19:26+0900\n"
+"POT-Creation-Date: 2006-05-01 15:45+0900\n"
 "PO-Revision-Date: 2005-10-08 08:33+0900\n"
 "Last-Translator: Juraj Brosz <juro@jurajbrosz.info>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
@@ -260,7 +260,12 @@ msgstr "Žiadne"
 msgid "Useful Controls"
 msgstr "Užitočné ovládacie prvky"
 
-#: ../settings/sound.c:80 ../settings/sound.c:100 ../settings/sound.c:107
+#. the button label in the xfce-mcs-manager dialog
+#: ../settings/sound.c:81
+msgid "Button Label|Sound"
+msgstr ""
+
+#: ../settings/sound.c:101 ../settings/sound.c:108
 msgid "Sound"
 msgstr "Zvuk"
 
