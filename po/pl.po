@@ -262,7 +262,7 @@ msgstr "Przydatne ustawienia"
 #. the button label in the xfce-mcs-manager dialog
 #: ../settings/sound.c:81
 msgid "Button Label|Sound"
-msgstr ""
+msgstr "Dźwięk"
 
 #: ../settings/sound.c:101 ../settings/sound.c:108
 msgid "Sound"
