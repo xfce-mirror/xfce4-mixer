@@ -296,16 +296,16 @@ xfce_mixer_launch_cb (GtkWidget *w, gpointer user_data)
 	GError* error;
 	gboolean internal;
 	
-	mixer = (t_mixer *) user_data;
-	if (!mixer || !mixer->prefs)
-		return;
-		
 	gchar* launcher_command;
 	gchar* device;
 	gboolean launcher_run_in_terminal;
 	gboolean launcher_use_startup_notification;
 	gchar* message;
 	
+	mixer = (t_mixer *) user_data;
+	if (!mixer || !mixer->prefs)
+		return;
+
 	launcher_command = NULL;
 	device = NULL;
 
@@ -541,12 +541,13 @@ mixer_read_config(XfcePanelPlugin* plugin, gpointer user_data)
 static void
 mixer_write_config(XfcePanelPlugin* plugin, gpointer user_data)
 {
-    DBG ("Save: %s", PLUGIN_NAME);
-
 	XfceRc* rc;
 	gchar* path;
 
 	t_mixer *mixer;
+
+    DBG ("Save: %s", PLUGIN_NAME);
+
 	mixer = (t_mixer *) user_data;
 	
 	if (mixer->prefs == NULL) {

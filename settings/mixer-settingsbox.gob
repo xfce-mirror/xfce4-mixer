@@ -267,9 +267,10 @@ class Xfce:Mixer:Settingsbox from Gtk:VBox {
 		gint	i;
 		gint	cnt;
 		gint	active;
-		active = 0;
 		gchar const *s;
 		gchar	*old_sel_device;
+
+		active = 0;
 
 		old_sel_device = NULL;
 		if (self->sel_device)
