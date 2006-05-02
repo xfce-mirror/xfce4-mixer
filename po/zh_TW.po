@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.90.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-05-01 15:45+0900\n"
-"PO-Revision-Date: 2005-10-09 14:29+0800\n"
+"PO-Revision-Date: 2006-05-02 20:47+0800\n"
 "Last-Translator: Hydonsingore Cia <hydonsingore@mail.educities.edu.tw>\n"
 "Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>\n"
 "MIME-Version: 1.0\n"
@@ -132,55 +132,53 @@ msgstr "錄音選擇"
 #. Label
 #: ../lib/trans.c:77
 msgid "A3.AnalogIn"
-msgstr ""
+msgstr "A3.類比輸入"
 
 #. Analog In
 #: ../lib/trans.c:78
 msgid "A3.AnalogOut"
-msgstr ""
+msgstr "A3.類比輸出"
 
 #. Analog Out
 #: ../lib/trans.c:79
 msgid "A3.AnalogOut2"
-msgstr ""
+msgstr "A3.類比輸出2"
 
 #. Analog Out 2
 #. Interface
 #: ../lib/trans.c:81
 msgid "A3.CameraMic"
-msgstr ""
+msgstr "A3.攝影機麥克風"
 
 #. Camera Mic
 #: ../lib/trans.c:82
 msgid "A3.Microphone"
-msgstr ""
+msgstr "A3.麥克風"
 
 #. Microphone
 #: ../lib/trans.c:83
-#, fuzzy
 msgid "A3.LineIn"
-msgstr "Line"
+msgstr "A3.Line輸入"
 
 #. Line In
 #: ../lib/trans.c:84
 msgid "A3.DAC1In"
-msgstr ""
+msgstr "A3.DACIn"
 
 #. DAC1 In
 #: ../lib/trans.c:85
 msgid "A3.DAC2In"
-msgstr ""
+msgstr "A3.DAC2In"
 
 #. DAC2 In
 #: ../lib/trans.c:86
 msgid "A3.Speaker"
-msgstr ""
+msgstr "A3.揚聲器"
 
 #. Speaker/Line Out
 #: ../lib/trans.c:87
-#, fuzzy
 msgid "A3.LineOut2"
-msgstr "Line2"
+msgstr "A3.LineOut2"
 
 #: ../lib/vc_alsa.c:99
 #, c-format
@@ -213,20 +211,20 @@ msgstr "oss: 沒有主控制器"
 
 #: ../panel-plugin/launcher-entry.c:75
 msgid "Run in Terminal"
-msgstr ""
+msgstr "在 Terminal 中執行"
 
 #: ../panel-plugin/launcher-entry.c:80
 msgid "Use Startup Notification"
-msgstr ""
+msgstr "使用啟動提示"
 
 #: ../panel-plugin/launcher-entry.c:192 ../panel-plugin/plugin.c:342
 #, c-format
 msgid "Could not run \"%s\""
-msgstr ""
+msgstr "無法執行 \"%s\""
 
 #: ../panel-plugin/launcher-entry.c:194 ../panel-plugin/plugin.c:344
 msgid "Xfce Panel"
-msgstr ""
+msgstr "Xfce 面板"
 
 #: ../panel-plugin/plugin.c:271
 #, c-format
@@ -248,7 +246,7 @@ msgstr ""
 
 #: mixer-prefbox.gob:180
 msgid "When clicked"
-msgstr ""
+msgstr "點擊時"
 
 #: ../settings/mixer-settingsbox.gob:124 mixer-settingsbox.gob:124
 msgid "Device"
@@ -268,7 +266,7 @@ msgstr "可用的控制器"
 #. the button label in the xfce-mcs-manager dialog
 #: ../settings/sound.c:81
 msgid "Button Label|Sound"
-msgstr ""
+msgstr "按鈕標籤|聲音"
 
 #: ../settings/sound.c:101 ../settings/sound.c:108
 msgid "Sound"
@@ -421,7 +419,7 @@ msgstr "音量控制"
 
 #: ../panel-plugin/xfce4-mixer.desktop.in.in.h:1
 msgid "Change the Volume"
-msgstr ""
+msgstr "變更音量"
 
 #: ../settings/xfce-mixer-settings.desktop.in.h:1
 msgid "Mixer Settings"
