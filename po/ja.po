@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.90.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-05-01 15:45+0900\n"
-"PO-Revision-Date: 2006-05-01 16:13+0900\n"
+"PO-Revision-Date: 2006-05-05 14:42+0900\n"
 "Last-Translator: Daichi Kawahata <daichi@xfce.org>\n"
 "Language-Team: Japanese <xfce-users-jp@ml.fdiary.net>\n"
 "MIME-Version: 1.0\n"
@@ -419,7 +419,7 @@ msgstr "音量コントロール"
 
 #: ../panel-plugin/xfce4-mixer.desktop.in.in.h:1
 msgid "Change the Volume"
-msgstr "音量を変更します。"
+msgstr "音量を変更します"
 
 #: ../settings/xfce-mixer-settings.desktop.in.h:1
 msgid "Mixer Settings"
