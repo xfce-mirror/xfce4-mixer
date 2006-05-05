@@ -2,19 +2,19 @@
 # Copyright (C) 2003-2006 The Xfce development team.
 # This file is distributed under the same license as the xfce4-mixer package.
 # Juraj Brosz <juro@jurajbrosz.info>, 2004.
+# Roman Moravcik <roman.moravcik@gmail.com>, 2006.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.90.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-05-06 04:19+0900\n"
-"PO-Revision-Date: 2005-10-08 08:33+0900\n"
-"Last-Translator: Juraj Brosz <juro@jurajbrosz.info>\n"
-"Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
+"PO-Revision-Date: 2006-05-02 22:05+0200\n"
+"Last-Translator: Roman Moravcik <roman.moravcik@gmail.com>\n"
+"Language-Team: Slovak <sk-i18n@linux.sk>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.3.1\n"
 
 #: ../lib/trans.c:36
 msgid "Vol"
@@ -33,7 +33,7 @@ msgstr "Reproduktor"
 #. Internal speaker?
 #: ../lib/trans.c:39
 msgid "Line"
-msgstr ""
+msgstr "Linka"
 
 #. Line in
 #: ../lib/trans.c:40
@@ -48,15 +48,15 @@ msgstr "CD"
 #. CD in
 #: ../lib/trans.c:42
 msgid "Bass"
-msgstr ""
+msgstr "Basy"
 
 #: ../lib/trans.c:43
 msgid "Trebl"
-msgstr ""
+msgstr "Výšky"
 
 #: ../lib/trans.c:44
 msgid "Synth"
-msgstr ""
+msgstr "Syntetizátor"
 
 #: ../lib/trans.c:45
 msgid "Mix"
@@ -80,15 +80,15 @@ msgstr "OGain"
 
 #: ../lib/trans.c:50
 msgid "Line1"
-msgstr ""
+msgstr "Linka1"
 
 #: ../lib/trans.c:51
 msgid "Line2"
-msgstr ""
+msgstr "Linka2"
 
 #: ../lib/trans.c:52
 msgid "Line3"
-msgstr ""
+msgstr "Linka3"
 
 #: ../lib/trans.c:53
 msgid "Digital1"
@@ -151,7 +151,7 @@ msgstr ""
 #. Camera Mic
 #: ../lib/trans.c:82
 msgid "A3.Microphone"
-msgstr ""
+msgstr "A3.Mikrofón"
 
 #. Microphone
 #: ../lib/trans.c:83
@@ -205,24 +205,24 @@ msgstr "alsa: Nemôžem nájsť jednoduchý ovládač '%s',%i\n"
 
 #: ../lib/vc_oss.c:158
 msgid "oss: No master volume"
-msgstr ""
+msgstr "oss: Nie je hlavný ovládač hlasitosti"
 
 #: ../panel-plugin/launcher-entry.c:75
 msgid "Run in Terminal"
-msgstr ""
+msgstr "Spustiť v terminály"
 
 #: ../panel-plugin/launcher-entry.c:80
 msgid "Use Startup Notification"
-msgstr ""
+msgstr "Použiť štartovaciu notifikáciu"
 
 #: ../panel-plugin/launcher-entry.c:192 ../panel-plugin/plugin.c:342
 #, c-format
 msgid "Could not run \"%s\""
-msgstr ""
+msgstr "Nemôžem spustiť \"%s\""
 
 #: ../panel-plugin/launcher-entry.c:194 ../panel-plugin/plugin.c:344
 msgid "Xfce Panel"
-msgstr ""
+msgstr "Xfce panel"
 
 #: ../panel-plugin/plugin.c:271
 #, c-format
@@ -231,7 +231,7 @@ msgstr "Hlasitosť: %d%%"
 
 #: ../panel-plugin/plugin.c:571
 msgid "Could not save configuration"
-msgstr ""
+msgstr "Nemôžem uložiť nastavenie"
 
 #: mixer-prefbox.gob:177 ../src/mixer-profilebox.gob:88
 #: mixer-profilebox.gob:88
@@ -240,11 +240,11 @@ msgstr "Zariadenie:"
 
 #: mixer-prefbox.gob:178
 msgid "Wannabe Master:"
-msgstr ""
+msgstr "Bude hlavný ovládač hlasitosti:"
 
 #: mixer-prefbox.gob:180
 msgid "When clicked"
-msgstr ""
+msgstr "Spustiť po kliknutí"
 
 #: ../settings/mixer-settingsbox.gob:124 mixer-settingsbox.gob:124
 msgid "Device"
@@ -263,7 +263,7 @@ msgstr "Užitočné ovládacie prvky"
 #. the button label in the xfce-mcs-manager dialog
 #: ../settings/sound.c:81
 msgid "Button Label|Sound"
-msgstr ""
+msgstr "Zvuk"
 
 #: ../settings/sound.c:101 ../settings/sound.c:108
 msgid "Sound"
@@ -271,31 +271,31 @@ msgstr "Zvuk"
 
 #: ../src/menus.c:12
 msgid "/_File"
-msgstr ""
+msgstr "/_Súbor"
 
 #: ../src/menus.c:13
 msgid "/File/_Options"
-msgstr ""
+msgstr "/Súbor/_Nastavenie"
 
 #: ../src/menus.c:14
 msgid "/File/_Exit"
-msgstr ""
+msgstr "/Súbor/_Koniec"
 
 #: ../src/menus.c:15
 msgid "/_View"
-msgstr ""
+msgstr "/_Zobraziť"
 
 #: ../src/menus.c:16
 msgid "/View/_Manage"
-msgstr ""
+msgstr "/Zobraziť/_Upraviť"
 
 #: ../src/menus.c:17
 msgid "/_Help"
-msgstr ""
+msgstr "/_Pomocník"
 
 #: ../src/menus.c:18
 msgid "/Help/_Info"
-msgstr ""
+msgstr "/Pomocník/_O programe"
 
 #: ../src/mixer-info.gob:28 mixer-info.gob:28
 msgid ""
@@ -304,6 +304,10 @@ msgid ""
 "directory.\n"
 "No warranty in any way."
 msgstr ""
+"Toto je xfce4-mixer,program na nastavenie hlasitosti.\n"
+"Je uverejnený pod licenciou GPL-2, ktorú nájdete v adresáry so zdrojovými "
+"kódmi.\n"
+"Bez akejkoľvek záruku."
 
 #: ../src/mixer-profilebox-detail.gob:163 mixer-profilebox-detail.gob:163
 msgid "Control"
@@ -394,9 +398,9 @@ msgstr "Profil s týmto menom už existuje"
 
 #: ../src/mixer-profiles.gob:262 ../src/mixer-profiles.gob:269
 #: mixer-profiles.gob:262 mixer-profiles.gob:269
-#, fuzzy, c-format
+#, c-format
 msgid "profile%d"
-msgstr "Profil"
+msgstr "Profil%d"
 
 #: ../src/mixer-view.gob:259 mixer-view.gob:259
 msgid "Show Switches"
@@ -413,12 +417,12 @@ msgstr "Nastavenie hlasitosti"
 
 #: ../panel-plugin/xfce4-mixer.desktop.in.in.h:1
 msgid "Change the Volume"
-msgstr ""
+msgstr "Umožní meniť hlasitosť"
 
 #: ../settings/xfce-mixer-settings.desktop.in.h:1
 msgid "Mixer Settings"
-msgstr ""
+msgstr "Predvoľby nastavenia hlasitosti"
 
 #: ../settings/xfce-mixer-settings.desktop.in.h:2
 msgid "Xfce 4 Mixer Settings"
-msgstr ""
+msgstr "Nastavenie Xfce 4 mixéra"
