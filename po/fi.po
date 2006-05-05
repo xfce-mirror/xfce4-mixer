@@ -6,9 +6,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-mixer 4.3.90.1\n"
+"Project-Id-Version: xfce4-mixer 4.3.90.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-05-01 15:27+0300\n"
+"POT-Creation-Date: 2006-05-06 04:19+0900\n"
 "PO-Revision-Date: 2006-05-01 15:27+0300\n"
 "Last-Translator: Jari Rahkonen <jari.rahkonen@pp1.inet.fi>\n"
 "Language-Team: Finnish <translation-team-fi@lists.sourceforge.net>\n"
@@ -229,7 +229,7 @@ msgstr "Xfce:n paneeli"
 msgid "Volume: %d%%"
 msgstr "Äänenvoimakkuus: %d%%"
 
-#: ../panel-plugin/plugin.c:570
+#: ../panel-plugin/plugin.c:571
 msgid "Could not save configuration"
 msgstr "Asetuksia ei voitu tallentaa"
 

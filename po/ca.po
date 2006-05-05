@@ -5,9 +5,9 @@
 # Pau Rul·lan Ferragut <paurullan@bulma.net> 2005, 2006.
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-mixer 4.3.90.1\n"
+"Project-Id-Version: xfce4-mixer 4.3.90.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-05-01 15:45+0900\n"
+"POT-Creation-Date: 2006-05-06 04:19+0900\n"
 "PO-Revision-Date: 2006-04-02 22:26+0200\n"
 "Last-Translator: Pau Rul·lan Ferragut <paurullan@bulma.net>\n"
 "Language-Team: Catalan\n"
@@ -269,7 +269,7 @@ msgstr "Quadre"
 msgid "Volume: %d%%"
 msgstr "Volum: %d%%"
 
-#: ../panel-plugin/plugin.c:570
+#: ../panel-plugin/plugin.c:571
 #, fuzzy
 msgid "Could not save configuration"
 msgstr "no desa"

@@ -6,9 +6,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-mixer 4.3.90.1\n"
+"Project-Id-Version: xfce4-mixer 4.3.90.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-05-01 15:45+0900\n"
+"POT-Creation-Date: 2006-05-06 04:19+0900\n"
 "PO-Revision-Date: 2006-03-30 14:26+0300\n"
 "Last-Translator: Stathis Kamperis <ekamperi@auth.gr>\n"
 "Language-Team: Greek <nls@tux.hellug.gr>\n"
@@ -231,7 +231,7 @@ msgstr "Ταμπλό του Xfce"
 msgid "Volume: %d%%"
 msgstr "Ένταση: %d%%"
 
-#: ../panel-plugin/plugin.c:570
+#: ../panel-plugin/plugin.c:571
 msgid "Could not save configuration"
 msgstr "Δεν ήταν δυνατή η αποθήκευση των ρυθμίσεων"
 

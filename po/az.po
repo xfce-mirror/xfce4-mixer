@@ -5,9 +5,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-mixer 4.3.90.1\n"
+"Project-Id-Version: xfce4-mixer 4.3.90.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-05-01 15:45+0900\n"
+"POT-Creation-Date: 2006-05-06 04:19+0900\n"
 "PO-Revision-Date: 2005-10-08 08:14+0900\n"
 "Last-Translator: Mətin Əmirov <metin@karegen.com>\n"
 "Language-Team: Azerbaijani Turkish <gnome@azitt.com>\n"
@@ -229,7 +229,7 @@ msgstr ""
 msgid "Volume: %d%%"
 msgstr "Səs: %d%%"
 
-#: ../panel-plugin/plugin.c:570
+#: ../panel-plugin/plugin.c:571
 msgid "Could not save configuration"
 msgstr ""
 

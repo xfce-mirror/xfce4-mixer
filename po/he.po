@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: he\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-05-01 15:45+0900\n"
+"POT-Creation-Date: 2006-05-06 04:19+0900\n"
 "PO-Revision-Date: 2006-05-05 22:38+0300\n"
 "Last-Translator: Yuval Tanny <tanai@int.gov.il>\n"
 "Language-Team: Hebrew\n"
@@ -232,7 +232,7 @@ msgstr "לוח Xfce"
 msgid "Volume: %d%%"
 msgstr "עוצמת קול: %d%%"
 
-#: ../panel-plugin/plugin.c:570
+#: ../panel-plugin/plugin.c:571
 msgid "Could not save configuration"
 msgstr "כשל בשמירת המאפיינים"
 

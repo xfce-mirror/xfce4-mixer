@@ -1,4 +1,5 @@
-# ----zh_CN.po (xfce4-mixer 4.3.90.1)  ----Simplified Chinese translations for xfce4-mixer package.
+# ----zh_CN.po (xfce4-mixer 4.3.90.2)  ----
+# Simplified Chinese translations for xfce4-mixer package.
 # Copyright (C) 2003-2006 The Xfce development team.
 # This file is distributed under the same license as the xfce4-mixer package.
 # Yongtao Yang <yongtao.yang@telia.com>, 2004.
@@ -8,9 +9,9 @@
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-mixer 4.3.90.1\n"
+"Project-Id-Version: xfce4-mixer 4.3.90.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-05-01 15:45+0900\n"
+"POT-Creation-Date: 2006-05-06 04:19+0900\n"
 "PO-Revision-Date: 2006-03-17 15:13+0800\n"
 "Last-Translator: Jick Nan <jick.nan@gmail.com>\n"
 "Language-Team: Chinese/Simplified <i18n-translation@lists.linux.net.cn>\n"
@@ -231,7 +232,7 @@ msgstr "Xfce面板"
 msgid "Volume: %d%%"
 msgstr "音量控制 %d%%"
 
-#: ../panel-plugin/plugin.c:570
+#: ../panel-plugin/plugin.c:571
 msgid "Could not save configuration"
 msgstr "不能保存配置"
 
