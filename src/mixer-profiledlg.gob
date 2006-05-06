@@ -5,10 +5,11 @@
 %} 
 %a{
 #include <gtk/gtk.h>
+#include <libxfcegui4/libxfcegui4.h>
 #include "xfce-mixer-profilebox.h"
 %}
 
-class Xfce:Mixer:Profiledlg from Gtk:Dialog {
+class Xfce:Mixer:Profiledlg from Xfce:Titled:Dialog {
 	protected XfceMixerProfilebox *pbox = NULL;
 
 	init (self)
