@@ -8,6 +8,9 @@
 
 #define selfp (self->_priv)
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include <string.h> /* memset() */
 
 #include "xfce-mixer-profiledlg.h"
@@ -28,7 +31,7 @@
 #include <config.h>
 #endif
 
-#line 32 "xfce-mixer-profiledlg.c"
+#line 35 "xfce-mixer-profiledlg.c"
 
 #line 6 "mixer-profiledlg.gob"
 
@@ -36,7 +39,7 @@
 #include <libxfcegui4/libxfcegui4.h>
 #include "xfce-mixer-profilebox.h"
 
-#line 40 "xfce-mixer-profiledlg.c"
+#line 43 "xfce-mixer-profiledlg.c"
 /* self casting macros */
 #define SELF(x) XFCE_MIXER_PROFILEDLG(x)
 #define SELF_CONST(x) XFCE_MIXER_PROFILEDLG_CONST(x)
@@ -114,12 +117,12 @@ xfce_mixer_profiledlg_class_init (XfceMixerProfiledlgClass * c G_GNUC_UNUSED)
 #line 15 "mixer-profiledlg.gob"
 static void 
 xfce_mixer_profiledlg_init (XfceMixerProfiledlg * self G_GNUC_UNUSED)
-#line 118 "xfce-mixer-profiledlg.c"
+#line 121 "xfce-mixer-profiledlg.c"
 {
 #define __GOB_FUNCTION__ "Xfce:Mixer:Profiledlg::init"
 #line 6 "mixer-profiledlg.gob"
 	self->pbox = NULL;
-#line 123 "xfce-mixer-profiledlg.c"
+#line 126 "xfce-mixer-profiledlg.c"
  {
 #line 16 "mixer-profiledlg.gob"
 
@@ -137,7 +140,7 @@ xfce_mixer_profiledlg_init (XfceMixerProfiledlg * self G_GNUC_UNUSED)
 		g_signal_connect_swapped (G_OBJECT (self), "response",
 			G_CALLBACK (self_response_cb), self);
 	
-#line 141 "xfce-mixer-profiledlg.c"
+#line 144 "xfce-mixer-profiledlg.c"
  }
 }
 #undef __GOB_FUNCTION__
@@ -147,14 +150,14 @@ xfce_mixer_profiledlg_init (XfceMixerProfiledlg * self G_GNUC_UNUSED)
 #line 32 "mixer-profiledlg.gob"
 void 
 xfce_mixer_profiledlg_response_cb (XfceMixerProfiledlg * self, gint rc, GtkDialog * d)
-#line 151 "xfce-mixer-profiledlg.c"
+#line 154 "xfce-mixer-profiledlg.c"
 {
 #define __GOB_FUNCTION__ "Xfce:Mixer:Profiledlg::response_cb"
 #line 32 "mixer-profiledlg.gob"
 	g_return_if_fail (self != NULL);
 #line 32 "mixer-profiledlg.gob"
 	g_return_if_fail (XFCE_IS_MIXER_PROFILEDLG (self));
-#line 158 "xfce-mixer-profiledlg.c"
+#line 161 "xfce-mixer-profiledlg.c"
 {
 #line 33 "mixer-profiledlg.gob"
 	
@@ -163,13 +166,13 @@ xfce_mixer_profiledlg_response_cb (XfceMixerProfiledlg * self, gint rc, GtkDialo
 				xfce_mixer_profilebox_save (self->pbox);
 		}
 	}}
-#line 167 "xfce-mixer-profiledlg.c"
+#line 170 "xfce-mixer-profiledlg.c"
 #undef __GOB_FUNCTION__
 
 #line 40 "mixer-profiledlg.gob"
 XfceMixerProfiledlg * 
 xfce_mixer_profiledlg_new (void)
-#line 173 "xfce-mixer-profiledlg.c"
+#line 176 "xfce-mixer-profiledlg.c"
 {
 #define __GOB_FUNCTION__ "Xfce:Mixer:Profiledlg::new"
 {
@@ -177,5 +180,5 @@ xfce_mixer_profiledlg_new (void)
 	
 		return XFCE_MIXER_PROFILEDLG (GET_NEW);
 	}}
-#line 181 "xfce-mixer-profiledlg.c"
+#line 184 "xfce-mixer-profiledlg.c"
 #undef __GOB_FUNCTION__
