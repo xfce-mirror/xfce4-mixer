@@ -81,6 +81,8 @@ mcs_plugin_init(McsPlugin *plugin)
 	plugin->caption = g_strdup (Q_ ("Button Label|Sound"));
 	plugin->run_dialog = run_dialog;
 	plugin->icon = xfce_themed_icon_load ("xfce4-mixer", 48);
+  if (G_LIKELY (plugin->icon != NULL))
+    g_object_set_data_full (G_OBJECT (plugin->icon), "mcs-plugin-icon-name", g_strdup ("xfce4-mixer"), g_free);
 	
 	register_vcs ();
 
@@ -92,25 +94,21 @@ mcs_plugin_init(McsPlugin *plugin)
 
 static void     run_dialog(McsPlugin *plugin)
 {
-	GtkWidget *header;	
 	if (dialog) {
 		gtk_window_present (GTK_WINDOW (dialog));
 		return;
 	}
 	
-	dialog = gtk_dialog_new_with_buttons(_("Sound"), NULL,
+	dialog = xfce_titled_dialog_new_with_buttons(_("Sound"), NULL,
                          GTK_DIALOG_NO_SEPARATOR,
                          GTK_STOCK_CLOSE, GTK_RESPONSE_OK,
 			NULL);
 
 	sb = xfce_mixer_settingsbox_new ();
 	gtk_widget_show (GTK_WIDGET (sb));
-	header = xfce_create_header (plugin->icon, _("Sound"));
-	gtk_widget_show (header);
-	gtk_box_pack_start (GTK_BOX (GTK_DIALOG (dialog)->vbox), GTK_WIDGET (header), FALSE, FALSE, 0);
 	gtk_box_pack_start (GTK_BOX (GTK_DIALOG (dialog)->vbox), GTK_WIDGET (sb), TRUE, FALSE, 6);
 
-	gtk_window_set_icon (GTK_WINDOW (dialog), plugin->icon);
+	gtk_window_set_icon_name (GTK_WINDOW (dialog), "xfce4-mixer");
 	gtk_window_set_position (GTK_WINDOW(dialog), GTK_WIN_POS_CENTER);
 	gtk_window_set_resizable (GTK_WINDOW(dialog), FALSE);
 	
