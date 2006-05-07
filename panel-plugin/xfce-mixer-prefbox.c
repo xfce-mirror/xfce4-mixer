@@ -239,10 +239,10 @@ xfce_mixer_prefbox_init (XfceMixerPrefbox * self G_GNUC_UNUSED)
 
 
 		gtk_container_set_border_width (GTK_CONTAINER (self), 5);
-		gtk_box_pack_start (GTK_BOX (self), twocol_label ("Device:", GTK_WIDGET (self->device_cb)), FALSE, FALSE, 0);
-		gtk_box_pack_start (GTK_BOX (self), twocol_label ("Wannabe Master:", GTK_WIDGET (self->master_om)), FALSE, FALSE, 0);
+		gtk_box_pack_start (GTK_BOX (self), twocol_label (_("Device:"), GTK_WIDGET (self->device_cb)), FALSE, FALSE, 0);
+		gtk_box_pack_start (GTK_BOX (self), twocol_label (_("Wannabe Master:"), GTK_WIDGET (self->master_om)), FALSE, FALSE, 0);
 
-		gtk_box_pack_start (GTK_BOX (self), headline ("When clicked", &self->click_b), FALSE, FALSE, 0);
+		gtk_box_pack_start (GTK_BOX (self), headline (_("When clicked"), &self->click_b), FALSE, FALSE, 0);
 
 
 		gtk_entry_set_max_length (GTK_ENTRY (self->device_cb->entry), 50);
