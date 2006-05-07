@@ -2,19 +2,22 @@
 # Copyright (C) 2003-2006 The Xfce development team.
 # This file is distributed under the same license as the xfce4-mixer package.
 # Alois Nespor <Alois.Nespor@seznam.cz>, 2004.
+# Michal Várady <miko.vaji@gmail.com>, 2006.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.90.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-05-07 17:52+0900\n"
-"PO-Revision-Date: 2005-10-08 08:21+0900\n"
-"Last-Translator: Alois Nespor <Alois.Nespor@seznam.cz>\n"
+"PO-Revision-Date: 2006-05-06 16:53+0100\n"
+"Last-Translator: Michal Várady <miko.vaji@gmail.com>\n"
 "Language-Team: Czech <translation-team-cs@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.3\n"
+"X-Poedit-Language: Czech\n"
+"X-Poedit-Country: CZECH REPUBLIC\n"
 
 #: ../lib/trans.c:36
 msgid "Vol"
@@ -124,61 +127,59 @@ msgstr "Monitor"
 
 #: ../lib/trans.c:61
 msgid "RecSelect"
-msgstr ""
+msgstr "VýběrZáznamu"
 
 #. Device
 #. Label
 #: ../lib/trans.c:77
 msgid "A3.AnalogIn"
-msgstr ""
+msgstr "A3.AnalogovýVstup"
 
 #. Analog In
 #: ../lib/trans.c:78
 msgid "A3.AnalogOut"
-msgstr ""
+msgstr "A3.AnalogovýVýstup"
 
 #. Analog Out
 #: ../lib/trans.c:79
 msgid "A3.AnalogOut2"
-msgstr ""
+msgstr "A3.AnalogovýVýstup2"
 
 #. Analog Out 2
 #. Interface
 #: ../lib/trans.c:81
 msgid "A3.CameraMic"
-msgstr ""
+msgstr "A3.KamerovýMikrofon"
 
 #. Camera Mic
 #: ../lib/trans.c:82
 msgid "A3.Microphone"
-msgstr ""
+msgstr "A3.Mikrofon"
 
 #. Microphone
 #: ../lib/trans.c:83
-#, fuzzy
 msgid "A3.LineIn"
-msgstr "Line"
+msgstr "A3.LineVstup"
 
 #. Line In
 #: ../lib/trans.c:84
 msgid "A3.DAC1In"
-msgstr ""
+msgstr "A3.DAC1In"
 
 #. DAC1 In
 #: ../lib/trans.c:85
 msgid "A3.DAC2In"
-msgstr ""
+msgstr "A3.DAC2In"
 
 #. DAC2 In
 #: ../lib/trans.c:86
 msgid "A3.Speaker"
-msgstr ""
+msgstr "A3.Reproduktor"
 
 #. Speaker/Line Out
 #: ../lib/trans.c:87
-#, fuzzy
 msgid "A3.LineOut2"
-msgstr "Line2"
+msgstr "A3.LineVýstup2"
 
 #: ../lib/vc_alsa.c:99
 #, c-format
@@ -211,20 +212,20 @@ msgstr "OSS: Žádný hlavní ovladač hlasitosti"
 
 #: ../panel-plugin/launcher-entry.c:75
 msgid "Run in Terminal"
-msgstr ""
+msgstr "Spustit v terminálu"
 
 #: ../panel-plugin/launcher-entry.c:80
 msgid "Use Startup Notification"
-msgstr ""
+msgstr "Použít oznámení při spuštění"
 
 #: ../panel-plugin/launcher-entry.c:192 ../panel-plugin/plugin.c:342
 #, c-format
 msgid "Could not run \"%s\""
-msgstr ""
+msgstr "Nelze spustit \"%s\""
 
 #: ../panel-plugin/launcher-entry.c:194 ../panel-plugin/plugin.c:344
 msgid "Xfce Panel"
-msgstr ""
+msgstr "Xfce Panel"
 
 #: ../panel-plugin/plugin.c:271
 #, c-format
@@ -233,7 +234,7 @@ msgstr "Hlasitost: %d%%"
 
 #: ../panel-plugin/plugin.c:571
 msgid "Could not save configuration"
-msgstr ""
+msgstr "Nelze uložit konfiguraci"
 
 #: mixer-prefbox.gob:177 ../src/mixer-profilebox.gob:88
 #: mixer-profilebox.gob:88
@@ -242,11 +243,11 @@ msgstr "Zařízení:"
 
 #: mixer-prefbox.gob:178
 msgid "Wannabe Master:"
-msgstr ""
+msgstr "Usilující o stav Master:"
 
 #: mixer-prefbox.gob:180
 msgid "When clicked"
-msgstr ""
+msgstr "Při kliknutí"
 
 #: ../settings/mixer-settingsbox.gob:128 mixer-settingsbox.gob:128
 msgid "Device"
@@ -265,7 +266,7 @@ msgstr "Užitečné ovládací prvky"
 #. the button label in the xfce-mcs-manager dialog
 #: ../settings/sound.c:81
 msgid "Button Label|Sound"
-msgstr ""
+msgstr "Popisek tlačítka|Zvuk"
 
 #: ../settings/sound.c:102
 msgid "Sound"
@@ -273,31 +274,31 @@ msgstr "Zvuk"
 
 #: ../src/menus.c:12
 msgid "/_File"
-msgstr ""
+msgstr "/_Soubor"
 
 #: ../src/menus.c:13
 msgid "/File/_Options"
-msgstr ""
+msgstr "/Soubor/_Možnosti"
 
 #: ../src/menus.c:14
 msgid "/File/_Exit"
-msgstr ""
+msgstr "/Soubor//Ukončit"
 
 #: ../src/menus.c:15
 msgid "/_View"
-msgstr ""
+msgstr "/_Zobrazit"
 
 #: ../src/menus.c:16
 msgid "/View/_Manage"
-msgstr ""
+msgstr "/Zobrazit/_Spravovat"
 
 #: ../src/menus.c:17
 msgid "/_Help"
-msgstr ""
+msgstr "/_Nápověda"
 
 #: ../src/menus.c:18
 msgid "/Help/_Info"
-msgstr ""
+msgstr "/Nápověda/_Informace"
 
 #: ../src/mixer-info.gob:28 mixer-info.gob:28
 msgid ""
@@ -400,9 +401,9 @@ msgstr "Profil s týmto jménem již existuje"
 
 #: ../src/mixer-profiles.gob:262 ../src/mixer-profiles.gob:269
 #: mixer-profiles.gob:262 mixer-profiles.gob:269
-#, fuzzy, c-format
+#, c-format
 msgid "profile%d"
-msgstr "Profil"
+msgstr "profil%d"
 
 #: ../src/mixer-view.gob:259 mixer-view.gob:259
 msgid "Show Switches"
@@ -419,12 +420,12 @@ msgstr "Nastavené hlasitosti"
 
 #: ../panel-plugin/xfce4-mixer.desktop.in.in.h:1
 msgid "Change the Volume"
-msgstr ""
+msgstr "Změnit hlasitost"
 
 #: ../settings/xfce-mixer-settings.desktop.in.h:1
 msgid "Mixer Settings"
-msgstr ""
+msgstr "Nastavení mixéru"
 
 #: ../settings/xfce-mixer-settings.desktop.in.h:2
 msgid "Xfce 4 Mixer Settings"
-msgstr ""
+msgstr "Nastavení mixéru Xfce 4"
