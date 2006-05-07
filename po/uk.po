@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.90.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-05-06 04:19+0900\n"
+"POT-Creation-Date: 2006-05-07 17:52+0900\n"
 "PO-Revision-Date: 2005-01-05 23:55+0200\n"
 "Last-Translator: Maxim Dziumanenko <mvd@mylinux.ua>\n"
 "Language-Team: Ukrainian <translation-team-uk@lists.sourceforge.net>\n"
@@ -245,17 +245,17 @@ msgstr "Головний:"
 msgid "When clicked"
 msgstr "При клацанні"
 
-#: ../settings/mixer-settingsbox.gob:124 mixer-settingsbox.gob:124
+#: ../settings/mixer-settingsbox.gob:128 mixer-settingsbox.gob:128
 msgid "Device"
 msgstr "Пристрій"
 
-#: ../settings/mixer-settingsbox.gob:127 mixer-settingsbox.gob:127
+#: ../settings/mixer-settingsbox.gob:131 mixer-settingsbox.gob:131
 msgid "None"
 msgstr "Немає"
 
 #. gtk_widget_show (GTK_WIDGET (self->dev_label));
 #. debug_bindtextdomain();
-#: ../settings/mixer-settingsbox.gob:132 mixer-settingsbox.gob:132
+#: ../settings/mixer-settingsbox.gob:136 mixer-settingsbox.gob:136
 msgid "Useful Controls"
 msgstr "Контрольовані канали"
 
@@ -264,7 +264,7 @@ msgstr "Контрольовані канали"
 msgid "Button Label|Sound"
 msgstr ""
 
-#: ../settings/sound.c:101 ../settings/sound.c:108
+#: ../settings/sound.c:102
 msgid "Sound"
 msgstr "Звук"
 

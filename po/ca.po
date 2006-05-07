@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.90.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-05-06 04:19+0900\n"
+"POT-Creation-Date: 2006-05-07 17:52+0900\n"
 "PO-Revision-Date: 2006-04-02 22:26+0200\n"
 "Last-Translator: Pau Rul·lan Ferragut <paurullan@bulma.net>\n"
 "Language-Team: Catalan\n"
@@ -289,19 +289,19 @@ msgstr ""
 msgid "When clicked"
 msgstr "Quan"
 
-#: ../settings/mixer-settingsbox.gob:124 mixer-settingsbox.gob:124
+#: ../settings/mixer-settingsbox.gob:128 mixer-settingsbox.gob:128
 #, fuzzy
 msgid "Device"
 msgstr "Dispositiu"
 
-#: ../settings/mixer-settingsbox.gob:127 mixer-settingsbox.gob:127
+#: ../settings/mixer-settingsbox.gob:131 mixer-settingsbox.gob:131
 #, fuzzy
 msgid "None"
 msgstr "Cap"
 
 #. gtk_widget_show (GTK_WIDGET (self->dev_label));
 #. debug_bindtextdomain();
-#: ../settings/mixer-settingsbox.gob:132 mixer-settingsbox.gob:132
+#: ../settings/mixer-settingsbox.gob:136 mixer-settingsbox.gob:136
 #, fuzzy
 msgid "Useful Controls"
 msgstr "Elements de control"
@@ -311,7 +311,7 @@ msgstr "Elements de control"
 msgid "Button Label|Sound"
 msgstr ""
 
-#: ../settings/sound.c:101 ../settings/sound.c:108
+#: ../settings/sound.c:102
 #, fuzzy
 msgid "Sound"
 msgstr "So"

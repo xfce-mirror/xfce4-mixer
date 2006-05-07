@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.90.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-05-06 04:19+0900\n"
+"POT-Creation-Date: 2006-05-07 17:52+0900\n"
 "PO-Revision-Date: 2006-04-15 05:17+0900\n"
 "Last-Translator: ByunHyun Choi <byunghyun.choi@gmail.com>\n"
 "Language-Team: xfce4-users-kr-i18n <xfce4-users-kr-i18n@lists.sourceforge."
@@ -246,17 +246,17 @@ msgstr "Wannabe Master:"
 msgid "When clicked"
 msgstr "클릭하면"
 
-#: ../settings/mixer-settingsbox.gob:124 mixer-settingsbox.gob:124
+#: ../settings/mixer-settingsbox.gob:128 mixer-settingsbox.gob:128
 msgid "Device"
 msgstr "장치"
 
-#: ../settings/mixer-settingsbox.gob:127 mixer-settingsbox.gob:127
+#: ../settings/mixer-settingsbox.gob:131 mixer-settingsbox.gob:131
 msgid "None"
 msgstr "없음"
 
 #. gtk_widget_show (GTK_WIDGET (self->dev_label));
 #. debug_bindtextdomain();
-#: ../settings/mixer-settingsbox.gob:132 mixer-settingsbox.gob:132
+#: ../settings/mixer-settingsbox.gob:136 mixer-settingsbox.gob:136
 msgid "Useful Controls"
 msgstr "볼륨 제어"
 
@@ -265,7 +265,7 @@ msgstr "볼륨 제어"
 msgid "Button Label|Sound"
 msgstr ""
 
-#: ../settings/sound.c:101 ../settings/sound.c:108
+#: ../settings/sound.c:102
 msgid "Sound"
 msgstr "소리"
 

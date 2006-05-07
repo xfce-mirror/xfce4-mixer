@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.90.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-05-06 04:19+0900\n"
+"POT-Creation-Date: 2006-05-07 17:52+0900\n"
 "PO-Revision-Date: 2006-01-15 22:12+0100\n"
 "Last-Translator: Piarres Beobide <pi@beobide.net>\n"
 "Language-Team: librezale.org <librezale@librezale.org>\n"
@@ -247,17 +247,17 @@ msgstr "NAgusia-Izandaiteke:"
 msgid "When clicked"
 msgstr "Klikatzerakoan"
 
-#: ../settings/mixer-settingsbox.gob:124 mixer-settingsbox.gob:124
+#: ../settings/mixer-settingsbox.gob:128 mixer-settingsbox.gob:128
 msgid "Device"
 msgstr "Gailua"
 
-#: ../settings/mixer-settingsbox.gob:127 mixer-settingsbox.gob:127
+#: ../settings/mixer-settingsbox.gob:131 mixer-settingsbox.gob:131
 msgid "None"
 msgstr "Batez"
 
 #. gtk_widget_show (GTK_WIDGET (self->dev_label));
 #. debug_bindtextdomain();
-#: ../settings/mixer-settingsbox.gob:132 mixer-settingsbox.gob:132
+#: ../settings/mixer-settingsbox.gob:136 mixer-settingsbox.gob:136
 msgid "Useful Controls"
 msgstr "Kontrol erabilgarriak"
 
@@ -266,7 +266,7 @@ msgstr "Kontrol erabilgarriak"
 msgid "Button Label|Sound"
 msgstr "Soinua"
 
-#: ../settings/sound.c:101 ../settings/sound.c:108
+#: ../settings/sound.c:102
 msgid "Sound"
 msgstr "Soinua"
 

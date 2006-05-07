@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.90.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-05-06 04:19+0900\n"
+"POT-Creation-Date: 2006-05-07 17:52+0900\n"
 "PO-Revision-Date: 2006-03-30 02:36+0300\n"
 "Last-Translator: Phan Vinh Thinh <teppi@vnlinux.org>\n"
 "Language-Team: Vietnamese <none@li.org>\n"
@@ -247,17 +247,17 @@ msgstr "Chính:"
 msgid "When clicked"
 msgstr "Khi nhấn"
 
-#: ../settings/mixer-settingsbox.gob:124 mixer-settingsbox.gob:124
+#: ../settings/mixer-settingsbox.gob:128 mixer-settingsbox.gob:128
 msgid "Device"
 msgstr "Thiết bị"
 
-#: ../settings/mixer-settingsbox.gob:127 mixer-settingsbox.gob:127
+#: ../settings/mixer-settingsbox.gob:131 mixer-settingsbox.gob:131
 msgid "None"
 msgstr "Không"
 
 #. gtk_widget_show (GTK_WIDGET (self->dev_label));
 #. debug_bindtextdomain();
-#: ../settings/mixer-settingsbox.gob:132 mixer-settingsbox.gob:132
+#: ../settings/mixer-settingsbox.gob:136 mixer-settingsbox.gob:136
 msgid "Useful Controls"
 msgstr "Các điều khiển hữu dụng"
 
@@ -266,7 +266,7 @@ msgstr "Các điều khiển hữu dụng"
 msgid "Button Label|Sound"
 msgstr ""
 
-#: ../settings/sound.c:101 ../settings/sound.c:108
+#: ../settings/sound.c:102
 msgid "Sound"
 msgstr "Âm thanh"
 
