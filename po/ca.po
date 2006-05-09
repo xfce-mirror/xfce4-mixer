@@ -1,218 +1,186 @@
 # translation of ca.po to Catalan
 # Copyright (C) 2003-2006 The Xfce development team.
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the
+# xfce4-mixer package.
 #
 # Pau Rul·lan Ferragut <paurullan@bulma.net> 2005, 2006.
+# Carles Muñoz Gorriz <carlesmu@internuatas.org>, 2006.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.90.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-05-07 17:52+0900\n"
-"PO-Revision-Date: 2006-04-02 22:26+0200\n"
-"Last-Translator: Pau Rul·lan Ferragut <paurullan@bulma.net>\n"
+"PO-Revision-Date: 2006-05-09 16:54+0200\n"
+"Last-Translator: Carles Muñoz Gorriz <carlesmu@internautas.org>\n"
 "Language-Team: Catalan\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: KBabel 1.11.2\n"
 
 #: ../lib/trans.c:36
-#, fuzzy
 msgid "Vol"
 msgstr "Volum"
 
 #. Master
 #: ../lib/trans.c:37
-#, fuzzy
 msgid "Pcm"
 msgstr "Pcm"
 
 #. PCM output
 #: ../lib/trans.c:38
-#, fuzzy
 msgid "Spkr"
 msgstr "Altaveu"
 
 #. Internal speaker?
 #: ../lib/trans.c:39
-#, fuzzy
 msgid "Line"
 msgstr "Línia"
 
 #. Line in
 #: ../lib/trans.c:40
-#, fuzzy
 msgid "Mic"
 msgstr "Mic"
 
 #. Mic in
 #: ../lib/trans.c:41
-#, fuzzy
 msgid "CD"
 msgstr "CD"
 
 #. CD in
 #: ../lib/trans.c:42
-#, fuzzy
 msgid "Bass"
-msgstr "Bass"
+msgstr "Baixos"
 
 #: ../lib/trans.c:43
-#, fuzzy
 msgid "Trebl"
-msgstr "To"
+msgstr "Trebl"
 
 #: ../lib/trans.c:44
-#, fuzzy
 msgid "Synth"
 msgstr "Sintetitzador"
 
 #: ../lib/trans.c:45
-#, fuzzy
 msgid "Mix"
 msgstr "Mescla"
 
 #: ../lib/trans.c:46
-#, fuzzy
 msgid "Pcm2"
 msgstr "Pcm2"
 
 #: ../lib/trans.c:47
-#, fuzzy
 msgid "Rec"
 msgstr "Rec"
 
 #: ../lib/trans.c:48
-#, fuzzy
 msgid "IGain"
 msgstr "IGain"
 
 #: ../lib/trans.c:49
-#, fuzzy
 msgid "OGain"
 msgstr "OGain"
 
 #: ../lib/trans.c:50
-#, fuzzy
 msgid "Line1"
 msgstr "Línia1"
 
 #: ../lib/trans.c:51
-#, fuzzy
 msgid "Line2"
 msgstr "Línia2"
 
 #: ../lib/trans.c:52
-#, fuzzy
 msgid "Line3"
 msgstr "Línia3"
 
 #: ../lib/trans.c:53
-#, fuzzy
 msgid "Digital1"
 msgstr "Digital1"
 
 #: ../lib/trans.c:54
-#, fuzzy
 msgid "Digital2"
 msgstr "Digital2"
 
 #: ../lib/trans.c:55
-#, fuzzy
 msgid "Digital3"
 msgstr "Digital3"
 
 #: ../lib/trans.c:56
-#, fuzzy
 msgid "PhoneIn"
-msgstr "Línia de telèfon"
+msgstr "PhoneIn"
 
 #: ../lib/trans.c:57
-#, fuzzy
 msgid "PhoneOut"
-msgstr "Sortida de telèfon"
+msgstr "PhoneOut"
 
 #: ../lib/trans.c:58
-#, fuzzy
 msgid "Video"
 msgstr "Vídeo"
 
 #: ../lib/trans.c:59
-#, fuzzy
 msgid "Radio"
 msgstr "Ràdio"
 
 #: ../lib/trans.c:60
-#, fuzzy
 msgid "Monitor"
 msgstr "Monitor"
 
 #: ../lib/trans.c:61
-#, fuzzy
 msgid "RecSelect"
 msgstr "RecSelect"
 
 #. Device
 #. Label
 #: ../lib/trans.c:77
-#, fuzzy
 msgid "A3.AnalogIn"
-msgstr "A3 (297 x 420 mm)"
+msgstr "A3.AnalogIn"
 
 #. Analog In
 #: ../lib/trans.c:78
-#, fuzzy
 msgid "A3.AnalogOut"
-msgstr "A3 (297 x 420 mm)"
+msgstr "A3.AnalogOut"
 
 #. Analog Out
 #: ../lib/trans.c:79
-#, fuzzy
 msgid "A3.AnalogOut2"
-msgstr "A3 (297 x 420 mm)"
+msgstr "A3.AnalogOut2"
 
 #. Analog Out 2
 #. Interface
 #: ../lib/trans.c:81
-#, fuzzy
 msgid "A3.CameraMic"
-msgstr "A3 (297 x 420 mm)"
+msgstr "A3.CàmeraMic"
 
 #. Camera Mic
 #: ../lib/trans.c:82
-#, fuzzy
 msgid "A3.Microphone"
-msgstr "A3 (297 x 420 mm) Micròfon"
+msgstr "A3.Micròfon "
 
 #. Microphone
 #: ../lib/trans.c:83
-#, fuzzy
 msgid "A3.LineIn"
-msgstr "A3 (297 x 420 mm)"
+msgstr "A3.LíniaIn"
 
 #. Line In
 #: ../lib/trans.c:84
-#, fuzzy
 msgid "A3.DAC1In"
-msgstr "A3 (297 x 420 mm)"
+msgstr "A3.DAC1In"
 
 #. DAC1 In
 #: ../lib/trans.c:85
-#, fuzzy
 msgid "A3.DAC2In"
-msgstr "A3 (297 x 420 mm)"
+msgstr "A3.DAC2In"
 
 #. DAC2 In
 #: ../lib/trans.c:86
-#, fuzzy
 msgid "A3.Speaker"
-msgstr "A3 (297 x 420 mm) Orador"
+msgstr "A3.Altaveu"
 
 #. Speaker/Line Out
 #: ../lib/trans.c:87
-#, fuzzy
 msgid "A3.LineOut2"
-msgstr "A3 (297 x 420 mm)"
+msgstr "A3.LíniaOut2"
 
 #: ../lib/vc_alsa.c:99
 #, c-format
@@ -237,208 +205,177 @@ msgstr "alsa: el carregador del mesclador ha mostrat l'error: %s: %s\n"
 #: ../lib/vc_alsa.c:136
 #, c-format
 msgid "alsa: Unable to find simple control '%s',%i\n"
-msgstr "alsa: no s'ha pogut trobar un control senzill '%s', %i\n"
+msgstr "alsa: no s'ha pogut trobar un control senzill «%s», %i\n"
 
 #: ../lib/vc_oss.c:158
-#, fuzzy
 msgid "oss: No master volume"
-msgstr "No volum"
+msgstr "oss: No hi és el control principal de volum"
 
 #: ../panel-plugin/launcher-entry.c:75
-#, fuzzy
 msgid "Run in Terminal"
-msgstr "Ejecutar po Terminal"
+msgstr "Executar en un terminal"
 
 #: ../panel-plugin/launcher-entry.c:80
-#, fuzzy
 msgid "Use Startup Notification"
-msgstr "Utilitza Inici Notificació"
+msgstr "Utilitzeu notificació d'inicialització"
 
 #: ../panel-plugin/launcher-entry.c:192 ../panel-plugin/plugin.c:342
-#, fuzzy, c-format
+#, c-format
 msgid "Could not run \"%s\""
-msgstr "No s'ha pogut executar \"%s\""
+msgstr "No s'ha pogut executar «%s»"
 
 #: ../panel-plugin/launcher-entry.c:194 ../panel-plugin/plugin.c:344
-#, fuzzy
 msgid "Xfce Panel"
 msgstr "Quadre"
 
 #: ../panel-plugin/plugin.c:271
-#, fuzzy, c-format
+#, c-format
 msgid "Volume: %d%%"
 msgstr "Volum: %d%%"
 
 #: ../panel-plugin/plugin.c:571
-#, fuzzy
 msgid "Could not save configuration"
-msgstr "no desa"
+msgstr "No s'ha pogut desar la configuració."
 
 #: mixer-prefbox.gob:177 ../src/mixer-profilebox.gob:88
 #: mixer-profilebox.gob:88
-#, fuzzy
 msgid "Device:"
 msgstr "Dispositiu:"
 
 #: mixer-prefbox.gob:178
 msgid "Wannabe Master:"
-msgstr ""
+msgstr "Nou control principal:"
 
 #: mixer-prefbox.gob:180
-#, fuzzy
 msgid "When clicked"
-msgstr "Quan"
+msgstr "Quan es fa clic"
 
 #: ../settings/mixer-settingsbox.gob:128 mixer-settingsbox.gob:128
-#, fuzzy
 msgid "Device"
 msgstr "Dispositiu"
 
 #: ../settings/mixer-settingsbox.gob:131 mixer-settingsbox.gob:131
-#, fuzzy
 msgid "None"
 msgstr "Cap"
 
 #. gtk_widget_show (GTK_WIDGET (self->dev_label));
 #. debug_bindtextdomain();
 #: ../settings/mixer-settingsbox.gob:136 mixer-settingsbox.gob:136
-#, fuzzy
 msgid "Useful Controls"
-msgstr "Elements de control"
+msgstr "Controls útils"
 
 #. the button label in the xfce-mcs-manager dialog
 #: ../settings/sound.c:81
 msgid "Button Label|Sound"
-msgstr ""
+msgstr "So"
 
 #: ../settings/sound.c:102
-#, fuzzy
 msgid "Sound"
 msgstr "So"
 
 #: ../src/menus.c:12
-#, fuzzy
 msgid "/_File"
 msgstr "/_Fitxer"
 
 #: ../src/menus.c:13
-#, fuzzy
 msgid "/File/_Options"
-msgstr "Fitxer Opcions"
+msgstr "/Fitxer/_Opcions"
 
 #: ../src/menus.c:14
-#, fuzzy
 msgid "/File/_Exit"
-msgstr "Fitxer Surt"
+msgstr "/Fitxer/_Surt"
 
 #: ../src/menus.c:15
-#, fuzzy
 msgid "/_View"
-msgstr "Visualitza"
+msgstr "/_Visualitza"
 
 #: ../src/menus.c:16
-#, fuzzy
 msgid "/View/_Manage"
-msgstr "Visualitza Gestiona"
+msgstr "/Visualitza/Gestio_na"
 
 #: ../src/menus.c:17
-#, fuzzy
 msgid "/_Help"
-msgstr "Ajuda"
+msgstr "/A_juda"
 
 #: ../src/menus.c:18
-#, fuzzy
 msgid "/Help/_Info"
-msgstr "Ajuda Informació"
+msgstr "/Ajuda/_Informació"
 
 #: ../src/mixer-info.gob:28 mixer-info.gob:28
-#, fuzzy
 msgid ""
 "This is xfce4-mixer, a volume control program.\n"
 "It is released under the GPL-2 License which you find in the source "
 "directory.\n"
 "No warranty in any way."
 msgstr ""
-"és a volum tecla de control programa és   GPL Llicència tu cerca po   font "
-"po qualsevol."
+"Això és l'xfce4-mixer, un programa pel control del volum.\n"
+"Està distribuït amb la llicència GPL-2, que podeu trobar en el directori\n"
+"font.\n"
+"Sense garantia de cap tipus."
 
 #: ../src/mixer-profilebox-detail.gob:163 mixer-profilebox-detail.gob:163
-#, fuzzy
 msgid "Control"
 msgstr "Control"
 
 #: ../src/mixer-profilebox-detail.gob:166 mixer-profilebox-detail.gob:166
-#, fuzzy
 msgid "Type"
 msgstr "Tipus"
 
 #: ../src/mixer-profilebox-detail.gob:178 mixer-profilebox-detail.gob:178
-#, fuzzy
 msgid "Up"
 msgstr "Amunt"
 
 #: ../src/mixer-profilebox-detail.gob:181 mixer-profilebox-detail.gob:181
-#, fuzzy
 msgid "Down"
 msgstr "Avall"
 
 #: ../src/mixer-profilebox-detail.gob:188 mixer-profilebox-detail.gob:188
-#, fuzzy
 msgid "Move Entry Up"
-msgstr "Mou Entrada Amunt"
+msgstr "Mou l'entrada cap amunt"
 
 #: ../src/mixer-profilebox-detail.gob:191 mixer-profilebox-detail.gob:191
-#, fuzzy
 msgid "Move Entry Down"
-msgstr "Mou Entrada Avall"
+msgstr "Mou l'entrada cap avall"
 
 #: ../src/mixer-profilebox-detail.gob:200 mixer-profilebox-detail.gob:200
-#, fuzzy
 msgid "Profile Name:"
 msgstr "Nom del perfil:"
 
 #: ../src/mixer-profilebox-detail.gob:382
 #: ../src/mixer-profilebox-detail.gob:447 mixer-profilebox-detail.gob:382
 #: mixer-profilebox-detail.gob:447
-#, fuzzy
 msgid "<unknown>"
 msgstr "<desconegut>"
 
 #: ../src/mixer-profilebox-detail.gob:384
 #: ../src/mixer-profilebox-detail.gob:449 mixer-profilebox-detail.gob:384
 #: mixer-profilebox-detail.gob:449
-#, fuzzy
 msgid "<slider>"
 msgstr "<desplaçador>"
 
 #: ../src/mixer-profilebox-detail.gob:385
 #: ../src/mixer-profilebox-detail.gob:450 mixer-profilebox-detail.gob:385
 #: mixer-profilebox-detail.gob:450
-#, fuzzy
 msgid "<onoff>"
 msgstr "<encén-apaga>"
 
 #: ../src/mixer-profilebox-detail.gob:386
 #: ../src/mixer-profilebox-detail.gob:451 mixer-profilebox-detail.gob:386
 #: mixer-profilebox-detail.gob:451
-#, fuzzy
 msgid "<select>"
-msgstr "<elecciona>"
+msgstr "<selecciona>"
 
 #: ../src/mixer-profilebox.gob:142 mixer-profilebox.gob:142
-#, fuzzy
 msgid "Create new profile"
-msgstr "Crea nou"
+msgstr "Crea un perfil nou"
 
 #: ../src/mixer-profilebox.gob:151 mixer-profilebox.gob:151
-#, fuzzy
 msgid "Delete this profile"
-msgstr "Suprimeix aquest"
+msgstr "Elimina aquest perfil"
 
 #: ../src/mixer-profilebox.gob:170 mixer-profilebox.gob:170
-#, fuzzy
 msgid "Profile"
-msgstr "Mesura de rendiment"
+msgstr "Perfil"
 
 #: ../src/mixer-profilebox.gob:374 mixer-profilebox.gob:374
 #, c-format
@@ -448,7 +385,7 @@ msgstr "Segur que voleu suprimir els %d perfils?"
 #: ../src/mixer-profilebox.gob:377 mixer-profilebox.gob:377
 #, c-format
 msgid "Really delete profile \"%s\"?"
-msgstr "Segur que voleu suprimir el perfil \"%s\"?"
+msgstr "Segur que voleu suprimir el perfil «%s»?"
 
 #: ../src/mixer-profilebox.gob:491 mixer-profilebox.gob:491
 #, c-format
@@ -456,48 +393,40 @@ msgid "%s - New"
 msgstr "%s - Nou"
 
 #: ../src/mixer-profilebox.gob:528 mixer-profilebox.gob:528
-#, fuzzy
 msgid "A profile needs a name"
-msgstr "A a nom"
+msgstr "El perfil ha de tenir un nom"
 
 #: ../src/mixer-profilebox.gob:542 mixer-profilebox.gob:542
-#, fuzzy
 msgid "A profile with that name already exists"
-msgstr "A amb nom existeix"
+msgstr "Ja existeix un perfil amb aquest nom"
 
 #: ../src/mixer-profiles.gob:262 ../src/mixer-profiles.gob:269
 #: mixer-profiles.gob:262 mixer-profiles.gob:269
-#, fuzzy, c-format
+#, c-format
 msgid "profile%d"
 msgstr "perfil%d"
 
 #: ../src/mixer-view.gob:259 mixer-view.gob:259
-#, fuzzy
 msgid "Show Switches"
-msgstr "Mostra Commutadors"
+msgstr "Mostra els commutadors"
 
 #: ../src/mixer-view.gob:260 mixer-view.gob:260
-#, fuzzy
 msgid "Hide Switches"
-msgstr "Oculta Commutadors"
+msgstr "Amaga els commutadors"
 
 #: ../src/mixer-window.gob:188 mixer-window.gob:188
 #: ../panel-plugin/xfce4-mixer.desktop.in.in.h:2
-#, fuzzy
 msgid "Volume Control"
-msgstr "Control del volum"
+msgstr "Control de volum"
 
 #: ../panel-plugin/xfce4-mixer.desktop.in.in.h:1
-#, fuzzy
 msgid "Change the Volume"
-msgstr "Canvia   Volum"
+msgstr "Ajusta el volum"
 
 #: ../settings/xfce-mixer-settings.desktop.in.h:1
-#, fuzzy
 msgid "Mixer Settings"
-msgstr "Mesclador: Paràmetres"
+msgstr "Paràmetres del mesclador"
 
 #: ../settings/xfce-mixer-settings.desktop.in.h:2
-#, fuzzy
 msgid "Xfce 4 Mixer Settings"
-msgstr "Mesclador: Paràmetres"
+msgstr "Paràmetres del mesclador d'Xfce4"
