@@ -2,14 +2,15 @@
 # Copyright (C) 2003-2006 The Xfce development team.
 # This file is distributed under the same license as the xfce4-mixer package.
 # Piotr Maliński <admin@rk.edu.pl> 2005, 2006.
+# Szymon Kałasz <szymon_maestro@gazeta.pl>, 2006.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.90.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-05-07 17:52+0900\n"
-"PO-Revision-Date: 2005-09-24 06:03+0900\n"
-"Last-Translator: Piotr Maliński <admin@rk.edu.pl>\n"
+"PO-Revision-Date: 2006-05-07 19:50+0200\n"
+"Last-Translator: Szymon Kałasz <szymon_maestro@gazeta.pl>\n"
 "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -107,7 +108,7 @@ msgstr "Słuchawki Wejście"
 
 #: ../lib/trans.c:57
 msgid "PhoneOut"
-msgstr "Sluchawki Wyjście"
+msgstr "Słuchawki Wyjście"
 
 #: ../lib/trans.c:58
 msgid "Video"
@@ -200,7 +201,7 @@ msgstr "alsa: Błąd ładowania miksera: %s: %s\n"
 #: ../lib/vc_alsa.c:136
 #, c-format
 msgid "alsa: Unable to find simple control '%s',%i\n"
-msgstr "alsa: Nie mogę znaleść prostej kontrolki '%s',%i\n"
+msgstr "alsa: Nie mogę znaleźć prostej kontrolki '%s',%i\n"
 
 #: ../lib/vc_oss.c:158
 msgid "oss: No master volume"
@@ -239,7 +240,7 @@ msgstr "Urządzenie:"
 
 #: mixer-prefbox.gob:178
 msgid "Wannabe Master:"
-msgstr "Porządany Master:"
+msgstr "Pożądany Master:"
 
 #: mixer-prefbox.gob:180
 msgid "When clicked"
@@ -286,7 +287,7 @@ msgstr "/_Zobacz"
 
 #: ../src/menus.c:16
 msgid "/View/_Manage"
-msgstr "/Zovacz/_Edytuj"
+msgstr "/Zobacz/_Edytuj"
 
 #: ../src/menus.c:17
 msgid "/_Help"
