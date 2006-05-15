@@ -91,6 +91,10 @@ static void show_developer_hint(void)
 	last_control = snd_mixer_last_elem (handle);
 
 	fprintf(stderr, _("error: no master control found. I even tried to guess wildly, but to no avail.\n"));
+	if (first_control == NULL) {
+		return;
+	}
+	
 	fprintf(stderr, _("info: Developer information fallows: (send E-Mail to Developer with that)\n"));
 
 	current_control = first_control;
