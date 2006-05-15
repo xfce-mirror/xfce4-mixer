@@ -78,6 +78,42 @@ static char const* master_ids[MAX_MASTERS] = {
 	NULL,
 };
 
+static void show_developer_hint(void)
+{
+	snd_mixer_elem_t*                first_control;
+	snd_mixer_elem_t*                last_control;
+	snd_mixer_elem_t*                current_control;
+	gboolean                         has_playback;
+	char const*                      control_name;
+	int                              control_index;
+
+	first_control = snd_mixer_first_elem (handle);
+	last_control = snd_mixer_last_elem (handle);
+
+	fprintf(stderr, _("error: no master found. I even tried to guess wildly, but to no avail.\n"));
+	fprintf(stderr, _("info: Developer information fallows: (send E-Mail to Developer with that)\n"));
+
+	current_control = first_control;
+	while (current_control != NULL) {
+		control_name = snd_mixer_selem_get_name (current_control);
+		control_index = snd_mixer_selem_get_index (current_control);
+
+		has_playback = snd_mixer_selem_has_common_volume(elem)
+		             ||  snd_mixer_selem_has_playback_volume(elem);
+
+		fprintf(stderr, "%s,%d", control_name, control_index);
+
+		if (has_playback) {
+			fprintf(stderr, "  <--- ");
+			fprintf(stderr, _("hint hint"));
+		}
+		fprintf(stderr, "\n");
+
+		current_control = snd_mixer_elem_next (current_control);
+	}
+	fprintf(stderr, _("info: End of developer information\n"));
+}
+
 static void find_master(void)
 {
 	int                     err;
@@ -146,7 +182,9 @@ static void find_master(void)
 #endif
 	}
 
-        if (elem == NULL) {
+	if (elem == NULL) {
+		show_developer_hint ();
+
 		snd_mixer_close(handle);
 		handle = NULL;
 		return;
