@@ -129,6 +129,17 @@ static void find_master(void)
 		snd_mixer_selem_id_set_name(master_selectors[i], master_ids[i]);
 	
 		elem = snd_mixer_find_selem(handle, master_selectors[i]);
+
+		if (elem != NULL) {
+			if (!snd_mixer_selem_has_common_volume(elem)
+			  && !snd_mixer_selem_has_playback_volume(elem)
+			) { /* no playback device */
+				elem = NULL;
+			}
+		}
+
+
+
 #ifdef TRACE
 		error(_("alsa: Unable to find simple control '%s',%i\n"),
 		snd_mixer_selem_id_get_name(master_selectors[i]), snd_mixer_selem_id_get_index(master_selectors[i]));
