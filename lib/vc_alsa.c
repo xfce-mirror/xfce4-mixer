@@ -102,8 +102,8 @@ static void show_developer_hint(void)
 		control_name = snd_mixer_selem_get_name (current_control);
 		control_index = snd_mixer_selem_get_index (current_control);
 
-		has_playback = snd_mixer_selem_has_common_volume(elem)
-		             ||  snd_mixer_selem_has_playback_volume(elem);
+		has_playback = snd_mixer_selem_has_common_volume(current_control)
+		             ||  snd_mixer_selem_has_playback_volume(current_control);
 
 		fprintf(stderr, "* %s,%d", control_name, control_index);
 
