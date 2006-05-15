@@ -95,7 +95,7 @@ static void show_developer_hint(void)
 		return;
 	}
 	
-	fprintf(stderr, _("alsa: info: developer information fallows: (send E-Mail to Developer with that)\n"));
+	fprintf(stderr, _("alsa: info: developer information follows: (send E-Mail to Developer with that)\n"));
 
 	current_control = first_control;
 	while (current_control != NULL) {
