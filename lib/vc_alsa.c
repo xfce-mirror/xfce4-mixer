@@ -101,7 +101,7 @@ static void show_developer_hint(void)
 		has_playback = snd_mixer_selem_has_common_volume(elem)
 		             ||  snd_mixer_selem_has_playback_volume(elem);
 
-		fprintf(stderr, "%s,%d", control_name, control_index);
+		fprintf(stderr, "* %s,%d", control_name, control_index);
 
 		if (has_playback) {
 			fprintf(stderr, "  <--- ");
