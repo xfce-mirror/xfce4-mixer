@@ -74,7 +74,7 @@ static char const* master_ids[MAX_MASTERS] = {
 	"Master",
 	"PCM",
 	"Analog Front",
-	"Speaker Playback Volume",
+	"Speaker",
 	NULL,
 };
 
