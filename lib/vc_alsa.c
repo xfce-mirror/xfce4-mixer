@@ -68,33 +68,30 @@ static snd_mixer_t	*handle = NULL;
 static snd_mixer_elem_t *elem = NULL;
 static char card[64] = "default";
 
+#define MAX_MASTERS 10
+
+static char const* master_ids[MAX_MASTERS] = {
+	"Master",
+	"PCM",
+	"Analog Front",
+	"Speaker Playback Volume",
+	NULL,
+};
+
 static void find_master(void)
 {
-	int		err;
-	snd_mixer_selem_id_t	*sid, *sid2, *sid3;
-	char buf[12] = "Master";
-	char buf2[12] = "PCM";
-	char buf3[13] = "Analog Front";
-	
+	int                     err;
+	int                     i;
+
+	snd_mixer_selem_id_t*   master_selectors[MAX_MASTERS] = { NULL };
+
 	elem = NULL;
-
-	snd_mixer_selem_id_alloca(&sid);
-	snd_mixer_selem_id_set_index(sid, 0);
-	snd_mixer_selem_id_set_name(sid, buf);
-
-	snd_mixer_selem_id_alloca(&sid2);
-	snd_mixer_selem_id_set_index(sid2, 0);
-	snd_mixer_selem_id_set_name(sid2, buf2);
-
-	snd_mixer_selem_id_alloca(&sid3);
-	snd_mixer_selem_id_set_index(sid2, 0);
-	snd_mixer_selem_id_set_name(sid2, buf3);
 
 	if (handle != NULL) {
 		snd_mixer_close(handle);
 		handle = NULL;
 	}
-	
+
 	if ((err = snd_mixer_open(&handle, 0)) < 0 || !handle) {
 		error(_("alsa: Mixer %s open error: %s\n"), card, snd_strerror(err));
 		return;
@@ -124,18 +121,21 @@ static void find_master(void)
 		handle = NULL;
 		return;
 	}
-	elem = snd_mixer_find_selem(handle, sid);
-	if (!elem) {
-		elem = snd_mixer_find_selem(handle, sid2);
-        }
-	if (!elem) {
-		elem = snd_mixer_find_selem(handle, sid3);
-        }
-        if (!elem) {
-#ifdef DEBUG
+
+
+	for (i = 0; elem == NULL && i < MAX_MASTERS && master_ids[i] != NULL; i++) {
+		snd_mixer_selem_id_alloca(&master_selectors[i]);
+		snd_mixer_selem_id_set_index(master_selectors[i], 0);
+		snd_mixer_selem_id_set_name(master_selectors[i], master_ids[i]);
+	
+		elem = snd_mixer_find_selem(handle, master_selectors[i]);
+#ifdef TRACE
 		error(_("alsa: Unable to find simple control '%s',%i\n"),
-		snd_mixer_selem_id_get_name(sid), snd_mixer_selem_id_get_index(sid));
+		snd_mixer_selem_id_get_name(master_selectors[i]), snd_mixer_selem_id_get_index(master_selectors[i]));
 #endif
+	}
+
+        if (elem == NULL) {
 		snd_mixer_close(handle);
 		handle = NULL;
 		return;
