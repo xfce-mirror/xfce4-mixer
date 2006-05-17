@@ -2,14 +2,14 @@
 # Copyright (C) 2003-2006 The Xfce development team.
 # This file is distributed under the same license as the xfce4-mixer package.
 # Juha Kautto <juha@xfce.org>, 2004.
-# Jari Rahkonen <jari.rahkonen@pp1.inet.fi>, 2005.
+# Jari Rahkonen <jari.rahkonen@pp1.inet.fi>, 2005-2006.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.90.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-05-17 12:51+0900\n"
-"PO-Revision-Date: 2006-05-01 15:27+0300\n"
+"POT-Creation-Date: 2006-05-17 17:43+0300\n"
+"PO-Revision-Date: 2006-05-17 17:43+0300\n"
 "Last-Translator: Jari Rahkonen <jari.rahkonen@pp1.inet.fi>\n"
 "Language-Team: Finnish <translation-team-fi@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -184,6 +184,7 @@ msgid ""
 "alsa: error: master control not found. I even tried to guess wildly, but to "
 "no avail.\n"
 msgstr ""
+"alsa: virhe: Pääsäädintä ei löytynyt. Arvaamisestakaan ei ollut apua.\n"
 
 #: ../lib/vc_alsa.c:98
 #, c-format
@@ -191,16 +192,17 @@ msgid ""
 "alsa: info: developer information follows: (send E-Mail to Developer with "
 "that)\n"
 msgstr ""
+"alsa: tietoa: Seuraa tietoa kehittäjälle: (lähetä se hänelle sähköpostilla)\n"
 
 #: ../lib/vc_alsa.c:112
 #, c-format
 msgid "hint hint"
-msgstr ""
+msgstr "vihje vihje"
 
 #: ../lib/vc_alsa.c:118
 #, c-format
 msgid "alsa: info: end of developer information\n"
-msgstr ""
+msgstr "alsa: tietoa: kehittäjän tieto päättyy\n"
 
 #: ../lib/vc_alsa.c:136
 #, c-format
