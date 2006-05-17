@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.90.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-05-07 17:52+0900\n"
+"POT-Creation-Date: 2006-05-17 12:51+0900\n"
 "PO-Revision-Date: 2006-05-01 09:19+0100\n"
 "Last-Translator: SZERVÑC Attila <sas@321.hu>\n"
 "Language-Team: Hungarian <translation-team-hu@lists.sourceforge.net>\n"
@@ -180,27 +180,51 @@ msgstr "A3.Hangszóró"
 msgid "A3.LineOut2"
 msgstr "A3.VonalKi2"
 
-#: ../lib/vc_alsa.c:99
+#: ../lib/vc_alsa.c:93
+#, c-format
+msgid ""
+"alsa: error: master control not found. I even tried to guess wildly, but to "
+"no avail.\n"
+msgstr ""
+
+#: ../lib/vc_alsa.c:98
+#, c-format
+msgid ""
+"alsa: info: developer information follows: (send E-Mail to Developer with "
+"that)\n"
+msgstr ""
+
+#: ../lib/vc_alsa.c:112
+#, c-format
+msgid "hint hint"
+msgstr ""
+
+#: ../lib/vc_alsa.c:118
+#, c-format
+msgid "alsa: info: end of developer information\n"
+msgstr ""
+
+#: ../lib/vc_alsa.c:136
 #, c-format
 msgid "alsa: Mixer %s open error: %s\n"
 msgstr "alsa: Hiba a %s keverő megnyitása közben: %s\n"
 
-#: ../lib/vc_alsa.c:104
+#: ../lib/vc_alsa.c:141
 #, c-format
 msgid "alsa: Mixer attach %s error: %s\n"
 msgstr "alsa: Hiba a keverő %s-re csatlakoztatása közben: %s\n"
 
-#: ../lib/vc_alsa.c:112
+#: ../lib/vc_alsa.c:149
 #, c-format
 msgid "alsa: Mixer register error: %s\n"
 msgstr "alsa: Hiba a keverő regisztrálása közben: %s\n"
 
-#: ../lib/vc_alsa.c:121
+#: ../lib/vc_alsa.c:158
 #, c-format
 msgid "alsa: Mixer load error: %s: %s\n"
 msgstr "alsa: Hiba a keverő betöltése közben: %s: %s\n"
 
-#: ../lib/vc_alsa.c:136
+#: ../lib/vc_alsa.c:184
 #, c-format
 msgid "alsa: Unable to find simple control '%s',%i\n"
 msgstr "alsa: Nem található az egyszerű '%s' vezérlő, %i\n"
