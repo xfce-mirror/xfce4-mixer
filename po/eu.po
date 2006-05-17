@@ -185,23 +185,26 @@ msgid ""
 "alsa: error: master control not found. I even tried to guess wildly, but to "
 "no avail.\n"
 msgstr ""
-
+"alsa: erroea: ez da kontrol nagusia aurkitu. Ausartki eskuratzen ere saiatu da "
+"baina ez dago eskuragrri.\n"
 #: ../lib/vc_alsa.c:98
 #, c-format
 msgid ""
 "alsa: info: developer information follows: (send E-Mail to Developer with "
 "that)\n"
 msgstr ""
+"alsa: info: garatzaileen informazio ondoren: (bida ePosta Garatzaileari "
+"honekin)\n"
 
 #: ../lib/vc_alsa.c:112
 #, c-format
 msgid "hint hint"
-msgstr ""
+msgstr "aholku aholku"
 
 #: ../lib/vc_alsa.c:118
 #, c-format
 msgid "alsa: info: end of developer information\n"
-msgstr ""
+msgstr "alsa: info: garatzaile informazio amaiera\n"
 
 #: ../lib/vc_alsa.c:136
 #, c-format
