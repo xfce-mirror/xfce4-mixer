@@ -1,6 +1,10 @@
+2006-05-18  Daichi Kawahata <daichi@xfce.org>
+
+	* ja.po: Updated Japanese translations.
+
 2006-05-17  Piarres Beobide <pi@beobide.net>
 
-        * eu.po: Basque translation update.
+	* eu.po: Basque translation update.
 
 2006-05-17  Daichi Kawahata <daichi@xfce.org>
 
@@ -13,7 +17,7 @@
 	* pl.po: Updated Polish translations by Szymon Kalasz
 	  <szymon_maestro@gazeta.pl>.
 
-2006-05-09  Pau Rul·lan Ferragut <paurullan@bulma.net>
+2006-05-09  Pau Rul-lan Ferragut <paurullan@bulma.net>
 
 	* ca.po: Update catalan translation by
 	Carles Muñoz Gorriz <carlesmu@internuatas.org>
@@ -125,7 +129,7 @@
 	* fi.po: Updated Finnish translations by Jari Rahkonen
 	  <jari.rahkonen@pp1.inet.fi>.
 
-2006-04-02  Pau Rullan Ferragut <paurullan@bulma.net>
+2006-04-02  Pau Rul-lan Ferragut <paurullan@bulma.net>
 
 	* ca.po: [i18n] catalan little of work on catalan translations
 
@@ -145,7 +149,7 @@
 	  Andrey Fedoseev <andrey.fedoseev@gmail.com>,
 	  Sergey Fedoseev <fedoseev.sergey@gmail.com>.
 
-2006-03-19  Pau Rullan Ferragut <paurullan@bulma.net>
+2006-03-19  Pau Rul-lan Ferragut <paurullan@bulma.net>
 
 	* ca.po: [i18n] catalan seems a lot of work but they all are fuzzy
 
@@ -212,7 +216,7 @@
 	* pl.po: Updated Polish translations by Piotr Malinski
 	  <riklaunim@gmail.com>.
 
-2006-01-08  Pau Rullan Ferragut <paurullan@bulma.net>
+2006-01-08  Pau Rul-lan Ferragut <paurullan@bulma.net>
 
 	* ca.po: little heading fixing
 
@@ -274,7 +278,7 @@
 	* ko.po: Updated Korean translations by ByungHyun Choi
 	  <byunghyun.choi@gmail.com>.
 
-2005-10-27  Pau Rullan Ferragut <paurullan@bulma.net>
+2005-10-27  Pau Rul-lan Ferragut <paurullan@bulma.net>
 
 	* ca.po: begin process to 4.4 work autotranslation of most of
 	  the actual po -- paurullan@bulma.net , ca translator
