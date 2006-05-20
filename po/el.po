@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.90.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-05-17 12:51+0900\n"
-"PO-Revision-Date: 2006-05-06 17:28+0200\n"
+"PO-Revision-Date: 2006-05-20 14:20+0200\n"
 "Last-Translator: Stavros Giannouris <stavrosg2002@freemail.gr>\n"
 "Language-Team: Greek <nls@tux.hellug.gr>\n"
 "MIME-Version: 1.0\n"
@@ -186,6 +186,8 @@ msgid ""
 "alsa: error: master control not found. I even tried to guess wildly, but to "
 "no avail.\n"
 msgstr ""
+"alsa: σφάλμα: ο κύριος ελεγκτής δε βρέθηκε. Έγινε προσπάθεια ελεύθερης "
+"εικασίας αλλά χωρίς αποτέλεσμα.\n"
 
 #: ../lib/vc_alsa.c:98
 #, c-format
@@ -193,16 +195,18 @@ msgid ""
 "alsa: info: developer information follows: (send E-Mail to Developer with "
 "that)\n"
 msgstr ""
+"alsa: πληροφορίες: ακολουθούν οι πληροφορίες ανάπτυξης: (στείλετε email "
+"στους προγραμματιστές με αυτό)\n"
 
 #: ../lib/vc_alsa.c:112
 #, c-format
 msgid "hint hint"
-msgstr ""
+msgstr "hint hint"
 
 #: ../lib/vc_alsa.c:118
 #, c-format
 msgid "alsa: info: end of developer information\n"
-msgstr ""
+msgstr "alsa: πληροφορίες: τέλος πληροφοριών ανάπτυξης\n"
 
 #: ../lib/vc_alsa.c:136
 #, c-format
