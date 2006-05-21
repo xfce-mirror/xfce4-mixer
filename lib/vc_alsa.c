@@ -498,6 +498,8 @@ static void vc_close_device()
 	
 	snd_mixer_close (handle); /* FIXME does this close all related stuff? */
 	handle = NULL;
+	
+	elem = NULL;
 }
 
 static GList *vc_get_device_list()
