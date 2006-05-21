@@ -259,6 +259,8 @@ class Xfce:Mixer:Settingsbox from Gtk:VBox {
 		if (cl)
 			vc_free_control_list (cl);
 
+		vc_close_device ();
+
 		TRACE ("fill right_box soon");
 		self_fill_right_box (self);
 		TRACE ("leave device_changed_cb");

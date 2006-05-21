@@ -485,28 +485,30 @@ xfce_mixer_settingsbox_device_changed_cb (XfceMixerSettingsbox * self)
 		if (cl)
 			vc_free_control_list (cl);
 
+		vc_close_device ();
+
 		TRACE ("fill right_box soon");
 		self_fill_right_box (self);
 		TRACE ("leave device_changed_cb");
 
 		mcs_manager_notify (self->manager, CHANNEL);
 	}}
-#line 495 "xfce-mixer-settingsbox.c"
+#line 497 "xfce-mixer-settingsbox.c"
 #undef __GOB_FUNCTION__
 
-#line 269 "mixer-settingsbox.gob"
+#line 271 "mixer-settingsbox.gob"
 void 
 xfce_mixer_settingsbox_devicelst_updated (XfceMixerSettingsbox * self)
-#line 501 "xfce-mixer-settingsbox.c"
+#line 503 "xfce-mixer-settingsbox.c"
 {
 #define __GOB_FUNCTION__ "Xfce:Mixer:Settingsbox::devicelst_updated"
-#line 269 "mixer-settingsbox.gob"
+#line 271 "mixer-settingsbox.gob"
 	g_return_if_fail (self != NULL);
-#line 269 "mixer-settingsbox.gob"
+#line 271 "mixer-settingsbox.gob"
 	g_return_if_fail (XFCE_IS_MIXER_SETTINGSBOX (self));
-#line 508 "xfce-mixer-settingsbox.c"
+#line 510 "xfce-mixer-settingsbox.c"
 {
-#line 270 "mixer-settingsbox.gob"
+#line 272 "mixer-settingsbox.gob"
 	
 		gint	i;
 		gint	cnt;
@@ -551,22 +553,22 @@ xfce_mixer_settingsbox_devicelst_updated (XfceMixerSettingsbox * self)
 		if (old_sel_device)
 			g_free (old_sel_device);
 	}}
-#line 555 "xfce-mixer-settingsbox.c"
+#line 557 "xfce-mixer-settingsbox.c"
 #undef __GOB_FUNCTION__
 
-#line 315 "mixer-settingsbox.gob"
+#line 317 "mixer-settingsbox.gob"
 void 
 xfce_mixer_settingsbox_reselect_device (XfceMixerSettingsbox * self)
-#line 561 "xfce-mixer-settingsbox.c"
+#line 563 "xfce-mixer-settingsbox.c"
 {
 #define __GOB_FUNCTION__ "Xfce:Mixer:Settingsbox::reselect_device"
-#line 315 "mixer-settingsbox.gob"
+#line 317 "mixer-settingsbox.gob"
 	g_return_if_fail (self != NULL);
-#line 315 "mixer-settingsbox.gob"
+#line 317 "mixer-settingsbox.gob"
 	g_return_if_fail (XFCE_IS_MIXER_SETTINGSBOX (self));
-#line 568 "xfce-mixer-settingsbox.c"
+#line 570 "xfce-mixer-settingsbox.c"
 {
-#line 316 "mixer-settingsbox.gob"
+#line 318 "mixer-settingsbox.gob"
 	
 		gint cnt;
 		gint i;
@@ -587,44 +589,44 @@ xfce_mixer_settingsbox_reselect_device (XfceMixerSettingsbox * self)
 			self_device_changed_cb (self);
 		}
 	}}
-#line 591 "xfce-mixer-settingsbox.c"
+#line 593 "xfce-mixer-settingsbox.c"
 #undef __GOB_FUNCTION__
 
-#line 337 "mixer-settingsbox.gob"
+#line 339 "mixer-settingsbox.gob"
 static gchar * 
 xfce_mixer_settingsbox_mcs_s_name (XfceMixerSettingsbox * self)
-#line 597 "xfce-mixer-settingsbox.c"
+#line 599 "xfce-mixer-settingsbox.c"
 {
 #define __GOB_FUNCTION__ "Xfce:Mixer:Settingsbox::mcs_s_name"
-#line 337 "mixer-settingsbox.gob"
+#line 339 "mixer-settingsbox.gob"
 	g_return_val_if_fail (self != NULL, (gchar * )0);
-#line 337 "mixer-settingsbox.gob"
+#line 339 "mixer-settingsbox.gob"
 	g_return_val_if_fail (XFCE_IS_MIXER_SETTINGSBOX (self), (gchar * )0);
-#line 604 "xfce-mixer-settingsbox.c"
+#line 606 "xfce-mixer-settingsbox.c"
 {
-#line 338 "mixer-settingsbox.gob"
+#line 340 "mixer-settingsbox.gob"
 	
 		if (!self->sel_device)
 			return NULL;
 
 		return g_strdup_printf (MIXER_USEFUL_FMT, self->sel_device);
 	}}
-#line 613 "xfce-mixer-settingsbox.c"
+#line 615 "xfce-mixer-settingsbox.c"
 #undef __GOB_FUNCTION__
 
-#line 345 "mixer-settingsbox.gob"
+#line 347 "mixer-settingsbox.gob"
 void 
 xfce_mixer_settingsbox_fill_right_box (XfceMixerSettingsbox * self)
-#line 619 "xfce-mixer-settingsbox.c"
+#line 621 "xfce-mixer-settingsbox.c"
 {
 #define __GOB_FUNCTION__ "Xfce:Mixer:Settingsbox::fill_right_box"
-#line 345 "mixer-settingsbox.gob"
+#line 347 "mixer-settingsbox.gob"
 	g_return_if_fail (self != NULL);
-#line 345 "mixer-settingsbox.gob"
+#line 347 "mixer-settingsbox.gob"
 	g_return_if_fail (XFCE_IS_MIXER_SETTINGSBOX (self));
-#line 626 "xfce-mixer-settingsbox.c"
+#line 628 "xfce-mixer-settingsbox.c"
 {
-#line 346 "mixer-settingsbox.gob"
+#line 348 "mixer-settingsbox.gob"
 	
 		gchar *n;
 		gchar *s;
@@ -698,22 +700,22 @@ xfce_mixer_settingsbox_fill_right_box (XfceMixerSettingsbox * self)
 		/*g_free (all);*/
 		TRACE ("leave fill");
 	}}
-#line 702 "xfce-mixer-settingsbox.c"
+#line 704 "xfce-mixer-settingsbox.c"
 #undef __GOB_FUNCTION__
 
-#line 420 "mixer-settingsbox.gob"
+#line 422 "mixer-settingsbox.gob"
 void 
 xfce_mixer_settingsbox_apply_right_box (XfceMixerSettingsbox * self)
-#line 708 "xfce-mixer-settingsbox.c"
+#line 710 "xfce-mixer-settingsbox.c"
 {
 #define __GOB_FUNCTION__ "Xfce:Mixer:Settingsbox::apply_right_box"
-#line 420 "mixer-settingsbox.gob"
+#line 422 "mixer-settingsbox.gob"
 	g_return_if_fail (self != NULL);
-#line 420 "mixer-settingsbox.gob"
+#line 422 "mixer-settingsbox.gob"
 	g_return_if_fail (XFCE_IS_MIXER_SETTINGSBOX (self));
-#line 715 "xfce-mixer-settingsbox.c"
+#line 717 "xfce-mixer-settingsbox.c"
 {
-#line 421 "mixer-settingsbox.gob"
+#line 423 "mixer-settingsbox.gob"
 	
 		gchar *n;
 		gchar *v;
@@ -768,19 +770,19 @@ xfce_mixer_settingsbox_apply_right_box (XfceMixerSettingsbox * self)
 
 		TRACE ("leave apply_right_box");
 	}}
-#line 772 "xfce-mixer-settingsbox.c"
+#line 774 "xfce-mixer-settingsbox.c"
 #undef __GOB_FUNCTION__
 
-#line 476 "mixer-settingsbox.gob"
+#line 478 "mixer-settingsbox.gob"
 XfceMixerSettingsbox * 
 xfce_mixer_settingsbox_new (void)
-#line 778 "xfce-mixer-settingsbox.c"
+#line 780 "xfce-mixer-settingsbox.c"
 {
 #define __GOB_FUNCTION__ "Xfce:Mixer:Settingsbox::new"
 {
-#line 477 "mixer-settingsbox.gob"
+#line 479 "mixer-settingsbox.gob"
 	
 		return XFCE_MIXER_SETTINGSBOX (GET_NEW);
 	}}
-#line 786 "xfce-mixer-settingsbox.c"
+#line 788 "xfce-mixer-settingsbox.c"
 #undef __GOB_FUNCTION__
