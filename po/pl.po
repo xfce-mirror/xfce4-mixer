@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.90.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-05-17 12:51+0900\n"
-"PO-Revision-Date: 2006-05-07 19:50+0200\n"
+"PO-Revision-Date: 2006-05-20 21:10+0200\n"
 "Last-Translator: Szymon Kałasz <szymon_maestro@gazeta.pl>\n"
 "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -184,6 +184,8 @@ msgid ""
 "alsa: error: master control not found. I even tried to guess wildly, but to "
 "no avail.\n"
 msgstr ""
+"alsa: błąd: nie znaleziono głównej kontrolki. Próbowałem nawet zgadywać na "
+"chybił trafił, ale bez efektu.\n"
 
 #: ../lib/vc_alsa.c:98
 #, c-format
@@ -191,16 +193,19 @@ msgid ""
 "alsa: info: developer information follows: (send E-Mail to Developer with "
 "that)\n"
 msgstr ""
+"alsa: info: informacja prorgamisty: (wyślij e-mail do autora aplikacji "
+"z poniższym tekstem)\n"
 
 #: ../lib/vc_alsa.c:112
 #, c-format
+# Since this message will be sent to developer, there is no translation.
 msgid "hint hint"
-msgstr ""
+msgstr "hint hint"
 
 #: ../lib/vc_alsa.c:118
 #, c-format
 msgid "alsa: info: end of developer information\n"
-msgstr ""
+msgstr "alsa: info: koniec informacji programisty\n"
 
 #: ../lib/vc_alsa.c:136
 #, c-format
@@ -233,7 +238,7 @@ msgstr "oss: Brak ogólnej głośności"
 
 #: ../panel-plugin/launcher-entry.c:75
 msgid "Run in Terminal"
-msgstr "Wykona w terminalu"
+msgstr "Uruchom w terminalu"
 
 #: ../panel-plugin/launcher-entry.c:80
 msgid "Use Startup Notification"
@@ -330,7 +335,7 @@ msgid ""
 msgstr ""
 "To jest xfce4-mikser, aplikacja do konfiguracji dźwięku.\n"
 "Rozprowadzana jest pod licencją GPL-2, której treść znajdziesz w głównym "
-"kataloguaplikacji.\n"
+"katalogu aplikacji.\n"
 "Nie ma żadnej gwarancji."
 
 #: ../src/mixer-profilebox-detail.gob:163 mixer-profilebox-detail.gob:163
