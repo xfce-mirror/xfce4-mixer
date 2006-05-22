@@ -139,14 +139,13 @@ static gboolean
 mixer_timer_cb (gpointer userdata)
 {
 	t_mixer *mixer;
-	XFCE_PANEL_LOCK ();
+
 	mixer = (t_mixer *) userdata;
 	
 	vc_handle_events ();
 
 	xfce_mixer_control_vc_feed_value (mixer->slider);
 	mixer_update_tips (mixer);
-	XFCE_PANEL_UNLOCK ();
 	
 	return TRUE;
 }
@@ -154,12 +153,11 @@ mixer_timer_cb (gpointer userdata)
 static void callback_vc_cb(char const *which, void *privdata)
 {
 	t_mixer *mixer;
-	XFCE_PANEL_LOCK ();
+
 	mixer = (t_mixer *) privdata;
 	
 	xfce_mixer_control_vc_feed_value (mixer->slider);
 	mixer_update_tips (mixer);
-	XFCE_PANEL_UNLOCK ();
 }
 
 static t_mixer *
