@@ -1,8 +1,14 @@
+2006-05-23  Hydonsingore Cia <hydonsingore@mail.educities.edu.tw>
+
+	* zh_TW.po: Correct the strings containing Button Label in
+	  traditional Chinese translations.
+
 2006-05-21  Daichi Kawahata <daichi@xfce.org>
 
 	* pl.po: Updated Polish translations by Szymon Kalasz
 	  <szymon_maestro@gazeta.pl>.
 
+>>>>>>> .r21800
 2006-05-20  Stavros Giannouris <stavrosg2002@freemail.gr>
 
 	* el.po: Greek translation update.
