@@ -80,7 +80,7 @@ mcs_plugin_init(McsPlugin *plugin)
   /* the button label in the xfce-mcs-manager dialog */
 	plugin->caption = g_strdup (Q_ ("Button Label|Sound"));
 	plugin->run_dialog = run_dialog;
-	plugin->icon = xfce_themed_icon_load ("xfce4-sound", 48);
+	plugin->icon = xfce_themed_icon_load ("xfce-sound", 48);
   if (G_LIKELY (plugin->icon != NULL))
     g_object_set_data_full (G_OBJECT (plugin->icon), "mcs-plugin-icon-name", g_strdup ("xfce4-mixer"), g_free);
 	
