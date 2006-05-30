@@ -8,10 +8,10 @@
 # Yuval Tanny <tanai@int.gov.il>, 2004, 2006.
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-mixer 4.3.90.2\n"
+"Project-Id-Version: he\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-05-17 12:51+0900\n"
-"PO-Revision-Date: 2006-05-05 22:38+0300\n"
+"PO-Revision-Date: 2006-05-31 01:58+0300\n"
 "Last-Translator: Yuval Tanny <tanai@int.gov.il>\n"
 "Language-Team: Hebrew\n"
 "MIME-Version: 1.0\n"
@@ -186,24 +186,24 @@ msgstr "A3.יציאה2"
 msgid ""
 "alsa: error: master control not found. I even tried to guess wildly, but to "
 "no avail.\n"
-msgstr ""
+msgstr "alsa: שגיאה: בקר ראשי לא נמצא.\n"
 
 #: ../lib/vc_alsa.c:98
 #, c-format
 msgid ""
 "alsa: info: developer information follows: (send E-Mail to Developer with "
 "that)\n"
-msgstr ""
+msgstr "alsa: מידע למפתחים זמין (שלח דוא\"ל למפתח עם מידע זה):\n"
 
 #: ../lib/vc_alsa.c:112
 #, c-format
 msgid "hint hint"
-msgstr ""
+msgstr "רמז רמז"
 
 #: ../lib/vc_alsa.c:118
 #, c-format
 msgid "alsa: info: end of developer information\n"
-msgstr ""
+msgstr "alsa: סוף מידע למפתחים\n"
 
 #: ../lib/vc_alsa.c:136
 #, c-format
@@ -452,3 +452,4 @@ msgstr "הגדרות מערבל"
 #: ../settings/xfce-mixer-settings.desktop.in.h:2
 msgid "Xfce 4 Mixer Settings"
 msgstr "הגדרות מערבל Xfce 4"
+
