@@ -1,3 +1,7 @@
+2006-06-03  Alexander Toresson <alexander.toresson@gmail.com>
+
+	* sv.po: Updated Swedish translations.
+
 2006-05-23  Hydonsingore Cia <hydonsingore@mail.educities.edu.tw>
 
 	* zh_TW.po: Correct the strings containing Button Label in
@@ -8,7 +12,6 @@
 	* pl.po: Updated Polish translations by Szymon Kalasz
 	  <szymon_maestro@gazeta.pl>.
 
->>>>>>> .r21800
 2006-05-20  Stavros Giannouris <stavrosg2002@freemail.gr>
 
 	* el.po: Greek translation update.
