@@ -2,14 +2,15 @@
 # Copyright (C) 2003-2006 The Xfce development team.
 # This file is distributed under the same license as the xfce4-mixer package.
 # Rodrigo Coacci <rcoacci@gmail.com>, 2004.
+# Adriano Winter Bess <awbess@gmail.com>, 2006
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.90.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-05-17 12:51+0900\n"
-"PO-Revision-Date: 2005-10-08 08:31+0900\n"
-"Last-Translator: Rodrigo Coacci <rcoacci@gmail.com>\n"
+"PO-Revision-Date: 2006-06-05 19:14-0300\n"
+"Last-Translator: Adriano Winter Bess <awbess@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <ldp-br@bazar.conectiva.com.br>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,221 +18,165 @@ msgstr ""
 
 #: ../lib/trans.c:36
 msgid "Vol"
-msgstr ""
-"Vol\n"
-" "
+msgstr "Vol"
 
 #. Master
 #: ../lib/trans.c:37
 msgid "Pcm"
-msgstr ""
-"Pcm\n"
-" "
+msgstr "Pcm"
 
 #. PCM output
 #: ../lib/trans.c:38
 msgid "Spkr"
-msgstr ""
-"Spkr\n"
-" "
+msgstr "Auto-falante"
 
 #. Internal speaker?
 #: ../lib/trans.c:39
 msgid "Line"
-msgstr ""
-"Linha\n"
-" "
+msgstr "Linha"
 
 #. Line in
 #: ../lib/trans.c:40
 msgid "Mic"
-msgstr ""
-"Mic\n"
-" "
+msgstr "Mic"
 
 #. Mic in
 #: ../lib/trans.c:41
 msgid "CD"
-msgstr ""
-"CD\n"
-" "
+msgstr "CD"
 
 #. CD in
 #: ../lib/trans.c:42
 msgid "Bass"
-msgstr ""
-"Graves\n"
-" "
+msgstr "Graves"
 
 #: ../lib/trans.c:43
 msgid "Trebl"
-msgstr ""
-"Agudos\n"
-" "
+msgstr "Agudos"
 
 #: ../lib/trans.c:44
 msgid "Synth"
-msgstr ""
-"Sint\n"
-" "
+msgstr "Sint"
 
 #: ../lib/trans.c:45
 msgid "Mix"
-msgstr ""
-"Mix\n"
-" "
+msgstr "Mix"
 
 #: ../lib/trans.c:46
 msgid "Pcm2"
-msgstr ""
-"Pcm2\n"
-" "
+msgstr "Pcm2"
 
 #: ../lib/trans.c:47
 msgid "Rec"
-msgstr ""
-"Gravar\n"
-" "
+msgstr "Gravação"
 
 #: ../lib/trans.c:48
 msgid "IGain"
-msgstr ""
-"Ganho\n"
-"Entrada"
+msgstr "Ganho de Entrada"
 
 #: ../lib/trans.c:49
 msgid "OGain"
-msgstr ""
-"Ganho\n"
-"Saída"
+msgstr "Ganho de Saída"
 
 #: ../lib/trans.c:50
 msgid "Line1"
-msgstr ""
-"Linha1\n"
-" "
+msgstr "Linha1"
 
 #: ../lib/trans.c:51
 msgid "Line2"
-msgstr ""
-"Linha2\n"
-" "
+msgstr "Linha2"
 
 #: ../lib/trans.c:52
 msgid "Line3"
-msgstr ""
-"Linha3\n"
-" "
+msgstr "Linha3"
 
 #: ../lib/trans.c:53
 msgid "Digital1"
-msgstr ""
-"Digital1\n"
-" "
+msgstr "Digital1"
 
 #: ../lib/trans.c:54
 msgid "Digital2"
-msgstr ""
-"Digital2\n"
-" "
+msgstr "Digital2"
 
 #: ../lib/trans.c:55
 msgid "Digital3"
-msgstr ""
-"Digital3\n"
-" "
+msgstr "Digital3"
 
 #: ../lib/trans.c:56
 msgid "PhoneIn"
-msgstr ""
-"Entrada\n"
-"Telefone"
+msgstr "Entrada de Telefone"
 
 #: ../lib/trans.c:57
 msgid "PhoneOut"
-msgstr ""
-"Saída\n"
-"Telefone"
+msgstr "Saída de Telefone"
 
 #: ../lib/trans.c:58
 msgid "Video"
-msgstr ""
-"Vídeo\n"
-" "
+msgstr "Vídeo"
 
 #: ../lib/trans.c:59
 msgid "Radio"
-msgstr ""
-"Rádio\n"
-" "
+msgstr "Rádio"
 
 #: ../lib/trans.c:60
 msgid "Monitor"
-msgstr ""
-"Monitor\n"
-" "
+msgstr "Monitor"
 
 #: ../lib/trans.c:61
 msgid "RecSelect"
-msgstr ""
+msgstr "Seleção de Gravação"
 
 #. Device
 #. Label
 #: ../lib/trans.c:77
 msgid "A3.AnalogIn"
-msgstr ""
+msgstr "A3.AnalogIn"
 
 #. Analog In
 #: ../lib/trans.c:78
 msgid "A3.AnalogOut"
-msgstr ""
+msgstr "A3.AnalogOut"
 
 #. Analog Out
 #: ../lib/trans.c:79
 msgid "A3.AnalogOut2"
-msgstr ""
+msgstr "A3.AnalogOut2"
 
 #. Analog Out 2
 #. Interface
 #: ../lib/trans.c:81
 msgid "A3.CameraMic"
-msgstr ""
+msgstr "A3.CameraMic"
 
 #. Camera Mic
 #: ../lib/trans.c:82
 msgid "A3.Microphone"
-msgstr ""
+msgstr "A3.Microphone"
 
 #. Microphone
 #: ../lib/trans.c:83
-#, fuzzy
 msgid "A3.LineIn"
-msgstr ""
-"Linha\n"
-" "
+msgstr "A3.LineIn"
 
 #. Line In
 #: ../lib/trans.c:84
 msgid "A3.DAC1In"
-msgstr ""
+msgstr "A3.DAC1In"
 
 #. DAC1 In
 #: ../lib/trans.c:85
 msgid "A3.DAC2In"
-msgstr ""
+msgstr "A3.DAC2In"
 
 #. DAC2 In
 #: ../lib/trans.c:86
 msgid "A3.Speaker"
-msgstr ""
+msgstr "A3.Speaker"
 
 #. Speaker/Line Out
 #: ../lib/trans.c:87
-#, fuzzy
 msgid "A3.LineOut2"
-msgstr ""
-"Linha2\n"
-" "
+msgstr "A3.LineOut2"
 
 #: ../lib/vc_alsa.c:93
 #, c-format
@@ -239,6 +184,8 @@ msgid ""
 "alsa: error: master control not found. I even tried to guess wildly, but to "
 "no avail.\n"
 msgstr ""
+"alsa: erro: controle mestre não encontrado. Ainda tentei adivinhá-lo, mas "
+"sem sucesso.\n"
 
 #: ../lib/vc_alsa.c:98
 #, c-format
@@ -246,16 +193,18 @@ msgid ""
 "alsa: info: developer information follows: (send E-Mail to Developer with "
 "that)\n"
 msgstr ""
+"alsa: informação: segue informação do desenvolvedor: (envie e-mail para o "
+"desenvolvedor com este)\n"
 
 #: ../lib/vc_alsa.c:112
 #, c-format
 msgid "hint hint"
-msgstr ""
+msgstr "dica dica"
 
 #: ../lib/vc_alsa.c:118
 #, c-format
 msgid "alsa: info: end of developer information\n"
-msgstr ""
+msgstr "alsa: informação: fim da informação do desenvolvedor\n"
 
 #: ../lib/vc_alsa.c:136
 #, c-format
@@ -273,9 +222,9 @@ msgid "alsa: Mixer register error: %s\n"
 msgstr "alsa: Erro ao registrar mixer %s\n"
 
 #: ../lib/vc_alsa.c:158
-#, fuzzy, c-format
+#, c-format
 msgid "alsa: Mixer load error: %s: %s\n"
-msgstr "alsa: Erro ao carregar mixer %s\n"
+msgstr "alsa: Erro ao carregar controle de som: %s: %s\n"
 
 #: ../lib/vc_alsa.c:184
 #, c-format
@@ -288,20 +237,20 @@ msgstr "oss: Sem volume mestre"
 
 #: ../panel-plugin/launcher-entry.c:75
 msgid "Run in Terminal"
-msgstr ""
+msgstr "Executar no terminal"
 
 #: ../panel-plugin/launcher-entry.c:80
 msgid "Use Startup Notification"
-msgstr ""
+msgstr "Usar notificação de inicialização"
 
 #: ../panel-plugin/launcher-entry.c:192 ../panel-plugin/plugin.c:342
 #, c-format
 msgid "Could not run \"%s\""
-msgstr ""
+msgstr "Não foi possível executar \"%s\""
 
 #: ../panel-plugin/launcher-entry.c:194 ../panel-plugin/plugin.c:344
 msgid "Xfce Panel"
-msgstr ""
+msgstr "Painel do Xfce"
 
 #: ../panel-plugin/plugin.c:271
 #, c-format
@@ -310,7 +259,7 @@ msgstr "Volume: %d%%"
 
 #: ../panel-plugin/plugin.c:571
 msgid "Could not save configuration"
-msgstr ""
+msgstr "Não foi possível salvar a configuração"
 
 #: mixer-prefbox.gob:177 ../src/mixer-profilebox.gob:88
 #: mixer-profilebox.gob:88
@@ -319,11 +268,11 @@ msgstr "Dispositivo:"
 
 #: mixer-prefbox.gob:178
 msgid "Wannabe Master:"
-msgstr ""
+msgstr "Controle Preferido:"
 
 #: mixer-prefbox.gob:180
 msgid "When clicked"
-msgstr ""
+msgstr "Quando clicado"
 
 #: ../settings/mixer-settingsbox.gob:128 mixer-settingsbox.gob:128
 msgid "Device"
@@ -342,7 +291,7 @@ msgstr "Controles Úteis"
 #. the button label in the xfce-mcs-manager dialog
 #: ../settings/sound.c:81
 msgid "Button Label|Sound"
-msgstr ""
+msgstr "Som"
 
 #: ../settings/sound.c:102
 msgid "Sound"
@@ -496,12 +445,12 @@ msgstr "Controle de volume"
 
 #: ../panel-plugin/xfce4-mixer.desktop.in.in.h:1
 msgid "Change the Volume"
-msgstr ""
+msgstr "Muda o Volume"
 
 #: ../settings/xfce-mixer-settings.desktop.in.h:1
 msgid "Mixer Settings"
-msgstr ""
+msgstr "Configurações de Controle de Som"
 
 #: ../settings/xfce-mixer-settings.desktop.in.h:2
 msgid "Xfce 4 Mixer Settings"
-msgstr ""
+msgstr "Configurações de Controle de Som do Xfce 4"
