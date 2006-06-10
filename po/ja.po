@@ -192,7 +192,9 @@ msgstr "ALSA: エラー: マスターコントロールが見つかりません�
 msgid ""
 "alsa: info: developer information follows: (send E-Mail to Developer with "
 "that)\n"
-msgstr "ALSA: INFO: 開発者情報が表示されます: (これを使って開発者にメールを送ってください)\n"
+msgstr ""
+"ALSA: INFO: 開発者情報が表示されます: (これを使って開発者にメールを送ってくだ"
+"さい)\n"
 
 #: ../lib/vc_alsa.c:112
 #, c-format
