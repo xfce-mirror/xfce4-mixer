@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.90.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-05-17 12:51+0900\n"
-"PO-Revision-Date: 2006-05-20 21:10+0200\n"
+"PO-Revision-Date: 2006-06-08 23:00+0200\n"
 "Last-Translator: Szymon Kałasz <szymon_maestro@gazeta.pl>\n"
 "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -193,12 +193,12 @@ msgid ""
 "alsa: info: developer information follows: (send E-Mail to Developer with "
 "that)\n"
 msgstr ""
-"alsa: info: informacja prorgamisty: (wyślij e-mail do autora aplikacji "
-"z poniższym tekstem)\n"
+"alsa: info: informacja prorgamisty: (wyślij e-mail do autora aplikacji z "
+"poniższym tekstem)\n"
 
+# Since this message will be sent to developer, there is no translation.
 #: ../lib/vc_alsa.c:112
 #, c-format
-# Since this message will be sent to developer, there is no translation.
 msgid "hint hint"
 msgstr "hint hint"
 
