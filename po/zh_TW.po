@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the xfce4-mixer package.
 # umm <umm@pchome.com.tw>, 2003.
 # Ambrose Li <acli@ada.dhs.org>, 2004.
-# Hydonsingore Cia <hydonsingore@mail.educities.edu.tw>, 2005.
+# Hydonsingore Cia <hydonsingore@educities.edu.tw>, 2005.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.90.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-05-17 12:51+0900\n"
-"PO-Revision-Date: 2006-05-24 01:01+0800\n"
-"Last-Translator: Hydonsingore Cia <hydonsingore@mail.educities.edu.tw>\n"
+"PO-Revision-Date: 2006-06-12 21:42+0800\n"
+"Last-Translator: Hydonsingore Cia <hydonsingore@educities.edu.tw>\n"
 "Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -186,6 +186,7 @@ msgid ""
 "alsa: error: master control not found. I even tried to guess wildly, but to "
 "no avail.\n"
 msgstr ""
+"alsa: 錯誤：找不到主控制器。我用了各種方式甚至亂槍打鳥，但徒勞無功。\n"
 
 #: ../lib/vc_alsa.c:98
 #, c-format
@@ -193,6 +194,7 @@ msgid ""
 "alsa: info: developer information follows: (send E-Mail to Developer with "
 "that)\n"
 msgstr ""
+"alsa: 資訊：開發資訊如下：(寄信給開發者時記得附上)\n"
 
 #: ../lib/vc_alsa.c:112
 #, c-format
@@ -202,7 +204,7 @@ msgstr ""
 #: ../lib/vc_alsa.c:118
 #, c-format
 msgid "alsa: info: end of developer information\n"
-msgstr ""
+msgstr "alsa: 資訊：開發資訊結束\n"
 
 #: ../lib/vc_alsa.c:136
 #, c-format
