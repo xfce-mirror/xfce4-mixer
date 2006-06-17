@@ -48,7 +48,7 @@ typedef struct
 static void mixer_write_config(XfcePanelPlugin* plugin, t_mixer* mixer);
 
 GtkTooltips* tooltips; /* used by slider tiny */
-static XfceIconTheme* icontheme;
+static GtkIconTheme* icontheme;
 
 static void
 mixer_orientation_changed (XfcePanelPlugin *plugin, GtkOrientation orientation, 
@@ -206,7 +206,7 @@ mixer_construct (XfcePanelPlugin *plugin)
 
     register_vcs ();
 
-    icontheme = xfce_icon_theme_get_for_screen (gtk_widget_get_screen (GTK_WIDGET (plugin)));
+    icontheme = gtk_icon_theme_get_for_screen (gtk_widget_get_screen (GTK_WIDGET (plugin)));
     tooltips = gtk_tooltips_new ();
     g_object_ref (G_OBJECT(tooltips));
     gtk_object_sink (GTK_OBJECT(tooltips));
@@ -419,8 +419,7 @@ get_status_pixbuf(gboolean broken)
 	GdkPixbuf	*pb;
 	GdkPixbuf	*pb2;
 	
-	pb = xfce_icon_theme_load_category (icontheme, XFCE_ICON_CATEGORY_SOUND, 128); /* ??? */
-	/* xfce_icon_theme_load_category */
+	pb = xfce_themed_icon_load ("xfce-sound", 128);
 	
 	if (broken) {
 		pb2 = gdk_pixbuf_copy(pb);

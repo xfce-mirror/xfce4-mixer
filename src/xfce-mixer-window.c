@@ -443,16 +443,16 @@ xfce_mixer_window_set_my_icon (XfceMixerWindow * self)
 #line 118 "mixer-window.gob"
 	
 		GdkPixbuf *pb;
-		XfceIconTheme *it;
+		GtkIconTheme *it;
 		GdkScreen *screen;
 		screen = gtk_window_get_screen (GTK_WINDOW (self));
 		if (!screen)
 			return;
 
-		it = xfce_icon_theme_get_for_screen (screen);
-		if (it) {
-			pb = xfce_icon_theme_load_category (it, XFCE_ICON_CATEGORY_SOUND, 48);
-			if (pb) {
+		it = gtk_icon_theme_get_for_screen (screen);
+		if (it != NULL) {
+			pb = xfce_themed_icon_load ("xfce-sound", 48);
+			if (pb != NULL) {
 				gtk_window_set_icon (GTK_WINDOW (self), pb);
 				g_object_unref (G_OBJECT (pb));
 			}
