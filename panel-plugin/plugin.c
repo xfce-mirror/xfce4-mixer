@@ -25,9 +25,8 @@
 #define MIXER_RC_GROUP "mixer-plugin"
 
 /* Panel Plugin Interface */
-
 static void mixer_construct (XfcePanelPlugin *plugin);
-static void mixer_write_config(XfcePanelPlugin* plugin, gpointer user_data);
+
 
 XFCE_PANEL_PLUGIN_REGISTER_EXTERNAL(mixer_construct);
 
@@ -45,6 +44,8 @@ typedef struct
 	XfcePanelPlugin* temp_plugin; /* for response_cb only! */
 	guint timer;
 } t_mixer;
+
+static void mixer_write_config(XfcePanelPlugin* plugin, t_mixer* mixer);
 
 GtkTooltips* tooltips; /* used by slider tiny */
 static XfceIconTheme* icontheme;
@@ -117,7 +118,7 @@ response_cb(GtkDialog* dialog, gint arg1, gpointer user_data)
 
     xfce_mixer_prefbox_save_preferences (mixer->prefbox, mixer->prefs);
  
-    mixer_write_config(mixer->temp_plugin, user_data);
+    mixer_write_config(mixer->temp_plugin, mixer);
 
    
     gtk_container_remove (GTK_CONTAINER(dialog->vbox), GTK_WIDGET(mixer->prefbox));
@@ -192,10 +193,10 @@ mixer_size_changed_cb (XfcePanelPlugin *plugin, int size, t_mixer* mixer)
 static t_mixer * mixer_new(void);
 
 
-static void mixer_read_config(XfcePanelPlugin* plugin, gpointer user_data);
+static void mixer_read_config(XfcePanelPlugin* plugin, t_mixer *mixer);
 
 
-static void mixer_write_config(XfcePanelPlugin* plugin, gpointer user_data);
+static void mixer_write_config(XfcePanelPlugin* plugin, t_mixer *mixer);
 
 static void 
 mixer_construct (XfcePanelPlugin *plugin)
@@ -505,14 +506,11 @@ mixer_new(void)
 }
 
 static void
-mixer_read_config(XfcePanelPlugin* plugin, gpointer user_data)
+mixer_read_config(XfcePanelPlugin* plugin, t_mixer *mixer)
 {
 	XfceRc* rc;
 	gchar* path;
 
-	t_mixer *mixer;
-	mixer = (t_mixer *) user_data;
-  
 	if (mixer->prefs == NULL) {
 		return;
 	}
@@ -539,17 +537,13 @@ mixer_read_config(XfcePanelPlugin* plugin, gpointer user_data)
 }
 
 static void
-mixer_write_config(XfcePanelPlugin* plugin, gpointer user_data)
+mixer_write_config(XfcePanelPlugin* plugin, t_mixer* mixer)
 {
 	XfceRc* rc;
 	gchar* path;
 
-	t_mixer *mixer;
-
     DBG ("Save: %s", PLUGIN_NAME);
 
-	mixer = (t_mixer *) user_data;
-	
 	if (mixer->prefs == NULL) {
 		return;
 	}
