@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the xfce-mcs-plugins package.
 # Aron Stansvik <elvstone@gmail.com>, 2005.
 # Jens Hagerman <godhet@gmail.com>, 2006.
+# Alexander Toresson <alexander.toresson>, 2006
 #
 msgid ""
 msgstr ""
@@ -10,8 +11,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-06-02 22:17+0200\n"
 "PO-Revision-Date: 2006-05-26 17:48+0100\n"
-"Last-Translator: Jens Hagerman <godhet@gmail.com>\n"
-"Language-Team: Swedish <elvstone@gmail.com>\n"
+"Last-Translator: Alexander Toresson <alexander.toresson@gmail.com>\n"
+"Language-Team: Swedish <sv@li.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -216,17 +217,17 @@ msgstr "alsa: Fel vid öppnande av mixer %s: %s\n"
 #: ../lib/vc_alsa.c:141
 #, c-format
 msgid "alsa: Mixer attach %s error: %s\n"
-msgstr "alsa: Fel vid anslutning av mixer %s: %s\n"
+msgstr "alsa: Fel vid anslutning till mixer %s: %s\n"
 
 #: ../lib/vc_alsa.c:149
 #, c-format
 msgid "alsa: Mixer register error: %s\n"
-msgstr "alsa: Fel vid registrering av mixer: %s\n"
+msgstr "alsa: Fel vid registrering till mixer: %s\n"
 
 #: ../lib/vc_alsa.c:158
 #, c-format
 msgid "alsa: Mixer load error: %s: %s\n"
-msgstr "alsa: Fel vid laddning av mixer: %s: %s\n"
+msgstr "alsa: Fel vid laddning till mixer: %s: %s\n"
 
 #: ../lib/vc_alsa.c:184
 #, c-format
@@ -243,7 +244,7 @@ msgstr "Kör i terminal"
 
 #: ../panel-plugin/launcher-entry.c:80
 msgid "Use Startup Notification"
-msgstr "Använd startnotifikation"
+msgstr "Använd uppstartsnotifiering"
 
 #: ../panel-plugin/launcher-entry.c:192 ../panel-plugin/plugin.c:342
 #, c-format
@@ -252,7 +253,7 @@ msgstr "Kunde inte köra \"%s\""
 
 #: ../panel-plugin/launcher-entry.c:194 ../panel-plugin/plugin.c:344
 msgid "Xfce Panel"
-msgstr "Xfce Panel"
+msgstr "Xfce-panelen"
 
 #: ../panel-plugin/plugin.c:271
 #, c-format
@@ -450,8 +451,8 @@ msgstr "Ändra volymen"
 
 #: ../settings/xfce-mixer-settings.desktop.in.h:1
 msgid "Mixer Settings"
-msgstr "Mixerinställningar"
+msgstr "Inställningar för Mixern"
 
 #: ../settings/xfce-mixer-settings.desktop.in.h:2
 msgid "Xfce 4 Mixer Settings"
-msgstr "Mixerinställningar"
+msgstr "Xfce 4 Inställningar för Mixern"
