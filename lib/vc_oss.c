@@ -401,7 +401,12 @@ static void vc_set_select(char const *which, gchar const *v)
 	int	xrecsrc;
 	
 	if (has_recselector && g_str_equal (which, NAME_RECSELECTOR)) {
-		i = find_control (v);
+		if (v == NULL) {
+			i = -1;
+		} else {
+			i = find_control (v);
+		}
+
 		if (i == -1) {
 		  g_warning ("oss: could not find control that the new recording source refers to. Not setting it.");
 		  return;
