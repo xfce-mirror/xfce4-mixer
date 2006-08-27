@@ -1,16 +1,16 @@
 # German translations for xfce4-mixer package.
-# Copyright (C) 2003-2006 The Xfce development team.
+# Copyright (C) 2003-2005 The Xfce development team.
 # This file is distributed under the same license as the xfce4-mixer package.
 # Benedikt Meurer <benny@xfce.org>, 2003.
 # Moritz Heiber <moe@xfce.org>, 2004.
-# Fabian Nowak <timystery@arcor.de>, 2006.
+# Fabian Nowak <timystery@arcor.de>, 2005, 2006.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-mixer 4.3.90.2\n"
+"Project-Id-Version: xfce4-mixer 4.3.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-05-17 12:51+0900\n"
-"PO-Revision-Date: 2005-10-22 11:53+0200\n"
+"PO-Revision-Date: 2006-08-27 19:26+0200\n"
 "Last-Translator: Fabian Nowak <timystery@arcor.de>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -131,23 +131,23 @@ msgstr "Aufnahmequelle"
 #. Label
 #: ../lib/trans.c:77
 msgid "A3.AnalogIn"
-msgstr "A3.AnalogIn"
+msgstr "A3.AnalogEin"
 
 #. Analog In
 #: ../lib/trans.c:78
 msgid "A3.AnalogOut"
-msgstr "A3.AnalogOut"
+msgstr "A3.AnalogAus"
 
 #. Analog Out
 #: ../lib/trans.c:79
 msgid "A3.AnalogOut2"
-msgstr "A3.AnalogOut2"
+msgstr "A3.AnalogAus2"
 
 #. Analog Out 2
 #. Interface
 #: ../lib/trans.c:81
 msgid "A3.CameraMic"
-msgstr "A3.CameraMic"
+msgstr "A3.KameraMikro"
 
 #. Camera Mic
 #: ../lib/trans.c:82
@@ -185,6 +185,8 @@ msgid ""
 "alsa: error: master control not found. I even tried to guess wildly, but to "
 "no avail.\n"
 msgstr ""
+"Alsa: Fehler: Mastersteuerung nicht gefunden. Trotz wilden Ratens wurde "
+"nichts Verwendbares gefunden.\n"
 
 #: ../lib/vc_alsa.c:98
 #, c-format
@@ -192,16 +194,18 @@ msgid ""
 "alsa: info: developer information follows: (send E-Mail to Developer with "
 "that)\n"
 msgstr ""
+"Alsa: Information: Information seitens der Entwickler folgt: (senden Sie "
+"in diesem Zusammenhang eine Email an die Entwickler)\n"
 
 #: ../lib/vc_alsa.c:112
 #, c-format
 msgid "hint hint"
-msgstr ""
+msgstr "Tipp Tipp"
 
 #: ../lib/vc_alsa.c:118
 #, c-format
 msgid "alsa: info: end of developer information\n"
-msgstr ""
+msgstr "alsa: Information: Ende der Informationen seitens der Entwickler\n"
 
 #: ../lib/vc_alsa.c:136
 #, c-format
@@ -238,16 +242,16 @@ msgstr "In Terminal ausführen"
 
 #: ../panel-plugin/launcher-entry.c:80
 msgid "Use Startup Notification"
-msgstr "Startup-Benachrichtigung verwenden"
+msgstr "Grafische Rückmeldung verwenden"
 
 #: ../panel-plugin/launcher-entry.c:192 ../panel-plugin/plugin.c:342
 #, c-format
 msgid "Could not run \"%s\""
-msgstr "Konnten \"%s\" nicht ausführen"
+msgstr "Konnte »%s« nicht ausführen"
 
 #: ../panel-plugin/launcher-entry.c:194 ../panel-plugin/plugin.c:344
 msgid "Xfce Panel"
-msgstr "Xfce 4 Leiste"
+msgstr "Xfce-Leiste"
 
 #: ../panel-plugin/plugin.c:271
 #, c-format
@@ -288,7 +292,7 @@ msgstr "Nützliche Regler"
 #. the button label in the xfce-mcs-manager dialog
 #: ../settings/sound.c:81
 msgid "Button Label|Sound"
-msgstr ""
+msgstr "Sound"
 
 #: ../settings/sound.c:102
 msgid "Sound"
@@ -406,7 +410,7 @@ msgstr "Diese %d Profile wirklich löschen?"
 #: ../src/mixer-profilebox.gob:377 mixer-profilebox.gob:377
 #, c-format
 msgid "Really delete profile \"%s\"?"
-msgstr "Profil \"%s\" wirklich löschen?"
+msgstr "Profil »%s« wirklich löschen?"
 
 #: ../src/mixer-profilebox.gob:491 mixer-profilebox.gob:491
 #, c-format
@@ -442,7 +446,7 @@ msgstr "Lautstärkenregler"
 
 #: ../panel-plugin/xfce4-mixer.desktop.in.in.h:1
 msgid "Change the Volume"
-msgstr "Lautstärke ändern"
+msgstr "Lautsträke ändern"
 
 #: ../settings/xfce-mixer-settings.desktop.in.h:1
 msgid "Mixer Settings"
@@ -451,3 +455,6 @@ msgstr "Mixereinstellungen"
 #: ../settings/xfce-mixer-settings.desktop.in.h:2
 msgid "Xfce 4 Mixer Settings"
 msgstr "Xfce 4 Mixereinstellungen"
+
+#~ msgid "No working sound"
+#~ msgstr "Keine funktionierende Soundkonfiguration gefunden"
