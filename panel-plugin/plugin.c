@@ -63,11 +63,13 @@ mixer_orientation_changed (XfcePanelPlugin *plugin, GtkOrientation orientation,
 	slider_width = 8; /* + 2 * size;*/
 
 	if (orientation == GTK_ORIENTATION_VERTICAL) {
-		gtk_widget_set_size_request (GTK_WIDGET (plugin), -1, size);
+		gtk_widget_set_size_request (GTK_WIDGET(plugin), size, size);
+		gtk_widget_set_size_request (GTK_WIDGET(mixer->ib), -1, -1);
 		gtk_widget_set_size_request (GTK_WIDGET(mixer->slider), slider_width, -1);
 	} else {
-		gtk_widget_set_size_request (GTK_WIDGET (plugin), size, -1);
-		gtk_widget_set_size_request(GTK_WIDGET(mixer->slider), -1, slider_width);
+		gtk_widget_set_size_request (GTK_WIDGET(plugin), -1, size);
+		gtk_widget_set_size_request (GTK_WIDGET(mixer->ib), size, -1);
+		gtk_widget_set_size_request (GTK_WIDGET(mixer->slider), slider_width, -1);
 	}
 }
 
