@@ -57,7 +57,7 @@ mixer_orientation_changed (XfcePanelPlugin *plugin, GtkOrientation orientation,
 	int	slider_width;
 	int	size;
 
-	g_warning ("mixer_orientation_changed");
+	DBG ("mixer_orientation_changed");
 
 	size = xfce_panel_plugin_get_size (plugin);
 	slider_width = 8; /* + 2 * size;*/
