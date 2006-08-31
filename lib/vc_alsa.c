@@ -268,86 +268,142 @@ static snd_mixer_elem_t * find_control(char const *which)
 
 static int vc_get_volume(char const *which)
 {
-	long pmin,pmax;
-	long lval;
-	int pb;
+	int playback_enable;
+	int capture_enable;
+	long playback_min;
+	long playback_max;
+	long capture_min;
+	long capture_max;
+	long playback_value;
+	long capture_value;
+
 	snd_mixer_selem_channel_id_t chn;
-	snd_mixer_elem_t *xelem = NULL;
+	snd_mixer_elem_t *xelem;
 
-	if (!handle) return 0;
+	if (handle == NULL) {
+		return 0;
+	}
 
-	if (which) {
+	if (which != NULL) {
 		xelem = find_control (which);
 	} else {
 		xelem = elem;
 	}
 
-	if (!xelem) return 0;
+	if (xelem == NULL) {
+		return 0;
+	}
 
-	snd_mixer_selem_get_playback_volume_range(xelem, &pmin, &pmax);
-	pmin = 0;
+	snd_mixer_selem_get_playback_volume_range (xelem, &playback_min, &playback_max);
+	snd_mixer_selem_get_capture_volume_range (xelem, &capture_min, &capture_max);
+
+	playback_min = 0;
+	capture_min = 0;
 
 	/* if (snd_mixer_selem_has_playback_volume(xelem)) { */
 	for (chn = 0; chn <= SND_MIXER_SCHN_LAST; chn++) {
-		if (!snd_mixer_selem_has_playback_channel(xelem, chn)) continue;
-	
-		snd_mixer_selem_get_playback_volume(xelem, chn, &lval); 
+		if (!snd_mixer_selem_has_playback_channel(xelem, chn)) {
+			continue;
+		}
 
-		pb = TRUE;
-		snd_mixer_selem_get_playback_switch (xelem, chn, &pb);
-		if (!pb) {
+		snd_mixer_selem_get_playback_volume(xelem, chn, &playback_value); 
+
+		playback_enable = TRUE;
+		snd_mixer_selem_get_playback_switch (xelem, chn, &playback_enable);
+		if (playback_enable == 0) {
 			return 0;
 		}
 
 		/*error("%ld,%ld,%ld,%ld", pmin,pmax,lval,(lval - pmin) * 100 / (pmax-pmin));*/
-		if (pmax > pmin) {
-			return (lval - pmin) * 100 / (pmax-pmin);
+		if (playback_max > playback_min) {
+			return (playback_value - playback_min) * 100 / (playback_max - playback_min);
 		} else {
-			return lval;
+			return playback_value;
 		}
 	}
+
+	/* if this point is reached, only capture setting remain, so use those */
+	for (chn = 0; chn <= SND_MIXER_SCHN_LAST; chn++) {
+		if (!snd_mixer_selem_has_capture_channel(xelem, chn)) {
+			continue;
+		}
+
+		snd_mixer_selem_get_capture_volume(xelem, chn, &capture_value); 
+
+		capture_enable = TRUE;
+		snd_mixer_selem_get_capture_switch (xelem, chn, &capture_enable);
+		if (capture_enable == 0) {
+			return 0;
+		}
+
+		/*error("%ld,%ld,%ld,%ld", pmin,pmax,lval,(lval - pmin) * 100 / (pmax-pmin));*/
+		if (capture_max > capture_min) {
+			return (capture_value - capture_min) * 100 / (capture_max - capture_min);
+		} else {
+			return capture_value;
+		}
+	}
+
 	return 0;
 }
 
 static void vc_set_volume(char const *which, int vol_p)
 {
-	long pmin,pmax;
-	long lval;
-	snd_mixer_selem_channel_id_t chn;
-	snd_mixer_elem_t *xelem = NULL;
-	double vold;
+	long playback_min;
+	long playback_max;
+	long capture_min;
+	long capture_max;
+	long playback_value;
+	long capture_value;
+	double playback_value_double;
+	double capture_value_double;
+
+	/*snd_mixer_selem_channel_id_t chn;*/
+	snd_mixer_elem_t *xelem;
 	
-	if (!handle) return;
-	
-	if (which) {
+	if (handle == NULL) {
+		return;
+	}
+
+	if (which != NULL) {
 		xelem = find_control (which);
 	} else {
 		xelem = elem;
 	}
 	
-	if (!xelem) return;
+	if (xelem == NULL) {
+		return;
+	}
 
-	snd_mixer_selem_get_playback_volume_range(xelem, &pmin, &pmax);
-	pmin = 0;
+	snd_mixer_selem_get_playback_volume_range (xelem, &playback_min, &playback_max);
+	snd_mixer_selem_get_capture_volume_range (xelem, &capture_min, &capture_max);
+
+	playback_min = 0;
+	capture_min = 0;
 
 	/*vol_p = (lval - pmin) * 100 / (pmax - pmin);*/
-	vold = vol_p;
-	if (vol_p != 0)
-		vold += 0.999999;
+	playback_value_double = vol_p;
+	capture_value_double = vol_p;
+	if (vol_p != 0) {
+		playback_value_double += 0.999999;
+		capture_value_double += 0.999999;
+	}
 		
-	lval = (long) pmin + (vold) * (pmax - pmin) / 100;
+	playback_value = (long) playback_min + (playback_value_double) * (playback_max - playback_min) / 100;
+	capture_value = (long) capture_min + (capture_value_double) * (capture_max - capture_min) / 100;
 
 	/*
 	snd_mixer_selem_get_playback_switch(Ex_elem, SND_MIXER_SCHN_MONO, &status);
 	*/
 	
 	/* use _all functions for sami's card ... */
-	if (lval == pmin) /* mute */
+	if (playback_value == 0) /* mute */
 		snd_mixer_selem_set_playback_switch_all (xelem, 0);
 	else /* unmute, just in case. */
 		snd_mixer_selem_set_playback_switch_all (xelem, 1);
 		
-	snd_mixer_selem_set_playback_volume_all (xelem, lval);
+	snd_mixer_selem_set_playback_volume_all (xelem, playback_value);
+	snd_mixer_selem_set_capture_volume_all (xelem, capture_value);
 
 #if 0		
 	for (chn = 0; chn <= SND_MIXER_SCHN_LAST; chn++) {
