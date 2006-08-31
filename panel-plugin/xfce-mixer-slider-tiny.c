@@ -169,7 +169,7 @@ xfce_mixer_slider_tiny_init (XfceMixerSliderTiny * self G_GNUC_UNUSED)
 
 		gtk_container_add (GTK_CONTAINER (self->eb), GTK_WIDGET (self->progress));
 
-		gtk_box_pack_start (GTK_BOX (self), GTK_WIDGET (self->eb), TRUE, TRUE, 5);
+		gtk_box_pack_start (GTK_BOX (self), GTK_WIDGET (self->eb), TRUE, TRUE, 0);
 
 		g_signal_connect_swapped (self->eb, "scroll-event", G_CALLBACK(self_scroll_cb), self);
 		g_signal_connect_swapped (self->eb, "button-press-event", G_CALLBACK(self_button_cb), self);
