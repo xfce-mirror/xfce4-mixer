@@ -54,12 +54,21 @@ static void
 mixer_orientation_changed (XfcePanelPlugin *plugin, GtkOrientation orientation, 
                      t_mixer* mixer)
 {
-    if ((gtk_major_version == 2 && gtk_minor_version >= 6) || 
-         gtk_major_version > 2)
-    {
-        /*gdouble angle = (orientation == GTK_ORIENTATION_HORIZONTAL) ? 0 : 90;*/
-        /* ??? g_object_set (G_OBJECT (label), "angle", angle, NULL); */
-    }
+	int	slider_width;
+	int	size;
+
+	g_warning ("mixer_orientation_changed");
+
+	size = xfce_panel_plugin_get_size (plugin);
+	slider_width = 8; /* + 2 * size;*/
+
+	if (orientation == GTK_ORIENTATION_VERTICAL) {
+		gtk_widget_set_size_request (GTK_WIDGET (plugin), -1, size);
+		gtk_widget_set_size_request (GTK_WIDGET(mixer->slider), slider_width, -1);
+	} else {
+		gtk_widget_set_size_request (GTK_WIDGET (plugin), size, -1);
+		gtk_widget_set_size_request(GTK_WIDGET(mixer->slider), -1, slider_width);
+	}
 }
 
 static void
@@ -166,26 +175,15 @@ mixer_configure (XfcePanelPlugin *plugin, gpointer user_data)
 static void 
 mixer_size_changed_cb (XfcePanelPlugin *plugin, int size, t_mixer* mixer)
 {
-	int	slider_width;
-
     DBG ("Set size to %d: %s", size, PLUGIN_NAME);
 
-    slider_width = 8; /* + 2 * size;*/
+    /* weird... */
+    mixer_orientation_changed (plugin, 
+                               xfce_panel_plugin_get_orientation (plugin),
+                               mixer);
 
-    if (xfce_panel_plugin_get_orientation (plugin) == 
-        GTK_ORIENTATION_HORIZONTAL)
-    {
-        gtk_widget_set_size_request (GTK_WIDGET (plugin), -1, size);
-	gtk_widget_set_size_request(GTK_WIDGET(mixer->slider), slider_width, -1);
-    }
-    else
-    {
-        gtk_widget_set_size_request (GTK_WIDGET (plugin), size, -1);
-	gtk_widget_set_size_request(GTK_WIDGET(mixer->slider), -1, slider_width);
-    }
-    
-    
-    gtk_widget_queue_resize (GTK_WIDGET (mixer->slider));
+
+    /*gtk_widget_queue_resize (GTK_WIDGET (mixer->slider));*/
 }
 
 /* create widgets and connect to signals */ 
