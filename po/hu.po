@@ -1,4 +1,4 @@
-# Hungarian translations for xfce package.
+# Hungarian translations for xfce4-mixer package.
 # Copyright (C) 2003-2006 The Xfce development team.
 # This file is distributed under the same license as the xfce package.
 # Somogyi Peter <jerry@gnu>, 2003.
@@ -9,14 +9,13 @@ msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.90.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-05-17 12:51+0900\n"
-"PO-Revision-Date: 2006-05-18 06:41+0100\n"
-"Last-Translator: SZERVÑC Attila <sas@321.hu>\n"
+"PO-Revision-Date: 2006-09-02 09:21+0100\n"
+"Last-Translator: SZERVÁC Attila <sas@321.hu>\n"
 "Language-Team: Hungarian <translation-team-hu@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: KBabel 1.0.1\n"
 
 #: ../lib/trans.c:36
 msgid "Vol"
@@ -30,7 +29,7 @@ msgstr "Pcm"
 #. PCM output
 #: ../lib/trans.c:38
 msgid "Spkr"
-msgstr "Spkr"
+msgstr "Hnsz"
 
 #. Internal speaker?
 #: ../lib/trans.c:39
@@ -183,12 +182,12 @@ msgstr "A3.VonalKi2"
 #: ../lib/vc_alsa.c:93
 #, c-format
 msgid "alsa: error: master control not found. I even tried to guess wildly, but to no avail.\n"
-msgstr "alsa: error: nincs mester szabályzó. A legvadabb próbákat is megtettem, de nem találom.\n"
+msgstr "alsa: hiba: nincs mester szabályzó. A legvadabb próbákat is megtettem, de nem találom.\n"
 
 #: ../lib/vc_alsa.c:98
 #, c-format
 msgid "alsa: info: developer information follows: (send E-Mail to Developer with that)\n"
-msgstr "alsa: info: fejlesztői information következik: (küldd el a fejlesztőnek)\n"
+msgstr "alsa: info: fejlesztői információ következik: (küldd el a fejlesztőnek)\n"
 
 #: ../lib/vc_alsa.c:112
 #, c-format
@@ -227,7 +226,7 @@ msgstr "alsa: Nem található az egyszerű '%s' vezérlő, %i\n"
 
 #: ../lib/vc_oss.c:158
 msgid "oss: No master volume"
-msgstr "oss: Nincs master hangerő"
+msgstr "oss: Nincs mester hangerő"
 
 #: ../panel-plugin/launcher-entry.c:75
 msgid "Run in Terminal"
@@ -333,7 +332,7 @@ msgid ""
 "No warranty in any way."
 msgstr ""
 "Ez az xfce4-mixer, egy hangerő-szabályozó program.\n"
-"GPL-2 lienc alatt áll, melyet megtalálsz a forrás könyvtárban.\n"
+"GPL-2 licenc alatt áll, melyet megtalálsz a forrás könyvtárban.\n"
 "Nincs jótállás."
 
 #: ../src/mixer-profilebox-detail.gob:163
