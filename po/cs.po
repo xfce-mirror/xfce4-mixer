@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.90.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-05-17 12:51+0900\n"
-"PO-Revision-Date: 2006-05-06 16:53+0100\n"
+"PO-Revision-Date: 2006-08-28 23:23+0100\n"
 "Last-Translator: Michal Várady <miko.vaji@gmail.com>\n"
 "Language-Team: Czech <translation-team-cs@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -183,27 +183,23 @@ msgstr "A3.LineVýstup2"
 
 #: ../lib/vc_alsa.c:93
 #, c-format
-msgid ""
-"alsa: error: master control not found. I even tried to guess wildly, but to "
-"no avail.\n"
-msgstr ""
+msgid "alsa: error: master control not found. I even tried to guess wildly, but to no avail.\n"
+msgstr "alsa: chyba: hlavní ovladač hlasitosti nenalezen. Detekce se nezdařila.\n"
 
 #: ../lib/vc_alsa.c:98
 #, c-format
-msgid ""
-"alsa: info: developer information follows: (send E-Mail to Developer with "
-"that)\n"
-msgstr ""
+msgid "alsa: info: developer information follows: (send E-Mail to Developer with that)\n"
+msgstr "alsa: info: následují informace pro vývojáře: (pošlete e-mailovou zprávu s tímto hlášením vývojářům)\n"
 
 #: ../lib/vc_alsa.c:112
 #, c-format
 msgid "hint hint"
-msgstr ""
+msgstr "hint hint"
 
 #: ../lib/vc_alsa.c:118
 #, c-format
 msgid "alsa: info: end of developer information\n"
-msgstr ""
+msgstr "alsa: info: konec informací pro vývojáře\n"
 
 #: ../lib/vc_alsa.c:136
 #, c-format
@@ -223,7 +219,7 @@ msgstr "ALSA: Při registraci mixéru nastala chyba: %s\n"
 #: ../lib/vc_alsa.c:158
 #, c-format
 msgid "alsa: Mixer load error: %s: %s\n"
-msgstr "ALSA: Při načítání mixéru  nastala chyba: %s:%s\n"
+msgstr "ALSA: Při načítání mixéru nastala chyba: %s:%s\n"
 
 #: ../lib/vc_alsa.c:184
 #, c-format
@@ -242,14 +238,16 @@ msgstr "Spustit v terminálu"
 msgid "Use Startup Notification"
 msgstr "Použít oznámení při spuštění"
 
-#: ../panel-plugin/launcher-entry.c:192 ../panel-plugin/plugin.c:342
+#: ../panel-plugin/launcher-entry.c:192
+#: ../panel-plugin/plugin.c:342
 #, c-format
 msgid "Could not run \"%s\""
 msgstr "Nelze spustit \"%s\""
 
-#: ../panel-plugin/launcher-entry.c:194 ../panel-plugin/plugin.c:344
+#: ../panel-plugin/launcher-entry.c:194
+#: ../panel-plugin/plugin.c:344
 msgid "Xfce Panel"
-msgstr "Xfce Panel"
+msgstr "Panel Xfce"
 
 #: ../panel-plugin/plugin.c:271
 #, c-format
@@ -260,37 +258,41 @@ msgstr "Hlasitost: %d%%"
 msgid "Could not save configuration"
 msgstr "Nelze uložit konfiguraci"
 
-#: mixer-prefbox.gob:177 ../src/mixer-profilebox.gob:88
+#: mixer-prefbox.gob:177
+#: ../src/mixer-profilebox.gob:88
 #: mixer-profilebox.gob:88
 msgid "Device:"
 msgstr "Zařízení:"
 
 #: mixer-prefbox.gob:178
 msgid "Wannabe Master:"
-msgstr "Usilující o stav Master:"
+msgstr "Ovládací prvek Master:"
 
 #: mixer-prefbox.gob:180
 msgid "When clicked"
 msgstr "Při kliknutí"
 
-#: ../settings/mixer-settingsbox.gob:128 mixer-settingsbox.gob:128
+#: ../settings/mixer-settingsbox.gob:128
+#: mixer-settingsbox.gob:128
 msgid "Device"
 msgstr "Zařízení"
 
-#: ../settings/mixer-settingsbox.gob:131 mixer-settingsbox.gob:131
+#: ../settings/mixer-settingsbox.gob:131
+#: mixer-settingsbox.gob:131
 msgid "None"
 msgstr "Žádné"
 
 #. gtk_widget_show (GTK_WIDGET (self->dev_label));
 #. debug_bindtextdomain();
-#: ../settings/mixer-settingsbox.gob:136 mixer-settingsbox.gob:136
+#: ../settings/mixer-settingsbox.gob:136
+#: mixer-settingsbox.gob:136
 msgid "Useful Controls"
 msgstr "Užitečné ovládací prvky"
 
 #. the button label in the xfce-mcs-manager dialog
 #: ../settings/sound.c:81
 msgid "Button Label|Sound"
-msgstr "Popisek tlačítka|Zvuk"
+msgstr "Zvuk"
 
 #: ../settings/sound.c:102
 msgid "Sound"
@@ -324,123 +326,146 @@ msgstr "/_Nápověda"
 msgid "/Help/_Info"
 msgstr "/Nápověda/_Informace"
 
-#: ../src/mixer-info.gob:28 mixer-info.gob:28
+#: ../src/mixer-info.gob:28
+#: mixer-info.gob:28
 msgid ""
 "This is xfce4-mixer, a volume control program.\n"
-"It is released under the GPL-2 License which you find in the source "
-"directory.\n"
+"It is released under the GPL-2 License which you find in the source directory.\n"
 "No warranty in any way."
 msgstr ""
-"Thoto je xfce4-mixér, ovládací program hlasitosti.\n"
-"Je vytvořen pod GPL-2 licencí, kterou najdete v adresáři se zdrojovými "
-"kódy.\n"
-"Žádná záruka, nenesu žádnou zodpovědnost !!"
+"Toto je xfce4-mixer, program pro ovládání hlasitosti.\n"
+"Je vydán pod licencí GPL-2, jejíž znění naleznete v adresáři se zdrojovými kódy.\n"
+"Není poskytována žádná záruka."
 
-#: ../src/mixer-profilebox-detail.gob:163 mixer-profilebox-detail.gob:163
+#: ../src/mixer-profilebox-detail.gob:163
+#: mixer-profilebox-detail.gob:163
 msgid "Control"
 msgstr "Ovládací prvek"
 
-#: ../src/mixer-profilebox-detail.gob:166 mixer-profilebox-detail.gob:166
+#: ../src/mixer-profilebox-detail.gob:166
+#: mixer-profilebox-detail.gob:166
 msgid "Type"
 msgstr "Typ"
 
-#: ../src/mixer-profilebox-detail.gob:178 mixer-profilebox-detail.gob:178
+#: ../src/mixer-profilebox-detail.gob:178
+#: mixer-profilebox-detail.gob:178
 msgid "Up"
 msgstr "Nahoru"
 
-#: ../src/mixer-profilebox-detail.gob:181 mixer-profilebox-detail.gob:181
+#: ../src/mixer-profilebox-detail.gob:181
+#: mixer-profilebox-detail.gob:181
 msgid "Down"
 msgstr "Dolů"
 
-#: ../src/mixer-profilebox-detail.gob:188 mixer-profilebox-detail.gob:188
+#: ../src/mixer-profilebox-detail.gob:188
+#: mixer-profilebox-detail.gob:188
 msgid "Move Entry Up"
 msgstr "Přesunout položku nahoru"
 
-#: ../src/mixer-profilebox-detail.gob:191 mixer-profilebox-detail.gob:191
+#: ../src/mixer-profilebox-detail.gob:191
+#: mixer-profilebox-detail.gob:191
 msgid "Move Entry Down"
 msgstr "Přesunout položku dolů"
 
-#: ../src/mixer-profilebox-detail.gob:200 mixer-profilebox-detail.gob:200
+#: ../src/mixer-profilebox-detail.gob:200
+#: mixer-profilebox-detail.gob:200
 msgid "Profile Name:"
 msgstr "Název profilu:"
 
 #: ../src/mixer-profilebox-detail.gob:382
-#: ../src/mixer-profilebox-detail.gob:447 mixer-profilebox-detail.gob:382
+#: ../src/mixer-profilebox-detail.gob:447
+#: mixer-profilebox-detail.gob:382
 #: mixer-profilebox-detail.gob:447
 msgid "<unknown>"
 msgstr "<neznámý>"
 
 #: ../src/mixer-profilebox-detail.gob:384
-#: ../src/mixer-profilebox-detail.gob:449 mixer-profilebox-detail.gob:384
+#: ../src/mixer-profilebox-detail.gob:449
+#: mixer-profilebox-detail.gob:384
 #: mixer-profilebox-detail.gob:449
 msgid "<slider>"
 msgstr "<posuvník>"
 
 #: ../src/mixer-profilebox-detail.gob:385
-#: ../src/mixer-profilebox-detail.gob:450 mixer-profilebox-detail.gob:385
+#: ../src/mixer-profilebox-detail.gob:450
+#: mixer-profilebox-detail.gob:385
 #: mixer-profilebox-detail.gob:450
 msgid "<onoff>"
 msgstr "<zapnout/vypnout>"
 
 #: ../src/mixer-profilebox-detail.gob:386
-#: ../src/mixer-profilebox-detail.gob:451 mixer-profilebox-detail.gob:386
+#: ../src/mixer-profilebox-detail.gob:451
+#: mixer-profilebox-detail.gob:386
 #: mixer-profilebox-detail.gob:451
 msgid "<select>"
 msgstr "<výběr>"
 
-#: ../src/mixer-profilebox.gob:142 mixer-profilebox.gob:142
+#: ../src/mixer-profilebox.gob:142
+#: mixer-profilebox.gob:142
 msgid "Create new profile"
 msgstr "Vytvořit nový profil"
 
-#: ../src/mixer-profilebox.gob:151 mixer-profilebox.gob:151
+#: ../src/mixer-profilebox.gob:151
+#: mixer-profilebox.gob:151
 msgid "Delete this profile"
 msgstr "Smazat tento profil"
 
-#: ../src/mixer-profilebox.gob:170 mixer-profilebox.gob:170
+#: ../src/mixer-profilebox.gob:170
+#: mixer-profilebox.gob:170
 msgid "Profile"
 msgstr "Profil"
 
-#: ../src/mixer-profilebox.gob:374 mixer-profilebox.gob:374
+#: ../src/mixer-profilebox.gob:374
+#: mixer-profilebox.gob:374
 #, c-format
 msgid "Really delete those %d profiles?"
 msgstr "Skutečně chcete odstranit tyto %d profily ?"
 
-#: ../src/mixer-profilebox.gob:377 mixer-profilebox.gob:377
+#: ../src/mixer-profilebox.gob:377
+#: mixer-profilebox.gob:377
 #, c-format
 msgid "Really delete profile \"%s\"?"
 msgstr "Skutečně chcete odstranit profil \"%s\"?"
 
-#: ../src/mixer-profilebox.gob:491 mixer-profilebox.gob:491
+#: ../src/mixer-profilebox.gob:491
+#: mixer-profilebox.gob:491
 #, c-format
 msgid "%s - New"
 msgstr "%s - Nový"
 
-#: ../src/mixer-profilebox.gob:528 mixer-profilebox.gob:528
+#: ../src/mixer-profilebox.gob:528
+#: mixer-profilebox.gob:528
 msgid "A profile needs a name"
 msgstr "Profil musí být pojmenovaný"
 
-#: ../src/mixer-profilebox.gob:542 mixer-profilebox.gob:542
+#: ../src/mixer-profilebox.gob:542
+#: mixer-profilebox.gob:542
 msgid "A profile with that name already exists"
-msgstr "Profil s týmto jménem již existuje"
+msgstr "Profil s tímto názvem již existuje"
 
-#: ../src/mixer-profiles.gob:262 ../src/mixer-profiles.gob:269
-#: mixer-profiles.gob:262 mixer-profiles.gob:269
+#: ../src/mixer-profiles.gob:262
+#: ../src/mixer-profiles.gob:269
+#: mixer-profiles.gob:262
+#: mixer-profiles.gob:269
 #, c-format
 msgid "profile%d"
 msgstr "profil%d"
 
-#: ../src/mixer-view.gob:259 mixer-view.gob:259
+#: ../src/mixer-view.gob:259
+#: mixer-view.gob:259
 msgid "Show Switches"
 msgstr "Zobrazit přepínače"
 
-#: ../src/mixer-view.gob:260 mixer-view.gob:260
+#: ../src/mixer-view.gob:260
+#: mixer-view.gob:260
 msgid "Hide Switches"
 msgstr "Skrýt přepínače"
 
-#: ../src/mixer-window.gob:188 mixer-window.gob:188
+#: ../src/mixer-window.gob:188
+#: mixer-window.gob:188
 #: ../panel-plugin/xfce4-mixer.desktop.in.in.h:2
 msgid "Volume Control"
-msgstr "Nastavené hlasitosti"
+msgstr "Nastavení hlasitosti"
 
 #: ../panel-plugin/xfce4-mixer.desktop.in.in.h:1
 msgid "Change the Volume"
@@ -453,3 +478,4 @@ msgstr "Nastavení mixéru"
 #: ../settings/xfce-mixer-settings.desktop.in.h:2
 msgid "Xfce 4 Mixer Settings"
 msgstr "Nastavení mixéru Xfce 4"
+
