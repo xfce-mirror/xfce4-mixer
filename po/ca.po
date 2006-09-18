@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.99.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-05-17 12:51+0900\n"
-"PO-Revision-Date: 2006-05-09 16:54+0200\n"
+"PO-Revision-Date: 2006-09-18 23:01+0200\n"
 "Last-Translator: Carles Muñoz Gorriz <carlesmu@internautas.org>\n"
 "Language-Team: Catalan\n"
 "MIME-Version: 1.0\n"
@@ -187,24 +187,24 @@ msgstr "A3.LíniaOut2"
 msgid ""
 "alsa: error: master control not found. I even tried to guess wildly, but to "
 "no avail.\n"
-msgstr ""
+msgstr "alsa: error: no s’ha trobat el control mestre. S’ha intentat fer-ho segons les configuracions típiques però tampoc ha funcionat.\n"
 
 #: ../lib/vc_alsa.c:98
 #, c-format
 msgid ""
 "alsa: info: developer information follows: (send E-Mail to Developer with "
 "that)\n"
-msgstr ""
+msgstr "alsa: informació: a continuació es mostra informació pels desenvolupadors: (envieu un correu electrònic al desenvolupadors amb aquesta sortida)\n"
 
 #: ../lib/vc_alsa.c:112
 #, c-format
 msgid "hint hint"
-msgstr ""
+msgstr "pista pista"
 
 #: ../lib/vc_alsa.c:118
 #, c-format
 msgid "alsa: info: end of developer information\n"
-msgstr ""
+msgstr "alsa: informació: final de la informació pels desenvolupadors\n"
 
 #: ../lib/vc_alsa.c:136
 #, c-format
