@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.99.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-05-17 12:51+0900\n"
-"PO-Revision-Date: 2006-04-15 05:17+0900\n"
+"PO-Revision-Date: 2006-10-09 16:35+0900\n"
 "Last-Translator: ByunHyun Choi <byunghyun.choi@gmail.com>\n"
 "Language-Team: xfce4-users-kr-i18n <xfce4-users-kr-i18n@lists.sourceforge."
 "net>\n"
@@ -184,6 +184,8 @@ msgid ""
 "alsa: error: master control not found. I even tried to guess wildly, but to "
 "no avail.\n"
 msgstr ""
+"alsa: 오류: 주볼륨을 찾지 못했습니다. 어떻게든 찾아 보려고 했지만 적당한"
+"것이 없군요.\n"
 
 #: ../lib/vc_alsa.c:98
 #, c-format
@@ -191,6 +193,7 @@ msgid ""
 "alsa: info: developer information follows: (send E-Mail to Developer with "
 "that)\n"
 msgstr ""
+"alsa: 정보: 만든이들: (만든이들에게 메일을 보내십시오.)\n"
 
 #: ../lib/vc_alsa.c:112
 #, c-format
@@ -200,7 +203,7 @@ msgstr ""
 #: ../lib/vc_alsa.c:118
 #, c-format
 msgid "alsa: info: end of developer information\n"
-msgstr ""
+msgstr "alsa: 정보: 만든이들에 대한 정보 끝\n"
 
 #: ../lib/vc_alsa.c:136
 #, c-format
@@ -264,7 +267,7 @@ msgstr "장치:"
 
 #: mixer-prefbox.gob:178
 msgid "Wannabe Master:"
-msgstr "Wannabe Master:"
+msgstr "제어기 선택:"
 
 #: mixer-prefbox.gob:180
 msgid "When clicked"
@@ -287,7 +290,7 @@ msgstr "볼륨 제어"
 #. the button label in the xfce-mcs-manager dialog
 #: ../settings/sound.c:81
 msgid "Button Label|Sound"
-msgstr ""
+msgstr "소리"
 
 #: ../settings/sound.c:102
 msgid "Sound"
@@ -440,7 +443,7 @@ msgstr "볼륨 제어"
 
 #: ../panel-plugin/xfce4-mixer.desktop.in.in.h:1
 msgid "Change the Volume"
-msgstr ""
+msgstr "볼륨 변경"
 
 #: ../settings/xfce-mixer-settings.desktop.in.h:1
 msgid "Mixer Settings"
