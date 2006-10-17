@@ -198,7 +198,7 @@ msgstr ""
 #: ../lib/vc_alsa.c:112
 #, c-format
 msgid "hint hint"
-msgstr ""
+msgstr "힌트 힌트"
 
 #: ../lib/vc_alsa.c:118
 #, c-format
