@@ -1,6 +1,6 @@
 
 dnl Process this file with autoconf to produce a configure script.
-AC_INIT([xfce4-mixer], [4.3.99.1], [xfce4-dev@xfce.org])
+AC_INIT([xfce4-mixer], [4.3.99.2], [xfce4-dev@xfce.org])
 AC_REVISION([$Id$])
 AM_CONFIG_HEADER([config.h])
 AM_INIT_AUTOMAKE([AC_PACKAGE_TARNAME()], [AC_PACKAGE_VERSION()])
