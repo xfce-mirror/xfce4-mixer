@@ -1,0 +1,455 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce/xfce4-mixer.po\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-09-02 17:44+0200\n"
+"PO-Revision-Date: 2006-10-24 20:24+0530\n"
+"Last-Translator: sonam rinchen <somindruk@druknet.bt>\n"
+"Language-Team: dzongkha <pgeyleg@dit.gov.bt>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2;plural=(n!=1)\n"
+"X-Poedit-Language: dzongkha\n"
+"X-Poedit-Country: bhutan\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: ../lib/trans.c:36
+msgid "Vol"
+msgstr "སྐད་ཤུགས།"
+
+#. Master
+#: ../lib/trans.c:37
+msgid "Pcm"
+msgstr "པི་སི་ཨེམ།"
+
+#. PCM output
+#: ../lib/trans.c:38
+msgid "Spkr"
+msgstr "སྒྲ་སྤར།"
+
+#. Internal speaker?
+#: ../lib/trans.c:39
+msgid "Line"
+msgstr "རྒྱུན་ལམ།"
+
+#. Line in
+#: ../lib/trans.c:40
+msgid "Mic"
+msgstr "ཁ་པར།"
+
+#. Mic in
+#: ../lib/trans.c:41
+msgid "CD"
+msgstr "སི་ཌི།"
+
+#. CD in
+#: ../lib/trans.c:42
+msgid "Bass"
+msgstr "བཱསི།"
+
+#: ../lib/trans.c:43
+msgid "Trebl"
+msgstr "ཊིརི་བཱལ།"
+
+#: ../lib/trans.c:44
+msgid "Synth"
+msgstr "སིནཐ།"
+
+#: ../lib/trans.c:45
+msgid "Mix"
+msgstr "སྦྱོར་འཕྲུལ།"
+
+#: ../lib/trans.c:46
+msgid "Pcm2"
+msgstr "པི་སི་ཨེམ་༢"
+
+#: ../lib/trans.c:47
+msgid "Rec"
+msgstr "སྒྲ་བཟུང་།"
+
+#: ../lib/trans.c:48
+msgid "IGain"
+msgstr "ཨའི་གེན།"
+
+#: ../lib/trans.c:49
+msgid "OGain"
+msgstr "ཨོ་གེན།"
+
+#: ../lib/trans.c:50
+msgid "Line1"
+msgstr "རྒྱུན་ལམ་༡།"
+
+#: ../lib/trans.c:51
+msgid "Line2"
+msgstr "རྒྱུན་ལམ་༢།"
+
+#: ../lib/trans.c:52
+msgid "Line3"
+msgstr "རྒྱུན་ལམ་༣།"
+
+#: ../lib/trans.c:53
+msgid "Digital1"
+msgstr "ཌི་ཇི་ཊཱལ་༡།"
+
+#: ../lib/trans.c:54
+msgid "Digital2"
+msgstr "ཌི་ཇི་ཊཱལ་༢།"
+
+#: ../lib/trans.c:55
+msgid "Digital3"
+msgstr "ཌི་ཇི་ཊཱལ་༣།"
+
+#: ../lib/trans.c:56
+msgid "PhoneIn"
+msgstr "བརྒྱུད་འཕྲིན་ནང་།"
+
+#: ../lib/trans.c:57
+msgid "PhoneOut"
+msgstr "བརྒྱུད་འཕྲིན་ཕྱི།"
+
+#: ../lib/trans.c:58
+msgid "Video"
+msgstr "ཝི་ཌོ།"
+
+#: ../lib/trans.c:59
+msgid "Radio"
+msgstr "རེ་ཌིའོ།"
+
+#: ../lib/trans.c:60
+msgid "Monitor"
+msgstr "གསལ་འཕྲུལ།"
+
+#: ../lib/trans.c:61
+msgid "RecSelect"
+msgstr "སྒྲ་བཟུང་སེལ་འཐུ།"
+
+#. Device
+#. Label
+#: ../lib/trans.c:77
+msgid "A3.AnalogIn"
+msgstr "A3.ཨེ་ན་ལོག་ཨིན།"
+
+#. Analog In
+#: ../lib/trans.c:78
+msgid "A3.AnalogOut"
+msgstr "A3.ཨེ་ན་ལོག་ཨའུཊི།"
+
+#. Analog Out
+#: ../lib/trans.c:79
+msgid "A3.AnalogOut2"
+msgstr "A3.ཨེ་ན་ལོག་ཨའུཊི་༢།"
+
+#. Analog Out 2
+#. Interface
+#: ../lib/trans.c:81
+msgid "A3.CameraMic"
+msgstr "A3.པར་ཆས་ཁ་པར།"
+
+#. Camera Mic
+#: ../lib/trans.c:82
+msgid "A3.Microphone"
+msgstr "A3.ཁ་པར།"
+
+#. Microphone
+#: ../lib/trans.c:83
+msgid "A3.LineIn"
+msgstr "A3.རྒྱུན་ལམ་ནང་།"
+
+#. Line In
+#: ../lib/trans.c:84
+msgid "A3.DAC1In"
+msgstr "A3.ཌི་ཨེ་སི་༡ ནང་།"
+
+#. DAC1 In
+#: ../lib/trans.c:85
+msgid "A3.DAC2In"
+msgstr "A3.ཌི་ཨེ་སི་༢ ནང་།"
+
+#. DAC2 In
+#: ../lib/trans.c:86
+msgid "A3.Speaker"
+msgstr "A3.སྒྲ་སྤར།"
+
+#. Speaker/Line Out
+#: ../lib/trans.c:87
+msgid "A3.LineOut2"
+msgstr "A3.རྒྱུན་ལམ་ཕྱི་༢།"
+
+#: ../lib/vc_alsa.c:93
+#, c-format
+msgid ""
+"alsa: error: master control not found. I even tried to guess wildly, but to "
+"no avail.\n"
+msgstr "alsa: འཛོལ་བ་:ཚད་འཛིན་ཨམ་འཚོལ་མ་ཐོབ། ང་གིས་ག་དེ་སྦེ་ཕོག་ཚད་དཔག་རུང་ འཐོབ་མ་ཚུགས།\n"
+
+#: ../lib/vc_alsa.c:98
+#, c-format
+msgid ""
+"alsa: info: developer information follows: (send E-Mail to Developer with "
+"that)\n"
+msgstr ""
+"alsa: བརྡ་དོན་:བརྡ་དོན་བཟོ་མི་རྗེས་སུ་འབྲངམ་ཨིན་:(དེ་དང་གཅིག་ཁར་བཟོ་མི་ལུ་གློག་འཕྲིན་གཏང་།)\n"
+
+#: ../lib/vc_alsa.c:112
+#, c-format
+msgid "hint hint"
+msgstr "བརྡ་མཚོན་ བརྡ་མཚོན།"
+
+#: ../lib/vc_alsa.c:118
+#, c-format
+msgid "alsa: info: end of developer information\n"
+msgstr "alsa: བརྡ་དོན་: བརྡ་དོན་བཟོ་མི་གི་མཇུག།\n"
+
+#: ../lib/vc_alsa.c:136
+#, c-format
+msgid "alsa: Mixer %s open error: %s\n"
+msgstr "alsa: སྦྱོར་འཕྲུལ་%s ཁ་ཕྱེ་འཛོལ་བ་: %s\n"
+
+#: ../lib/vc_alsa.c:141
+#, c-format
+msgid "alsa: Mixer attach %s error: %s\n"
+msgstr "alsa: སྦྱོར་འཕྲུལ་མཉམ་སྦྲགས་%s འཛོལ་བ་: %s\n"
+
+#: ../lib/vc_alsa.c:149
+#, c-format
+msgid "alsa: Mixer register error: %s\n"
+msgstr "alsa: སྦྱོར་འཕྲུལ་ཐོ་འགོད་འཛོལ་བ་: %s\n"
+
+#: ../lib/vc_alsa.c:158
+#, c-format
+msgid "alsa: Mixer load error: %s: %s\n"
+msgstr "alsa: སྦྱོར་འཕྲུལ་མངོན་གསལ་འཛོལ་བ་:%s: %s\n"
+
+#: ../lib/vc_alsa.c:184
+#, c-format
+msgid "alsa: Unable to find simple control '%s',%i\n"
+msgstr "alsa: འཇམ་སམ་ཚད་འཛིན་'%s',%i འཚོལ་མི་ཚུགས་པས།\n"
+
+#: ../lib/vc_oss.c:158
+msgid "oss: No master volume"
+msgstr "ཨོ་ཨེསི་ཨེསི་:ཨམ་སྐད་ཤུགས་མིན་འདུག།"
+
+#: ../panel-plugin/launcher-entry.c:75
+msgid "Run in Terminal"
+msgstr "ཊར་མི་ནཱལ་ནང་གཡོག་བཀོལ།"
+
+#: ../panel-plugin/launcher-entry.c:80
+msgid "Use Startup Notification"
+msgstr "འགོ་བཙུགས་བརྡ་བསྐུལ་ལག་ལེན་འཐབ།"
+
+#: ../panel-plugin/launcher-entry.c:192 ../panel-plugin/plugin.c:343
+#, c-format
+msgid "Could not run \"%s\""
+msgstr " \"%s\" གཡོག་བཀོལ་མ་ཚུགས།"
+
+#: ../panel-plugin/launcher-entry.c:194 ../panel-plugin/plugin.c:345
+msgid "Xfce Panel"
+msgstr "ཨེཀསི་ཨེཕ་སི་ཨི་པེ་ནཱལ།"
+
+#: ../panel-plugin/plugin.c:272
+#, c-format
+msgid "Volume: %d%%"
+msgstr "སྐད་ཤུགས་: %d%%"
+
+#: ../panel-plugin/plugin.c:564
+msgid "Could not save configuration"
+msgstr "རིམ་སྒྲིག་བསྲུང་བཞག་འབད་མ་ཚུགས།"
+
+#: mixer-prefbox.gob:177 ../src/mixer-profilebox.gob:88
+#: mixer-profilebox.gob:88
+msgid "Device:"
+msgstr "ཐབས་འཕྲུལ་:"
+
+#: mixer-prefbox.gob:178
+msgid "Wannabe Master:"
+msgstr "ཝོ་ན་བི་མཱསི་ཊར་:"
+
+#: mixer-prefbox.gob:180
+msgid "When clicked"
+msgstr "ཨེབ་གཏང་པའི་སྐབས།"
+
+#: ../settings/mixer-settingsbox.gob:128 mixer-settingsbox.gob:128
+msgid "Device"
+msgstr "ཐབས་འཕྲུལ།"
+
+#: ../settings/mixer-settingsbox.gob:131 mixer-settingsbox.gob:131
+msgid "None"
+msgstr "ཅི་མེད།"
+
+#. gtk_widget_show (GTK_WIDGET (self->dev_label));
+#. debug_bindtextdomain();
+#: ../settings/mixer-settingsbox.gob:136 mixer-settingsbox.gob:136
+msgid "Useful Controls"
+msgstr "ཕན་ཐོགས་ཅན་གྱི་ཚད་འཛིན་ཚུ།"
+
+#. the button label in the xfce-mcs-manager dialog
+#: ../settings/sound.c:81
+msgid "Button Label|Sound"
+msgstr "ཨེབ་རྟ་ཁ་ཡིག་|སྒྲ་སྐད།"
+
+#: ../settings/sound.c:102
+msgid "Sound"
+msgstr "སྒྲ་སྐད།"
+
+#: ../src/menus.c:12
+msgid "/_File"
+msgstr "/ཡིག་སྣོད།(_F)"
+
+#: ../src/menus.c:13
+msgid "/File/_Options"
+msgstr "/ཡིག་སྣོད་/གདམ་ཁ་ཚུ།(_O)"
+
+#: ../src/menus.c:14
+msgid "/File/_Exit"
+msgstr "/ཡིག་སྣོད་/ཕྱིར་ཐོན།(_E)"
+
+#: ../src/menus.c:15
+msgid "/_View"
+msgstr "/སྟོན།(_V)"
+
+#: ../src/menus.c:16
+msgid "/View/_Manage"
+msgstr "/སྟོན་/འཛིན་སྐྱོང་འཐབ།(_M)"
+
+#: ../src/menus.c:17
+msgid "/_Help"
+msgstr "/གྲོགས་རམ།(_H)"
+
+#: ../src/menus.c:18
+msgid "/Help/_Info"
+msgstr "/གྲོགས་རམ་/བརྡ་དོན།(_I)"
+
+#: ../src/mixer-info.gob:28 mixer-info.gob:28
+msgid ""
+"This is xfce4-mixer, a volume control program.\n"
+"It is released under the GPL-2 License which you find in the source "
+"directory.\n"
+"No warranty in any way."
+msgstr ""
+"ཨ་ནི་འདི་ཨེཀསི་ཨེཕ་སི་ཨི་༤-སྦྱོར་འཕྲུལ་ སྐད་ཤུགས་ཚད་འཛིན་ལས་རིམ་ཨིན།\n"
+"ཨ་ནི་དེ་ཁྱོད་ཀྱིས་འབྱུང་ཁུངས་སྣོད་ཐོ་ནང་ཐོབ་མི་ཇི་པི་ཨེལ་-༢ཆོག་ཐམ་གྱི་འོག་ལུ་གསར་བཏོན་འབད་ཡོདཔ་ཨིན།\n"
+"ཐབས་ལམ་ག་ཅི་ནང་ཡང་ཉེན་ལེན་མེད།"
+
+#: ../src/mixer-profilebox-detail.gob:163 mixer-profilebox-detail.gob:163
+msgid "Control"
+msgstr "ཚད་འཛིན།"
+
+#: ../src/mixer-profilebox-detail.gob:166 mixer-profilebox-detail.gob:166
+msgid "Type"
+msgstr "ཡིག་དཔར་རྐྱབས།"
+
+#: ../src/mixer-profilebox-detail.gob:178 mixer-profilebox-detail.gob:178
+msgid "Up"
+msgstr "ཡར།"
+
+#: ../src/mixer-profilebox-detail.gob:181 mixer-profilebox-detail.gob:181
+msgid "Down"
+msgstr "མར།"
+
+#: ../src/mixer-profilebox-detail.gob:188 mixer-profilebox-detail.gob:188
+msgid "Move Entry Up"
+msgstr "ཐོ་བཀོད་ཡར་བཤུད་།"
+
+#: ../src/mixer-profilebox-detail.gob:191 mixer-profilebox-detail.gob:191
+msgid "Move Entry Down"
+msgstr "ཐོ་བཀོད་མར་བཤུད།"
+
+#: ../src/mixer-profilebox-detail.gob:200 mixer-profilebox-detail.gob:200
+msgid "Profile Name:"
+msgstr "གསལ་སྡུད་ཀྱི་མིང་:"
+
+#: ../src/mixer-profilebox-detail.gob:382
+#: ../src/mixer-profilebox-detail.gob:447 mixer-profilebox-detail.gob:382
+#: mixer-profilebox-detail.gob:447
+msgid "<unknown>"
+msgstr "<མ་ཤེསཔ།>"
+
+#: ../src/mixer-profilebox-detail.gob:384
+#: ../src/mixer-profilebox-detail.gob:449 mixer-profilebox-detail.gob:384
+#: mixer-profilebox-detail.gob:449
+msgid "<slider>"
+msgstr "<བཤུད་བྱེད།>"
+
+#: ../src/mixer-profilebox-detail.gob:385
+#: ../src/mixer-profilebox-detail.gob:450 mixer-profilebox-detail.gob:385
+#: mixer-profilebox-detail.gob:450
+msgid "<onoff>"
+msgstr "<ཨོན་ཨོཕ།>"
+
+#: ../src/mixer-profilebox-detail.gob:386
+#: ../src/mixer-profilebox-detail.gob:451 mixer-profilebox-detail.gob:386
+#: mixer-profilebox-detail.gob:451
+msgid "<select>"
+msgstr "<སེལ་འཐུ་འབད།>"
+
+#: ../src/mixer-profilebox.gob:142 mixer-profilebox.gob:142
+msgid "Create new profile"
+msgstr "གསལ་སྡུད་གསརཔ་གསར་བསྐྲུན་འབད།"
+
+#: ../src/mixer-profilebox.gob:151 mixer-profilebox.gob:151
+msgid "Delete this profile"
+msgstr "ཨ་ནི་གསལ་སྡུད་བཏོན་གཏང་།"
+
+#: ../src/mixer-profilebox.gob:170 mixer-profilebox.gob:170
+msgid "Profile"
+msgstr "གསལ་སྡུད།"
+
+#: ../src/mixer-profilebox.gob:374 mixer-profilebox.gob:374
+#, c-format
+msgid "Really delete those %d profiles?"
+msgstr "ཐད་རི་འབའ་རི་%d གསལ་སྡུད་དེ་ཚུ་བཏོན་གཏང་?"
+
+#: ../src/mixer-profilebox.gob:377 mixer-profilebox.gob:377
+#, c-format
+msgid "Really delete profile \"%s\"?"
+msgstr "ཐད་རི་འབའ་རི་གསལ་སྡུད་\"%s\"བཏོན་གཏང་?"
+
+#: ../src/mixer-profilebox.gob:491 mixer-profilebox.gob:491
+#, c-format
+msgid "%s - New"
+msgstr "%s - གསརཔ།"
+
+#: ../src/mixer-profilebox.gob:528 mixer-profilebox.gob:528
+msgid "A profile needs a name"
+msgstr "གསལ་སྡུད་ལུ་མིང་དགོཔ་ཨིན།"
+
+#: ../src/mixer-profilebox.gob:542 mixer-profilebox.gob:542
+msgid "A profile with that name already exists"
+msgstr "མིང་དེ་ཡོད་མི་གསལ་སྡུད་ཧེ་མ་ལས་ཡོདཔ་ཨིན།"
+
+#: ../src/mixer-profiles.gob:262 ../src/mixer-profiles.gob:269
+#: mixer-profiles.gob:262 mixer-profiles.gob:269
+#, c-format
+msgid "profile%d"
+msgstr "གསལ་སྡུད་%d"
+
+#: ../src/mixer-view.gob:259 mixer-view.gob:259
+msgid "Show Switches"
+msgstr "སོར་བསྒྱུར་ཚུ་སྟོན།"
+
+#: ../src/mixer-view.gob:260 mixer-view.gob:260
+msgid "Hide Switches"
+msgstr "སོར་བསྒྱུར་ཚུ་སྦ་བཞག།"
+
+#: ../src/mixer-window.gob:188 mixer-window.gob:188
+#: ../panel-plugin/xfce4-mixer.desktop.in.in.h:2
+msgid "Volume Control"
+msgstr "སྐད་ཤུགས་ཚད་འཛིན།"
+
+#: ../panel-plugin/xfce4-mixer.desktop.in.in.h:1
+msgid "Change the Volume"
+msgstr "སྐད་ཤུགས་བསྒྱུར་བཅོས་འབད།"
+
+#: ../settings/xfce-mixer-settings.desktop.in.h:1
+msgid "Mixer Settings"
+msgstr "སྦྱོར་འཕྲུལ་སྒྲིག་སྟངས་ཚུ།"
+
+#: ../settings/xfce-mixer-settings.desktop.in.h:2
+msgid "Xfce 4 Mixer Settings"
+msgstr "ཨེཀསི་ཨེཕ་སི་ཨི་༤སྦྱོར་འཕྲུལ་སྒྲིག་སྟངས་ཚུ།"
