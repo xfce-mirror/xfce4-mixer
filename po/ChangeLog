@@ -72,7 +72,7 @@
 	* pl.po: Updated Polish translations by Szymon Kalasz
 	  <szymon_maestro@gazeta.pl>.
 
-2006-05-20  Stavros Giannouris <stavrosg2002@freemail.gr>
+2006-05-20  Stavros Giannouris <stavrosg@serverhive.com>
 
 	* el.po: Greek translation update.
 
@@ -106,7 +106,7 @@
 	  <miko.vaji@gmail.com>.
 	* xfce4-mixer.pot, *.po: Updated.
 
-2006-05-06  Stavros Giannouris <stavrosg2002@freemail.gr>
+2006-05-06  Stavros Giannouris <stavrosg@serverhive.com>
 
 	* el.po: Updated Greek translation.
 
@@ -211,7 +211,7 @@
 
 	* ca.po: [i18n] catalan little of work on catalan translations
 
-2006-04-01  Stavros Giannouris <stavrosg2002@freemail.gr>
+2006-04-01  Stavros Giannouris <stavrosg@serverhive.com>
 
 	* el.po: Greek translations update & polish by Stathis Kamperis
 	  <ekamperi@auth.gr>
@@ -242,7 +242,7 @@
 	  Andrey Fedoseev <andrey.fedoseev@gmail.com>,
 	  Sergey Fedoseev <fedoseev.sergey@gmail.com>.
 
-2006-03-07  Stavros Giannouris <stavrosg2002@freemail.gr>
+2006-03-07  Stavros Giannouris <stavrosg@serverhive.com>
 
 	* el.po: Greek translation update
 
@@ -406,7 +406,7 @@
 
 	* *.po: Updated with the latest POT file.
 
-2005-10-06  Stavros Giannouris <stavrosg2002@freemail.gr>
+2005-10-06  Stavros Giannouris <stavrosg@serverhive.com>
 
 	* el.po: Minor updates & polishing for the Greek translations
 
@@ -464,7 +464,7 @@
 	* en_GB.po: since that's english I doubt its in iso-8859-1, so no
 	  trouble converting :) actually ascii would suffice too
 
-2005-08-11  Stavros Giannouris <stavrosg2002@freemail.gr>
+2005-08-11  Stavros Giannouris <stavrosg@serverhive.com>
 
 	* el.po: Add initial Greek translations in trunk for xfce4-mixer.
 
