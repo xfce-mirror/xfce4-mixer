@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.3.99.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-05-17 12:51+0900\n"
+"POT-Creation-Date: 2006-11-04 19:21+0100\n"
 "PO-Revision-Date: 2006-04-01 18:24+0600\n"
 "Last-Translator: Andrey Fedoseev <andrey.fedoseev@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -75,11 +75,11 @@ msgstr "Запись"
 
 #: ../lib/trans.c:48
 msgid "IGain"
-msgstr "IGain"
+msgstr "Усил. входа"
 
 #: ../lib/trans.c:49
 msgid "OGain"
-msgstr "OGain"
+msgstr "Усил. выхода"
 
 #: ../lib/trans.c:50
 msgid "Line1"
@@ -127,7 +127,7 @@ msgstr "Монитор"
 
 #: ../lib/trans.c:61
 msgid "RecSelect"
-msgstr ""
+msgstr "Источник записи"
 
 #. Device
 #. Label
@@ -242,21 +242,21 @@ msgstr "Запустить в окне терминала"
 msgid "Use Startup Notification"
 msgstr "Использовать уведомление о запуске"
 
-#: ../panel-plugin/launcher-entry.c:192 ../panel-plugin/plugin.c:342
+#: ../panel-plugin/launcher-entry.c:192 ../panel-plugin/plugin.c:343
 #, c-format
 msgid "Could not run \"%s\""
 msgstr "Не удалось выполнить \"%s\""
 
-#: ../panel-plugin/launcher-entry.c:194 ../panel-plugin/plugin.c:344
+#: ../panel-plugin/launcher-entry.c:194 ../panel-plugin/plugin.c:345
 msgid "Xfce Panel"
 msgstr "Панель Xfce"
 
-#: ../panel-plugin/plugin.c:271
+#: ../panel-plugin/plugin.c:272
 #, c-format
 msgid "Volume: %d%%"
 msgstr "Громкость: %d%%"
 
-#: ../panel-plugin/plugin.c:571
+#: ../panel-plugin/plugin.c:564
 msgid "Could not save configuration"
 msgstr "Не удалось сохранить конфигурацию"
 
@@ -267,7 +267,7 @@ msgstr "Устройство:"
 
 #: mixer-prefbox.gob:178
 msgid "Wannabe Master:"
-msgstr ""
+msgstr "Управляемый канал:"
 
 #: mixer-prefbox.gob:180
 msgid "When clicked"
@@ -292,7 +292,7 @@ msgstr "Контролируемые каналы"
 msgid "Button Label|Sound"
 msgstr "Звук"
 
-#: ../settings/sound.c:102
+#: ../settings/sound.c:104
 msgid "Sound"
 msgstr "Звук"
 
@@ -431,7 +431,7 @@ msgstr "Профиль %d"
 
 #: ../src/mixer-view.gob:259 mixer-view.gob:259
 msgid "Show Switches"
-msgstr "Показывать переключатели"
+msgstr "Показать переключатели"
 
 #: ../src/mixer-view.gob:260 mixer-view.gob:260
 msgid "Hide Switches"
@@ -440,7 +440,7 @@ msgstr "Скрыть переключатели"
 #: ../src/mixer-window.gob:188 mixer-window.gob:188
 #: ../panel-plugin/xfce4-mixer.desktop.in.in.h:2
 msgid "Volume Control"
-msgstr "Контроль звука"
+msgstr "Регулировка звука"
 
 #: ../panel-plugin/xfce4-mixer.desktop.in.in.h:1
 msgid "Change the Volume"
