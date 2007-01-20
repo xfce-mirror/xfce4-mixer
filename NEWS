@@ -1,11 +1,17 @@
+4.4.0
+=====
+- Several new and updated translations.
+
+
 4.3.90.1
---------
-* Port to the new panel framework.
-* Support for SGI mixer.
+========
+- Port to the new panel framework.
+- Support for SGI mixer.
+
 
 4.2.0
------
-* Complete rewrite of the mixer with settings manager dialog.
-* Support for mixer profiles.
-* Support for ALSA, OSS and Sun Audio.
+=====
+- Complete rewrite of the mixer with settings manager dialog.
+- Support for mixer profiles.
+- Support for ALSA, OSS and Sun Audio.
 
