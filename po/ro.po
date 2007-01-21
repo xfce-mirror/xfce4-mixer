@@ -1,20 +1,20 @@
 # Romanian translation of xfce4-mixer.
 # Copyright (C) 2003-2006 The Xfce development team.
 # This file is distributed under the same license as the xfce4-mixer package.
-# Mişu Moldovan <dumol@gnome.ro>, 2004.
+# Mişu Moldovan <dumol@gnome.ro>, 2004-2007.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.4.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-05-17 12:51+0900\n"
-"PO-Revision-Date: 2005-10-08 08:31+0900\n"
+"PO-Revision-Date: 2007-01-20 23:25+0200\n"
 "Last-Translator: Mişu Moldovan <dumol@gnome.ro>\n"
 "Language-Team: Romanian <gnomero-list@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=3;plural=(n==1?0:(n==0||((n%100)>0&&(n%100)<20))?1:2)\n"
 
 #: ../lib/trans.c:36
 msgid "Vol"
@@ -56,7 +56,7 @@ msgstr "Înalte"
 
 #: ../lib/trans.c:44
 msgid "Synth"
-msgstr "Sint"
+msgstr "Synth"
 
 #: ../lib/trans.c:45
 msgid "Mix"
@@ -124,61 +124,59 @@ msgstr "Monitor"
 
 #: ../lib/trans.c:61
 msgid "RecSelect"
-msgstr ""
+msgstr "RecSelect"
 
 #. Device
 #. Label
 #: ../lib/trans.c:77
 msgid "A3.AnalogIn"
-msgstr ""
+msgstr "A3.AnalogIn"
 
 #. Analog In
 #: ../lib/trans.c:78
 msgid "A3.AnalogOut"
-msgstr ""
+msgstr "A3.AnalogOut"
 
 #. Analog Out
 #: ../lib/trans.c:79
 msgid "A3.AnalogOut2"
-msgstr ""
+msgstr "A3.AnalogOut2"
 
 #. Analog Out 2
 #. Interface
 #: ../lib/trans.c:81
 msgid "A3.CameraMic"
-msgstr ""
+msgstr "A3.CamerăMic"
 
 #. Camera Mic
 #: ../lib/trans.c:82
 msgid "A3.Microphone"
-msgstr ""
+msgstr "A3.Mic"
 
 #. Microphone
 #: ../lib/trans.c:83
-#, fuzzy
 msgid "A3.LineIn"
-msgstr "Line"
+msgstr "A3.LineIn"
 
 #. Line In
 #: ../lib/trans.c:84
 msgid "A3.DAC1In"
-msgstr ""
+msgstr "A3.DAC1In"
 
 #. DAC1 In
 #: ../lib/trans.c:85
 msgid "A3.DAC2In"
-msgstr ""
+msgstr "A3.DAC2In"
 
 #. DAC2 In
 #: ../lib/trans.c:86
 msgid "A3.Speaker"
-msgstr ""
+msgstr "A3.Speaker"
 
 #. Speaker/Line Out
 #: ../lib/trans.c:87
-#, fuzzy
 msgid "A3.LineOut2"
-msgstr "Line2"
+msgstr "A3.LineOut2"
 
 #: ../lib/vc_alsa.c:93
 #, c-format
@@ -186,6 +184,8 @@ msgid ""
 "alsa: error: master control not found. I even tried to guess wildly, but to "
 "no avail.\n"
 msgstr ""
+"ALSA: Eroare: nu s-a găsit un control master. S-a încercat ghicirea acestuia, "
+"dar fără succes.\n"
 
 #: ../lib/vc_alsa.c:98
 #, c-format
@@ -193,62 +193,64 @@ msgid ""
 "alsa: info: developer information follows: (send E-Mail to Developer with "
 "that)\n"
 msgstr ""
+"ALSA: Info: Detalii pentru dezvoltatori: (trimiteţi un mail la dezvoltator cu "
+"aceste informaţii)\n"
 
 #: ../lib/vc_alsa.c:112
 #, c-format
 msgid "hint hint"
-msgstr ""
+msgstr "aici, aici"
 
 #: ../lib/vc_alsa.c:118
 #, c-format
 msgid "alsa: info: end of developer information\n"
-msgstr ""
+msgstr "ALSA: Info: sfârşitul detaliilor pentru dezvoltatori\n"
 
 #: ../lib/vc_alsa.c:136
 #, c-format
 msgid "alsa: Mixer %s open error: %s\n"
-msgstr "alsa: Eroare la deschiderea mixerului %s: %s\n"
+msgstr "ALSA: Eroare la deschiderea mixerului %s: %s\n"
 
 #: ../lib/vc_alsa.c:141
 #, c-format
 msgid "alsa: Mixer attach %s error: %s\n"
-msgstr "alsa: Eroare la ataşarea la mixerul %s: %s\n"
+msgstr "ALSA: Eroare la ataşarea la mixerul %s: %s\n"
 
 #: ../lib/vc_alsa.c:149
 #, c-format
 msgid "alsa: Mixer register error: %s\n"
-msgstr "alsa: Eroare la înregistrarea mixerului: %s\n"
+msgstr "ALSA: Eroare la înregistrarea mixerului: %s\n"
 
 #: ../lib/vc_alsa.c:158
 #, c-format
 msgid "alsa: Mixer load error: %s: %s\n"
-msgstr "alsa: Eroare la încărcarea mixerului: %s: %s\n"
+msgstr "ALSA: Eroare la încărcarea mixerului: %s: %s\n"
 
 #: ../lib/vc_alsa.c:184
 #, c-format
 msgid "alsa: Unable to find simple control '%s',%i\n"
-msgstr "alsa: Nu reuşesc să găsesc controlul „%s”, %i\n"
+msgstr "ALSA: Nu s-a putut găsi controlul „%s”, %i\n"
 
 #: ../lib/vc_oss.c:158
 msgid "oss: No master volume"
-msgstr "oss: Fără volum principal"
+msgstr "OSS: Fără volum principal"
 
 #: ../panel-plugin/launcher-entry.c:75
 msgid "Run in Terminal"
-msgstr ""
+msgstr "Pornire în terminal"
 
 #: ../panel-plugin/launcher-entry.c:80
 msgid "Use Startup Notification"
-msgstr ""
+msgstr "Utilizează notificare la pornire"
 
 #: ../panel-plugin/launcher-entry.c:192 ../panel-plugin/plugin.c:342
 #, c-format
 msgid "Could not run \"%s\""
-msgstr ""
+msgstr "Nu s-a putut porni „%s”"
 
 #: ../panel-plugin/launcher-entry.c:194 ../panel-plugin/plugin.c:344
 msgid "Xfce Panel"
-msgstr ""
+msgstr "Panou Xfce"
 
 #: ../panel-plugin/plugin.c:271
 #, c-format
@@ -257,7 +259,7 @@ msgstr "Volum: %d%%"
 
 #: ../panel-plugin/plugin.c:571
 msgid "Could not save configuration"
-msgstr ""
+msgstr "Nu s-au putut salva preferinţele"
 
 #: mixer-prefbox.gob:177 ../src/mixer-profilebox.gob:88
 #: mixer-profilebox.gob:88
@@ -266,11 +268,11 @@ msgstr "Dispozitiv:"
 
 #: mixer-prefbox.gob:178
 msgid "Wannabe Master:"
-msgstr ""
+msgstr "Control principal:"
 
 #: mixer-prefbox.gob:180
 msgid "When clicked"
-msgstr ""
+msgstr "Porneşte la clic pe buton"
 
 #: ../settings/mixer-settingsbox.gob:128 mixer-settingsbox.gob:128
 msgid "Device"
@@ -289,7 +291,7 @@ msgstr "Controale utile"
 #. the button label in the xfce-mcs-manager dialog
 #: ../settings/sound.c:81
 msgid "Button Label|Sound"
-msgstr ""
+msgstr "Sunet"
 
 #: ../settings/sound.c:102
 msgid "Sound"
@@ -402,12 +404,12 @@ msgstr "Profil"
 #: ../src/mixer-profilebox.gob:374 mixer-profilebox.gob:374
 #, c-format
 msgid "Really delete those %d profiles?"
-msgstr "Chiar şterg aceste profiluri %d?"
+msgstr "Sigur doriţi ştergerea profilurilor %d?"
 
 #: ../src/mixer-profilebox.gob:377 mixer-profilebox.gob:377
 #, c-format
 msgid "Really delete profile \"%s\"?"
-msgstr "Chiar şterg profilul „%s”?"
+msgstr "Sigur doriţi ştergerea profilului „%s”?"
 
 #: ../src/mixer-profilebox.gob:491 mixer-profilebox.gob:491
 #, c-format
@@ -443,12 +445,13 @@ msgstr "Control volum"
 
 #: ../panel-plugin/xfce4-mixer.desktop.in.in.h:1
 msgid "Change the Volume"
-msgstr ""
+msgstr "Schimbare volum"
 
 #: ../settings/xfce-mixer-settings.desktop.in.h:1
 msgid "Mixer Settings"
-msgstr ""
+msgstr "Preferinţe mixer"
 
 #: ../settings/xfce-mixer-settings.desktop.in.h:2
 msgid "Xfce 4 Mixer Settings"
-msgstr ""
+msgstr "Preferinţe mixer Xfce 4"
+
