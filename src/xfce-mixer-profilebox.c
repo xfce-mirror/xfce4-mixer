@@ -789,7 +789,7 @@ xfce_mixer_profilebox_new_dlg (XfceMixerProfilebox * self)
 			s, parent,
 			GTK_DIALOG_DESTROY_WITH_PARENT | GTK_DIALOG_MODAL,
 			GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
-			GTK_STOCK_OK, GTK_RESPONSE_OK,
+			GTK_STOCK_ADD, GTK_RESPONSE_OK,
 			NULL
 		));
 		g_free (s);
@@ -818,7 +818,7 @@ xfce_mixer_profilebox_new_dlg (XfceMixerProfilebox * self)
 			name = xfce_mixer_profilebox_detail_get_name (detail);
 			if (!name || !name[0]) {
 				annoy_user (parent, GTK_MESSAGE_ERROR,
-					GTK_BUTTONS_OK, "%s", 
+					GTK_BUTTONS_CLOSE, "%s", 
 				_("A profile needs a name"));
 				retry = TRUE;
 			} else if (!self_profile_exists (self, name)) {
