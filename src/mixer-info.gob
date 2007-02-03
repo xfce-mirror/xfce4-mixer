@@ -46,6 +46,9 @@ class Xfce:Mixer:Info from Gtk:Dialog {
 		gtk_window_set_position (GTK_WINDOW (self), GTK_WIN_POS_CENTER);
 		gtk_dialog_set_has_separator (GTK_DIALOG (self), FALSE);
 		gtk_container_set_border_width (GTK_CONTAINER (self), 10);
+
+		gtk_dialog_add_button (GTK_DIALOG (self), GTK_STOCK_CLOSE, GTK_RESPONSE_CLOSE);
+		gtk_dialog_set_default_response (GTK_DIALOG (self), GTK_RESPONSE_CLOSE);
 	}
 
 	public GtkWidget *new(void)

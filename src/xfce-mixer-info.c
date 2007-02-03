@@ -149,24 +149,27 @@ xfce_mixer_info_init (XfceMixerInfo * self G_GNUC_UNUSED)
 		gtk_window_set_position (GTK_WINDOW (self), GTK_WIN_POS_CENTER);
 		gtk_dialog_set_has_separator (GTK_DIALOG (self), FALSE);
 		gtk_container_set_border_width (GTK_CONTAINER (self), 10);
+
+		gtk_dialog_add_button (GTK_DIALOG (self), GTK_STOCK_CLOSE, GTK_RESPONSE_CLOSE);
+		gtk_dialog_set_default_response (GTK_DIALOG (self), GTK_RESPONSE_CLOSE);
 	
-#line 154 "xfce-mixer-info.c"
+#line 157 "xfce-mixer-info.c"
  }
 }
 #undef __GOB_FUNCTION__
 
 
 
-#line 51 "mixer-info.gob"
+#line 54 "mixer-info.gob"
 GtkWidget * 
 xfce_mixer_info_new (void)
-#line 164 "xfce-mixer-info.c"
+#line 167 "xfce-mixer-info.c"
 {
 #define __GOB_FUNCTION__ "Xfce:Mixer:Info::new"
 {
-#line 52 "mixer-info.gob"
+#line 55 "mixer-info.gob"
 	
 		return GTK_WIDGET (GET_NEW);
 	}}
-#line 172 "xfce-mixer-info.c"
+#line 175 "xfce-mixer-info.c"
 #undef __GOB_FUNCTION__
