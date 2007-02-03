@@ -14,3 +14,7 @@ libxfce4mixer_la_LDFLAGS = -export-dynamic
 
 libxfce4mixer_la_CFLAGS = @GTK_CFLAGS@ @XFCE4_UTIL_CFLAGS@
 libxfce4mixer_la_LIBADD = @GTK_LIBS@ @XFCE4_UTIL_LIBS@
+
+test_vc_CFLAGS = @GTK_CFLAGS@ @XFCE4_UTIL_CFLAGS@
+test_vc_LDFLAGS = @GTK_LIBS@ @XFCE4_UTIL_LIBS@ libxfce4mixer.la
+noinst_PROGRAMS = test_vc
