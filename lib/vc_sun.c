@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2004 Danny Milosavljevic <danny_milo@yahoo.com>
+ * Copyright (c) 2004 Danny Milosavljevic <dannym@xfce.org>
  * Copyright (c) 2004 Benedikt Meurer <benny@xfce.org>
  * All rights reserved.
  *
