@@ -1,15 +1,15 @@
 # Ukrainian translation of xfce4-mixer.
 # Copyright (C) 2003-2006 The Xfce development team.
 # This file is distributed under the same license as the xfce4-mixer package.
-# Maxim Dziumanenko <mvd@mylinux.ua>, 2003-2006.
+# Maxim Dziumanenko <dziumanenko@gmail.com>, 2003-2007.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.4.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-05-17 12:51+0900\n"
-"PO-Revision-Date: 2005-01-05 23:55+0200\n"
-"Last-Translator: Maxim Dziumanenko <mvd@mylinux.ua>\n"
+"POT-Creation-Date: 2006-11-04 19:21+0100\n"
+"PO-Revision-Date: 2007-03-03 23:55+0200\n"
+"Last-Translator: Maxim Dziumanenko <dziumanenko@gmail.com>\n"
 "Language-Team: Ukrainian <translation-team-uk@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -123,7 +123,7 @@ msgstr "Монітор"
 
 #: ../lib/trans.c:61
 msgid "RecSelect"
-msgstr "ВибірЗапису"
+msgstr "Джерело запису"
 
 #. Device
 #. Label
@@ -183,6 +183,8 @@ msgid ""
 "alsa: error: master control not found. I even tried to guess wildly, but to "
 "no avail.\n"
 msgstr ""
+"alsa: помилка: відсутній головний регулятор гучності. Була зроблена спроба "
+"здогадатись, але без успіху.\n"
 
 #: ../lib/vc_alsa.c:98
 #, c-format
@@ -190,16 +192,17 @@ msgid ""
 "alsa: info: developer information follows: (send E-Mail to Developer with "
 "that)\n"
 msgstr ""
+"alsa: інфо: інформація для розробників: (надіслати E-Mail розробникам)\n"
 
 #: ../lib/vc_alsa.c:112
 #, c-format
 msgid "hint hint"
-msgstr ""
+msgstr "підказка"
 
 #: ../lib/vc_alsa.c:118
 #, c-format
 msgid "alsa: info: end of developer information\n"
-msgstr ""
+msgstr "alsa: інфо: кінець інформації для розробників\n"
 
 #: ../lib/vc_alsa.c:136
 #, c-format
@@ -238,21 +241,21 @@ msgstr "Запустити у терміналі"
 msgid "Use Startup Notification"
 msgstr "Використовувати сповіщення про запуск"
 
-#: ../panel-plugin/launcher-entry.c:192 ../panel-plugin/plugin.c:342
+#: ../panel-plugin/launcher-entry.c:192 ../panel-plugin/plugin.c:343
 #, c-format
 msgid "Could not run \"%s\""
 msgstr "Не вдається запустити \"%s\""
 
-#: ../panel-plugin/launcher-entry.c:194 ../panel-plugin/plugin.c:344
+#: ../panel-plugin/launcher-entry.c:194 ../panel-plugin/plugin.c:345
 msgid "Xfce Panel"
 msgstr "Панель Xfce"
 
-#: ../panel-plugin/plugin.c:271
+#: ../panel-plugin/plugin.c:272
 #, c-format
 msgid "Volume: %d%%"
 msgstr "Гучність: %d%%"
 
-#: ../panel-plugin/plugin.c:571
+#: ../panel-plugin/plugin.c:564
 msgid "Could not save configuration"
 msgstr "Не вдається зберегти конфігурацію"
 
@@ -286,9 +289,9 @@ msgstr "Контрольовані канали"
 #. the button label in the xfce-mcs-manager dialog
 #: ../settings/sound.c:81
 msgid "Button Label|Sound"
-msgstr ""
+msgstr "Звук"
 
-#: ../settings/sound.c:102
+#: ../settings/sound.c:104
 msgid "Sound"
 msgstr "Звук"
 
