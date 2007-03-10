@@ -330,7 +330,7 @@ msgid ""
 "directory.\n"
 "No warranty in any way."
 msgstr ""
-"Bu ses denetim uygulaması xfce4-mixer.\n"
+"Xfce4-mixer, ses kontrol programı.\n"
 "Kaynak kodu dizininde bulabileceğiniz GPL-2 lisansı ile dağıtılmaktadır.\n"
 "Hiçbir garantisi yoktur."
 
