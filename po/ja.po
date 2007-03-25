@@ -1,16 +1,16 @@
 # $Id$
 #
 # Japanese translations for xfce4-mixer package.
-# Copyright (C) 2003-2006 The Xfce development team.
+# Copyright (C) 2003-2007 The Xfce development team.
 # This file is distributed under the same license as the xfce4-mixer package.
 # Zhao Ji <zhao-ji@awz.ne.jp>, 2003.
-# Daichi Kawahata <daichi@xfce.org>, 2005-2006.
+# Daichi Kawahata <daichi@xfce.org>, 2005-2007.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.4.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-05-17 12:51+0900\n"
+"POT-Creation-Date: 2007-03-26 01:43+0900\n"
 "PO-Revision-Date: 2006-05-18 21:28+0900\n"
 "Last-Translator: Daichi Kawahata <daichi@xfce.org>\n"
 "Language-Team: Japanese <xfce-users-jp@ml.fdiary.net>\n"
@@ -243,21 +243,21 @@ msgstr "ターミナルで実行する"
 msgid "Use Startup Notification"
 msgstr "起動通知を使用する"
 
-#: ../panel-plugin/launcher-entry.c:192 ../panel-plugin/plugin.c:342
+#: ../panel-plugin/launcher-entry.c:192 ../panel-plugin/plugin.c:343
 #, c-format
 msgid "Could not run \"%s\""
 msgstr "「%s」を実行できません"
 
-#: ../panel-plugin/launcher-entry.c:194 ../panel-plugin/plugin.c:344
+#: ../panel-plugin/launcher-entry.c:194 ../panel-plugin/plugin.c:345
 msgid "Xfce Panel"
 msgstr "Xfce パネル"
 
-#: ../panel-plugin/plugin.c:271
+#: ../panel-plugin/plugin.c:272
 #, c-format
 msgid "Volume: %d%%"
 msgstr "音量: %d%%"
 
-#: ../panel-plugin/plugin.c:571
+#: ../panel-plugin/plugin.c:564
 msgid "Could not save configuration"
 msgstr "設定を保存できませんでした"
 
@@ -294,7 +294,7 @@ msgstr "便利なコントロール"
 msgid "Button Label|Sound"
 msgstr "サウンド"
 
-#: ../settings/sound.c:102
+#: ../settings/sound.c:104
 msgid "Sound"
 msgstr "サウンド"
 
