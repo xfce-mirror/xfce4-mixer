@@ -4,6 +4,7 @@
 # Benedikt Meurer <benny@xfce.org>, 2003.
 # Moritz Heiber <moe@xfce.org>, 2004.
 # Fabian Nowak <timystery@arcor.de>, 2005, 2006.
+# Nico Schümann <nico@prog.nico22.de>, 2007.
 #
 msgid ""
 msgstr ""
@@ -454,7 +455,7 @@ msgstr "Mixereinstellungen"
 
 #: ../settings/xfce-mixer-settings.desktop.in.h:2
 msgid "Xfce 4 Mixer Settings"
-msgstr "Xfce-4-Mixereinstellungen"
+msgstr "Xfce4-Mixereinstellungen"
 
 #~ msgid "No working sound"
 #~ msgstr "Keine funktionierende Soundkonfiguration gefunden"
