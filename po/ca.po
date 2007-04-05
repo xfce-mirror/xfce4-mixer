@@ -2,16 +2,14 @@
 # Copyright (C) 2003-2006 The Xfce development team.
 # This file is distributed under the same license as the
 # xfce4-mixer package.
-#
-# Pau Rul·lan Ferragut <paurullan@bulma.net> 2005, 2006.
+# Pau Rul·lan Ferragut <paurullan@bulma.net> 2005, 2006, 2007.
 # Carles Muñoz Gorriz <carlesmu@internuatas.org>, 2006.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.4.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-05-17 12:51+0900\n"
-"PO-Revision-Date: 2006-09-18 23:01+0200\n"
+"PO-Revision-Date: 2007-04-05 14:33+0200\n"
 "Last-Translator: Carles Muñoz Gorriz <carlesmu@internautas.org>\n"
 "Language-Team: Catalan\n"
 "MIME-Version: 1.0\n"
