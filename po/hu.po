@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: xfce4-mixer 4.4.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-05-17 12:51+0900\n"
-"PO-Revision-Date: 2006-09-02 09:21+0100\n"
+"PO-Revision-Date: 2007-04-06 07:43+0100\n"
 "Last-Translator: SZERVÁC Attila <sas@321.hu>\n"
 "Language-Team: Hungarian <translation-team-hu@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -202,22 +202,22 @@ msgstr "alsa: info: fejlesztői információ vége\n"
 #: ../lib/vc_alsa.c:136
 #, c-format
 msgid "alsa: Mixer %s open error: %s\n"
-msgstr "alsa: Hiba a %s keverő megnyitása közben: %s\n"
+msgstr "alsa: %s keverő megnyitási hiba: %s\n"
 
 #: ../lib/vc_alsa.c:141
 #, c-format
 msgid "alsa: Mixer attach %s error: %s\n"
-msgstr "alsa: Hiba a keverő %s-re csatlakoztatása közben: %s\n"
+msgstr "alsa: Hiba a keverő %s-re csatlakoztatásakor: %s\n"
 
 #: ../lib/vc_alsa.c:149
 #, c-format
 msgid "alsa: Mixer register error: %s\n"
-msgstr "alsa: Hiba a keverő regisztrálása közben: %s\n"
+msgstr "alsa: Hiba a keverő regisztrálásakor: %s\n"
 
 #: ../lib/vc_alsa.c:158
 #, c-format
 msgid "alsa: Mixer load error: %s: %s\n"
-msgstr "alsa: Hiba a keverő betöltése közben: %s: %s\n"
+msgstr "alsa: Hiba a keverő betöltésekor: %s: %s\n"
 
 #: ../lib/vc_alsa.c:184
 #, c-format
@@ -230,7 +230,7 @@ msgstr "oss: Nincs mester hangerő"
 
 #: ../panel-plugin/launcher-entry.c:75
 msgid "Run in Terminal"
-msgstr "Futtatás terminálban"
+msgstr "Terminálban fut"
 
 #: ../panel-plugin/launcher-entry.c:80
 msgid "Use Startup Notification"
@@ -268,7 +268,7 @@ msgstr "Kívánt mester:"
 
 #: mixer-prefbox.gob:180
 msgid "When clicked"
-msgstr "Kattintáskor"
+msgstr "Kattintásra"
 
 #: ../settings/mixer-settingsbox.gob:128
 #: mixer-settingsbox.gob:128
@@ -331,7 +331,7 @@ msgid ""
 "It is released under the GPL-2 License which you find in the source directory.\n"
 "No warranty in any way."
 msgstr ""
-"Ez az xfce4-mixer, egy hangerő-szabályozó program.\n"
+"Ez az xfce4-mixer, egy hangerő-szabályzó program.\n"
 "GPL-2 licenc alatt áll, melyet megtalálsz a forrás könyvtárban.\n"
 "Nincs jótállás."
 
