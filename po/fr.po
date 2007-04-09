@@ -1,4 +1,4 @@
-# French translation of xfce4-mixer.
+# French translation of the xfce4-mixer package.
 # Copyright (C) 2003-2006 The Xfce development team.
 # This file is distributed under the same license as the xfce4-mixer package.
 # Olivier Fourdan <fourdan@xfce.org>, 2004.
@@ -11,7 +11,7 @@ msgstr ""
 "POT-Creation-Date: 2006-05-17 12:51+0900\n"
 "PO-Revision-Date: 2006-05-29 17:09+0100\n"
 "Last-Translator: Gerald Barre <g.barre@free.fr>\n"
-"Language-Team: French <traduc@traduc.org>\n"
+"Language-Team: French <xfce-i18n@xfce.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
