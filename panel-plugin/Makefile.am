@@ -13,6 +13,7 @@ xfce4_mixer_plugin_LDFLAGS = \
 	@MIGHTY_MOUSE_LIBS@ \
 	$(top_builddir)/lib/libxfce4mixer.la
                                         
+xfce4_mixer_plugin_DEPENDENCIES = $(top_builddir)/lib/libxfce4mixer.la
 
 xfce4_mixer_plugin_SOURCES =							\
 			delayer.inc					\
@@ -46,9 +47,6 @@ xfce4_mixer_plugin_CFLAGS =							\
 	@XFCE_MCS_CLIENT_CFLAGS@					\
 	@XFCE4_GUI_CFLAGS@ @GTK_CFLAGS@ @XML_CFLAGS@ \
 	@MIGHTY_MOUSE_CFLAGS@
-
-# libmixer_la_DEPENDENCIES = $(top_builddir)/lib/libxfce4mixer.la
-
 
 # .desktop file
 #
