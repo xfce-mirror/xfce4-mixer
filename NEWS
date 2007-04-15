@@ -1,3 +1,15 @@
+4.4.2
+=====
+
+- Fix parallel build of xfce4-mixer (Bug #2892)
+
+4.4.2
+=====
+
+- Follow the HIG specifications on the buttons.
+- Add test_vc to Makefile.am.
+- Many translation updates.
+
 4.4.0
 =====
 - Several new and updated translations.
