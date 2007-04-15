@@ -6,9 +6,6 @@ INCLUDES = -I../include
 
 # @PANEL_EXTERNALPLUGINDIR@
 
-desktopdatadir = $(datadir)/xfce4/panel-plugins
-desktopdata_DATA = xfce4-mixer.desktop
-
 xfce4_mixer_plugin_LDFLAGS = \
 	@MIGHTY_MOUSE_LIBS@ \
 	@XFCE_MCS_CLIENT_LIBS@                                          \
