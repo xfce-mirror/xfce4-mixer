@@ -65,7 +65,6 @@ snd_mixer_selem_is_active ?
 #endif
 
 static snd_mixer_t	*handle = NULL;
-static snd_mixer_elem_t *elem = NULL;
 static char card[64] = "default";
 
 #define MAX_MASTERS 10
@@ -125,14 +124,12 @@ static void find_master(void)
 
 	snd_mixer_selem_id_t*   master_selectors[MAX_MASTERS] = { NULL };
 
-	elem = NULL;
-
 	if (handle != NULL) {
 		snd_mixer_close(handle);
 		handle = NULL;
 	}
 
-	if ((err = snd_mixer_open(&handle, 0)) < 0 || !handle) {
+	if ((err = snd_mixer_open(&handle, 0)) < 0 || handle == NULL) {
 		error(_("alsa: Mixer %s open error: %s\n"), card, snd_strerror(err));
 		return;
 	}
@@ -141,7 +138,6 @@ static void find_master(void)
 		error(_("alsa: Mixer attach %s error: %s\n"), card, snd_strerror(err));
 		snd_mixer_close(handle); /* <-- alsa 0.9.3a fails assert(hctl) if I do that... weeeeird... */
 		handle = NULL;
-		elem = NULL; /* just to be sure */
 		return;
 	}
 	if ((err = snd_mixer_selem_register(handle, NULL, NULL)) < 0) {
@@ -157,38 +153,6 @@ static void find_master(void)
 #ifdef DEBUG
 		error(_("alsa: Mixer load error: %s: %s\n"), card, snd_strerror(err));
 #endif
-		snd_mixer_close(handle);
-		handle = NULL;
-		return;
-	}
-
-
-	for (i = 0; elem == NULL && i < MAX_MASTERS && master_ids[i] != NULL; i++) {
-		snd_mixer_selem_id_alloca(&master_selectors[i]);
-		snd_mixer_selem_id_set_index(master_selectors[i], 0);
-		snd_mixer_selem_id_set_name(master_selectors[i], master_ids[i]);
-	
-		elem = snd_mixer_find_selem(handle, master_selectors[i]);
-
-		if (elem != NULL) {
-			if (!snd_mixer_selem_has_common_volume(elem)
-			  && !snd_mixer_selem_has_playback_volume(elem)
-			) { /* no playback device */
-				elem = NULL;
-			}
-		}
-
-
-
-#ifdef TRACE
-		error(_("alsa: Unable to find simple control '%s',%i\n"),
-		snd_mixer_selem_id_get_name(master_selectors[i]), snd_mixer_selem_id_get_index(master_selectors[i]));
-#endif
-	}
-
-	if (elem == NULL) {
-		show_developer_hint ();
-
 		snd_mixer_close(handle);
 		handle = NULL;
 		return;
@@ -214,7 +178,9 @@ static void vc_set_device(char const *name)
 static int vc_reinit_device(void)
 {
 	find_master();
-	if (!elem) return -1;
+	if (handle == NULL) {
+		return -1;
+	}
 	
 	return 0;
 }
@@ -284,11 +250,7 @@ static int vc_get_volume(char const *which)
 		return 0;
 	}
 
-	if (which != NULL) {
-		xelem = find_control (which);
-	} else {
-		xelem = elem;
-	}
+	xelem = (which != NULL) ? find_control (which) : NULL;
 
 	if (xelem == NULL) {
 		return 0;
@@ -365,11 +327,7 @@ static void vc_set_volume(char const *which, int vol_p)
 		return;
 	}
 
-	if (which != NULL) {
-		xelem = find_control (which);
-	} else {
-		xelem = elem;
-	}
+	xelem = (which != NULL) ? find_control (which) : NULL;
 	
 	if (xelem == NULL) {
 		return;
@@ -466,7 +424,7 @@ static GList *vc_get_control_list(void)
 	if (!g) return NULL;
 #endif
 
-	if (!handle) {
+	if (handle == NULL) {
 		return NULL;
 	}
 
@@ -539,7 +497,9 @@ static void vc_set_volume_callback(volchanger_callback_t cb, void *data)
 {
 	/* supports 1 (ONE) callback */
 
-	if (!handle) return;
+	if (handle == NULL) {
+		return;
+	}
 
 	mycb = cb;
 	mydata = data;
@@ -550,12 +510,12 @@ static void vc_set_volume_callback(volchanger_callback_t cb, void *data)
 
 static void vc_close_device()
 {
-	if (!handle) return;
+	if (handle == NULL) {
+		return;
+	}
 	
 	snd_mixer_close (handle); /* FIXME does this close all related stuff? */
 	handle = NULL;
-	
-	elem = NULL;
 }
 
 static GList *vc_get_device_list()
@@ -630,15 +590,16 @@ static void vc_set_select(char const *which, gchar const *v)
 	gint i;
 	gchar *s;
 	snd_mixer_elem_t *xelem = NULL;
-	if (!handle) return;
-	if (which) {
-		xelem = find_control (which);
-	} else {
-		xelem = elem;
+
+	if (handle == NULL) {
+		return;
 	}
 	
-	if (!xelem) return;
+	xelem = (which != NULL) ? find_control (which) : NULL;
 	
+	if (xelem == NULL) {
+		return;
+	}
 	
 	g = vc_get_choices (xelem);
 	if (!g || !v)
@@ -663,14 +624,15 @@ static gchar *vc_get_select(char const *which)
 	GList *g;
 	gchar *s;
 	snd_mixer_elem_t *xelem = NULL;
-	if (!handle) return NULL;
-	if (which) {
-		xelem = find_control (which);
-	} else {
-		xelem = elem;
+	if (handle == NULL) {
+		return NULL;
 	}
+
+	xelem = (which != NULL) ? find_control (which) : NULL;
 	
-	if (!xelem) return NULL;
+	if (xelem == NULL) {
+		return NULL;
+	}
 
 	if (snd_mixer_selem_get_enum_item(xelem, SND_MIXER_SCHN_MONO, &jj) < 0)
 		return NULL;
@@ -694,14 +656,16 @@ static gchar *vc_get_select(char const *which)
 static void vc_set_switch(char const *which, gboolean v)
 {
 	snd_mixer_elem_t *xelem = NULL;
-	if (!handle) return;
-	if (which) {
-		xelem = find_control (which);
-	} else {
-		xelem = elem;
+
+	if (handle == NULL) {
+		return;
 	}
+
+	xelem = (which != NULL) ? find_control (which) : NULL;
 	
-	if (!xelem) return;
+	if (xelem == NULL) {
+		return;
+	}
 
 /*			&& (snd_mixer_selem_has_common_switch(i)
 			 || snd_mixer_selem_has_playback_switch(i)
@@ -719,13 +683,11 @@ static gboolean vc_get_switch(char const *which)
 	
 	if (!handle) return FALSE;
 	
-	if (which) {
-		xelem = find_control (which);
-	} else {
-		xelem = elem;
-	}
+	xelem = (which != NULL) ? find_control (which) : NULL;
 	
-	if (!xelem) return FALSE;
+	if (xelem == NULL) {
+		return FALSE;
+	}
 
 	chn = SND_MIXER_SCHN_MONO;
 
