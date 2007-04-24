@@ -83,7 +83,6 @@ static char dev_name[PATH_MAX] = { "/dev/mixer" };
 static int mixer_handle = -1;
 static int devmask = 0;                /* Bitmask for supported mixer devices */
 static int avail_recmask = 0;  /* available recording devices */
-static int master_i = -1;
 static int has_recselector = 0;
 
 static char *label[SOUND_MIXER_NRDEVICES] = SOUND_DEVICE_LABELS;
@@ -103,7 +102,6 @@ find_master(void)
 	g_return_if_fail(mixer_handle != -1);
 
 	devmask = 0;
-	master_i = -1;
 	avail_recmask = 0;
 	has_recselector = 0;
 
@@ -126,13 +124,7 @@ find_master(void)
 	
 	for (i = 0; i < SOUND_MIXER_NRDEVICES; i++) {
 		if (devmask & (1 << i)) {
-			/* if in doubt, choose the first */
-			if (master_i == -1)
-				master_i = i;
-
-			if ((!strcasecmp(label[i], "Master"))
-		 	 || (!strncasecmp(label[i], "Vol", 3)))
-				master_i = i;
+			/* label[i] */
 		}
 	}
 }
@@ -154,11 +146,6 @@ vc_reinit_device()
 {
 	find_master();
 
-	if (master_i == -1) {
-		g_warning(_("oss: No master volume"));
-		return -1;
-	}
-	
 	return 0;
 }
 
@@ -208,11 +195,7 @@ vc_set_volume(char const *which, int percent)
 
 	g_return_if_fail(mixer_handle != -1);
 
-	if (!which) {
-		i = master_i;
-	} else {
-		i = find_control (which);
-	}
+	i = (which != NULL) ? find_control (which) : (-1);
 	g_return_if_fail(i != -1);
 
 	vol = (percent * MAX_AMP) / 100;
@@ -236,11 +219,7 @@ vc_get_volume(char const *which)
 
 	g_return_val_if_fail(mixer_handle != -1, 0);
 
-	if (!which) {
-		i = master_i;
-	} else {
-		i = find_control (which);
-	}
+	i = (which != NULL) ? find_control (which) : (-1);
 
 	g_return_val_if_fail(i != -1, 0);
 
@@ -335,7 +314,6 @@ static void vc_set_volume_callback(volchanger_callback_t cb, void *data)
 
 static void vc_close_device()
 {
-	master_i = -1;
 	if (mixer_handle != -1) {
 		close (mixer_handle);
 		mixer_handle = -1;
