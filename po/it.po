@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the xfce4-mixer package.
 # Davide D'Amico <dave@gufi.org>, 2003.
 # Alex Dupre <ale@FreeBSD.org>, 2005.
+# Fabio Riga <usul@aruba.it>, 2007.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.4.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-05-17 12:51+0900\n"
-"PO-Revision-Date: 2005-10-20 12:15+0100\n"
-"Last-Translator: Alex Dupre <ale@FreeBSD.org>\n"
-"Language-Team: GUFI <traduzioni@gufi.org>\n"
+"POT-Creation-Date: 2006-11-04 19:21+0100\n"
+"PO-Revision-Date: 2007-04-30 15:17+0200\n"
+"Last-Translator: Fabio Riga <usul@aruba.it>\n"
+"Language-Team: Italian <xfce-i18n@xfce.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -23,17 +24,17 @@ msgstr "Vol"
 #. Master
 #: ../lib/trans.c:37
 msgid "Pcm"
-msgstr ""
+msgstr "Pcm"
 
 #. PCM output
 #: ../lib/trans.c:38
 msgid "Spkr"
-msgstr ""
+msgstr "Spkr"
 
 #. Internal speaker?
 #: ../lib/trans.c:39
 msgid "Line"
-msgstr ""
+msgstr "Line"
 
 #. Line in
 #: ../lib/trans.c:40
@@ -48,7 +49,7 @@ msgstr "CD"
 #. CD in
 #: ../lib/trans.c:42
 msgid "Bass"
-msgstr "Bassi"
+msgstr "Bass"
 
 #: ../lib/trans.c:43
 msgid "Trebl"
@@ -64,119 +65,119 @@ msgstr "Mix"
 
 #: ../lib/trans.c:46
 msgid "Pcm2"
-msgstr ""
+msgstr "Pcm2"
 
 #: ../lib/trans.c:47
 msgid "Rec"
-msgstr ""
+msgstr "Rec"
 
 #: ../lib/trans.c:48
 msgid "IGain"
-msgstr ""
+msgstr "IGain"
 
 #: ../lib/trans.c:49
 msgid "OGain"
-msgstr ""
+msgstr "OGain"
 
 #: ../lib/trans.c:50
 msgid "Line1"
-msgstr ""
+msgstr "Linea1"
 
 #: ../lib/trans.c:51
 msgid "Line2"
-msgstr ""
+msgstr "Linea2"
 
 #: ../lib/trans.c:52
 msgid "Line3"
-msgstr ""
+msgstr "Linea3"
 
 #: ../lib/trans.c:53
 msgid "Digital1"
-msgstr ""
+msgstr "Digitale1"
 
 #: ../lib/trans.c:54
 msgid "Digital2"
-msgstr ""
+msgstr "Digitale2"
 
 #: ../lib/trans.c:55
 msgid "Digital3"
-msgstr ""
+msgstr "Digitale3"
 
 #: ../lib/trans.c:56
 msgid "PhoneIn"
-msgstr ""
+msgstr "PhoneIn"
 
 #: ../lib/trans.c:57
 msgid "PhoneOut"
-msgstr ""
+msgstr "PhoneOut"
 
 #: ../lib/trans.c:58
 msgid "Video"
-msgstr ""
+msgstr "Video"
 
 #: ../lib/trans.c:59
 msgid "Radio"
-msgstr ""
+msgstr "Radio"
 
 #: ../lib/trans.c:60
 msgid "Monitor"
-msgstr ""
+msgstr "Monitor"
 
 #: ../lib/trans.c:61
 msgid "RecSelect"
-msgstr ""
+msgstr "RecSelect"
 
 #. Device
 #. Label
 #: ../lib/trans.c:77
 msgid "A3.AnalogIn"
-msgstr ""
+msgstr "A3.AnalogIn"
 
 #. Analog In
 #: ../lib/trans.c:78
 msgid "A3.AnalogOut"
-msgstr ""
+msgstr "A3.AnalogOut"
 
 #. Analog Out
 #: ../lib/trans.c:79
 msgid "A3.AnalogOut2"
-msgstr ""
+msgstr "A3.AnalogOut2"
 
 #. Analog Out 2
 #. Interface
 #: ../lib/trans.c:81
 msgid "A3.CameraMic"
-msgstr ""
+msgstr "A3.CameraMic"
 
 #. Camera Mic
 #: ../lib/trans.c:82
 msgid "A3.Microphone"
-msgstr ""
+msgstr "A3.Microfono"
 
 #. Microphone
 #: ../lib/trans.c:83
 msgid "A3.LineIn"
-msgstr ""
+msgstr "A3.LineaIn"
 
 #. Line In
 #: ../lib/trans.c:84
 msgid "A3.DAC1In"
-msgstr ""
+msgstr "A3.DAC1In"
 
 #. DAC1 In
 #: ../lib/trans.c:85
 msgid "A3.DAC2In"
-msgstr ""
+msgstr "A3.DAC2In"
 
 #. DAC2 In
 #: ../lib/trans.c:86
 msgid "A3.Speaker"
-msgstr ""
+msgstr "A3.Speaker"
 
 #. Speaker/Line Out
 #: ../lib/trans.c:87
 msgid "A3.LineOut2"
-msgstr ""
+msgstr "A3.LineOut2"
 
 #: ../lib/vc_alsa.c:93
 #, c-format
@@ -184,6 +185,8 @@ msgid ""
 "alsa: error: master control not found. I even tried to guess wildly, but to "
 "no avail.\n"
 msgstr ""
+"alsa: errore: controllo principale (master) non trovato. Si è tentato di "
+"indovinarlo, ma senza successo.\n"
 
 #: ../lib/vc_alsa.c:98
 #, c-format
@@ -191,6 +194,8 @@ msgid ""
 "alsa: info: developer information follows: (send E-Mail to Developer with "
 "that)\n"
 msgstr ""
+"alsa: info: seguono informazioni per lo sviluppatore: (da inviare tramite e-"
+"mail allo sviluppatore)\n"
 
 #: ../lib/vc_alsa.c:112
 #, c-format
@@ -200,7 +205,7 @@ msgstr ""
 #: ../lib/vc_alsa.c:118
 #, c-format
 msgid "alsa: info: end of developer information\n"
-msgstr ""
+msgstr "alsa: info: fine delle informazioni per lo sviluppatore\n"
 
 #: ../lib/vc_alsa.c:136
 #, c-format
@@ -225,7 +230,7 @@ msgstr "alsa: Errore di caricamento mixer: %s: %s\n"
 #: ../lib/vc_alsa.c:184
 #, c-format
 msgid "alsa: Unable to find simple control '%s',%i\n"
-msgstr "alsa: Impossibile trovare il controllo base '%s',%i\n"
+msgstr "alsa: Impossibile trovare il controllo base \"%s\",%i\n"
 
 #: ../lib/vc_oss.c:158
 msgid "oss: No master volume"
@@ -233,29 +238,29 @@ msgstr "oss: Nessun volume principale"
 
 #: ../panel-plugin/launcher-entry.c:75
 msgid "Run in Terminal"
-msgstr ""
+msgstr "Esegui nel terminale"
 
 #: ../panel-plugin/launcher-entry.c:80
 msgid "Use Startup Notification"
-msgstr ""
+msgstr "Usa notifica di avvio"
 
-#: ../panel-plugin/launcher-entry.c:192 ../panel-plugin/plugin.c:342
+#: ../panel-plugin/launcher-entry.c:192 ../panel-plugin/plugin.c:343
 #, c-format
 msgid "Could not run \"%s\""
-msgstr ""
+msgstr "Impossibile avviare \"%s\""
 
-#: ../panel-plugin/launcher-entry.c:194 ../panel-plugin/plugin.c:344
+#: ../panel-plugin/launcher-entry.c:194 ../panel-plugin/plugin.c:345
 msgid "Xfce Panel"
-msgstr ""
+msgstr "Pannello di Xfce"
 
-#: ../panel-plugin/plugin.c:271
+#: ../panel-plugin/plugin.c:272
 #, c-format
 msgid "Volume: %d%%"
 msgstr "Volume: %d%%"
 
-#: ../panel-plugin/plugin.c:571
+#: ../panel-plugin/plugin.c:564
 msgid "Could not save configuration"
-msgstr ""
+msgstr "Impossibile salvare la configurazione"
 
 #: mixer-prefbox.gob:177 ../src/mixer-profilebox.gob:88
 #: mixer-profilebox.gob:88
@@ -264,11 +269,11 @@ msgstr "Dispositivo:"
 
 #: mixer-prefbox.gob:178
 msgid "Wannabe Master:"
-msgstr ""
+msgstr "Sosia di \"Master\""
 
 #: mixer-prefbox.gob:180
 msgid "When clicked"
-msgstr ""
+msgstr "Quando premuto"
 
 #: ../settings/mixer-settingsbox.gob:128 mixer-settingsbox.gob:128
 msgid "Device"
@@ -276,50 +281,50 @@ msgstr "Dispositivo"
 
 #: ../settings/mixer-settingsbox.gob:131 mixer-settingsbox.gob:131
 msgid "None"
-msgstr ""
+msgstr "Nessuno"
 
 #. gtk_widget_show (GTK_WIDGET (self->dev_label));
 #. debug_bindtextdomain();
 #: ../settings/mixer-settingsbox.gob:136 mixer-settingsbox.gob:136
 msgid "Useful Controls"
-msgstr "Controlli Utili"
+msgstr "Controlli utili"
 
 #. the button label in the xfce-mcs-manager dialog
 #: ../settings/sound.c:81
 msgid "Button Label|Sound"
-msgstr ""
+msgstr "Sonoro"
 
-#: ../settings/sound.c:102
+#: ../settings/sound.c:104
 msgid "Sound"
-msgstr ""
+msgstr "Sonoro"
 
 #: ../src/menus.c:12
 msgid "/_File"
-msgstr ""
+msgstr "/_File"
 
 #: ../src/menus.c:13
 msgid "/File/_Options"
-msgstr ""
+msgstr "/File/_Opzioni"
 
 #: ../src/menus.c:14
 msgid "/File/_Exit"
-msgstr ""
+msgstr "/File/_Esci"
 
 #: ../src/menus.c:15
 msgid "/_View"
-msgstr ""
+msgstr "/_Visualizza"
 
 #: ../src/menus.c:16
 msgid "/View/_Manage"
-msgstr ""
+msgstr "/Visualizza/_Amministra"
 
 #: ../src/menus.c:17
 msgid "/_Help"
-msgstr ""
+msgstr "/A_iuto"
 
 #: ../src/menus.c:18
 msgid "/Help/_Info"
-msgstr ""
+msgstr "/Aiuto/I_nformazioni"
 
 #: ../src/mixer-info.gob:28 mixer-info.gob:28
 msgid ""
@@ -328,6 +333,10 @@ msgid ""
 "directory.\n"
 "No warranty in any way."
 msgstr ""
+"Questo è xfce4-mixer, un programma per il controllo del volume.\n"
+"È rilasciato sotto la licenza GPL-2, che si può trovare nella cartella dei "
+"sorgenti.\n"
+"Nessuna garanzia di nessun tipo."
 
 #: ../src/mixer-profilebox-detail.gob:163 mixer-profilebox-detail.gob:163
 msgid "Control"
@@ -335,7 +344,7 @@ msgstr "Controllo"
 
 #: ../src/mixer-profilebox-detail.gob:166 mixer-profilebox-detail.gob:166
 msgid "Type"
-msgstr ""
+msgstr "Tipo"
 
 #: ../src/mixer-profilebox-detail.gob:178 mixer-profilebox-detail.gob:178
 msgid "Up"
@@ -343,25 +352,25 @@ msgstr "Su"
 
 #: ../src/mixer-profilebox-detail.gob:181 mixer-profilebox-detail.gob:181
 msgid "Down"
-msgstr ""
+msgstr "Giù"
 
 #: ../src/mixer-profilebox-detail.gob:188 mixer-profilebox-detail.gob:188
 msgid "Move Entry Up"
-msgstr ""
+msgstr "Muove la voce in alto"
 
 #: ../src/mixer-profilebox-detail.gob:191 mixer-profilebox-detail.gob:191
 msgid "Move Entry Down"
-msgstr ""
+msgstr "Muove la voce in basso"
 
 #: ../src/mixer-profilebox-detail.gob:200 mixer-profilebox-detail.gob:200
 msgid "Profile Name:"
-msgstr "Nome Profilo:"
+msgstr "Nome profilo:"
 
 #: ../src/mixer-profilebox-detail.gob:382
 #: ../src/mixer-profilebox-detail.gob:447 mixer-profilebox-detail.gob:382
 #: mixer-profilebox-detail.gob:447
 msgid "<unknown>"
-msgstr ""
+msgstr "<sconosciuto>"
 
 #: ../src/mixer-profilebox-detail.gob:384
 #: ../src/mixer-profilebox-detail.gob:449 mixer-profilebox-detail.gob:384
@@ -373,13 +382,13 @@ msgstr ""
 #: ../src/mixer-profilebox-detail.gob:450 mixer-profilebox-detail.gob:385
 #: mixer-profilebox-detail.gob:450
 msgid "<onoff>"
-msgstr ""
+msgstr "<acceso/spento>"
 
 #: ../src/mixer-profilebox-detail.gob:386
 #: ../src/mixer-profilebox-detail.gob:451 mixer-profilebox-detail.gob:386
 #: mixer-profilebox-detail.gob:451
 msgid "<select>"
-msgstr ""
+msgstr "<seleziona>"
 
 #: ../src/mixer-profilebox.gob:142 mixer-profilebox.gob:142
 msgid "Create new profile"
@@ -396,12 +405,12 @@ msgstr "Profilo"
 #: ../src/mixer-profilebox.gob:374 mixer-profilebox.gob:374
 #, c-format
 msgid "Really delete those %d profiles?"
-msgstr ""
+msgstr "Cancellare davvero questi %d profili?"
 
 #: ../src/mixer-profilebox.gob:377 mixer-profilebox.gob:377
 #, c-format
 msgid "Really delete profile \"%s\"?"
-msgstr ""
+msgstr "Cancellare davvero il profilo \"%s\"?"
 
 #: ../src/mixer-profilebox.gob:491 mixer-profilebox.gob:491
 #, c-format
@@ -414,7 +423,7 @@ msgstr "Un profilo ha bisogno di un nome"
 
 #: ../src/mixer-profilebox.gob:542 mixer-profilebox.gob:542
 msgid "A profile with that name already exists"
-msgstr ""
+msgstr "Esiste già un profilo con questo nome"
 
 #: ../src/mixer-profiles.gob:262 ../src/mixer-profiles.gob:269
 #: mixer-profiles.gob:262 mixer-profiles.gob:269
@@ -424,25 +433,25 @@ msgstr "profilo%d"
 
 #: ../src/mixer-view.gob:259 mixer-view.gob:259
 msgid "Show Switches"
-msgstr ""
+msgstr "Mostra interruttori"
 
 #: ../src/mixer-view.gob:260 mixer-view.gob:260
 msgid "Hide Switches"
-msgstr ""
+msgstr "Nascondi interruttori"
 
 #: ../src/mixer-window.gob:188 mixer-window.gob:188
 #: ../panel-plugin/xfce4-mixer.desktop.in.in.h:2
 msgid "Volume Control"
-msgstr "Controllo Volume"
+msgstr "Controllo volume"
 
 #: ../panel-plugin/xfce4-mixer.desktop.in.in.h:1
 msgid "Change the Volume"
-msgstr ""
+msgstr "Cambia il volume"
 
 #: ../settings/xfce-mixer-settings.desktop.in.h:1
 msgid "Mixer Settings"
-msgstr "Impostazioni del Mixer"
+msgstr "Impostazioni del mixer"
 
 #: ../settings/xfce-mixer-settings.desktop.in.h:2
 msgid "Xfce 4 Mixer Settings"
-msgstr ""
+msgstr "Impostazioni del mixer di Xfce 4"
