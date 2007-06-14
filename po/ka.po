@@ -1,0 +1,68 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2007-06-04 20:59+0400\n"
+"Last-Translator: Dimitri Gogelia <delphi.knight@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Georgian\n"
+"X-Poedit-Country: GEORGIA\n"
+
+#: panel-plugin/mixer.c:154
+msgid "No working sound"
+msgstr "ხმა არ მუშაობს"
+
+#: panel-plugin/mixer.c:293
+#, c-format
+msgid "Volume: %d%%"
+msgstr "ხმის დონე: %d%%"
+
+#: panel-plugin/mixer.c:1001
+msgid "Use _internal mixer"
+msgstr "შიდა _მიკშერის გამოყენება"
+
+#: panel-plugin/mixer.c:1211
+#: panel-plugin/mixer_window.c:196
+msgid "Volume Control"
+msgstr "ხმის კონტროლი"
+
+#: panel-plugin/mvisible_opts.c:76
+msgid "Visible"
+msgstr "ხილული"
+
+#: panel-plugin/mvisible_opts.c:84
+msgid "Control"
+msgstr "კონტროლი"
+
+#: panel-plugin/vc_alsa.c:90
+#, c-format
+msgid "alsa: Mixer %s open error: %s\n"
+msgstr "alsa: შეცდომა %s მიკშერის გახსნისას: %s\n"
+
+#: panel-plugin/vc_alsa.c:95
+#, c-format
+msgid "alsa: Mixer attach %s error: %s\n"
+msgstr "alsa: შეცდომა %s მიკშერის მიერთებისას: %s\n"
+
+#: panel-plugin/vc_alsa.c:103
+#, c-format
+msgid "alsa: Mixer register error: %s"
+msgstr "alsa: შეცდომა მიკშერის რეგისტრაციისას: %s"
+
+#: panel-plugin/vc_alsa.c:112
+#, c-format
+msgid "alsa: Mixer load error: %s"
+msgstr "alsa: შეცდომა მიკშერის ჩატვირთვისას: %s"
+
+#: panel-plugin/vc_alsa.c:122
+#, c-format
+msgid "alsa: Unable to find simple control '%s',%i\n"
+msgstr "alsa: შეუძლებელია სანიმუშო კონტროლის მოძიება '%s',%i\n"
+
+#: panel-plugin/vc_oss.c:137
+msgid "oss: No master volume"
+msgstr "oss: არ არის ძირითადი ხმოვანება"
+
