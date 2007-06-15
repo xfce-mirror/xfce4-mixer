@@ -1,0 +1,462 @@
+# Amharic translation to xfce4-mixer.
+# Copyright (C) 2002-2007 The Xfce development team.
+# This file is distributed under the same license as the xfce4-mixer package.
+# Tegegne Tefera <tefera@mekuria.com>, 2007.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4-mixer 4.4.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-06-16 02:20+0900\n"
+"PO-Revision-Date: 2007-06-05 12:07+0100\n"
+"Last-Translator: Tegegne Tefera <tefera@mekuria.com>\n"
+"Language-Team: Amharic <l10n-am@googlegroups.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../lib/trans.c:36
+msgid "Vol"
+msgstr ""
+
+#. Master
+#: ../lib/trans.c:37
+msgid "Pcm"
+msgstr ""
+
+#. PCM output
+#: ../lib/trans.c:38
+msgid "Spkr"
+msgstr ""
+
+#. Internal speaker?
+#: ../lib/trans.c:39
+#, fuzzy
+msgid "Line"
+msgstr "ተከታታይ-መስመር ኢፕ"
+
+#. Line in
+#: ../lib/trans.c:40
+msgid "Mic"
+msgstr ""
+
+#. Mic in
+#: ../lib/trans.c:41
+msgid "CD"
+msgstr "ሲዲ"
+
+#. CD in
+#: ../lib/trans.c:42
+msgid "Bass"
+msgstr ""
+
+#: ../lib/trans.c:43
+msgid "Trebl"
+msgstr ""
+
+#: ../lib/trans.c:44
+msgid "Synth"
+msgstr ""
+
+#: ../lib/trans.c:45
+msgid "Mix"
+msgstr ""
+
+#: ../lib/trans.c:46
+msgid "Pcm2"
+msgstr ""
+
+#: ../lib/trans.c:47
+msgid "Rec"
+msgstr ""
+
+#: ../lib/trans.c:48
+msgid "IGain"
+msgstr ""
+
+#: ../lib/trans.c:49
+msgid "OGain"
+msgstr ""
+
+#: ../lib/trans.c:50
+msgid "Line1"
+msgstr "መስመር1"
+
+#: ../lib/trans.c:51
+msgid "Line2"
+msgstr "መስመር2"
+
+#: ../lib/trans.c:52
+msgid "Line3"
+msgstr "መስመር3"
+
+#: ../lib/trans.c:53
+msgid "Digital1"
+msgstr ""
+
+#: ../lib/trans.c:54
+msgid "Digital2"
+msgstr ""
+
+#: ../lib/trans.c:55
+msgid "Digital3"
+msgstr ""
+
+#: ../lib/trans.c:56
+msgid "PhoneIn"
+msgstr ""
+
+#: ../lib/trans.c:57
+msgid "PhoneOut"
+msgstr ""
+
+#: ../lib/trans.c:58
+msgid "Video"
+msgstr "ቪዲዮ"
+
+#: ../lib/trans.c:59
+msgid "Radio"
+msgstr "ራዲዮ"
+
+#: ../lib/trans.c:60
+msgid "Monitor"
+msgstr ""
+
+#: ../lib/trans.c:61
+msgid "RecSelect"
+msgstr ""
+
+#. Device
+#. Label
+#: ../lib/trans.c:77
+msgid "A3.AnalogIn"
+msgstr ""
+
+#. Analog In
+#: ../lib/trans.c:78
+msgid "A3.AnalogOut"
+msgstr ""
+
+#. Analog Out
+#: ../lib/trans.c:79
+msgid "A3.AnalogOut2"
+msgstr ""
+
+#. Analog Out 2
+#. Interface
+#: ../lib/trans.c:81
+msgid "A3.CameraMic"
+msgstr ""
+
+#. Camera Mic
+#: ../lib/trans.c:82
+msgid "A3.Microphone"
+msgstr ""
+
+#. Microphone
+#: ../lib/trans.c:83
+msgid "A3.LineIn"
+msgstr ""
+
+#. Line In
+#: ../lib/trans.c:84
+msgid "A3.DAC1In"
+msgstr ""
+
+#. DAC1 In
+#: ../lib/trans.c:85
+msgid "A3.DAC2In"
+msgstr ""
+
+#. DAC2 In
+#: ../lib/trans.c:86
+msgid "A3.Speaker"
+msgstr ""
+
+#. Speaker/Line Out
+#: ../lib/trans.c:87
+#, fuzzy
+msgid "A3.LineOut2"
+msgstr "መስመር2"
+
+#: ../lib/vc_alsa.c:92
+#, c-format
+msgid ""
+"alsa: error: master control not found. I even tried to guess wildly, but to "
+"no avail.\n"
+msgstr ""
+
+#: ../lib/vc_alsa.c:97
+#, c-format
+msgid ""
+"alsa: info: developer information follows: (send E-Mail to Developer with "
+"that)\n"
+msgstr ""
+
+#: ../lib/vc_alsa.c:111
+#, c-format
+msgid "hint hint"
+msgstr ""
+
+#: ../lib/vc_alsa.c:117
+#, c-format
+msgid "alsa: info: end of developer information\n"
+msgstr ""
+
+#: ../lib/vc_alsa.c:133
+#, c-format
+msgid "alsa: Mixer %s open error: %s\n"
+msgstr ""
+
+#: ../lib/vc_alsa.c:138
+#, c-format
+msgid "alsa: Mixer attach %s error: %s\n"
+msgstr ""
+
+#: ../lib/vc_alsa.c:145
+#, c-format
+msgid "alsa: Mixer register error: %s\n"
+msgstr ""
+
+#: ../lib/vc_alsa.c:154
+#, c-format
+msgid "alsa: Mixer load error: %s: %s\n"
+msgstr ""
+
+#: ../panel-plugin/launcher-entry.c:75
+#, fuzzy
+msgid "Run in Terminal"
+msgstr "IPv6-በ-IPv4 (ኢፕ_ዝ6-በ-ኢፕ_ዝ4)"
+
+#: ../panel-plugin/launcher-entry.c:80
+#, fuzzy
+msgid "Use Startup Notification"
+msgstr "ቁስ በስራ ላይ"
+
+#: ../panel-plugin/launcher-entry.c:192 ../panel-plugin/plugin.c:343
+#, fuzzy, c-format
+msgid "Could not run \"%s\""
+msgstr "መዋቅር አልተደገፈም"
+
+#: ../panel-plugin/launcher-entry.c:194 ../panel-plugin/plugin.c:345
+msgid "Xfce Panel"
+msgstr ""
+
+#: ../panel-plugin/plugin.c:272
+#, fuzzy, c-format
+msgid "Volume: %d%%"
+msgstr "የተመሰጠረ ይዘት (%s)"
+
+#: ../panel-plugin/plugin.c:564
+msgid "Could not save configuration"
+msgstr ""
+
+#: mixer-prefbox.gob:177 ../src/mixer-profilebox.gob:88
+#: mixer-profilebox.gob:88
+#, fuzzy
+msgid "Device:"
+msgstr "አካል፦"
+
+#: mixer-prefbox.gob:178
+#, fuzzy
+msgid "Wannabe Master:"
+msgstr "IDE%s ቀዳሚ (%s)"
+
+#: mixer-prefbox.gob:180
+msgid "When clicked"
+msgstr ""
+
+#: ../settings/mixer-settingsbox.gob:128 mixer-settingsbox.gob:128
+msgid "Device"
+msgstr "አካል"
+
+#: ../settings/mixer-settingsbox.gob:131 mixer-settingsbox.gob:131
+msgid "None"
+msgstr "ምንም"
+
+#. gtk_widget_show (GTK_WIDGET (self->dev_label));
+#. debug_bindtextdomain();
+#: ../settings/mixer-settingsbox.gob:136 mixer-settingsbox.gob:136
+msgid "Useful Controls"
+msgstr ""
+
+#. the button label in the xfce-mcs-manager dialog
+#: ../settings/sound.c:81
+msgid "Button Label|Sound"
+msgstr ""
+
+#: ../settings/sound.c:104
+msgid "Sound"
+msgstr "ድምጽ"
+
+#: ../src/menus.c:12
+#, fuzzy
+msgid "/_File"
+msgstr "የሚመረመረው ፋይል፦ ${FILE}"
+
+#: ../src/menus.c:13
+#, fuzzy
+msgid "/File/_Options"
+msgstr "የመጫኛ ምርጫዎች"
+
+#: ../src/menus.c:14
+#, fuzzy
+msgid "/File/_Exit"
+msgstr "የሚመረመረው ፋይል፦ ${FILE}"
+
+#: ../src/menus.c:15
+msgid "/_View"
+msgstr ""
+
+#: ../src/menus.c:16
+msgid "/View/_Manage"
+msgstr ""
+
+#: ../src/menus.c:17
+#, fuzzy
+msgid "/_Help"
+msgstr "የመክፈል መመሪያ"
+
+#: ../src/menus.c:18
+#, fuzzy
+msgid "/Help/_Info"
+msgstr "${SECTION}: ${INFO}..."
+
+#: ../src/mixer-info.gob:28 mixer-info.gob:28
+msgid ""
+"This is xfce4-mixer, a volume control program.\n"
+"It is released under the GPL-2 License which you find in the source "
+"directory.\n"
+"No warranty in any way."
+msgstr ""
+
+#: ../src/mixer-profilebox-detail.gob:163 mixer-profilebox-detail.gob:163
+msgid "Control"
+msgstr ""
+
+#: ../src/mixer-profilebox-detail.gob:166 mixer-profilebox-detail.gob:166
+#, fuzzy
+msgid "Type"
+msgstr "የፊደል ገበታ አይነት"
+
+#: ../src/mixer-profilebox-detail.gob:178 mixer-profilebox-detail.gob:178
+msgid "Up"
+msgstr "ላይ"
+
+#: ../src/mixer-profilebox-detail.gob:181 mixer-profilebox-detail.gob:181
+msgid "Down"
+msgstr "ታች"
+
+#: ../src/mixer-profilebox-detail.gob:188 mixer-profilebox-detail.gob:188
+#, fuzzy
+msgid "Move Entry Up"
+msgstr "ከፋይ ስልትን በማስነሳት ላይ"
+
+#: ../src/mixer-profilebox-detail.gob:191 mixer-profilebox-detail.gob:191
+#, fuzzy
+msgid "Move Entry Down"
+msgstr "ባዶ ገቢን ምረጥ"
+
+#: ../src/mixer-profilebox-detail.gob:200 mixer-profilebox-detail.gob:200
+#, fuzzy
+msgid "Profile Name:"
+msgstr "የዶሜን ስም፦"
+
+#: ../src/mixer-profilebox-detail.gob:382
+#: ../src/mixer-profilebox-detail.gob:447 mixer-profilebox-detail.gob:382
+#: mixer-profilebox-detail.gob:447
+#, fuzzy
+msgid "<unknown>"
+msgstr "የማይታወቅ በይነገጽ"
+
+#: ../src/mixer-profilebox-detail.gob:384
+#: ../src/mixer-profilebox-detail.gob:449 mixer-profilebox-detail.gob:384
+#: mixer-profilebox-detail.gob:449
+msgid "<slider>"
+msgstr ""
+
+#: ../src/mixer-profilebox-detail.gob:385
+#: ../src/mixer-profilebox-detail.gob:450 mixer-profilebox-detail.gob:385
+#: mixer-profilebox-detail.gob:450
+msgid "<onoff>"
+msgstr ""
+
+#: ../src/mixer-profilebox-detail.gob:386
+#: ../src/mixer-profilebox-detail.gob:451 mixer-profilebox-detail.gob:386
+#: mixer-profilebox-detail.gob:451
+#, fuzzy
+msgid "<select>"
+msgstr "ክፋይ ምረጥ"
+
+#: ../src/mixer-profilebox.gob:142 mixer-profilebox.gob:142
+#, fuzzy
+msgid "Create new profile"
+msgstr "አዲስ ክፋይ ፍጠር"
+
+#: ../src/mixer-profilebox.gob:151 mixer-profilebox.gob:151
+#, fuzzy
+msgid "Delete this profile"
+msgstr "ባለብዙ ዲስክ አካል በርግጥ ይሰረዝ?"
+
+#: ../src/mixer-profilebox.gob:170 mixer-profilebox.gob:170
+msgid "Profile"
+msgstr ""
+
+#: ../src/mixer-profilebox.gob:374 mixer-profilebox.gob:374
+#, fuzzy, c-format
+msgid "Really delete those %d profiles?"
+msgstr "በርግጥ ይዘት ግሩፑ ይሰረዝ?"
+
+#: ../src/mixer-profilebox.gob:377 mixer-profilebox.gob:377
+#, fuzzy, c-format
+msgid "Really delete profile \"%s\"?"
+msgstr "በርግጥ ይዘት ግሩፑ ይሰረዝ?"
+
+#: ../src/mixer-profilebox.gob:491 mixer-profilebox.gob:491
+#, fuzzy, c-format
+msgid "%s - New"
+msgstr "አዲሱን ክፋይ በማስላት ላይ..."
+
+#: ../src/mixer-profilebox.gob:528 mixer-profilebox.gob:528
+#, fuzzy
+msgid "A profile needs a name"
+msgstr "የስም አገልጋይ አድራሻ፦"
+
+#: ../src/mixer-profilebox.gob:542 mixer-profilebox.gob:542
+msgid "A profile with that name already exists"
+msgstr ""
+
+#: ../src/mixer-profiles.gob:262 ../src/mixer-profiles.gob:269
+#: mixer-profiles.gob:262 mixer-profiles.gob:269
+#, c-format
+msgid "profile%d"
+msgstr ""
+
+#: ../src/mixer-view.gob:259 mixer-view.gob:259
+msgid "Show Switches"
+msgstr ""
+
+#: ../src/mixer-view.gob:260 mixer-view.gob:260
+msgid "Hide Switches"
+msgstr ""
+
+#: ../src/mixer-window.gob:188 mixer-window.gob:188
+#: ../panel-plugin/xfce4-mixer.desktop.in.in.h:2
+#, fuzzy
+msgid "Volume Control"
+msgstr "የተመሰጠረ ይዘት (%s)"
+
+#: ../panel-plugin/xfce4-mixer.desktop.in.in.h:1
+#, fuzzy
+msgid "Change the Volume"
+msgstr "የተመሰጠረ ይዘት (%s)"
+
+#: ../settings/xfce-mixer-settings.desktop.in.h:1
+#, fuzzy
+msgid "Mixer Settings"
+msgstr "ክፋይ ስየማዎች፦"
+
+#: ../settings/xfce-mixer-settings.desktop.in.h:2
+#, fuzzy
+msgid "Xfce 4 Mixer Settings"
+msgstr "የአውታር ምርጫዎችን በማስቀመጥ ላይ"
