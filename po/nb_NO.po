@@ -444,7 +444,7 @@ msgstr "Volumkontroll"
 
 #: ../panel-plugin/xfce4-mixer.desktop.in.in.h:1
 msgid "Change the Volume"
-msgstr "Forandre volumet"
+msgstr "Forandre volum"
 
 #: ../settings/xfce-mixer-settings.desktop.in.h:1
 msgid "Mixer Settings"
