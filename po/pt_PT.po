@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: xfce4-mixer 4.4.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-05-17 12:51+0900\n"
-"PO-Revision-Date: 2007-06-14 17:44+0100\n"
+"PO-Revision-Date: 2007-09-01 12:48+0100\n"
 "Last-Translator: Nuno Miguel <nunis@netcabo.pt>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -263,7 +263,7 @@ msgstr "Dispositivo:"
 
 #: mixer-prefbox.gob:178
 msgid "Wannabe Master:"
-msgstr "Controlo Preferido"
+msgstr "Controlo Preferido:"
 
 #: mixer-prefbox.gob:180
 msgid "When clicked"
@@ -446,7 +446,7 @@ msgstr "Já existe um perfil com esse nome"
 #: mixer-profiles.gob:269
 #, c-format
 msgid "profile%d"
-msgstr "Perfil%d"
+msgstr "perfil%d"
 
 #: ../src/mixer-view.gob:259
 #: mixer-view.gob:259
