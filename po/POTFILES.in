@@ -5,12 +5,14 @@ lib/vc_alsa.c
 lib/vc_oss.c
 panel-plugin/launcher-entry.c
 panel-plugin/mixer-control.gob
+panel-plugin/mixer-prefbox.gob
 panel-plugin/plugin.c
 panel-plugin/xfce-mixer-control.c
 panel-plugin/xfce-mixer-prefbox.c
 settings/mixer-settingsbox.gob
 settings/sound.c
 settings/xfce-mixer-settingsbox.c
+src/main.c
 src/menus.c
 src/mixer-control.gob
 src/mixer-info.gob
