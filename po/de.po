@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.4.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-05-17 12:51+0900\n"
+"POT-Creation-Date: 2006-11-04 19:21+0100\n"
 "PO-Revision-Date: 2006-08-27 19:26+0200\n"
 "Last-Translator: Nico Schümann <nico@prog.nico22.de>\n"
 "Language-Team: German <de@li.org>\n"
@@ -195,8 +195,8 @@ msgid ""
 "alsa: info: developer information follows: (send E-Mail to Developer with "
 "that)\n"
 msgstr ""
-"Alsa: Information: Information seitens der Entwickler folgt: (senden Sie "
-"in diesem Zusammenhang eine E-Mail an die Entwickler)\n"
+"Alsa: Information: Information seitens der Entwickler folgt: (senden Sie in "
+"diesem Zusammenhang eine E-Mail an die Entwickler)\n"
 
 #: ../lib/vc_alsa.c:112
 #, c-format
@@ -245,21 +245,21 @@ msgstr "In Terminal ausführen"
 msgid "Use Startup Notification"
 msgstr "Grafische Rückmeldung verwenden"
 
-#: ../panel-plugin/launcher-entry.c:192 ../panel-plugin/plugin.c:342
+#: ../panel-plugin/launcher-entry.c:192 ../panel-plugin/plugin.c:343
 #, c-format
 msgid "Could not run \"%s\""
 msgstr "Konnte »%s« nicht ausführen"
 
-#: ../panel-plugin/launcher-entry.c:194 ../panel-plugin/plugin.c:344
+#: ../panel-plugin/launcher-entry.c:194 ../panel-plugin/plugin.c:345
 msgid "Xfce Panel"
 msgstr "Xfce-Leiste"
 
-#: ../panel-plugin/plugin.c:271
+#: ../panel-plugin/plugin.c:272
 #, c-format
 msgid "Volume: %d%%"
 msgstr "Lautstärke: %d %%"
 
-#: ../panel-plugin/plugin.c:571
+#: ../panel-plugin/plugin.c:564
 msgid "Could not save configuration"
 msgstr "Konnte Konfiguration nicht speichern"
 
@@ -295,7 +295,7 @@ msgstr "Nützliche Regler"
 msgid "Button Label|Sound"
 msgstr "Sound"
 
-#: ../settings/sound.c:102
+#: ../settings/sound.c:104
 msgid "Sound"
 msgstr "Sound"
 

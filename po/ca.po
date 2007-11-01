@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.4.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-05-17 12:51+0900\n"
+"POT-Creation-Date: 2006-11-04 19:21+0100\n"
 "PO-Revision-Date: 2006-09-18 23:01+0200\n"
 "Last-Translator: Carles Muñoz Gorriz <carlesmu@internautas.org>\n"
 "Language-Team: Catalan\n"
@@ -187,14 +187,18 @@ msgstr "A3.LíniaOut2"
 msgid ""
 "alsa: error: master control not found. I even tried to guess wildly, but to "
 "no avail.\n"
-msgstr "alsa: error: no s’ha trobat el control mestre. S’ha intentat fer-ho segons les configuracions típiques però tampoc ha funcionat.\n"
+msgstr ""
+"alsa: error: no s’ha trobat el control mestre. S’ha intentat fer-ho segons "
+"les configuracions típiques però tampoc ha funcionat.\n"
 
 #: ../lib/vc_alsa.c:98
 #, c-format
 msgid ""
 "alsa: info: developer information follows: (send E-Mail to Developer with "
 "that)\n"
-msgstr "alsa: informació: a continuació es mostra informació pels desenvolupadors: (envieu un correu electrònic al desenvolupadors amb aquesta sortida)\n"
+msgstr ""
+"alsa: informació: a continuació es mostra informació pels desenvolupadors: "
+"(envieu un correu electrònic al desenvolupadors amb aquesta sortida)\n"
 
 #: ../lib/vc_alsa.c:112
 #, c-format
@@ -243,21 +247,21 @@ msgstr "Executar en un terminal"
 msgid "Use Startup Notification"
 msgstr "Utilitzeu notificació d'inicialització"
 
-#: ../panel-plugin/launcher-entry.c:192 ../panel-plugin/plugin.c:342
+#: ../panel-plugin/launcher-entry.c:192 ../panel-plugin/plugin.c:343
 #, c-format
 msgid "Could not run \"%s\""
 msgstr "No s'ha pogut executar «%s»"
 
-#: ../panel-plugin/launcher-entry.c:194 ../panel-plugin/plugin.c:344
+#: ../panel-plugin/launcher-entry.c:194 ../panel-plugin/plugin.c:345
 msgid "Xfce Panel"
 msgstr "Quadre"
 
-#: ../panel-plugin/plugin.c:271
+#: ../panel-plugin/plugin.c:272
 #, c-format
 msgid "Volume: %d%%"
 msgstr "Volum: %d%%"
 
-#: ../panel-plugin/plugin.c:571
+#: ../panel-plugin/plugin.c:564
 msgid "Could not save configuration"
 msgstr "No s'ha pogut desar la configuració."
 
@@ -293,7 +297,7 @@ msgstr "Controls útils"
 msgid "Button Label|Sound"
 msgstr "So"
 
-#: ../settings/sound.c:102
+#: ../settings/sound.c:104
 msgid "Sound"
 msgstr "So"
 

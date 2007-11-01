@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.4.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-05-17 12:51+0900\n"
+"POT-Creation-Date: 2006-11-04 19:21+0100\n"
 "PO-Revision-Date: 2007-04-07 18:13+0100\n"
 "Last-Translator: Stephan Arts <stephan@xfce.org>\n"
 "Language-Team: Dutch <xfce-i18n@xfce.org>\n"
@@ -184,8 +184,8 @@ msgid ""
 "alsa: error: master control not found. I even tried to guess wildly, but to "
 "no avail.\n"
 msgstr ""
-"alsa: error: master controller niet gevonden. Zelfs geprobeerd om er naar "
-"te gokken, maar er is er geen een beschikbaar.\n"
+"alsa: error: master controller niet gevonden. Zelfs geprobeerd om er naar te "
+"gokken, maar er is er geen een beschikbaar.\n"
 
 #: ../lib/vc_alsa.c:98
 #, c-format
@@ -193,8 +193,8 @@ msgid ""
 "alsa: info: developer information follows: (send E-Mail to Developer with "
 "that)\n"
 msgstr ""
-"alsa: info: ontwikkelaars informatie volgt: (stuur een E-mail hiermee "
-"naar de Ontwikkelaar)\n"
+"alsa: info: ontwikkelaars informatie volgt: (stuur een E-mail hiermee naar "
+"de Ontwikkelaar)\n"
 
 #: ../lib/vc_alsa.c:112
 #, c-format
@@ -243,21 +243,21 @@ msgstr "Uitvoeren in Opdrachtprompt"
 msgid "Use Startup Notification"
 msgstr "Gebruikt Opstartbericht"
 
-#: ../panel-plugin/launcher-entry.c:192 ../panel-plugin/plugin.c:342
+#: ../panel-plugin/launcher-entry.c:192 ../panel-plugin/plugin.c:343
 #, c-format
 msgid "Could not run \"%s\""
 msgstr "Kon \"%s\" niet uitvoeren"
 
-#: ../panel-plugin/launcher-entry.c:194 ../panel-plugin/plugin.c:344
+#: ../panel-plugin/launcher-entry.c:194 ../panel-plugin/plugin.c:345
 msgid "Xfce Panel"
 msgstr "Xfce Paneel"
 
-#: ../panel-plugin/plugin.c:271
+#: ../panel-plugin/plugin.c:272
 #, c-format
 msgid "Volume: %d%%"
 msgstr "Volume: %d%%"
 
-#: ../panel-plugin/plugin.c:571
+#: ../panel-plugin/plugin.c:564
 msgid "Could not save configuration"
 msgstr "Kon configuratie niet opslaan"
 
@@ -293,7 +293,7 @@ msgstr "Nuttige regelaars"
 msgid "Button Label|Sound"
 msgstr "Geluid"
 
-#: ../settings/sound.c:102
+#: ../settings/sound.c:104
 msgid "Sound"
 msgstr "Geluid"
 

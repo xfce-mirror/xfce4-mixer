@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.4.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-05-17 12:51+0900\n"
+"POT-Creation-Date: 2006-11-04 19:21+0100\n"
 "PO-Revision-Date: 2007-03-02 23:13+0200\n"
 "Last-Translator: Eren Türkay <turkay.eren@gmail.com>\n"
 "Language-Team: Turkish <turkce@pardus.org.tr>\n"
@@ -183,8 +183,7 @@ msgstr "A3.Çıkış2"
 msgid ""
 "alsa: error: master control not found. I even tried to guess wildly, but to "
 "no avail.\n"
-msgstr ""
-"alsa: hata: ana kontrol bulunamadı. \n"
+msgstr "alsa: hata: ana kontrol bulunamadı. \n"
 
 #: ../lib/vc_alsa.c:98
 #, c-format
@@ -192,7 +191,8 @@ msgid ""
 "alsa: info: developer information follows: (send E-Mail to Developer with "
 "that)\n"
 msgstr ""
-"alsa: bilgi: geliştirici bilgisi takibi:(Bununla birlikte geliştiriciye bir E-Posta yollayın)\n"
+"alsa: bilgi: geliştirici bilgisi takibi:(Bununla birlikte geliştiriciye bir "
+"E-Posta yollayın)\n"
 
 #: ../lib/vc_alsa.c:112
 #, c-format
@@ -241,21 +241,21 @@ msgstr "Terminalde Çalıştır"
 msgid "Use Startup Notification"
 msgstr "Startup Notification Kullan"
 
-#: ../panel-plugin/launcher-entry.c:192 ../panel-plugin/plugin.c:342
+#: ../panel-plugin/launcher-entry.c:192 ../panel-plugin/plugin.c:343
 #, c-format
 msgid "Could not run \"%s\""
 msgstr "\"%s\" Başlatılamıyor"
 
-#: ../panel-plugin/launcher-entry.c:194 ../panel-plugin/plugin.c:344
+#: ../panel-plugin/launcher-entry.c:194 ../panel-plugin/plugin.c:345
 msgid "Xfce Panel"
 msgstr "Xfce Panel"
 
-#: ../panel-plugin/plugin.c:271
+#: ../panel-plugin/plugin.c:272
 #, c-format
 msgid "Volume: %d%%"
 msgstr "Ses Düzeyi: %%%d"
 
-#: ../panel-plugin/plugin.c:571
+#: ../panel-plugin/plugin.c:564
 msgid "Could not save configuration"
 msgstr "Ayar kaydedilemiyor"
 
@@ -291,7 +291,7 @@ msgstr "Kullanışlı Denetimler"
 msgid "Button Label|Sound"
 msgstr "Ses"
 
-#: ../settings/sound.c:102
+#: ../settings/sound.c:104
 msgid "Sound"
 msgstr "Ses"
 
@@ -451,4 +451,3 @@ msgstr "Karıştırıcı Seçenekleri"
 #: ../settings/xfce-mixer-settings.desktop.in.h:2
 msgid "Xfce 4 Mixer Settings"
 msgstr "Xfce 4 Karıştırıcı Seçenekleri"
-

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.4.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-06-16 02:20+0900\n"
+"POT-Creation-Date: 2006-11-04 19:21+0100\n"
 "PO-Revision-Date: 2007-06-05 12:07+0100\n"
 "Last-Translator: Tegegne Tefera <tefera@mekuria.com>\n"
 "Language-Team: Amharic <l10n-am@googlegroups.com>\n"
@@ -179,48 +179,57 @@ msgstr ""
 msgid "A3.LineOut2"
 msgstr "መስመር2"
 
-#: ../lib/vc_alsa.c:92
+#: ../lib/vc_alsa.c:93
 #, c-format
 msgid ""
 "alsa: error: master control not found. I even tried to guess wildly, but to "
 "no avail.\n"
 msgstr ""
 
-#: ../lib/vc_alsa.c:97
+#: ../lib/vc_alsa.c:98
 #, c-format
 msgid ""
 "alsa: info: developer information follows: (send E-Mail to Developer with "
 "that)\n"
 msgstr ""
 
-#: ../lib/vc_alsa.c:111
+#: ../lib/vc_alsa.c:112
 #, c-format
 msgid "hint hint"
 msgstr ""
 
-#: ../lib/vc_alsa.c:117
+#: ../lib/vc_alsa.c:118
 #, c-format
 msgid "alsa: info: end of developer information\n"
 msgstr ""
 
-#: ../lib/vc_alsa.c:133
+#: ../lib/vc_alsa.c:136
 #, c-format
 msgid "alsa: Mixer %s open error: %s\n"
 msgstr ""
 
-#: ../lib/vc_alsa.c:138
+#: ../lib/vc_alsa.c:141
 #, c-format
 msgid "alsa: Mixer attach %s error: %s\n"
 msgstr ""
 
-#: ../lib/vc_alsa.c:145
+#: ../lib/vc_alsa.c:149
 #, c-format
 msgid "alsa: Mixer register error: %s\n"
 msgstr ""
 
-#: ../lib/vc_alsa.c:154
+#: ../lib/vc_alsa.c:158
 #, c-format
 msgid "alsa: Mixer load error: %s: %s\n"
+msgstr ""
+
+#: ../lib/vc_alsa.c:184
+#, c-format
+msgid "alsa: Unable to find simple control '%s',%i\n"
+msgstr ""
+
+#: ../lib/vc_oss.c:158
+msgid "oss: No master volume"
 msgstr ""
 
 #: ../panel-plugin/launcher-entry.c:75

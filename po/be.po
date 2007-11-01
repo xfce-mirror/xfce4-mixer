@@ -179,13 +179,20 @@ msgstr "A3.Лін.Вых.2"
 
 #: ../lib/vc_alsa.c:93
 #, c-format
-msgid "alsa: error: master control not found. I even tried to guess wildly, but to no avail.\n"
-msgstr "alsa: памылка: галоўны кантроль ня знойдзены. Была спроба здагадацца, але не пасьпяховая.\n"
+msgid ""
+"alsa: error: master control not found. I even tried to guess wildly, but to "
+"no avail.\n"
+msgstr ""
+"alsa: памылка: галоўны кантроль ня знойдзены. Была спроба здагадацца, але не "
+"пасьпяховая.\n"
 
 #: ../lib/vc_alsa.c:98
 #, c-format
-msgid "alsa: info: developer information follows: (send E-Mail to Developer with that)\n"
-msgstr "alsa: зьвесткі: зьвесткі для распрацоўнікаў: (дашліце ім ліст з гэтым)\n"
+msgid ""
+"alsa: info: developer information follows: (send E-Mail to Developer with "
+"that)\n"
+msgstr ""
+"alsa: зьвесткі: зьвесткі для распрацоўнікаў: (дашліце ім ліст з гэтым)\n"
 
 #: ../lib/vc_alsa.c:112
 #, c-format
@@ -234,14 +241,12 @@ msgstr "Выконваць у тэрмінале"
 msgid "Use Startup Notification"
 msgstr "Інфармаваньне пра запуск"
 
-#: ../panel-plugin/launcher-entry.c:192
-#: ../panel-plugin/plugin.c:343
+#: ../panel-plugin/launcher-entry.c:192 ../panel-plugin/plugin.c:343
 #, c-format
 msgid "Could not run \"%s\""
 msgstr "Немагчыма выканаць \"%s\""
 
-#: ../panel-plugin/launcher-entry.c:194
-#: ../panel-plugin/plugin.c:345
+#: ../panel-plugin/launcher-entry.c:194 ../panel-plugin/plugin.c:345
 msgid "Xfce Panel"
 msgstr "Панэль Xfce"
 
@@ -254,8 +259,7 @@ msgstr "Гучнасьць: %d%%"
 msgid "Could not save configuration"
 msgstr "Немагчыма захаваць наладку"
 
-#: mixer-prefbox.gob:177
-#: ../src/mixer-profilebox.gob:88
+#: mixer-prefbox.gob:177 ../src/mixer-profilebox.gob:88
 #: mixer-profilebox.gob:88
 msgid "Device:"
 msgstr "Прылада:"
@@ -268,20 +272,17 @@ msgstr "Імітаваны майстар:"
 msgid "When clicked"
 msgstr "Калі пстрыкнуць"
 
-#: ../settings/mixer-settingsbox.gob:128
-#: mixer-settingsbox.gob:128
+#: ../settings/mixer-settingsbox.gob:128 mixer-settingsbox.gob:128
 msgid "Device"
 msgstr "Прылада"
 
-#: ../settings/mixer-settingsbox.gob:131
-#: mixer-settingsbox.gob:131
+#: ../settings/mixer-settingsbox.gob:131 mixer-settingsbox.gob:131
 msgid "None"
 msgstr "Няма"
 
 #. gtk_widget_show (GTK_WIDGET (self->dev_label));
 #. debug_bindtextdomain();
-#: ../settings/mixer-settingsbox.gob:136
-#: mixer-settingsbox.gob:136
+#: ../settings/mixer-settingsbox.gob:136 mixer-settingsbox.gob:136
 msgid "Useful Controls"
 msgstr "Карысны кантроль"
 
@@ -322,143 +323,120 @@ msgstr "/_Даведка"
 msgid "/Help/_Info"
 msgstr "/Даведка/_Зьвесткі"
 
-#: ../src/mixer-info.gob:28
-#: mixer-info.gob:28
+#: ../src/mixer-info.gob:28 mixer-info.gob:28
 msgid ""
 "This is xfce4-mixer, a volume control program.\n"
-"It is released under the GPL-2 License which you find in the source directory.\n"
+"It is released under the GPL-2 License which you find in the source "
+"directory.\n"
 "No warranty in any way."
 msgstr ""
 "Гэта - xfce4-mixer - праграма кантролю гуку.\n"
-"Яна распаўсюджваецца на ўмовах ліцэнзыі GPL-2, якую вы можацеадшукаць у тэчцы з зыходным кодам.\n"
+"Яна распаўсюджваецца на ўмовах ліцэнзыі GPL-2, якую вы можацеадшукаць у "
+"тэчцы з зыходным кодам.\n"
 "Няма ніякае гарантыі."
 
-#: ../src/mixer-profilebox-detail.gob:163
-#: mixer-profilebox-detail.gob:163
+#: ../src/mixer-profilebox-detail.gob:163 mixer-profilebox-detail.gob:163
 msgid "Control"
 msgstr "Кантроль"
 
-#: ../src/mixer-profilebox-detail.gob:166
-#: mixer-profilebox-detail.gob:166
+#: ../src/mixer-profilebox-detail.gob:166 mixer-profilebox-detail.gob:166
 msgid "Type"
 msgstr "Тып"
 
-#: ../src/mixer-profilebox-detail.gob:178
-#: mixer-profilebox-detail.gob:178
+#: ../src/mixer-profilebox-detail.gob:178 mixer-profilebox-detail.gob:178
 msgid "Up"
 msgstr "Узьняць"
 
-#: ../src/mixer-profilebox-detail.gob:181
-#: mixer-profilebox-detail.gob:181
+#: ../src/mixer-profilebox-detail.gob:181 mixer-profilebox-detail.gob:181
 msgid "Down"
 msgstr "Апусьціць"
 
-#: ../src/mixer-profilebox-detail.gob:188
-#: mixer-profilebox-detail.gob:188
+#: ../src/mixer-profilebox-detail.gob:188 mixer-profilebox-detail.gob:188
 msgid "Move Entry Up"
 msgstr "Перамясьціць запіс угору"
 
-#: ../src/mixer-profilebox-detail.gob:191
-#: mixer-profilebox-detail.gob:191
+#: ../src/mixer-profilebox-detail.gob:191 mixer-profilebox-detail.gob:191
 msgid "Move Entry Down"
 msgstr "Перамясьціць запіс да долу"
 
-#: ../src/mixer-profilebox-detail.gob:200
-#: mixer-profilebox-detail.gob:200
+#: ../src/mixer-profilebox-detail.gob:200 mixer-profilebox-detail.gob:200
 msgid "Profile Name:"
 msgstr "Назва профіля:"
 
 #: ../src/mixer-profilebox-detail.gob:382
-#: ../src/mixer-profilebox-detail.gob:447
-#: mixer-profilebox-detail.gob:382
+#: ../src/mixer-profilebox-detail.gob:447 mixer-profilebox-detail.gob:382
 #: mixer-profilebox-detail.gob:447
 msgid "<unknown>"
 msgstr "<невядомы>"
 
 #: ../src/mixer-profilebox-detail.gob:384
-#: ../src/mixer-profilebox-detail.gob:449
-#: mixer-profilebox-detail.gob:384
+#: ../src/mixer-profilebox-detail.gob:449 mixer-profilebox-detail.gob:384
 #: mixer-profilebox-detail.gob:449
 msgid "<slider>"
 msgstr "<паўзунок>"
 
 #: ../src/mixer-profilebox-detail.gob:385
-#: ../src/mixer-profilebox-detail.gob:450
-#: mixer-profilebox-detail.gob:385
+#: ../src/mixer-profilebox-detail.gob:450 mixer-profilebox-detail.gob:385
 #: mixer-profilebox-detail.gob:450
 msgid "<onoff>"
 msgstr "<укл./выкл.>"
 
 #: ../src/mixer-profilebox-detail.gob:386
-#: ../src/mixer-profilebox-detail.gob:451
-#: mixer-profilebox-detail.gob:386
+#: ../src/mixer-profilebox-detail.gob:451 mixer-profilebox-detail.gob:386
 #: mixer-profilebox-detail.gob:451
 msgid "<select>"
 msgstr "<выбар>"
 
-#: ../src/mixer-profilebox.gob:142
-#: mixer-profilebox.gob:142
+#: ../src/mixer-profilebox.gob:142 mixer-profilebox.gob:142
 msgid "Create new profile"
 msgstr "Стварыць новы профіль"
 
-#: ../src/mixer-profilebox.gob:151
-#: mixer-profilebox.gob:151
+#: ../src/mixer-profilebox.gob:151 mixer-profilebox.gob:151
 msgid "Delete this profile"
 msgstr "Выдаліць гэты профіль"
 
-#: ../src/mixer-profilebox.gob:170
-#: mixer-profilebox.gob:170
+#: ../src/mixer-profilebox.gob:170 mixer-profilebox.gob:170
 msgid "Profile"
 msgstr "Профіль"
 
-#: ../src/mixer-profilebox.gob:374
-#: mixer-profilebox.gob:374
+#: ../src/mixer-profilebox.gob:374 mixer-profilebox.gob:374
 #, c-format
 msgid "Really delete those %d profiles?"
 msgstr "Насамрэч выдаліць гэтыя %d профіляў?"
 
-#: ../src/mixer-profilebox.gob:377
-#: mixer-profilebox.gob:377
+#: ../src/mixer-profilebox.gob:377 mixer-profilebox.gob:377
 #, c-format
 msgid "Really delete profile \"%s\"?"
 msgstr "Насамрэч выдаліць профіль \"%s\"?"
 
-#: ../src/mixer-profilebox.gob:491
-#: mixer-profilebox.gob:491
+#: ../src/mixer-profilebox.gob:491 mixer-profilebox.gob:491
 #, c-format
 msgid "%s - New"
 msgstr "%s - новы"
 
-#: ../src/mixer-profilebox.gob:528
-#: mixer-profilebox.gob:528
+#: ../src/mixer-profilebox.gob:528 mixer-profilebox.gob:528
 msgid "A profile needs a name"
 msgstr "Профіль патрэбна даць назву"
 
-#: ../src/mixer-profilebox.gob:542
-#: mixer-profilebox.gob:542
+#: ../src/mixer-profilebox.gob:542 mixer-profilebox.gob:542
 msgid "A profile with that name already exists"
 msgstr "Профіль з гэткай назвай ужо йснуе"
 
-#: ../src/mixer-profiles.gob:262
-#: ../src/mixer-profiles.gob:269
-#: mixer-profiles.gob:262
-#: mixer-profiles.gob:269
+#: ../src/mixer-profiles.gob:262 ../src/mixer-profiles.gob:269
+#: mixer-profiles.gob:262 mixer-profiles.gob:269
 #, c-format
 msgid "profile%d"
 msgstr "профіль%d"
 
-#: ../src/mixer-view.gob:259
-#: mixer-view.gob:259
+#: ../src/mixer-view.gob:259 mixer-view.gob:259
 msgid "Show Switches"
 msgstr "Паказаць пераключальнікі"
 
-#: ../src/mixer-view.gob:260
-#: mixer-view.gob:260
+#: ../src/mixer-view.gob:260 mixer-view.gob:260
 msgid "Hide Switches"
 msgstr "Схаваць пераключальнікі"
 
-#: ../src/mixer-window.gob:188
-#: mixer-window.gob:188
+#: ../src/mixer-window.gob:188 mixer-window.gob:188
 #: ../panel-plugin/xfce4-mixer.desktop.in.in.h:2
 msgid "Volume Control"
 msgstr "Кантроль гучнасьці"
@@ -474,4 +452,3 @@ msgstr "Настаўленьні мікшара"
 #: ../settings/xfce-mixer-settings.desktop.in.h:2
 msgid "Xfce 4 Mixer Settings"
 msgstr "Настаўленьні мікшара Xfce 4"
-

@@ -1,7 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.4.0\n"
-"POT-Creation-Date: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-11-04 19:21+0100\n"
 "PO-Revision-Date: 2007-06-19 21:27+0400\n"
 "Last-Translator: Dimitri Gogelia <delphi.knight@gmail.com>\n"
 "Language-Team: Georgian <delphi.knight@gmail.com>\n"
@@ -174,13 +175,21 @@ msgstr "A3.ხაზური გამოსასვლელი2"
 
 #: ../lib/vc_alsa.c:93
 #, c-format
-msgid "alsa: error: master control not found. I even tried to guess wildly, but to no avail.\n"
-msgstr "alsa: შეცდომა: ძირითადი კონტროლი ვერ მოიძებნა. მე შევეცადე კიდეც მომეძებნა, მაგრამ უშედეგოდ.\n"
+msgid ""
+"alsa: error: master control not found. I even tried to guess wildly, but to "
+"no avail.\n"
+msgstr ""
+"alsa: შეცდომა: ძირითადი კონტროლი ვერ მოიძებნა. მე შევეცადე კიდეც მომეძებნა, "
+"მაგრამ უშედეგოდ.\n"
 
 #: ../lib/vc_alsa.c:98
 #, c-format
-msgid "alsa: info: developer information follows: (send E-Mail to Developer with that)\n"
-msgstr "alsa: ინფორმაცია: შემდეგი ინფორმაცია: (გაუგზავნეთ საფოსტო შეტყობინება ავტორს)\n"
+msgid ""
+"alsa: info: developer information follows: (send E-Mail to Developer with "
+"that)\n"
+msgstr ""
+"alsa: ინფორმაცია: შემდეგი ინფორმაცია: (გაუგზავნეთ საფოსტო შეტყობინება "
+"ავტორს)\n"
 
 #: ../lib/vc_alsa.c:112
 #, c-format
@@ -229,28 +238,25 @@ msgstr "გაშვება _ტერმინალში"
 msgid "Use Startup Notification"
 msgstr "გაშვების შეტყობინების _გამოყენება"
 
-#: ../panel-plugin/launcher-entry.c:192
-#: ../panel-plugin/plugin.c:342
+#: ../panel-plugin/launcher-entry.c:192 ../panel-plugin/plugin.c:343
 #, c-format
 msgid "Could not run \"%s\""
 msgstr "შეუძლებელია \"%s\" გაშვება"
 
-#: ../panel-plugin/launcher-entry.c:194
-#: ../panel-plugin/plugin.c:344
+#: ../panel-plugin/launcher-entry.c:194 ../panel-plugin/plugin.c:345
 msgid "Xfce Panel"
 msgstr "XFce-ის პანელი"
 
-#: ../panel-plugin/plugin.c:271
+#: ../panel-plugin/plugin.c:272
 #, c-format
 msgid "Volume: %d%%"
 msgstr "ხმის დონე: %d%%"
 
-#: ../panel-plugin/plugin.c:571
+#: ../panel-plugin/plugin.c:564
 msgid "Could not save configuration"
 msgstr "კონფიგურაციის დამახსოვრება ვერ მოხერხდა"
 
-#: mixer-prefbox.gob:177
-#: ../src/mixer-profilebox.gob:88
+#: mixer-prefbox.gob:177 ../src/mixer-profilebox.gob:88
 #: mixer-profilebox.gob:88
 msgid "Device:"
 msgstr "მოწყობილობა:"
@@ -263,20 +269,17 @@ msgstr "მართვადი არხი:"
 msgid "When clicked"
 msgstr "მაუსით დაწკაპუნებისას"
 
-#: ../settings/mixer-settingsbox.gob:128
-#: mixer-settingsbox.gob:128
+#: ../settings/mixer-settingsbox.gob:128 mixer-settingsbox.gob:128
 msgid "Device"
 msgstr "მოწყობილობა"
 
-#: ../settings/mixer-settingsbox.gob:131
-#: mixer-settingsbox.gob:131
+#: ../settings/mixer-settingsbox.gob:131 mixer-settingsbox.gob:131
 msgid "None"
 msgstr "არაფერი"
 
 #. gtk_widget_show (GTK_WIDGET (self->dev_label));
 #. debug_bindtextdomain();
-#: ../settings/mixer-settingsbox.gob:136
-#: mixer-settingsbox.gob:136
+#: ../settings/mixer-settingsbox.gob:136 mixer-settingsbox.gob:136
 msgid "Useful Controls"
 msgstr "კონტროლირებადი არხები"
 
@@ -285,7 +288,7 @@ msgstr "კონტროლირებადი არხები"
 msgid "Button Label|Sound"
 msgstr "ხმა"
 
-#: ../settings/sound.c:102
+#: ../settings/sound.c:104
 msgid "Sound"
 msgstr "ხმა"
 
@@ -317,143 +320,120 @@ msgstr "/_დახმარება"
 msgid "/Help/_Info"
 msgstr "/დახმარება/_ინფორმაცია"
 
-#: ../src/mixer-info.gob:28
-#: mixer-info.gob:28
+#: ../src/mixer-info.gob:28 mixer-info.gob:28
 msgid ""
 "This is xfce4-mixer, a volume control program.\n"
-"It is released under the GPL-2 License which you find in the source directory.\n"
+"It is released under the GPL-2 License which you find in the source "
+"directory.\n"
 "No warranty in any way."
 msgstr ""
 "xfce4-mixer-ი განკუთვნილია ხმის დონეების სამართავად.\n"
-"იგი ვრცელდება GPL-2 ლიცენზიის საფუძველზე, რომელიც შეგიძლიათ მოიძიოთ საწყისი წყარის საქაღალდეში.\n"
+"იგი ვრცელდება GPL-2 ლიცენზიის საფუძველზე, რომელიც შეგიძლიათ მოიძიოთ საწყისი "
+"წყარის საქაღალდეში.\n"
 "პროდუქტზე არანაირი გარანტია არ ვრცელდება."
 
-#: ../src/mixer-profilebox-detail.gob:163
-#: mixer-profilebox-detail.gob:163
+#: ../src/mixer-profilebox-detail.gob:163 mixer-profilebox-detail.gob:163
 msgid "Control"
 msgstr "ხმის კონტროლი"
 
-#: ../src/mixer-profilebox-detail.gob:166
-#: mixer-profilebox-detail.gob:166
+#: ../src/mixer-profilebox-detail.gob:166 mixer-profilebox-detail.gob:166
 msgid "Type"
 msgstr "ტიპი"
 
-#: ../src/mixer-profilebox-detail.gob:178
-#: mixer-profilebox-detail.gob:178
+#: ../src/mixer-profilebox-detail.gob:178 mixer-profilebox-detail.gob:178
 msgid "Up"
 msgstr "ზემოთ"
 
-#: ../src/mixer-profilebox-detail.gob:181
-#: mixer-profilebox-detail.gob:181
+#: ../src/mixer-profilebox-detail.gob:181 mixer-profilebox-detail.gob:181
 msgid "Down"
 msgstr "ქვემოთ"
 
-#: ../src/mixer-profilebox-detail.gob:188
-#: mixer-profilebox-detail.gob:188
+#: ../src/mixer-profilebox-detail.gob:188 mixer-profilebox-detail.gob:188
 msgid "Move Entry Up"
 msgstr "ელემენტის გადაადგილება ზემოთ"
 
-#: ../src/mixer-profilebox-detail.gob:191
-#: mixer-profilebox-detail.gob:191
+#: ../src/mixer-profilebox-detail.gob:191 mixer-profilebox-detail.gob:191
 msgid "Move Entry Down"
 msgstr "ელემენტის გადაადგილება ქვემოთ"
 
-#: ../src/mixer-profilebox-detail.gob:200
-#: mixer-profilebox-detail.gob:200
+#: ../src/mixer-profilebox-detail.gob:200 mixer-profilebox-detail.gob:200
 msgid "Profile Name:"
 msgstr "პროფილის სახელი:"
 
 #: ../src/mixer-profilebox-detail.gob:382
-#: ../src/mixer-profilebox-detail.gob:447
-#: mixer-profilebox-detail.gob:382
+#: ../src/mixer-profilebox-detail.gob:447 mixer-profilebox-detail.gob:382
 #: mixer-profilebox-detail.gob:447
 msgid "<unknown>"
 msgstr "<უცნობი>"
 
 #: ../src/mixer-profilebox-detail.gob:384
-#: ../src/mixer-profilebox-detail.gob:449
-#: mixer-profilebox-detail.gob:384
+#: ../src/mixer-profilebox-detail.gob:449 mixer-profilebox-detail.gob:384
 #: mixer-profilebox-detail.gob:449
 msgid "<slider>"
 msgstr "<ცოცია>"
 
 #: ../src/mixer-profilebox-detail.gob:385
-#: ../src/mixer-profilebox-detail.gob:450
-#: mixer-profilebox-detail.gob:385
+#: ../src/mixer-profilebox-detail.gob:450 mixer-profilebox-detail.gob:385
 #: mixer-profilebox-detail.gob:450
 msgid "<onoff>"
 msgstr "<ჩართ/გამორთ>"
 
 #: ../src/mixer-profilebox-detail.gob:386
-#: ../src/mixer-profilebox-detail.gob:451
-#: mixer-profilebox-detail.gob:386
+#: ../src/mixer-profilebox-detail.gob:451 mixer-profilebox-detail.gob:386
 #: mixer-profilebox-detail.gob:451
 msgid "<select>"
 msgstr "<მონიშვნა>"
 
-#: ../src/mixer-profilebox.gob:142
-#: mixer-profilebox.gob:142
+#: ../src/mixer-profilebox.gob:142 mixer-profilebox.gob:142
 msgid "Create new profile"
 msgstr "ახალი პროფილის შექმნა"
 
-#: ../src/mixer-profilebox.gob:151
-#: mixer-profilebox.gob:151
+#: ../src/mixer-profilebox.gob:151 mixer-profilebox.gob:151
 msgid "Delete this profile"
 msgstr "ამ პროფილის წაშლა"
 
-#: ../src/mixer-profilebox.gob:170
-#: mixer-profilebox.gob:170
+#: ../src/mixer-profilebox.gob:170 mixer-profilebox.gob:170
 msgid "Profile"
 msgstr "პროფილი"
 
-#: ../src/mixer-profilebox.gob:374
-#: mixer-profilebox.gob:374
+#: ../src/mixer-profilebox.gob:374 mixer-profilebox.gob:374
 #, c-format
 msgid "Really delete those %d profiles?"
 msgstr "წავშალო პროფილები (%d) ?"
 
-#: ../src/mixer-profilebox.gob:377
-#: mixer-profilebox.gob:377
+#: ../src/mixer-profilebox.gob:377 mixer-profilebox.gob:377
 #, c-format
 msgid "Really delete profile \"%s\"?"
 msgstr "წავშალო პროფილი \"%s\"?"
 
-#: ../src/mixer-profilebox.gob:491
-#: mixer-profilebox.gob:491
+#: ../src/mixer-profilebox.gob:491 mixer-profilebox.gob:491
 #, c-format
 msgid "%s - New"
 msgstr "%s - ახალი"
 
-#: ../src/mixer-profilebox.gob:528
-#: mixer-profilebox.gob:528
+#: ../src/mixer-profilebox.gob:528 mixer-profilebox.gob:528
 msgid "A profile needs a name"
 msgstr "პროფილს სჭირდება სახელი"
 
-#: ../src/mixer-profilebox.gob:542
-#: mixer-profilebox.gob:542
+#: ../src/mixer-profilebox.gob:542 mixer-profilebox.gob:542
 msgid "A profile with that name already exists"
 msgstr "პროფილი მოცემული სახელით უკვე არსებობს"
 
-#: ../src/mixer-profiles.gob:262
-#: ../src/mixer-profiles.gob:269
-#: mixer-profiles.gob:262
-#: mixer-profiles.gob:269
+#: ../src/mixer-profiles.gob:262 ../src/mixer-profiles.gob:269
+#: mixer-profiles.gob:262 mixer-profiles.gob:269
 #, c-format
 msgid "profile%d"
 msgstr "პროფილი %d"
 
-#: ../src/mixer-view.gob:259
-#: mixer-view.gob:259
+#: ../src/mixer-view.gob:259 mixer-view.gob:259
 msgid "Show Switches"
 msgstr "გადამრთველების ჩვენება"
 
-#: ../src/mixer-view.gob:260
-#: mixer-view.gob:260
+#: ../src/mixer-view.gob:260 mixer-view.gob:260
 msgid "Hide Switches"
 msgstr "გადამრთველების დამალვა"
 
-#: ../src/mixer-window.gob:188
-#: mixer-window.gob:188
+#: ../src/mixer-window.gob:188 mixer-window.gob:188
 #: ../panel-plugin/xfce4-mixer.desktop.in.in.h:2
 msgid "Volume Control"
 msgstr "ხმის კონტროლი"
@@ -469,4 +449,3 @@ msgstr "ხმა"
 #: ../settings/xfce-mixer-settings.desktop.in.h:2
 msgid "Xfce 4 Mixer Settings"
 msgstr "Xfce 4-ის მიკშერის პარამეტრები"
-

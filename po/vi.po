@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.4.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-05-17 12:51+0900\n"
+"POT-Creation-Date: 2006-11-04 19:21+0100\n"
 "PO-Revision-Date: 2006-09-05 03:11+0400\n"
 "Last-Translator: Phan Vĩnh Thịnh <teppi82@gmail.com>\n"
 "Language-Team: Vietnamese <vi-VN@googlegroups.com>\n"
@@ -186,14 +186,18 @@ msgstr "A3.Đườngra2"
 msgid ""
 "alsa: error: master control not found. I even tried to guess wildly, but to "
 "no avail.\n"
-msgstr "alsa: lỗi: không tìm thấy điều khiển âm thanh chính. Tôi thậm chí đã thử đoán dữ dội, nhưng không có gì.\n"
+msgstr ""
+"alsa: lỗi: không tìm thấy điều khiển âm thanh chính. Tôi thậm chí đã thử "
+"đoán dữ dội, nhưng không có gì.\n"
 
 #: ../lib/vc_alsa.c:98
 #, c-format
 msgid ""
 "alsa: info: developer information follows: (send E-Mail to Developer with "
 "that)\n"
-msgstr "alsa: thông tin: thông tin cho nhà phát triển: (gửi email tới nhà phát triển)\n"
+msgstr ""
+"alsa: thông tin: thông tin cho nhà phát triển: (gửi email tới nhà phát "
+"triển)\n"
 
 #: ../lib/vc_alsa.c:112
 #, c-format
@@ -242,21 +246,21 @@ msgstr "Chạy trong Terminal"
 msgid "Use Startup Notification"
 msgstr "Dùng thông báo khởi động"
 
-#: ../panel-plugin/launcher-entry.c:192 ../panel-plugin/plugin.c:342
+#: ../panel-plugin/launcher-entry.c:192 ../panel-plugin/plugin.c:343
 #, c-format
 msgid "Could not run \"%s\""
 msgstr "Không chạy được \"%s\""
 
-#: ../panel-plugin/launcher-entry.c:194 ../panel-plugin/plugin.c:344
+#: ../panel-plugin/launcher-entry.c:194 ../panel-plugin/plugin.c:345
 msgid "Xfce Panel"
 msgstr "Thanh panel Xfce"
 
-#: ../panel-plugin/plugin.c:271
+#: ../panel-plugin/plugin.c:272
 #, c-format
 msgid "Volume: %d%%"
 msgstr "Âm lượng: %d%%"
 
-#: ../panel-plugin/plugin.c:571
+#: ../panel-plugin/plugin.c:564
 msgid "Could not save configuration"
 msgstr "Không ghi được cấu hình"
 
@@ -292,7 +296,7 @@ msgstr "Các điều khiển hữu dụng"
 msgid "Button Label|Sound"
 msgstr "Âm thanh"
 
-#: ../settings/sound.c:102
+#: ../settings/sound.c:104
 msgid "Sound"
 msgstr "Âm thanh"
 
@@ -452,4 +456,3 @@ msgstr "Thiết lập Bộ hoà âm"
 #: ../settings/xfce-mixer-settings.desktop.in.h:2
 msgid "Xfce 4 Mixer Settings"
 msgstr "Thiết lập bộ hoà âm Xfce 4"
-

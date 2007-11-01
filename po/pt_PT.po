@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.4.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-05-17 12:51+0900\n"
+"POT-Creation-Date: 2006-11-04 19:21+0100\n"
 "PO-Revision-Date: 2007-09-01 12:48+0100\n"
 "Last-Translator: Nuno Miguel <nunis@netcabo.pt>\n"
 "Language-Team: \n"
@@ -180,13 +180,21 @@ msgstr "A3.LineOut2"
 
 #: ../lib/vc_alsa.c:93
 #, c-format
-msgid "alsa: error: master control not found. I even tried to guess wildly, but to no avail.\n"
-msgstr "alsa : erro: controlo mestre não encontrado. Tentei adivinhá-lo, mas sem sucesso.\n"
+msgid ""
+"alsa: error: master control not found. I even tried to guess wildly, but to "
+"no avail.\n"
+msgstr ""
+"alsa : erro: controlo mestre não encontrado. Tentei adivinhá-lo, mas sem "
+"sucesso.\n"
 
 #: ../lib/vc_alsa.c:98
 #, c-format
-msgid "alsa: info: developer information follows: (send E-Mail to Developer with that)\n"
-msgstr "alsa: informação: informação do desenvolvedor: (envie e-mail para o desenvolvedor com este)\n"
+msgid ""
+"alsa: info: developer information follows: (send E-Mail to Developer with "
+"that)\n"
+msgstr ""
+"alsa: informação: informação do desenvolvedor: (envie e-mail para o "
+"desenvolvedor com este)\n"
 
 #: ../lib/vc_alsa.c:112
 #, c-format
@@ -235,28 +243,25 @@ msgstr "Executar no Terminal"
 msgid "Use Startup Notification"
 msgstr "Usar notificação de inicialização"
 
-#: ../panel-plugin/launcher-entry.c:192
-#: ../panel-plugin/plugin.c:342
+#: ../panel-plugin/launcher-entry.c:192 ../panel-plugin/plugin.c:343
 #, c-format
 msgid "Could not run \"%s\""
 msgstr "Impossível executar \"%s\""
 
-#: ../panel-plugin/launcher-entry.c:194
-#: ../panel-plugin/plugin.c:344
+#: ../panel-plugin/launcher-entry.c:194 ../panel-plugin/plugin.c:345
 msgid "Xfce Panel"
 msgstr "Painel Xfce"
 
-#: ../panel-plugin/plugin.c:271
+#: ../panel-plugin/plugin.c:272
 #, c-format
 msgid "Volume: %d%%"
 msgstr "Volume: %d%%"
 
-#: ../panel-plugin/plugin.c:571
+#: ../panel-plugin/plugin.c:564
 msgid "Could not save configuration"
 msgstr "Impossível gravar a configuração"
 
-#: mixer-prefbox.gob:177
-#: ../src/mixer-profilebox.gob:88
+#: mixer-prefbox.gob:177 ../src/mixer-profilebox.gob:88
 #: mixer-profilebox.gob:88
 msgid "Device:"
 msgstr "Dispositivo:"
@@ -269,20 +274,17 @@ msgstr "Controlo Preferido:"
 msgid "When clicked"
 msgstr "Quando clicado"
 
-#: ../settings/mixer-settingsbox.gob:128
-#: mixer-settingsbox.gob:128
+#: ../settings/mixer-settingsbox.gob:128 mixer-settingsbox.gob:128
 msgid "Device"
 msgstr "Dispositivo:"
 
-#: ../settings/mixer-settingsbox.gob:131
-#: mixer-settingsbox.gob:131
+#: ../settings/mixer-settingsbox.gob:131 mixer-settingsbox.gob:131
 msgid "None"
 msgstr "Nenhum"
 
 #. gtk_widget_show (GTK_WIDGET (self->dev_label));
 #. debug_bindtextdomain();
-#: ../settings/mixer-settingsbox.gob:136
-#: mixer-settingsbox.gob:136
+#: ../settings/mixer-settingsbox.gob:136 mixer-settingsbox.gob:136
 msgid "Useful Controls"
 msgstr "Controlos Úteis"
 
@@ -291,7 +293,7 @@ msgstr "Controlos Úteis"
 msgid "Button Label|Sound"
 msgstr "Controlo de Som"
 
-#: ../settings/sound.c:102
+#: ../settings/sound.c:104
 msgid "Sound"
 msgstr "Som"
 
@@ -323,143 +325,119 @@ msgstr "/_Ajuda"
 msgid "/Help/_Info"
 msgstr "/Ajuda/_Info"
 
-#: ../src/mixer-info.gob:28
-#: mixer-info.gob:28
+#: ../src/mixer-info.gob:28 mixer-info.gob:28
 msgid ""
 "This is xfce4-mixer, a volume control program.\n"
-"It is released under the GPL-2 License which you find in the source directory.\n"
+"It is released under the GPL-2 License which you find in the source "
+"directory.\n"
 "No warranty in any way."
 msgstr ""
 "Isto é o xfce4 mixer, um programa para controlar o volume.\n"
 "É lançado com a Lcença GPL 2 que pode encontrar no directório fonte.\n"
 "Não existem quaisquer garantias."
 
-#: ../src/mixer-profilebox-detail.gob:163
-#: mixer-profilebox-detail.gob:163
+#: ../src/mixer-profilebox-detail.gob:163 mixer-profilebox-detail.gob:163
 msgid "Control"
 msgstr "Controlo de Volume"
 
-#: ../src/mixer-profilebox-detail.gob:166
-#: mixer-profilebox-detail.gob:166
+#: ../src/mixer-profilebox-detail.gob:166 mixer-profilebox-detail.gob:166
 msgid "Type"
 msgstr "Tipo"
 
-#: ../src/mixer-profilebox-detail.gob:178
-#: mixer-profilebox-detail.gob:178
+#: ../src/mixer-profilebox-detail.gob:178 mixer-profilebox-detail.gob:178
 msgid "Up"
 msgstr "Subir"
 
-#: ../src/mixer-profilebox-detail.gob:181
-#: mixer-profilebox-detail.gob:181
+#: ../src/mixer-profilebox-detail.gob:181 mixer-profilebox-detail.gob:181
 msgid "Down"
 msgstr "Descer"
 
-#: ../src/mixer-profilebox-detail.gob:188
-#: mixer-profilebox-detail.gob:188
+#: ../src/mixer-profilebox-detail.gob:188 mixer-profilebox-detail.gob:188
 msgid "Move Entry Up"
 msgstr "Mover a entrada para cima"
 
-#: ../src/mixer-profilebox-detail.gob:191
-#: mixer-profilebox-detail.gob:191
+#: ../src/mixer-profilebox-detail.gob:191 mixer-profilebox-detail.gob:191
 msgid "Move Entry Down"
 msgstr "Mover a entrada para baixo"
 
-#: ../src/mixer-profilebox-detail.gob:200
-#: mixer-profilebox-detail.gob:200
+#: ../src/mixer-profilebox-detail.gob:200 mixer-profilebox-detail.gob:200
 msgid "Profile Name:"
 msgstr "Nome do Perfil:"
 
 #: ../src/mixer-profilebox-detail.gob:382
-#: ../src/mixer-profilebox-detail.gob:447
-#: mixer-profilebox-detail.gob:382
+#: ../src/mixer-profilebox-detail.gob:447 mixer-profilebox-detail.gob:382
 #: mixer-profilebox-detail.gob:447
 msgid "<unknown>"
 msgstr "<desconhecido>"
 
 #: ../src/mixer-profilebox-detail.gob:384
-#: ../src/mixer-profilebox-detail.gob:449
-#: mixer-profilebox-detail.gob:384
+#: ../src/mixer-profilebox-detail.gob:449 mixer-profilebox-detail.gob:384
 #: mixer-profilebox-detail.gob:449
 msgid "<slider>"
 msgstr "<slider>"
 
 #: ../src/mixer-profilebox-detail.gob:385
-#: ../src/mixer-profilebox-detail.gob:450
-#: mixer-profilebox-detail.gob:385
+#: ../src/mixer-profilebox-detail.gob:450 mixer-profilebox-detail.gob:385
 #: mixer-profilebox-detail.gob:450
 msgid "<onoff>"
 msgstr "<onoff>"
 
 #: ../src/mixer-profilebox-detail.gob:386
-#: ../src/mixer-profilebox-detail.gob:451
-#: mixer-profilebox-detail.gob:386
+#: ../src/mixer-profilebox-detail.gob:451 mixer-profilebox-detail.gob:386
 #: mixer-profilebox-detail.gob:451
 msgid "<select>"
 msgstr "<seleccionar>"
 
-#: ../src/mixer-profilebox.gob:142
-#: mixer-profilebox.gob:142
+#: ../src/mixer-profilebox.gob:142 mixer-profilebox.gob:142
 msgid "Create new profile"
 msgstr "Criar novo perfil"
 
-#: ../src/mixer-profilebox.gob:151
-#: mixer-profilebox.gob:151
+#: ../src/mixer-profilebox.gob:151 mixer-profilebox.gob:151
 msgid "Delete this profile"
 msgstr "Apagar este perfil"
 
-#: ../src/mixer-profilebox.gob:170
-#: mixer-profilebox.gob:170
+#: ../src/mixer-profilebox.gob:170 mixer-profilebox.gob:170
 msgid "Profile"
 msgstr "Perfil"
 
-#: ../src/mixer-profilebox.gob:374
-#: mixer-profilebox.gob:374
+#: ../src/mixer-profilebox.gob:374 mixer-profilebox.gob:374
 #, c-format
 msgid "Really delete those %d profiles?"
 msgstr "Tem a certeza que quer apagar aqueles %d perfis?"
 
-#: ../src/mixer-profilebox.gob:377
-#: mixer-profilebox.gob:377
+#: ../src/mixer-profilebox.gob:377 mixer-profilebox.gob:377
 #, c-format
 msgid "Really delete profile \"%s\"?"
 msgstr "Tem a certeza que quer apagar o perfil \"%s\"?"
 
-#: ../src/mixer-profilebox.gob:491
-#: mixer-profilebox.gob:491
+#: ../src/mixer-profilebox.gob:491 mixer-profilebox.gob:491
 #, c-format
 msgid "%s - New"
 msgstr "%s - Novo"
 
-#: ../src/mixer-profilebox.gob:528
-#: mixer-profilebox.gob:528
+#: ../src/mixer-profilebox.gob:528 mixer-profilebox.gob:528
 msgid "A profile needs a name"
 msgstr "Um perfil precisa de um nome"
 
-#: ../src/mixer-profilebox.gob:542
-#: mixer-profilebox.gob:542
+#: ../src/mixer-profilebox.gob:542 mixer-profilebox.gob:542
 msgid "A profile with that name already exists"
 msgstr "Já existe um perfil com esse nome"
 
-#: ../src/mixer-profiles.gob:262
-#: ../src/mixer-profiles.gob:269
-#: mixer-profiles.gob:262
-#: mixer-profiles.gob:269
+#: ../src/mixer-profiles.gob:262 ../src/mixer-profiles.gob:269
+#: mixer-profiles.gob:262 mixer-profiles.gob:269
 #, c-format
 msgid "profile%d"
 msgstr "perfil%d"
 
-#: ../src/mixer-view.gob:259
-#: mixer-view.gob:259
+#: ../src/mixer-view.gob:259 mixer-view.gob:259
 msgid "Show Switches"
 msgstr "Mostrar Controlos"
 
-#: ../src/mixer-view.gob:260
-#: mixer-view.gob:260
+#: ../src/mixer-view.gob:260 mixer-view.gob:260
 msgid "Hide Switches"
 msgstr "Esconder Controlos"
 
-#: ../src/mixer-window.gob:188
-#: mixer-window.gob:188
+#: ../src/mixer-window.gob:188 mixer-window.gob:188
 #: ../panel-plugin/xfce4-mixer.desktop.in.in.h:2
 msgid "Volume Control"
 msgstr "Controlo de Volume"
@@ -475,4 +453,3 @@ msgstr "Definições do Mixer"
 #: ../settings/xfce-mixer-settings.desktop.in.h:2
 msgid "Xfce 4 Mixer Settings"
 msgstr "Definições Mixer Xfce 4"
-

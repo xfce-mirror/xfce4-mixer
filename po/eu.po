@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.4.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-05-17 12:51+0900\n"
+"POT-Creation-Date: 2006-11-04 19:21+0100\n"
 "PO-Revision-Date: 2006-01-15 22:12+0100\n"
 "Last-Translator: Piarres Beobide <pi@beobide.net>\n"
 "Language-Team: librezale.org <librezale@librezale.org>\n"
@@ -185,8 +185,9 @@ msgid ""
 "alsa: error: master control not found. I even tried to guess wildly, but to "
 "no avail.\n"
 msgstr ""
-"alsa: erroea: ez da kontrol nagusia aurkitu. Ausartki eskuratzen ere saiatu da "
-"baina ez dago eskuragrri.\n"
+"alsa: erroea: ez da kontrol nagusia aurkitu. Ausartki eskuratzen ere saiatu "
+"da baina ez dago eskuragrri.\n"
+
 #: ../lib/vc_alsa.c:98
 #, c-format
 msgid ""
@@ -243,21 +244,21 @@ msgstr "Terminalean abiarazi"
 msgid "Use Startup Notification"
 msgstr "Abiarazte berri-emateak erabili"
 
-#: ../panel-plugin/launcher-entry.c:192 ../panel-plugin/plugin.c:342
+#: ../panel-plugin/launcher-entry.c:192 ../panel-plugin/plugin.c:343
 #, c-format
 msgid "Could not run \"%s\""
 msgstr "Ezin da \"%s\" abiarazi"
 
-#: ../panel-plugin/launcher-entry.c:194 ../panel-plugin/plugin.c:344
+#: ../panel-plugin/launcher-entry.c:194 ../panel-plugin/plugin.c:345
 msgid "Xfce Panel"
 msgstr "Xfce Panela"
 
-#: ../panel-plugin/plugin.c:271
+#: ../panel-plugin/plugin.c:272
 #, c-format
 msgid "Volume: %d%%"
 msgstr "Bolumena: %% %d"
 
-#: ../panel-plugin/plugin.c:571
+#: ../panel-plugin/plugin.c:564
 msgid "Could not save configuration"
 msgstr "Ezin da konfigurazioa gorde"
 
@@ -293,7 +294,7 @@ msgstr "Kontrol erabilgarriak"
 msgid "Button Label|Sound"
 msgstr "Soinua"
 
-#: ../settings/sound.c:102
+#: ../settings/sound.c:104
 msgid "Sound"
 msgstr "Soinua"
 

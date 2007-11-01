@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.4.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-06-15 18:09+0000\n"
+"POT-Creation-Date: 2006-11-04 19:21+0100\n"
 "PO-Revision-Date: 2006-08-17 19:37+0000\n"
 "Last-Translator: Leandro Regueiro <leandro.regueiro@gmail.com>\n"
 "Language-Team: Galician <gl@li.org>\n"
@@ -19,26 +19,32 @@ msgstr ""
 msgid "Vol"
 msgstr ""
 
+#. Master
 #: ../lib/trans.c:37
 msgid "Pcm"
 msgstr ""
 
+#. PCM output
 #: ../lib/trans.c:38
 msgid "Spkr"
 msgstr ""
 
+#. Internal speaker?
 #: ../lib/trans.c:39
 msgid "Line"
 msgstr ""
 
+#. Line in
 #: ../lib/trans.c:40
 msgid "Mic"
 msgstr ""
 
+#. Mic in
 #: ../lib/trans.c:41
 msgid "CD"
 msgstr "CD"
 
+#. CD in
 #: ../lib/trans.c:42
 msgid "Bass"
 msgstr ""
@@ -120,43 +126,53 @@ msgid "RecSelect"
 msgstr ""
 
 #. Device
+#. Label
 #: ../lib/trans.c:77
 msgid "A3.AnalogIn"
 msgstr ""
 
+#. Analog In
 #: ../lib/trans.c:78
 msgid "A3.AnalogOut"
 msgstr ""
 
+#. Analog Out
 #: ../lib/trans.c:79
 msgid "A3.AnalogOut2"
 msgstr ""
 
 #. Analog Out 2
+#. Interface
 #: ../lib/trans.c:81
 msgid "A3.CameraMic"
 msgstr ""
 
+#. Camera Mic
 #: ../lib/trans.c:82
 msgid "A3.Microphone"
 msgstr ""
 
+#. Microphone
 #: ../lib/trans.c:83
 msgid "A3.LineIn"
 msgstr ""
 
+#. Line In
 #: ../lib/trans.c:84
 msgid "A3.DAC1In"
 msgstr ""
 
+#. DAC1 In
 #: ../lib/trans.c:85
 msgid "A3.DAC2In"
 msgstr ""
 
+#. DAC2 In
 #: ../lib/trans.c:86
 msgid "A3.Speaker"
 msgstr ""
 
+#. Speaker/Line Out
 #: ../lib/trans.c:87
 msgid "A3.LineOut2"
 msgstr ""
@@ -222,21 +238,21 @@ msgstr ""
 msgid "Use Startup Notification"
 msgstr ""
 
-#: ../panel-plugin/launcher-entry.c:192 ../panel-plugin/plugin.c:342
+#: ../panel-plugin/launcher-entry.c:192 ../panel-plugin/plugin.c:343
 #, c-format
 msgid "Could not run \"%s\""
 msgstr ""
 
-#: ../panel-plugin/launcher-entry.c:194 ../panel-plugin/plugin.c:344
+#: ../panel-plugin/launcher-entry.c:194 ../panel-plugin/plugin.c:345
 msgid "Xfce Panel"
 msgstr ""
 
-#: ../panel-plugin/plugin.c:271
+#: ../panel-plugin/plugin.c:272
 #, c-format
 msgid "Volume: %d%%"
 msgstr ""
 
-#: ../panel-plugin/plugin.c:571
+#: ../panel-plugin/plugin.c:564
 msgid "Could not save configuration"
 msgstr ""
 
@@ -262,15 +278,17 @@ msgid "None"
 msgstr ""
 
 #. gtk_widget_show (GTK_WIDGET (self->dev_label));
+#. debug_bindtextdomain();
 #: ../settings/mixer-settingsbox.gob:136 mixer-settingsbox.gob:136
 msgid "Useful Controls"
 msgstr ""
 
+#. the button label in the xfce-mcs-manager dialog
 #: ../settings/sound.c:81
 msgid "Button Label|Sound"
 msgstr ""
 
-#: ../settings/sound.c:102
+#: ../settings/sound.c:104
 msgid "Sound"
 msgstr "Son"
 
