@@ -448,7 +448,7 @@ msgstr "Forandre volum"
 
 #: ../settings/xfce-mixer-settings.desktop.in.h:1
 msgid "Mixer Settings"
-msgstr "Mikser innstillinger"
+msgstr "Innstillinger for Mikser"
 
 #: ../settings/xfce-mixer-settings.desktop.in.h:2
 msgid "Xfce 4 Mixer Settings"
