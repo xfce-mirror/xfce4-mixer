@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xfce4-mixer 4.4.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-11-04 19:21+0100\n"
-"PO-Revision-Date: 2007-09-23 21:31+0300\n"
+"PO-Revision-Date: 2007-10-28 15:03+0300\n"
 "Last-Translator: Rihards Priedītis <rprieditis@inbox.lv>\n"
 "Language-Team: Latvian <rprieditis@inbox.lv>\n"
 "MIME-Version: 1.0\n"
@@ -185,7 +185,7 @@ msgstr "alsa: kļūda: master vadīklis nav atrasts. Tika mēģināta pat minē�
 #: ../lib/vc_alsa.c:98
 #, c-format
 msgid "alsa: info: developer information follows: (send E-Mail to Developer with that)\n"
-msgstr "alsa: informācija: izstrādātāja informācija seko: (nosūtiet visu pa e-pastu Izstrādātājiem)\n"
+msgstr "alsa: informācija: turpmāk izstrādātāja informācija: (nosūtiet visu pa e-pastu Izstrādātājiem)\n"
 
 #: ../lib/vc_alsa.c:112
 #, c-format
@@ -266,7 +266,7 @@ msgstr "Vēlamais Master:"
 
 #: mixer-prefbox.gob:180
 msgid "When clicked"
-msgstr "Kad uzklikšķinats"
+msgstr "Kad uzklikšķināts"
 
 #: ../settings/mixer-settingsbox.gob:128
 #: mixer-settingsbox.gob:128
@@ -331,7 +331,7 @@ msgid ""
 msgstr ""
 "xfce4-mixer, ir skaļuma kontroles programma.\n"
 "Tā ir izlaista zem GPL-2 Licences, kuru jūs varat atrast pirmkoda direktorijā.\n"
-"Garantija netiek nodrošināta."
+"Garantijas netiek nodrošinātas."
 
 #: ../src/mixer-profilebox-detail.gob:163
 #: mixer-profilebox-detail.gob:163
@@ -394,7 +394,7 @@ msgstr "<ieslēgtsizslēgts>"
 #: mixer-profilebox-detail.gob:386
 #: mixer-profilebox-detail.gob:451
 msgid "<select>"
-msgstr "<izvēlēties>"
+msgstr "<izvēlaties>"
 
 #: ../src/mixer-profilebox.gob:142
 #: mixer-profilebox.gob:142
