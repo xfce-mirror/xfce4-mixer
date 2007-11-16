@@ -1,14 +1,14 @@
 # Romanian translation of xfce4-mixer.
-# Copyright (C) 2003-2006 The Xfce development team.
+# Copyright (C) 2003-2007 The Xfce development team.
 # This file is distributed under the same license as the xfce4-mixer package.
 # Mişu Moldovan <dumol@gnome.ro>, 2004-2007.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-mixer 4.4.0\n"
+"Project-Id-Version: xfce4-mixer 4.4.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-11-04 19:21+0100\n"
-"PO-Revision-Date: 2007-01-20 23:25+0200\n"
+"PO-Revision-Date: 2007-11-16 20:53+0200\n"
 "Last-Translator: Mişu Moldovan <dumol@gnome.ro>\n"
 "Language-Team: Romanian <gnomero-list@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -281,7 +281,7 @@ msgstr "Dispozitiv"
 
 #: ../settings/mixer-settingsbox.gob:131 mixer-settingsbox.gob:131
 msgid "None"
-msgstr "Nicunul"
+msgstr "Niciunul"
 
 #. gtk_widget_show (GTK_WIDGET (self->dev_label));
 #. debug_bindtextdomain();
@@ -376,7 +376,7 @@ msgstr "<necunoscut>"
 #: ../src/mixer-profilebox-detail.gob:449 mixer-profilebox-detail.gob:384
 #: mixer-profilebox-detail.gob:449
 msgid "<slider>"
-msgstr "<slider>"
+msgstr "<glisor>"
 
 #: ../src/mixer-profilebox-detail.gob:385
 #: ../src/mixer-profilebox-detail.gob:450 mixer-profilebox-detail.gob:385
@@ -455,3 +455,4 @@ msgstr "Preferinţe mixer"
 #: ../settings/xfce-mixer-settings.desktop.in.h:2
 msgid "Xfce 4 Mixer Settings"
 msgstr "Preferinţe mixer Xfce 4"
+
