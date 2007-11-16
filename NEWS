@@ -7,7 +7,7 @@
 - New translations: Tegegne Tefera (am), RPrieditis (lv).
 
 
-4.4.2
+4.4.1
 =====
 - Follow the HIG specifications on the buttons.
 - Add test_vc to Makefile.am.
