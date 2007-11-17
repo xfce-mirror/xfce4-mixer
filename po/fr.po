@@ -455,4 +455,4 @@ msgstr "Paramètres du Mixer"
 
 #: ../settings/xfce-mixer-settings.desktop.in.h:2
 msgid "Xfce 4 Mixer Settings"
-msgstr "Paramètres du Mixer de Xfce 4"
+msgstr "Xfce 4 Paramètres du contrôleur de volume"
