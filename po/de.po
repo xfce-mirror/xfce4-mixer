@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the xfce4-mixer package.
 # Benedikt Meurer <benny@xfce.org>, 2003.
 # Moritz Heiber <moe@xfce.org>, 2004.
-# Fabian Nowak <timystery@arcor.de>, 2005, 2006.
+# Fabian Nowak <timystery@arcor.de>, 2005-2007.
 # Nico Schümann <nico@prog.nico22.de>, 2007.
 #
 msgid ""
@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: xfce4-mixer 4.4.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-05-17 12:51+0900\n"
-"PO-Revision-Date: 2006-08-27 19:26+0200\n"
-"Last-Translator: Nico Schümann <nico@prog.nico22.de>\n"
+"PO-Revision-Date: 2007-01-06 13:19+0100\n"
+"Last-Translator: Fabian Nowak <timystery@arcor.de>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -20,12 +20,12 @@ msgstr ""
 
 #: ../lib/trans.c:36
 msgid "Vol"
-msgstr "Master"
+msgstr "Lautstärke"
 
 #. Master
 #: ../lib/trans.c:37
 msgid "Pcm"
-msgstr "Wave"
+msgstr "PCM"
 
 #. PCM output
 #: ../lib/trans.c:38
@@ -196,7 +196,7 @@ msgid ""
 "that)\n"
 msgstr ""
 "Alsa: Information: Information seitens der Entwickler folgt: (senden Sie "
-"in diesem Zusammenhang eine Email an die Entwickler)\n"
+"in diesem Zusammenhang eine E-Mail an die Entwickler)\n"
 
 #: ../lib/vc_alsa.c:112
 #, c-format
@@ -206,36 +206,36 @@ msgstr "Tipp Tipp"
 #: ../lib/vc_alsa.c:118
 #, c-format
 msgid "alsa: info: end of developer information\n"
-msgstr "alsa: Information: Ende der Informationen seitens der Entwickler\n"
+msgstr "Alsa: Information: Ende der Informationen seitens der Entwickler\n"
 
 #: ../lib/vc_alsa.c:136
 #, c-format
 msgid "alsa: Mixer %s open error: %s\n"
-msgstr "ALSA: Fehler beim Öffnen von Mixer %s: %s\n"
+msgstr "Alsa: Fehler beim Öffnen von Mixer »%s«: %s\n"
 
 #: ../lib/vc_alsa.c:141
 #, c-format
 msgid "alsa: Mixer attach %s error: %s\n"
-msgstr "ALSA: Mixer %s: Fehler beim Verbinden: %s\n"
+msgstr "Alsa: Mixer »%s«: Fehler beim Verbinden: %s\n"
 
 #: ../lib/vc_alsa.c:149
 #, c-format
 msgid "alsa: Mixer register error: %s\n"
-msgstr "alsa: Fehler beim Registrieren des Mixers: %s\n"
+msgstr "Alsa: Fehler beim Registrieren des Mixers: %s\n"
 
 #: ../lib/vc_alsa.c:158
 #, c-format
 msgid "alsa: Mixer load error: %s: %s\n"
-msgstr "alsa: Fehler beim Laden des Mixers: %s: %s\n"
+msgstr "Alsa: Fehler beim Laden des Mixers: %s: %s\n"
 
 #: ../lib/vc_alsa.c:184
 #, c-format
 msgid "alsa: Unable to find simple control '%s',%i\n"
-msgstr "ALSA: Regler '%s',%i nicht gefunden\n"
+msgstr "Alsa: Regler '%s',%i nicht gefunden\n"
 
 #: ../lib/vc_oss.c:158
 msgid "oss: No master volume"
-msgstr "OSS: Kein Master"
+msgstr "OSS: Kein Lautstärkeregler"
 
 #: ../panel-plugin/launcher-entry.c:75
 msgid "Run in Terminal"
@@ -243,7 +243,7 @@ msgstr "In Terminal ausführen"
 
 #: ../panel-plugin/launcher-entry.c:80
 msgid "Use Startup Notification"
-msgstr "Grafische Rückmeldung verwenden"
+msgstr "Visuelle Rückmeldung über Ladevorgang"
 
 #: ../panel-plugin/launcher-entry.c:192 ../panel-plugin/plugin.c:342
 #, c-format
@@ -293,11 +293,11 @@ msgstr "Nützliche Regler"
 #. the button label in the xfce-mcs-manager dialog
 #: ../settings/sound.c:81
 msgid "Button Label|Sound"
-msgstr "Sound"
+msgstr "Ton"
 
 #: ../settings/sound.c:102
 msgid "Sound"
-msgstr "Sound"
+msgstr "Ton"
 
 #: ../src/menus.c:12
 msgid "/_File"
@@ -334,8 +334,8 @@ msgid ""
 "directory.\n"
 "No warranty in any way."
 msgstr ""
-"Dies ist Xfce4-mixer, ein Programm zur Lautstärkenregelung.\n"
-"Es ist unter der GPL-2 lizensiert, die man auch im Quelltextverzeichnis "
+"Dies ist Xfce4-Mixer, ein Programm zur Lautstärkenregelung.\n"
+"Es ist unter der GPL v2 veröffentlicht, die man auch im Quelltextverzeichnis "
 "finden kann.\n"
 "Keine Garantie jeglicher Art für das Programm."
 
@@ -447,7 +447,7 @@ msgstr "Lautstärkenregler"
 
 #: ../panel-plugin/xfce4-mixer.desktop.in.in.h:1
 msgid "Change the Volume"
-msgstr "Lautsträke ändern"
+msgstr "Lautstärke ändern"
 
 #: ../settings/xfce-mixer-settings.desktop.in.h:1
 msgid "Mixer Settings"
@@ -456,6 +456,3 @@ msgstr "Mixereinstellungen"
 #: ../settings/xfce-mixer-settings.desktop.in.h:2
 msgid "Xfce 4 Mixer Settings"
 msgstr "Xfce4-Mixereinstellungen"
-
-#~ msgid "No working sound"
-#~ msgstr "Keine funktionierende Soundkonfiguration gefunden"
