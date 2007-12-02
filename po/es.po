@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the xfce4-mixer package.
 # Edscott Wilson Garcia <edscott@xfce.org>, 2004.
 # Rudy Godoy <rudy@stone-head.org>, 2005.
+# Cristian Othón Martínez Vera <cfuga@itam.mx>, 2007.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.4.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-11-04 19:21+0100\n"
-"PO-Revision-Date: 2005-11-07 21:55+0900\n"
-"Last-Translator: Rudy Godoy <rudy@kernel-panik.org>\n"
+"PO-Revision-Date: 2007-11-24 16:28-0600\n"
+"Last-Translator: Cristian Othón Martínez Vera <cfuga@itam.mx>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -130,55 +131,53 @@ msgstr "SelectGrab"
 #. Label
 #: ../lib/trans.c:77
 msgid "A3.AnalogIn"
-msgstr ""
+msgstr "A3.AnálogoIn"
 
 #. Analog In
 #: ../lib/trans.c:78
 msgid "A3.AnalogOut"
-msgstr ""
+msgstr "A3.AnálogoOut"
 
 #. Analog Out
 #: ../lib/trans.c:79
 msgid "A3.AnalogOut2"
-msgstr ""
+msgstr "A3.AnalogoOut2"
 
 #. Analog Out 2
 #. Interface
 #: ../lib/trans.c:81
 msgid "A3.CameraMic"
-msgstr ""
+msgstr "A3.CámaraMic"
 
 #. Camera Mic
 #: ../lib/trans.c:82
 msgid "A3.Microphone"
-msgstr ""
+msgstr "A3.Micrófono"
 
 #. Microphone
 #: ../lib/trans.c:83
-#, fuzzy
 msgid "A3.LineIn"
-msgstr "Línea"
+msgstr "A3.LíneaIn"
 
 #. Line In
 #: ../lib/trans.c:84
 msgid "A3.DAC1In"
-msgstr ""
+msgstr "A3.DAC1In"
 
 #. DAC1 In
 #: ../lib/trans.c:85
 msgid "A3.DAC2In"
-msgstr ""
+msgstr "A3.DAC2In"
 
 #. DAC2 In
 #: ../lib/trans.c:86
 msgid "A3.Speaker"
-msgstr ""
+msgstr "A3.Bocina"
 
 #. Speaker/Line Out
 #: ../lib/trans.c:87
-#, fuzzy
 msgid "A3.LineOut2"
-msgstr "Línea2"
+msgstr "A3.LíneaOut2"
 
 #: ../lib/vc_alsa.c:93
 #, c-format
@@ -186,6 +185,7 @@ msgid ""
 "alsa: error: master control not found. I even tried to guess wildly, but to "
 "no avail.\n"
 msgstr ""
+"alsa: error: no se encuentra el control maestro. Se trató de adivinar, pero no está disponible.\n"
 
 #: ../lib/vc_alsa.c:98
 #, c-format
@@ -193,16 +193,18 @@ msgid ""
 "alsa: info: developer information follows: (send E-Mail to Developer with "
 "that)\n"
 msgstr ""
+"alsa: info: información de desarrollador a continuación: (envíe email al "
+"desarrollador con esto)\n"
 
 #: ../lib/vc_alsa.c:112
 #, c-format
 msgid "hint hint"
-msgstr ""
+msgstr "pista pista"
 
 #: ../lib/vc_alsa.c:118
 #, c-format
 msgid "alsa: info: end of developer information\n"
-msgstr ""
+msgstr "alsa: info: fin de la información del desarrollador\n"
 
 #: ../lib/vc_alsa.c:136
 #, c-format
@@ -235,20 +237,20 @@ msgstr "oss: Sin volumen maestro"
 
 #: ../panel-plugin/launcher-entry.c:75
 msgid "Run in Terminal"
-msgstr ""
+msgstr "Ejecutar en Terminal"
 
 #: ../panel-plugin/launcher-entry.c:80
 msgid "Use Startup Notification"
-msgstr ""
+msgstr "Usar Notificación de Inicio"
 
 #: ../panel-plugin/launcher-entry.c:192 ../panel-plugin/plugin.c:343
 #, c-format
 msgid "Could not run \"%s\""
-msgstr ""
+msgstr "No se puede ejecutar \"%s\""
 
 #: ../panel-plugin/launcher-entry.c:194 ../panel-plugin/plugin.c:345
 msgid "Xfce Panel"
-msgstr ""
+msgstr "Panel Xfce"
 
 #: ../panel-plugin/plugin.c:272
 #, c-format
@@ -257,7 +259,7 @@ msgstr "Volumen: %d%%"
 
 #: ../panel-plugin/plugin.c:564
 msgid "Could not save configuration"
-msgstr "No se pudo guardar configuración"
+msgstr "No se puede guardar la configuración"
 
 #: mixer-prefbox.gob:177 ../src/mixer-profilebox.gob:88
 #: mixer-profilebox.gob:88
@@ -266,11 +268,11 @@ msgstr "Dispositivo:"
 
 #: mixer-prefbox.gob:178
 msgid "Wannabe Master:"
-msgstr ""
+msgstr "Aspirante a Maestro:"
 
 #: mixer-prefbox.gob:180
 msgid "When clicked"
-msgstr ""
+msgstr "Cuando se pincha"
 
 #: ../settings/mixer-settingsbox.gob:128 mixer-settingsbox.gob:128
 msgid "Device"
@@ -289,7 +291,7 @@ msgstr "Controles útiles"
 #. the button label in the xfce-mcs-manager dialog
 #: ../settings/sound.c:81
 msgid "Button Label|Sound"
-msgstr ""
+msgstr "Sonido"
 
 #: ../settings/sound.c:104
 msgid "Sound"
@@ -301,7 +303,7 @@ msgstr "/_Fichero"
 
 #: ../src/menus.c:13
 msgid "/File/_Options"
-msgstr "/FIchero/_Opciones"
+msgstr "/Fichero/_Opciones"
 
 #: ../src/menus.c:14
 msgid "/File/_Exit"
@@ -426,7 +428,7 @@ msgstr "Ya existe un perfil con este nombre"
 #: mixer-profiles.gob:262 mixer-profiles.gob:269
 #, c-format
 msgid "profile%d"
-msgstr "prefil%d"
+msgstr "perfil%d"
 
 #: ../src/mixer-view.gob:259 mixer-view.gob:259
 msgid "Show Switches"
@@ -443,7 +445,7 @@ msgstr "Control de volumen"
 
 #: ../panel-plugin/xfce4-mixer.desktop.in.in.h:1
 msgid "Change the Volume"
-msgstr ""
+msgstr "Cambiar el volumen"
 
 #: ../settings/xfce-mixer-settings.desktop.in.h:1
 msgid "Mixer Settings"
