@@ -1,5 +1,10 @@
 2008-01-13	Jannis Pohlmann <jannis@xfce.org>
 
+	* xfce4-mixer/xfce-mixer-controls-dialog.c: Don't set the default
+	  response of the dialog.
+
+2008-01-13	Jannis Pohlmann <jannis@xfce.org>
+
 	* Initial import of the new GStreamer-based mixer into trunk.
 
 vim:set sw=8 sts=8 ts=8 noexpandtab:
