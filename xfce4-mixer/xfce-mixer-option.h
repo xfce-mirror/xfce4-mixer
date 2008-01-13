@@ -1,4 +1,4 @@
-/* $Id: xfce-menu.h 25273 2008-03-23 19:20:47Z jannis $ */
+/* $Id$ */
 /* vim:set sw=2 sts=2 ts=2 et ai: */
 /*-
  * Copyright (c) 2008 Jannis Pohlmann <jannis@xfce.org>
@@ -25,6 +25,8 @@
 #include <gtk/gtk.h>
 #include <gst/interfaces/mixer.h>
 
+#include "xfce-mixer-card.h"
+
 G_BEGIN_DECLS;
 
 typedef struct _XfceMixerOptionClass XfceMixerOptionClass;
@@ -39,7 +41,7 @@ typedef struct _XfceMixerOption      XfceMixerOption;
 
 GType      xfce_mixer_option_get_type (void) G_GNUC_CONST;
 
-GtkWidget *xfce_mixer_option_new      (GstElement    *element,
+GtkWidget *xfce_mixer_option_new      (XfceMixerCard *card,
                                        GstMixerTrack *track);
 
 G_END_DECLS;

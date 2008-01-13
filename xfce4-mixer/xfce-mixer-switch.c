@@ -1,4 +1,4 @@
-/* $Id: xfce-menu.h 25273 2008-03-23 19:20:47Z jannis $ */
+/* $Id$ */
 /* vim:set sw=2 sts=2 ts=2 et ai: */
 /*-
  * Copyright (c) 2008 Jannis Pohlmann <jannis@xfce.org>
@@ -30,6 +30,7 @@
 #include <gst/interfaces/mixer.h>
 
 #include "xfce-mixer-switch.h"
+#include "xfce-mixer-card.h"
 
 
 
@@ -52,7 +53,8 @@ struct _XfceMixerSwitch
 {
   GtkHBox __parent__;
 
-  GstMixer      *element;
+  XfceMixerCard *card;
+
   GstMixerTrack *track;
 };
 
@@ -126,7 +128,7 @@ xfce_mixer_switch_finalize (GObject *object)
 {
   XfceMixerSwitch *mixer_switch = XFCE_MIXER_SWITCH (object);
 
-  gst_object_unref (mixer_switch->element);
+  g_object_unref (G_OBJECT (mixer_switch->card));
   gst_object_unref (mixer_switch->track);
 
   (*G_OBJECT_CLASS (xfce_mixer_switch_parent_class)->finalize) (object);
@@ -135,16 +137,16 @@ xfce_mixer_switch_finalize (GObject *object)
 
 
 GtkWidget*
-xfce_mixer_switch_new (GstElement    *element,
+xfce_mixer_switch_new (XfceMixerCard *card,
                        GstMixerTrack *track)
 {
   XfceMixerSwitch *mixer_switch;
 
-  g_return_val_if_fail (GST_IS_MIXER (element), NULL);
+  g_return_val_if_fail (IS_XFCE_MIXER_CARD (card), NULL);
   g_return_val_if_fail (GST_IS_MIXER_TRACK (track), NULL);
   
   mixer_switch = g_object_new (TYPE_XFCE_MIXER_SWITCH, NULL);
-  mixer_switch->element = gst_object_ref (element);
+  mixer_switch->card = XFCE_MIXER_CARD (g_object_ref (card));
   mixer_switch->track = gst_object_ref (track);
 
   xfce_mixer_switch_create_contents (mixer_switch);
@@ -183,7 +185,7 @@ xfce_mixer_switch_toggled (GtkToggleButton *button,
                            XfceMixerSwitch *mixer_switch)
 {
   if (G_LIKELY (GST_MIXER_TRACK_HAS_FLAG (mixer_switch->track, GST_MIXER_TRACK_INPUT)))
-    gst_mixer_set_record (GST_MIXER (mixer_switch->element), mixer_switch->track, gtk_toggle_button_get_active (button));
+    xfce_mixer_card_set_track_record (mixer_switch->card, mixer_switch->track, gtk_toggle_button_get_active (button));
   else
-    gst_mixer_set_mute (GST_MIXER (mixer_switch->element), mixer_switch->track, !gtk_toggle_button_get_active (button));
+    xfce_mixer_card_set_track_muted (mixer_switch->card, mixer_switch->track, !gtk_toggle_button_get_active (button));
 }

@@ -1,5 +1,21 @@
 2008-01-13	Jannis Pohlmann <jannis@xfce.org>
 
+	* xfce4-mixer-card.{c,h}: Add XfceMixerCard class as a wrapper for
+	  GstMixer. Implement a method (xfce_mixer_card_get_name()) to
+	  work-around problems with sound card names containing characters
+	  not allowed as section names (see Desktop Entry specification). 
+	  This method is now used to store/load preferences of soundcards.
+	* xfce4-mixer/xfce-mixer.{c,h}, 
+	  xfce4-mixer/xfce-mixer-controls-dialog.{c,h}, 
+	  xfce4-mixer/xfce-mixer-option.{c,h},
+	  xfce4-mixer/xfce-mixer-switch.{c,h},
+	  xfce4-mixer/xfce-mixer-track.{c,h}
+	  xfce4-mixer/xfce-mixer-window.{c,h}: Use XfceMixerCard instead of
+	  GstMixer everywhere. Change the main window subtitle to something
+	  less enthusiastic. 
+
+2008-01-13	Jannis Pohlmann <jannis@xfce.org>
+
 	* xfce4-mixer/xfce-mixer-controls-dialog.c: Don't set the default
 	  response of the dialog.
 

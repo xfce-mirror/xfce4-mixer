@@ -1,4 +1,4 @@
-/* $Id: xfce-menu.h 25273 2008-03-23 19:20:47Z jannis $ */
+/* $Id$ */
 /* vim:set sw=2 sts=2 ts=2 et ai: */
 /*-
  * Copyright (c) 2008 Jannis Pohlmann <jannis@xfce.org>
@@ -61,12 +61,10 @@ struct _XfceMixerControlsDialog
   XfceTitledDialog __parent__;
 
   XfceMixerWindow      *parent;
-
   XfceMixerPreferences *preferences;
+  XfceMixerCard        *card;
 
   GtkListStore         *model;
-
-  gchar                *mixer_name;
 };
 
 
@@ -154,8 +152,6 @@ xfce_mixer_controls_dialog_finalize (GObject *object)
 
   g_object_unref (G_OBJECT (dialog->preferences));
 
-  g_free (dialog->mixer_name);
-
   (*G_OBJECT_CLASS (xfce_mixer_controls_dialog_parent_class)->finalize) (object);
 }
 
@@ -168,7 +164,7 @@ xfce_mixer_controls_dialog_new (XfceMixerWindow *window)
 
   dialog = g_object_new (TYPE_XFCE_MIXER_CONTROLS_DIALOG, NULL);
   dialog->parent = window;
-  dialog->mixer_name = xfce_mixer_window_get_active_card (window);
+  dialog->card = xfce_mixer_window_get_active_card (window);
 
   gtk_window_set_transient_for (GTK_WINDOW (dialog), GTK_WINDOW (dialog->parent));
 
@@ -184,16 +180,16 @@ xfce_mixer_controls_dialog_create_contents (XfceMixerControlsDialog *dialog)
 {
   GtkTreeViewColumn    *column;
   GtkCellRenderer      *renderer;
+  XfceMixerCard        *card;
   const GList          *iter;
   GtkTreeIter           tree_iter;
   GtkWidget            *view;
   GtkWidget            *frame;
   GtkWidget            *scrollwin;
-  GstMixer             *mixer;
   GList                *item;
   GList                *visible_controls;
 
-  visible_controls = xfce_mixer_preferences_get_visible_controls (dialog->preferences, dialog->mixer_name);
+  visible_controls = xfce_mixer_card_get_visible_controls (dialog->card);
 
   dialog->model = gtk_list_store_new (2, G_TYPE_BOOLEAN, G_TYPE_STRING);
 
@@ -224,11 +220,11 @@ xfce_mixer_controls_dialog_create_contents (XfceMixerControlsDialog *dialog)
   column = gtk_tree_view_column_new_with_attributes ("Control", renderer, "text", NAME_COLUMN, NULL);
   gtk_tree_view_append_column (GTK_TREE_VIEW (view), column);
 
-  mixer = xfce_mixer_window_get_active_mixer (dialog->parent);
+  card = xfce_mixer_window_get_active_card (dialog->parent);
 
-  if (G_LIKELY (mixer != NULL))
+  if (G_LIKELY (card != NULL))
     {
-      for (iter = gst_mixer_list_tracks (mixer); iter != NULL; iter = g_list_next (iter))
+      for (iter = xfce_mixer_card_get_tracks (dialog->card); iter != NULL; iter = g_list_next (iter))
         {
           item = g_list_find_custom (visible_controls, GST_MIXER_TRACK (iter->data)->label, (GCompareFunc) g_utf8_collate);
           gtk_list_store_append (dialog->model, &tree_iter);
@@ -260,12 +256,12 @@ xfce_mixer_controls_dialog_control_toggled (GtkCellRendererToggle   *renderer,
 
   if (!gtk_cell_renderer_toggle_get_active (renderer))
     {
-      xfce_mixer_preferences_set_control_visible (dialog->preferences, dialog->mixer_name, name, TRUE);
+      xfce_mixer_card_set_control_visible (dialog->card, name, TRUE);
       gtk_list_store_set (dialog->model, &iter, VISIBLE_COLUMN, TRUE, -1);
     }
   else
     {
-      xfce_mixer_preferences_set_control_visible (dialog->preferences, dialog->mixer_name, name, FALSE);
+      xfce_mixer_card_set_control_visible (dialog->card, name, FALSE);
       gtk_list_store_set (dialog->model, &iter, VISIBLE_COLUMN, FALSE, -1);
     }
 

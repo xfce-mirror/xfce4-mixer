@@ -1,4 +1,4 @@
-# $Id: Makefile.am 1837 2006-08-02 21:11:40Z jannis $
+# $Id$
 # vi:set ts=8 sw=8 noet ai nocindent syntax=automake:
 
 bin_PROGRAMS =								\
@@ -6,6 +6,8 @@ bin_PROGRAMS =								\
 
 xfce4_mixer_SOURCES =							\
 	main.c								\
+	xfce-mixer-card.c						\
+	xfce-mixer-card.h						\
 	xfce-mixer-stock.c						\
 	xfce-mixer-stock.h						\
 	xfce-mixer-track-type.c						\

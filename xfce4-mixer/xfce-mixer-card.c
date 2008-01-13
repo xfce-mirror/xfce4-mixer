@@ -1,0 +1,307 @@
+/* $Id$ */
+/* vim:set sw=2 sts=2 ts=2 et ai: */
+/*-
+ * Copyright (c) 2008 Jannis Pohlmann <jannis@xfce.org>
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Library General Public
+ * License as published by the Free Software Foundation; either
+ * version 2 of the License, or (at your card) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Library General Public License for more details.
+ *
+ * You should have received a copy of the GNU Library General Public
+ * License along with this library; if not, write to the
+ * Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+ * Boston, MA 02111-1307, USA.
+ */
+
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
+#ifdef HAVE_STRING_H
+#include <string.h>
+#endif
+
+#include <libxfce4util/libxfce4util.h>
+#include <libxfcegui4/libxfcegui4.h>
+
+#include <gst/gst.h>
+#include <gst/interfaces/mixer.h>
+
+#include "xfce-mixer-card.h"
+#include "xfce-mixer-preferences.h"
+
+
+
+static void xfce_mixer_card_class_init (XfceMixerCardClass *klass);
+static void xfce_mixer_card_init       (XfceMixerCard      *card);
+static void xfce_mixer_card_finalize   (GObject            *object);
+
+
+
+struct _XfceMixerCardClass
+{
+  GObjectClass __parent__;
+};
+
+struct _XfceMixerCard
+{
+  GObject __parent__;
+
+  GstElement *element;
+
+  gchar      *display_name;
+  gchar      *name;
+};
+
+
+
+static GObjectClass *xfce_mixer_card_parent_class = NULL;
+
+
+
+GType
+xfce_mixer_card_get_type (void)
+{
+  static GType type = G_TYPE_INVALID;
+
+  if (G_UNLIKELY (type == G_TYPE_INVALID))
+    {
+      static const GTypeInfo info = 
+        {
+          sizeof (XfceMixerCardClass),
+          NULL,
+          NULL,
+          (GClassInitFunc) xfce_mixer_card_class_init,
+          NULL,
+          NULL,
+          sizeof (XfceMixerCard),
+          0,
+          (GInstanceInitFunc) xfce_mixer_card_init,
+          NULL,
+        };
+
+      type = g_type_register_static (G_TYPE_OBJECT, "XfceMixerCard", &info, 0);
+    }
+  
+  return type;
+}
+
+
+
+static void
+xfce_mixer_card_class_init (XfceMixerCardClass *klass)
+{
+  GObjectClass *gobject_class;
+
+  /* Determine parent type class */
+  xfce_mixer_card_parent_class = g_type_class_peek_parent (klass);
+
+  gobject_class = G_OBJECT_CLASS (klass);
+  gobject_class->finalize = xfce_mixer_card_finalize;
+}
+
+
+
+static void
+xfce_mixer_card_init (XfceMixerCard *card)
+{
+  card->name = NULL;
+}
+
+
+
+static void
+xfce_mixer_card_finalize (GObject *object)
+{
+  XfceMixerCard *card = XFCE_MIXER_CARD (object);
+
+  gst_element_set_state (card->element, GST_STATE_NULL);
+  gst_object_unref (card->element);
+
+  g_free (card->display_name);
+  g_free (card->name);
+
+  (*G_OBJECT_CLASS (xfce_mixer_card_parent_class)->finalize) (object);
+}
+
+
+
+XfceMixerCard*
+xfce_mixer_card_new (GstElement *element)
+{
+  XfceMixerCard *card;
+
+  card = g_object_new (TYPE_XFCE_MIXER_CARD, NULL);
+  card->element = gst_object_ref (element);
+  card->display_name = g_strdup (g_object_get_data (G_OBJECT (card->element), "xfce-mixer-control-name"));
+
+  return card;
+}
+
+
+
+const gchar*
+xfce_mixer_card_get_display_name (XfceMixerCard *card)
+{
+  g_return_val_if_fail (IS_XFCE_MIXER_CARD (card), NULL);
+  return card->display_name;
+}
+
+
+
+const gchar*
+xfce_mixer_card_get_name (XfceMixerCard *card)
+{
+  gint   i;
+  gint   pos = 0;
+
+  g_return_val_if_fail (IS_XFCE_MIXER_CARD (card), NULL);
+
+  if (G_UNLIKELY (card->name == NULL))
+    {
+      card->name = g_new (gchar, strlen (card->display_name));
+
+      for (i = 0; card->display_name[i] != '\0'; ++i)
+        if (g_ascii_isalnum (card->display_name[i]))
+          card->name[pos++] = card->display_name[i];
+
+      card->name[pos] = '\0';
+    }
+
+  return card->name;
+}
+
+
+
+void
+xfce_mixer_card_set_ready (XfceMixerCard *card)
+{
+  g_return_if_fail (IS_XFCE_MIXER_CARD (card));
+  gst_element_set_state (card->element, GST_STATE_READY);
+}
+
+
+
+GList*
+xfce_mixer_card_get_visible_controls (XfceMixerCard *card)
+{
+  XfceMixerPreferences *preferences;
+  GList                *list = NULL;
+
+  g_return_val_if_fail (IS_XFCE_MIXER_CARD (card), NULL);
+
+  preferences = xfce_mixer_preferences_get ();
+  list = xfce_mixer_preferences_get_visible_controls (preferences, xfce_mixer_card_get_name (card));
+  g_object_unref (G_OBJECT (preferences));
+
+  return list;
+}
+
+
+
+const GList*
+xfce_mixer_card_get_tracks (XfceMixerCard *card)
+{
+  g_return_val_if_fail (IS_XFCE_MIXER_CARD (card), NULL);
+  return gst_mixer_list_tracks (GST_MIXER (card->element));
+}
+
+
+
+void
+xfce_mixer_card_set_control_visible (XfceMixerCard *card,
+                                     const gchar   *control,
+                                     gboolean       visible)
+{
+  XfceMixerPreferences *preferences;
+
+  g_return_if_fail (IS_XFCE_MIXER_CARD (card));
+  g_return_if_fail (control != NULL);
+
+  preferences = xfce_mixer_preferences_get ();
+  xfce_mixer_preferences_set_control_visible (preferences, xfce_mixer_card_get_name (card), control, visible);
+  g_object_unref (G_OBJECT (preferences));
+}
+
+
+
+void
+xfce_mixer_card_get_track_volume (XfceMixerCard *card,
+                                  GstMixerTrack *track,
+                                  gint          *volumes)
+{
+  g_return_if_fail (IS_XFCE_MIXER_CARD (card));
+  g_return_if_fail (GST_IS_MIXER_TRACK (track));
+
+  gst_mixer_get_volume (GST_MIXER (card->element), track, volumes);
+}
+
+
+
+void
+xfce_mixer_card_set_track_volume (XfceMixerCard *card,
+                                  GstMixerTrack *track,
+                                  gint          *volumes)
+{
+  g_return_if_fail (IS_XFCE_MIXER_CARD (card));
+  g_return_if_fail (GST_IS_MIXER_TRACK (track));
+
+  gst_mixer_set_volume (GST_MIXER (card->element), track, volumes);
+}
+
+
+
+void
+xfce_mixer_card_set_track_muted (XfceMixerCard *card,
+                                 GstMixerTrack *track,
+                                 gboolean       muted)
+{
+  g_return_if_fail (IS_XFCE_MIXER_CARD (card));
+  g_return_if_fail (GST_IS_MIXER_TRACK (track));
+  
+  gst_mixer_set_mute (GST_MIXER (card->element), track, muted);
+}
+
+
+
+void
+xfce_mixer_card_set_track_record (XfceMixerCard *card,
+                                  GstMixerTrack *track,
+                                  gboolean       record)
+{
+  g_return_if_fail (IS_XFCE_MIXER_CARD (card));
+  g_return_if_fail (GST_IS_MIXER_TRACK (track));
+  
+  gst_mixer_set_record (GST_MIXER (card->element), track, record);
+}
+
+
+
+const gchar*
+xfce_mixer_card_get_track_option (XfceMixerCard *card,
+                                  GstMixerTrack *track)
+{
+  g_return_val_if_fail (IS_XFCE_MIXER_CARD (card), NULL);
+  g_return_val_if_fail (GST_IS_MIXER_OPTIONS (track), NULL);
+
+  return gst_mixer_get_option (GST_MIXER (card->element), GST_MIXER_OPTIONS (track));
+}
+
+
+
+void
+xfce_mixer_card_set_track_option (XfceMixerCard *card,
+                                  GstMixerTrack *track,
+                                  gchar         *option)
+{
+  g_return_if_fail (IS_XFCE_MIXER_CARD (card));
+  g_return_if_fail (GST_IS_MIXER_OPTIONS (track));
+
+  gst_mixer_set_option (GST_MIXER (card->element), GST_MIXER_OPTIONS (track), option);
+}

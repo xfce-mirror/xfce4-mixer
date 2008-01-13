@@ -1,4 +1,4 @@
-/* $Id: xfce-menu.h 25273 2008-03-23 19:20:47Z jannis $ */
+/* $Id$ */
 /* vim:set sw=2 sts=2 ts=2 et ai: */
 /*-
  * Copyright (c) 2008 Jannis Pohlmann <jannis@xfce.org>

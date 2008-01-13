@@ -1,4 +1,4 @@
-/* $Id: xfce-menu.h 25273 2008-03-23 19:20:47Z jannis $ */
+/* $Id$ */
 /* vim:set sw=2 sts=2 ts=2 et ai: */
 /*-
  * Copyright (c) 2008 Jannis Pohlmann <jannis@xfce.org>
@@ -30,6 +30,7 @@
 #include <gst/interfaces/mixer.h>
 
 #include "xfce-mixer-option.h"
+#include "xfce-mixer-card.h"
 
 
 
@@ -52,7 +53,8 @@ struct _XfceMixerOption
 {
   GtkHBox __parent__;
 
-  GstMixer      *element;
+  XfceMixerCard *card;
+
   GstMixerTrack *track;
 };
 
@@ -126,7 +128,8 @@ xfce_mixer_option_finalize (GObject *object)
 {
   XfceMixerOption *option = XFCE_MIXER_OPTION (object);
 
-  gst_object_unref (option->element);
+  g_object_unref (G_OBJECT (option->card));
+
   gst_object_unref (option->track);
 
   (*G_OBJECT_CLASS (xfce_mixer_option_parent_class)->finalize) (object);
@@ -135,16 +138,16 @@ xfce_mixer_option_finalize (GObject *object)
 
 
 GtkWidget*
-xfce_mixer_option_new (GstElement    *element,
+xfce_mixer_option_new (XfceMixerCard *card,
                        GstMixerTrack *track)
 {
   XfceMixerOption *option;
 
-  g_return_val_if_fail (GST_IS_MIXER (element), NULL);
+  g_return_val_if_fail (IS_XFCE_MIXER_CARD (card), NULL);
   g_return_val_if_fail (GST_IS_MIXER_TRACK (track), NULL);
   
   option = g_object_new (TYPE_XFCE_MIXER_OPTION, NULL);
-  option->element = gst_object_ref (element);
+  option->card = XFCE_MIXER_CARD (g_object_ref (card));
   option->track = gst_object_ref (track);
 
   xfce_mixer_option_create_contents (option);
@@ -175,7 +178,7 @@ xfce_mixer_option_create_contents (XfceMixerOption *option)
   gtk_widget_show (label);
 
   options = GST_MIXER_OPTIONS (option->track);
-  active_option = gst_mixer_get_option (GST_MIXER (option->element), GST_MIXER_OPTIONS (option->track));
+  active_option = xfce_mixer_card_get_track_option (option->card, option->track);
 
   combo = gtk_combo_box_new_text ();
 
@@ -207,7 +210,7 @@ xfce_mixer_option_changed (GtkComboBox     *combo,
 
   if (G_LIKELY (active_option != NULL))
     {
-      gst_mixer_set_option (GST_MIXER (option->element), GST_MIXER_OPTIONS (option->track), active_option);
+      xfce_mixer_card_set_track_option (option->card, option->track, active_option);
       g_free (active_option);
     }
 }

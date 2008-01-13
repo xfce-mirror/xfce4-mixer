@@ -1,4 +1,4 @@
-/* $Id: xfce-menu.h 25273 2008-03-23 19:20:47Z jannis $ */
+/* $Id$ */
 /* vim:set sw=2 sts=2 ts=2 et ai: */
 /*-
  * Copyright (c) 2008 Jannis Pohlmann <jannis@xfce.org>
@@ -55,9 +55,7 @@ struct _XfceMixer
 {
   GtkNotebook __parent__;
 
-  GstElement *element;
-
-  gchar      *mixer_name;
+  XfceMixerCard *card;
 };
 
 
@@ -130,9 +128,7 @@ xfce_mixer_finalize (GObject *object)
 {
   XfceMixer *mixer = XFCE_MIXER (object);
 
-  gst_object_unref (mixer->element);
-
-  g_free (mixer->mixer_name);
+  g_object_unref (G_OBJECT (mixer->card));
 
   (*G_OBJECT_CLASS (xfce_mixer_parent_class)->finalize) (object);
 }
@@ -140,16 +136,14 @@ xfce_mixer_finalize (GObject *object)
 
 
 GtkWidget*
-xfce_mixer_new (GstElement  *element,
-                gchar       *mixer_name)
+xfce_mixer_new (XfceMixerCard *card)
 {
   XfceMixer *mixer;
 
-  g_return_val_if_fail (GST_IS_MIXER (element), NULL);
+  g_return_val_if_fail (IS_XFCE_MIXER_CARD (card), NULL);
   
   mixer = g_object_new (TYPE_XFCE_MIXER, NULL);
-  mixer->element = gst_object_ref (element);
-  mixer->mixer_name = mixer_name;
+  mixer->card = XFCE_MIXER_CARD (g_object_ref (card));
 
   xfce_mixer_create_contents (mixer);
 
@@ -173,14 +167,11 @@ xfce_mixer_create_contents (XfceMixer *mixer)
   GtkWidget            *last_separator[4] = { NULL, NULL, NULL, NULL };
   GtkWidget            *label1;
   GtkWidget            *label2;
-  GstMixer             *gst_mixer;
   GList                *visible_controls;
   guint                 num_children[4] = { 0, 0, 0, 0 };
   gint                  i;
 
-  g_return_if_fail (GST_IS_MIXER (mixer->element));
-
-  gst_mixer = GST_MIXER (mixer->element);
+  xfce_mixer_card_set_ready (mixer->card);
 
   /* Create widgets for all four tabs */
   for (i = 0; i < 4; ++i)
@@ -206,11 +197,10 @@ xfce_mixer_create_contents (XfceMixer *mixer)
       gtk_widget_show (scrollwins[i]);
     }
 
-  preferences = xfce_mixer_preferences_get ();
-  visible_controls = xfce_mixer_preferences_get_visible_controls (preferences, mixer->mixer_name);
+  visible_controls = xfce_mixer_card_get_visible_controls (mixer->card);
 
   /* Create controls for all mixer tracks */
-  for (iter = gst_mixer_list_tracks (gst_mixer); iter != NULL; iter = g_list_next (iter))
+  for (iter = xfce_mixer_card_get_tracks (mixer->card); iter != NULL; iter = g_list_next (iter))
     {
       track = iter->data;
 
@@ -224,7 +214,7 @@ xfce_mixer_create_contents (XfceMixer *mixer)
         {
         case XFCE_MIXER_TRACK_TYPE_PLAYBACK:
           /* Create a regular volume control for this track */
-          track_widget = xfce_mixer_track_new (mixer->element, track);
+          track_widget = xfce_mixer_track_new (mixer->card, track);
           gtk_table_attach (GTK_TABLE (views[0]), track_widget, 
                             num_children[0], num_children[0] + 1, 0, 1, GTK_SHRINK, GTK_FILL|GTK_EXPAND, 0, 0);
           gtk_widget_show (track_widget);
@@ -240,7 +230,7 @@ xfce_mixer_create_contents (XfceMixer *mixer)
 
         case XFCE_MIXER_TRACK_TYPE_CAPTURE:
           /* Create a regular volume control for this track */
-          track_widget = xfce_mixer_track_new (mixer->element, track);
+          track_widget = xfce_mixer_track_new (mixer->card, track);
           gtk_table_attach (GTK_TABLE (views[1]), track_widget, 
                             num_children[1], num_children[1] + 1, 0, 1, GTK_SHRINK, GTK_FILL|GTK_EXPAND, 0, 0);
           gtk_widget_show (track_widget);
@@ -255,14 +245,14 @@ xfce_mixer_create_contents (XfceMixer *mixer)
           break;
 
         case XFCE_MIXER_TRACK_TYPE_SWITCH:
-          track_widget = xfce_mixer_switch_new (mixer->element, track);
+          track_widget = xfce_mixer_switch_new (mixer->card, track);
           gtk_box_pack_start (GTK_BOX (views[2]), track_widget, FALSE, FALSE, 0);
           gtk_widget_show (track_widget);
           num_children[2]++;
           break;
 
         case XFCE_MIXER_TRACK_TYPE_OPTIONS:
-          track_widget = xfce_mixer_option_new (mixer->element, track);
+          track_widget = xfce_mixer_option_new (mixer->card, track);
           gtk_box_pack_start (GTK_BOX (views[3]), track_widget, FALSE, FALSE, 0);
           gtk_widget_show (track_widget);
           num_children[3]++;
@@ -272,8 +262,6 @@ xfce_mixer_create_contents (XfceMixer *mixer)
 
   g_list_foreach (visible_controls, (GFunc) g_free, NULL);
   g_list_free (visible_controls);
-
-  g_object_unref (G_OBJECT (preferences));
 
   /* Append tab or destroy all its widgets - depending on the contents of each tab */
   for (i = 0; i < 4; ++i)
