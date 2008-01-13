@@ -1,7 +1,0 @@
-xfce4-mixer/main.c
-xfce4-mixer/xfce-mixer.c
-xfce4-mixer/xfce-mixer-track.c
-xfce4-mixer/xfce-mixer-track-type.c
-xfce4-mixer/xfce-mixer-window.c
-xfce4-mixer/xfce4-mixer.desktop.in.in
-xfce4-mixer/xfce-mixer-controls-dialog.c
