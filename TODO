@@ -1,3 +1,5 @@
-
-get rid of disclosure widget and use gtk expander
-
+* Monitor for changes and update the controls according to them
+* Write panel plugin
+* Write MCS plugin (or go the xfconf way)
+* Allow changing controls from the console, probably via something like:
+  --change-control=SOUNDCARD NAME:TRACK NAME:NEW VALUE

@@ -1,135 +1,78 @@
+dnl $Id$
+dnl
+dnl Copyright (c) 2006 - Jannis Pohlmann <jannis@xfce.org>
+dnl
 
-dnl Process this file with autoconf to produce a configure script.
-AC_INIT([xfce4-mixer], [4.4.0], [xfce4-dev@xfce.org])
+dnl ***************************
+dnl *** Initialize autoconf ***
+dnl ***************************
+AC_COPYRIGHT([Copyright (c) 2007 Jannis Pohlmann <jannis@xfce.org>])
+AC_INIT([xfce4-mixer], [4.5.0], [jannis@xfce.org], [xfce4-mixer])
 AC_REVISION([$Id$])
-AM_CONFIG_HEADER([config.h])
+AC_PREREQ([2.50])
+
+dnl ***************************
+dnl *** Initialize automake ***
+dnl ***************************
 AM_INIT_AUTOMAKE([AC_PACKAGE_TARNAME()], [AC_PACKAGE_VERSION()])
-AM_MAINTAINER_MODE
+AM_CONFIG_HEADER([config.h])
+AM_MAINTAINER_MODE()
 
-dnl Check for UNIX variants
-AC_AIX
-AC_ISC_POSIX
-AC_MINIX
+dnl *******************************
+dnl *** Check for UNIX variants ***
+dnl *******************************
+AC_AIX()
+AC_ISC_POSIX()
+AC_MINIX()
 
-dnl Check for basic programs
-AC_PROG_CC
-AC_PROG_INSTALL
+dnl ********************************
+dnl *** Check for basic programs ***
+dnl ********************************
+AC_PROG_CC()
+AM_PROG_CC_C_O()
+AC_PROG_LD()
+AC_PROG_INSTALL()
+AC_PROG_INTLTOOL()
 
-dnl Checks for header files.
-AC_HEADER_STDC
+dnl **************************
+dnl *** Initialize libtool ***
+dnl **************************
+AC_DISABLE_STATIC()
+AC_PROG_LIBTOOL()
 
-dnl oss: machine/soundcard.h soundcard.h sys/soundcard.h
-AC_CHECK_HEADERS([fcntl.h limits.h sys/ioctl.h errno.h sys/stat.h sys/types.h machine/soundcard.h soundcard.h sys/soundcard.h])
+dnl **********************************
+dnl *** Check for standard headers ***
+dnl **********************************
+AC_HEADER_STDC()
 
-AC_DISABLE_STATIC
-
-AC_PROG_LIBTOOL
-AC_PROG_INTLTOOL
-
-
-dnl Check what sound system to use
-AC_ARG_WITH([sound], [
-AC_HELP_STRING([--with-sound=auto|alsa|oss|sun|sgi], [Check what sound system to use (defaults to auto)])], [],[with_sound=auto])
-
-if test x"$with_sound" != x"alsa" -a x"$with_sound" != x"oss" -a x"$with_sound" != x"sun" -a x"$with_sound" != x"sgi"; then
-  if test x`uname -s` != x"SunOS"; then
-    if test x`uname -s` != x"IRIX"; then
-      with_sound=oss
-    else
-      with_sound=sgi
-    fi
-  else
-    with_sound=sun
-  fi
-fi
-
-build_sound_system="$with_sound"
-
-AC_MSG_CHECKING([what sound system to use])
-if test x"$with_sound" = x"oss"; then
-  AC_DEFINE([USE_OSS], [1], [Define for OSS sound system])
-  AC_MSG_RESULT([oss])
-
-  dnl Check for OSS audio includes and library
-  AC_CHECK_LIB([ossaudio], [_oss_ioctl])
-elif test x"$with_sound" = x"alsa"; then
-  AC_DEFINE([USE_ALSA], [1], [Define for ALSA sound system])
-  AC_MSG_RESULT([alsa])
-
-  dnl Check for ALSA library
-  XDT_CHECK_PACKAGE([ALSA], [alsa], [0.9.0])
-  CFLAGS="$CFLAGS $ALSA_CFLAGS"
-  LIBS="$LIBS $ALSA_LIBS"
-elif test x"$with_sound" = x"sun"; then
-  AC_DEFINE([USE_SUN], [1], [Define for Sun sound system])
-  AC_MSG_RESULT([sun])
-elif  test x"$with_sound" = x"sgi"; then
-  AC_DEFINE([USE_SGI], [1], [Define for SGI sound system])
-  AC_MSG_RESULT([sgi])
-
-  dnl Check for IRIX audio includes and library
-  AC_CHECK_LIB([audio], [ALnewconfig])
-  LIBS="-laudio"
-else
-  AC_MSG_ERROR([Unknown sound system "$with_sound"])
-fi
-
-XDT_CHECK_PACKAGE([XML], [libxml-2.0], [2.4.0])
-XDT_CHECK_PACKAGE([XFCE4_UTIL], [libxfce4util-1.0], [4.4.0])
-XDT_CHECK_PACKAGE([XFCE4_GUI], [libxfcegui4-1.0], [4.4.0])
-XDT_CHECK_PACKAGE([GTK], [gtk+-2.0], [2.6.0])
-XDT_CHECK_PACKAGE([XFCE_MCS_CLIENT], [libxfce4mcs-client-1.0], [4.4.0])
-XDT_XFCE_MCS_PLUGIN([XFCE_MCS_MANAGER], [4.4.0])
-
-dnl Check for i18n support
+dnl ******************************
+dnl *** Check for i18n support ***
+dnl ******************************
 XDT_I18N([@LINGUAS@])
 
-AC_MSG_CHECKING([whether to build big mixer window])
-AC_ARG_ENABLE([big-mixer],
-  AC_HELP_STRING([--disable-big-mixer], [don't build big mixer window]),
-[], [enable_big_mixer=yes])
-AM_CONDITIONAL([BUILD_BIG_MIXER], [test x"$enable_big_mixer" = x"yes"])
-AC_MSG_RESULT([$enable_big_mixer])
-build_big_mixer="$enable_big_mixer"
+dnl ***********************************
+dnl *** Check for required packages ***
+dnl ***********************************
+XDT_CHECK_PACKAGE([GLIB], [glib-2.0], [2.12.0])
+XDT_CHECK_PACKAGE([GTHREAD], [gthread-2.0], [2.12.0])
+XDT_CHECK_PACKAGE([GST_PLUGINS_BASE], [gstreamer-plugins-base-0.10], [0.10.2])
+XDT_CHECK_PACKAGE([GTK], [gtk+-2.0], [2.10.0])
+XDT_CHECK_PACKAGE([LIBXFCE4UTIL], [libxfce4util-1.0], [4.4.0])
+XDT_CHECK_PACKAGE([LIBXFCEGUI4], [libxfcegui4-1.0], [4.4.0])
 
-BM_DEPEND_CHECK([MIGHTY_MOUSE], [libxfce4panel-1.0], [4.4.0], [mighty-mouse], [the new panel], [yes])
-dnl AM_CONDITIONAL([HAVE_MIGHTY_MOUSE], [test x"$ac_cv_MIGHTY_MOUSE_check" = x"yes"])
-AM_CONDITIONAL([HAVE_MIGHTY_MOUSE], [test ! -z "$MIGHTY_MOUSE_FOUND" ])
-
-AC_MSG_CHECKING([whether to build 4.4 panel plugin])
-AC_ARG_ENABLE([mighty-mouse-panel-plugin],
-AC_HELP_STRING([--disable-mighty-mouse-panel-plugin], [don't build 4.4 panel plugin]),
- [], [enable_mighty_mouse_panel_plugin=yes])
-AM_CONDITIONAL([BUILD_MIGHTY_MOUSE_PANEL_PLUGIN], [test x"$enable_mighty_mouse_panel_plugin" = x"yes"])
-AC_MSG_RESULT([$enable_mighty_mouse_panel_plugin])
-build_mighty_mouse_panel_plugin=$enable_mighty_mouse_panel_plugin
-dnl if [ $enable_mighty_mouse_panel_plugin = yes -a ! -z $MIGHTY_MOUSE_FOUND ] ; then build_mighty_mouse_panel_plugin="yes" ; else build_mighty_mouse_panel_plugin="no" ; fi
-
-dnl Check for debugging support
+dnl ***********************************
+dnl *** Check for debugging support ***
+dnl ***********************************
 BM_DEBUG_SUPPORT()
-
-
-dnl Checks for library functions.
-dnl Checks for typedefs, structures, and compiler characteristics.
-AC_C_CONST
-
-
 
 AC_OUTPUT([
 Makefile
-xfce4-mixer.spec
-include/Makefile
-lib/Makefile
-src/Makefile
-panel-plugin/Makefile
-settings/Makefile
+icons/Makefile
+icons/16x16/Makefile
+icons/24x24/Makefile
+icons/48x48/Makefile
+icons/scalable/Makefile
+pixmaps/Makefile
+xfce4-mixer/Makefile
 po/Makefile.in
 ])
-
-
-echo
-echo "Build Configuration:"
-echo " Sound System:  $build_sound_system"
-echo " Big Mixer:     $build_big_mixer"
-echo " 4.4 (Mighty Mouse) Panel Plugin:     $build_mighty_mouse_panel_plugin"
-echo
