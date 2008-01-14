@@ -1,3 +1,13 @@
+2008-01-14	Jannis Pohlmann <jannis@xfce.org>
+
+	* configure.in.in, xfce4-mixer/xfce-mixer-card.{c,h},
+	  xfce4-mixer/xfce-mixer.c: Add optional support for the GstMixer
+	  notification API. It uses GstBus and GstMixerMessages. The latter
+	  are only available with GStreamer >= 0.10.14. Not all work is done
+	  yet, but it will be worked on this week.
+	* autogen.sh: Tweak autogen.sh so that it works with both, SVN and
+	  git-svn. 
+
 2008-01-13	Jannis Pohlmann <jannis@xfce.org>
 
 	* xfce4-mixer-card.{c,h}: Add XfceMixerCard class as a wrapper for

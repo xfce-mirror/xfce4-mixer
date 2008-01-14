@@ -60,6 +60,19 @@ XDT_CHECK_PACKAGE([GTK], [gtk+-2.0], [2.10.0])
 XDT_CHECK_PACKAGE([LIBXFCE4UTIL], [libxfce4util-1.0], [4.4.0])
 XDT_CHECK_PACKAGE([LIBXFCEGUI4], [libxfcegui4-1.0], [4.4.0])
 
+dnl **************************************
+dnl *** Check for GstMixer bus support ***
+dnl **************************************
+HAVE_GST_MIXER_NOTIFICATION=no
+PKG_CHECK_MODULES(GST_MIXER_NOTIFICATION_API, 
+                  gstreamer-plugins-base-0.10 >= 0.10.14,
+                  HAVE_GST_MIXER_NOTIFICATION=yes, 
+                  HAVE_GST_MIXER_NOTIFICATION=no)
+if test "x$HAVE_GST_MIXER_NOTIFICATION" = "xyes"; then
+  AC_DEFINE(HAVE_GST_MIXER_NOTIFICATION, 1, 
+            [Have GStreamer mixer notification API])
+fi
+
 dnl ***********************************
 dnl *** Check for debugging support ***
 dnl ***********************************

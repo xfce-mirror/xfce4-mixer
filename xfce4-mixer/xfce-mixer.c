@@ -43,6 +43,11 @@ static void       xfce_mixer_init                  (XfceMixer      *mixer);
 static void       xfce_mixer_dispose               (GObject        *object);
 static void       xfce_mixer_finalize              (GObject        *object);
 static void       xfce_mixer_create_contents       (XfceMixer      *mixer);
+#ifdef HAVE_GST_MIXER_NOTIFICATION
+static gboolean   xfce_mixer_bus_message           (GstBus         *bus,
+                                                    GstMessage     *message,
+                                                    XfceMixer      *mixer);
+#endif
 
 
 
@@ -173,6 +178,10 @@ xfce_mixer_create_contents (XfceMixer *mixer)
 
   xfce_mixer_card_set_ready (mixer->card);
 
+#ifdef HAVE_GST_MIXER_NOTIFICATION
+  xfce_mixer_card_connect (mixer->card, G_CALLBACK (xfce_mixer_bus_message), mixer);
+#endif
+
   /* Create widgets for all four tabs */
   for (i = 0; i < 4; ++i)
     {
@@ -297,3 +306,48 @@ xfce_mixer_create_contents (XfceMixer *mixer)
       gtk_notebook_append_page (GTK_NOTEBOOK (mixer), label2, label1);
     }
 }
+
+
+
+#ifdef HAVE_GST_MIXER_NOTIFICATION
+static gboolean
+xfce_mixer_bus_message (GstBus     *bus,
+                        GstMessage *message,
+                        XfceMixer  *mixer)
+{
+  GstMixerMessageType type;
+  GstMixerOptions    *options = NULL;
+  GstMixerTrack      *track = NULL;
+  gboolean            muted;
+  gboolean            record;
+  const gchar        *option;
+
+  if (G_UNLIKELY (!xfce_mixer_card_get_message_owner (mixer->card, message)))
+    return TRUE;
+
+  g_debug ("Message from card received: %s", GST_MESSAGE_TYPE_NAME (message));
+
+  type = gst_mixer_message_get_type (message);
+
+  if (type == GST_MIXER_MESSAGE_MUTE_TOGGLED)
+    {
+      gst_mixer_message_parse_mute_toggled (message, &track, &muted);
+      g_debug ("Track '%s' was %s", track->label, muted ? "muted" : "unmuted");
+    }
+  else if (type == GST_MIXER_MESSAGE_RECORD_TOGGLED)
+    {
+      gst_mixer_message_parse_record_toggled (message, &track, &record);
+      g_debug ("Recording on track '%s' was %s", track->label, record ? "turned on" : "turned off");
+    }
+  else if (type == GST_MIXER_MESSAGE_VOLUME_CHANGED)
+    {
+    }
+  else if (type == GST_MIXER_MESSAGE_OPTION_CHANGED)
+    {
+      gst_mixer_message_parse_option_changed (message, &options, &option);
+      g_debug ("Option '%s' was set to '%s'", GST_MIXER_TRACK (options)->label, option);
+    }
+
+  return TRUE;
+}
+#endif

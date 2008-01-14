@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 # $Id$
-
+#
 # vi:set ts=2 sw=2 et ai:
 #
 # Copyright (c) 2008 Jannis Pohlmann <jannis@xfce.org>
@@ -29,6 +29,20 @@ EOF
 
 # Substitute revision and linguas
 linguas=`sed -e '/^#/d' po/LINGUAS`
-sed -e "s/@LINGUAS@/${linguas}/g" < "configure.in.in" > "configure.in"
+if test -d .git/svn; then
+  revision=`LC_ALL=C git-svn find-rev HEAD`
+elif test -f .svn; then
+  revision=`LC_ALL=C svn info $0 | awk '/^Revision: / {printf "%05d\n", $2}'`
+else
+  revision=""
+fi
+sed -e "s/@LINGUAS@/${linguas}/g" \
+    -e "s/@REVISION@/${revision}/g" \
+    < "configure.in.in" > "configure.in"
 
 exec xdt-autogen $@
+
+# xdt-autogen clean does not remove all generated files
+(test x"clean" = x"$1") && {
+  rm -rf configure.in
+} || true

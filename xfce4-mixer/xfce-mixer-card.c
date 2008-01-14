@@ -55,6 +55,10 @@ struct _XfceMixerCard
 
   GstElement *element;
 
+#ifdef HAVE_GST_MIXER_NOTIFICATION
+  GstBus     *bus;
+#endif
+
   gchar      *display_name;
   gchar      *name;
 };
@@ -112,6 +116,10 @@ static void
 xfce_mixer_card_init (XfceMixerCard *card)
 {
   card->name = NULL;
+
+#ifdef HAVE_GST_MIXER_NOTIFICATION
+  card->bus = NULL;
+#endif
 }
 
 
@@ -123,6 +131,11 @@ xfce_mixer_card_finalize (GObject *object)
 
   gst_element_set_state (card->element, GST_STATE_NULL);
   gst_object_unref (card->element);
+
+#ifdef HAVE_GST_MIXER_NOTIFICATION
+  if (G_LIKELY (card->bus != NULL))
+    gst_object_unref (card->bus);
+#endif
 
   g_free (card->display_name);
   g_free (card->name);
@@ -305,3 +318,36 @@ xfce_mixer_card_set_track_option (XfceMixerCard *card,
 
   gst_mixer_set_option (GST_MIXER (card->element), GST_MIXER_OPTIONS (track), option);
 }
+
+
+
+#ifdef HAVE_GST_MIXER_NOTIFICATION
+void
+xfce_mixer_card_connect (XfceMixerCard *card,
+                         GCallback      callback_func,
+                         gpointer       user_data)
+{
+  g_return_if_fail (IS_XFCE_MIXER_CARD (card));
+
+  if (G_UNLIKELY (card->bus == NULL))
+    {
+      card->bus = gst_bus_new ();
+      gst_bus_add_signal_watch (card->bus);
+      gst_element_set_bus (card->element, card->bus);
+    }
+
+  g_signal_connect (G_OBJECT (card->bus), "message::element", callback_func, user_data);
+}
+
+
+
+gboolean
+xfce_mixer_card_get_message_owner (XfceMixerCard *card,
+                                   GstMessage    *message)
+{
+  g_return_val_if_fail (IS_XFCE_MIXER_CARD (card), FALSE);
+  g_return_val_if_fail (GST_IS_MESSAGE (message), FALSE);
+
+  return GST_MESSAGE_SRC (message) == GST_OBJECT (card->element);
+}
+#endif
