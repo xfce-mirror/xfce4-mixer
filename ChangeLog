@@ -1,5 +1,12 @@
 2008-01-14	Jannis Pohlmann <jannis@xfce.org>
 
+	* configure.in.in: Add support for version information, just like all
+	  the other Xfce components have. Also add special debugging support
+	  for SVN snapshots. Enhance the AC_COPYRIGHT value. Print build
+	  configuration at the end of ./configure.
+
+2008-01-14	Jannis Pohlmann <jannis@xfce.org>
+
 	* configure.in.in, xfce4-mixer/xfce-mixer-card.{c,h},
 	  xfce4-mixer/xfce-mixer.c: Add optional support for the GstMixer
 	  notification API. It uses GstBus and GstMixerMessages. The latter
