@@ -1,0 +1,454 @@
+# translation of xfce4-mixer.po to Sinhala
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Rashan Anushka <rashan.uoc@gmail.com>, 2008.
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4-mixer\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-11-04 19:21+0100\n"
+"PO-Revision-Date: 2008-02-09 22:18+0530\n"
+"Last-Translator: Rashan Anushka <rashan.uoc@gmail.com>\n"
+"Language-Team: Sinhala <si@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#: ../lib/trans.c:36
+msgid "Vol"
+msgstr "Vol"
+
+#. Master
+#: ../lib/trans.c:37
+msgid "Pcm"
+msgstr "Pcm"
+
+#. PCM output
+#: ../lib/trans.c:38
+msgid "Spkr"
+msgstr "Spkr"
+
+#. Internal speaker?
+#: ../lib/trans.c:39
+msgid "Line"
+msgstr "Line"
+
+#. Line in
+#: ../lib/trans.c:40
+msgid "Mic"
+msgstr "Mic"
+
+#. Mic in
+#: ../lib/trans.c:41
+msgid "CD"
+msgstr "CD"
+
+#. CD in
+#: ../lib/trans.c:42
+msgid "Bass"
+msgstr "Bass"
+
+#: ../lib/trans.c:43
+msgid "Trebl"
+msgstr "Trebl"
+
+#: ../lib/trans.c:44
+msgid "Synth"
+msgstr "Synth"
+
+#: ../lib/trans.c:45
+msgid "Mix"
+msgstr "Mix"
+
+#: ../lib/trans.c:46
+msgid "Pcm2"
+msgstr "Pcm2"
+
+#: ../lib/trans.c:47
+msgid "Rec"
+msgstr "Rec"
+
+#: ../lib/trans.c:48
+msgid "IGain"
+msgstr "IGain"
+
+#: ../lib/trans.c:49
+msgid "OGain"
+msgstr "OGain"
+
+#: ../lib/trans.c:50
+msgid "Line1"
+msgstr "Line1"
+
+#: ../lib/trans.c:51
+msgid "Line2"
+msgstr "Line2"
+
+#: ../lib/trans.c:52
+msgid "Line3"
+msgstr "Line3"
+
+#: ../lib/trans.c:53
+msgid "Digital1"
+msgstr "Digital1"
+
+#: ../lib/trans.c:54
+msgid "Digital2"
+msgstr "Digital2"
+
+#: ../lib/trans.c:55
+msgid "Digital3"
+msgstr "Digital3"
+
+#: ../lib/trans.c:56
+msgid "PhoneIn"
+msgstr "PhoneIn"
+
+#: ../lib/trans.c:57
+msgid "PhoneOut"
+msgstr "PhoneOut"
+
+#: ../lib/trans.c:58
+msgid "Video"
+msgstr "Video"
+
+#: ../lib/trans.c:59
+msgid "Radio"
+msgstr "Radio"
+
+#: ../lib/trans.c:60
+msgid "Monitor"
+msgstr "Monitor"
+
+#: ../lib/trans.c:61
+msgid "RecSelect"
+msgstr "RecSelect"
+
+#. Device
+#. Label
+#: ../lib/trans.c:77
+msgid "A3.AnalogIn"
+msgstr "A3.AnalogIn"
+
+#. Analog In
+#: ../lib/trans.c:78
+msgid "A3.AnalogOut"
+msgstr "A3.AnalogOut"
+
+#. Analog Out
+#: ../lib/trans.c:79
+msgid "A3.AnalogOut2"
+msgstr "A3.AnalogOut2"
+
+#. Analog Out 2
+#. Interface
+#: ../lib/trans.c:81
+msgid "A3.CameraMic"
+msgstr "A3.CameraMic"
+
+#. Camera Mic
+#: ../lib/trans.c:82
+msgid "A3.Microphone"
+msgstr "A3.Microphone"
+
+#. Microphone
+#: ../lib/trans.c:83
+msgid "A3.LineIn"
+msgstr "A3.LineIn"
+
+#. Line In
+#: ../lib/trans.c:84
+msgid "A3.DAC1In"
+msgstr "A3.DAC1In"
+
+#. DAC1 In
+#: ../lib/trans.c:85
+msgid "A3.DAC2In"
+msgstr "A3.DAC2In"
+
+#. DAC2 In
+#: ../lib/trans.c:86
+msgid "A3.Speaker"
+msgstr "A3.Speaker"
+
+#. Speaker/Line Out
+#: ../lib/trans.c:87
+msgid "A3.LineOut2"
+msgstr "A3.LineOut2"
+
+#: ../lib/vc_alsa.c:93
+#, c-format
+msgid ""
+"alsa: error: master control not found. I even tried to guess wildly, but to "
+"no avail.\n"
+msgstr ""
+"alsa: දෝෂයකි: ප්‍රධාන පාලකය හමු නොවීය. මම අනුමාන කිරීමටද උත්සහ කලෙමි, නමුත් "
+".\n"
+
+#: ../lib/vc_alsa.c:98
+#, c-format
+msgid ""
+"alsa: info: developer information follows: (send E-Mail to Developer with "
+"that)\n"
+msgstr "alsa: info: වැඩිදියුණු කරන්නාගේ තොරතුරු: (එමගින් ඔහුට ඉ-තැපෑලක් යවන්න)\n"
+
+#: ../lib/vc_alsa.c:112
+#, c-format
+msgid "hint hint"
+msgstr "ඉඟි ඉඟිය"
+
+#: ../lib/vc_alsa.c:118
+#, c-format
+msgid "alsa: info: end of developer information\n"
+msgstr "alsa: info: වැඩිදියුණුකරන්නාගේ විස්තර වල අවසානය\n"
+
+#: ../lib/vc_alsa.c:136
+#, c-format
+msgid "alsa: Mixer %s open error: %s\n"
+msgstr "alsa: %s මිශ්‍රකය විවෘත කිරීමේ දෝෂයකි: %s\n"
+
+#: ../lib/vc_alsa.c:141
+#, c-format
+msgid "alsa: Mixer attach %s error: %s\n"
+msgstr "alsa: මිශ්‍රක සබැඳුම් %s දෝෂයකි: %s\n"
+
+#: ../lib/vc_alsa.c:149
+#, c-format
+msgid "alsa: Mixer register error: %s\n"
+msgstr "alsa: මිශ්‍රක ලියාපදිංචි දෝෂයකි: %s\n"
+
+#: ../lib/vc_alsa.c:158
+#, c-format
+msgid "alsa: Mixer load error: %s: %s\n"
+msgstr "alsa: මිශ්‍රකය ප්‍රවේශන දෝෂයකි: %s: %s\n"
+
+#: ../lib/vc_alsa.c:184
+#, c-format
+msgid "alsa: Unable to find simple control '%s',%i\n"
+msgstr "alsa: '%s',%i සරල පාලකය සෙවිය නොහැක\n"
+
+#: ../lib/vc_oss.c:158
+msgid "oss: No master volume"
+msgstr "oss: ප්‍රධාන ශබ්දකයක් නොමැත"
+
+#: ../panel-plugin/launcher-entry.c:75
+msgid "Run in Terminal"
+msgstr "අග්‍රයක ක්‍රියාත්මක කරන්න"
+
+#: ../panel-plugin/launcher-entry.c:80
+msgid "Use Startup Notification"
+msgstr "ආරම්භක නිවේදන භාවිතා කරන්න"
+
+#: ../panel-plugin/launcher-entry.c:192 ../panel-plugin/plugin.c:343
+#, c-format
+msgid "Could not run \"%s\""
+msgstr "\"%s\" ක්‍රියාත්මක කළ නොහැක"
+
+#: ../panel-plugin/launcher-entry.c:194 ../panel-plugin/plugin.c:345
+msgid "Xfce Panel"
+msgstr "Xfce පුවරුව"
+
+#: ../panel-plugin/plugin.c:272
+#, c-format
+msgid "Volume: %d%%"
+msgstr "ශබ්දය: %d%%"
+
+#: ../panel-plugin/plugin.c:564
+msgid "Could not save configuration"
+msgstr "වින්‍යාස සුරැකිය නොහැක"
+
+#: mixer-prefbox.gob:177 ../src/mixer-profilebox.gob:88
+#: mixer-profilebox.gob:88
+msgid "Device:"
+msgstr "ආම්පන්නය:"
+
+#: mixer-prefbox.gob:178
+msgid "Wannabe Master:"
+msgstr "Wannabe Master:"
+
+#: mixer-prefbox.gob:180
+msgid "When clicked"
+msgstr "ක්ලික් කළ විට"
+
+#: ../settings/mixer-settingsbox.gob:128 mixer-settingsbox.gob:128
+msgid "Device"
+msgstr "ආම්පන්නය"
+
+#: ../settings/mixer-settingsbox.gob:131 mixer-settingsbox.gob:131
+msgid "None"
+msgstr "නොමැත"
+
+#. gtk_widget_show (GTK_WIDGET (self->dev_label));
+#. debug_bindtextdomain();
+#: ../settings/mixer-settingsbox.gob:136 mixer-settingsbox.gob:136
+msgid "Useful Controls"
+msgstr "ප්‍රයෝජනවත් පාලක"
+
+#. the button label in the xfce-mcs-manager dialog
+#: ../settings/sound.c:81
+msgid "Button Label|Sound"
+msgstr "බොත්තම් ලේබලය|ශබ්දයය"
+
+#: ../settings/sound.c:104
+msgid "Sound"
+msgstr "ශබ්දය"
+
+#: ../src/menus.c:12
+msgid "/_File"
+msgstr "/ගොනු(_F)"
+
+#: ../src/menus.c:13
+msgid "/File/_Options"
+msgstr "/ගොනු/විකල්ප(_O)"
+
+#: ../src/menus.c:14
+msgid "/File/_Exit"
+msgstr "/ගොනු/පිටවන්න(_E)"
+
+#: ../src/menus.c:15
+msgid "/_View"
+msgstr "/දසුන(_V)"
+
+#: ../src/menus.c:16
+msgid "/View/_Manage"
+msgstr "/දසුන/කළමණාකරනය(_M)"
+
+#: ../src/menus.c:17
+msgid "/_Help"
+msgstr "/උදව්(_H)"
+
+#: ../src/menus.c:18
+msgid "/Help/_Info"
+msgstr "/උදව්/විස්තර(_I)"
+
+#: ../src/mixer-info.gob:28 mixer-info.gob:28
+msgid ""
+"This is xfce4-mixer, a volume control program.\n"
+"It is released under the GPL-2 License which you find in the source "
+"directory.\n"
+"No warranty in any way."
+msgstr ""
+"මෙය xfce4-mixer වේ, ශබ්ද පාලක යෙදුමකි.\n"
+"එය GPL-2 වරපත යටතේ නිකුත් කර ඇති අතර ඔබට එහි මූලයන් source ඩිරෙක්ටරියේදී හමුවේවි.\n"
+"කිසිදු අයුරකින් වගකීමක් නොමැත."
+
+#: ../src/mixer-profilebox-detail.gob:163 mixer-profilebox-detail.gob:163
+msgid "Control"
+msgstr "පාලකය"
+
+#: ../src/mixer-profilebox-detail.gob:166 mixer-profilebox-detail.gob:166
+msgid "Type"
+msgstr "වර්ගය"
+
+#: ../src/mixer-profilebox-detail.gob:178 mixer-profilebox-detail.gob:178
+msgid "Up"
+msgstr "ඉහළ"
+
+#: ../src/mixer-profilebox-detail.gob:181 mixer-profilebox-detail.gob:181
+msgid "Down"
+msgstr "පහළ"
+
+#: ../src/mixer-profilebox-detail.gob:188 mixer-profilebox-detail.gob:188
+msgid "Move Entry Up"
+msgstr "ඉහළට ගෙනයන්න"
+
+#: ../src/mixer-profilebox-detail.gob:191 mixer-profilebox-detail.gob:191
+msgid "Move Entry Down"
+msgstr "පහළට ගෙන යන්න"
+
+#: ../src/mixer-profilebox-detail.gob:200 mixer-profilebox-detail.gob:200
+msgid "Profile Name:"
+msgstr "පැතිකඩ නාමය:"
+
+#: ../src/mixer-profilebox-detail.gob:382
+#: ../src/mixer-profilebox-detail.gob:447 mixer-profilebox-detail.gob:382
+#: mixer-profilebox-detail.gob:447
+msgid "<unknown>"
+msgstr "<unknown>"
+
+#: ../src/mixer-profilebox-detail.gob:384
+#: ../src/mixer-profilebox-detail.gob:449 mixer-profilebox-detail.gob:384
+#: mixer-profilebox-detail.gob:449
+msgid "<slider>"
+msgstr "<slider>"
+
+#: ../src/mixer-profilebox-detail.gob:385
+#: ../src/mixer-profilebox-detail.gob:450 mixer-profilebox-detail.gob:385
+#: mixer-profilebox-detail.gob:450
+msgid "<onoff>"
+msgstr "<onoff>"
+
+#: ../src/mixer-profilebox-detail.gob:386
+#: ../src/mixer-profilebox-detail.gob:451 mixer-profilebox-detail.gob:386
+#: mixer-profilebox-detail.gob:451
+msgid "<select>"
+msgstr "<select>"
+
+#: ../src/mixer-profilebox.gob:142 mixer-profilebox.gob:142
+msgid "Create new profile"
+msgstr "නව පැතිකඩක් සාදන්න"
+
+#: ../src/mixer-profilebox.gob:151 mixer-profilebox.gob:151
+msgid "Delete this profile"
+msgstr "මෙම පැතිකඩ මකා දමන්න"
+
+#: ../src/mixer-profilebox.gob:170 mixer-profilebox.gob:170
+msgid "Profile"
+msgstr "පැතිකඩ"
+
+#: ../src/mixer-profilebox.gob:374 mixer-profilebox.gob:374
+#, c-format
+msgid "Really delete those %d profiles?"
+msgstr "මෙම පැතිකඩ %d ඇත්තවශයෙන්ම මකාදැමිය යුතුද?"
+
+#: ../src/mixer-profilebox.gob:377 mixer-profilebox.gob:377
+#, c-format
+msgid "Really delete profile \"%s\"?"
+msgstr "ඇත්තවශයෙන්ම \"%s\" පැතිකඩ මකා දැමිය යුතුද?"
+
+#: ../src/mixer-profilebox.gob:491 mixer-profilebox.gob:491
+#, c-format
+msgid "%s - New"
+msgstr "%s - නව"
+
+#: ../src/mixer-profilebox.gob:528 mixer-profilebox.gob:528
+msgid "A profile needs a name"
+msgstr "පැතිකඩකට නාමයක් අත්‍යවශ්‍යවේ"
+
+#: ../src/mixer-profilebox.gob:542 mixer-profilebox.gob:542
+msgid "A profile with that name already exists"
+msgstr "එම නම සහිත පැතිකඩක් දැනටමත් පවතී"
+
+#: ../src/mixer-profiles.gob:262 ../src/mixer-profiles.gob:269
+#: mixer-profiles.gob:262 mixer-profiles.gob:269
+#, c-format
+msgid "profile%d"
+msgstr "පැතිකඩ %d"
+
+#: ../src/mixer-view.gob:259 mixer-view.gob:259
+msgid "Show Switches"
+msgstr "ස්වීචයන් පෙන්වන්න"
+
+#: ../src/mixer-view.gob:260 mixer-view.gob:260
+msgid "Hide Switches"
+msgstr "ස්වීචයන් සඟවන්න"
+
+#: ../src/mixer-window.gob:188 mixer-window.gob:188
+#: ../panel-plugin/xfce4-mixer.desktop.in.in.h:2
+msgid "Volume Control"
+msgstr "ශබ්ද පාලකය"
+
+#: ../panel-plugin/xfce4-mixer.desktop.in.in.h:1
+msgid "Change the Volume"
+msgstr "ශබ්දය වෙනස් කරන්න"
+
+#: ../settings/xfce-mixer-settings.desktop.in.h:1
+msgid "Mixer Settings"
+msgstr "මිශ්‍රක සිටුවම්"
+
+#: ../settings/xfce-mixer-settings.desktop.in.h:2
+msgid "Xfce 4 Mixer Settings"
+msgstr "Xfce 4 මිශ්‍රක සිටුවම්"
+
