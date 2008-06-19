@@ -53,12 +53,12 @@ static void             xfce_mixer_plugin_construct      (XfcePanelPlugin  *plug
 static XfceMixerPlugin *xfce_mixer_plugin_new            (XfcePanelPlugin  *plugin);
 static void             xfce_mixer_plugin_free           (XfcePanelPlugin  *plugin,
                                                           XfceMixerPlugin  *mixer_plugin);
-static gboolean         xfce_mixer_plugin_size_changed   (XfcePanelPlugin  *plugin,
-                                                          gint              size,
-                                                          XfceMixerPlugin  *mixer_plugin);
-static void             xfce_mixer_plugin_volume_changed (XfceVolumeButton *button,
-                                                          gdouble           volume,
-                                                          XfceMixerPlugin  *mixer_plugin);
+static gboolean         xfce_mixer_plugin_size_changed   (XfceMixerPlugin  *mixer_plugin,
+                                                          gint              size);
+static void             xfce_mixer_plugin_volume_changed (XfceMixerPlugin  *mixer_plugin,
+                                                          gdouble           volume);
+static void             xfce_mixer_plugin_configure      (XfceMixerPlugin  *mixer_plugin);
+static void             xfce_mixer_plugin_clicked        (XfceMixerPlugin  *mixer_plugin);
 
 
 
@@ -79,19 +79,23 @@ xfce_mixer_plugin_new (XfcePanelPlugin *plugin)
   /* Store pointer to the panel plugin */
   mixer_plugin->plugin = plugin;
 
-  mixer_plugin->hvbox = xfce_hvbox_new (GTK_ORIENTATION_HORIZONTAL, FALSE, 0);
+  mixer_plugin->hvbox = GTK_WIDGET (xfce_hvbox_new (GTK_ORIENTATION_HORIZONTAL, FALSE, 0));
+  xfce_panel_plugin_add_action_widget (plugin, mixer_plugin->hvbox);
   gtk_container_add (GTK_CONTAINER (plugin), mixer_plugin->hvbox);
   gtk_widget_show (mixer_plugin->hvbox);
 
   mixer_plugin->button = xfce_volume_button_new ();
   g_signal_connect (G_OBJECT (mixer_plugin->button), "volume-changed", G_CALLBACK (xfce_mixer_plugin_volume_changed), mixer_plugin);
+  g_signal_connect_swapped (G_OBJECT (mixer_plugin->button), "clicked", G_CALLBACK (xfce_mixer_plugin_clicked), mixer_plugin);
   gtk_container_add (GTK_CONTAINER (mixer_plugin->hvbox), mixer_plugin->button);
   gtk_widget_show (mixer_plugin->button);
 
+  xfce_panel_plugin_menu_show_configure (plugin);
+
   /* Connect to plugin signals */
-  g_signal_connect (G_OBJECT (plugin), "free-data", G_CALLBACK (xfce_mixer_plugin_free), mixer_plugin);
-  g_signal_connect (G_OBJECT (plugin), "size-changed", G_CALLBACK (xfce_mixer_plugin_size_changed), mixer_plugin);
-//  g_signal_connect (G_OBJECT (plugin), "configure", G_CALLBACK (xfce_mixer_plugin_configure), mixer_plugin);
+  g_signal_connect_swapped (G_OBJECT (plugin), "free-data", G_CALLBACK (xfce_mixer_plugin_free), mixer_plugin);
+  g_signal_connect_swapped (G_OBJECT (plugin), "size-changed", G_CALLBACK (xfce_mixer_plugin_size_changed), mixer_plugin);
+  g_signal_connect_swapped (G_OBJECT (plugin), "configure", G_CALLBACK (xfce_mixer_plugin_configure), mixer_plugin);
 
   return mixer_plugin;
 }
@@ -122,13 +126,11 @@ xfce_mixer_plugin_construct (XfcePanelPlugin *plugin)
 
 
 static gboolean
-xfce_mixer_plugin_size_changed (XfcePanelPlugin *plugin,
-                                gint             size,
-                                XfceMixerPlugin *mixer_plugin)
+xfce_mixer_plugin_size_changed (XfceMixerPlugin *mixer_plugin,
+                                gint             size)
 {
   GtkOrientation orientation;
 
-  g_return_val_if_fail (plugin != NULL, FALSE);
   g_return_val_if_fail (mixer_plugin != NULL, FALSE);
 
   /* Determine the icon size for the volume button */
@@ -138,7 +140,7 @@ xfce_mixer_plugin_size_changed (XfcePanelPlugin *plugin,
   xfce_volume_button_set_icon_size (XFCE_VOLUME_BUTTON (mixer_plugin->button), size);
 
   /* Get the orientation of the panel */
-  orientation = xfce_panel_plugin_get_orientation (plugin);
+  orientation = xfce_panel_plugin_get_orientation (mixer_plugin->plugin);
 
   /* TODO: Handle it */
 
@@ -148,9 +150,29 @@ xfce_mixer_plugin_size_changed (XfcePanelPlugin *plugin,
 
 
 static void
-xfce_mixer_plugin_volume_changed (XfceVolumeButton *button,
-                                  gdouble           volume,
-                                  XfceMixerPlugin  *mixer_plugin)
+xfce_mixer_plugin_volume_changed (XfceMixerPlugin  *mixer_plugin,
+                                  gdouble           volume)
 {
   g_message ("volume changed to %f", volume);
+}
+
+
+
+static void
+xfce_mixer_plugin_clicked (XfceMixerPlugin *mixer_plugin)
+{
+  g_return_if_fail (mixer_plugin != NULL);
+
+  if (G_UNLIKELY (!g_spawn_command_line_async ("xfce4-mixer", NULL)))
+    xfce_err (_("Could not find xfce4-mixer in PATH."));
+}
+
+
+
+static void
+xfce_mixer_plugin_configure (XfceMixerPlugin *mixer_plugin)
+{
+  g_return_if_fail (mixer_plugin != NULL);
+
+  xfce_panel_plugin_block_menu (mixer_plugin->plugin);
 }

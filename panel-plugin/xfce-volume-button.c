@@ -265,6 +265,7 @@ xfce_volume_button_leave (GtkWidget        *widget,
 
   if (GTK_WIDGET_HAS_FOCUS (widget))
     {
+      gtk_widget_set_state (widget, GTK_STATE_NORMAL);
       gdk_keyboard_ungrab (GDK_CURRENT_TIME);
       gdk_pointer_ungrab (GDK_CURRENT_TIME);
       gtk_grab_remove (widget);

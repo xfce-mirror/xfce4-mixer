@@ -1,5 +1,10 @@
 2008-06-19	Jannis Pohlmann <jannis@xfce.org>
 
+	* panel-plugin/xfce-mixer-plugin.c: Try to start "xfce4-mixer" 
+	  when the plugin button is clicked.
+
+2008-06-19	Jannis Pohlmann <jannis@xfce.org>
+
 	* Huge code reorganization: Split the mixer into three parts: 
 	  libxfce4mixer, xfce4-mixer and the panel plugin. libxfce4mixer
 	  contains everything that's needed by both, the mixer and the 
