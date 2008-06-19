@@ -5,7 +5,7 @@
 
 * Write panel plugin
 
-* Write MCS plugin (or go the xfconf way)
+* Implement Xfconf support
 
 * Allow changing controls from the console, probably via something like:
   --change-control=SOUNDCARD NAME:TRACK NAME:NEW VALUE

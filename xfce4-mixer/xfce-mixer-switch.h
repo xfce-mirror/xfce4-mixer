@@ -25,7 +25,7 @@
 #include <gtk/gtk.h>
 #include <gst/interfaces/mixer.h>
 
-#include "xfce-mixer-card.h"
+#include "libxfce4mixer/xfce-mixer-card.h"
 
 G_BEGIN_DECLS;
 

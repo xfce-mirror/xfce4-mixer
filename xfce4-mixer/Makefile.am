@@ -6,12 +6,6 @@ bin_PROGRAMS =								\
 
 xfce4_mixer_SOURCES =							\
 	main.c								\
-	xfce-mixer-card.c						\
-	xfce-mixer-card.h						\
-	xfce-mixer-stock.c						\
-	xfce-mixer-stock.h						\
-	xfce-mixer-track-type.c						\
-	xfce-mixer-track-type.h						\
 	xfce-mixer-track.c						\
 	xfce-mixer-track.h						\
 	xfce-mixer-switch.c						\
@@ -20,8 +14,6 @@ xfce4_mixer_SOURCES =							\
 	xfce-mixer-option.h						\
 	xfce-mixer.c							\
 	xfce-mixer.h							\
-	xfce-mixer-preferences.c					\
-	xfce-mixer-preferences.h					\
 	xfce-mixer-controls-dialog.c					\
 	xfce-mixer-controls-dialog.h					\
 	xfce-mixer-window.h						\
@@ -32,20 +24,23 @@ xfce4_mixer_CFLAGS = 							\
 	-I$(top_srcdir)							\
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"				\
 	-DDATADIR=\"$(datadir)\"					\
-	@GLIB_CFLAGS@							\
-	@GTHREAD_CFLAGS@						\
-	@GST_PLUGINS_BASE_CFLAGS@					\
-	@GTK_CFLAGS@							\
-	@LIBXFCE4UTIL_CFLAGS@						\
-	@LIBXFCEGUI4_CFLAGS@						
+	$(GLIB_CFLAGS)							\
+	$(GTK_CFLAGS)							\
+	$(LIBXFCE4UTIL_CFLAGS)						\
+	$(LIBXFCEGUI4_CFLAGS)						\				
+	$(GST_PLUGINS_BASE_CFLAGS)
 
+xfce4_mixer_DEPENDENCIES = 						\
+	$(top_builddir)/libxfce4mixer/libxfce4mixer.la
+	
 xfce4_mixer_LDFLAGS = 							\
-	@GLIB_LIBS@							\
-	@GTHREAD_LIBS@							\
-	@GST_PLUGINS_BASE_LIBS@						\
-	@GTK_LIBS@							\
-	@LIBXFCE4UTIL_LIBS@						\
-	@LIBXFCEGUI4_LIBS@						\
+	$(top_builddir)/libxfce4mixer/libxfce4mixer.la			\
+	$(GLIB_LIBS)							\
+	$(GTHREAD_LIBS)							\
+	$(GST_PLUGINS_BASE_LIBS)					\
+	$(GTK_LIBS)							\
+	$(LIBXFCE4UTIL_LIBS)						\
+	$(LIBXFCEGUI4_LIBS)						\
 	-lgstaudio-0.10							\
 	-lgstinterfaces-0.10
 

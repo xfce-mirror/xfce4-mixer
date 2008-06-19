@@ -30,11 +30,11 @@
 #include <gst/interfaces/mixer.h>
 
 #include "xfce-mixer.h"
-#include "xfce-mixer-track-type.h"
+#include "libxfce4mixer/xfce-mixer-track-type.h"
 #include "xfce-mixer-track.h"
 #include "xfce-mixer-switch.h"
 #include "xfce-mixer-option.h"
-#include "xfce-mixer-preferences.h"
+#include "libxfce4mixer/xfce-mixer-preferences.h"
 
 
 

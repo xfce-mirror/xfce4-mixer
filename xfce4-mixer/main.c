@@ -32,7 +32,7 @@
 
 #include <gst/gst.h>
 
-#include "xfce-mixer-stock.h"
+#include "libxfce4mixer/xfce-mixer-stock.h"
 #include "xfce-mixer-window.h"
 
 

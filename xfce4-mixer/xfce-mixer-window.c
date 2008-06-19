@@ -32,9 +32,9 @@
 
 #include "xfce-mixer-window.h"
 #include "xfce-mixer.h"
-#include "xfce-mixer-preferences.h"
 #include "xfce-mixer-controls-dialog.h"
-#include "xfce-mixer-card.h"
+#include "libxfce4mixer/xfce-mixer-card.h"
+#include "libxfce4mixer/xfce-mixer-preferences.h"
 
 
 

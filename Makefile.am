@@ -7,6 +7,8 @@
 SUBDIRS =								\
 	icons								\
 	pixmaps								\
+	libxfce4mixer							\
+	panel-plugin							\
 	xfce4-mixer							\
 	po
 

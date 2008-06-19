@@ -30,7 +30,7 @@
 #include <gst/interfaces/mixer.h>
 
 #include "xfce-mixer-option.h"
-#include "xfce-mixer-card.h"
+#include "libxfce4mixer/xfce-mixer-card.h"
 
 
 

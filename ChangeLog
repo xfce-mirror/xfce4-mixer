@@ -1,3 +1,16 @@
+2008-06-19	Jannis Pohlmann <jannis@xfce.org>
+
+	* Huge code reorganization: Split the mixer into three parts: 
+	  libxfce4mixer, xfce4-mixer and the panel plugin. libxfce4mixer
+	  contains everything that's needed by both, the mixer and the 
+	  plugin.
+	* panel-plugin/: This will become a minimalistic, keyboard and 
+	  scroll-wheel orientated plugin with no volume popup slider or
+	  whatsoever. I'll have to add this later. Still missing: config
+	  dialog and the connection to the soundcard.
+	* xfce4-mixer/: I don't think I've changed anything in here, just
+	  reorganized the code.
+
 2008-01-14	Jannis Pohlmann <jannis@xfce.org>
 
 	* configure.in.in: Add support for version information, just like all

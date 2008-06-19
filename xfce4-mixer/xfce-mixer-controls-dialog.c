@@ -30,8 +30,8 @@
 #include <gst/interfaces/mixer.h>
 
 #include "xfce-mixer-window.h"
-#include "xfce-mixer-preferences.h"
 #include "xfce-mixer-controls-dialog.h"
+#include "libxfce4mixer/xfce-mixer-preferences.h"
 
 
 

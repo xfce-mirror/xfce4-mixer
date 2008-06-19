@@ -29,10 +29,10 @@
 #include <gst/gst.h>
 #include <gst/interfaces/mixer.h>
 
-#include "xfce-mixer-stock.h"
+#include "libxfce4mixer/xfce-mixer-stock.h"
 #include "xfce-mixer-track.h"
-#include "xfce-mixer-track-type.h"
-#include "xfce-mixer-card.h"
+#include "libxfce4mixer/xfce-mixer-track-type.h"
+#include "libxfce4mixer/xfce-mixer-card.h"
 
 
 
