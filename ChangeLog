@@ -1,5 +1,11 @@
 2008-06-21	Jannis Pohlmann <jannis@xfce.org>
 
+	* panel-plugin/xfce-volume-button.c: Add support for toggling
+	  between minimum and last known volume using the middle 
+	  mouse button.
+
+2008-06-21	Jannis Pohlmann <jannis@xfce.org>
+
 	* panel-plugin/xfce-volume-button.c: Add support for GDK_Home
 	  and GDK_End for changing the volume to the maximum/minimum
 	  level.

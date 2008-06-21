@@ -4,8 +4,7 @@
       by updating the corresponding mixer widgets
 
 * Write panel plugin
-
-* Implement Xfconf support
+   1) Monitor GStreamer for changes
 
 * Allow changing controls from the console, probably via something like:
   --change-control=SOUNDCARD NAME:TRACK NAME:NEW VALUE

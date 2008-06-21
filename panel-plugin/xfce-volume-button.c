@@ -58,6 +58,9 @@ static void xfce_volume_button_finalize       (GObject               *object);
 static void xfce_volume_button_key_pressed    (GtkWidget             *widget,
                                                GdkEventKey           *event,
                                                XfceVolumeButton      *button);
+static void xfce_volume_button_button_pressed (GtkWidget             *widget,
+                                               GdkEventButton        *event,
+                                               XfceVolumeButton      *button);
 static void xfce_volume_button_enter          (GtkWidget             *widget,
                                                GdkEventCrossing      *event);
 static void xfce_volume_button_leave          (GtkWidget             *widget,
@@ -89,6 +92,8 @@ struct _XfceVolumeButton
   GtkWidget *image;
 
   GtkObject *adjustment;
+
+  gdouble    previous_value;
 };
 
 
@@ -168,6 +173,7 @@ xfce_volume_button_init (XfceVolumeButton *button)
   gtk_button_set_relief (GTK_BUTTON (button), GTK_RELIEF_NONE);
 
   g_signal_connect (G_OBJECT (button), "key-press-event", G_CALLBACK (xfce_volume_button_key_pressed), button);
+  g_signal_connect (G_OBJECT (button), "button-press-event", G_CALLBACK (xfce_volume_button_button_pressed), button);
   g_signal_connect (G_OBJECT (button), "enter-notify-event", G_CALLBACK (xfce_volume_button_enter), NULL);
   g_signal_connect (G_OBJECT (button), "leave-notify-event", G_CALLBACK (xfce_volume_button_leave), NULL);
   g_signal_connect (G_OBJECT (button), "scroll-event", G_CALLBACK (xfce_volume_button_scrolled), button);
@@ -243,6 +249,41 @@ xfce_volume_button_key_pressed (GtkWidget        *widget,
       case GDK_End:
         gtk_adjustment_set_value (GTK_ADJUSTMENT (button->adjustment), min_value);
         break;
+    }
+
+  button->previous_value = value;
+
+  xfce_volume_button_update (button);
+
+  g_signal_emit_by_name (button, "volume-changed", gtk_adjustment_get_value (GTK_ADJUSTMENT (button->adjustment)));
+}
+
+
+
+static void 
+xfce_volume_button_button_pressed (GtkWidget        *widget,
+                                   GdkEventButton   *event,
+                                   XfceVolumeButton *button)
+{
+  gdouble value;
+  gdouble min_value;
+
+  g_return_if_fail (IS_XFCE_VOLUME_BUTTON (button));
+
+  g_object_get (G_OBJECT (button->adjustment), "value", &value, "lower", &min_value, NULL);
+
+  if (event->button == 2)
+    {
+      if (gtk_adjustment_get_value (GTK_ADJUSTMENT (button->adjustment)) == min_value)
+        {
+          gtk_adjustment_set_value (GTK_ADJUSTMENT (button->adjustment), button->previous_value);
+          button->previous_value = value;
+        }
+      else
+        {
+          gtk_adjustment_set_value (GTK_ADJUSTMENT (button->adjustment), min_value);
+          button->previous_value = value;
+        }
     }
 
   xfce_volume_button_update (button);
