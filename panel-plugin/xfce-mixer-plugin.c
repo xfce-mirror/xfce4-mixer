@@ -69,6 +69,8 @@ static gboolean         xfce_mixer_plugin_size_changed   (XfceMixerPlugin  *mixe
                                                           gint              size);
 static void             xfce_mixer_plugin_volume_changed (XfceMixerPlugin  *mixer_plugin,
                                                           gdouble           volume);
+static void             xfce_mixer_plugin_mute_toggled   (XfceMixerPlugin  *mixer_plugin,
+                                                          gboolean          mute);
 static void             xfce_mixer_plugin_configure      (XfceMixerPlugin  *mixer_plugin);
 static void             xfce_mixer_plugin_clicked        (XfceMixerPlugin  *mixer_plugin);
 static void             xfce_mixer_plugin_read_config    (XfceMixerPlugin  *mixer_plugin);
@@ -113,6 +115,7 @@ xfce_mixer_plugin_new (XfcePanelPlugin *plugin)
   mixer_plugin->button = xfce_volume_button_new ();
   xfce_panel_plugin_add_action_widget (plugin, mixer_plugin->button);
   g_signal_connect_swapped (G_OBJECT (mixer_plugin->button), "volume-changed", G_CALLBACK (xfce_mixer_plugin_volume_changed), mixer_plugin);
+  g_signal_connect_swapped (G_OBJECT (mixer_plugin->button), "mute-toggled", G_CALLBACK (xfce_mixer_plugin_mute_toggled), mixer_plugin);
   g_signal_connect_swapped (G_OBJECT (mixer_plugin->button), "clicked", G_CALLBACK (xfce_mixer_plugin_clicked), mixer_plugin);
   gtk_container_add (GTK_CONTAINER (mixer_plugin->hvbox), mixer_plugin->button);
   gtk_widget_show (mixer_plugin->button);
@@ -219,6 +222,19 @@ xfce_mixer_plugin_volume_changed (XfceMixerPlugin  *mixer_plugin,
   xfce_mixer_card_set_track_volume (mixer_plugin->card, mixer_plugin->track, volumes);
 
   g_free (volumes);
+}
+
+
+
+static void
+xfce_mixer_plugin_mute_toggled (XfceMixerPlugin *mixer_plugin,
+                                gboolean         mute)
+{
+  g_return_if_fail (mixer_plugin != NULL);
+  g_return_if_fail (IS_XFCE_MIXER_CARD (mixer_plugin->card));
+  g_return_if_fail (GST_IS_MIXER_TRACK (mixer_plugin->track));
+
+  xfce_mixer_card_set_track_muted (mixer_plugin->card, mixer_plugin->track, mute);
 }
 
 
@@ -411,21 +427,30 @@ xfce_mixer_plugin_bus_message (GstBus          *bus,
   gdouble             volume;
   gint               *volumes;
   gint                num_channels;
+  gboolean            mute;
 
   if (G_UNLIKELY (!xfce_mixer_card_get_message_owner (mixer_plugin->card, message)))
     return TRUE;
 
   g_debug ("Message from card received: %s", GST_MESSAGE_TYPE_NAME (message));
 
-  if (G_LIKELY (gst_mixer_message_get_type (message) == GST_MIXER_MESSAGE_VOLUME_CHANGED))
+  switch (gst_mixer_message_get_type (message))
     {
-      gst_mixer_message_parse_volume_changed (message, &track, &volumes, &num_channels);
+      case GST_MIXER_MESSAGE_VOLUME_CHANGED:
+        gst_mixer_message_parse_volume_changed (message, &track, &volumes, &num_channels);
 
-      if (G_UNLIKELY (g_utf8_collate (track->label, mixer_plugin->track->label) == 0))
-        {
-          volume = ((gdouble) volumes[0]) / mixer_plugin->track->max_volume;
-          xfce_volume_button_set_volume (XFCE_VOLUME_BUTTON (mixer_plugin->button), volume);
-        }
+        if (G_UNLIKELY (g_utf8_collate (track->label, mixer_plugin->track->label) == 0))
+          {
+            volume = ((gdouble) volumes[0]) / mixer_plugin->track->max_volume;
+            xfce_volume_button_set_volume (XFCE_VOLUME_BUTTON (mixer_plugin->button), volume);
+          }
+        break;
+      case GST_MIXER_MESSAGE_MUTE_TOGGLED:
+        gst_mixer_message_parse_mute_toggled (message, &track, &mute);
+
+        if (G_UNLIKELY (g_utf8_collate (track->label, mixer_plugin->track->label) == 0))
+          xfce_volume_button_set_muted (XFCE_VOLUME_BUTTON (mixer_plugin->button), mute);
+        break;
     }
 }
 #endif

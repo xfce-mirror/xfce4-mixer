@@ -1,5 +1,16 @@
 2008-06-21	Jannis Pohlmann <jannis@xfce.org>
 
+	* panel-plugin/xfce-volume-button.{c,h}: Add "mute-toggled" 
+	  signal for when the middle mouse button is clicked. Add 
+	  xfce_volume_button_set_muted() method for manually changing
+	  the mute state of the button (does not affect the actual sound
+	  settings).
+	* panel-plugin/xfce-mixer-plugin.c: Handle 
+	  GST_MESSAGE_MUTE_TOGGLED messages by setting the muted state
+	  of the plugin button.
+	  
+2008-06-21	Jannis Pohlmann <jannis@xfce.org>
+
 	* panel-plugin/xfce-mixer-plugin.c: Add support for
 	  xfce_mixer_card_connect() so that the volume button is updated
 	  whenever the volume of the current mixer track is changed by

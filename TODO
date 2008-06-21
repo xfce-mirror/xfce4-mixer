@@ -3,8 +3,5 @@
    2) Extend xfce_mixer_bus_message() to handle all types of messages
       by updating the corresponding mixer widgets
 
-* Write panel plugin
-   1) Monitor GStreamer for changes
-
 * Allow changing controls from the console, probably via something like:
   --change-control=SOUNDCARD NAME:TRACK NAME:NEW VALUE
