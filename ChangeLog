@@ -1,5 +1,15 @@
 2008-06-21	Jannis Pohlmann <jannis@xfce.org>
 
+	* panel-plugin/xfce-mixer-plugin.c: Add support for
+	  xfce_mixer_card_connect() so that the volume button is updated
+	  whenever the volume of the current mixer track is changed by
+	  another program.
+	* panel-plugin/xfce-mixer.c: Parse GST_MESSAGE_VOLUME_CHANGED
+	  messages, but don't handle them yet. In the mixer it's much more
+	  complicated than in the plugin, gonna do that later.
+
+2008-06-21	Jannis Pohlmann <jannis@xfce.org>
+
 	* icons/: Add volume level icons (1x muted, 5x different sound
 	  wave icons). I'm not exactly satisfied, but it's better than
 	  before.

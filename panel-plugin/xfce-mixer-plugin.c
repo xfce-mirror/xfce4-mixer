@@ -77,6 +77,11 @@ static void             xfce_mixer_plugin_update_track   (XfceMixerPlugin  *mixe
 static void             xfce_mixer_plugin_replace_values (XfceMixerPlugin  *mixer_plugin, 
                                                           const gchar      *card_name,
                                                           const gchar      *track_name);
+#ifdef HAVE_GST_MIXER_NOTIFICATION
+static gboolean         xfce_mixer_plugin_bus_message    (GstBus           *bus,
+                                                          GstMessage       *message,
+                                                          XfceMixerPlugin  *mixer_plugin);
+#endif
 
 
 
@@ -359,6 +364,10 @@ xfce_mixer_plugin_update_track (XfceMixerPlugin *mixer_plugin)
     g_object_unref (G_OBJECT (mixer_plugin->track));
 
   mixer_plugin->card = XFCE_MIXER_CARD (xfce_mixer_utilities_get_card_by_name (mixer_plugin->card_name));
+#ifdef HAVE_GST_MIXER_NOTIFICATION
+  xfce_mixer_card_connect (mixer_plugin->card, G_CALLBACK (xfce_mixer_plugin_bus_message), mixer_plugin);
+#endif
+
   mixer_plugin->track = xfce_mixer_card_get_track_by_name (mixer_plugin->card, mixer_plugin->track_name);
 
   volumes = g_new (gint, mixer_plugin->track->num_channels);
@@ -389,3 +398,34 @@ xfce_mixer_plugin_replace_values (XfceMixerPlugin *mixer_plugin,
   mixer_plugin->card_name = g_strdup (card_name);
   mixer_plugin->track_name = g_strdup (track_name);
 }
+
+
+
+#ifdef HAVE_GST_MIXER_NOTIFICATION
+static gboolean
+xfce_mixer_plugin_bus_message (GstBus          *bus,
+                               GstMessage      *message,
+                               XfceMixerPlugin *mixer_plugin)
+{
+  GstMixerTrack      *track = NULL;
+  gdouble             volume;
+  gint               *volumes;
+  gint                num_channels;
+
+  if (G_UNLIKELY (!xfce_mixer_card_get_message_owner (mixer_plugin->card, message)))
+    return TRUE;
+
+  g_debug ("Message from card received: %s", GST_MESSAGE_TYPE_NAME (message));
+
+  if (G_LIKELY (gst_mixer_message_get_type (message) == GST_MIXER_MESSAGE_VOLUME_CHANGED))
+    {
+      gst_mixer_message_parse_volume_changed (message, &track, &volumes, &num_channels);
+
+      if (G_UNLIKELY (g_utf8_collate (track->label, mixer_plugin->track->label) == 0))
+        {
+          volume = ((gdouble) volumes[0]) / mixer_plugin->track->max_volume;
+          xfce_volume_button_set_volume (XFCE_VOLUME_BUTTON (mixer_plugin->button), volume);
+        }
+    }
+}
+#endif

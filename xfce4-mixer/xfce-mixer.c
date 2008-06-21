@@ -321,6 +321,8 @@ xfce_mixer_bus_message (GstBus     *bus,
   gboolean            muted;
   gboolean            record;
   const gchar        *option;
+  gint               *volumes;
+  gint                num_channels;
 
   if (G_UNLIKELY (!xfce_mixer_card_get_message_owner (mixer->card, message)))
     return TRUE;
@@ -341,6 +343,8 @@ xfce_mixer_bus_message (GstBus     *bus,
     }
   else if (type == GST_MIXER_MESSAGE_VOLUME_CHANGED)
     {
+      gst_mixer_message_parse_volume_changed (message, &track, &volumes, &num_channels);
+      g_debug ("Volume on track '%s' changed to %i", track->label, volumes[0]);
     }
   else if (type == GST_MIXER_MESSAGE_OPTION_CHANGED)
     {
