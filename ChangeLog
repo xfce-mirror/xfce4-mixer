@@ -1,5 +1,12 @@
 2008-06-21	Jannis Pohlmann <jannis@xfce.org>
 
+	* libxfce4mixer/xfce-mixer-card.c: Mark cards as ready when
+	  creating them. If the state is changed asynchroneously, wait
+	  until the state change is done before returning from
+	  xfce_mixer_card_set_state_ready().
+
+2008-06-21	Jannis Pohlmann <jannis@xfce.org>
+
 	* panel-plugin/xfce-volume-button.c: Remove the keyboard 
 	  grabbing feature. It causes too much problems. People without
 	  a mousewheel will have to click the plugin and use the real

@@ -155,6 +155,8 @@ xfce_mixer_card_new (GstElement *element)
   card->element = element;
   card->display_name = g_strdup (g_object_get_data (G_OBJECT (card->element), "xfce-mixer-control-name"));
 
+  xfce_mixer_card_set_ready (card);
+
   return card;
 }
 
@@ -197,7 +199,9 @@ void
 xfce_mixer_card_set_ready (XfceMixerCard *card)
 {
   g_return_if_fail (IS_XFCE_MIXER_CARD (card));
+  
   gst_element_set_state (card->element, GST_STATE_READY);
+  gst_element_get_state (card->element, NULL, NULL, GST_CLOCK_TIME_NONE);
 }
 
 
@@ -241,7 +245,7 @@ xfce_mixer_card_get_track_by_name (XfceMixerCard *card,
 
   tracks = gst_mixer_list_tracks (GST_MIXER (card->element));
 
-  for (iter = g_list_first (tracks); iter != NULL; iter = g_list_next (iter))
+  for (iter = tracks; iter != NULL; iter = iter->next)
     if (G_UNLIKELY (g_utf8_collate (GST_MIXER_TRACK (iter->data)->label, track_name) == 0))
       {
         track = GST_MIXER_TRACK (iter->data);
