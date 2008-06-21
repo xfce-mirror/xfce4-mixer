@@ -1,5 +1,11 @@
 2008-06-21	Jannis Pohlmann <jannis@xfce.org>
 
+	* panel-plugin/xfce-volume-button.c: Add support for GDK_Home
+	  and GDK_End for changing the volume to the maximum/minimum
+	  level.
+
+2008-06-21	Jannis Pohlmann <jannis@xfce.org>
+
 	* libxfce4mixer/Makefile.am, 
 	  libxfce4mixer/xfce-mixer-card-combo.{c,h},
 	  libxfce4mixer/xfce-mixer-track-combo.{c,h}, 

@@ -211,10 +211,17 @@ xfce_volume_button_key_pressed (GtkWidget        *widget,
   gdouble value;
   gdouble step_increment;
   gdouble page_size;
+  gdouble min_value;
+  gdouble max_value;
 
   g_return_if_fail (IS_XFCE_VOLUME_BUTTON (button));
 
-  g_object_get (G_OBJECT (button->adjustment), "value", &value, "step-increment", &step_increment, "page-size", &page_size, NULL);
+  g_object_get (G_OBJECT (button->adjustment), 
+                "value", &value, 
+                "step-increment", &step_increment, 
+                "page-size", &page_size, 
+                "lower", &min_value,
+                "upper", &max_value, NULL);
 
   switch (event->keyval)
     {
@@ -229,6 +236,12 @@ xfce_volume_button_key_pressed (GtkWidget        *widget,
         break;
       case GDK_Page_Down:
         gtk_adjustment_set_value (GTK_ADJUSTMENT (button->adjustment), value - page_size);
+        break;
+      case GDK_Home:
+        gtk_adjustment_set_value (GTK_ADJUSTMENT (button->adjustment), max_value);
+        break;
+      case GDK_End:
+        gtk_adjustment_set_value (GTK_ADJUSTMENT (button->adjustment), min_value);
         break;
     }
 
