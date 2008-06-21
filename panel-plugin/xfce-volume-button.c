@@ -51,26 +51,26 @@ static const char *icons[] = {
 
 
 
-static void xfce_volume_button_class_init     (XfceVolumeButtonClass *klass);
-static void xfce_volume_button_init           (XfceVolumeButton      *button);
-static void xfce_volume_button_dispose        (GObject               *object);
-static void xfce_volume_button_finalize       (GObject               *object);
-static void xfce_volume_button_key_pressed    (GtkWidget             *widget,
-                                               GdkEventKey           *event,
-                                               XfceVolumeButton      *button);
-static void xfce_volume_button_button_pressed (GtkWidget             *widget,
-                                               GdkEventButton        *event,
-                                               XfceVolumeButton      *button);
-static void xfce_volume_button_enter          (GtkWidget             *widget,
-                                               GdkEventCrossing      *event);
-static void xfce_volume_button_leave          (GtkWidget             *widget,
-                                               GdkEventCrossing      *event);
-static void xfce_volume_button_update         (XfceVolumeButton      *button);
-static void xfce_volume_button_scrolled       (GtkWidget             *widget,
-                                               GdkEventScroll        *event,
-                                               XfceVolumeButton      *button);
-static void xfce_volume_button_volume_changed (XfceVolumeButton      *button,
-                                               gdouble                volume);
+static void     xfce_volume_button_class_init     (XfceVolumeButtonClass *klass);
+static void     xfce_volume_button_init           (XfceVolumeButton      *button);
+static void     xfce_volume_button_dispose        (GObject               *object);
+static void     xfce_volume_button_finalize       (GObject               *object);
+static void     xfce_volume_button_key_pressed    (GtkWidget             *widget,
+                                                   GdkEventKey           *event,
+                                                   XfceVolumeButton      *button);
+static gboolean xfce_volume_button_button_pressed (GtkWidget             *widget,
+                                                   GdkEventButton        *event,
+                                                   XfceVolumeButton      *button);
+static void     xfce_volume_button_enter          (GtkWidget             *widget,
+                                                   GdkEventCrossing      *event);
+static void     xfce_volume_button_leave          (GtkWidget             *widget,
+                                                   GdkEventCrossing      *event);
+static void     xfce_volume_button_update         (XfceVolumeButton      *button);
+static void     xfce_volume_button_scrolled       (GtkWidget             *widget,
+                                                   GdkEventScroll        *event,
+                                                   XfceVolumeButton      *button);
+static void     xfce_volume_button_volume_changed (XfceVolumeButton      *button,
+                                                   gdouble                volume);
 
 
 
@@ -260,11 +260,12 @@ xfce_volume_button_key_pressed (GtkWidget        *widget,
 
 
 
-static void 
+static gboolean 
 xfce_volume_button_button_pressed (GtkWidget        *widget,
                                    GdkEventButton   *event,
                                    XfceVolumeButton *button)
 {
+  gboolean handled = FALSE;
   gdouble value;
   gdouble min_value;
 
@@ -284,11 +285,15 @@ xfce_volume_button_button_pressed (GtkWidget        *widget,
           gtk_adjustment_set_value (GTK_ADJUSTMENT (button->adjustment), min_value);
           button->previous_value = value;
         }
+
+      handled = TRUE;
     }
 
   xfce_volume_button_update (button);
 
   g_signal_emit_by_name (button, "volume-changed", gtk_adjustment_get_value (GTK_ADJUSTMENT (button->adjustment)));
+
+  return handled;
 }
 
 

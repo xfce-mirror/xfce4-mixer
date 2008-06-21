@@ -1,5 +1,11 @@
 2008-06-21	Jannis Pohlmann <jannis@xfce.org>
 
+	* panel-plugin/xfce-volume-button.c: Fix the button press
+	  callback: Return TRUE when the middle button was pressed, 
+	  return FALSE otherwise.
+
+2008-06-21	Jannis Pohlmann <jannis@xfce.org>
+
 	* panel-plugin/xfce-volume-button.c: Add support for toggling
 	  between minimum and last known volume using the middle 
 	  mouse button.
