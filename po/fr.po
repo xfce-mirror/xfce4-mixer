@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce 4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-01-13 21:17+0100\n"
+"POT-Creation-Date: 2008-06-21 15:45+0200\n"
 "PO-Revision-Date: 2008-02-26 23:23+0100\n"
 "Last-Translator: Mike Massonnet <mmassonnet@gmail.com>\n"
 "Language-Team: French\n"
@@ -18,41 +18,40 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #. Set application name
-#: ../xfce4-mixer/main.c:75 ../xfce4-mixer/xfce-mixer-window.c:182
-#: ../xfce4-mixer/xfce-mixer-window.c:200
-#: ../xfce4-mixer/xfce-mixer-window.c:370
-#: ../xfce4-mixer/xfce-mixer-window.c:375
+#: ../xfce4-mixer/main.c:75 ../xfce4-mixer/xfce-mixer-window.c:180
+#: ../xfce4-mixer/xfce-mixer-window.c:198
+#: ../xfce4-mixer/xfce-mixer-window.c:301
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
 msgid "Xfce Mixer"
 msgstr "Mixer Xfce"
 
-#: ../xfce4-mixer/xfce-mixer.c:162
+#: ../xfce4-mixer/xfce-mixer.c:167
 msgid "Playback"
 msgstr "Contrôles"
 
-#: ../xfce4-mixer/xfce-mixer.c:162
+#: ../xfce4-mixer/xfce-mixer.c:167
 msgid "Capture"
 msgstr "Captures"
 
-#: ../xfce4-mixer/xfce-mixer.c:162
+#: ../xfce4-mixer/xfce-mixer.c:167
 msgid "Switches"
 msgstr "Interrupteurs"
 
-#: ../xfce4-mixer/xfce-mixer.c:162
+#: ../xfce4-mixer/xfce-mixer.c:167
 msgid "Options"
 msgstr "Options"
 
-#: ../xfce4-mixer/xfce-mixer.c:289
+#: ../xfce4-mixer/xfce-mixer.c:298
 msgid "No Controls Visible"
 msgstr "Aucun contrôle visible"
 
-#: ../xfce4-mixer/xfce-mixer.c:293
+#: ../xfce4-mixer/xfce-mixer.c:302
 msgid ""
 "No controls are marked as visible. Please open the <span "
 "size='large'><b>Select Controls</b></span> dialog to select some."
 msgstr ""
-"Aucun contrôle n'est marqué en tant que visible.  Cliquez sur le "
-"bouton <span size='large'><b>Contrôles</b></span> afin d'en ajouter."
+"Aucun contrôle n'est marqué en tant que visible.  Cliquez sur le bouton "
+"<span size='large'><b>Contrôles</b></span> afin d'en ajouter."
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:129
 msgid "Select Controls"
@@ -62,44 +61,41 @@ msgstr "Sélection des contrôles"
 msgid "Please select which controls you want to be visible"
 msgstr "Veuillez sélectionner les contrôles que vous désirez voir"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:95
+#: ../xfce4-mixer/xfce-mixer-window.c:92
 msgid "_Quit"
 msgstr "_Quitter"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:95
+#: ../xfce4-mixer/xfce-mixer-window.c:92
 msgid "Exit Xfce Mixer"
 msgstr "Quitter le Mixer Xfce"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:97
+#: ../xfce4-mixer/xfce-mixer-window.c:94
 msgid "_Select Controls..."
 msgstr "_Contrôles"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:97
+#: ../xfce4-mixer/xfce-mixer-window.c:94
 msgid "Select which controls are displayed"
 msgstr "Sélectionner les contrôles visibles"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:201
+#: ../xfce4-mixer/xfce-mixer-window.c:199
 msgid "A comfortable audio mixer for your sound card."
 msgstr "Un confortable mixer audio pour votre carte son"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:216
+#: ../xfce4-mixer/xfce-mixer-window.c:214
 msgid "Sound card:"
 msgstr "Carte son :"
-
-#: ../xfce4-mixer/xfce-mixer-window.c:315
-msgid ""
-"No sound cards could be found. You may have to install additional gstreamer "
-"packages for ALSA or OSS support."
-msgstr ""
-"Aucune carte son n'a pu être trouvé. Vous avez peut-être besoin "
-"d'installer des paquets gstreamer supplémentaires pour le support "
-"de ALSA ou OSS."
-
-#: ../xfce4-mixer/xfce-mixer-window.c:445
-#, c-format
-msgid "Unknown Volume Control %d"
-msgstr "Périphérique inconnu %d"
 
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:1
 msgid "Audio mixer for the Xfce Desktop Environment"
 msgstr "Mixer audio pour l'environnement Xfce"
+
+#~ msgid ""
+#~ "No sound cards could be found. You may have to install additional "
+#~ "gstreamer packages for ALSA or OSS support."
+#~ msgstr ""
+#~ "Aucune carte son n'a pu être trouvé. Vous avez peut-être besoin "
+#~ "d'installer des paquets gstreamer supplémentaires pour le support de ALSA "
+#~ "ou OSS."
+
+#~ msgid "Unknown Volume Control %d"
+#~ msgstr "Périphérique inconnu %d"

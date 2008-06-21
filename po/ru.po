@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.4.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-01-13 21:17+0100\n"
+"POT-Creation-Date: 2008-06-21 15:45+0200\n"
 "PO-Revision-Date: 2008-01-14 20:00+0600\n"
 "Last-Translator: Andrey Fedoseev <andrey.fedoseev@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -20,41 +20,40 @@ msgstr ""
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #. Set application name
-#: ../xfce4-mixer/main.c:75 ../xfce4-mixer/xfce-mixer-window.c:182
-#: ../xfce4-mixer/xfce-mixer-window.c:200
-#: ../xfce4-mixer/xfce-mixer-window.c:370
-#: ../xfce4-mixer/xfce-mixer-window.c:375
+#: ../xfce4-mixer/main.c:75 ../xfce4-mixer/xfce-mixer-window.c:180
+#: ../xfce4-mixer/xfce-mixer-window.c:198
+#: ../xfce4-mixer/xfce-mixer-window.c:301
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
 msgid "Xfce Mixer"
 msgstr "Регулятор громкости Xfce"
 
-#: ../xfce4-mixer/xfce-mixer.c:162
+#: ../xfce4-mixer/xfce-mixer.c:167
 msgid "Playback"
 msgstr "Воспроизведение"
 
-#: ../xfce4-mixer/xfce-mixer.c:162
+#: ../xfce4-mixer/xfce-mixer.c:167
 msgid "Capture"
 msgstr "Запись"
 
-#: ../xfce4-mixer/xfce-mixer.c:162
+#: ../xfce4-mixer/xfce-mixer.c:167
 msgid "Switches"
 msgstr "Переключатели"
 
-#: ../xfce4-mixer/xfce-mixer.c:162
+#: ../xfce4-mixer/xfce-mixer.c:167
 msgid "Options"
 msgstr "Параметры"
 
-#: ../xfce4-mixer/xfce-mixer.c:289
+#: ../xfce4-mixer/xfce-mixer.c:298
 msgid "No Controls Visible"
 msgstr "Не выбраны управляемые каналы"
 
-#: ../xfce4-mixer/xfce-mixer.c:293
+#: ../xfce4-mixer/xfce-mixer.c:302
 msgid ""
 "No controls are marked as visible. Please open the <span "
 "size='large'><b>Select Controls</b></span> dialog to select some."
 msgstr ""
-"Не выбрано ни одного управляемого канала. Вы можете выбрать каналы "
-"с помощью диалога <span size='large'><b>Выбора Каналов</b></span>."
+"Не выбрано ни одного управляемого канала. Вы можете выбрать каналы с помощью "
+"диалога <span size='large'><b>Выбора Каналов</b></span>."
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:129
 msgid "Select Controls"
@@ -64,43 +63,40 @@ msgstr "Управляемые каналы"
 msgid "Please select which controls you want to be visible"
 msgstr "Выберите отображаемые управляемые каналы"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:95
+#: ../xfce4-mixer/xfce-mixer-window.c:92
 msgid "_Quit"
 msgstr "В_ыход"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:95
+#: ../xfce4-mixer/xfce-mixer-window.c:92
 msgid "Exit Xfce Mixer"
 msgstr "Закрыть регулятор громкости"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:97
+#: ../xfce4-mixer/xfce-mixer-window.c:94
 msgid "_Select Controls..."
 msgstr "_Выбрать каналы..."
 
-#: ../xfce4-mixer/xfce-mixer-window.c:97
+#: ../xfce4-mixer/xfce-mixer-window.c:94
 msgid "Select which controls are displayed"
 msgstr "Выбрать, какие каналы будут отображены"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:201
+#: ../xfce4-mixer/xfce-mixer-window.c:199
 msgid "A comfortable audio mixer for your sound card."
 msgstr "Удобный регулятор громкости для вашей звуковой карты."
 
-#: ../xfce4-mixer/xfce-mixer-window.c:216
+#: ../xfce4-mixer/xfce-mixer-window.c:214
 msgid "Sound card:"
 msgstr "Звуковая карта:"
-
-#: ../xfce4-mixer/xfce-mixer-window.c:315
-msgid ""
-"No sound cards could be found. You may have to install additional gstreamer "
-"packages for ALSA or OSS support."
-msgstr ""
-"Не найдено ни одной звуковой карты. Возможно, вам нужно установить дополнительные "
-"пакеты gstreamer для поддержки ALSA или OSS."
-
-#: ../xfce4-mixer/xfce-mixer-window.c:445
-#, c-format
-msgid "Unknown Volume Control %d"
-msgstr "Неизвестный канал %d"
 
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:1
 msgid "Audio mixer for the Xfce Desktop Environment"
 msgstr "Регулятор громкости для рабочего окружения Xfce"
+
+#~ msgid ""
+#~ "No sound cards could be found. You may have to install additional "
+#~ "gstreamer packages for ALSA or OSS support."
+#~ msgstr ""
+#~ "Не найдено ни одной звуковой карты. Возможно, вам нужно установить "
+#~ "дополнительные пакеты gstreamer для поддержки ALSA или OSS."
+
+#~ msgid "Unknown Volume Control %d"
+#~ msgstr "Неизвестный канал %d"

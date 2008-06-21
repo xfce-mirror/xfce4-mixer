@@ -1,12 +1,12 @@
 xfce4-mixer/main.c
 xfce4-mixer/xfce-mixer.c
-xfce4-mixer/xfce-mixer-card.c
 xfce4-mixer/xfce-mixer-controls-dialog.c
 xfce4-mixer/xfce-mixer-option.c
-xfce4-mixer/xfce-mixer-preferences.c
-xfce4-mixer/xfce-mixer-stock.c
 xfce4-mixer/xfce-mixer-switch.c
 xfce4-mixer/xfce-mixer-track.c
-xfce4-mixer/xfce-mixer-track-type.c
 xfce4-mixer/xfce-mixer-window.c
 xfce4-mixer/xfce4-mixer.desktop.in.in
+libxfce4mixer/xfce-mixer-card.c
+libxfce4mixer/xfce-mixer-preferences.c
+libxfce4mixer/xfce-mixer-stock.c
+libxfce4mixer/xfce-mixer-track-type.c

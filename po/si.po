@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-01-13 21:17+0100\n"
+"POT-Creation-Date: 2008-06-21 15:45+0200\n"
 "PO-Revision-Date: 2008-02-09 22:18+0530\n"
 "Last-Translator: Rashan Anushka <rashan.uoc@gmail.com>\n"
 "Language-Team: Sinhala <si@li.org>\n"
@@ -17,38 +17,37 @@ msgstr ""
 "X-Generator: KBabel 1.11.4\n"
 
 #. Set application name
-#: ../xfce4-mixer/main.c:75 ../xfce4-mixer/xfce-mixer-window.c:182
-#: ../xfce4-mixer/xfce-mixer-window.c:200
-#: ../xfce4-mixer/xfce-mixer-window.c:370
-#: ../xfce4-mixer/xfce-mixer-window.c:375
+#: ../xfce4-mixer/main.c:75 ../xfce4-mixer/xfce-mixer-window.c:180
+#: ../xfce4-mixer/xfce-mixer-window.c:198
+#: ../xfce4-mixer/xfce-mixer-window.c:301
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
 #, fuzzy
 msgid "Xfce Mixer"
 msgstr "Xfce 4 මිශ්‍රක සිටුවම්"
 
-#: ../xfce4-mixer/xfce-mixer.c:162
+#: ../xfce4-mixer/xfce-mixer.c:167
 msgid "Playback"
 msgstr ""
 
-#: ../xfce4-mixer/xfce-mixer.c:162
+#: ../xfce4-mixer/xfce-mixer.c:167
 msgid "Capture"
 msgstr ""
 
-#: ../xfce4-mixer/xfce-mixer.c:162
+#: ../xfce4-mixer/xfce-mixer.c:167
 #, fuzzy
 msgid "Switches"
 msgstr "ස්වීචයන් පෙන්වන්න"
 
-#: ../xfce4-mixer/xfce-mixer.c:162
+#: ../xfce4-mixer/xfce-mixer.c:167
 #, fuzzy
 msgid "Options"
 msgstr "/ගොනු/විකල්ප(_O)"
 
-#: ../xfce4-mixer/xfce-mixer.c:289
+#: ../xfce4-mixer/xfce-mixer.c:298
 msgid "No Controls Visible"
 msgstr ""
 
-#: ../xfce4-mixer/xfce-mixer.c:293
+#: ../xfce4-mixer/xfce-mixer.c:302
 msgid ""
 "No controls are marked as visible. Please open the <span "
 "size='large'><b>Select Controls</b></span> dialog to select some."
@@ -63,46 +62,39 @@ msgstr "ප්‍රයෝජනවත් පාලක"
 msgid "Please select which controls you want to be visible"
 msgstr ""
 
-#: ../xfce4-mixer/xfce-mixer-window.c:95
+#: ../xfce4-mixer/xfce-mixer-window.c:92
 msgid "_Quit"
 msgstr ""
 
-#: ../xfce4-mixer/xfce-mixer-window.c:95
+#: ../xfce4-mixer/xfce-mixer-window.c:92
 msgid "Exit Xfce Mixer"
 msgstr ""
 
-#: ../xfce4-mixer/xfce-mixer-window.c:97
+#: ../xfce4-mixer/xfce-mixer-window.c:94
 #, fuzzy
 msgid "_Select Controls..."
 msgstr "ප්‍රයෝජනවත් පාලක"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:97
+#: ../xfce4-mixer/xfce-mixer-window.c:94
 msgid "Select which controls are displayed"
 msgstr ""
 
-#: ../xfce4-mixer/xfce-mixer-window.c:201
+#: ../xfce4-mixer/xfce-mixer-window.c:199
 msgid "A comfortable audio mixer for your sound card."
 msgstr ""
 
-#: ../xfce4-mixer/xfce-mixer-window.c:216
+#: ../xfce4-mixer/xfce-mixer-window.c:214
 #, fuzzy
 msgid "Sound card:"
 msgstr "ශබ්දය"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:315
-msgid ""
-"No sound cards could be found. You may have to install additional gstreamer "
-"packages for ALSA or OSS support."
-msgstr ""
-
-#: ../xfce4-mixer/xfce-mixer-window.c:445
-#, fuzzy, c-format
-msgid "Unknown Volume Control %d"
-msgstr "ශබ්ද පාලකය"
-
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:1
 msgid "Audio mixer for the Xfce Desktop Environment"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Unknown Volume Control %d"
+#~ msgstr "ශබ්ද පාලකය"
 
 #~ msgid "Vol"
 #~ msgstr "Vol"

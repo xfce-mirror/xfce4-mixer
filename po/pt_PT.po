@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-01-13 21:17+0100\n"
+"POT-Creation-Date: 2008-06-21 15:45+0200\n"
 "PO-Revision-Date: 2008-03-18 14:15+0100\n"
 "Last-Translator: Nuno Miguel <nunis@netcabo.pt>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,38 +16,40 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #. Set application name
-#: ../xfce4-mixer/main.c:75
-#: ../xfce4-mixer/xfce-mixer-window.c:182
-#: ../xfce4-mixer/xfce-mixer-window.c:200
-#: ../xfce4-mixer/xfce-mixer-window.c:370
-#: ../xfce4-mixer/xfce-mixer-window.c:375
+#: ../xfce4-mixer/main.c:75 ../xfce4-mixer/xfce-mixer-window.c:180
+#: ../xfce4-mixer/xfce-mixer-window.c:198
+#: ../xfce4-mixer/xfce-mixer-window.c:301
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
 msgid "Xfce Mixer"
 msgstr "Xfce Mixer"
 
-#: ../xfce4-mixer/xfce-mixer.c:162
+#: ../xfce4-mixer/xfce-mixer.c:167
 msgid "Playback"
 msgstr "Reproduzir"
 
-#: ../xfce4-mixer/xfce-mixer.c:162
+#: ../xfce4-mixer/xfce-mixer.c:167
 msgid "Capture"
 msgstr "Capturar"
 
-#: ../xfce4-mixer/xfce-mixer.c:162
+#: ../xfce4-mixer/xfce-mixer.c:167
 msgid "Switches"
 msgstr "Interruptores"
 
-#: ../xfce4-mixer/xfce-mixer.c:162
+#: ../xfce4-mixer/xfce-mixer.c:167
 msgid "Options"
 msgstr "Opções"
 
-#: ../xfce4-mixer/xfce-mixer.c:289
+#: ../xfce4-mixer/xfce-mixer.c:298
 msgid "No Controls Visible"
 msgstr "Nenhum Controlo Visível"
 
-#: ../xfce4-mixer/xfce-mixer.c:293
-msgid "No controls are marked as visible. Please open the <span size='large'><b>Select Controls</b></span> dialog to select some."
-msgstr "Nenhum controlo marcado como visível. Por favor, abra o diálogo <span size='large'><b>Seleccionar Controlos</b></span> para seleccionar algum."
+#: ../xfce4-mixer/xfce-mixer.c:302
+msgid ""
+"No controls are marked as visible. Please open the <span "
+"size='large'><b>Select Controls</b></span> dialog to select some."
+msgstr ""
+"Nenhum controlo marcado como visível. Por favor, abra o diálogo <span "
+"size='large'><b>Seleccionar Controlos</b></span> para seleccionar algum."
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:129
 msgid "Select Controls"
@@ -57,40 +59,40 @@ msgstr "Seleccionar Controlos"
 msgid "Please select which controls you want to be visible"
 msgstr "Por favor, seleccione os controlo que quer que sejam visíveis."
 
-#: ../xfce4-mixer/xfce-mixer-window.c:95
+#: ../xfce4-mixer/xfce-mixer-window.c:92
 msgid "_Quit"
 msgstr "_Sair"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:95
+#: ../xfce4-mixer/xfce-mixer-window.c:92
 msgid "Exit Xfce Mixer"
 msgstr "Sair do Xfce Mixer"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:97
+#: ../xfce4-mixer/xfce-mixer-window.c:94
 msgid "_Select Controls..."
 msgstr "Seleccionar _Controlos..."
 
-#: ../xfce4-mixer/xfce-mixer-window.c:97
+#: ../xfce4-mixer/xfce-mixer-window.c:94
 msgid "Select which controls are displayed"
 msgstr "Seleccione que controlos são apresentados"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:201
+#: ../xfce4-mixer/xfce-mixer-window.c:199
 msgid "A comfortable audio mixer for your sound card."
 msgstr "Um misturador de áudio para a placa de som."
 
-#: ../xfce4-mixer/xfce-mixer-window.c:216
+#: ../xfce4-mixer/xfce-mixer-window.c:214
 msgid "Sound card:"
 msgstr "Placa de som:"
-
-#: ../xfce4-mixer/xfce-mixer-window.c:315
-msgid "No sound cards could be found. You may have to install additional gstreamer packages for ALSA or OSS support."
-msgstr "Nenhum placa de som encontrada. Pode ter que instalar pacotes adicionais do gstreamer para suporte ALSA ou OSS."
-
-#: ../xfce4-mixer/xfce-mixer-window.c:445
-#, c-format
-msgid "Unknown Volume Control %d"
-msgstr "Controlo de Volume Desconhecido %d"
 
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:1
 msgid "Audio mixer for the Xfce Desktop Environment"
 msgstr "Mixer áudio para o Ambiente Desktop Xfce"
 
+#~ msgid ""
+#~ "No sound cards could be found. You may have to install additional "
+#~ "gstreamer packages for ALSA or OSS support."
+#~ msgstr ""
+#~ "Nenhum placa de som encontrada. Pode ter que instalar pacotes adicionais "
+#~ "do gstreamer para suporte ALSA ou OSS."
+
+#~ msgid "Unknown Volume Control %d"
+#~ msgstr "Controlo de Volume Desconhecido %d"
