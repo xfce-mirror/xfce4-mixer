@@ -181,10 +181,20 @@ xfce_plugin_dialog_get_data (XfcePluginDialog *dialog,
                              XfceMixerCard   **card,
                              GstMixerTrack   **track)
 {
+  XfceMixerCard *active_card;
+  GstMixerTrack *active_track;
+
   g_return_if_fail (IS_XFCE_PLUGIN_DIALOG (dialog));
 
-  *card = XFCE_MIXER_CARD (g_object_ref (G_OBJECT (xfce_mixer_card_combo_get_active_card (XFCE_MIXER_CARD_COMBO (dialog->card_combo)))));
-  *track = GST_MIXER_TRACK (g_object_ref (G_OBJECT (xfce_mixer_track_combo_get_active_track (XFCE_MIXER_TRACK_COMBO (dialog->track_combo)))));
+  active_card = xfce_mixer_card_combo_get_active_card (XFCE_MIXER_CARD_COMBO (dialog->card_combo));
+
+  if (G_LIKELY (IS_XFCE_MIXER_CARD (active_card)))
+    *card = XFCE_MIXER_CARD (g_object_ref (G_OBJECT (active_card)));
+
+  active_track = xfce_mixer_track_combo_get_active_track (XFCE_MIXER_TRACK_COMBO (dialog->track_combo));
+
+  if (G_LIKELY (GST_IS_MIXER_TRACK (active_track)))
+    *track = GST_MIXER_TRACK (g_object_ref (G_OBJECT (active_track)));
 }
 
 

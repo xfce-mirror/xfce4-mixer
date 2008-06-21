@@ -43,6 +43,12 @@ static const XfceMixerStockIcon xfce_mixer_stock_icons[] =
   { XFCE_MIXER_STOCK_NO_RECORD, "stock_xfce4-mixer-no-record", },
   { XFCE_MIXER_STOCK_MUTED,     "stock_xfce4-mixer-muted",     },
   { XFCE_MIXER_STOCK_NO_MUTED,  "stock_xfce4-mixer-no-muted",  },
+  { AUDIO_VOLUME_00,            "audio-volume-00", },
+  { AUDIO_VOLUME_01,            "audio-volume-01", },
+  { AUDIO_VOLUME_02,            "audio-volume-02", },
+  { AUDIO_VOLUME_03,            "audio-volume-03", },
+  { AUDIO_VOLUME_04,            "audio-volume-04", },
+  { AUDIO_VOLUME_05,            "audio-volume-05", },
 };
 
 

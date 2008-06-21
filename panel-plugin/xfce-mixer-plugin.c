@@ -173,14 +173,15 @@ xfce_mixer_plugin_size_changed (XfceMixerPlugin *mixer_plugin,
 
   g_return_val_if_fail (mixer_plugin != NULL, FALSE);
 
-  /* Determine the icon size for the volume button */
-  size -= 4 * MAX (mixer_plugin->button->style->xthickness, mixer_plugin->button->style->ythickness);
-
-  /* Update the volume button icon size */
-  xfce_volume_button_set_icon_size (XFCE_VOLUME_BUTTON (mixer_plugin->button), size);
-
   /* Get the orientation of the panel */
   orientation = xfce_panel_plugin_get_orientation (mixer_plugin->plugin);
+
+  gtk_widget_set_size_request (GTK_WIDGET (mixer_plugin->plugin), size, size);
+
+  size -= 2 + 2 * MAX (mixer_plugin->button->style->xthickness, mixer_plugin->button->style->ythickness);
+
+  xfce_volume_button_set_icon_size (XFCE_VOLUME_BUTTON (mixer_plugin->button), size);
+  xfce_volume_button_update (XFCE_VOLUME_BUTTON (mixer_plugin->button));
 
   /* TODO: Handle it */
 
@@ -247,13 +248,16 @@ xfce_mixer_plugin_configure (XfceMixerPlugin *mixer_plugin)
 
   gtk_widget_destroy (dialog);
 
-  g_message ("Changed to card %s and track %s", xfce_mixer_card_get_display_name (card), GST_MIXER_TRACK (track)->label);
+  if (G_LIKELY (IS_XFCE_MIXER_CARD (card) && GST_IS_MIXER_TRACK (track)))
+    {
+      g_message ("Changed to card %s and track %s", xfce_mixer_card_get_display_name (card), GST_MIXER_TRACK (track)->label);
+  
+      xfce_mixer_plugin_replace_values (mixer_plugin, xfce_mixer_card_get_display_name (card), GST_MIXER_TRACK (track)->label);
 
-  xfce_mixer_plugin_replace_values (mixer_plugin, xfce_mixer_card_get_display_name (card), GST_MIXER_TRACK (track)->label);
+      xfce_mixer_plugin_write_config (mixer_plugin);
 
-  xfce_mixer_plugin_write_config (mixer_plugin);
-
-  xfce_mixer_plugin_update_track (mixer_plugin);
+      xfce_mixer_plugin_update_track (mixer_plugin);
+    }
 
   xfce_panel_plugin_unblock_menu (mixer_plugin->plugin);
 }

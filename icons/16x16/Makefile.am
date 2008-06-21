@@ -6,6 +6,12 @@ apps_DATA =								\
 
 stockdir = $(datadir)/icons/hicolor/16x16/stock/media
 stock_DATA =								\
+	audio-volume-00.png						\
+	audio-volume-01.png						\
+	audio-volume-02.png						\
+	audio-volume-03.png						\
+	audio-volume-04.png						\
+	audio-volume-05.png						\
 	stock_xfce4-mixer-record.png					\
 	stock_xfce4-mixer-no-record.png					\
 	stock_xfce4-mixer-muted.png					\

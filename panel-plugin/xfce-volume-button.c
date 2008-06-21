@@ -26,6 +26,8 @@
 
 #include <gdk/gdkkeysyms.h>
 
+#include <libxfcegui4/libxfcegui4.h>
+
 #include "xfce-volume-button.h"
 
 
@@ -42,35 +44,36 @@ enum
 static guint button_signals[LAST_SIGNAL];
 
 static const char *icons[] = {
-  "audio-volume-muted",
-  "audio-volume-low",
-  "audio-volume-medium",
-  "audio-volume-high",
+  "audio-volume-00",
+  "audio-volume-01",
+  "audio-volume-02",
+  "audio-volume-03",
+  "audio-volume-04",
+  "audio-volume-05",
   NULL
 };
 
 
 
-static void     xfce_volume_button_class_init     (XfceVolumeButtonClass *klass);
-static void     xfce_volume_button_init           (XfceVolumeButton      *button);
-static void     xfce_volume_button_dispose        (GObject               *object);
-static void     xfce_volume_button_finalize       (GObject               *object);
-static void     xfce_volume_button_key_pressed    (GtkWidget             *widget,
-                                                   GdkEventKey           *event,
-                                                   XfceVolumeButton      *button);
-static gboolean xfce_volume_button_button_pressed (GtkWidget             *widget,
-                                                   GdkEventButton        *event,
-                                                   XfceVolumeButton      *button);
-static void     xfce_volume_button_enter          (GtkWidget             *widget,
-                                                   GdkEventCrossing      *event);
-static void     xfce_volume_button_leave          (GtkWidget             *widget,
-                                                   GdkEventCrossing      *event);
-static void     xfce_volume_button_update         (XfceVolumeButton      *button);
-static void     xfce_volume_button_scrolled       (GtkWidget             *widget,
-                                                   GdkEventScroll        *event,
-                                                   XfceVolumeButton      *button);
-static void     xfce_volume_button_volume_changed (XfceVolumeButton      *button,
-                                                   gdouble                volume);
+static void       xfce_volume_button_class_init     (XfceVolumeButtonClass *klass);
+static void       xfce_volume_button_init           (XfceVolumeButton      *button);
+static void       xfce_volume_button_dispose        (GObject               *object);
+static void       xfce_volume_button_finalize       (GObject               *object);
+static void       xfce_volume_button_key_pressed    (GtkWidget             *widget,
+                                                     GdkEventKey           *event,
+                                                     XfceVolumeButton      *button);
+static gboolean   xfce_volume_button_button_pressed (GtkWidget             *widget,
+                                                     GdkEventButton        *event,
+                                                     XfceVolumeButton      *button);
+static void       xfce_volume_button_enter          (GtkWidget             *widget,
+                                                     GdkEventCrossing      *event);
+static void       xfce_volume_button_leave          (GtkWidget             *widget,
+                                                     GdkEventCrossing      *event);
+static void       xfce_volume_button_scrolled       (GtkWidget             *widget,
+                                                     GdkEventScroll        *event,
+                                                     XfceVolumeButton      *button);
+static void       xfce_volume_button_volume_changed (XfceVolumeButton      *button,
+                                                     gdouble                volume);
 
 
 
@@ -87,13 +90,13 @@ struct _XfceVolumeButton
 {
   GtkButton __parent__;
 
-  gint       icon_size;
-
   GtkWidget *image;
 
   GtkObject *adjustment;
 
   gdouble    previous_value;
+
+  gint       icon_size;
 };
 
 
@@ -162,10 +165,8 @@ xfce_volume_button_class_init (XfceVolumeButtonClass *klass)
 static void
 xfce_volume_button_init (XfceVolumeButton *button)
 {
-  button->adjustment = gtk_adjustment_new (0.0, 0.0, 1.0, 0.1, 0.1, 0.2);
-  button->image = gtk_image_new ();
-
-  button->icon_size = GTK_ICON_SIZE_SMALL_TOOLBAR;
+  button->adjustment = gtk_adjustment_new (0.0, 0.0, 1.0, 0.05, 0.05, 0.2);
+  button->image = xfce_scaled_image_new ();
 
   gtk_container_add (GTK_CONTAINER (button), button->image);
   gtk_widget_show (button->image);
@@ -306,13 +307,11 @@ xfce_volume_button_enter (GtkWidget        *widget,
 
   if (!GTK_WIDGET_HAS_FOCUS (widget))
     {
-#if 1
       gtk_widget_grab_focus (widget);
       gtk_grab_add (widget);
       gdk_pointer_grab (widget->window, TRUE, GDK_BUTTON_PRESS_MASK|GDK_BUTTON_RELEASE_MASK|GDK_POINTER_MOTION_MASK|GDK_SCROLL_MASK, NULL, NULL, GDK_CURRENT_TIME);
       gdk_keyboard_grab (widget->window, TRUE, GDK_CURRENT_TIME);
       gtk_widget_set_state (widget, GTK_STATE_SELECTED);
-#endif
     }
 }
 
@@ -326,12 +325,10 @@ xfce_volume_button_leave (GtkWidget        *widget,
 
   if (GTK_WIDGET_HAS_FOCUS (widget))
     {
-#if 1
       gtk_widget_set_state (widget, GTK_STATE_NORMAL);
       gdk_keyboard_ungrab (GDK_CURRENT_TIME);
       gdk_pointer_ungrab (GDK_CURRENT_TIME);
       gtk_grab_remove (widget);
-#endif
     }
 }
 
@@ -369,7 +366,7 @@ xfce_volume_button_scrolled (GtkWidget        *widget,
 
 
 
-static void 
+void 
 xfce_volume_button_update (XfceVolumeButton *button)
 {
   GdkPixbuf *pixbuf = NULL;
@@ -399,22 +396,9 @@ xfce_volume_button_update (XfceVolumeButton *button)
 
   if (G_LIKELY (pixbuf != NULL))
     {
-      gtk_image_set_from_pixbuf (GTK_IMAGE (button->image), pixbuf);
+      xfce_scaled_image_set_from_pixbuf (XFCE_SCALED_IMAGE (button->image), pixbuf);
       g_object_unref (G_OBJECT (pixbuf));
     }
-}
-
-
-
-void
-xfce_volume_button_set_icon_size (XfceVolumeButton *button,
-                                  gint              size)
-{
-  g_return_if_fail (IS_XFCE_VOLUME_BUTTON (button));
-
-  button->icon_size = size;
-
-  xfce_volume_button_update (button);
 }
 
 
@@ -434,4 +418,14 @@ xfce_volume_button_set_volume (XfceVolumeButton *button,
   g_return_if_fail (IS_XFCE_VOLUME_BUTTON (button));
   gtk_adjustment_set_value (GTK_ADJUSTMENT (button->adjustment), volume);
   xfce_volume_button_update (button);
+}
+
+
+void
+xfce_volume_button_set_icon_size (XfceVolumeButton *button,
+                                  gint              size)
+{
+  g_return_if_fail (IS_XFCE_VOLUME_BUTTON (button));
+  g_return_if_fail (size >= 0);
+  button->icon_size = size;
 }

@@ -1,5 +1,18 @@
 2008-06-21	Jannis Pohlmann <jannis@xfce.org>
 
+	* icons/: Add volume level icons (1x muted, 5x different sound
+	  wave icons). I'm not exactly satisfied, but it's better than
+	  before.
+	* libxfce4mixer/xfce-mixer-stock.{c,h}: Add support for the
+	  icons mentioned above.
+	* panel-plugin/xfce-mixer-plugin.c, 
+	  panel-plugin/xfce-volume-button.c,
+	  panel-plugin/xfce-plugin-dialog.c: (Hopefully) improve icon
+	  scaling. Make sure (I guess) not to crash when the properties
+	  dialog returns crap (why would it? heck, what do I know?).
+
+2008-06-21	Jannis Pohlmann <jannis@xfce.org>
+
 	* libxfce4mixer/xfce-mixer-track-combo.c: Fix a wrong 
 	  if-statement in xfce_mixer_track_combo_set_track(). Now the
 	  current mixer track should be preselected correctly when

@@ -39,10 +39,11 @@ GType     xfce_volume_button_get_type       (void) G_GNUC_CONST;
 
 GtkWidget *xfce_volume_button_new           (void);
 
-void       xfce_volume_button_set_icon_size (XfceVolumeButton *button,
-                                             gint              size);
 void       xfce_volume_button_set_volume    (XfceVolumeButton *button,
                                              gdouble           volume);
+void       xfce_volume_button_update        (XfceVolumeButton *button);
+void       xfce_volume_button_set_icon_size (XfceVolumeButton *button,
+                                             gint              size);
 
 G_END_DECLS;
 
