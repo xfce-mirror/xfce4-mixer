@@ -229,7 +229,7 @@ xfce_mixer_track_combo_set_soundcard (XfceMixerTrackCombo *combo,
 
   gtk_list_store_clear (combo->model);
 
-  for (titer = xfce_mixer_card_get_tracks (combo->card), counter = 0; titer != NULL; titer = g_list_next (titer), ++counter)
+  for (titer = xfce_mixer_card_get_tracks (combo->card), counter = 0; titer != NULL; titer = g_list_next (titer))
     {
       type = xfce_mixer_track_type_new (titer->data);
 
@@ -247,6 +247,8 @@ xfce_mixer_track_combo_set_soundcard (XfceMixerTrackCombo *combo,
               g_message ("equal => active_index = %i", counter);
               active_index = counter;
             }
+
+          ++counter;
         }
     }
 

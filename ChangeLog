@@ -1,5 +1,11 @@
 2008-06-21	Jannis Pohlmann <jannis@xfce.org>
 
+	* libxfce4mixer/xfce-mixer-track-combo.c: Increment the counter
+	  for determining the active track index only when playback
+	  and capture tracks are found.
+
+2008-06-21	Jannis Pohlmann <jannis@xfce.org>
+
 	* panel-plugin/xfce-volume-button.{c,h}: Add "mute-toggled" 
 	  signal for when the middle mouse button is clicked. Add 
 	  xfce_volume_button_set_muted() method for manually changing
