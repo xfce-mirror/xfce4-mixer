@@ -25,11 +25,17 @@
 
 #include <gtk/gtk.h>
 
+#include <gst/gst.h>
+
 #include <libxfce4util/libxfce4util.h>
 #include <libxfcegui4/libxfcegui4.h>
 #include <libxfce4panel/xfce-panel-plugin.h>
 
+#include "libxfce4mixer/xfce-mixer-stock.h"
+#include "libxfce4mixer/xfce-mixer-card.h"
+
 #include "xfce-volume-button.h"
+#include "xfce-plugin-dialog.h"
 
 
 
@@ -41,6 +47,12 @@ typedef struct _XfceMixerPlugin XfceMixerPlugin;
 struct _XfceMixerPlugin
 {
   XfcePanelPlugin *plugin;
+
+  gchar           *card_name;
+  gchar           *track_name;
+
+  XfceMixerCard   *card;
+  GstMixerTrack   *track;
 
   GtkWidget       *hvbox;
   GtkWidget       *button;
@@ -59,6 +71,12 @@ static void             xfce_mixer_plugin_volume_changed (XfceMixerPlugin  *mixe
                                                           gdouble           volume);
 static void             xfce_mixer_plugin_configure      (XfceMixerPlugin  *mixer_plugin);
 static void             xfce_mixer_plugin_clicked        (XfceMixerPlugin  *mixer_plugin);
+static void             xfce_mixer_plugin_read_config    (XfceMixerPlugin  *mixer_plugin);
+static void             xfce_mixer_plugin_write_config   (XfceMixerPlugin  *mixer_plugin);
+static void             xfce_mixer_plugin_update_track   (XfceMixerPlugin  *mixer_plugin);
+static void             xfce_mixer_plugin_replace_values (XfceMixerPlugin  *mixer_plugin, 
+                                                          const gchar      *card_name,
+                                                          const gchar      *track_name);
 
 
 
@@ -79,23 +97,20 @@ xfce_mixer_plugin_new (XfcePanelPlugin *plugin)
   /* Store pointer to the panel plugin */
   mixer_plugin->plugin = plugin;
 
+  mixer_plugin->card = NULL;
+  mixer_plugin->track = NULL;
+
   mixer_plugin->hvbox = GTK_WIDGET (xfce_hvbox_new (GTK_ORIENTATION_HORIZONTAL, FALSE, 0));
   xfce_panel_plugin_add_action_widget (plugin, mixer_plugin->hvbox);
   gtk_container_add (GTK_CONTAINER (plugin), mixer_plugin->hvbox);
   gtk_widget_show (mixer_plugin->hvbox);
 
   mixer_plugin->button = xfce_volume_button_new ();
-  g_signal_connect (G_OBJECT (mixer_plugin->button), "volume-changed", G_CALLBACK (xfce_mixer_plugin_volume_changed), mixer_plugin);
+  xfce_panel_plugin_add_action_widget (plugin, mixer_plugin->button);
+  g_signal_connect_swapped (G_OBJECT (mixer_plugin->button), "volume-changed", G_CALLBACK (xfce_mixer_plugin_volume_changed), mixer_plugin);
   g_signal_connect_swapped (G_OBJECT (mixer_plugin->button), "clicked", G_CALLBACK (xfce_mixer_plugin_clicked), mixer_plugin);
   gtk_container_add (GTK_CONTAINER (mixer_plugin->hvbox), mixer_plugin->button);
   gtk_widget_show (mixer_plugin->button);
-
-  xfce_panel_plugin_menu_show_configure (plugin);
-
-  /* Connect to plugin signals */
-  g_signal_connect_swapped (G_OBJECT (plugin), "free-data", G_CALLBACK (xfce_mixer_plugin_free), mixer_plugin);
-  g_signal_connect_swapped (G_OBJECT (plugin), "size-changed", G_CALLBACK (xfce_mixer_plugin_size_changed), mixer_plugin);
-  g_signal_connect_swapped (G_OBJECT (plugin), "configure", G_CALLBACK (xfce_mixer_plugin_configure), mixer_plugin);
 
   return mixer_plugin;
 }
@@ -106,6 +121,9 @@ static void
 xfce_mixer_plugin_free (XfcePanelPlugin *plugin,
                         XfceMixerPlugin *mixer_plugin)
 {
+  g_free (mixer_plugin->card_name);
+  g_free (mixer_plugin->track_name);
+
   panel_slice_free (XfceMixerPlugin, mixer_plugin);
 }
 
@@ -119,8 +137,30 @@ xfce_mixer_plugin_construct (XfcePanelPlugin *plugin)
   /* Set up translation domain */
   xfce_textdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");
 
+  if (!g_thread_supported ())
+    g_thread_init (NULL);
+
+  /* Initialize GStreamer */
+  gst_init (NULL, NULL);
+
+  /* Initialize our own stock icon set */
+  xfce_mixer_stock_init ();
+
   /* Create the plugin */
   mixer_plugin = xfce_mixer_plugin_new (plugin);
+
+  xfce_panel_plugin_menu_show_configure (plugin);
+
+  /* Connect to plugin signals */
+  g_signal_connect_swapped (G_OBJECT (plugin), "free-data", G_CALLBACK (xfce_mixer_plugin_free), mixer_plugin);
+  g_signal_connect_swapped (G_OBJECT (plugin), "size-changed", G_CALLBACK (xfce_mixer_plugin_size_changed), mixer_plugin);
+  g_signal_connect_swapped (G_OBJECT (plugin), "configure-plugin", G_CALLBACK (xfce_mixer_plugin_configure), mixer_plugin);
+
+  /* Read config file */
+  xfce_mixer_plugin_read_config (mixer_plugin);
+
+  /* Update the plugin */
+  xfce_mixer_plugin_update_track (mixer_plugin);
 }
 
 
@@ -153,7 +193,26 @@ static void
 xfce_mixer_plugin_volume_changed (XfceMixerPlugin  *mixer_plugin,
                                   gdouble           volume)
 {
-  g_message ("volume changed to %f", volume);
+  gint *volumes;
+  gint  volume_range;
+  gint  new_volume;
+  gint  i;
+
+  g_return_if_fail (mixer_plugin != NULL);
+  g_return_if_fail (IS_XFCE_MIXER_CARD (mixer_plugin->card));
+  g_return_if_fail (GST_IS_MIXER_TRACK (mixer_plugin->track));
+
+  volumes = g_new (gint, mixer_plugin->track->num_channels);
+
+  volume_range = mixer_plugin->track->max_volume - mixer_plugin->track->min_volume;
+  new_volume = mixer_plugin->track->min_volume + (volume * volume_range);
+
+  for (i = 0; i < mixer_plugin->track->num_channels; ++i)
+    volumes[i] = new_volume;
+
+  xfce_mixer_card_set_track_volume (mixer_plugin->card, mixer_plugin->track, volumes);
+
+  g_free (volumes);
 }
 
 
@@ -172,7 +231,157 @@ xfce_mixer_plugin_clicked (XfceMixerPlugin *mixer_plugin)
 static void
 xfce_mixer_plugin_configure (XfceMixerPlugin *mixer_plugin)
 {
+  XfceMixerCard *card;
+  GstMixerTrack *track;
+  GtkWidget     *dialog;
+
   g_return_if_fail (mixer_plugin != NULL);
 
   xfce_panel_plugin_block_menu (mixer_plugin->plugin);
+
+  dialog = xfce_plugin_dialog_new (mixer_plugin->card_name, mixer_plugin->track_name);
+
+  gtk_dialog_run (GTK_DIALOG (dialog));
+
+  xfce_plugin_dialog_get_data (XFCE_PLUGIN_DIALOG (dialog), &card, &track);
+
+  gtk_widget_destroy (dialog);
+
+  g_message ("Changed to card %s and track %s", xfce_mixer_card_get_display_name (card), GST_MIXER_TRACK (track)->label);
+
+  xfce_mixer_plugin_replace_values (mixer_plugin, xfce_mixer_card_get_display_name (card), GST_MIXER_TRACK (track)->label);
+
+  xfce_mixer_plugin_write_config (mixer_plugin);
+
+  xfce_mixer_plugin_update_track (mixer_plugin);
+
+  xfce_panel_plugin_unblock_menu (mixer_plugin->plugin);
+}
+
+
+
+static void
+xfce_mixer_plugin_read_config (XfceMixerPlugin *mixer_plugin)
+{
+  XfceRc      *rc;
+  const gchar *card = NULL;
+  const gchar *track = NULL;
+  gchar       *filename;
+
+  g_return_if_fail (mixer_plugin != NULL);
+
+  /* Search for the config file */
+  filename = xfce_panel_plugin_lookup_rc_file (mixer_plugin->plugin);
+
+  /* Abort if file cannot be found */
+  if (G_UNLIKELY (filename == NULL))
+    {
+      mixer_plugin->card_name = g_strdup (card);
+      mixer_plugin->track_name = g_strdup (track);
+      return;
+    }
+
+  /* Open rc handle */
+  rc = xfce_rc_simple_open (filename, TRUE);
+
+  /* Only read config if rc handle could be opened */
+  if (G_LIKELY (rc != NULL))
+    {
+      /* Read card value */
+      card = xfce_rc_read_entry (rc, "card", card);
+      
+      /* Read track value */
+      track = xfce_rc_read_entry (rc, "track", track);
+
+      /* Update plugin values */
+      xfce_mixer_plugin_replace_values (mixer_plugin, card, track);
+
+      /* Close rc handle */
+      xfce_rc_close (rc);
+    }
+
+  /* Free filename string */
+  g_free (filename);
+}
+
+
+
+static void
+xfce_mixer_plugin_write_config (XfceMixerPlugin *mixer_plugin)
+{
+  XfceRc *rc;
+  gchar  *filename;
+
+  g_return_if_fail (mixer_plugin != NULL);
+
+  /* Search for the config file */
+  filename = xfce_panel_plugin_save_location (mixer_plugin->plugin, TRUE);
+
+  /* Abort saving if the file does not exist and could not be created */
+  if (G_UNLIKELY (filename == NULL))
+    return;
+
+  /* Open rc handle */
+  rc = xfce_rc_simple_open (filename, FALSE);
+
+  if (G_LIKELY (rc != NULL))
+    {
+      xfce_rc_write_entry (rc, "card", mixer_plugin->card_name);
+      xfce_rc_write_entry (rc, "track", mixer_plugin->track_name);
+
+      xfce_rc_close (rc);
+    }
+
+  g_free (filename);
+}
+
+
+
+static void
+xfce_mixer_plugin_update_track (XfceMixerPlugin *mixer_plugin)
+{
+  gint   *volumes;
+  gdouble volume;
+
+  g_return_if_fail (mixer_plugin != NULL);
+
+  if (mixer_plugin->card_name == NULL || mixer_plugin->track_name == NULL)
+    return;
+
+  if (IS_XFCE_MIXER_CARD (mixer_plugin->card))
+    g_object_unref (G_OBJECT (mixer_plugin->card));
+
+  if (GST_IS_MIXER_TRACK (mixer_plugin->track))
+    g_object_unref (G_OBJECT (mixer_plugin->track));
+
+  mixer_plugin->card = XFCE_MIXER_CARD (xfce_mixer_utilities_get_card_by_name (mixer_plugin->card_name));
+  mixer_plugin->track = xfce_mixer_card_get_track_by_name (mixer_plugin->card, mixer_plugin->track_name);
+
+  volumes = g_new (gint, mixer_plugin->track->num_channels);
+  xfce_mixer_card_get_track_volume (mixer_plugin->card, mixer_plugin->track, volumes);
+  volume = ((gdouble) volumes[0]) / mixer_plugin->track->max_volume;
+
+  g_message ("volume (int) = %i, volume (double) = %f", volumes[0], volume);
+
+  xfce_volume_button_set_volume (XFCE_VOLUME_BUTTON (mixer_plugin->button), volume);
+
+  g_free (volumes);
+}
+
+
+
+static void
+xfce_mixer_plugin_replace_values (XfceMixerPlugin *mixer_plugin, 
+                                  const gchar     *card_name,
+                                  const gchar     *track_name)
+{
+  g_return_if_fail (mixer_plugin != NULL);
+  g_return_if_fail (card_name != NULL);
+  g_return_if_fail (track_name != NULL);
+
+  g_free (mixer_plugin->card_name);
+  g_free (mixer_plugin->track_name);
+
+  mixer_plugin->card_name = g_strdup (card_name);
+  mixer_plugin->track_name = g_strdup (track_name);
 }

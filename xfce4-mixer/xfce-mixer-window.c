@@ -33,13 +33,11 @@
 #include "xfce-mixer-window.h"
 #include "xfce-mixer.h"
 #include "xfce-mixer-controls-dialog.h"
+
 #include "libxfce4mixer/xfce-mixer-card.h"
+#include "libxfce4mixer/xfce-mixer-card-combo.h"
 #include "libxfce4mixer/xfce-mixer-preferences.h"
-
-
-
-#define NAME_COLUMN 0
-#define CARD_COLUMN 1
+#include "libxfce4mixer/xfce-mixer-utilities.h"
 
 
 
@@ -48,17 +46,17 @@ static void     xfce_mixer_window_init                   (XfceMixerWindow      *
 static void     xfce_mixer_window_dispose                (GObject              *object);
 static void     xfce_mixer_window_finalize               (GObject              *object);
 static void     xfce_mixer_window_load_soundcards        (XfceMixerWindow      *window);
-static void     xfce_mixer_window_soundcard_changed      (GtkComboBox          *widget,
+static void     xfce_mixer_window_soundcard_changed      (XfceMixerCardCombo   *combo,
+                                                          XfceMixerCard        *card,
                                                           XfceMixerWindow      *window);
 static void     xfce_mixer_window_action_select_controls (GtkAction            *action,
                                                           XfceMixerWindow      *window);
-static gboolean xfce_mixer_window_filter_mixer           (GstMixer             *mixer,
-                                                          gpointer              user_data);
 static void     xfce_mixer_window_close                  (GtkAction            *action,
                                                           XfceMixerWindow      *window);
 static gboolean xfce_mixer_window_closed                 (GtkWidget            *window,
                                                           GdkEvent             *event,
                                                           XfceMixerWindow      *mixer_window);
+static void     xfce_mixer_window_update_contents        (XfceMixerWindow      *window);
 
 
 
@@ -75,7 +73,6 @@ struct _XfceMixerWindow
 
   GtkActionGroup       *action_group;
 
-  GtkListStore         *soundcard_model;
   GtkWidget            *soundcard_combo;
 
   /* List of available sound cards */
@@ -166,6 +163,7 @@ xfce_mixer_window_init (XfceMixerWindow *window)
   GtkCellRenderer *renderer;
   GtkAction       *action;
   GtkListStore    *model;
+  gchar           *active_card;
   gchar           *title;
   gint             width;
   gint             height;
@@ -219,16 +217,12 @@ xfce_mixer_window_init (XfceMixerWindow *window)
   gtk_box_pack_start (GTK_BOX (hbox), label, FALSE, FALSE, 0);
   gtk_widget_show (label);
 
-  window->soundcard_model = gtk_list_store_new (2, G_TYPE_STRING, TYPE_XFCE_MIXER_CARD);
+  g_object_get (G_OBJECT (window->preferences), "sound-card", &active_card, NULL);
 
-  window->soundcard_combo = gtk_combo_box_new_with_model (GTK_TREE_MODEL (window->soundcard_model));
-  g_signal_connect (G_OBJECT (window->soundcard_combo), "changed", G_CALLBACK (xfce_mixer_window_soundcard_changed), window);
+  window->soundcard_combo = xfce_mixer_card_combo_new (active_card);
+  g_signal_connect (window->soundcard_combo, "soundcard-changed", G_CALLBACK (xfce_mixer_window_soundcard_changed), window);
   gtk_container_add (GTK_CONTAINER (hbox), window->soundcard_combo);
   gtk_widget_show (window->soundcard_combo);
-
-  renderer = gtk_cell_renderer_text_new ();
-  gtk_cell_layout_pack_start (GTK_CELL_LAYOUT (window->soundcard_combo), renderer, TRUE);
-  gtk_cell_layout_add_attribute (GTK_CELL_LAYOUT (window->soundcard_combo), renderer, "text", 0);
 
   window->mixer_frame = gtk_frame_new (NULL);
   gtk_frame_set_shadow_type (GTK_FRAME (window->mixer_frame), GTK_SHADOW_NONE);
@@ -257,8 +251,7 @@ xfce_mixer_window_init (XfceMixerWindow *window)
   gtk_box_pack_start (GTK_BOX (bbox), button, FALSE, TRUE, 0);
   gtk_widget_show (button);
 
-  /* Load available sound cards */
-  xfce_mixer_window_load_soundcards (window);
+  xfce_mixer_window_update_contents (window);
 }
 
 
@@ -295,106 +288,35 @@ xfce_mixer_window_new (void)
 
 
 static void
-xfce_mixer_window_load_soundcards (XfceMixerWindow *window)
+xfce_mixer_window_soundcard_changed (XfceMixerCardCombo *combo,
+                                     XfceMixerCard      *card,
+                                     XfceMixerWindow    *window)
 {
-  XfceMixerCard *card;
-  GtkTreeIter    iter;
-  GList         *mixers = NULL;
-  GList         *miter;
-  guint          counter = 0;
-  gchar         *active_card;
-  guint          active_index = 0;
+  gchar *title;
 
-  /* Prepare sound card list */
-  window->cards = NULL;
+  g_return_if_fail (IS_XFCE_MIXER_CARD_COMBO (combo));
+  g_return_if_fail (IS_XFCE_MIXER_CARD (card));
+  g_return_if_fail (IS_XFCE_MIXER_WINDOW (window));
 
-  /* Get list of all available sound cards */
-  mixers = gst_audio_default_registry_mixer_filter (xfce_mixer_window_filter_mixer, FALSE, &counter);
+  title = g_strdup_printf ("%s - %s", _("Xfce Mixer"), xfce_mixer_card_get_display_name (card));
+  gtk_window_set_title (GTK_WINDOW (window), title);
+  g_free (title);
 
-  if (G_UNLIKELY (g_list_length (mixers) == 0))
-    xfce_err (_("No sound cards could be found. You may have to install additional gstreamer packages for ALSA or OSS support."));
+  /* Destroy the current mixer */
+  if (G_LIKELY (window->mixer != NULL))
+    gtk_widget_destroy (gtk_bin_get_child (GTK_BIN (window->mixer_frame)));
 
-  /* Get sound card used last time */
-  g_object_get (G_OBJECT (window->preferences), "sound-card", &active_card, NULL);
+  xfce_mixer_card_set_ready (card);
 
-  for (miter = g_list_first (mixers), counter = 0; miter != NULL; miter = g_list_next (miter), ++counter)
-    {
-      /* Create new sound card object */
-      card = xfce_mixer_card_new (miter->data);
+  /* Create a new XfceMixer for the active sound card */
+  window->mixer = xfce_mixer_new (card);
 
-      /* Add sound card to the list */
-      window->cards = g_list_append (window->cards, card);
+  /* Add the XfceMixer to the window */
+  gtk_container_add (GTK_CONTAINER (window->mixer_frame), window->mixer);
+  gtk_widget_show (window->mixer);
 
-      g_debug ("Adding sound card: %s", xfce_mixer_card_get_display_name (card));
-
-      /* Insert sound card into the main combo box */
-      gtk_list_store_append (window->soundcard_model, &iter);
-      gtk_list_store_set (window->soundcard_model, &iter, 
-                          NAME_COLUMN, xfce_mixer_card_get_display_name (card), 
-                          CARD_COLUMN, card, -1);
-
-      /* Check if the sound card was the last active one */
-      if (G_UNLIKELY (active_card != NULL && g_utf8_collate (xfce_mixer_card_get_display_name (card), active_card) == 0))
-        active_index = counter;
-    }
-
-  if (G_LIKELY (active_card != NULL))
-    g_free (active_card);
-
-  g_list_free (mixers);
-
-  /* Select the sound card which was selected the last time */
-  gtk_combo_box_set_active (GTK_COMBO_BOX (window->soundcard_combo), active_index);
-}
-
-
-
-static void
-xfce_mixer_window_soundcard_changed (GtkComboBox     *widget,
-                                     XfceMixerWindow *window)
-{
-  XfceMixerCard *card;
-  GtkTreeIter    iter;
-  const gchar   *name;
-  gchar         *title;
-
-  /* Determine selected sound card */
-  if (G_LIKELY (gtk_combo_box_get_active_iter (GTK_COMBO_BOX (widget), &iter)))
-    {
-      /* Get the active sound card */
-      gtk_tree_model_get (GTK_TREE_MODEL (window->soundcard_model), &iter, CARD_COLUMN, &card, -1);
-
-      /* Update window title */
-      if (G_LIKELY (card != NULL))
-        {
-          title = g_strdup_printf ("%s - %s", _("Xfce Mixer"), xfce_mixer_card_get_display_name (card));
-          gtk_window_set_title (GTK_WINDOW (window), title);
-          g_free (title);
-        }
-      else
-        gtk_window_set_title (GTK_WINDOW (window), _("Xfce Mixer"));
-
-      /* Destroy current mixer controls */
-      if (G_LIKELY (window->mixer != NULL))
-        gtk_widget_destroy (gtk_bin_get_child (GTK_BIN (window->mixer_frame)));
-
-      xfce_mixer_card_set_ready (card);
-
-      /* Create a new XfceMixer for the active sound card */
-      window->mixer = xfce_mixer_new (card);
-
-      /* Add the XfceMixer to the window */
-      gtk_container_add (GTK_CONTAINER (window->mixer_frame), window->mixer);
-      gtk_widget_show (window->mixer);
-
-      /* Make the "Select Controls..." button sensitive */
-      gtk_widget_set_sensitive (window->select_controls_button, TRUE);
-    }
-  else
-    {
-      /* Make the "Select Controls..." button insensitive */
-      gtk_widget_set_sensitive (window->select_controls_button, FALSE);
-    }
+  /* Make the "Select Controls..." button sensitive */
+  gtk_widget_set_sensitive (window->select_controls_button, TRUE);
 }
 
 
@@ -403,56 +325,14 @@ static void
 xfce_mixer_window_action_select_controls (GtkAction       *action,
                                           XfceMixerWindow *window)
 {
-  GtkWidget *dialog;
+  GtkWidget     *dialog;
 
   dialog = xfce_mixer_controls_dialog_new (window);
 
   gtk_dialog_run (GTK_DIALOG (dialog));
   gtk_widget_destroy (dialog);
 
-  /* Again, kind of a hack, this time to regenerate the mixer controls */
-  xfce_mixer_window_soundcard_changed (GTK_COMBO_BOX (window->soundcard_combo), window);
-}
-
-
-
-static gboolean
-xfce_mixer_window_filter_mixer (GstMixer *mixer,
-                                gpointer user_data)
-{
-  GstElementFactory *factory;
-  const gchar       *long_name;
-  gchar             *device_name = NULL;
-  gchar             *name;
-  gchar             *title;
-  guint             *counter = (guint *) user_data;
-
-  /* Get long name of the mixer element */
-  factory = gst_element_get_factory (GST_ELEMENT (mixer));
-  long_name = gst_element_factory_get_longname (factory);
-
-  /* Get device name of the mixer element */
-  g_object_get (G_OBJECT (mixer), "device-name", &device_name, NULL);
-
-  /* Build full name for this element */
-  if (G_LIKELY (device_name != NULL))
-    {
-      name = g_strdup_printf ("%s (%s)", device_name, long_name);
-      g_free (device_name);
-    }
-  else
-    {
-      title = g_strdup_printf (_("Unknown Volume Control %d"), (*counter)++);
-      name = g_strdup_printf ("%s (%s)", title, long_name);
-      g_free (title);
-    }
-
-  /* Set name to be used in xfce4-mixer */
-  g_object_set_data_full (G_OBJECT (mixer), "xfce-mixer-control-name", name, (GDestroyNotify) g_free);
-
-  gst_element_set_state (GST_ELEMENT (mixer), GST_STATE_NULL);
-
-  return TRUE;
+  xfce_mixer_window_update_contents (window);
 }
 
 
@@ -496,11 +376,20 @@ xfce_mixer_window_closed (GtkWidget       *window,
 XfceMixerCard*
 xfce_mixer_window_get_active_card (XfceMixerWindow *window)
 {
-  XfceMixerCard *card = NULL;
-  GtkTreeIter    iter;
+  return xfce_mixer_card_combo_get_active_card (XFCE_MIXER_CARD_COMBO (window->soundcard_combo));
+}
 
-  if (G_LIKELY (gtk_combo_box_get_active_iter (GTK_COMBO_BOX (window->soundcard_combo), &iter)))
-    gtk_tree_model_get (GTK_TREE_MODEL (window->soundcard_model), &iter, CARD_COLUMN, &card, -1);
 
-  return card;
+
+static void
+xfce_mixer_window_update_contents (XfceMixerWindow *window)
+{
+  XfceMixerCard *card;
+
+  g_return_if_fail (IS_XFCE_MIXER_WINDOW (window));
+
+  card = xfce_mixer_card_combo_get_active_card (XFCE_MIXER_CARD_COMBO (window->soundcard_combo));
+
+  /* Again, kind of a hack, this time to regenerate the mixer controls */
+  xfce_mixer_window_soundcard_changed (XFCE_MIXER_CARD_COMBO (window->soundcard_combo), card, window);
 }

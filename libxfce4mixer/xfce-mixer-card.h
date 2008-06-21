@@ -45,10 +45,15 @@ const gchar   *xfce_mixer_card_get_name             (XfceMixerCard *card);
 void           xfce_mixer_card_set_ready            (XfceMixerCard *card);
 GList         *xfce_mixer_card_get_visible_controls (XfceMixerCard *card);
 const GList   *xfce_mixer_card_get_tracks           (XfceMixerCard *card);
+GstMixerTrack *xfce_mixer_card_get_track_by_name    (XfceMixerCard *card,
+                                                     const gchar   *track_name);
 void           xfce_mixer_card_set_control_visible  (XfceMixerCard *card,
                                                      const gchar   *control,
                                                      gboolean       visible);
 void           xfce_mixer_card_get_track_volume     (XfceMixerCard *card,
+                                                     GstMixerTrack *track,
+                                                     gint          *volumes);
+void          xfce_mixer_card_set_track_volume      (XfceMixerCard *card,
                                                      GstMixerTrack *track,
                                                      gint          *volumes);
 void           xfce_mixer_card_set_track_muted      (XfceMixerCard *card,

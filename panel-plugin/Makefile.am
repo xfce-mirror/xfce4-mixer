@@ -8,6 +8,8 @@ plugin_PROGRAMS =							\
 	xfce4-mixer-plugin
 
 xfce4_mixer_plugin_SOURCES =						\
+	xfce-plugin-dialog.h						\
+	xfce-plugin-dialog.c						\
 	xfce-volume-button.h						\
 	xfce-volume-button.c						\
 	xfce-mixer-plugin.c

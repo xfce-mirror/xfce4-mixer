@@ -6,12 +6,18 @@ noinst_LTLIBRARIES = 							\
 	libxfce4mixer.la
 
 libxfce4mixer_la_SOURCES =						\
+	xfce-mixer-card-combo.h						\
+	xfce-mixer-card-combo.c						\
+	xfce-mixer-track-combo.h					\
+	xfce-mixer-track-combo.c					\
 	xfce-mixer-card.h						\
 	xfce-mixer-card.c						\
 	xfce-mixer-stock.h						\
 	xfce-mixer-stock.c						\
 	xfce-mixer-track-type.h						\
 	xfce-mixer-track-type.c						\
+	xfce-mixer-utilities.h						\
+	xfce-mixer-utilities.c						\
 	xfce-mixer-preferences.h					\
 	xfce-mixer-preferences.c
 
@@ -29,7 +35,7 @@ libxfce4mixer_la_LDFLAGS =						\
 	-no-undefined
 
 libxfce4mixer_la_LIBADD =						\
-	$(PLATFORM_LDFLAGS)
+	$(PLATFORM_LDFLAGS)						\
 	$(GLIB_LIBS)							\
 	$(GTK_FLAGS)							\
 	$(LIBXFCE4UTIL_LIBS)						\

@@ -1,3 +1,28 @@
+2008-06-21	Jannis Pohlmann <jannis@xfce.org>
+
+	* libxfce4mixer/Makefile.am, 
+	  libxfce4mixer/xfce-mixer-card-combo.{c,h},
+	  libxfce4mixer/xfce-mixer-track-combo.{c,h}, 
+	  libxfce4mixer/xfce-mixer-utilities.{c,h}:
+	  Add subclasses of GtkComboBox for unified selection of 
+	  sound cards and mixer tracks. Add convenience functions for
+	  getting a list of available sound cards and getting sound
+	  cards by name. 
+	* panel-plugin/Makefile.am,
+	  panel-plugin/xfce-mixer-plugin.{c,h},
+	  panel-plugin/xfce-plugin-dialog.{c,h},
+	  panel-plugin/xfce-volume-button.{c,h}:
+	  Implement the properties dialog of the plugin. By now it 
+	  makes it possible to select which sound card and mixer track
+	  to use. Also connect the plugin to GStreamer, so it actually 
+	  does something. Add support for reading/writing the plugin 
+	  configuration to the rc file. The volume button itself has
+	  some focus grabbing problems: sometimes other windows don't
+	  receive the focus even when the pointer leaves the button.
+	* xfce4-mixer/xfce-mixer-window.c: Move the _load_soundcards 
+	  method to the libxfce4mixer. Make use of the new 
+	  XfceMixerCardCombo in XfceMixerWindow.
+
 2008-06-19	Jannis Pohlmann <jannis@xfce.org>
 
 	* panel-plugin/xfce-mixer-plugin.c: Try to start "xfce4-mixer" 

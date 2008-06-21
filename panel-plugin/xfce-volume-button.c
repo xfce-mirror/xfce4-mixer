@@ -247,11 +247,13 @@ xfce_volume_button_enter (GtkWidget        *widget,
 
   if (!GTK_WIDGET_HAS_FOCUS (widget))
     {
+#if 1
       gtk_widget_grab_focus (widget);
       gtk_grab_add (widget);
       gdk_pointer_grab (widget->window, TRUE, GDK_BUTTON_PRESS_MASK|GDK_BUTTON_RELEASE_MASK|GDK_POINTER_MOTION_MASK|GDK_SCROLL_MASK, NULL, NULL, GDK_CURRENT_TIME);
       gdk_keyboard_grab (widget->window, TRUE, GDK_CURRENT_TIME);
       gtk_widget_set_state (widget, GTK_STATE_SELECTED);
+#endif
     }
 }
 
@@ -265,10 +267,12 @@ xfce_volume_button_leave (GtkWidget        *widget,
 
   if (GTK_WIDGET_HAS_FOCUS (widget))
     {
+#if 1
       gtk_widget_set_state (widget, GTK_STATE_NORMAL);
       gdk_keyboard_ungrab (GDK_CURRENT_TIME);
       gdk_pointer_ungrab (GDK_CURRENT_TIME);
       gtk_grab_remove (widget);
+#endif
     }
 }
 
@@ -360,4 +364,15 @@ static void
 xfce_volume_button_volume_changed (XfceVolumeButton *button,
                                    gdouble           volume)
 {
+}
+
+
+
+void 
+xfce_volume_button_set_volume (XfceVolumeButton *button,
+                               gdouble           volume)
+{
+  g_return_if_fail (IS_XFCE_VOLUME_BUTTON (button));
+  gtk_adjustment_set_value (GTK_ADJUSTMENT (button->adjustment), volume);
+  xfce_volume_button_update (button);
 }
