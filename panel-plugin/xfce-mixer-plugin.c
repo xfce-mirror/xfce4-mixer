@@ -188,6 +188,8 @@ xfce_mixer_plugin_size_changed (XfceMixerPlugin *mixer_plugin,
 
   size -= 2 + 2 * MAX (mixer_plugin->button->style->xthickness, mixer_plugin->button->style->ythickness);
 
+  g_message ("icon size = %i", size);
+
   xfce_volume_button_set_icon_size (XFCE_VOLUME_BUTTON (mixer_plugin->button), size);
   xfce_volume_button_update (XFCE_VOLUME_BUTTON (mixer_plugin->button));
 
@@ -253,21 +255,21 @@ xfce_mixer_plugin_clicked (XfceMixerPlugin *mixer_plugin)
 static void
 xfce_mixer_plugin_configure (XfceMixerPlugin *mixer_plugin)
 {
-  XfceMixerCard *card;
-  GstMixerTrack *track;
+  XfceMixerCard *card = NULL;
+  GstMixerTrack *track = NULL;
   GtkWidget     *dialog;
 
   g_return_if_fail (mixer_plugin != NULL);
 
   xfce_panel_plugin_block_menu (mixer_plugin->plugin);
 
+  g_message ("mixer_plugin->card_name = %s, mixer_plugin->track_name = %s", mixer_plugin->card_name, mixer_plugin->track_name);
+
   dialog = xfce_plugin_dialog_new (mixer_plugin->card_name, mixer_plugin->track_name);
 
   gtk_dialog_run (GTK_DIALOG (dialog));
 
   xfce_plugin_dialog_get_data (XFCE_PLUGIN_DIALOG (dialog), &card, &track);
-
-  gtk_widget_destroy (dialog);
 
   if (G_LIKELY (IS_XFCE_MIXER_CARD (card) && GST_IS_MIXER_TRACK (track)))
     {
@@ -279,6 +281,8 @@ xfce_mixer_plugin_configure (XfceMixerPlugin *mixer_plugin)
 
       xfce_mixer_plugin_update_track (mixer_plugin);
     }
+
+  gtk_widget_destroy (dialog);
 
   xfce_panel_plugin_unblock_menu (mixer_plugin->plugin);
 }

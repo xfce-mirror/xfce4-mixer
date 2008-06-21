@@ -209,6 +209,8 @@ xfce_mixer_track_combo_set_soundcard (XfceMixerTrackCombo *combo,
 
   g_return_if_fail (IS_XFCE_MIXER_TRACK_COMBO (combo));
 
+  g_message ("set_soundcard: combo->track_name = %s", combo->track_name);
+
   if (G_LIKELY (combo->card != NULL))
     g_object_unref (G_OBJECT (combo->card));
 
@@ -238,10 +240,17 @@ xfce_mixer_track_combo_set_soundcard (XfceMixerTrackCombo *combo,
                               NAME_COLUMN, GST_MIXER_TRACK (titer->data)->label, 
                               TRACK_COLUMN, GST_MIXER_TRACK (titer->data), -1);
 
+          g_message ("compare %s to %s", combo->track_name, GST_MIXER_TRACK (titer->data)->label);
+
           if (G_UNLIKELY (combo->track_name != NULL && g_utf8_collate (GST_MIXER_TRACK (titer->data)->label, combo->track_name) == 0))
-            active_index = counter;
+            {
+              g_message ("equal => active_index = %i", counter);
+              active_index = counter;
+            }
         }
     }
+
+  g_message ("active_index = %i", active_index);
 
   gtk_combo_box_set_active (GTK_COMBO_BOX (combo), active_index);
 }
