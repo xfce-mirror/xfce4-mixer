@@ -1,5 +1,12 @@
 2008-06-21	Jannis Pohlmann <jannis@xfce.org>
 
+	* libxfce4mixer/xfce-mixer-track-combo.c: Fix a wrong 
+	  if-statement in xfce_mixer_track_combo_set_track(). Now the
+	  current mixer track should be preselected correctly when
+	  opening the properties dialog of the plugin.
+
+2008-06-21	Jannis Pohlmann <jannis@xfce.org>
+
 	* panel-plugin/xfce-volume-button.c: Fix the button press
 	  callback: Return TRUE when the middle button was pressed, 
 	  return FALSE otherwise.

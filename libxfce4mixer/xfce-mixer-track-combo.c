@@ -188,7 +188,7 @@ xfce_mixer_track_combo_new (XfceMixerCard *card,
 
   combo = XFCE_MIXER_TRACK_COMBO (g_object_new (TYPE_XFCE_MIXER_TRACK_COMBO, NULL));
 
-  xfce_mixer_track_combo_set_track (combo,track_name);
+  xfce_mixer_track_combo_set_track (combo, track_name);
   xfce_mixer_track_combo_set_soundcard (combo, card);
 
   return GTK_WIDGET (combo);
@@ -256,7 +256,7 @@ xfce_mixer_track_combo_set_track (XfceMixerTrackCombo *combo,
 
   g_free (combo->track_name);
 
-  if (G_UNLIKELY (track_name == NULL))
+  if (G_UNLIKELY (track_name != NULL))
     {
       combo->track_name = g_strdup (track_name);
       
