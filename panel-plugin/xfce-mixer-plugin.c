@@ -188,8 +188,6 @@ xfce_mixer_plugin_size_changed (XfceMixerPlugin *mixer_plugin,
 
   size -= 2 + 2 * MAX (mixer_plugin->button->style->xthickness, mixer_plugin->button->style->ythickness);
 
-  g_message ("icon size = %i", size);
-
   xfce_volume_button_set_icon_size (XFCE_VOLUME_BUTTON (mixer_plugin->button), size);
   xfce_volume_button_update (XFCE_VOLUME_BUTTON (mixer_plugin->button));
 
@@ -263,8 +261,6 @@ xfce_mixer_plugin_configure (XfceMixerPlugin *mixer_plugin)
 
   xfce_panel_plugin_block_menu (mixer_plugin->plugin);
 
-  g_message ("mixer_plugin->card_name = %s, mixer_plugin->track_name = %s", mixer_plugin->card_name, mixer_plugin->track_name);
-
   dialog = xfce_plugin_dialog_new (mixer_plugin->card_name, mixer_plugin->track_name);
 
   gtk_dialog_run (GTK_DIALOG (dialog));
@@ -273,8 +269,6 @@ xfce_mixer_plugin_configure (XfceMixerPlugin *mixer_plugin)
 
   if (G_LIKELY (IS_XFCE_MIXER_CARD (card) && GST_IS_MIXER_TRACK (track)))
     {
-      g_message ("Changed to card %s and track %s", xfce_mixer_card_get_display_name (card), GST_MIXER_TRACK (track)->label);
-  
       xfce_mixer_plugin_replace_values (mixer_plugin, xfce_mixer_card_get_display_name (card), GST_MIXER_TRACK (track)->label);
 
       xfce_mixer_plugin_write_config (mixer_plugin);
@@ -393,8 +387,6 @@ xfce_mixer_plugin_update_track (XfceMixerPlugin *mixer_plugin)
   volumes = g_new (gint, mixer_plugin->track->num_channels);
   xfce_mixer_card_get_track_volume (mixer_plugin->card, mixer_plugin->track, volumes);
   volume = ((gdouble) volumes[0]) / mixer_plugin->track->max_volume;
-
-  g_message ("volume (int) = %i, volume (double) = %f", volumes[0], volume);
 
   xfce_volume_button_set_volume (XFCE_VOLUME_BUTTON (mixer_plugin->button), volume);
 

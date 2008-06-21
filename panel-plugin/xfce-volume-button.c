@@ -60,9 +60,11 @@ static void       xfce_volume_button_class_init     (XfceVolumeButtonClass *klas
 static void       xfce_volume_button_init           (XfceVolumeButton      *button);
 static void       xfce_volume_button_dispose        (GObject               *object);
 static void       xfce_volume_button_finalize       (GObject               *object);
-static void       xfce_volume_button_key_pressed    (GtkWidget             *widget,
+#if 0
+static gboolean   xfce_volume_button_key_pressed    (GtkWidget             *widget,
                                                      GdkEventKey           *event,
                                                      XfceVolumeButton      *button);
+#endif
 static gboolean   xfce_volume_button_button_pressed (GtkWidget             *widget,
                                                      GdkEventButton        *event,
                                                      XfceVolumeButton      *button);
@@ -192,11 +194,14 @@ xfce_volume_button_init (XfceVolumeButton *button)
   gtk_widget_show (button->image);
 
   gtk_button_set_relief (GTK_BUTTON (button), GTK_RELIEF_NONE);
+  gtk_button_set_focus_on_click (GTK_BUTTON (button), FALSE);
+  GTK_WIDGET_UNSET_FLAGS (GTK_WIDGET (button), GTK_CAN_DEFAULT|GTK_CAN_FOCUS);
 
+#if 0
+  /* UNSED FOR NOW DUE TO TOO MUCH PROBLEMS WITH KEYBOARD FOCUS GRABBING */
   g_signal_connect (G_OBJECT (button), "key-press-event", G_CALLBACK (xfce_volume_button_key_pressed), button);
+#endif
   g_signal_connect (G_OBJECT (button), "button-press-event", G_CALLBACK (xfce_volume_button_button_pressed), button);
-  g_signal_connect (G_OBJECT (button), "enter-notify-event", G_CALLBACK (xfce_volume_button_enter), NULL);
-  g_signal_connect (G_OBJECT (button), "leave-notify-event", G_CALLBACK (xfce_volume_button_leave), NULL);
   g_signal_connect (G_OBJECT (button), "scroll-event", G_CALLBACK (xfce_volume_button_scrolled), button);
 
   xfce_volume_button_update (button);
@@ -230,16 +235,18 @@ xfce_volume_button_new (void)
 
 
 
-static void 
+#if 0
+static gboolean 
 xfce_volume_button_key_pressed (GtkWidget        *widget,
                                 GdkEventKey      *event,
                                 XfceVolumeButton *button)
 {
-  gdouble value;
-  gdouble step_increment;
-  gdouble page_size;
-  gdouble min_value;
-  gdouble max_value;
+  gboolean handled = FALSE;
+  gdouble  value;
+  gdouble  step_increment;
+  gdouble  page_size;
+  gdouble  min_value;
+  gdouble  max_value;
 
   g_return_if_fail (IS_XFCE_VOLUME_BUTTON (button));
 
@@ -254,28 +261,37 @@ xfce_volume_button_key_pressed (GtkWidget        *widget,
     {
       case GDK_plus:
         gtk_adjustment_set_value (GTK_ADJUSTMENT (button->adjustment), value + step_increment);
+        handled = TRUE;
         break;
       case GDK_minus:
         gtk_adjustment_set_value (GTK_ADJUSTMENT (button->adjustment), value - step_increment);
+        handled = TRUE;
         break;
       case GDK_Page_Up:
         gtk_adjustment_set_value (GTK_ADJUSTMENT (button->adjustment), value + page_size);
+        handled = TRUE;
         break;
       case GDK_Page_Down:
         gtk_adjustment_set_value (GTK_ADJUSTMENT (button->adjustment), value - page_size);
+        handled = TRUE;
         break;
       case GDK_Home:
         gtk_adjustment_set_value (GTK_ADJUSTMENT (button->adjustment), max_value);
+        handled = TRUE;
         break;
       case GDK_End:
         gtk_adjustment_set_value (GTK_ADJUSTMENT (button->adjustment), min_value);
+        handled = TRUE;
         break;
     }
 
   xfce_volume_button_update (button);
 
   g_signal_emit_by_name (button, "volume-changed", gtk_adjustment_get_value (GTK_ADJUSTMENT (button->adjustment)));
+
+  return handled;
 }
+#endif
 
 
 
@@ -299,41 +315,6 @@ xfce_volume_button_button_pressed (GtkWidget        *widget,
     }
 
   return FALSE;
-}
-
-
-
-static void 
-xfce_volume_button_enter (GtkWidget        *widget,
-                          GdkEventCrossing *event)
-{
-  g_return_if_fail (GTK_IS_WIDGET (widget));
-
-  if (!GTK_WIDGET_HAS_FOCUS (widget))
-    {
-      gtk_widget_grab_focus (widget);
-      gtk_grab_add (widget);
-      gdk_pointer_grab (widget->window, TRUE, GDK_BUTTON_PRESS_MASK|GDK_BUTTON_RELEASE_MASK|GDK_POINTER_MOTION_MASK|GDK_SCROLL_MASK, NULL, NULL, GDK_CURRENT_TIME);
-      gdk_keyboard_grab (widget->window, TRUE, GDK_CURRENT_TIME);
-      gtk_widget_set_state (widget, GTK_STATE_SELECTED);
-    }
-}
-
-
-
-static void 
-xfce_volume_button_leave (GtkWidget        *widget,
-                          GdkEventCrossing *event)
-{
-  g_return_if_fail (GTK_IS_WIDGET (widget));
-
-  if (GTK_WIDGET_HAS_FOCUS (widget))
-    {
-      gtk_widget_set_state (widget, GTK_STATE_NORMAL);
-      gdk_keyboard_ungrab (GDK_CURRENT_TIME);
-      gdk_pointer_ungrab (GDK_CURRENT_TIME);
-      gtk_grab_remove (widget);
-    }
 }
 
 
