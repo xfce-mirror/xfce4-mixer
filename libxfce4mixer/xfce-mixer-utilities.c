@@ -24,6 +24,7 @@
 #endif
 
 #include <glib.h>
+#include <glib/gi18n.h>
 
 #include <gst/gst.h>
 #include <gst/audio/mixerutils.h>
@@ -85,7 +86,7 @@ xfce_mixer_utilities_filter_mixer (GstMixer *mixer,
     }
   else
     {
-      title = g_strdup_printf (gettext ("Unknown Volume Control %d"), (*counter)++);
+      title = g_strdup_printf (_("Unknown Volume Control %d"), (*counter)++);
       name = g_strdup_printf ("%s (%s)", title, long_name);
       g_free (title);
     }

@@ -22,10 +22,13 @@
 #include <config.h>
 #endif
 
+#include <glib.h>
+
 #include <gtk/gtk.h>
 
 #include "xfce-mixer-track-type.h"
 #include "xfce-mixer-track-combo.h"
+#include "xfce-mixer-utilities.h"
 
 
 

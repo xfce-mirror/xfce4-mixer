@@ -22,7 +22,10 @@ libxfce4mixer_la_SOURCES =						\
 	xfce-mixer-preferences.c
 
 libxfce4mixer_la_CFLAGS = 						\
+	-I$(top_builddir)						\
 	-I$(top_srcdir)							\
+	-DDATADIR=\"$(datadir)\"					\
+	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"				\
 	-DG_LOG_DOMAIN=\"libxfce4mixer\"				\
 	$(PLATFORM_CFLAGS)						\
 	$(GLIB_CFLAGS)							\
@@ -40,4 +43,6 @@ libxfce4mixer_la_LIBADD =						\
 	$(GTK_FLAGS)							\
 	$(LIBXFCE4UTIL_LIBS)						\
 	$(LIBXFCEGUI4_LIBS)						\
-	$(GST_PLUGINS_BASE_LIBS)
+	$(GST_PLUGINS_BASE_LIBS)					\
+	-lgstaudio-0.10							\
+	-lgstinterfaces-0.10

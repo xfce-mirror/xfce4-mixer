@@ -24,6 +24,8 @@
 
 #include <gtk/gtk.h>
 
+#include <gst/gst.h>
+
 #include <libxfcegui4/libxfcegui4.h>
 
 #include "libxfce4mixer/xfce-mixer-card.h"

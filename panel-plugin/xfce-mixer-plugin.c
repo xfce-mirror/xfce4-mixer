@@ -33,6 +33,7 @@
 
 #include "libxfce4mixer/xfce-mixer-stock.h"
 #include "libxfce4mixer/xfce-mixer-card.h"
+#include "libxfce4mixer/xfce-mixer-utilities.h"
 
 #include "xfce-volume-button.h"
 #include "xfce-plugin-dialog.h"

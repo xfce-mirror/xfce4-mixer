@@ -1,5 +1,14 @@
 2008-06-23	Jannis Pohlmann <jannis@xfce.org>
 
+	* libxfce4mixer/xfce-mixer-track-combo.c,
+	  libxfce4mixer/xfce-mixer-card-combo.c,
+	  libxfce4mixer/xfce-mixer-utilities.c,
+	  panel-plugin/xfce-mixer-plugin.c,
+	  panel-plugin/xfce-plugin-dialog.c: Fix compiler warnings due
+	  to missing includes.
+
+2008-06-23	Jannis Pohlmann <jannis@xfce.org>
+
 	* libxfce4mixer/xfce-mixer-card.c,
 	  panel-plugin/xfce-mixer-plugin.c: Fix a compiler warning and
 	  and an error.

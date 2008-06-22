@@ -27,6 +27,7 @@
 #include <gst/gst.h>
 
 #include "xfce-mixer-card.h"
+#include "xfce-mixer-utilities.h"
 #include "xfce-mixer-card-combo.h"
 
 
