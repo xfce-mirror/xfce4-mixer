@@ -1,5 +1,13 @@
 2008-06-22	Jannis Pohlmann <jannis@xfce.org>
 
+	* xfce4-mixer/xfce-mixer.c: Don't free the hash table keys as
+	  they are owned by GStreamer. That introduced a really, really
+	  weird bug ...
+	* xfce4-mixer/xfce-mixer-track.c: Use 5% step size for all 
+	  faders.
+
+2008-06-22	Jannis Pohlmann <jannis@xfce.org>
+
 	* xfce4-mixer/xfce-mixer-track.c: Fix crash when moving the 
 	  fader of a mixer track with only one channel (which was 
 	  caused by accessing the unitialized track->lock_button

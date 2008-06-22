@@ -118,7 +118,7 @@ xfce_mixer_class_init (XfceMixerClass *klass)
 static void
 xfce_mixer_init (XfceMixer *mixer)
 {
-  mixer->widgets = g_hash_table_new_full (g_str_hash, g_str_equal, g_free, NULL);
+  mixer->widgets = g_hash_table_new_full (g_str_hash, g_str_equal, NULL, NULL);
 }
 
 

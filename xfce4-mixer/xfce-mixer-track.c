@@ -192,6 +192,7 @@ xfce_mixer_track_create_contents (XfceMixerTrack *track)
   GtkWidget   *button_box;
   GtkWidget   *fader;
   const GList *iter;
+  gdouble      step;
   gint         channel;
   gint         columns;
   gint        *volumes;
@@ -212,10 +213,12 @@ xfce_mixer_track_create_contents (XfceMixerTrack *track)
   gtk_table_attach (GTK_TABLE (track), label, 0, columns, 0, 1, GTK_FILL, GTK_SHRINK, 0, 0);
   gtk_widget_show (label);
 
+  step = (gdouble) (track->gst_track->max_volume - track->gst_track->min_volume) / (gdouble) 20;
+
   /* Create a fader for each channel */
   for (channel = 0; channel < track->gst_track->num_channels; ++channel)
     {
-      fader = gtk_vscale_new_with_range (track->gst_track->min_volume, track->gst_track->max_volume, 1);
+      fader = gtk_vscale_new_with_range (track->gst_track->min_volume, track->gst_track->max_volume, step);
       gtk_scale_set_draw_value (GTK_SCALE (fader), FALSE);
       gtk_range_set_inverted (GTK_RANGE (fader), TRUE);
       gtk_range_set_value (GTK_RANGE (fader), volumes[channel]);
