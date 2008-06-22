@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.4.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-06-22 03:25+0200\n"
+"POT-Creation-Date: 2008-06-22 14:26+0200\n"
 "PO-Revision-Date: 2008-01-14 20:00+0600\n"
 "Last-Translator: Andrey Fedoseev <andrey.fedoseev@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -19,7 +19,14 @@ msgstr ""
 "Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: ../panel-plugin/xfce-mixer-plugin.c:248
+#. Set tooltip (e.g. 'Master: 50%')
+#: ../panel-plugin/xfce-mixer-plugin.c:221
+#: ../panel-plugin/xfce-mixer-plugin.c:404
+#, c-format
+msgid "%s: %i%%"
+msgstr ""
+
+#: ../panel-plugin/xfce-mixer-plugin.c:259
 msgid "Could not find xfce4-mixer in PATH."
 msgstr ""
 

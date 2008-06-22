@@ -3,7 +3,5 @@
 * Panel plugin: Decide on how to react on tracks with
   different channel volume levels (median, minimum, maximum value?)
 
-* Panel plugin: Add volume percentage tooltip
-
 * Allow changing controls from the console, probably via something like:
   --change-control=SOUNDCARD NAME:TRACK NAME:NEW VALUE

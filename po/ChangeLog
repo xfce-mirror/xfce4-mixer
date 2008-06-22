@@ -1,4 +1,9 @@
-2008-06-22  Mike Massonnet <mmassonnet@xfce.org>
+2008-06-22	Jannis Pohlmann <jannis@xfce.org>
+
+	* de.po: Update German translations.
+	* xfce4-mixer.pot, *.po: Merge strings.
+
+2008-06-22	Mike Massonnet <mmassonnet@xfce.org>
 
 	* id.po, LINGUAS: Add Indonesian translation (Andhika Padmawan)
 

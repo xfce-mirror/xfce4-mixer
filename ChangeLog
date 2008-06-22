@@ -1,5 +1,11 @@
 2008-06-22	Jannis Pohlmann <jannis@xfce.org>
 
+	* panel-plugin/xfce-mixer-plugin.c: Add support for tooltips 
+	  showing the currently used track and volume level in percent 
+	  (e.g. 'Master: 50%').
+
+2008-06-22	Jannis Pohlmann <jannis@xfce.org>
+
 	* panel-plugin/xfce-volume-button.c: Preload icon pixbufs whenever
 	  the icon size is changed.
 

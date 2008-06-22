@@ -51,6 +51,8 @@ struct _XfceMixerPlugin
   gchar           *card_name;
   gchar           *track_name;
 
+  GtkTooltips     *tooltips;
+
   XfceMixerCard   *card;
   GstMixerTrack   *track;
 
@@ -106,6 +108,9 @@ xfce_mixer_plugin_new (XfcePanelPlugin *plugin)
 
   mixer_plugin->card = NULL;
   mixer_plugin->track = NULL;
+
+  mixer_plugin->tooltips = gtk_tooltips_new ();
+  gtk_tooltips_set_delay (mixer_plugin->tooltips, 10);
 
   mixer_plugin->hvbox = GTK_WIDGET (xfce_hvbox_new (GTK_ORIENTATION_HORIZONTAL, FALSE, 0));
   xfce_panel_plugin_add_action_widget (plugin, mixer_plugin->hvbox);
@@ -202,14 +207,20 @@ static void
 xfce_mixer_plugin_volume_changed (XfceMixerPlugin  *mixer_plugin,
                                   gdouble           volume)
 {
-  gint *volumes;
-  gint  volume_range;
-  gint  new_volume;
-  gint  i;
+  gchar *tip_text;
+  gint  *volumes;
+  gint   volume_range;
+  gint   new_volume;
+  gint   i;
 
   g_return_if_fail (mixer_plugin != NULL);
   g_return_if_fail (IS_XFCE_MIXER_CARD (mixer_plugin->card));
   g_return_if_fail (GST_IS_MIXER_TRACK (mixer_plugin->track));
+
+  /* Set tooltip (e.g. 'Master: 50%') */
+  tip_text = g_strdup_printf (_("%s: %i%%"), GST_MIXER_TRACK (mixer_plugin->track)->label, (gint) (volume * 100));
+  gtk_tooltips_set_tip (mixer_plugin->tooltips, mixer_plugin->button, tip_text, "test");
+  g_free (tip_text);
 
   volumes = g_new (gint, mixer_plugin->track->num_channels);
 
@@ -365,6 +376,7 @@ xfce_mixer_plugin_update_track (XfceMixerPlugin *mixer_plugin)
 {
   gint   *volumes;
   gdouble volume;
+  gchar  *tip_text;
 
   g_return_if_fail (mixer_plugin != NULL);
 
@@ -387,6 +399,11 @@ xfce_mixer_plugin_update_track (XfceMixerPlugin *mixer_plugin)
   volumes = g_new (gint, mixer_plugin->track->num_channels);
   xfce_mixer_card_get_track_volume (mixer_plugin->card, mixer_plugin->track, volumes);
   volume = ((gdouble) volumes[0]) / mixer_plugin->track->max_volume;
+
+  /* Set tooltip (e.g. 'Master: 50%') */
+  tip_text = g_strdup_printf (_("%s: %i%%"), GST_MIXER_TRACK (mixer_plugin->track)->label, (gint) (volume * 100));
+  gtk_tooltips_set_tip (mixer_plugin->tooltips, mixer_plugin->button, tip_text, "test");
+  g_free (tip_text);
 
   xfce_volume_button_set_volume (XFCE_VOLUME_BUTTON (mixer_plugin->button), volume);
 
