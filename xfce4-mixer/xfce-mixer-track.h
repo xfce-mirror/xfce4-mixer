@@ -39,10 +39,13 @@ typedef struct _XfceMixerTrack      XfceMixerTrack;
 #define IS_XFCE_MIXER_TRACK_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), TYPE_XFCE_MIXER_TRACK))
 #define XFCE_MIXER_TRACK_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), TYPE_XFCE_MIXER_TRACK, XfceMixerTrackClass))
 
-GType      xfce_mixer_track_get_type (void) G_GNUC_CONST;
+GType      xfce_mixer_track_get_type      (void) G_GNUC_CONST;
 
-GtkWidget *xfce_mixer_track_new      (XfceMixerCard *card,
-                                      GstMixerTrack *gst_track);
+GtkWidget *xfce_mixer_track_new           (XfceMixerCard  *card,
+                                           GstMixerTrack  *gst_track);
+void       xfce_mixer_track_update_mute   (XfceMixerTrack *track);
+void       xfce_mixer_track_update_record (XfceMixerTrack *track);
+void       xfce_mixer_track_update_volume (XfceMixerTrack *track);
 
 G_END_DECLS;
 

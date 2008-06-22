@@ -41,8 +41,9 @@ typedef struct _XfceMixerOption      XfceMixerOption;
 
 GType      xfce_mixer_option_get_type (void) G_GNUC_CONST;
 
-GtkWidget *xfce_mixer_option_new      (XfceMixerCard *card,
-                                       GstMixerTrack *track);
+GtkWidget *xfce_mixer_option_new      (XfceMixerCard   *card,
+                                       GstMixerTrack   *track);
+void       xfce_mixer_option_update   (XfceMixerOption *option);
 
 G_END_DECLS;
 

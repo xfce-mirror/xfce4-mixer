@@ -56,6 +56,10 @@ struct _XfceMixerSwitch
   XfceMixerCard *card;
 
   GstMixerTrack *track;
+
+  GtkWidget     *check_button;
+
+  gboolean       ignore_signals;
 };
 
 
@@ -111,6 +115,7 @@ xfce_mixer_switch_class_init (XfceMixerSwitchClass *klass)
 static void
 xfce_mixer_switch_init (XfceMixerSwitch *mixer_switch)
 {
+  mixer_switch->ignore_signals = FALSE;
 }
 
 
@@ -159,23 +164,16 @@ xfce_mixer_switch_new (XfceMixerCard *card,
 static void
 xfce_mixer_switch_create_contents (XfceMixerSwitch *mixer_switch)
 {
-  GtkWidget *check;
-
   gtk_box_set_homogeneous (GTK_BOX (mixer_switch), FALSE);
   gtk_box_set_spacing (GTK_BOX (mixer_switch), 12);
 
-  check = gtk_check_button_new_with_mnemonic (mixer_switch->track->label);
-  gtk_box_pack_start (GTK_BOX (mixer_switch), check, FALSE, FALSE, 0);
-  gtk_widget_show (check);
+  mixer_switch->check_button = gtk_check_button_new_with_mnemonic (mixer_switch->track->label);
+  gtk_box_pack_start (GTK_BOX (mixer_switch), mixer_switch->check_button, FALSE, FALSE, 0);
+  gtk_widget_show (mixer_switch->check_button);
 
-  if (G_LIKELY (GST_MIXER_TRACK_HAS_FLAG (mixer_switch->track, GST_MIXER_TRACK_INPUT)))
-    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (check), 
-                                  GST_MIXER_TRACK_HAS_FLAG (mixer_switch->track, GST_MIXER_TRACK_RECORD));
-  else
-    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (check), 
-                                  !GST_MIXER_TRACK_HAS_FLAG (mixer_switch->track, GST_MIXER_TRACK_MUTE));
+  xfce_mixer_switch_update (mixer_switch);
 
-  g_signal_connect (check, "toggled", G_CALLBACK (xfce_mixer_switch_toggled), mixer_switch);
+  g_signal_connect (mixer_switch->check_button, "toggled", G_CALLBACK (xfce_mixer_switch_toggled), mixer_switch);
 }
 
 
@@ -184,8 +182,30 @@ static void
 xfce_mixer_switch_toggled (GtkToggleButton *button,
                            XfceMixerSwitch *mixer_switch)
 {
+  if (G_UNLIKELY (mixer_switch->ignore_signals))
+    return;
+
   if (G_LIKELY (GST_MIXER_TRACK_HAS_FLAG (mixer_switch->track, GST_MIXER_TRACK_INPUT)))
     xfce_mixer_card_set_track_record (mixer_switch->card, mixer_switch->track, gtk_toggle_button_get_active (button));
   else
     xfce_mixer_card_set_track_muted (mixer_switch->card, mixer_switch->track, !gtk_toggle_button_get_active (button));
+}
+
+
+
+void 
+xfce_mixer_switch_update (XfceMixerSwitch *mixer_switch)
+{
+  g_return_if_fail (IS_XFCE_MIXER_SWITCH (mixer_switch));
+
+  mixer_switch->ignore_signals = TRUE;
+
+  if (G_LIKELY (GST_MIXER_TRACK_HAS_FLAG (mixer_switch->track, GST_MIXER_TRACK_INPUT)))
+    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (mixer_switch->check_button), 
+                                  GST_MIXER_TRACK_HAS_FLAG (mixer_switch->track, GST_MIXER_TRACK_RECORD));
+  else
+    gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (mixer_switch->check_button), 
+                                  !GST_MIXER_TRACK_HAS_FLAG (mixer_switch->track, GST_MIXER_TRACK_MUTE));
+
+  mixer_switch->ignore_signals = FALSE;
 }

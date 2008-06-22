@@ -41,8 +41,9 @@ typedef struct _XfceMixerSwitch      XfceMixerSwitch;
 
 GType      xfce_mixer_switch_get_type (void) G_GNUC_CONST;
 
-GtkWidget *xfce_mixer_switch_new      (XfceMixerCard *card,
-                                       GstMixerTrack *track);
+GtkWidget *xfce_mixer_switch_new      (XfceMixerCard   *card,
+                                       GstMixerTrack   *track);
+void       xfce_mixer_switch_update   (XfceMixerSwitch *mixer_switch);
 
 G_END_DECLS;
 

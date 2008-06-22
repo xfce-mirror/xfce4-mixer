@@ -53,8 +53,6 @@ static void xfce_mixer_track_lock_toggled    (GtkToggleButton     *button,
                                               XfceMixerTrack      *track);
 static void xfce_mixer_track_record_toggled  (GtkToggleButton     *button,
                                               XfceMixerTrack      *track);
-static void xfce_mixer_track_update_mute     (XfceMixerTrack      *track);
-static void xfce_mixer_track_update_record   (XfceMixerTrack      *track);
 
 
 
@@ -76,6 +74,8 @@ struct _XfceMixerTrack
   XfceMixerCard *card;
 
   GstMixerTrack *gst_track;
+
+  gboolean       ignore_signals;
 };
 
 
@@ -134,6 +134,8 @@ xfce_mixer_track_init (XfceMixerTrack *track)
   track->mute_button = NULL;
   track->lock_button = NULL;
   track->record_button = NULL;
+
+  track->ignore_signals = FALSE;
 
   track->channel_faders = NULL;
 }
@@ -281,6 +283,10 @@ xfce_mixer_track_fader_changed (GtkRange       *range,
    * channels, but only one should deliver the change to GStreamer. */
   static gboolean locked = FALSE;
 
+  /* Do nothing if signals are to be ignored */
+  if (G_UNLIKELY (track->ignore_signals))
+    return;
+
   /* Do nothing if another fader already takes care about everything */
   if (G_UNLIKELY (locked))
     return;
@@ -424,10 +430,12 @@ xfce_mixer_track_record_toggled (GtkToggleButton *button,
 
 
 
-static void 
+void 
 xfce_mixer_track_update_mute (XfceMixerTrack *track)
 {
   gboolean muted;
+
+  g_return_if_fail (IS_XFCE_MIXER_TRACK (track));
 
   muted = GST_MIXER_TRACK_HAS_FLAG (track->gst_track, GST_MIXER_TRACK_MUTE);
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (track->mute_button), muted);
@@ -435,11 +443,37 @@ xfce_mixer_track_update_mute (XfceMixerTrack *track)
 
 
 
-static void 
+void 
 xfce_mixer_track_update_record (XfceMixerTrack *track)
 {
   gboolean record;
 
+  g_return_if_fail (IS_XFCE_MIXER_TRACK (track));
+
   record = GST_MIXER_TRACK_HAS_FLAG (track->gst_track, GST_MIXER_TRACK_RECORD);
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (track->record_button), record);
+}
+
+
+
+void
+xfce_mixer_track_update_volume (XfceMixerTrack *track)
+{
+  GList *iter;
+  gint  *volumes;
+  gint   channel;
+
+  g_return_if_fail (IS_XFCE_MIXER_TRACK (track));
+
+  volumes = g_new0 (gint, track->gst_track->num_channels);
+  xfce_mixer_card_get_track_volume (track->card, track->gst_track, volumes);
+
+  track->ignore_signals = TRUE;
+
+  for (iter = track->channel_faders, channel = 0; iter != NULL; iter = g_list_next (iter), ++channel)
+    gtk_range_set_value (GTK_RANGE (iter->data), volumes[channel]);
+
+  track->ignore_signals = FALSE;
+
+  g_free (volumes);
 }

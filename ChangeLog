@@ -1,3 +1,12 @@
+2008-06-22	Jannis Pohlmann <jannis@xfce.org>
+
+	* xfce4-mixer/xfce-mixer-track.{c,h},
+	  xfce4-mixer/xfce-mixer-option.{c,h},
+	  xfce4-mixer/xfce-mixer-switch.{c,h},
+	  xfce4-mixer/xfce-mixer.c: Implement monitoring for mute,
+	  record, volume, option and switch changes on all controls.
+	  Works like a charm!
+
 2008-06-21	Jannis Pohlmann <jannis@xfce.org>
 
 	* libxfce4mixer/xfce-mixer-card.c: Mark cards as ready when
