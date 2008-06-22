@@ -29,6 +29,8 @@
 
 #include <libxfcegui4/libxfcegui4.h>
 
+#include "libxfce4mixer/xfce-mixer-stock.h"
+
 #include "xfce-volume-button.h"
 
 
@@ -43,15 +45,19 @@ enum
 
 
 
+/* Signals */
 static guint button_signals[LAST_SIGNAL];
 
+
+
+/* Icons for different volume levels */
 static const char *icons[] = {
-  "audio-volume-00",
-  "audio-volume-01",
-  "audio-volume-02",
-  "audio-volume-03",
-  "audio-volume-04",
-  "audio-volume-05",
+  AUDIO_VOLUME_00,
+  AUDIO_VOLUME_01,
+  AUDIO_VOLUME_02,
+  AUDIO_VOLUME_03,
+  AUDIO_VOLUME_04,
+  AUDIO_VOLUME_05,
   NULL
 };
 
@@ -90,7 +96,6 @@ struct _XfceVolumeButtonClass
   /* Signals */
   void (*volume_changed) (XfceVolumeButton *button,
                           gdouble           volume);
-
   void (*mute_toggled)   (XfceVolumeButton *button,
                           gboolean          mute);
 };
@@ -99,14 +104,19 @@ struct _XfceVolumeButton
 {
   GtkButton __parent__;
 
+  /* Image widget for the volume icon */
   GtkWidget  *image;
 
+  /* Adjustment for the volume range and current value */
   GtkObject  *adjustment;
 
+  /* Icon size currently used */
   gint        icon_size;
 
+  /* Array of preloaded icons */
   GdkPixbuf **pixbufs;
 
+  /* Mute state of the button */
   gboolean    is_muted;
 };
 
@@ -188,20 +198,26 @@ xfce_volume_button_class_init (XfceVolumeButtonClass *klass)
 static void
 xfce_volume_button_init (XfceVolumeButton *button)
 {
+  /* By default we expect the button not to be muted */
   button->is_muted = FALSE;
 
+  /* Allocate array for preloaded icons */
   button->pixbufs = g_new0 (GdkPixbuf*, G_N_ELEMENTS (icons)-1);
 
+  /* Create adjustment for the button (from 0.0 to 1.0 in 5% steps) */
   button->adjustment = gtk_adjustment_new (0.0, 0.0, 1.0, 0.05, 0.05, 0.2);
-  button->image = xfce_scaled_image_new ();
 
+  /* Create a new scaled image for the button icon */
+  button->image = xfce_scaled_image_new ();
   gtk_container_add (GTK_CONTAINER (button), button->image);
   gtk_widget_show (button->image);
 
+  /* Make the button look flat and make it never grab the focus */
   gtk_button_set_relief (GTK_BUTTON (button), GTK_RELIEF_NONE);
   gtk_button_set_focus_on_click (GTK_BUTTON (button), FALSE);
   GTK_WIDGET_UNSET_FLAGS (GTK_WIDGET (button), GTK_CAN_DEFAULT|GTK_CAN_FOCUS);
 
+  /* Connect to button signals */
 #if 0
   /* UNSED FOR NOW DUE TO TOO MUCH PROBLEMS WITH KEYBOARD FOCUS GRABBING */
   g_signal_connect (G_OBJECT (button), "key-press-event", G_CALLBACK (xfce_volume_button_key_pressed), button);
@@ -209,6 +225,7 @@ xfce_volume_button_init (XfceVolumeButton *button)
   g_signal_connect (G_OBJECT (button), "button-press-event", G_CALLBACK (xfce_volume_button_button_pressed), button);
   g_signal_connect (G_OBJECT (button), "scroll-event", G_CALLBACK (xfce_volume_button_scrolled), button);
 
+  /* Update the state of the button */
   xfce_volume_button_update (button);
 }
 
@@ -229,10 +246,10 @@ xfce_volume_button_finalize (GObject *object)
 
   XfceVolumeButton *button = XFCE_VOLUME_BUTTON (object);
 
+  /* Free pre-allocated icon pixbufs */
   for (i = 0; i < G_N_ELEMENTS (icons)-1; ++i)
     if (GDK_IS_PIXBUF (button->pixbufs[i]))
       g_object_unref (G_OBJECT (button->pixbufs[i]));
-  
   g_free (button->pixbufs);
 
   (*G_OBJECT_CLASS (xfce_volume_button_parent_class)->finalize) (object);
@@ -314,19 +331,26 @@ xfce_volume_button_button_pressed (GtkWidget        *widget,
                                    XfceVolumeButton *button)
 {
   gboolean mute;
+
   g_return_if_fail (IS_XFCE_VOLUME_BUTTON (button));
 
+  /* Check if the middle mouse button was pressed */
   if (event->button == 2)
     {
+      /* Determine the new mute state by negating the current state */
       mute = !button->is_muted;
 
+      /* Toggle the button's mute state */
       xfce_volume_button_set_muted (button, mute);
 
+      /* Notify listeners of the mute change */
       g_signal_emit_by_name (button, "mute-toggled", mute);
 
+      /* Middle mouse button was handled, do not propagate the event any further */
       return TRUE;
     }
 
+  /* Left and right mouse buttons are ignored, someone else handle it */
   return FALSE;
 }
 
@@ -343,24 +367,31 @@ xfce_volume_button_scrolled (GtkWidget        *widget,
   g_return_if_fail (GTK_IS_WIDGET (widget));
   g_return_if_fail (IS_XFCE_VOLUME_BUTTON (button));
 
+  /* Get current adjustment value and the step increment size */
   g_object_get (G_OBJECT (button->adjustment), "value", &value, "step-increment", &step_increment, NULL);
 
+  /* Distinguish between scroll directions */
   switch (event->direction)
     {
       case GDK_SCROLL_UP:
       case GDK_SCROLL_RIGHT:
+        /* Increase one step when scrolling up/right */
         gtk_adjustment_set_value (GTK_ADJUSTMENT (button->adjustment), value + step_increment);
         break;
       case GDK_SCROLL_DOWN:
       case GDK_SCROLL_LEFT:
+        /* Decrease one step when scrolling down/left */
         gtk_adjustment_set_value (GTK_ADJUSTMENT (button->adjustment), value - step_increment);
         break;
     }
 
+  /* Update the state of the button */
   xfce_volume_button_update (button);
 
+  /* Notify listeners of the new volume */
   g_signal_emit_by_name (button, "volume-changed", gtk_adjustment_get_value (GTK_ADJUSTMENT (button->adjustment)));
 
+  /* The scroll event has been handled, stop other handlers from being invoked */
   return TRUE;
 }
 
@@ -378,14 +409,21 @@ xfce_volume_button_update (XfceVolumeButton *button)
 
   g_return_if_fail (IS_XFCE_VOLUME_BUTTON (button));
 
+  /* Get upper, lower bounds and current value of the adjustment */
   g_object_get (G_OBJECT (button->adjustment), "upper", &upper, "lower", &lower, "value", &value, NULL);
 
+  /* Determine the difference between upper and lower bound (= volume range) */
   range = (upper - lower) / (G_N_ELEMENTS (icons) - 2);
 
-  if (G_UNLIKELY (value == 0 || button->is_muted))
-    pixbuf = button->pixbufs[0];
+  if (G_UNLIKELY (value == lower || button->is_muted))
+    {
+      /* By definition, use the first icon if the volume is set to the minimum value
+       * or if the button is muted */
+      pixbuf = button->pixbufs[0];
+    }
   else
     {
+      /* Find the correct icon for the current volume */
       for (i = 1; i < G_N_ELEMENTS (icons) - 1; ++i)
         if (value <= range * i)
           {
@@ -394,6 +432,7 @@ xfce_volume_button_update (XfceVolumeButton *button)
           }
     }
 
+  /* Update the button icon */
   if (G_LIKELY (pixbuf != NULL))
     xfce_scaled_image_set_from_pixbuf (XFCE_SCALED_IMAGE (button->image), pixbuf);
 }
@@ -404,6 +443,7 @@ static void
 xfce_volume_button_volume_changed (XfceVolumeButton *button,
                                    gdouble           volume)
 {
+  /* Do nothing */
 }
 
 
@@ -413,7 +453,11 @@ xfce_volume_button_set_muted (XfceVolumeButton *button,
                               gboolean          muted)
 {
   g_return_if_fail (IS_XFCE_VOLUME_BUTTON (button));
+
+  /* Change mute value */
   button->is_muted = muted;
+
+  /* Update the state of the button */
   xfce_volume_button_update (button);
 }
 
@@ -424,7 +468,11 @@ xfce_volume_button_set_volume (XfceVolumeButton *button,
                                gdouble           volume)
 {
   g_return_if_fail (IS_XFCE_VOLUME_BUTTON (button));
+
+  /* Set the value of the adjustment */
   gtk_adjustment_set_value (GTK_ADJUSTMENT (button->adjustment), volume);
+
+  /* Update the state of the button */
   xfce_volume_button_update (button);
 }
 
@@ -438,8 +486,10 @@ xfce_volume_button_set_icon_size (XfceVolumeButton *button,
   g_return_if_fail (IS_XFCE_VOLUME_BUTTON (button));
   g_return_if_fail (size >= 0);
 
+  /* Remember the icon size */
   button->icon_size = size;
 
+  /* Pre-load all icons */
   for (i = 0; i < G_N_ELEMENTS (icons)-1; ++i)
     {
       if (GDK_IS_PIXBUF (button->pixbufs[i]))
@@ -455,4 +505,5 @@ static void
 xfce_volume_button_mute_toggled (XfceVolumeButton *button,
                                  gboolean          mute)
 {
+  /* Do nothing */
 }

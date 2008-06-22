@@ -48,17 +48,26 @@ struct _XfceMixerPlugin
 {
   XfcePanelPlugin *plugin;
 
+  /* Currently used sound card name */
   gchar           *card_name;
+
+  /* Currently used mixer track name */
   gchar           *track_name;
 
+  /* Tooltips structure */
   GtkTooltips     *tooltips;
 
+  /* Sound card being used */
   XfceMixerCard   *card;
+
+  /* Mixer track being used */
   GstMixerTrack   *track;
 
+  /* Widgets */
   GtkWidget       *hvbox;
   GtkWidget       *button;
 
+  /* Flag for ignoring messages from the GstBus */
   gboolean         ignore_bus_messages;
 };
 
@@ -108,25 +117,31 @@ xfce_mixer_plugin_new (XfcePanelPlugin *plugin)
   /* Store pointer to the panel plugin */
   mixer_plugin->plugin = plugin;
 
+  /* Initialize some of the plugin variables */
   mixer_plugin->card = NULL;
   mixer_plugin->track = NULL;
   mixer_plugin->ignore_bus_messages = FALSE;
 
+  /* Allocate a tooltips structure */
   mixer_plugin->tooltips = gtk_tooltips_new ();
   gtk_tooltips_set_delay (mixer_plugin->tooltips, 10);
 
+  /* Create container for the plugin */
   mixer_plugin->hvbox = GTK_WIDGET (xfce_hvbox_new (GTK_ORIENTATION_HORIZONTAL, FALSE, 0));
   xfce_panel_plugin_add_action_widget (plugin, mixer_plugin->hvbox);
   gtk_container_add (GTK_CONTAINER (plugin), mixer_plugin->hvbox);
   gtk_widget_show (mixer_plugin->hvbox);
 
+  /* Create volume button for the plugin */
   mixer_plugin->button = xfce_volume_button_new ();
-  xfce_panel_plugin_add_action_widget (plugin, mixer_plugin->button);
   g_signal_connect_swapped (G_OBJECT (mixer_plugin->button), "volume-changed", G_CALLBACK (xfce_mixer_plugin_volume_changed), mixer_plugin);
   g_signal_connect_swapped (G_OBJECT (mixer_plugin->button), "mute-toggled", G_CALLBACK (xfce_mixer_plugin_mute_toggled), mixer_plugin);
   g_signal_connect_swapped (G_OBJECT (mixer_plugin->button), "clicked", G_CALLBACK (xfce_mixer_plugin_clicked), mixer_plugin);
   gtk_container_add (GTK_CONTAINER (mixer_plugin->hvbox), mixer_plugin->button);
   gtk_widget_show (mixer_plugin->button);
+
+  /* Let the volume button receive mouse events */
+  xfce_panel_plugin_add_action_widget (plugin, mixer_plugin->button);
 
   return mixer_plugin;
 }
@@ -137,9 +152,11 @@ static void
 xfce_mixer_plugin_free (XfcePanelPlugin *plugin,
                         XfceMixerPlugin *mixer_plugin)
 {
+  /* Free card and track names */
   g_free (mixer_plugin->card_name);
   g_free (mixer_plugin->track_name);
 
+  /* Free memory of the mixer plugin */
   panel_slice_free (XfceMixerPlugin, mixer_plugin);
 }
 
@@ -153,6 +170,7 @@ xfce_mixer_plugin_construct (XfcePanelPlugin *plugin)
   /* Set up translation domain */
   xfce_textdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");
 
+  /* Initialize the thread system */
   if (!g_thread_supported ())
     g_thread_init (NULL);
 
@@ -231,6 +249,10 @@ xfce_mixer_plugin_volume_changed (XfceMixerPlugin  *mixer_plugin,
 
   volume_range = mixer_plugin->track->max_volume - mixer_plugin->track->min_volume;
   new_volume = mixer_plugin->track->min_volume + (volume * volume_range);
+
+  g_message ("Volume changed for %s (%s):", xfce_mixer_card_get_display_name (mixer_plugin->card), GST_MIXER_TRACK (mixer_plugin->track)->label);
+  g_message ("  min_volume = %i, max_volume = %i, volume_range = %i, new_volume = %i", 
+             mixer_plugin->track->min_volume, mixer_plugin->track->max_volume, volume_range, new_volume);
 
   for (i = 0; i < mixer_plugin->track->num_channels; ++i)
     volumes[i] = new_volume;
@@ -459,12 +481,14 @@ xfce_mixer_plugin_bus_message (GstBus          *bus,
   if (G_UNLIKELY (!xfce_mixer_card_get_message_owner (mixer_plugin->card, message)))
     return TRUE;
 
-  g_debug ("Message from card received: %s", GST_MESSAGE_TYPE_NAME (message));
+  g_message ("Message from card received: %s", GST_MESSAGE_TYPE_NAME (message));
 
   switch (gst_mixer_message_get_type (message))
     {
       case GST_MIXER_MESSAGE_VOLUME_CHANGED:
         gst_mixer_message_parse_volume_changed (message, &track, &volumes, &num_channels);
+
+        g_message ("  volume of %s changed to: %i", track->label, volumes[0]);
 
         if (G_UNLIKELY (g_utf8_collate (track->label, mixer_plugin->track->label) == 0))
           {
