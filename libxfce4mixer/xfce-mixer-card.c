@@ -375,9 +375,24 @@ gboolean
 xfce_mixer_card_get_message_owner (XfceMixerCard *card,
                                    GstMessage    *message)
 {
+  gboolean  is_owner;
+  gchar    *device_name1;
+  gchar    *device_name2;
+
   g_return_val_if_fail (IS_XFCE_MIXER_CARD (card), FALSE);
   g_return_val_if_fail (GST_IS_MESSAGE (message), FALSE);
 
-  return GST_MESSAGE_SRC (message) == GST_OBJECT (card->element);
+  if (!GST_IS_MIXER (GST_MESSAGE_SRC (message)))
+    return FALSE;
+
+  g_object_get (G_OBJECT (GST_MESSAGE_SRC (message)), "device-name", &device_name1, NULL);
+  g_object_get (G_OBJECT (card->element), "device-name", &device_name2, NULL);
+
+  is_owner = (GST_MESSAGE_SRC (message) == card->element || g_utf8_collate (device_name1, device_name2) == 0);
+
+  g_free (device_name1);
+  g_free (device_name2);
+
+  return is_owner;
 }
 #endif

@@ -125,3 +125,20 @@ xfce_mixer_utilities_get_card_by_name (const gchar *card_name)
 
   return card;
 }
+
+
+
+gint
+xfce_mixer_utilities_get_max_volume (gint *volumes,
+                                     gint  num_channels)
+{
+  gint max = 0;
+
+  g_return_val_if_fail (volumes != NULL, 0);
+
+  for (--num_channels; num_channels >= 0; --num_channels)
+    if (volumes[num_channels] > max)
+      max = volumes[num_channels];
+
+  return max;
+}

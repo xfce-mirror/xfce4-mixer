@@ -25,6 +25,8 @@
 
 GList         *xfce_mixer_utilities_get_cards        (void);
 XfceMixerCard *xfce_mixer_utilities_get_card_by_name (const gchar *card_name);
+gint           xfce_mixer_utilities_get_max_volume   (gint        *volumes,
+                                                      gint         num_channels);
 
 
 #endif /* !__XFCE_MIXER_UTILITIES_H__ */

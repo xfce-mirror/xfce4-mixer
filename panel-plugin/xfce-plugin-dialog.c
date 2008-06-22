@@ -194,7 +194,7 @@ xfce_plugin_dialog_get_data (XfcePluginDialog *dialog,
   active_track = xfce_mixer_track_combo_get_active_track (XFCE_MIXER_TRACK_COMBO (dialog->track_combo));
 
   if (G_LIKELY (GST_IS_MIXER_TRACK (active_track)))
-    *track = GST_MIXER_TRACK (g_object_ref (G_OBJECT (active_track)));
+    *track = active_track;
 }
 
 

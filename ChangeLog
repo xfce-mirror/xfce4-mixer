@@ -1,5 +1,22 @@
 2008-06-22	Jannis Pohlmann <jannis@xfce.org>
 
+	* libxfce4mixer/xfce-mixer-card.c: Improve
+	  xfce_card_get_message_owner() by additionally comparing 
+	  device names. I noticed that sometimes plugins are not
+	  updated even though the GstBus should invoke the signal
+	  handler. Hopefully, this fixes it.
+	* libxfce4mixer/xfce-mixer-utilities.{c,h}: Add 
+	  xfce_mixer_utilities_get_max_volume() to determine the
+	  maximum volume in a gint array.
+	* panel-plugin/xfce-mixer-plugin.c: Don't call g_object_ref on
+	  GstMixerTracks. Add methods for setting the card and track
+	  used by the plugin. Improve the _update_track() method. 
+	  Remove _replace_values() method. Add a lot of comments.
+	* panel-plugin/xfce-plugin-dialog.c: Don't call g_object_ref on
+	  the GstMixerTrack in xfce_plugin_dialog_get_data().
+
+2008-06-22	Jannis Pohlmann <jannis@xfce.org>
+
 	* icons/scalable/: Improved again.
 
 2008-06-22	Jannis Pohlmann <jannis@xfce.org>
