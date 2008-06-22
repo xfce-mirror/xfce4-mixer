@@ -1,7 +1,9 @@
-* Monitor for changes and update the controls according to them:
-   1) Add GHashTable for (track name => mixer widget) lookup
-   2) Extend xfce_mixer_bus_message() to handle all types of messages
-      by updating the corresponding mixer widgets
+* Design new icons for the mixer plugin
+
+* Panel plugin: Decide on how to react on tracks with
+  different channel volume levels (median, minimum, maximum value?)
+
+* Panel plugin: Add volume percentage tooltip
 
 * Allow changing controls from the console, probably via something like:
   --change-control=SOUNDCARD NAME:TRACK NAME:NEW VALUE

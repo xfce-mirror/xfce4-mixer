@@ -22,6 +22,7 @@
 #include <config.h>
 #endif
 
+#include <gdk/gdk.h>
 #include <gtk/gtk.h>
 
 #include <gdk/gdkkeysyms.h>
@@ -98,13 +99,15 @@ struct _XfceVolumeButton
 {
   GtkButton __parent__;
 
-  GtkWidget *image;
+  GtkWidget  *image;
 
-  GtkObject *adjustment;
+  GtkObject  *adjustment;
 
-  gint       icon_size;
+  gint        icon_size;
 
-  gboolean   is_muted;
+  GdkPixbuf **pixbufs;
+
+  gboolean    is_muted;
 };
 
 
@@ -187,6 +190,8 @@ xfce_volume_button_init (XfceVolumeButton *button)
 {
   button->is_muted = FALSE;
 
+  button->pixbufs = g_new0 (GdkPixbuf*, G_N_ELEMENTS (icons)-1);
+
   button->adjustment = gtk_adjustment_new (0.0, 0.0, 1.0, 0.05, 0.05, 0.2);
   button->image = xfce_scaled_image_new ();
 
@@ -220,7 +225,15 @@ xfce_volume_button_dispose (GObject *object)
 static void
 xfce_volume_button_finalize (GObject *object)
 {
+  gint i;
+
   XfceVolumeButton *button = XFCE_VOLUME_BUTTON (object);
+
+  for (i = 0; i < G_N_ELEMENTS (icons)-1; ++i)
+    if (GDK_IS_PIXBUF (button->pixbufs[i]))
+      g_object_unref (G_OBJECT (button->pixbufs[i]));
+  
+  g_free (button->pixbufs);
 
   (*G_OBJECT_CLASS (xfce_volume_button_parent_class)->finalize) (object);
 }
@@ -368,22 +381,19 @@ xfce_volume_button_update (XfceVolumeButton *button)
   range = (upper - lower) / (G_N_ELEMENTS (icons) - 2);
 
   if (G_UNLIKELY (value == 0 || button->is_muted))
-    pixbuf = xfce_themed_icon_load (icons[0], button->icon_size);
+    pixbuf = button->pixbufs[0];
   else
     {
       for (i = 1; i < G_N_ELEMENTS (icons) - 1; ++i)
         if (value <= range * i)
           {
-            pixbuf = xfce_themed_icon_load (icons[i], button->icon_size);
+            pixbuf = button->pixbufs[i];
             break;
           }
     }
 
   if (G_LIKELY (pixbuf != NULL))
-    {
-      xfce_scaled_image_set_from_pixbuf (XFCE_SCALED_IMAGE (button->image), pixbuf);
-      g_object_unref (G_OBJECT (pixbuf));
-    }
+    xfce_scaled_image_set_from_pixbuf (XFCE_SCALED_IMAGE (button->image), pixbuf);
 }
 
 
@@ -421,9 +431,20 @@ void
 xfce_volume_button_set_icon_size (XfceVolumeButton *button,
                                   gint              size)
 {
+  gint i;
+
   g_return_if_fail (IS_XFCE_VOLUME_BUTTON (button));
   g_return_if_fail (size >= 0);
+
   button->icon_size = size;
+
+  for (i = 0; i < G_N_ELEMENTS (icons)-1; ++i)
+    {
+      if (GDK_IS_PIXBUF (button->pixbufs[i]))
+        g_object_unref (G_OBJECT (button->pixbufs[i]));
+
+      button->pixbufs[i] = xfce_themed_icon_load (icons[i], button->icon_size);
+    }
 }
 
 

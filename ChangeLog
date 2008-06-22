@@ -1,5 +1,10 @@
 2008-06-22	Jannis Pohlmann <jannis@xfce.org>
 
+	* panel-plugin/xfce-volume-button.c: Preload icon pixbufs whenever
+	  the icon size is changed.
+
+2008-06-22	Jannis Pohlmann <jannis@xfce.org>
+
 	* xfce4-mixer/xfce-mixer.c: Don't free the hash table keys as
 	  they are owned by GStreamer. That introduced a really, really
 	  weird bug ...
