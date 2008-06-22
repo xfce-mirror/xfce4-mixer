@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-06-22 14:26+0200\n"
+"POT-Creation-Date: 2008-06-23 00:03+0200\n"
 "PO-Revision-Date: 2008-03-18 14:15+0100\n"
 "Last-Translator: Nuno Miguel <nunis@netcabo.pt>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,13 +16,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #. Set tooltip (e.g. 'Master: 50%')
-#: ../panel-plugin/xfce-mixer-plugin.c:221
-#: ../panel-plugin/xfce-mixer-plugin.c:404
+#: ../panel-plugin/xfce-mixer-plugin.c:251
+#: ../panel-plugin/xfce-mixer-plugin.c:466
 #, c-format
 msgid "%s: %i%%"
 msgstr ""
 
-#: ../panel-plugin/xfce-mixer-plugin.c:259
+#: ../panel-plugin/xfce-mixer-plugin.c:315
 msgid "Could not find xfce4-mixer in PATH."
 msgstr ""
 

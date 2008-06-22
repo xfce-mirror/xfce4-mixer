@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce 4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-06-22 14:26+0200\n"
+"POT-Creation-Date: 2008-06-23 00:03+0200\n"
 "PO-Revision-Date: 2008-02-26 23:23+0100\n"
 "Last-Translator: Mike Massonnet <mmassonnet@gmail.com>\n"
 "Language-Team: French\n"
@@ -18,13 +18,13 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #. Set tooltip (e.g. 'Master: 50%')
-#: ../panel-plugin/xfce-mixer-plugin.c:221
-#: ../panel-plugin/xfce-mixer-plugin.c:404
+#: ../panel-plugin/xfce-mixer-plugin.c:251
+#: ../panel-plugin/xfce-mixer-plugin.c:466
 #, c-format
 msgid "%s: %i%%"
 msgstr ""
 
-#: ../panel-plugin/xfce-mixer-plugin.c:259
+#: ../panel-plugin/xfce-mixer-plugin.c:315
 msgid "Could not find xfce4-mixer in PATH."
 msgstr ""
 

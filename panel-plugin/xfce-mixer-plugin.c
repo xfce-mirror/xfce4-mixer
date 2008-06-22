@@ -90,7 +90,7 @@ static void             xfce_mixer_plugin_read_config       (XfceMixerPlugin  *m
 static void             xfce_mixer_plugin_write_config      (XfceMixerPlugin  *mixer_plugin);
 static void             xfce_mixer_plugin_update_track      (XfceMixerPlugin  *mixer_plugin);
 #ifdef HAVE_GST_MIXER_NOTIFICATION
-static gboolean         xfce_mixer_plugin_bus_message       (GstBus           *bus,
+static void             xfce_mixer_plugin_bus_message       (GstBus           *bus,
                                                              GstMessage       *message,
                                                              XfceMixerPlugin  *mixer_plugin);
 #endif

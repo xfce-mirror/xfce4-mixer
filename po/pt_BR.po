@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-06-22 14:26+0200\n"
+"POT-Creation-Date: 2008-06-23 00:03+0200\n"
 "PO-Revision-Date: 2008-06-22 09:04-0300\n"
 "Last-Translator: Fábio Nogueira <deb-user-ba@ubuntu.com>\n"
 "Language-Team: Brazilian Portuguese <ldp-br@bazar2.conectiva.com.br>\n"
@@ -18,13 +18,13 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #. Set tooltip (e.g. 'Master: 50%')
-#: ../panel-plugin/xfce-mixer-plugin.c:221
-#: ../panel-plugin/xfce-mixer-plugin.c:404
+#: ../panel-plugin/xfce-mixer-plugin.c:251
+#: ../panel-plugin/xfce-mixer-plugin.c:466
 #, c-format
 msgid "%s: %i%%"
 msgstr "%s: %i%%"
 
-#: ../panel-plugin/xfce-mixer-plugin.c:259
+#: ../panel-plugin/xfce-mixer-plugin.c:315
 msgid "Could not find xfce4-mixer in PATH."
 msgstr "Não foi possível encontrar o xfce4-mixer no CAMINHO."
 
@@ -34,7 +34,8 @@ msgstr "Plug-in Mixador"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:229
 msgid "Please select which mixer track should be used by the plugin"
-msgstr "Por favor escolha qual o mixador de faixa que deverá ser usado pelo plug-in"
+msgstr ""
+"Por favor escolha qual o mixador de faixa que deverá ser usado pelo plug-in"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:241
 msgid "Sound card"

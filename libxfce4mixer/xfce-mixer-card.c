@@ -388,7 +388,7 @@ xfce_mixer_card_get_message_owner (XfceMixerCard *card,
   g_object_get (G_OBJECT (GST_MESSAGE_SRC (message)), "device-name", &device_name1, NULL);
   g_object_get (G_OBJECT (card->element), "device-name", &device_name2, NULL);
 
-  is_owner = (GST_MESSAGE_SRC (message) == card->element || g_utf8_collate (device_name1, device_name2) == 0);
+  is_owner = (GST_MESSAGE_SRC (message) == GST_OBJECT (card->element) || g_utf8_collate (device_name1, device_name2) == 0);
 
   g_free (device_name1);
   g_free (device_name2);
