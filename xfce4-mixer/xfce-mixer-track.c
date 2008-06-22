@@ -301,8 +301,8 @@ xfce_mixer_track_fader_changed (GtkRange       *range,
   for (iter = track->channel_faders, channel = 0; iter != NULL; iter = g_list_next (iter), ++channel)
     {
       /* If the channels are bound together, apply the volume to all the others */
-      if (G_LIKELY (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (track->lock_button))))
-        gtk_range_set_value (GTK_RANGE (iter->data), gtk_range_get_value (range));
+      if (G_LIKELY (track->gst_track->num_channels >= 2 && gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (track->lock_button))))
+          gtk_range_set_value (GTK_RANGE (iter->data), gtk_range_get_value (range));
 
       volumes[channel] = (gint) gtk_range_get_value (GTK_RANGE (iter->data));
     }
