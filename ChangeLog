@@ -1,5 +1,9 @@
 2008-06-22	Jannis Pohlmann <jannis@xfce.org>
 
+	* icons/: Revamp icons yet again.
+
+2008-06-22	Jannis Pohlmann <jannis@xfce.org>
+
 	* icons/scalable/*.svg: Update icons. I think they look better
 	  this way.
 	* panel-plugin/xfce-volume-button.c: Stop other "event-scroll"

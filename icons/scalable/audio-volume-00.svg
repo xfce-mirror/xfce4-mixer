@@ -35,11 +35,11 @@
     <linearGradient
        id="linearGradient3498">
       <stop
-         style="stop-color:#3465a4;stop-opacity:1;"
+         style="stop-color:#437bc4;stop-opacity:1;"
          offset="0"
          id="stop3500" />
       <stop
-         style="stop-color:#3466a4;stop-opacity:1;"
+         style="stop-color:#4f85c7;stop-opacity:1;"
          offset="1"
          id="stop3502" />
     </linearGradient>
@@ -464,8 +464,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="5.6568542"
-     inkscape:cx="59.859681"
-     inkscape:cy="26.990689"
+     inkscape:cx="41.79292"
+     inkscape:cy="29.76537"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:grid-bbox="true"
@@ -533,7 +533,7 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer">
     <g
-       style="opacity:0.75;stroke-width:0.20321889;stroke-miterlimit:4;stroke-dasharray:none"
+       style="opacity:0.5;stroke-width:0.20321889;stroke-miterlimit:4;stroke-dasharray:none"
        id="g4951"
        transform="matrix(1.4500307,0,0,1.9951694,-5.014883,-24.104868)">
       <path
@@ -685,19 +685,19 @@
       </g>
     </g>
     <rect
-       style="color:#000000;fill:#cc0000;fill-opacity:1;fill-rule:evenodd;stroke:#a40000;stroke-width:1.30052042;stroke-linecap:square;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible"
+       style="color:#000000;fill:#cc0000;fill-opacity:1;fill-rule:evenodd;stroke:#a40000;stroke-width:1.00589263;stroke-linecap:square;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible"
        id="rect1686"
-       width="26.010408"
-       height="24.709887"
-       x="2.727921"
-       y="20.619038"
+       width="20.117851"
+       height="19.111958"
+       x="1.5199475"
+       y="27.424942"
        inkscape:r_cx="true"
        inkscape:r_cy="true"
        rx="2.2097087"
        ry="2.2097087" />
     <g
        id="g2254"
-       transform="matrix(1.0131431,0,0,1.0131431,2.9826167,-4.5123216)"
+       transform="matrix(0.7836195,0,0,0.7836195,1.7169431,7.9869923)"
        inkscape:r_cx="true"
        inkscape:r_cy="true">
       <path
@@ -718,11 +718,11 @@
        rx="1.5847089"
        inkscape:r_cy="true"
        inkscape:r_cx="true"
-       y="21.7957"
-       x="3.9665132"
-       height="22.356565"
-       width="23.533228"
+       y="28.335035"
+       x="2.4779415"
+       height="17.291773"
+       width="18.201866"
        id="rect2258"
-       style="opacity:0.4;color:#000000;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#ffffff;stroke-width:1.30052054;stroke-linecap:square;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible" />
+       style="opacity:0.4;color:#000000;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#ffffff;stroke-width:1.00589263;stroke-linecap:square;stroke-linejoin:round;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible" />
   </g>
 </svg>
