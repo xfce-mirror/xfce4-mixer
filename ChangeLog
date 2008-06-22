@@ -1,5 +1,11 @@
 2008-06-22	Jannis Pohlmann <jannis@xfce.org>
 
+	* panel-plugin/xfce-mixer-plugin.c: Ignore GstBus messages
+	  while applying changes to the active card/track to avoid
+	  conflicting states.
+
+2008-06-22	Jannis Pohlmann <jannis@xfce.org>
+
 	* icons/: Revamp icons yet again.
 
 2008-06-22	Jannis Pohlmann <jannis@xfce.org>

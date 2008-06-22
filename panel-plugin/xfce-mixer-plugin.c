@@ -58,6 +58,8 @@ struct _XfceMixerPlugin
 
   GtkWidget       *hvbox;
   GtkWidget       *button;
+
+  gboolean         ignore_bus_messages;
 };
 
 
@@ -108,6 +110,7 @@ xfce_mixer_plugin_new (XfcePanelPlugin *plugin)
 
   mixer_plugin->card = NULL;
   mixer_plugin->track = NULL;
+  mixer_plugin->ignore_bus_messages = FALSE;
 
   mixer_plugin->tooltips = gtk_tooltips_new ();
   gtk_tooltips_set_delay (mixer_plugin->tooltips, 10);
@@ -217,6 +220,8 @@ xfce_mixer_plugin_volume_changed (XfceMixerPlugin  *mixer_plugin,
   g_return_if_fail (IS_XFCE_MIXER_CARD (mixer_plugin->card));
   g_return_if_fail (GST_IS_MIXER_TRACK (mixer_plugin->track));
 
+  mixer_plugin->ignore_bus_messages = TRUE;
+
   /* Set tooltip (e.g. 'Master: 50%') */
   tip_text = g_strdup_printf (_("%s: %i%%"), GST_MIXER_TRACK (mixer_plugin->track)->label, (gint) (volume * 100));
   gtk_tooltips_set_tip (mixer_plugin->tooltips, mixer_plugin->button, tip_text, "test");
@@ -233,6 +238,8 @@ xfce_mixer_plugin_volume_changed (XfceMixerPlugin  *mixer_plugin,
   xfce_mixer_card_set_track_volume (mixer_plugin->card, mixer_plugin->track, volumes);
 
   g_free (volumes);
+
+  mixer_plugin->ignore_bus_messages = FALSE;
 }
 
 
@@ -245,7 +252,11 @@ xfce_mixer_plugin_mute_toggled (XfceMixerPlugin *mixer_plugin,
   g_return_if_fail (IS_XFCE_MIXER_CARD (mixer_plugin->card));
   g_return_if_fail (GST_IS_MIXER_TRACK (mixer_plugin->track));
 
+  mixer_plugin->ignore_bus_messages = TRUE;
+
   xfce_mixer_card_set_track_muted (mixer_plugin->card, mixer_plugin->track, mute);
+
+  mixer_plugin->ignore_bus_messages = FALSE;
 }
 
 
@@ -441,6 +452,9 @@ xfce_mixer_plugin_bus_message (GstBus          *bus,
   gint               *volumes;
   gint                num_channels;
   gboolean            mute;
+
+  if (G_UNLIKELY (mixer_plugin->ignore_bus_messages))
+    return;
 
   if (G_UNLIKELY (!xfce_mixer_card_get_message_owner (mixer_plugin->card, message)))
     return TRUE;
