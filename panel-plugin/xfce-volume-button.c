@@ -73,7 +73,7 @@ static void       xfce_volume_button_enter          (GtkWidget             *widg
                                                      GdkEventCrossing      *event);
 static void       xfce_volume_button_leave          (GtkWidget             *widget,
                                                      GdkEventCrossing      *event);
-static void       xfce_volume_button_scrolled       (GtkWidget             *widget,
+static gboolean   xfce_volume_button_scrolled       (GtkWidget             *widget,
                                                      GdkEventScroll        *event,
                                                      XfceVolumeButton      *button);
 static void       xfce_volume_button_volume_changed (XfceVolumeButton      *button,
@@ -332,7 +332,7 @@ xfce_volume_button_button_pressed (GtkWidget        *widget,
 
 
 
-static void 
+static gboolean 
 xfce_volume_button_scrolled (GtkWidget        *widget,
                              GdkEventScroll   *event,
                              XfceVolumeButton *button)
@@ -360,6 +360,8 @@ xfce_volume_button_scrolled (GtkWidget        *widget,
   xfce_volume_button_update (button);
 
   g_signal_emit_by_name (button, "volume-changed", gtk_adjustment_get_value (GTK_ADJUSTMENT (button->adjustment)));
+
+  return TRUE;
 }
 
 
