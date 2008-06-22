@@ -224,7 +224,7 @@ xfce_plugin_dialog_create_contents (XfcePluginDialog *dialog,
   gchar           *title;
 
   gtk_window_set_icon_name (GTK_WINDOW (dialog), "xfce4-mixer");
-  gtk_window_set_title (GTK_WINDOW (dialog), _("Mixer Plugin Settings"));
+  gtk_window_set_title (GTK_WINDOW (dialog), _("Mixer Plugin"));
 
   xfce_titled_dialog_set_subtitle (XFCE_TITLED_DIALOG (dialog), _("Please select which mixer track should be used by the plugin"));
   

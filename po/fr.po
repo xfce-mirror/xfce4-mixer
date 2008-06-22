@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce 4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-06-21 15:45+0200\n"
+"POT-Creation-Date: 2008-06-22 03:25+0200\n"
 "PO-Revision-Date: 2008-02-26 23:23+0100\n"
 "Last-Translator: Mike Massonnet <mmassonnet@gmail.com>\n"
 "Language-Team: French\n"
@@ -16,6 +16,42 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: ../panel-plugin/xfce-mixer-plugin.c:248
+msgid "Could not find xfce4-mixer in PATH."
+msgstr ""
+
+#: ../panel-plugin/xfce-plugin-dialog.c:227
+msgid "Mixer Plugin"
+msgstr ""
+
+#: ../panel-plugin/xfce-plugin-dialog.c:229
+msgid "Please select which mixer track should be used by the plugin"
+msgstr ""
+
+#: ../panel-plugin/xfce-plugin-dialog.c:241
+#, fuzzy
+msgid "Sound card"
+msgstr "Carte son :"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:259
+msgid "Mixer track"
+msgstr ""
+
+#: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:1
+#, fuzzy
+msgid "Mixer"
+msgstr "Mixer Xfce"
+
+#: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:2
+#, fuzzy
+msgid "Volume control for your sound card"
+msgstr "Un confortable mixer audio pour votre carte son"
+
+#: ../libxfce4mixer/xfce-mixer-utilities.c:88
+#, c-format
+msgid "Unknown Volume Control %d"
+msgstr "Périphérique inconnu %d"
 
 #. Set application name
 #: ../xfce4-mixer/main.c:75 ../xfce4-mixer/xfce-mixer-window.c:180
@@ -25,27 +61,27 @@ msgstr ""
 msgid "Xfce Mixer"
 msgstr "Mixer Xfce"
 
-#: ../xfce4-mixer/xfce-mixer.c:167
+#: ../xfce4-mixer/xfce-mixer.c:172
 msgid "Playback"
 msgstr "Contrôles"
 
-#: ../xfce4-mixer/xfce-mixer.c:167
+#: ../xfce4-mixer/xfce-mixer.c:172
 msgid "Capture"
 msgstr "Captures"
 
-#: ../xfce4-mixer/xfce-mixer.c:167
+#: ../xfce4-mixer/xfce-mixer.c:172
 msgid "Switches"
 msgstr "Interrupteurs"
 
-#: ../xfce4-mixer/xfce-mixer.c:167
+#: ../xfce4-mixer/xfce-mixer.c:172
 msgid "Options"
 msgstr "Options"
 
-#: ../xfce4-mixer/xfce-mixer.c:298
+#: ../xfce4-mixer/xfce-mixer.c:316
 msgid "No Controls Visible"
 msgstr "Aucun contrôle visible"
 
-#: ../xfce4-mixer/xfce-mixer.c:302
+#: ../xfce4-mixer/xfce-mixer.c:320
 msgid ""
 "No controls are marked as visible. Please open the <span "
 "size='large'><b>Select Controls</b></span> dialog to select some."
@@ -96,6 +132,3 @@ msgstr "Mixer audio pour l'environnement Xfce"
 #~ "Aucune carte son n'a pu être trouvé. Vous avez peut-être besoin "
 #~ "d'installer des paquets gstreamer supplémentaires pour le support de ALSA "
 #~ "ou OSS."
-
-#~ msgid "Unknown Volume Control %d"
-#~ msgstr "Périphérique inconnu %d"

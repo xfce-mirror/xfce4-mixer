@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce 4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-06-21 15:45+0200\n"
+"POT-Creation-Date: 2008-06-22 03:25+0200\n"
 "PO-Revision-Date: 2008-05-18 21:16+0100\n"
 "Last-Translator: Ole Guldberg <olegb@omgwtf.dk>\n"
 "Language-Team: Danish\n"
@@ -15,6 +15,42 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../panel-plugin/xfce-mixer-plugin.c:248
+msgid "Could not find xfce4-mixer in PATH."
+msgstr ""
+
+#: ../panel-plugin/xfce-plugin-dialog.c:227
+msgid "Mixer Plugin"
+msgstr ""
+
+#: ../panel-plugin/xfce-plugin-dialog.c:229
+msgid "Please select which mixer track should be used by the plugin"
+msgstr ""
+
+#: ../panel-plugin/xfce-plugin-dialog.c:241
+#, fuzzy
+msgid "Sound card"
+msgstr "Lydkort:"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:259
+msgid "Mixer track"
+msgstr ""
+
+#: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:1
+#, fuzzy
+msgid "Mixer"
+msgstr "Xfce mixer"
+
+#: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:2
+#, fuzzy
+msgid "Volume control for your sound card"
+msgstr "En behagelig lydmixer til dit lydkort."
+
+#: ../libxfce4mixer/xfce-mixer-utilities.c:88
+#, c-format
+msgid "Unknown Volume Control %d"
+msgstr "Ukendt Volumen kontrol %d"
 
 #. Set application name
 #: ../xfce4-mixer/main.c:75 ../xfce4-mixer/xfce-mixer-window.c:180
@@ -24,27 +60,27 @@ msgstr ""
 msgid "Xfce Mixer"
 msgstr "Xfce mixer"
 
-#: ../xfce4-mixer/xfce-mixer.c:167
+#: ../xfce4-mixer/xfce-mixer.c:172
 msgid "Playback"
 msgstr "Afspil"
 
-#: ../xfce4-mixer/xfce-mixer.c:167
+#: ../xfce4-mixer/xfce-mixer.c:172
 msgid "Capture"
 msgstr "Indspil"
 
-#: ../xfce4-mixer/xfce-mixer.c:167
+#: ../xfce4-mixer/xfce-mixer.c:172
 msgid "Switches"
 msgstr "Kontakter"
 
-#: ../xfce4-mixer/xfce-mixer.c:167
+#: ../xfce4-mixer/xfce-mixer.c:172
 msgid "Options"
 msgstr "Indstillinger"
 
-#: ../xfce4-mixer/xfce-mixer.c:298
+#: ../xfce4-mixer/xfce-mixer.c:316
 msgid "No Controls Visible"
 msgstr "Ingen synlige kontroller"
 
-#: ../xfce4-mixer/xfce-mixer.c:302
+#: ../xfce4-mixer/xfce-mixer.c:320
 msgid ""
 "No controls are marked as visible. Please open the <span "
 "size='large'><b>Select Controls</b></span> dialog to select some."
@@ -94,6 +130,3 @@ msgstr "Lydmixer til Xfce skrivebordsmiljøet"
 #~ msgstr ""
 #~ "Ingen lydkort blev fundet. Du skal måske installere yderligere gstreamer "
 #~ "pakker for at få ALSA eller OSS understøttelse. "
-
-#~ msgid "Unknown Volume Control %d"
-#~ msgstr "Ukendt Volumen kontrol %d"

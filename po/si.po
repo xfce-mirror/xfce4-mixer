@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-06-21 15:45+0200\n"
+"POT-Creation-Date: 2008-06-22 03:25+0200\n"
 "PO-Revision-Date: 2008-02-09 22:18+0530\n"
 "Last-Translator: Rashan Anushka <rashan.uoc@gmail.com>\n"
 "Language-Team: Sinhala <si@li.org>\n"
@@ -15,6 +15,42 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
+
+#: ../panel-plugin/xfce-mixer-plugin.c:248
+msgid "Could not find xfce4-mixer in PATH."
+msgstr ""
+
+#: ../panel-plugin/xfce-plugin-dialog.c:227
+#, fuzzy
+msgid "Mixer Plugin"
+msgstr "මිශ්‍රක සිටුවම්"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:229
+msgid "Please select which mixer track should be used by the plugin"
+msgstr ""
+
+#: ../panel-plugin/xfce-plugin-dialog.c:241
+#, fuzzy
+msgid "Sound card"
+msgstr "ශබ්දය"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:259
+msgid "Mixer track"
+msgstr ""
+
+#: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:1
+#, fuzzy
+msgid "Mixer"
+msgstr "Mix"
+
+#: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:2
+msgid "Volume control for your sound card"
+msgstr ""
+
+#: ../libxfce4mixer/xfce-mixer-utilities.c:88
+#, fuzzy, c-format
+msgid "Unknown Volume Control %d"
+msgstr "ශබ්ද පාලකය"
 
 #. Set application name
 #: ../xfce4-mixer/main.c:75 ../xfce4-mixer/xfce-mixer-window.c:180
@@ -25,29 +61,29 @@ msgstr ""
 msgid "Xfce Mixer"
 msgstr "Xfce 4 මිශ්‍රක සිටුවම්"
 
-#: ../xfce4-mixer/xfce-mixer.c:167
+#: ../xfce4-mixer/xfce-mixer.c:172
 msgid "Playback"
 msgstr ""
 
-#: ../xfce4-mixer/xfce-mixer.c:167
+#: ../xfce4-mixer/xfce-mixer.c:172
 msgid "Capture"
 msgstr ""
 
-#: ../xfce4-mixer/xfce-mixer.c:167
+#: ../xfce4-mixer/xfce-mixer.c:172
 #, fuzzy
 msgid "Switches"
 msgstr "ස්වීචයන් පෙන්වන්න"
 
-#: ../xfce4-mixer/xfce-mixer.c:167
+#: ../xfce4-mixer/xfce-mixer.c:172
 #, fuzzy
 msgid "Options"
 msgstr "/ගොනු/විකල්ප(_O)"
 
-#: ../xfce4-mixer/xfce-mixer.c:298
+#: ../xfce4-mixer/xfce-mixer.c:316
 msgid "No Controls Visible"
 msgstr ""
 
-#: ../xfce4-mixer/xfce-mixer.c:302
+#: ../xfce4-mixer/xfce-mixer.c:320
 msgid ""
 "No controls are marked as visible. Please open the <span "
 "size='large'><b>Select Controls</b></span> dialog to select some."
@@ -92,10 +128,6 @@ msgstr "ශබ්දය"
 msgid "Audio mixer for the Xfce Desktop Environment"
 msgstr ""
 
-#, fuzzy
-#~ msgid "Unknown Volume Control %d"
-#~ msgstr "ශබ්ද පාලකය"
-
 #~ msgid "Vol"
 #~ msgstr "Vol"
 
@@ -122,9 +154,6 @@ msgstr ""
 
 #~ msgid "Synth"
 #~ msgstr "Synth"
-
-#~ msgid "Mix"
-#~ msgstr "Mix"
 
 #~ msgid "Pcm2"
 #~ msgstr "Pcm2"
@@ -367,6 +396,3 @@ msgstr ""
 
 #~ msgid "Change the Volume"
 #~ msgstr "ශබ්දය වෙනස් කරන්න"
-
-#~ msgid "Mixer Settings"
-#~ msgstr "මිශ්‍රක සිටුවම්"
