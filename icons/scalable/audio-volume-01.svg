@@ -384,7 +384,7 @@
        xlink:href="#linearGradient3498"
        id="radialGradient3506"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(43.968272,-19.425114,10.906929,30.761994,-1863.6997,-5.6801315)"
+       gradientTransform="matrix(43.968272,-19.425114,10.906929,30.761994,-1863.6997,-6.2189009)"
        cx="36.82843"
        cy="24.427683"
        fx="36.82843"
@@ -395,7 +395,7 @@
        xlink:href="#linearGradient3498"
        id="radialGradient3508"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(32.313054,-14.275864,12.619686,35.592614,-1477.7809,-313.45956)"
+       gradientTransform="matrix(31.048208,-13.717057,12.125707,34.199395,-1418.48,-299.33636)"
        cx="36.82843"
        cy="24.427677"
        fx="36.82843"
@@ -483,6 +483,10 @@
        orientation="horizontal"
        position="-4.7729708"
        id="guide6153" />
+    <sodipodi:guide
+       orientation="horizontal"
+       position="0.88388348"
+       id="guide2256" />
   </sodipodi:namedview>
   <metadata
      id="metadata2571">
