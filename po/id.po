@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xfce4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-06-23 00:03+0200\n"
-"PO-Revision-Date: 2008-05-20 17:04+0700\n"
+"PO-Revision-Date: 2008-06-23 15:44+0700\n"
 "Last-Translator: Andhika Padmawan <andhika.padmawan@gmail.com>\n"
 "Language-Team: Indonesian <id@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -20,38 +20,35 @@ msgstr ""
 #: ../panel-plugin/xfce-mixer-plugin.c:466
 #, c-format
 msgid "%s: %i%%"
-msgstr ""
+msgstr "%s: %i%%"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:315
 msgid "Could not find xfce4-mixer in PATH."
-msgstr ""
+msgstr "Tak dapat menemukan xfce4-mixer dalam ALAMAT"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:227
 msgid "Mixer Plugin"
-msgstr ""
+msgstr "Plugin Mixer"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:229
 msgid "Please select which mixer track should be used by the plugin"
-msgstr ""
+msgstr "Silakan pilih jalur mixer mana yang harus digunakan oleh plugin"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:241
-#, fuzzy
 msgid "Sound card"
-msgstr "Kartu suara:"
+msgstr "Kartu suara"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:259
 msgid "Mixer track"
-msgstr ""
+msgstr "Jalur mixer"
 
 #: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:1
-#, fuzzy
 msgid "Mixer"
-msgstr "Mixer Xfce"
+msgstr "Mixer"
 
 #: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:2
-#, fuzzy
 msgid "Volume control for your sound card"
-msgstr "Mixer audio yang nyaman untuk kartu suara anda."
+msgstr "Kendali volume untuk kartu suara anda"
 
 #: ../libxfce4mixer/xfce-mixer-utilities.c:88
 #, c-format
