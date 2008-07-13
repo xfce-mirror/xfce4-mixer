@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce 4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-01-13 21:17+0100\n"
-"PO-Revision-Date: 2008-02-04 20:15+0100\n"
+"POT-Creation-Date: 2008-07-13 15:32+0200\n"
+"PO-Revision-Date: 2008-07-13 15:37+0100\n"
 "Last-Translator: Michal Várady <miko.vaji@gmail.com>\n"
 "Language-Team: Czech\n"
 "MIME-Version: 1.0\n"
@@ -16,37 +16,76 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
+#. Set tooltip (e.g. 'Master: 50%')
+#: ../panel-plugin/xfce-mixer-plugin.c:252
+#: ../panel-plugin/xfce-mixer-plugin.c:467
+#, c-format
+msgid "%s: %i%%"
+msgstr "%s: %i%%"
+
+#: ../panel-plugin/xfce-mixer-plugin.c:316
+msgid "Could not find xfce4-mixer in PATH."
+msgstr "Nelze nalézt spustitelný soubor xfce4-mixer v adresáři PATH."
+
+#: ../panel-plugin/xfce-plugin-dialog.c:229
+msgid "Mixer Plugin"
+msgstr "Zásuvný modul Směšovač"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:231
+msgid "Please select which mixer track should be used by the plugin"
+msgstr "Vyberte směšovač stop, který bude použit tímto zásuvným modulem"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:243
+msgid "Sound card"
+msgstr "Zvuková karta"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:261
+msgid "Mixer track"
+msgstr "Směšovač stop"
+
+#: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:1
+msgid "Mixer"
+msgstr "Směšovač"
+
+#: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:2
+msgid "Volume control for your sound card"
+msgstr "Ovládání hlasitosti vaší zvukové karty"
+
+#: ../libxfce4mixer/xfce-mixer-utilities.c:89
+#, c-format
+msgid "Unknown Volume Control %d"
+msgstr "Neznámý ovládací prvek %d"
+
 #. Set application name
 #: ../xfce4-mixer/main.c:75
-#: ../xfce4-mixer/xfce-mixer-window.c:182
-#: ../xfce4-mixer/xfce-mixer-window.c:200
-#: ../xfce4-mixer/xfce-mixer-window.c:370
-#: ../xfce4-mixer/xfce-mixer-window.c:375
+#: ../xfce4-mixer/xfce-mixer-window.c:180
+#: ../xfce4-mixer/xfce-mixer-window.c:198
+#: ../xfce4-mixer/xfce-mixer-window.c:301
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
 msgid "Xfce Mixer"
 msgstr "Směšovač Xfce"
 
-#: ../xfce4-mixer/xfce-mixer.c:162
+#: ../xfce4-mixer/xfce-mixer.c:172
 msgid "Playback"
 msgstr "Přehrávání"
 
-#: ../xfce4-mixer/xfce-mixer.c:162
+#: ../xfce4-mixer/xfce-mixer.c:172
 msgid "Capture"
 msgstr "Záznam"
 
-#: ../xfce4-mixer/xfce-mixer.c:162
+#: ../xfce4-mixer/xfce-mixer.c:172
 msgid "Switches"
 msgstr "Přepínače"
 
-#: ../xfce4-mixer/xfce-mixer.c:162
+#: ../xfce4-mixer/xfce-mixer.c:172
 msgid "Options"
 msgstr "Možnosti"
 
-#: ../xfce4-mixer/xfce-mixer.c:289
+#: ../xfce4-mixer/xfce-mixer.c:316
 msgid "No Controls Visible"
 msgstr "Žádné ovládací prvky nejsou viditelné"
 
-#: ../xfce4-mixer/xfce-mixer.c:293
+#: ../xfce4-mixer/xfce-mixer.c:320
 msgid "No controls are marked as visible. Please open the <span size='large'><b>Select Controls</b></span> dialog to select some."
 msgstr "Žádné ovládací prvky nejsou označeny jako viditelné. Pro výběr těchto prvků otevřete dialogové okno <span size='large'><b>Vybrat ovládací prvky</b></span>."
 
@@ -58,40 +97,38 @@ msgstr "Vybrat ovládací prvky"
 msgid "Please select which controls you want to be visible"
 msgstr "Vyberte prvky, které chcete nastavit jako viditelné"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:95
+#: ../xfce4-mixer/xfce-mixer-window.c:92
 msgid "_Quit"
 msgstr "_Ukončit"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:95
+#: ../xfce4-mixer/xfce-mixer-window.c:92
 msgid "Exit Xfce Mixer"
 msgstr "Ukončí aplikaci Směšovač Xfce"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:97
+#: ../xfce4-mixer/xfce-mixer-window.c:94
 msgid "_Select Controls..."
 msgstr "_Vybrat ovládací prvky"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:97
+#: ../xfce4-mixer/xfce-mixer-window.c:94
 msgid "Select which controls are displayed"
 msgstr "Vyberte prvky, které mají být zobrazeny"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:201
+#: ../xfce4-mixer/xfce-mixer-window.c:199
 msgid "A comfortable audio mixer for your sound card."
 msgstr "Uživatelsky přívětivý směšovač zvuku pro vaši zvukovou kartu."
 
-#: ../xfce4-mixer/xfce-mixer-window.c:216
+#: ../xfce4-mixer/xfce-mixer-window.c:214
 msgid "Sound card:"
 msgstr "Zvuková karta:"
-
-#: ../xfce4-mixer/xfce-mixer-window.c:315
-msgid "No sound cards could be found. You may have to install additional gstreamer packages for ALSA or OSS support."
-msgstr "Nebyly nalezeny žádné zvukové karty. Zřejmě je potřeba doinstalovat balíčky gstreamer pro podporu zvukových systémů ALSA nebo OSS."
-
-#: ../xfce4-mixer/xfce-mixer-window.c:445
-#, c-format
-msgid "Unknown Volume Control %d"
-msgstr "Neznámý ovládací prvek %d"
 
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:1
 msgid "Audio mixer for the Xfce Desktop Environment"
 msgstr "Směšovač zvuku pro pracovní prostředí Xfce"
+
+#~ msgid ""
+#~ "No sound cards could be found. You may have to install additional "
+#~ "gstreamer packages for ALSA or OSS support."
+#~ msgstr ""
+#~ "Nebyly nalezeny žádné zvukové karty. Zřejmě je potřeba doinstalovat "
+#~ "balíčky gstreamer pro podporu zvukových systémů ALSA nebo OSS."
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-06-23 00:03+0200\n"
+"POT-Creation-Date: 2008-07-13 15:32+0200\n"
 "PO-Revision-Date: 2008-03-18 14:15+0100\n"
 "Last-Translator: Nuno Miguel <nunis@netcabo.pt>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,30 +16,30 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #. Set tooltip (e.g. 'Master: 50%')
-#: ../panel-plugin/xfce-mixer-plugin.c:251
-#: ../panel-plugin/xfce-mixer-plugin.c:466
+#: ../panel-plugin/xfce-mixer-plugin.c:252
+#: ../panel-plugin/xfce-mixer-plugin.c:467
 #, c-format
 msgid "%s: %i%%"
 msgstr ""
 
-#: ../panel-plugin/xfce-mixer-plugin.c:315
+#: ../panel-plugin/xfce-mixer-plugin.c:316
 msgid "Could not find xfce4-mixer in PATH."
 msgstr ""
 
-#: ../panel-plugin/xfce-plugin-dialog.c:227
+#: ../panel-plugin/xfce-plugin-dialog.c:229
 msgid "Mixer Plugin"
 msgstr ""
 
-#: ../panel-plugin/xfce-plugin-dialog.c:229
+#: ../panel-plugin/xfce-plugin-dialog.c:231
 msgid "Please select which mixer track should be used by the plugin"
 msgstr ""
 
-#: ../panel-plugin/xfce-plugin-dialog.c:241
+#: ../panel-plugin/xfce-plugin-dialog.c:243
 #, fuzzy
 msgid "Sound card"
 msgstr "Placa de som:"
 
-#: ../panel-plugin/xfce-plugin-dialog.c:259
+#: ../panel-plugin/xfce-plugin-dialog.c:261
 msgid "Mixer track"
 msgstr ""
 
@@ -53,7 +53,7 @@ msgstr "Xfce Mixer"
 msgid "Volume control for your sound card"
 msgstr "Um misturador de áudio para a placa de som."
 
-#: ../libxfce4mixer/xfce-mixer-utilities.c:88
+#: ../libxfce4mixer/xfce-mixer-utilities.c:89
 #, c-format
 msgid "Unknown Volume Control %d"
 msgstr "Controlo de Volume Desconhecido %d"
