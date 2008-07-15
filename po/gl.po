@@ -1,0 +1,131 @@
+# Galician translation of xfce4-mixer
+# Copyright (C) 2008 Leandro Regueiro
+# This file is distributed under the same license as the xfce package.
+#
+# Leandro Regueiro <leandro.regueiro@gmail.com>, 2008.
+#
+# Proxecto Trasno - Adaptación do software libre á lingua galega:  Se desexas
+# colaborar connosco, podes atopar máis información en <http://trasno.net>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4-mixer 4.4.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-06-23 00:03+0200\n"
+"PO-Revision-Date: 2008-06-28 11:39+0100\n"
+"Last-Translator: Leandro Regueiro <leandro DOT regueiro AT gmail DOT com>\n"
+"Language-Team: Galician <proxecto@trasno.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#. Set tooltip (e.g. 'Master: 50%')
+#: ../panel-plugin/xfce-mixer-plugin.c:251
+#: ../panel-plugin/xfce-mixer-plugin.c:466
+#, c-format
+msgid "%s: %i%%"
+msgstr "%s: %i%%"
+
+#: ../panel-plugin/xfce-mixer-plugin.c:315
+msgid "Could not find xfce4-mixer in PATH."
+msgstr "Non se puido atopar xfce4-mixer no PATH."
+
+#: ../panel-plugin/xfce-plugin-dialog.c:227
+msgid "Mixer Plugin"
+msgstr ""
+
+#: ../panel-plugin/xfce-plugin-dialog.c:229
+msgid "Please select which mixer track should be used by the plugin"
+msgstr ""
+
+#: ../panel-plugin/xfce-plugin-dialog.c:241
+msgid "Sound card"
+msgstr "Tarxeta de son"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:259
+msgid "Mixer track"
+msgstr ""
+
+#: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:1
+msgid "Mixer"
+msgstr ""
+
+#: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:2
+msgid "Volume control for your sound card"
+msgstr ""
+
+#: ../libxfce4mixer/xfce-mixer-utilities.c:88
+#, c-format
+msgid "Unknown Volume Control %d"
+msgstr ""
+
+#. Set application name
+#: ../xfce4-mixer/main.c:75
+#: ../xfce4-mixer/xfce-mixer-window.c:180
+#: ../xfce4-mixer/xfce-mixer-window.c:198
+#: ../xfce4-mixer/xfce-mixer-window.c:301
+#: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
+msgid "Xfce Mixer"
+msgstr ""
+
+#: ../xfce4-mixer/xfce-mixer.c:172
+msgid "Playback"
+msgstr ""
+
+#: ../xfce4-mixer/xfce-mixer.c:172
+msgid "Capture"
+msgstr ""
+
+#: ../xfce4-mixer/xfce-mixer.c:172
+msgid "Switches"
+msgstr ""
+
+#: ../xfce4-mixer/xfce-mixer.c:172
+msgid "Options"
+msgstr "Opcións"
+
+#: ../xfce4-mixer/xfce-mixer.c:316
+msgid "No Controls Visible"
+msgstr ""
+
+#: ../xfce4-mixer/xfce-mixer.c:320
+msgid "No controls are marked as visible. Please open the <span size='large'><b>Select Controls</b></span> dialog to select some."
+msgstr ""
+
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:129
+msgid "Select Controls"
+msgstr ""
+
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:131
+msgid "Please select which controls you want to be visible"
+msgstr ""
+
+#: ../xfce4-mixer/xfce-mixer-window.c:92
+msgid "_Quit"
+msgstr "_Saír"
+
+#: ../xfce4-mixer/xfce-mixer-window.c:92
+msgid "Exit Xfce Mixer"
+msgstr ""
+
+#: ../xfce4-mixer/xfce-mixer-window.c:94
+msgid "_Select Controls..."
+msgstr ""
+
+#: ../xfce4-mixer/xfce-mixer-window.c:94
+msgid "Select which controls are displayed"
+msgstr ""
+
+#: ../xfce4-mixer/xfce-mixer-window.c:199
+msgid "A comfortable audio mixer for your sound card."
+msgstr ""
+
+#: ../xfce4-mixer/xfce-mixer-window.c:214
+msgid "Sound card:"
+msgstr "Tarxeta de son:"
+
+#: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:1
+msgid "Audio mixer for the Xfce Desktop Environment"
+msgstr ""
+
