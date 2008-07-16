@@ -89,7 +89,9 @@ msgid "No Controls Visible"
 msgstr ""
 
 #: ../xfce4-mixer/xfce-mixer.c:320
-msgid "No controls are marked as visible. Please open the <span size='large'><b>Select Controls</b></span> dialog to select some."
+msgid ""
+"No controls are marked as visible. Please open the <span "
+"size='large'><b>Select Controls</b></span> dialog to select some."
 msgstr ""
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:129
