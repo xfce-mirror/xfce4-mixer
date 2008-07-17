@@ -99,5 +99,8 @@ main (int    argc,
   /* Enter the GTK+ main loop */
   gtk_main ();
 
+  /* Destroy the window */
+  gtk_widget_destroy (window);
+
   return EXIT_SUCCESS;
 }

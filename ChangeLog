@@ -1,3 +1,8 @@
+2008-07-17	Jannis Pohlmann <jannis@xfce.org>
+
+	* libxfce4mixer/xfce-mixer-preferences.c, xfce4-mixer/main.c,
+	  xfce4-mixer/xfce-mixer-window.c: Fix a few memory leaks.
+
 2008-06-23	Jannis Pohlmann <jannis@xfce.org>
 
 	* libxfce4mixer/xfce-mixer-track-combo.c,

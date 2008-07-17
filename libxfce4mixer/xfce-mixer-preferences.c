@@ -280,6 +280,8 @@ xfce_mixer_preferences_load (XfceMixerPreferences *preferences)
       g_value_unset (&src);
     }
 
+  g_free (specs);
+
   xfce_rc_close (rc);
 
   g_object_thaw_notify (G_OBJECT (preferences));
@@ -334,6 +336,8 @@ xfce_mixer_preferences_store (XfceMixerPreferences *preferences)
 
       g_value_unset (&dest);
     }
+
+  g_free (specs);
 
   xfce_rc_close (rc);
 }

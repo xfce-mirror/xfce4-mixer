@@ -224,6 +224,8 @@ xfce_mixer_window_init (XfceMixerWindow *window)
   gtk_container_add (GTK_CONTAINER (hbox), window->soundcard_combo);
   gtk_widget_show (window->soundcard_combo);
 
+  g_free (active_card);
+
   window->mixer_frame = gtk_frame_new (NULL);
   gtk_frame_set_shadow_type (GTK_FRAME (window->mixer_frame), GTK_SHADOW_NONE);
   gtk_container_set_border_width (GTK_CONTAINER (window->mixer_frame), 6);
