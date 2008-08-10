@@ -1,3 +1,10 @@
+2008-08-10	Jannis Pohlmann <jannis@xfce.org>
+
+	* panel-plugin/xfce-volume-button.c: Use mute icon only if the
+	  mixer track is actually muted.
+	* panel-plugin/xfce-plugin-dialog.c: Fix compiler warning due to
+	  missing gst/interfaces/mixer.h include.
+
 2008-07-17	Jannis Pohlmann <jannis@xfce.org>
 
 	* libxfce4mixer/xfce-mixer-preferences.c, xfce4-mixer/main.c,

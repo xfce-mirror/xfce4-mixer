@@ -415,10 +415,9 @@ xfce_volume_button_update (XfceVolumeButton *button)
   /* Determine the difference between upper and lower bound (= volume range) */
   range = (upper - lower) / (G_N_ELEMENTS (icons) - 2);
 
-  if (G_UNLIKELY (value == lower || button->is_muted))
+  if (G_UNLIKELY (button->is_muted))
     {
-      /* By definition, use the first icon if the volume is set to the minimum value
-       * or if the button is muted */
+      /* By definition, use the first icon if the button is muted */
       pixbuf = button->pixbufs[0];
     }
   else
