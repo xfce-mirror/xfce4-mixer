@@ -319,6 +319,9 @@ xfce_mixer_window_soundcard_changed (XfceMixerCardCombo *combo,
 
   /* Make the "Select Controls..." button sensitive */
   gtk_widget_set_sensitive (window->select_controls_button, TRUE);
+
+  /* Remember the card for next time */
+  g_object_set (G_OBJECT (window->preferences), "sound-card", xfce_mixer_card_get_name (card), NULL);
 }
 
 

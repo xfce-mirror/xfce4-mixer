@@ -218,7 +218,7 @@ xfce_mixer_card_combo_load_soundcards (XfceMixerCardCombo *combo,
       gtk_list_store_append (combo->model, &iter);
       gtk_list_store_set (combo->model, &iter, NAME_COLUMN, xfce_mixer_card_get_display_name (card), CARD_COLUMN, card, -1);
 
-      if (G_UNLIKELY (card_name != NULL && g_utf8_collate (xfce_mixer_card_get_display_name (card), card_name) == 0))
+      if (G_UNLIKELY (card_name != NULL && g_utf8_collate (xfce_mixer_card_get_name (card), card_name) == 0))
         active_index = counter;
     }
 

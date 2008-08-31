@@ -1,3 +1,12 @@
+2008-08-31	Jannis Pohlmann <jannis@xfce.org>
+
+	* libxfce4mixe/xfce-mixer-card-combo.c,
+	  xfce4-mixer/xfce-mixer-window.c: Remember the selected sound card so
+	  that it is selected again on next startup. Use
+	  xfce_mixer_card_get_name() instead of
+	  xfce_mixer_card_get_display_name() to determine the active card
+	  index in XFceMixerCardCombo.
+
 2008-08-10	Jannis Pohlmann <jannis@xfce.org>
 
 	* panel-plugin/xfce-volume-button.c: Use mute icon only if the
