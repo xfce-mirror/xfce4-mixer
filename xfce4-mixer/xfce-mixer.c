@@ -343,6 +343,8 @@ xfce_mixer_bus_message (GstBus     *bus,
   gint               *volumes;
   gint                num_channels;
 
+  g_return_val_if_fail (IS_XFCE_MIXER (mixer), TRUE);
+
   if (G_UNLIKELY (!xfce_mixer_card_get_message_owner (mixer->card, message)))
     return TRUE;
 

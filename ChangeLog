@@ -1,5 +1,11 @@
 2008-09-01	Jannis Pohlmann <jannis@xfce.org>
 
+	* xfce4-mixer/xfce-mixer.c: Add g_return_val_if_fail() call to
+	  xfce_mixer_bus_message() in order to return when an invalid mixer
+	  object is passed to the function.
+
+2008-09-01	Jannis Pohlmann <jannis@xfce.org>
+
 	* xfce4-mixer/xfce-mixer.c: Connect to the GstBus after creating the
 	  mxier widgets, not before. This shouldn't change anything but it
 	  makes more sense to me.
