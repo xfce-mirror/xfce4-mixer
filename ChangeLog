@@ -1,3 +1,9 @@
+2008-09-01	Jannis Pohlmann <jannis@xfce.org>
+
+	* xfce4-mixer/xfce-mixer.c: Connect to the GstBus after creating the
+	  mxier widgets, not before. This shouldn't change anything but it
+	  makes more sense to me.
+
 2008-08-31	Jannis Pohlmann <jannis@xfce.org>
 
 	* libxfce4mixe/xfce-mixer-card-combo.c,

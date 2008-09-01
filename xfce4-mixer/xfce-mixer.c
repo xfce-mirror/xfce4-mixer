@@ -183,10 +183,6 @@ xfce_mixer_create_contents (XfceMixer *mixer)
 
   xfce_mixer_card_set_ready (mixer->card);
 
-#ifdef HAVE_GST_MIXER_NOTIFICATION
-  xfce_mixer_card_connect (mixer->card, G_CALLBACK (xfce_mixer_bus_message), mixer);
-#endif
-
   /* Create widgets for all four tabs */
   for (i = 0; i < 4; ++i)
     {
@@ -323,6 +319,10 @@ xfce_mixer_create_contents (XfceMixer *mixer)
 
       gtk_notebook_append_page (GTK_NOTEBOOK (mixer), label2, label1);
     }
+
+#ifdef HAVE_GST_MIXER_NOTIFICATION
+  xfce_mixer_card_connect (mixer->card, G_CALLBACK (xfce_mixer_bus_message), mixer);
+#endif
 }
 
 
