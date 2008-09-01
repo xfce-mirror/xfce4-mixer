@@ -1,5 +1,15 @@
 2008-09-01	Jannis Pohlmann <jannis@xfce.org>
 
+	* libxfce4mixer/xfce-mixer-card.{c,h}: Add new method
+	  xfce_mixer_card_disconnect() and return the signal handler ID from
+	  xfce_mixer_card_connect(). 
+	* xfce4-mixer/xfce-mixer.c: Disconnect from the XfceMixeCard in
+	  xfce_mixer_finalize(). This way there will be no GstBus messages
+	  sent to finalized XfceMixer objects any more. Fixes a bug on first
+	  startup.
+
+2008-09-01	Jannis Pohlmann <jannis@xfce.org>
+
 	* xfce4-mixer/xfce-mixer.c: Add g_return_val_if_fail() call to
 	  xfce_mixer_bus_message() in order to return when an invalid mixer
 	  object is passed to the function.

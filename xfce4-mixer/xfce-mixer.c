@@ -62,6 +62,10 @@ struct _XfceMixer
 
   XfceMixerCard *card;
 
+#ifdef HAVE_GST_MIXER_NOTIFICATION
+  gint           bus_connection_id;
+#endif
+
   GHashTable    *widgets;
 };
 
@@ -119,6 +123,7 @@ static void
 xfce_mixer_init (XfceMixer *mixer)
 {
   mixer->widgets = g_hash_table_new_full (g_str_hash, g_str_equal, NULL, NULL);
+  mixer->bus_connection_id = 0;
 }
 
 
@@ -135,6 +140,10 @@ static void
 xfce_mixer_finalize (GObject *object)
 {
   XfceMixer *mixer = XFCE_MIXER (object);
+
+#ifdef HAVE_GST_MIXER_NOTIFICATION
+  xfce_mixer_card_disconnect (mixer->card, mixer->bus_connection_id);
+#endif
 
   g_object_unref (G_OBJECT (mixer->card));
 
@@ -321,7 +330,7 @@ xfce_mixer_create_contents (XfceMixer *mixer)
     }
 
 #ifdef HAVE_GST_MIXER_NOTIFICATION
-  xfce_mixer_card_connect (mixer->card, G_CALLBACK (xfce_mixer_bus_message), mixer);
+  mixer->bus_connection_id = xfce_mixer_card_connect (mixer->card, G_CALLBACK (xfce_mixer_bus_message), mixer);
 #endif
 }
 

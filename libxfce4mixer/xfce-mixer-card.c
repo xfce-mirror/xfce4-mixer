@@ -352,7 +352,7 @@ xfce_mixer_card_set_track_option (XfceMixerCard *card,
 
 
 #ifdef HAVE_GST_MIXER_NOTIFICATION
-void
+gint
 xfce_mixer_card_connect (XfceMixerCard *card,
                          GCallback      callback_func,
                          gpointer       user_data)
@@ -366,7 +366,19 @@ xfce_mixer_card_connect (XfceMixerCard *card,
       gst_element_set_bus (card->element, card->bus);
     }
 
-  g_signal_connect (G_OBJECT (card->bus), "message::element", callback_func, user_data);
+  return g_signal_connect (G_OBJECT (card->bus), "message::element", callback_func, user_data);
+}
+
+
+
+void
+xfce_mixer_card_disconnect (XfceMixerCard *card,
+                            gint           handler_id)
+{
+  g_return_if_fail (IS_XFCE_MIXER_CARD (card));
+
+  if (G_LIKELY (card->bus != NULL))
+    g_signal_handler_disconnect (card->bus, handler_id);
 }
 
 
