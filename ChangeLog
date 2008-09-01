@@ -3,7 +3,7 @@
 	* libxfce4mixer/xfce-mixer-card.{c,h}: Add new method
 	  xfce_mixer_card_disconnect() and return the signal handler ID from
 	  xfce_mixer_card_connect(). 
-	* xfce4-mixer/xfce-mixer.c: Disconnect from the XfceMixeCard in
+	* xfce4-mixer/xfce-mixer.c: Disconnect from the XfceMixerCard in
 	  xfce_mixer_finalize(). This way there will be no GstBus messages
 	  sent to finalized XfceMixer objects any more. Fixes a bug on first
 	  startup.
@@ -27,7 +27,7 @@
 	  that it is selected again on next startup. Use
 	  xfce_mixer_card_get_name() instead of
 	  xfce_mixer_card_get_display_name() to determine the active card
-	  index in XFceMixerCardCombo.
+	  index in XfceMixerCardCombo.
 
 2008-08-10	Jannis Pohlmann <jannis@xfce.org>
 
