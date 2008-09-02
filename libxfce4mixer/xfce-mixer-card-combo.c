@@ -266,12 +266,3 @@ xfce_mixer_card_combo_get_active_card (XfceMixerCardCombo *combo)
 
   return card;
 }
-
-
-
-gint
-xfce_mixer_card_combo_get_n_cards (XfceMixerCardCombo *combo)
-{
-  g_return_val_if_fail (IS_XFCE_MIXER_CARD_COMBO (combo), 0);
-  return gtk_tree_model_iter_n_children (GTK_TREE_MODEL (combo->model), NULL);
-}

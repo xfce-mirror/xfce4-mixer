@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-02 16:58+0200\n"
+"POT-Creation-Date: 2008-09-03 01:08+0200\n"
 "PO-Revision-Date: 2008-07-18 21:26+0200\n"
 "Last-Translator: Mohamed Magdy <mohamedmk@gmail.com>\n"
 "Language-Team: Arabeyes Translation & Documentation <admin@arabeyes.org>\n"
@@ -18,30 +18,88 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 
 #. Set tooltip (e.g. 'Master: 50%')
-#: ../panel-plugin/xfce-mixer-plugin.c:252
-#: ../panel-plugin/xfce-mixer-plugin.c:467
+#: ../panel-plugin/xfce-mixer-plugin.c:271
+#: ../panel-plugin/xfce-mixer-plugin.c:539
 #, c-format
 msgid "%s: %i%%"
 msgstr "%s: %i%%"
 
-#: ../panel-plugin/xfce-mixer-plugin.c:316
-msgid "Could not find xfce4-mixer in PATH."
-msgstr "عجز في إيجاد في xfce4-mixer في ال PATH."
+#: ../panel-plugin/xfce-mixer-plugin.c:340
+msgid "No left-click command defined"
+msgstr ""
 
-#: ../panel-plugin/xfce-plugin-dialog.c:230
+#: ../panel-plugin/xfce-mixer-plugin.c:343
+msgid ""
+"No left-click command defined yet. You can change this in the plugin "
+"properties."
+msgstr ""
+
+#: ../panel-plugin/xfce-mixer-plugin.c:344
+msgid "Properties"
+msgstr ""
+
+#. Generate error message and insert the current command
+#: ../panel-plugin/xfce-mixer-plugin.c:359
+#, c-format
+msgid ""
+"Could not execute the command %s. Perhaps you need to adjust the PATH "
+"variable."
+msgstr ""
+
+#: ../panel-plugin/xfce-mixer-plugin.c:389 ../xfce4-mixer/main.c:96
+msgid ""
+"GStreamer was unable to detect any sound cards on your system. You might be "
+"missing sound system specific GStreamer packages. It might as well be a "
+"permission problem."
+msgstr ""
+
+#: ../panel-plugin/xfce-plugin-dialog.c:240
 msgid "Mixer Plugin"
 msgstr ""
 
-#: ../panel-plugin/xfce-plugin-dialog.c:232
+#: ../panel-plugin/xfce-plugin-dialog.c:242
 msgid "Please select which mixer track should be used by the plugin"
 msgstr ""
 
-#: ../panel-plugin/xfce-plugin-dialog.c:244
+#: ../panel-plugin/xfce-plugin-dialog.c:254
 msgid "Sound card"
 msgstr "كرت صوت"
 
-#: ../panel-plugin/xfce-plugin-dialog.c:262
+#: ../panel-plugin/xfce-plugin-dialog.c:272
 msgid "Mixer track"
+msgstr ""
+
+#: ../panel-plugin/xfce-plugin-dialog.c:292
+msgid "Left-click command"
+msgstr ""
+
+#: ../panel-plugin/xfce-plugin-dialog.c:330
+#, fuzzy
+msgid "Select command"
+msgstr "اختر المتحكمات"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:338
+msgid "All Files"
+msgstr ""
+
+#: ../panel-plugin/xfce-plugin-dialog.c:343
+msgid "Executable Files"
+msgstr ""
+
+#: ../panel-plugin/xfce-plugin-dialog.c:358
+msgid "Perl Scripts"
+msgstr ""
+
+#: ../panel-plugin/xfce-plugin-dialog.c:364
+msgid "Python Scripts"
+msgstr ""
+
+#: ../panel-plugin/xfce-plugin-dialog.c:370
+msgid "Ruby Scripts"
+msgstr ""
+
+#: ../panel-plugin/xfce-plugin-dialog.c:376
+msgid "Shell Scripts"
 msgstr ""
 
 #: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:1
@@ -60,7 +118,7 @@ msgstr "متحكم حجم مجهول %d"
 #. Set application name
 #: ../xfce4-mixer/main.c:75 ../xfce4-mixer/xfce-mixer-window.c:177
 #: ../xfce4-mixer/xfce-mixer-window.c:195
-#: ../xfce4-mixer/xfce-mixer-window.c:306
+#: ../xfce4-mixer/xfce-mixer-window.c:298
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
 msgid "Xfce Mixer"
 msgstr "مازج إكسفس"
@@ -123,16 +181,12 @@ msgstr ""
 msgid "Sound card:"
 msgstr "كرت صوت:"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:259
-msgid ""
-"GStreamer was unable to detect any sound cards on your system. You might be "
-"missing sound system specific GStreamer packages. It might as well be a "
-"permission problem."
-msgstr ""
-
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:1
 msgid "Audio mixer for the Xfce Desktop Environment"
 msgstr ""
+
+#~ msgid "Could not find xfce4-mixer in PATH."
+#~ msgstr "عجز في إيجاد في xfce4-mixer في ال PATH."
 
 #~ msgid "Vol"
 #~ msgstr "صوت"

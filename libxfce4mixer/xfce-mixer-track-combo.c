@@ -220,9 +220,12 @@ xfce_mixer_track_combo_set_soundcard (XfceMixerTrackCombo *combo,
   else
     {
       cards = xfce_mixer_utilities_get_cards ();
-      
-      combo->card = XFCE_MIXER_CARD (g_object_ref (G_OBJECT ( (g_list_first (cards)->data))));
-      xfce_mixer_card_set_ready (combo->card);
+
+      if (G_LIKELY (g_list_length (cards) > 0))
+        {
+          combo->card = XFCE_MIXER_CARD (g_object_ref (G_OBJECT ( (g_list_first (cards)->data))));
+          xfce_mixer_card_set_ready (combo->card);
+        }
 
       g_list_foreach (cards, (GFunc) g_object_unref, NULL);
       g_list_free (cards);

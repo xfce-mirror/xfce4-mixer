@@ -39,21 +39,23 @@
 
 
 
-static void xfce_plugin_dialog_class_init        (XfcePluginDialogClass *klass);
-static void xfce_plugin_dialog_init              (XfcePluginDialog      *dialog);
-static void xfce_plugin_dialog_dispose           (GObject               *object);
-static void xfce_plugin_dialog_finalize          (GObject               *object);
-static void xfce_plugin_dialog_create_contents   (XfcePluginDialog      *dialog,
-                                                  const gchar           *card_name,
-                                                  const gchar           *track_name);
-static void xfce_plugin_dialog_soundcard_changed (XfceMixerCardCombo    *combo,
-                                                  XfceMixerCard         *card,
-                                                  XfcePluginDialog      *dialog);
-static void xfce_plugin_dialog_update_tracks     (XfcePluginDialog      *dialog,
-                                                  XfceMixerCard         *card);
-static void xfce_plugin_dialog_track_changed     (XfceMixerTrackCombo   *combo,
-                                                  GstMixerTrack         *track,
-                                                  XfcePluginDialog      *dialog);
+static void xfce_plugin_dialog_class_init             (XfcePluginDialogClass *klass);
+static void xfce_plugin_dialog_init                   (XfcePluginDialog      *dialog);
+static void xfce_plugin_dialog_dispose                (GObject               *object);
+static void xfce_plugin_dialog_finalize               (GObject               *object);
+static void xfce_plugin_dialog_create_contents        (XfcePluginDialog      *dialog,
+                                                       const gchar           *card_name,
+                                                       const gchar           *track_name,
+                                                       const gchar           *command);
+static void xfce_plugin_dialog_soundcard_changed      (XfceMixerCardCombo    *combo,
+                                                       XfceMixerCard         *card,
+                                                       XfcePluginDialog      *dialog);
+static void xfce_plugin_dialog_update_tracks          (XfcePluginDialog      *dialog,
+                                                       XfceMixerCard         *card);
+static void xfce_plugin_dialog_track_changed          (XfceMixerTrackCombo   *combo,
+                                                       GstMixerTrack         *track,
+                                                       XfcePluginDialog      *dialog);
+static void xfce_plugin_dialog_command_button_clicked (XfcePluginDialog      *dialog);
 
 
 
@@ -68,6 +70,7 @@ struct _XfcePluginDialog
 
   GtkWidget    *card_combo;
   GtkWidget    *track_combo;
+  GtkWidget    *command_entry;
 };
 
 
@@ -147,13 +150,14 @@ xfce_plugin_dialog_finalize (GObject *object)
 
 GtkWidget*
 xfce_plugin_dialog_new (const gchar *card_name,
-                        const gchar *track_name)
+                        const gchar *track_name,
+                        const gchar *command)
 {
   XfcePluginDialog *dialog;
   
   dialog = XFCE_PLUGIN_DIALOG (g_object_new (TYPE_XFCE_PLUGIN_DIALOG, NULL));
 
-  xfce_plugin_dialog_create_contents (dialog, card_name, track_name);
+  xfce_plugin_dialog_create_contents (dialog, card_name, track_name, command);
 
   return GTK_WIDGET (dialog);
 }
@@ -182,7 +186,8 @@ xfce_plugin_dialog_update_tracks (XfcePluginDialog *dialog,
 void
 xfce_plugin_dialog_get_data (XfcePluginDialog *dialog,
                              XfceMixerCard   **card,
-                             GstMixerTrack   **track)
+                             GstMixerTrack   **track,
+                             gchar           **command)
 {
   XfceMixerCard *active_card;
   GstMixerTrack *active_track;
@@ -198,6 +203,8 @@ xfce_plugin_dialog_get_data (XfcePluginDialog *dialog,
 
   if (G_LIKELY (GST_IS_MIXER_TRACK (active_track)))
     *track = active_track;
+
+  *command = g_strdup (gtk_entry_get_text (GTK_ENTRY (dialog->command_entry)));
 }
 
 
@@ -215,11 +222,14 @@ xfce_plugin_dialog_track_changed (XfceMixerTrackCombo *combo,
 static void
 xfce_plugin_dialog_create_contents (XfcePluginDialog *dialog,
                                     const gchar      *card_name,
-                                    const gchar      *track_name)
+                                    const gchar      *track_name,
+                                    const gchar      *command)
 {
   GtkCellRenderer *renderer;
   XfceMixerCard   *card = NULL;
+  GtkWidget       *alignment;
   GtkWidget       *vbox;
+  GtkWidget       *hbox;
   GtkWidget       *button;
   GtkWidget       *label;
   GtkWidget       *card_frame;
@@ -248,14 +258,14 @@ xfce_plugin_dialog_create_contents (XfcePluginDialog *dialog,
   gtk_widget_show (label);
   g_free (title);
 
-  card_frame = gtk_frame_new (NULL);
-  gtk_frame_set_shadow_type (GTK_FRAME (card_frame), GTK_SHADOW_NONE);
-  gtk_box_pack_start (GTK_BOX (vbox), card_frame, FALSE, TRUE, 0);
-  gtk_widget_show (card_frame);
+  alignment = gtk_alignment_new (0.0, 0.0, 1, 1);
+  gtk_alignment_set_padding (GTK_ALIGNMENT (alignment), 0, 6, 12, 0);
+  gtk_box_pack_start (GTK_BOX (vbox), alignment, FALSE, TRUE, 0);
+  gtk_widget_show (alignment);
 
   dialog->card_combo = xfce_mixer_card_combo_new (card_name);
   g_signal_connect (G_OBJECT (dialog->card_combo), "soundcard-changed", G_CALLBACK (xfce_plugin_dialog_soundcard_changed), dialog);
-  gtk_container_add (GTK_CONTAINER (card_frame), dialog->card_combo);
+  gtk_container_add (GTK_CONTAINER (alignment), dialog->card_combo);
   gtk_widget_show (dialog->card_combo);
 
   label = gtk_label_new (NULL);
@@ -266,15 +276,125 @@ xfce_plugin_dialog_create_contents (XfcePluginDialog *dialog,
   gtk_widget_show (label);
   g_free (title);
 
-  track_frame = gtk_frame_new (NULL);
-  gtk_frame_set_shadow_type (GTK_FRAME (track_frame), GTK_SHADOW_NONE);
-  gtk_box_pack_start (GTK_BOX (vbox), track_frame, FALSE, TRUE, 0);
-  gtk_widget_show (track_frame);
+  alignment = gtk_alignment_new (0.0, 0.0, 1, 1);
+  gtk_alignment_set_padding (GTK_ALIGNMENT (alignment), 0, 6, 12, 0);
+  gtk_box_pack_start (GTK_BOX (vbox), alignment, FALSE, TRUE, 0);
+  gtk_widget_show (alignment);
 
   card = card_name == NULL ? NULL : xfce_mixer_utilities_get_card_by_name (card_name);
 
   dialog->track_combo = xfce_mixer_track_combo_new (card, track_name);
   g_signal_connect (G_OBJECT (dialog->track_combo), "track-changed", G_CALLBACK (xfce_plugin_dialog_track_changed), dialog);
-  gtk_container_add (GTK_CONTAINER (track_frame), dialog->track_combo);
+  gtk_container_add (GTK_CONTAINER (alignment), dialog->track_combo);
   gtk_widget_show (dialog->track_combo);
+
+  label = gtk_label_new (NULL);
+  title = g_strdup_printf ("<span weight='bold'>%s</span>", _("Left-click command"));
+  gtk_label_set_markup (GTK_LABEL (label), title);
+  gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
+  gtk_box_pack_start (GTK_BOX (vbox), label, FALSE, FALSE, 0);
+  gtk_widget_show (label);
+  g_free (title);
+
+  alignment = gtk_alignment_new (0.0, 0.0, 1, 1);
+  gtk_alignment_set_padding (GTK_ALIGNMENT (alignment), 0, 6, 12, 0);
+  gtk_box_pack_start (GTK_BOX (vbox), alignment, FALSE, TRUE, 0);
+  gtk_widget_show (alignment);
+
+  hbox = gtk_hbox_new (FALSE, 12);
+  gtk_container_add (GTK_CONTAINER (alignment), hbox);
+  gtk_widget_show (hbox);
+
+  dialog->command_entry = gtk_entry_new ();
+  gtk_entry_set_text (GTK_ENTRY (dialog->command_entry), command);
+  gtk_box_pack_start (GTK_BOX (hbox), dialog->command_entry, TRUE, TRUE, 0);
+  gtk_widget_show (dialog->command_entry);
+
+  button = gtk_button_new_from_stock (GTK_STOCK_OPEN);
+  g_signal_connect_swapped (button, "clicked", G_CALLBACK (xfce_plugin_dialog_command_button_clicked), dialog);
+  gtk_box_pack_start (GTK_BOX (hbox), button, FALSE, TRUE, 0);
+  gtk_widget_show (button);
+}
+
+
+
+static void
+xfce_plugin_dialog_command_button_clicked (XfcePluginDialog *dialog)
+{
+  GtkWidget     *chooser;
+  GtkFileFilter *filter;
+  gchar         *filename;
+
+  g_return_if_fail (IS_XFCE_PLUGIN_DIALOG (dialog));
+
+  chooser = gtk_file_chooser_dialog_new (_("Select command"), 
+                                         GTK_WINDOW (dialog), 
+                                         GTK_FILE_CHOOSER_ACTION_OPEN, 
+                                         GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
+                                         GTK_STOCK_OPEN, GTK_RESPONSE_OK, NULL);
+
+  /* Add file chooser filters */
+  filter = gtk_file_filter_new ();
+  gtk_file_filter_set_name (filter, _("All Files"));
+  gtk_file_filter_add_pattern (filter, "*");
+  gtk_file_chooser_add_filter (GTK_FILE_CHOOSER (chooser), filter);
+
+  filter = gtk_file_filter_new ();
+  gtk_file_filter_set_name (filter, _("Executable Files"));
+  gtk_file_filter_add_mime_type (filter, "application/x-csh");
+  gtk_file_filter_add_mime_type (filter, "application/x-executable");
+  gtk_file_filter_add_mime_type (filter, "application/x-perl");
+  gtk_file_filter_add_mime_type (filter, "application/x-python");
+  gtk_file_filter_add_mime_type (filter, "application/x-ruby");
+  gtk_file_filter_add_mime_type (filter, "application/x-shellscript");
+  gtk_file_filter_add_pattern (filter, "*.pl");
+  gtk_file_filter_add_pattern (filter, "*.py");
+  gtk_file_filter_add_pattern (filter, "*.rb");
+  gtk_file_filter_add_pattern (filter, "*.sh");
+  gtk_file_chooser_add_filter (GTK_FILE_CHOOSER (chooser), filter);
+  gtk_file_chooser_set_filter (GTK_FILE_CHOOSER (chooser), filter);
+
+  filter = gtk_file_filter_new ();
+  gtk_file_filter_set_name (filter, _("Perl Scripts"));
+  gtk_file_filter_add_mime_type (filter, "application/x-perl");
+  gtk_file_filter_add_pattern (filter, "*.pl");
+  gtk_file_chooser_add_filter (GTK_FILE_CHOOSER (chooser), filter);
+
+  filter = gtk_file_filter_new ();
+  gtk_file_filter_set_name (filter, _("Python Scripts"));
+  gtk_file_filter_add_mime_type (filter, "application/x-python");
+  gtk_file_filter_add_pattern (filter, "*.py");
+  gtk_file_chooser_add_filter (GTK_FILE_CHOOSER (chooser), filter);
+
+  filter = gtk_file_filter_new ();
+  gtk_file_filter_set_name (filter, _("Ruby Scripts"));
+  gtk_file_filter_add_mime_type (filter, "application/x-ruby");
+  gtk_file_filter_add_pattern (filter, "*.rb");
+  gtk_file_chooser_add_filter (GTK_FILE_CHOOSER (chooser), filter);
+
+  filter = gtk_file_filter_new ();
+  gtk_file_filter_set_name (filter, _("Shell Scripts"));
+  gtk_file_filter_add_mime_type (filter, "application/x-csh");
+  gtk_file_filter_add_mime_type (filter, "application/x-shellscript");
+  gtk_file_filter_add_pattern (filter, "*.sh");
+  gtk_file_chooser_add_filter (GTK_FILE_CHOOSER (chooser), filter);
+
+#if 0
+  /* Use bindir as default folder */
+  gtk_file_chooser_set_current_folder (GTK_FILE_CHOOSER (chooser), BINDIR);
+#endif
+  
+  /* Use previous command as a starting point */
+  gtk_file_chooser_set_filename (GTK_FILE_CHOOSER (chooser), gtk_entry_get_text (GTK_ENTRY (dialog->command_entry)));
+
+  /* Run the file chooser */
+  if (G_LIKELY (gtk_dialog_run (GTK_DIALOG (chooser)) == GTK_RESPONSE_OK))
+    {
+      filename = gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (chooser));
+      gtk_entry_set_text (GTK_ENTRY (dialog->command_entry), filename);
+      g_free (filename);
+    }
+
+  /* Destroy the dialog */
+  gtk_widget_destroy (chooser);
 }

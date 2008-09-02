@@ -113,16 +113,15 @@ xfce_mixer_utilities_get_card_by_name (const gchar *card_name)
   cards = xfce_mixer_utilities_get_cards ();
 
   for (iter = g_list_first (cards); iter != NULL; iter = g_list_next (iter))
-    if (G_UNLIKELY (g_utf8_collate (xfce_mixer_card_get_display_name (XFCE_MIXER_CARD (iter->data)), card_name) == 0))
+    if (G_UNLIKELY (g_utf8_collate (xfce_mixer_card_get_name (XFCE_MIXER_CARD (iter->data)), card_name) == 0))
       {
         card = XFCE_MIXER_CARD (g_object_ref (G_OBJECT (iter->data)));
+        xfce_mixer_card_set_ready (card);
         break;
       }
 
   g_list_foreach (cards, (GFunc) g_object_unref, NULL);
   g_list_free (cards);
-
-  xfce_mixer_card_set_ready (card);
 
   return card;
 }
@@ -142,4 +141,22 @@ xfce_mixer_utilities_get_max_volume (gint *volumes,
       max = volumes[num_channels];
 
   return max;
+}
+
+
+
+gint
+xfce_mixer_utilities_get_n_cards (void)
+{
+  GList *cards = NULL;
+  gint   number = 0;
+
+  cards = xfce_mixer_utilities_get_cards ();
+
+  number = g_list_length (cards);
+
+  g_list_foreach (cards, (GFunc) g_object_unref, NULL);
+  g_list_free (cards);
+
+  return number;
 }

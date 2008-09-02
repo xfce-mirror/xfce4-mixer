@@ -1,3 +1,35 @@
+2008-09-03	Jannis Pohlmann <jannis@xfce.org>
+
+	* libxfce4mixer/xfce-mixer-card-combo.{c,h}: Remove the method
+	  xfce_mixer_card_combo_get_n_cards() again. 
+	* libxfce4mixer/xfce-mixer-track-combo.c: When assuming the first
+	  sound card (if no active sound card was passed to the constructor)
+	  first check whether the sound card list is empty.
+	* libxfce4mixer/xfce-mixer-utilities.{c,h}: Introduce new method
+	  xfce_mixer_utilities_get_n_cards(). Only call
+	  xfce_mixer_card_set_ready() if there is a sound card with the given
+	  name in xfce_mixer_card_get_card_by_name(). Use internal name
+	  instead of the cards display name in the same function.
+	* panel-plugin/xfce-mixer-plugin.c: Remember card connection id and
+	  properly disconnect from the GstBus when destroying the mixer
+	  plugin. Use command member of the plugin struct for the left-click
+	  action of the volume button (use "xfce4-mixer" by default).
+	  Dereference sound card and track when destroying the plugin. Display
+	  useful error dialog when the volume button is clicked but the
+	  left-click command is still undefined or empty. Don't allow
+	  configuration of the plugin unless GStreamer has actually detected
+	  at least one sound card. Avoid a warnings and crashes when no
+	  sound cards are detected.
+	* panel-plugin/xfce-plugin-dialog.{c,h}: Make the left-click command
+	  configurable using an entry and a file chooser dialog. Use
+	  GtkAlignments were possible to make the look consistent with other
+	  Xfce settings dialogs.
+	* panel-plugin/xfce4-mixer-plugin.desktop.in.in: Change plugin icon to
+	  "multimedia-volume-control" instead of "xfce4-mixer".
+	* xfce4-mixer/main.c, xfce4-mixer/xfce-mixer-window.c: Display a 
+	  useful error dialog and exit if no sound cards are available. Remove
+	  the same dialog from the mixer window in turn.
+
 2008-09-02	Jannis Pohlmann <jannis@xfce.org>
 
 	* xfce4-mixer/xfce-mixer-window.c: Improve the previously added error

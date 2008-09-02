@@ -38,11 +38,13 @@ typedef struct _XfcePluginDialog      XfcePluginDialog;
 GType     xfce_plugin_dialog_get_type (void) G_GNUC_CONST;
 
 GtkWidget *xfce_plugin_dialog_new     (const gchar *active_card,
-                                       const gchar *active_track);
+                                       const gchar *active_track,
+                                       const gchar *command);
 
 void       xce_plugin_dialog_get_data (XfcePluginDialog *dialog,
                                        XfceMixerCard   **card,
-                                       GstMixerTrack   **track);
+                                       GstMixerTrack   **track,
+                                       gchar           **command);
 
 G_END_DECLS;
 
