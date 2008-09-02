@@ -256,7 +256,7 @@ xfce_mixer_card_combo_changed (XfceMixerCardCombo *combo)
 XfceMixerCard*
 xfce_mixer_card_combo_get_active_card (XfceMixerCardCombo *combo)
 {
-  XfceMixerCard *card;
+  XfceMixerCard *card = NULL;
   GtkTreeIter    iter;
 
   g_return_val_if_fail (IS_XFCE_MIXER_CARD_COMBO (combo), NULL);
@@ -265,4 +265,13 @@ xfce_mixer_card_combo_get_active_card (XfceMixerCardCombo *combo)
     gtk_tree_model_get (GTK_TREE_MODEL (combo->model), &iter, CARD_COLUMN, &card, -1);
 
   return card;
+}
+
+
+
+gint
+xfce_mixer_card_combo_get_n_cards (XfceMixerCardCombo *combo)
+{
+  g_return_val_if_fail (IS_XFCE_MIXER_CARD_COMBO (combo), 0);
+  return gtk_tree_model_iter_n_children (GTK_TREE_MODEL (combo->model), NULL);
 }

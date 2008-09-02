@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-07-13 15:32+0200\n"
+"POT-Creation-Date: 2008-09-02 16:52+0200\n"
 "PO-Revision-Date: 2008-07-18 21:26+0200\n"
 "Last-Translator: Mohamed Magdy <mohamedmk@gmail.com>\n"
 "Language-Team: Arabeyes Translation & Documentation <admin@arabeyes.org>\n"
@@ -28,19 +28,19 @@ msgstr "%s: %i%%"
 msgid "Could not find xfce4-mixer in PATH."
 msgstr "عجز في إيجاد في xfce4-mixer في ال PATH."
 
-#: ../panel-plugin/xfce-plugin-dialog.c:229
+#: ../panel-plugin/xfce-plugin-dialog.c:230
 msgid "Mixer Plugin"
 msgstr ""
 
-#: ../panel-plugin/xfce-plugin-dialog.c:231
+#: ../panel-plugin/xfce-plugin-dialog.c:232
 msgid "Please select which mixer track should be used by the plugin"
 msgstr ""
 
-#: ../panel-plugin/xfce-plugin-dialog.c:243
+#: ../panel-plugin/xfce-plugin-dialog.c:244
 msgid "Sound card"
 msgstr "كرت صوت"
 
-#: ../panel-plugin/xfce-plugin-dialog.c:261
+#: ../panel-plugin/xfce-plugin-dialog.c:262
 msgid "Mixer track"
 msgstr ""
 
@@ -58,34 +58,34 @@ msgid "Unknown Volume Control %d"
 msgstr "متحكم حجم مجهول %d"
 
 #. Set application name
-#: ../xfce4-mixer/main.c:75 ../xfce4-mixer/xfce-mixer-window.c:180
-#: ../xfce4-mixer/xfce-mixer-window.c:198
-#: ../xfce4-mixer/xfce-mixer-window.c:301
+#: ../xfce4-mixer/main.c:75 ../xfce4-mixer/xfce-mixer-window.c:177
+#: ../xfce4-mixer/xfce-mixer-window.c:195
+#: ../xfce4-mixer/xfce-mixer-window.c:305
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
 msgid "Xfce Mixer"
 msgstr "مازج إكسفس"
 
-#: ../xfce4-mixer/xfce-mixer.c:172
+#: ../xfce4-mixer/xfce-mixer.c:181
 msgid "Playback"
 msgstr "تشغيل"
 
-#: ../xfce4-mixer/xfce-mixer.c:172
+#: ../xfce4-mixer/xfce-mixer.c:181
 msgid "Capture"
 msgstr ""
 
-#: ../xfce4-mixer/xfce-mixer.c:172
+#: ../xfce4-mixer/xfce-mixer.c:181
 msgid "Switches"
 msgstr "محولات"
 
-#: ../xfce4-mixer/xfce-mixer.c:172
+#: ../xfce4-mixer/xfce-mixer.c:181
 msgid "Options"
 msgstr "الخيارات"
 
-#: ../xfce4-mixer/xfce-mixer.c:316
+#: ../xfce4-mixer/xfce-mixer.c:321
 msgid "No Controls Visible"
 msgstr "لا متحكمات ظاهرة"
 
-#: ../xfce4-mixer/xfce-mixer.c:320
+#: ../xfce4-mixer/xfce-mixer.c:325
 msgid ""
 "No controls are marked as visible. Please open the <span "
 "size='large'><b>Select Controls</b></span> dialog to select some."
@@ -99,29 +99,35 @@ msgstr "اختر المتحكمات"
 msgid "Please select which controls you want to be visible"
 msgstr ""
 
-#: ../xfce4-mixer/xfce-mixer-window.c:92
+#: ../xfce4-mixer/xfce-mixer-window.c:89
 msgid "_Quit"
 msgstr "_اخرج"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:92
+#: ../xfce4-mixer/xfce-mixer-window.c:89
 msgid "Exit Xfce Mixer"
 msgstr "أغلق مازج إكسفس"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:94
+#: ../xfce4-mixer/xfce-mixer-window.c:91
 msgid "_Select Controls..."
 msgstr "_اختر المتحكمات..."
 
-#: ../xfce4-mixer/xfce-mixer-window.c:94
+#: ../xfce4-mixer/xfce-mixer-window.c:91
 msgid "Select which controls are displayed"
 msgstr ""
 
-#: ../xfce4-mixer/xfce-mixer-window.c:199
+#: ../xfce4-mixer/xfce-mixer-window.c:196
 msgid "A comfortable audio mixer for your sound card."
 msgstr ""
 
-#: ../xfce4-mixer/xfce-mixer-window.c:214
+#: ../xfce4-mixer/xfce-mixer-window.c:211
 msgid "Sound card:"
 msgstr "كرت صوت:"
+
+#: ../xfce4-mixer/xfce-mixer-window.c:259
+msgid ""
+"GStreamer was unable to detect any sound cards on your system. You might be "
+"missing sound system specific GStreamer packages."
+msgstr ""
 
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:1
 msgid "Audio mixer for the Xfce Desktop Environment"

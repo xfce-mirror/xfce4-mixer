@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-11-28 19:01+0100\n"
+"POT-Creation-Date: 2008-09-02 16:52+0200\n"
 "PO-Revision-Date: 2007-01-20 23:10+0200\n"
 "Last-Translator: Piotr Maliński <riklaunim@gmail.com>\n"
 "Language-Team: Polish <xfce-i18n@xfce.org>\n"
@@ -26,19 +26,19 @@ msgstr "%s: %i%%"
 msgid "Could not find xfce4-mixer in PATH."
 msgstr "Nie można znaleźć xfce4-mixera w ścieżce."
 
-#: ../panel-plugin/xfce-plugin-dialog.c:229
+#: ../panel-plugin/xfce-plugin-dialog.c:230
 msgid "Mixer Plugin"
 msgstr "Wtyczka Miksera"
 
-#: ../panel-plugin/xfce-plugin-dialog.c:231
+#: ../panel-plugin/xfce-plugin-dialog.c:232
 msgid "Please select which mixer track should be used by the plugin"
 msgstr "Wybierz ścieżkę miksera, z której korzystać ma ta wtyczka"
 
-#: ../panel-plugin/xfce-plugin-dialog.c:243
+#: ../panel-plugin/xfce-plugin-dialog.c:244
 msgid "Sound card"
 msgstr "Karta dźwiękowa"
 
-#: ../panel-plugin/xfce-plugin-dialog.c:261
+#: ../panel-plugin/xfce-plugin-dialog.c:262
 msgid "Mixer track"
 msgstr "Ścieżka miksera"
 
@@ -56,40 +56,40 @@ msgid "Unknown Volume Control %d"
 msgstr "Nieznana Kontrola Głośności %d"
 
 #. Set application name
-#: ../xfce4-mixer/main.c:75 ../xfce4-mixer/xfce-mixer-window.c:180
-#: ../xfce4-mixer/xfce-mixer-window.c:198
-#: ../xfce4-mixer/xfce-mixer-window.c:301
+#: ../xfce4-mixer/main.c:75 ../xfce4-mixer/xfce-mixer-window.c:177
+#: ../xfce4-mixer/xfce-mixer-window.c:195
+#: ../xfce4-mixer/xfce-mixer-window.c:305
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
 msgid "Xfce Mixer"
 msgstr "Mikser Xfce"
 
-#: ../xfce4-mixer/xfce-mixer.c:172
+#: ../xfce4-mixer/xfce-mixer.c:181
 msgid "Playback"
 msgstr "Playback"
 
-#: ../xfce4-mixer/xfce-mixer.c:172
+#: ../xfce4-mixer/xfce-mixer.c:181
 msgid "Capture"
 msgstr "Przechwycenie"
 
-#: ../xfce4-mixer/xfce-mixer.c:172
+#: ../xfce4-mixer/xfce-mixer.c:181
 msgid "Switches"
 msgstr "Przełączniki"
 
-#: ../xfce4-mixer/xfce-mixer.c:172
+#: ../xfce4-mixer/xfce-mixer.c:181
 msgid "Options"
 msgstr "Opcje"
 
-#: ../xfce4-mixer/xfce-mixer.c:316
+#: ../xfce4-mixer/xfce-mixer.c:321
 msgid "No Controls Visible"
 msgstr "Brak Kontrolek"
 
-#: ../xfce4-mixer/xfce-mixer.c:320
+#: ../xfce4-mixer/xfce-mixer.c:325
 msgid ""
 "No controls are marked as visible. Please open the <span "
 "size='large'><b>Select Controls</b></span> dialog to select some."
 msgstr ""
-"Brak widocznych kontrolek. Otwórz <span "
-"size='large'><b>Wybierz Kontrolki</b></span> i wybierz jakieś."
+"Brak widocznych kontrolek. Otwórz <span size='large'><b>Wybierz Kontrolki</"
+"b></span> i wybierz jakieś."
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:129
 msgid "Select Controls"
@@ -99,29 +99,35 @@ msgstr "Wybierz Kontrolki"
 msgid "Please select which controls you want to be visible"
 msgstr "Wybierz kontrolki, które mają być widoczne"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:92
+#: ../xfce4-mixer/xfce-mixer-window.c:89
 msgid "_Quit"
 msgstr "_Wyjdź"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:92
+#: ../xfce4-mixer/xfce-mixer-window.c:89
 msgid "Exit Xfce Mixer"
 msgstr "Zamyka Mikser Xfce"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:94
+#: ../xfce4-mixer/xfce-mixer-window.c:91
 msgid "_Select Controls..."
 msgstr "_Wybierz Kontrolki..."
 
-#: ../xfce4-mixer/xfce-mixer-window.c:94
+#: ../xfce4-mixer/xfce-mixer-window.c:91
 msgid "Select which controls are displayed"
 msgstr "Wybierz kontrolki, które mają być widoczne"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:199
+#: ../xfce4-mixer/xfce-mixer-window.c:196
 msgid "A comfortable audio mixer for your sound card."
 msgstr "Mikser audio dla twojej karty dźwiękowej"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:214
+#: ../xfce4-mixer/xfce-mixer-window.c:211
 msgid "Sound card:"
 msgstr "Karta dźwiękowa:"
+
+#: ../xfce4-mixer/xfce-mixer-window.c:259
+msgid ""
+"GStreamer was unable to detect any sound cards on your system. You might be "
+"missing sound system specific GStreamer packages."
+msgstr ""
 
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:1
 msgid "Audio mixer for the Xfce Desktop Environment"

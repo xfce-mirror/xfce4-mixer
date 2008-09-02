@@ -1,3 +1,11 @@
+2008-09-02	Jannis Pohlmann <jannis@xfce.org>
+
+	* libxfce4mixer/xfce-mixer-card-combo. Add new method
+	  xfce_mixer_card_combo_get_n_cards(). 
+	* xfce4-mixer/xfce-mixer-window.c: Display error dialog with a hint
+	  about sound specific GStreamer libraries if there were no sound
+	  cards detected by GStreamer.
+
 2008-09-01	Jannis Pohlmann <jannis@xfce.org>
 
 	* libxfce4mixer/xfce-mixer-card.{c,h}: Add new method
