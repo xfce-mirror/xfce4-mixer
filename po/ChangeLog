@@ -1,5 +1,10 @@
 2008-09-02	Jannis Pohlmann <jannis@xfce.org>
 
+	* xfce4-mixer.pot, *.po: Merge error message update.
+	* de.po: Update German translations.
+
+2008-09-02	Jannis Pohlmann <jannis@xfce.org>
+
 	* xfce4-mixer.pot, *.po: Merge strings.
 	* de.po: Update German translations.
 

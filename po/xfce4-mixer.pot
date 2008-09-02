@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-02 16:52+0200\n"
+"POT-Creation-Date: 2008-09-02 16:58+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -59,7 +59,7 @@ msgstr ""
 #. Set application name
 #: ../xfce4-mixer/main.c:75 ../xfce4-mixer/xfce-mixer-window.c:177
 #: ../xfce4-mixer/xfce-mixer-window.c:195
-#: ../xfce4-mixer/xfce-mixer-window.c:305
+#: ../xfce4-mixer/xfce-mixer-window.c:306
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
 msgid "Xfce Mixer"
 msgstr ""
@@ -125,7 +125,8 @@ msgstr ""
 #: ../xfce4-mixer/xfce-mixer-window.c:259
 msgid ""
 "GStreamer was unable to detect any sound cards on your system. You might be "
-"missing sound system specific GStreamer packages."
+"missing sound system specific GStreamer packages. It might as well be a "
+"permission problem."
 msgstr ""
 
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:1

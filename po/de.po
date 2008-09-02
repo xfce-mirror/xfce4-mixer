@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer SVN\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-02 16:52+0200\n"
-"PO-Revision-Date: 2008-06-22 14:26+0200\n"
+"POT-Creation-Date: 2008-09-02 16:58+0200\n"
+"PO-Revision-Date: 2008-09-02 17:02+0200\n"
 "Last-Translator: Jannis Pohlmann <jannis@xfce.org>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -58,7 +58,7 @@ msgstr "Unbekannter Lautstärkeregler %d"
 #. Set application name
 #: ../xfce4-mixer/main.c:75 ../xfce4-mixer/xfce-mixer-window.c:177
 #: ../xfce4-mixer/xfce-mixer-window.c:195
-#: ../xfce4-mixer/xfce-mixer-window.c:305
+#: ../xfce4-mixer/xfce-mixer-window.c:306
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
 msgid "Xfce Mixer"
 msgstr "Xfce-Lautstärkeregelung"
@@ -127,10 +127,12 @@ msgstr "Soundkarte:"
 #: ../xfce4-mixer/xfce-mixer-window.c:259
 msgid ""
 "GStreamer was unable to detect any sound cards on your system. You might be "
-"missing sound system specific GStreamer packages."
+"missing sound system specific GStreamer packages. It might as well be a "
+"permission problem."
 msgstr ""
-"GStreamer konnte keine Soundkarten finden. Möglicherweise sind Pakete "
-"für das verwendete Soundsystem noch nicht installiert."
+"GStreamer konnte keine Soundkarten finden. Möglicherweise sind Pakete für "
+"das verwendete Soundsystem noch nicht installiert. Ebenso könnte es ein "
+"Problem mit den Benutzerrechten sein."
 
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:1
 msgid "Audio mixer for the Xfce Desktop Environment"
