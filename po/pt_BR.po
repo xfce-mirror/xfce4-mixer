@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-09-03 01:08+0200\n"
-"PO-Revision-Date: 2008-06-22 09:04-0300\n"
+"PO-Revision-Date: 2008-09-02 21:16-0300\n"
 "Last-Translator: Fábio Nogueira <deb-user-ba@ubuntu.com>\n"
 "Language-Team: Brazilian Portuguese <ldp-br@bazar2.conectiva.com.br>\n"
 "MIME-Version: 1.0\n"
@@ -26,32 +26,27 @@ msgstr "%s: %i%%"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:340
 msgid "No left-click command defined"
-msgstr ""
+msgstr "Nenhum comando definido para o clique-esquerdo"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:343
-msgid ""
-"No left-click command defined yet. You can change this in the plugin "
-"properties."
-msgstr ""
+msgid "No left-click command defined yet. You can change this in the plugin properties."
+msgstr "Ainda não foi definido nenhum comando para o clique-esquerdo. Você pode alterar "
+"isto nas propriedades do plug-in."
 
 #: ../panel-plugin/xfce-mixer-plugin.c:344
 msgid "Properties"
-msgstr ""
+msgstr "Propriedades"
 
 #. Generate error message and insert the current command
 #: ../panel-plugin/xfce-mixer-plugin.c:359
 #, c-format
-msgid ""
-"Could not execute the command %s. Perhaps you need to adjust the PATH "
-"variable."
-msgstr ""
+msgid "Could not execute the command %s. Perhaps you need to adjust the PATH variable."
+msgstr "Não foi possível executar o comando %s. Talvez você precise ajustar a variável PATH."
 
-#: ../panel-plugin/xfce-mixer-plugin.c:389 ../xfce4-mixer/main.c:96
-msgid ""
-"GStreamer was unable to detect any sound cards on your system. You might be "
-"missing sound system specific GStreamer packages. It might as well be a "
-"permission problem."
-msgstr ""
+#: ../panel-plugin/xfce-mixer-plugin.c:389
+#: ../xfce4-mixer/main.c:96
+msgid "GStreamer was unable to detect any sound cards on your system. You might be missing sound system specific GStreamer packages. It might as well be a permission problem."
+msgstr "O Gstreamer não detectou nenhuma placa de som no seu sistema. Pode ser que esteja faltando algum pacote do Gstreamer específico do sistema de som. Isso pode ser também algum problema de permissão."
 
 #: ../panel-plugin/xfce-plugin-dialog.c:240
 msgid "Mixer Plugin"
@@ -59,8 +54,7 @@ msgstr "Plug-in Mixador"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:242
 msgid "Please select which mixer track should be used by the plugin"
-msgstr ""
-"Por favor escolha qual o mixador de faixa que deverá ser usado pelo plug-in"
+msgstr "Por favor escolha qual o mixador de faixa que deve ser usado pelo plug-in"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:254
 msgid "Sound card"
@@ -72,36 +66,35 @@ msgstr "Mixador de faixa"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:292
 msgid "Left-click command"
-msgstr ""
+msgstr "Comando para o clique-esquerdo"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:330
-#, fuzzy
 msgid "Select command"
-msgstr "Selecionar controles"
+msgstr "Selecionar comando"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:338
 msgid "All Files"
-msgstr ""
+msgstr "Todos os arquivos"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:343
 msgid "Executable Files"
-msgstr ""
+msgstr "Arquivos executáveis"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:358
 msgid "Perl Scripts"
-msgstr ""
+msgstr "Scripts em Perl"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:364
 msgid "Python Scripts"
-msgstr ""
+msgstr "Script em Python"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:370
 msgid "Ruby Scripts"
-msgstr ""
+msgstr "Scripts em Ruby"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:376
 msgid "Shell Scripts"
-msgstr ""
+msgstr "Scripts em Shell"
 
 #: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:1
 msgid "Mixer"
@@ -109,7 +102,7 @@ msgstr "Mixador"
 
 #: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:2
 msgid "Volume control for your sound card"
-msgstr "Um controle de volume para sua placa de áudio"
+msgstr "Um controle de volume para a sua placa de áudio"
 
 #: ../libxfce4mixer/xfce-mixer-utilities.c:89
 #, c-format
@@ -117,7 +110,8 @@ msgid "Unknown Volume Control %d"
 msgstr "Controle de volume desconhecido %d"
 
 #. Set application name
-#: ../xfce4-mixer/main.c:75 ../xfce4-mixer/xfce-mixer-window.c:177
+#: ../xfce4-mixer/main.c:75
+#: ../xfce4-mixer/xfce-mixer-window.c:177
 #: ../xfce4-mixer/xfce-mixer-window.c:195
 #: ../xfce4-mixer/xfce-mixer-window.c:298
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
@@ -145,12 +139,8 @@ msgid "No Controls Visible"
 msgstr "Nenhum controle visível"
 
 #: ../xfce4-mixer/xfce-mixer.c:325
-msgid ""
-"No controls are marked as visible. Please open the <span "
-"size='large'><b>Select Controls</b></span> dialog to select some."
-msgstr ""
-"Nenhum controle está marcado como visível. Por favor abra o diálogo <span "
-"size='large'><b>Selecionar controles</b></span> para selecionar alguns."
+msgid "No controls are marked as visible. Please open the <span size='large'><b>Select Controls</b></span> dialog to select some."
+msgstr "Nenhum controle está marcado como visível. Por favor abra o diálogo <span size=\"large\"><b>Selecionar controles</b></span> para selecionar alguns."
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:129
 msgid "Select Controls"
@@ -162,7 +152,7 @@ msgstr "Por favor selecione quais controles você deseja manter visíveis"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:89
 msgid "_Quit"
-msgstr "_Sair"
+msgstr "Sai_r"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:89
 msgid "Exit Xfce Mixer"
@@ -186,14 +176,14 @@ msgstr "Placa de áudio:"
 
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:1
 msgid "Audio mixer for the Xfce Desktop Environment"
-msgstr "Mixador de áudio para o ambiente de Área de Trabalho do Xfce"
+msgstr "Mixador de áudio para o ambiente de área de trabalho do Xfce"
 
 #~ msgid "Could not find xfce4-mixer in PATH."
 #~ msgstr "Não foi possível encontrar o xfce4-mixer no CAMINHO."
-
 #~ msgid ""
 #~ "No sound cards could be found. You may have to install additional "
 #~ "gstreamer packages for ALSA or OSS support."
 #~ msgstr ""
 #~ "Nenhuma placa de áudio foi encontrada. Talvez você tenha de instalar "
 #~ "pacotes do gstreamer adicionais para suporte de ALSA ou OSS."
+
