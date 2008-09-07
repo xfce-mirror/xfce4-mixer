@@ -1,3 +1,79 @@
+2008-09-03	Jannis Pohlmann <jannis@xfce.org>
+
+	* libxfce4mixer/xfce-mixer-card-combo.{c,h}: Remove the method
+	  xfce_mixer_card_combo_get_n_cards() again. 
+	* libxfce4mixer/xfce-mixer-track-combo.c: When assuming the first
+	  sound card (if no active sound card was passed to the constructor)
+	  first check whether the sound card list is empty.
+	* libxfce4mixer/xfce-mixer-utilities.{c,h}: Introduce new method
+	  xfce_mixer_utilities_get_n_cards(). Only call
+	  xfce_mixer_card_set_ready() if there is a sound card with the given
+	  name in xfce_mixer_card_get_card_by_name(). Use internal name
+	  instead of the cards display name in the same function.
+	* panel-plugin/xfce-mixer-plugin.c: Remember card connection id and
+	  properly disconnect from the GstBus when destroying the mixer
+	  plugin. Use command member of the plugin struct for the left-click
+	  action of the volume button (use "xfce4-mixer" by default).
+	  Dereference sound card and track when destroying the plugin. Display
+	  useful error dialog when the volume button is clicked but the
+	  left-click command is still undefined or empty. Don't allow
+	  configuration of the plugin unless GStreamer has actually detected
+	  at least one sound card. Avoid a warnings and crashes when no
+	  sound cards are detected.
+	* panel-plugin/xfce-plugin-dialog.{c,h}: Make the left-click command
+	  configurable using an entry and a file chooser dialog. Use
+	  GtkAlignments were possible to make the look consistent with other
+	  Xfce settings dialogs.
+	* panel-plugin/xfce4-mixer-plugin.desktop.in.in: Change plugin icon to
+	  "multimedia-volume-control" instead of "xfce4-mixer".
+	* xfce4-mixer/main.c, xfce4-mixer/xfce-mixer-window.c: Display a 
+	  useful error dialog and exit if no sound cards are available. Remove
+	  the same dialog from the mixer window in turn.
+
+2008-09-02	Jannis Pohlmann <jannis@xfce.org>
+
+	* xfce4-mixer/xfce-mixer-window.c: Improve the previously added error
+	  message.
+
+2008-09-02	Jannis Pohlmann <jannis@xfce.org>
+
+	* libxfce4mixer/xfce-mixer-card-combo. Add new method
+	  xfce_mixer_card_combo_get_n_cards(). 
+	* xfce4-mixer/xfce-mixer-window.c: Display error dialog with a hint
+	  about sound specific GStreamer libraries if there were no sound
+	  cards detected by GStreamer.
+
+2008-09-01	Jannis Pohlmann <jannis@xfce.org>
+
+	* libxfce4mixer/xfce-mixer-card.{c,h}: Add new method
+	  xfce_mixer_card_disconnect() and return the signal handler ID from
+	  xfce_mixer_card_connect(). 
+	* xfce4-mixer/xfce-mixer.c: Disconnect from the XfceMixerCard in
+	  xfce_mixer_finalize(). This way there will be no GstBus messages
+	  sent to finalized XfceMixer objects any more. Fixes a bug on first
+	  startup.
+
+2008-09-01	Jannis Pohlmann <jannis@xfce.org>
+
+	* xfce4-mixer/xfce-mixer.c: Add g_return_val_if_fail() call to
+	  xfce_mixer_bus_message() in order to return when an invalid mixer
+	  object is passed to the function.
+
+2008-09-01	Jannis Pohlmann <jannis@xfce.org>
+
+	* xfce4-mixer/xfce-mixer.c: Connect to the GstBus after creating the
+	  mxier widgets, not before. This shouldn't change anything but it
+	  makes more sense to me.
+
+2008-08-31	Jannis Pohlmann <jannis@xfce.org>
+
+	* libxfce4mixe/xfce-mixer-card-combo.c,
+	  xfce4-mixer/xfce-mixer-window.c: Remember the selected sound card so
+	  that it is selected again on next startup. Use
+	  xfce_mixer_card_get_name() instead of
+	  xfce_mixer_card_get_display_name() to determine the active card
+	  index in XfceMixerCardCombo.
+
 2008-08-10	Jannis Pohlmann <jannis@xfce.org>
 
 	* panel-plugin/xfce-volume-button.c: Use mute icon only if the

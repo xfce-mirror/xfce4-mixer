@@ -90,6 +90,16 @@ main (int    argc,
   /* Use volume control icon for all mixer windows */
   gtk_window_set_default_icon_name ("xfce4-mixer");
 
+  /* Warn users if there were no sound cards detected by GStreamer */
+  if (G_UNLIKELY (xfce_mixer_utilities_get_n_cards () <= 0))
+    {
+      xfce_err (_("GStreamer was unable to detect any sound cards on your system. "
+                  "You might be missing sound system specific GStreamer packages. "
+                  "It might as well be a permission problem."));
+
+      return EXIT_FAILURE;
+    }
+
   /* Create the mixer window */
   window = xfce_mixer_window_new ();
 

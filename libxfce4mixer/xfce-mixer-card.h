@@ -68,9 +68,11 @@ void           xfce_mixer_card_set_track_option     (XfceMixerCard *card,
                                                      GstMixerTrack *track,
                                                      gchar         *option);
 #ifdef HAVE_GST_MIXER_NOTIFICATION
-void           xfce_mixer_card_connect              (XfceMixerCard *card,
+gint           xfce_mixer_card_connect              (XfceMixerCard *card,
                                                      GCallback      callback_func,
                                                      gpointer       user_data);
+void           xfce_mixer_card_disconnect           (XfceMixerCard *card,
+                                                     gint           handler_id);
 gboolean       xfce_mixer_card_get_message_owner    (XfceMixerCard *card,
                                                      GstMessage    *message);
 #endif

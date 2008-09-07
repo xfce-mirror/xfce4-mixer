@@ -62,6 +62,10 @@ struct _XfceMixer
 
   XfceMixerCard *card;
 
+#ifdef HAVE_GST_MIXER_NOTIFICATION
+  gint           bus_connection_id;
+#endif
+
   GHashTable    *widgets;
 };
 
@@ -119,6 +123,7 @@ static void
 xfce_mixer_init (XfceMixer *mixer)
 {
   mixer->widgets = g_hash_table_new_full (g_str_hash, g_str_equal, NULL, NULL);
+  mixer->bus_connection_id = 0;
 }
 
 
@@ -135,6 +140,10 @@ static void
 xfce_mixer_finalize (GObject *object)
 {
   XfceMixer *mixer = XFCE_MIXER (object);
+
+#ifdef HAVE_GST_MIXER_NOTIFICATION
+  xfce_mixer_card_disconnect (mixer->card, mixer->bus_connection_id);
+#endif
 
   g_object_unref (G_OBJECT (mixer->card));
 
@@ -182,10 +191,6 @@ xfce_mixer_create_contents (XfceMixer *mixer)
   gint                  i;
 
   xfce_mixer_card_set_ready (mixer->card);
-
-#ifdef HAVE_GST_MIXER_NOTIFICATION
-  xfce_mixer_card_connect (mixer->card, G_CALLBACK (xfce_mixer_bus_message), mixer);
-#endif
 
   /* Create widgets for all four tabs */
   for (i = 0; i < 4; ++i)
@@ -323,6 +328,10 @@ xfce_mixer_create_contents (XfceMixer *mixer)
 
       gtk_notebook_append_page (GTK_NOTEBOOK (mixer), label2, label1);
     }
+
+#ifdef HAVE_GST_MIXER_NOTIFICATION
+  mixer->bus_connection_id = xfce_mixer_card_connect (mixer->card, G_CALLBACK (xfce_mixer_bus_message), mixer);
+#endif
 }
 
 
@@ -342,6 +351,8 @@ xfce_mixer_bus_message (GstBus     *bus,
   const gchar        *option;
   gint               *volumes;
   gint                num_channels;
+
+  g_return_val_if_fail (IS_XFCE_MIXER (mixer), TRUE);
 
   if (G_UNLIKELY (!xfce_mixer_card_get_message_owner (mixer->card, message)))
     return TRUE;

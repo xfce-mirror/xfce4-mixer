@@ -75,9 +75,6 @@ struct _XfceMixerWindow
 
   GtkWidget            *soundcard_combo;
 
-  /* List of available sound cards */
-  GList                *cards;
-
   /* Active mixer control set */
   GtkWidget            *mixer_frame;
   GtkWidget            *mixer;
@@ -253,6 +250,7 @@ xfce_mixer_window_init (XfceMixerWindow *window)
   gtk_box_pack_start (GTK_BOX (bbox), button, FALSE, TRUE, 0);
   gtk_widget_show (button);
 
+  /* Re-generate mixer controls for the active sound card */
   xfce_mixer_window_update_contents (window);
 }
 
@@ -272,9 +270,6 @@ xfce_mixer_window_finalize (GObject *object)
   XfceMixerWindow *window = XFCE_MIXER_WINDOW (object);
 
   g_object_unref (G_OBJECT (window->preferences));
-
-  g_list_foreach (window->cards, (GFunc) g_object_unref, NULL);
-  g_list_free (window->cards);
 
   (*G_OBJECT_CLASS (xfce_mixer_window_parent_class)->finalize) (object);
 }
@@ -319,6 +314,9 @@ xfce_mixer_window_soundcard_changed (XfceMixerCardCombo *combo,
 
   /* Make the "Select Controls..." button sensitive */
   gtk_widget_set_sensitive (window->select_controls_button, TRUE);
+
+  /* Remember the card for next time */
+  g_object_set (G_OBJECT (window->preferences), "sound-card", xfce_mixer_card_get_name (card), NULL);
 }
 
 
@@ -392,6 +390,9 @@ xfce_mixer_window_update_contents (XfceMixerWindow *window)
 
   card = xfce_mixer_card_combo_get_active_card (XFCE_MIXER_CARD_COMBO (window->soundcard_combo));
 
-  /* Again, kind of a hack, this time to regenerate the mixer controls */
-  xfce_mixer_window_soundcard_changed (XFCE_MIXER_CARD_COMBO (window->soundcard_combo), card, window);
+  if (G_LIKELY (IS_XFCE_MIXER_CARD (card)))
+    {
+      /* Again, kind of a hack, this time to regenerate the mixer controls */
+      xfce_mixer_window_soundcard_changed (XFCE_MIXER_CARD_COMBO (window->soundcard_combo), card, window);
+    }
 }
