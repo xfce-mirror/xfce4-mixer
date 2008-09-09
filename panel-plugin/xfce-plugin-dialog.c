@@ -141,8 +141,9 @@ xfce_plugin_dialog_dispose (GObject *object)
 static void
 xfce_plugin_dialog_finalize (GObject *object)
 {
+#if 0
   XfcePluginDialog *dialog = XFCE_PLUGIN_DIALOG (object);
-
+#endif
   (*G_OBJECT_CLASS (xfce_plugin_dialog_parent_class)->finalize) (object);
 }
 
@@ -225,7 +226,6 @@ xfce_plugin_dialog_create_contents (XfcePluginDialog *dialog,
                                     const gchar      *track_name,
                                     const gchar      *command)
 {
-  GtkCellRenderer *renderer;
   XfceMixerCard   *card = NULL;
   GtkWidget       *alignment;
   GtkWidget       *vbox;

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xfce 4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-09-03 01:08+0200\n"
-"PO-Revision-Date: 2008-07-13 15:37+0100\n"
+"PO-Revision-Date: 2008-09-05 12:56+0100\n"
 "Last-Translator: Michal Várady <miko.vaji@gmail.com>\n"
 "Language-Team: Czech\n"
 "MIME-Version: 1.0\n"
@@ -25,32 +25,26 @@ msgstr "%s: %i%%"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:340
 msgid "No left-click command defined"
-msgstr ""
+msgstr "Dosud nebyl definován příkaz pro kliknutí levým tlačítkem."
 
 #: ../panel-plugin/xfce-mixer-plugin.c:343
-msgid ""
-"No left-click command defined yet. You can change this in the plugin "
-"properties."
-msgstr ""
+msgid "No left-click command defined yet. You can change this in the plugin properties."
+msgstr "Dosud nebyl definován příkaz pro kliknutí levým tlačítkem. Nastavíte jej ve vlastnostech tohoto zásuvného modulu."
 
 #: ../panel-plugin/xfce-mixer-plugin.c:344
 msgid "Properties"
-msgstr ""
+msgstr "Vlastnosti"
 
 #. Generate error message and insert the current command
 #: ../panel-plugin/xfce-mixer-plugin.c:359
 #, c-format
-msgid ""
-"Could not execute the command %s. Perhaps you need to adjust the PATH "
-"variable."
-msgstr ""
+msgid "Could not execute the command %s. Perhaps you need to adjust the PATH variable."
+msgstr "Nelze spustit příkaz %s. Pravděpodobně bude nutné nastavit proměnnou PATH."
 
-#: ../panel-plugin/xfce-mixer-plugin.c:389 ../xfce4-mixer/main.c:96
-msgid ""
-"GStreamer was unable to detect any sound cards on your system. You might be "
-"missing sound system specific GStreamer packages. It might as well be a "
-"permission problem."
-msgstr ""
+#: ../panel-plugin/xfce-mixer-plugin.c:389
+#: ../xfce4-mixer/main.c:96
+msgid "GStreamer was unable to detect any sound cards on your system. You might be missing sound system specific GStreamer packages. It might as well be a permission problem."
+msgstr "GStreamer nenašel ve vašem systému žádnou zvukovou kartu. Pravděpodobně nejsou nainstalované některé balíčky GStreamer nebo nemáte příslušná oprávnění."
 
 #: ../panel-plugin/xfce-plugin-dialog.c:240
 msgid "Mixer Plugin"
@@ -70,36 +64,35 @@ msgstr "Směšovač stop"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:292
 msgid "Left-click command"
-msgstr ""
+msgstr "Příkaz při kliknutí levým tlačítkem"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:330
-#, fuzzy
 msgid "Select command"
-msgstr "Vybrat ovládací prvky"
+msgstr "Vybrat příkaz"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:338
 msgid "All Files"
-msgstr ""
+msgstr "Všechny soubory"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:343
 msgid "Executable Files"
-msgstr ""
+msgstr "pustitelné soubory"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:358
 msgid "Perl Scripts"
-msgstr ""
+msgstr "Skripty jazyka Perl"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:364
 msgid "Python Scripts"
-msgstr ""
+msgstr "Skripty jazyka Python"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:370
 msgid "Ruby Scripts"
-msgstr ""
+msgstr "Skripty jazyka Ruby"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:376
 msgid "Shell Scripts"
-msgstr ""
+msgstr "Skripty shellu"
 
 #: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:1
 msgid "Mixer"
@@ -115,7 +108,8 @@ msgid "Unknown Volume Control %d"
 msgstr "Neznámý ovládací prvek %d"
 
 #. Set application name
-#: ../xfce4-mixer/main.c:75 ../xfce4-mixer/xfce-mixer-window.c:177
+#: ../xfce4-mixer/main.c:75
+#: ../xfce4-mixer/xfce-mixer-window.c:177
 #: ../xfce4-mixer/xfce-mixer-window.c:195
 #: ../xfce4-mixer/xfce-mixer-window.c:298
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
@@ -143,13 +137,8 @@ msgid "No Controls Visible"
 msgstr "Žádné ovládací prvky nejsou viditelné"
 
 #: ../xfce4-mixer/xfce-mixer.c:325
-msgid ""
-"No controls are marked as visible. Please open the <span "
-"size='large'><b>Select Controls</b></span> dialog to select some."
-msgstr ""
-"Žádné ovládací prvky nejsou označeny jako viditelné. Pro výběr těchto prvků "
-"otevřete dialogové okno <span size='large'><b>Vybrat ovládací prvky</b></"
-"span>."
+msgid "No controls are marked as visible. Please open the <span size='large'><b>Select Controls</b></span> dialog to select some."
+msgstr "Žádné ovládací prvky nejsou označeny jako viditelné. Pro výběr těchto prvků otevřete dialogové okno <span size='large'><b>Vybrat ovládací prvky</b></span>."
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:129
 msgid "Select Controls"
@@ -189,10 +178,10 @@ msgstr "Směšovač zvuku pro pracovní prostředí Xfce"
 
 #~ msgid "Could not find xfce4-mixer in PATH."
 #~ msgstr "Nelze nalézt spustitelný soubor xfce4-mixer v adresáři PATH."
-
 #~ msgid ""
 #~ "No sound cards could be found. You may have to install additional "
 #~ "gstreamer packages for ALSA or OSS support."
 #~ msgstr ""
 #~ "Nebyly nalezeny žádné zvukové karty. Zřejmě je potřeba doinstalovat "
 #~ "balíčky gstreamer pro podporu zvukových systémů ALSA nebo OSS."
+

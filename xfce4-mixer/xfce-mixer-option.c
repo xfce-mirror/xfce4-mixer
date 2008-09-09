@@ -232,7 +232,6 @@ xfce_mixer_option_update (XfceMixerOption *option)
   GtkTreeIter      iter;
   const gchar     *active_option;
   gchar           *str;
-  gint             i;
 
   g_return_if_fail (IS_XFCE_MIXER_OPTION (option));
 

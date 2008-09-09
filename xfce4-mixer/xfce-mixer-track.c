@@ -191,7 +191,6 @@ xfce_mixer_track_create_contents (XfceMixerTrack *track)
   GtkWidget   *image;
   GtkWidget   *button_box;
   GtkWidget   *fader;
-  const GList *iter;
   gdouble      step;
   gint         channel;
   gint         columns;
@@ -350,7 +349,6 @@ static void
 xfce_mixer_track_lock_toggled (GtkToggleButton *button,
                                XfceMixerTrack  *track)
 {
-  GtkAdjustment  *adjustment;
   GtkWidget      *image;
   GtkWidget      *first_fader = NULL;
   GList          *iter;

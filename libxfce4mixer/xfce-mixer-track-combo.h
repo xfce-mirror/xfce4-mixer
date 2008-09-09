@@ -37,16 +37,16 @@ typedef struct _XfceMixerTrackCombo      XfceMixerTrackCombo;
 #define IS_XFCE_MIXER_TRACK_COMBO_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), TYPE_XFCE_MIXER_TRACK_COMBO))
 #define XFCE_MIXER_TRACK_COMBO_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), TYPE_XFCE_MIXER_TRACK_COMBO, XfceMixerTrackComboClass))
 
-GType          xfce_mixer_track_combo_get_type      (void) G_GNUC_CONST;
+GType          xfce_mixer_track_combo_get_type         (void) G_GNUC_CONST;
 
-GtkWidget     *xfce_mixer_track_combo_new           (XfceMixerCard       *card,
-                                                     const gchar         *track_name);
+GtkWidget     *xfce_mixer_track_combo_new              (XfceMixerCard       *card,
+                                                        const gchar         *track_name);
 
-void           xfce_mixer_track_combo_set_soundcard (XfceMixerTrackCombo *combo,
-                                                     XfceMixerCard       *card);
-void           xfce_mixer_track_combo_set_track     (XfceMixerTrackCombo *combo,
-                                                     const gchar         *track_name);
-GstMixerTrack *xfce_mixer_track_get_active_track    (XfceMixerTrackCombo *combo);
+void           xfce_mixer_track_combo_set_soundcard    (XfceMixerTrackCombo *combo,
+                                                        XfceMixerCard       *card);
+void           xfce_mixer_track_combo_set_track        (XfceMixerTrackCombo *combo,
+                                                        const gchar         *track_name);
+GstMixerTrack *xfce_mixer_track_combo_get_active_track (XfceMixerTrackCombo *combo);
 
 G_END_DECLS;
 
