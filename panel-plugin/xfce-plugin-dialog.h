@@ -35,16 +35,16 @@ typedef struct _XfcePluginDialog      XfcePluginDialog;
 #define IS_XFCE_PLUGIN_DIALOG_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), TYPE_XFCE_PLUGIN_DIALOG))
 #define XFCE_PLUGIN_DIALOG_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), TYPE_XFCE_PLUGIN_DIALOG, XfcePluginDialogClass))
 
-GType     xfce_plugin_dialog_get_type (void) G_GNUC_CONST;
+GType     xfce_plugin_dialog_get_type  (void) G_GNUC_CONST;
 
-GtkWidget *xfce_plugin_dialog_new     (const gchar *active_card,
-                                       const gchar *active_track,
-                                       const gchar *command);
+GtkWidget *xfce_plugin_dialog_new      (const gchar *active_card,
+                                        const gchar *active_track,
+                                        const gchar *command);
 
-void       xce_plugin_dialog_get_data (XfcePluginDialog *dialog,
-                                       XfceMixerCard   **card,
-                                       GstMixerTrack   **track,
-                                       gchar           **command);
+void       xfce_plugin_dialog_get_data (XfcePluginDialog *dialog,
+                                        XfceMixerCard   **card,
+                                        GstMixerTrack   **track,
+                                        gchar           **command);
 
 G_END_DECLS;
 

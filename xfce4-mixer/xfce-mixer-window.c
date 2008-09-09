@@ -45,7 +45,6 @@ static void     xfce_mixer_window_class_init             (XfceMixerWindowClass *
 static void     xfce_mixer_window_init                   (XfceMixerWindow      *window);
 static void     xfce_mixer_window_dispose                (GObject              *object);
 static void     xfce_mixer_window_finalize               (GObject              *object);
-static void     xfce_mixer_window_load_soundcards        (XfceMixerWindow      *window);
 static void     xfce_mixer_window_soundcard_changed      (XfceMixerCardCombo   *combo,
                                                           XfceMixerCard        *card,
                                                           XfceMixerWindow      *window);
@@ -153,13 +152,9 @@ xfce_mixer_window_init (XfceMixerWindow *window)
   GtkWidget       *separator;
   GtkWidget       *label;
   GtkWidget       *button;
-  GtkWidget       *image;
   GtkWidget       *vbox;
   GtkWidget       *hbox;
   GtkWidget       *bbox;
-  GtkCellRenderer *renderer;
-  GtkAction       *action;
-  GtkListStore    *model;
   gchar           *active_card;
   gchar           *title;
   gint             width;

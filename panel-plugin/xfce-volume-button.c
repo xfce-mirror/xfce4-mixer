@@ -75,10 +75,6 @@ static gboolean   xfce_volume_button_key_pressed    (GtkWidget             *widg
 static gboolean   xfce_volume_button_button_pressed (GtkWidget             *widget,
                                                      GdkEventButton        *event,
                                                      XfceVolumeButton      *button);
-static void       xfce_volume_button_enter          (GtkWidget             *widget,
-                                                     GdkEventCrossing      *event);
-static void       xfce_volume_button_leave          (GtkWidget             *widget,
-                                                     GdkEventCrossing      *event);
 static gboolean   xfce_volume_button_scrolled       (GtkWidget             *widget,
                                                      GdkEventScroll        *event,
                                                      XfceVolumeButton      *button);
@@ -332,7 +328,7 @@ xfce_volume_button_button_pressed (GtkWidget        *widget,
 {
   gboolean mute;
 
-  g_return_if_fail (IS_XFCE_VOLUME_BUTTON (button));
+  g_return_val_if_fail (IS_XFCE_VOLUME_BUTTON (button), FALSE);
 
   /* Check if the middle mouse button was pressed */
   if (event->button == 2)
@@ -364,8 +360,8 @@ xfce_volume_button_scrolled (GtkWidget        *widget,
   gdouble value;
   gdouble step_increment;
 
-  g_return_if_fail (GTK_IS_WIDGET (widget));
-  g_return_if_fail (IS_XFCE_VOLUME_BUTTON (button));
+  g_return_val_if_fail (GTK_IS_WIDGET (widget), FALSE);
+  g_return_val_if_fail (IS_XFCE_VOLUME_BUTTON (button), FALSE);
 
   /* Get current adjustment value and the step increment size */
   g_object_get (G_OBJECT (button->adjustment), "value", &value, "step-increment", &step_increment, NULL);

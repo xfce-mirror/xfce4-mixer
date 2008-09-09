@@ -34,7 +34,6 @@
 #include "xfce-mixer-track.h"
 #include "xfce-mixer-switch.h"
 #include "xfce-mixer-option.h"
-#include "libxfce4mixer/xfce-mixer-preferences.h"
 
 
 
@@ -174,7 +173,6 @@ xfce_mixer_new (XfceMixerCard *card)
 static void
 xfce_mixer_create_contents (XfceMixer *mixer)
 {
-  XfceMixerPreferences *preferences;
   XfceMixerTrackType    type;
   GstMixerTrack        *track;
   const GList          *iter;

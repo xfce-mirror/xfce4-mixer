@@ -34,6 +34,7 @@
 #include <libxfce4util/libxfce4util.h>
 #include <libxfcegui4/libxfcegui4.h>
 #include <libxfce4panel/xfce-panel-plugin.h>
+#include <libxfce4panel/xfce-hvbox.h>
 
 #include "libxfce4mixer/xfce-mixer-stock.h"
 #include "libxfce4mixer/xfce-mixer-card.h"
@@ -594,6 +595,8 @@ xfce_mixer_plugin_bus_message (GstBus          *bus,
         /* Update the volume button if the message belongs to the current mixer track */
         if (G_UNLIKELY (g_utf8_collate (track->label, mixer_plugin->track->label) == 0))
           xfce_volume_button_set_muted (XFCE_VOLUME_BUTTON (mixer_plugin->button), mute);
+        break;
+      default:
         break;
     }
 }

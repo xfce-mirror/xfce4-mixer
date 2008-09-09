@@ -156,8 +156,9 @@ xfce_mixer_preferences_init (XfceMixerPreferences *preferences)
 static void
 xfce_mixer_preferences_finalize (GObject *object)
 {
+#if 0
   XfceMixerPreferences *preferences = XFCE_MIXER_PREFERENCES (object);
-
+#endif
   (*G_OBJECT_CLASS (xfce_mixer_preferences_parent_class)->finalize) (object);
 }
 
