@@ -1,0 +1,16 @@
+xfce4-mixer Information
+=======================
+
+This package contains a volume control application based on GStreamer
+0.10 written to conceptually fit into the Xfce desktop environment. It
+also contains a plugin for the Xfce panel which is especially designed
+for use with the mouse wheel.
+
+Known Problems with GStreamer
+-----------------------------
+
+  * No sound card detected: if this happens you're probably missing a
+    GStreamer plugin for your sound system. If you get this message on a
+    Debian or Ubuntu system and you're using ALSA then installing 
+    gstreamer0.10-alsa should fix it. On OpenBSD installing 
+    gst-plugins-good might help.

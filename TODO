@@ -1,4 +1,11 @@
-* Design new icons for the mixer plugin
+* Use GPLv2 instead of LGPL. Fix this in all the source code files.
+
+* Don't install the xfce4-mixer stock icon. Use the correct icon name
+  according to the icon theme naming specification.
+
+* Improve the naming of the volume stock icons.
+
+* Improve the plugin icons.
 
 * Panel plugin: Decide on how to react on tracks with
   different channel volume levels (median, minimum, maximum value?)

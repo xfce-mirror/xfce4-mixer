@@ -1,0 +1,25 @@
+4.5.90
+======
+- Complete rewrite based on GStreamer 0.10.
+- Supports all sound systems supported by GStreamer (ALSA, OSS, 
+  PulseAudio and many more).
+- Support for multiple sound cards.
+- New panel plugin especially designed for easy use with the mouse 
+  scroll wheel.
+
+4.4.0
+=====
+- Several new and updated translations.
+
+
+4.3.90.1
+========
+- Port to the new panel framework.
+- Support for SGI mixer.
+
+
+4.2.0
+=====
+- Complete rewrite of the mixer with settings manager dialog.
+- Support for mixer profiles.
+- Support for ALSA, OSS and Sun Audio.
