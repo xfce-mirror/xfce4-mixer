@@ -43,13 +43,12 @@ XfceMixerCard *xfce_mixer_card_new                  (GstElement    *element);
 const gchar   *xfce_mixer_card_get_display_name     (XfceMixerCard *card);
 const gchar   *xfce_mixer_card_get_name             (XfceMixerCard *card);
 void           xfce_mixer_card_set_ready            (XfceMixerCard *card);
-GList         *xfce_mixer_card_get_visible_controls (XfceMixerCard *card);
+const gchar  **xfce_mixer_card_get_visible_controls (XfceMixerCard *card);
 const GList   *xfce_mixer_card_get_tracks           (XfceMixerCard *card);
 GstMixerTrack *xfce_mixer_card_get_track_by_name    (XfceMixerCard *card,
                                                      const gchar   *track_name);
-void           xfce_mixer_card_set_control_visible  (XfceMixerCard *card,
-                                                     const gchar   *control,
-                                                     gboolean       visible);
+void           xfce_mixer_card_set_visible_controls (XfceMixerCard *card,
+                                                     gchar * const *controls);
 void           xfce_mixer_card_get_track_volume     (XfceMixerCard *card,
                                                      GstMixerTrack *track,
                                                      gint          *volumes);
@@ -67,6 +66,8 @@ const gchar   *xfce_mixer_card_get_track_option     (XfceMixerCard *card,
 void           xfce_mixer_card_set_track_option     (XfceMixerCard *card,
                                                      GstMixerTrack *track,
                                                      gchar         *option);
+gboolean       xfce_mixer_card_control_is_visible   (XfceMixerCard *card,
+                                                     const gchar   *control);
 #ifdef HAVE_GST_MIXER_NOTIFICATION
 gint           xfce_mixer_card_connect              (XfceMixerCard *card,
                                                      GCallback      callback_func,

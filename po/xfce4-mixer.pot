@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-03 01:08+0200\n"
+"POT-Creation-Date: 2008-09-18 00:48+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,35 +17,35 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #. Set tooltip (e.g. 'Master: 50%')
-#: ../panel-plugin/xfce-mixer-plugin.c:271
-#: ../panel-plugin/xfce-mixer-plugin.c:539
+#: ../panel-plugin/xfce-mixer-plugin.c:272
+#: ../panel-plugin/xfce-mixer-plugin.c:540
 #, c-format
 msgid "%s: %i%%"
 msgstr ""
 
-#: ../panel-plugin/xfce-mixer-plugin.c:340
+#: ../panel-plugin/xfce-mixer-plugin.c:341
 msgid "No left-click command defined"
 msgstr ""
 
-#: ../panel-plugin/xfce-mixer-plugin.c:343
+#: ../panel-plugin/xfce-mixer-plugin.c:344
 msgid ""
 "No left-click command defined yet. You can change this in the plugin "
 "properties."
 msgstr ""
 
-#: ../panel-plugin/xfce-mixer-plugin.c:344
+#: ../panel-plugin/xfce-mixer-plugin.c:345
 msgid "Properties"
 msgstr ""
 
 #. Generate error message and insert the current command
-#: ../panel-plugin/xfce-mixer-plugin.c:359
+#: ../panel-plugin/xfce-mixer-plugin.c:360
 #, c-format
 msgid ""
 "Could not execute the command %s. Perhaps you need to adjust the PATH "
 "variable."
 msgstr ""
 
-#: ../panel-plugin/xfce-mixer-plugin.c:389 ../xfce4-mixer/main.c:96
+#: ../panel-plugin/xfce-mixer-plugin.c:390 ../xfce4-mixer/main.c:115
 msgid ""
 "GStreamer was unable to detect any sound cards on your system. You might be "
 "missing sound system specific GStreamer packages. It might as well be a "
@@ -114,68 +114,73 @@ msgid "Unknown Volume Control %d"
 msgstr ""
 
 #. Set application name
-#: ../xfce4-mixer/main.c:75 ../xfce4-mixer/xfce-mixer-window.c:177
-#: ../xfce4-mixer/xfce-mixer-window.c:195
-#: ../xfce4-mixer/xfce-mixer-window.c:298
+#: ../xfce4-mixer/main.c:82 ../xfce4-mixer/xfce-mixer-window.c:169
+#: ../xfce4-mixer/xfce-mixer-window.c:187
+#: ../xfce4-mixer/xfce-mixer-window.c:288
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
 msgid "Xfce Mixer"
 msgstr ""
 
-#: ../xfce4-mixer/xfce-mixer.c:181
+#: ../xfce4-mixer/main.c:92
+#, c-format
+msgid "Failed to initialize xfconf: %s"
+msgstr ""
+
+#: ../xfce4-mixer/xfce-mixer.c:179
 msgid "Playback"
 msgstr ""
 
-#: ../xfce4-mixer/xfce-mixer.c:181
+#: ../xfce4-mixer/xfce-mixer.c:179
 msgid "Capture"
 msgstr ""
 
-#: ../xfce4-mixer/xfce-mixer.c:181
+#: ../xfce4-mixer/xfce-mixer.c:179
 msgid "Switches"
 msgstr ""
 
-#: ../xfce4-mixer/xfce-mixer.c:181
+#: ../xfce4-mixer/xfce-mixer.c:179
 msgid "Options"
 msgstr ""
 
-#: ../xfce4-mixer/xfce-mixer.c:321
+#: ../xfce4-mixer/xfce-mixer.c:314
 msgid "No Controls Visible"
 msgstr ""
 
-#: ../xfce4-mixer/xfce-mixer.c:325
+#: ../xfce4-mixer/xfce-mixer.c:318
 msgid ""
 "No controls are marked as visible. Please open the <span "
 "size='large'><b>Select Controls</b></span> dialog to select some."
 msgstr ""
 
-#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:129
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:135
 msgid "Select Controls"
 msgstr ""
 
-#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:131
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:137
 msgid "Please select which controls you want to be visible"
 msgstr ""
 
-#: ../xfce4-mixer/xfce-mixer-window.c:89
+#: ../xfce4-mixer/xfce-mixer-window.c:88
 msgid "_Quit"
 msgstr ""
 
-#: ../xfce4-mixer/xfce-mixer-window.c:89
+#: ../xfce4-mixer/xfce-mixer-window.c:88
 msgid "Exit Xfce Mixer"
 msgstr ""
 
-#: ../xfce4-mixer/xfce-mixer-window.c:91
+#: ../xfce4-mixer/xfce-mixer-window.c:90
 msgid "_Select Controls..."
 msgstr ""
 
-#: ../xfce4-mixer/xfce-mixer-window.c:91
+#: ../xfce4-mixer/xfce-mixer-window.c:90
 msgid "Select which controls are displayed"
 msgstr ""
 
-#: ../xfce4-mixer/xfce-mixer-window.c:196
+#: ../xfce4-mixer/xfce-mixer-window.c:188
 msgid "A comfortable audio mixer for your sound card."
 msgstr ""
 
-#: ../xfce4-mixer/xfce-mixer-window.c:211
+#: ../xfce4-mixer/xfce-mixer-window.c:203
 msgid "Sound card:"
 msgstr ""
 

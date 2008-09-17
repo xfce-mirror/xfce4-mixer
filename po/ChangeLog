@@ -1,4 +1,8 @@
-2008-09-09  Maximilian Schleiss <maximilian@xfce.org>
+2008-09-18	Jannis Pohlmann <jannis@xfce.org>
+
+	* xfce4-mixer.pot, *.po: Merge strings.
+
+2008-09-09	Maximilian Schleiss <maximilian@xfce.org>
 
 	* id.po: Indonesian translation update (Andhika Padmawan)
 	* fr.po: French translation update

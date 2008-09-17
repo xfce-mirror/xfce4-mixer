@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce 4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-03 01:08+0200\n"
+"POT-Creation-Date: 2008-09-18 00:48+0200\n"
 "PO-Revision-Date: 2008-09-09 20:56+0100\n"
 "Last-Translator: Søren Waaben Hansen <soren@minorflaw.dk>\n"
 "Language-Team: Danish\n"
@@ -17,34 +17,46 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. Set tooltip (e.g. 'Master: 50%')
-#: ../panel-plugin/xfce-mixer-plugin.c:271
-#: ../panel-plugin/xfce-mixer-plugin.c:539
+#: ../panel-plugin/xfce-mixer-plugin.c:272
+#: ../panel-plugin/xfce-mixer-plugin.c:540
 #, c-format
 msgid "%s: %i%%"
 msgstr "%s: %i%%"
 
-#: ../panel-plugin/xfce-mixer-plugin.c:340
+#: ../panel-plugin/xfce-mixer-plugin.c:341
 msgid "No left-click command defined"
 msgstr "Ingen venstrekliks kommando defineret"
 
-#: ../panel-plugin/xfce-mixer-plugin.c:343
-msgid "No left-click command defined yet. You can change this in the plugin properties."
-msgstr "Ingen venstrekliks kommando defineret endnu. Du kan ændre dette i egenskaber for plugin'et."
-
 #: ../panel-plugin/xfce-mixer-plugin.c:344
+msgid ""
+"No left-click command defined yet. You can change this in the plugin "
+"properties."
+msgstr ""
+"Ingen venstrekliks kommando defineret endnu. Du kan ændre dette i egenskaber "
+"for plugin'et."
+
+#: ../panel-plugin/xfce-mixer-plugin.c:345
 msgid "Properties"
 msgstr "Egenskaber"
 
 #. Generate error message and insert the current command
-#: ../panel-plugin/xfce-mixer-plugin.c:359
+#: ../panel-plugin/xfce-mixer-plugin.c:360
 #, c-format
-msgid "Could not execute the command %s. Perhaps you need to adjust the PATH variable."
-msgstr "Kunne ikke køre kommandoen %s. Det kan være du skal justere PATH variablen."
+msgid ""
+"Could not execute the command %s. Perhaps you need to adjust the PATH "
+"variable."
+msgstr ""
+"Kunne ikke køre kommandoen %s. Det kan være du skal justere PATH variablen."
 
-#: ../panel-plugin/xfce-mixer-plugin.c:389
-#: ../xfce4-mixer/main.c:96
-msgid "GStreamer was unable to detect any sound cards on your system. You might be missing sound system specific GStreamer packages. It might as well be a permission problem."
-msgstr "GStreamer kunne ikke finde nogle lydkort på dit system. Det kan være du mangler nogle specifikke GStreamer pakker. Eller det kan være et problem med rettigheder til lydkortet."
+#: ../panel-plugin/xfce-mixer-plugin.c:390 ../xfce4-mixer/main.c:115
+msgid ""
+"GStreamer was unable to detect any sound cards on your system. You might be "
+"missing sound system specific GStreamer packages. It might as well be a "
+"permission problem."
+msgstr ""
+"GStreamer kunne ikke finde nogle lydkort på dit system. Det kan være du "
+"mangler nogle specifikke GStreamer pakker. Eller det kan være et problem med "
+"rettigheder til lydkortet."
 
 #: ../panel-plugin/xfce-plugin-dialog.c:240
 msgid "Mixer Plugin"
@@ -108,67 +120,75 @@ msgid "Unknown Volume Control %d"
 msgstr "Ukendt Volumen kontrol %d"
 
 #. Set application name
-#: ../xfce4-mixer/main.c:75
-#: ../xfce4-mixer/xfce-mixer-window.c:177
-#: ../xfce4-mixer/xfce-mixer-window.c:195
-#: ../xfce4-mixer/xfce-mixer-window.c:298
+#: ../xfce4-mixer/main.c:82 ../xfce4-mixer/xfce-mixer-window.c:169
+#: ../xfce4-mixer/xfce-mixer-window.c:187
+#: ../xfce4-mixer/xfce-mixer-window.c:288
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
 msgid "Xfce Mixer"
 msgstr "Xfce mixer"
 
-#: ../xfce4-mixer/xfce-mixer.c:181
+#: ../xfce4-mixer/main.c:92
+#, c-format
+msgid "Failed to initialize xfconf: %s"
+msgstr ""
+
+#: ../xfce4-mixer/xfce-mixer.c:179
 msgid "Playback"
 msgstr "Afspil"
 
-#: ../xfce4-mixer/xfce-mixer.c:181
+#: ../xfce4-mixer/xfce-mixer.c:179
 msgid "Capture"
 msgstr "Indspil"
 
-#: ../xfce4-mixer/xfce-mixer.c:181
+#: ../xfce4-mixer/xfce-mixer.c:179
 msgid "Switches"
 msgstr "Kontakter"
 
-#: ../xfce4-mixer/xfce-mixer.c:181
+#: ../xfce4-mixer/xfce-mixer.c:179
 msgid "Options"
 msgstr "Indstillinger"
 
-#: ../xfce4-mixer/xfce-mixer.c:321
+#: ../xfce4-mixer/xfce-mixer.c:314
 msgid "No Controls Visible"
 msgstr "Ingen synlige kontroller"
 
-#: ../xfce4-mixer/xfce-mixer.c:325
-msgid "No controls are marked as visible. Please open the <span size='large'><b>Select Controls</b></span> dialog to select some."
-msgstr "Ingen kontroller er markeret som synlige. Åben <span size='large'><b>Vælg kontroller</b></span> dialogen for at vælge nogle."
+#: ../xfce4-mixer/xfce-mixer.c:318
+msgid ""
+"No controls are marked as visible. Please open the <span "
+"size='large'><b>Select Controls</b></span> dialog to select some."
+msgstr ""
+"Ingen kontroller er markeret som synlige. Åben <span size='large'><b>Vælg "
+"kontroller</b></span> dialogen for at vælge nogle."
 
-#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:129
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:135
 msgid "Select Controls"
 msgstr "Vælg kontroller"
 
-#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:131
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:137
 msgid "Please select which controls you want to be visible"
 msgstr "Vælg hvilke kontroller du vil have til at være synlige"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:89
+#: ../xfce4-mixer/xfce-mixer-window.c:88
 msgid "_Quit"
 msgstr "_Afslut"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:89
+#: ../xfce4-mixer/xfce-mixer-window.c:88
 msgid "Exit Xfce Mixer"
 msgstr "Afslut Xfce mixer"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:91
+#: ../xfce4-mixer/xfce-mixer-window.c:90
 msgid "_Select Controls..."
 msgstr "_Vælg kontroller..."
 
-#: ../xfce4-mixer/xfce-mixer-window.c:91
+#: ../xfce4-mixer/xfce-mixer-window.c:90
 msgid "Select which controls are displayed"
 msgstr "Vælg hvilke kontroller der skal vises"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:196
+#: ../xfce4-mixer/xfce-mixer-window.c:188
 msgid "A comfortable audio mixer for your sound card."
 msgstr "En behagelig lydmixer til dit lydkort."
 
-#: ../xfce4-mixer/xfce-mixer-window.c:211
+#: ../xfce4-mixer/xfce-mixer-window.c:203
 msgid "Sound card:"
 msgstr "Lydkort:"
 
@@ -182,4 +202,3 @@ msgstr "Lydmixer til Xfce skrivebordsmiljøet"
 #~ msgstr ""
 #~ "Ingen lydkort blev fundet. Du skal måske installere yderligere gstreamer "
 #~ "pakker for at få ALSA eller OSS understøttelse. "
-

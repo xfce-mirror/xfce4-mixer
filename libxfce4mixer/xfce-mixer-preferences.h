@@ -39,14 +39,11 @@ typedef struct _XfceMixerPreferences      XfceMixerPreferences;
 GType                 xfce_mixer_preferences_get_type             (void) G_GNUC_CONST;
 
 XfceMixerPreferences *xfce_mixer_preferences_get                  (void);
-void                  xfce_mixer_preferences_store                (XfceMixerPreferences *preferences);
-XfceRc               *xfce_mixer_preferences_get_rc               (XfceMixerPreferences *preferences);
-GList                *xfce_mixer_preferences_get_visible_controls (XfceMixerPreferences *preferences,
-                                                                   const gchar          *mixer);
-void                  xfce_mixer_preferences_set_control_visible  (XfceMixerPreferences *preferences,
-                                                                   const gchar          *mixer,
-                                                                   const gchar          *control,
-                                                                   gboolean              visible);
+gchar * const        *xfce_mixer_preferences_get_visible_controls (XfceMixerPreferences *preferences,
+                                                                   const gchar          *card_name);
+void                  xfce_mixer_preferences_set_visible_controls (XfceMixerPreferences *preferences,
+                                                                   const gchar          *card_name,
+                                                                   gchar * const        *controls);
 
 G_END_DECLS;
 

@@ -214,14 +214,12 @@ xfce_mixer_create_contents (XfceMixer *mixer)
       gtk_widget_show (scrollwins[i]);
     }
 
-  visible_controls = xfce_mixer_card_get_visible_controls (mixer->card);
-
   /* Create controls for all mixer tracks */
   for (iter = xfce_mixer_card_get_tracks (mixer->card); iter != NULL; iter = g_list_next (iter))
     {
       track = iter->data;
 
-      if (g_list_find_custom (visible_controls, track->label, (GCompareFunc) g_utf8_collate) == NULL)
+      if (!xfce_mixer_card_control_is_visible (mixer->card, track->label))
         continue;
 
       /* Determine the type of the mixer track */
@@ -289,9 +287,6 @@ xfce_mixer_create_contents (XfceMixer *mixer)
           break;
         }
     }
-
-  g_list_foreach (visible_controls, (GFunc) g_free, NULL);
-  g_list_free (visible_controls);
 
   /* Append tab or destroy all its widgets - depending on the contents of each tab */
   for (i = 0; i < 4; ++i)

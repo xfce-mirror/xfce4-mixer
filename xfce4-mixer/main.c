@@ -34,6 +34,7 @@
 #endif
 
 #include <libxfce4util/libxfce4util.h>
+#include <xfconf/xfconf.h>
 
 #include <gst/gst.h>
 
@@ -63,6 +64,7 @@ main (int    argc,
       char **argv)
 {
   GtkWidget *window;
+  GError    *error = NULL;
 
   /* Setup translation domain */
   xfce_textdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");
@@ -81,6 +83,18 @@ main (int    argc,
 
   /* Initialize GTK+ */
   gtk_init (&argc, &argv);
+
+  /* Initialize Xfconf */
+  if (G_UNLIKELY (!xfconf_init (&error)))
+    {
+      if (G_LIKELY (error != NULL))
+        {
+          g_print (_("Failed to initialize xfconf: %s"), error->message);
+          g_error_free (error);
+        }
+
+      return EXIT_FAILURE;
+    }
 
   /* Initialize GStreamer */
   gst_init (&argc, &argv);
@@ -116,6 +130,9 @@ main (int    argc,
 
   /* Destroy the window */
   gtk_widget_destroy (window);
+
+  /* Shutdown Xfconf */
+  xfconf_shutdown ();
 
   return EXIT_SUCCESS;
 }

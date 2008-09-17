@@ -1,3 +1,14 @@
+2008-09-18	Jannis Pohlmann <jannis@xfce.org>
+
+	* autogen.sh: Add git svn revision versioning support.
+	* configure.in.in, libxfce4mixer/Makefile.am, xfce4-mixer/Makefile.am:
+	  Re-add svn version tag. Add dependency on xfconf.
+	* libxfce4mixer/xfce-mixer-card.{c,h},
+	  libxfce4mixer/xfce-mixer-preferences.{c,h}, xfce4-mixer/main.c,
+	  xfce4-mixer/xfce-mixer-controls-dialog.c,
+	  xfce4-mixer/xfce-mixer-window.c, xfce4-mixer/xfce-mixer.c: Add
+	  xfconf support.
+
 2008-09-12	Jannis Pohlmann <jannis@xfce.org>
 
 	* NEWS, README, TODO: Updated for the alpha release.

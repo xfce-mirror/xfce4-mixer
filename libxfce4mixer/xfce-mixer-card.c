@@ -206,19 +206,19 @@ xfce_mixer_card_set_ready (XfceMixerCard *card)
 
 
 
-GList*
+const gchar **
 xfce_mixer_card_get_visible_controls (XfceMixerCard *card)
 {
   XfceMixerPreferences *preferences;
-  GList                *list = NULL;
+  const gchar         **controls;
 
   g_return_val_if_fail (IS_XFCE_MIXER_CARD (card), NULL);
 
   preferences = xfce_mixer_preferences_get ();
-  list = xfce_mixer_preferences_get_visible_controls (preferences, xfce_mixer_card_get_name (card));
-  g_object_unref (G_OBJECT (preferences));
+  controls = xfce_mixer_preferences_get_visible_controls (preferences, xfce_mixer_card_get_name (card));
+  g_object_unref (preferences);
 
-  return list;
+  return controls;
 }
 
 
@@ -258,17 +258,15 @@ xfce_mixer_card_get_track_by_name (XfceMixerCard *card,
 
 
 void
-xfce_mixer_card_set_control_visible (XfceMixerCard *card,
-                                     const gchar   *control,
-                                     gboolean       visible)
+xfce_mixer_card_set_visible_controls (XfceMixerCard *card,
+                                      gchar * const *controls)
 {
   XfceMixerPreferences *preferences;
 
   g_return_if_fail (IS_XFCE_MIXER_CARD (card));
-  g_return_if_fail (control != NULL);
 
   preferences = xfce_mixer_preferences_get ();
-  xfce_mixer_preferences_set_control_visible (preferences, xfce_mixer_card_get_name (card), control, visible);
+  xfce_mixer_preferences_set_visible_controls (preferences, xfce_mixer_card_get_name (card), controls);
   g_object_unref (G_OBJECT (preferences));
 }
 
@@ -347,6 +345,34 @@ xfce_mixer_card_set_track_option (XfceMixerCard *card,
   g_return_if_fail (GST_IS_MIXER_OPTIONS (track));
 
   gst_mixer_set_option (GST_MIXER (card->element), GST_MIXER_OPTIONS (track), option);
+}
+
+
+
+gboolean
+xfce_mixer_card_control_is_visible (XfceMixerCard *card,
+                                    const gchar   *control)
+{
+  XfceMixerPreferences *preferences;
+  const gchar         **controls;
+  gboolean              visible = FALSE;
+  gint                  i;
+
+  g_return_val_if_fail (IS_XFCE_MIXER_CARD (card), FALSE);
+  g_return_val_if_fail (control != NULL, FALSE);
+
+  preferences = xfce_mixer_preferences_get ();
+  controls = xfce_mixer_preferences_get_visible_controls (preferences, xfce_mixer_card_get_name (card));
+  g_object_unref (preferences);
+
+  for (i = 0; controls != NULL && controls[i] != NULL; ++i)
+    if (g_utf8_collate (controls[i], control) == 0)
+      {
+        visible = TRUE;
+        break;
+      }
+
+  return visible;
 }
 
 

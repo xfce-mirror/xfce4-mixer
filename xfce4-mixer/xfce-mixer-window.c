@@ -155,17 +155,14 @@ xfce_mixer_window_init (XfceMixerWindow *window)
   GtkWidget       *vbox;
   GtkWidget       *hbox;
   GtkWidget       *bbox;
-  gchar           *active_card;
+  gchar           *active_card = NULL;
   gchar           *title;
   gint             width;
   gint             height;
 
   window->preferences = xfce_mixer_preferences_get ();
 
-  g_object_get (G_OBJECT (window->preferences), 
-                "last-window-width", &width,
-                "last-window-height", &height,
-                NULL);
+  g_object_get (window->preferences, "window-width", &width, "window-height", &height, "sound-card", &active_card, NULL);
 
   /* Configure the main window */
   gtk_window_set_icon_name (GTK_WINDOW (window), "xfce4-mixer");
@@ -209,14 +206,10 @@ xfce_mixer_window_init (XfceMixerWindow *window)
   gtk_box_pack_start (GTK_BOX (hbox), label, FALSE, FALSE, 0);
   gtk_widget_show (label);
 
-  g_object_get (G_OBJECT (window->preferences), "sound-card", &active_card, NULL);
-
   window->soundcard_combo = xfce_mixer_card_combo_new (active_card);
   g_signal_connect (window->soundcard_combo, "soundcard-changed", G_CALLBACK (xfce_mixer_window_soundcard_changed), window);
   gtk_container_add (GTK_CONTAINER (hbox), window->soundcard_combo);
   gtk_widget_show (window->soundcard_combo);
-
-  g_free (active_card);
 
   window->mixer_frame = gtk_frame_new (NULL);
   gtk_frame_set_shadow_type (GTK_FRAME (window->mixer_frame), GTK_SHADOW_NONE);
@@ -247,6 +240,8 @@ xfce_mixer_window_init (XfceMixerWindow *window)
 
   /* Re-generate mixer controls for the active sound card */
   xfce_mixer_window_update_contents (window);
+
+  g_free (active_card);
 }
 
 
@@ -357,11 +352,7 @@ xfce_mixer_window_closed (GtkWidget       *window,
 
   card = xfce_mixer_window_get_active_card (mixer_window);
 
-  g_object_set (G_OBJECT (mixer_window->preferences), 
-                "last-window-width", width,
-                "last-window-height", height,
-                "sound-card", xfce_mixer_card_get_name (card),
-                NULL);
+  g_object_set (G_OBJECT (mixer_window->preferences), "window-width", width, "window-height", height, NULL);
 
   return FALSE;
 }
