@@ -1,3 +1,10 @@
+2008-09-20	Jannis Pohlmann <jannis@xfce.org>
+
+	* icons/, xfce4-mixer/xfce-mixer-window.c: Drop xfce4-mixer.{png,svg} 
+	  icon in favour of multimedia-volume-control.
+	* libxfce4mixer/xfce-mixer-card.{c,h}: Fix compiler warnings due to
+	  invalid conversion between "const gchar **" and "gchar * const *".
+
 2008-09-18	Jannis Pohlmann <jannis@xfce.org>
 
 	* autogen.sh: Add git svn revision versioning support.

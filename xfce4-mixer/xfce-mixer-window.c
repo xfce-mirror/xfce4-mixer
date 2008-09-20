@@ -165,7 +165,7 @@ xfce_mixer_window_init (XfceMixerWindow *window)
   g_object_get (window->preferences, "window-width", &width, "window-height", &height, "sound-card", &active_card, NULL);
 
   /* Configure the main window */
-  gtk_window_set_icon_name (GTK_WINDOW (window), "xfce4-mixer");
+  gtk_window_set_icon_name (GTK_WINDOW (window), "multimedia-volume-control");
   gtk_window_set_title (GTK_WINDOW (window), _("Xfce Mixer"));
   gtk_window_set_default_size (GTK_WINDOW (window), width, height);
   gtk_window_set_position (GTK_WINDOW (window), GTK_WIN_POS_CENTER);
@@ -186,7 +186,7 @@ xfce_mixer_window_init (XfceMixerWindow *window)
   heading = xfce_heading_new ();
   xfce_heading_set_title (XFCE_HEADING (heading), _("Xfce Mixer"));
   xfce_heading_set_subtitle (XFCE_HEADING (heading), _("A comfortable audio mixer for your sound card."));
-  xfce_heading_set_icon_name (XFCE_HEADING (heading), "xfce4-mixer");
+  xfce_heading_set_icon_name (XFCE_HEADING (heading), "multimedia-volume-control");
   gtk_box_pack_start (GTK_BOX (vbox), heading, FALSE, TRUE, 0);
   gtk_widget_show (heading);
 

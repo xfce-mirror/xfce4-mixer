@@ -43,7 +43,7 @@ XfceMixerCard *xfce_mixer_card_new                  (GstElement    *element);
 const gchar   *xfce_mixer_card_get_display_name     (XfceMixerCard *card);
 const gchar   *xfce_mixer_card_get_name             (XfceMixerCard *card);
 void           xfce_mixer_card_set_ready            (XfceMixerCard *card);
-const gchar  **xfce_mixer_card_get_visible_controls (XfceMixerCard *card);
+gchar * const *xfce_mixer_card_get_visible_controls (XfceMixerCard *card);
 const GList   *xfce_mixer_card_get_tracks           (XfceMixerCard *card);
 GstMixerTrack *xfce_mixer_card_get_track_by_name    (XfceMixerCard *card,
                                                      const gchar   *track_name);

@@ -1,8 +1,4 @@
-# $Id: Makefile.am 22065 2006-06-11 17:13:17Z benny $
-
-appsdir = $(datadir)/icons/hicolor/48x48/apps
-apps_DATA =								\
-	xfce4-mixer.png
+# $Id$
 
 stockdir = $(datadir)/icons/hicolor/48x48/stock/media
 stock_DATA =								\
@@ -18,7 +14,6 @@ stock_DATA =								\
 	stock_xfce4-mixer-no-muted.png
 
 EXTRA_DIST =								\
-	$(apps_DATA)							\
 	$(stock_DATA)
 
 # vi:set ts=8 sw=8 noet ai nocindent syntax=automake:

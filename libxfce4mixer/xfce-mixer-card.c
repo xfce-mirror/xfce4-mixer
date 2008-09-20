@@ -206,11 +206,11 @@ xfce_mixer_card_set_ready (XfceMixerCard *card)
 
 
 
-const gchar **
+gchar * const *
 xfce_mixer_card_get_visible_controls (XfceMixerCard *card)
 {
   XfceMixerPreferences *preferences;
-  const gchar         **controls;
+  gchar * const        *controls;
 
   g_return_val_if_fail (IS_XFCE_MIXER_CARD (card), NULL);
 
@@ -354,7 +354,7 @@ xfce_mixer_card_control_is_visible (XfceMixerCard *card,
                                     const gchar   *control)
 {
   XfceMixerPreferences *preferences;
-  const gchar         **controls;
+  gchar * const        *controls;
   gboolean              visible = FALSE;
   gint                  i;
 
