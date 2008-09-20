@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.4.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-18 00:48+0200\n"
+"POT-Creation-Date: 2008-09-20 17:02+0200\n"
 "PO-Revision-Date: 2008-01-14 20:00+0600\n"
 "Last-Translator: Andrey Fedoseev <andrey.fedoseev@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -105,7 +105,12 @@ msgstr ""
 msgid "Shell Scripts"
 msgstr ""
 
+#. Set application name
 #: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:1
+#: ../xfce4-mixer/main.c:82 ../xfce4-mixer/xfce-mixer-window.c:169
+#: ../xfce4-mixer/xfce-mixer-window.c:187
+#: ../xfce4-mixer/xfce-mixer-window.c:288
+#: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
 #, fuzzy
 msgid "Mixer"
 msgstr "Регулятор громкости Xfce"
@@ -119,14 +124,6 @@ msgstr "Удобный регулятор громкости для вашей �
 #, c-format
 msgid "Unknown Volume Control %d"
 msgstr "Неизвестный канал %d"
-
-#. Set application name
-#: ../xfce4-mixer/main.c:82 ../xfce4-mixer/xfce-mixer-window.c:169
-#: ../xfce4-mixer/xfce-mixer-window.c:187
-#: ../xfce4-mixer/xfce-mixer-window.c:288
-#: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
-msgid "Xfce Mixer"
-msgstr "Регулятор громкости Xfce"
 
 #: ../xfce4-mixer/main.c:92
 #, c-format
@@ -174,7 +171,8 @@ msgid "_Quit"
 msgstr "В_ыход"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:88
-msgid "Exit Xfce Mixer"
+#, fuzzy
+msgid "Exit the mixer"
 msgstr "Закрыть регулятор громкости"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:90
@@ -186,8 +184,8 @@ msgid "Select which controls are displayed"
 msgstr "Выбрать, какие каналы будут отображены"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:188
-msgid "A comfortable audio mixer for your sound card."
-msgstr "Удобный регулятор громкости для вашей звуковой карты."
+msgid "Configure your sound card(s) and control the volume of selected tracks"
+msgstr ""
 
 #: ../xfce4-mixer/xfce-mixer-window.c:203
 msgid "Sound card:"
@@ -196,6 +194,12 @@ msgstr "Звуковая карта:"
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:1
 msgid "Audio mixer for the Xfce Desktop Environment"
 msgstr "Регулятор громкости для рабочего окружения Xfce"
+
+#~ msgid "A comfortable audio mixer for your sound card."
+#~ msgstr "Удобный регулятор громкости для вашей звуковой карты."
+
+#~ msgid "Xfce Mixer"
+#~ msgstr "Регулятор громкости Xfce"
 
 #~ msgid ""
 #~ "No sound cards could be found. You may have to install additional "

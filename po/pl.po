@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-18 00:48+0200\n"
+"POT-Creation-Date: 2008-09-20 17:02+0200\n"
 "PO-Revision-Date: 2007-01-20 23:10+0200\n"
 "Last-Translator: Piotr Maliński <riklaunim@gmail.com>\n"
 "Language-Team: Polish <xfce-i18n@xfce.org>\n"
@@ -100,7 +100,12 @@ msgstr ""
 msgid "Shell Scripts"
 msgstr ""
 
+#. Set application name
 #: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:1
+#: ../xfce4-mixer/main.c:82 ../xfce4-mixer/xfce-mixer-window.c:169
+#: ../xfce4-mixer/xfce-mixer-window.c:187
+#: ../xfce4-mixer/xfce-mixer-window.c:288
+#: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
 msgid "Mixer"
 msgstr "Miksera"
 
@@ -112,14 +117,6 @@ msgstr "Kontrola głośności dla twojej karty dźwiękowej"
 #, c-format
 msgid "Unknown Volume Control %d"
 msgstr "Nieznana Kontrola Głośności %d"
-
-#. Set application name
-#: ../xfce4-mixer/main.c:82 ../xfce4-mixer/xfce-mixer-window.c:169
-#: ../xfce4-mixer/xfce-mixer-window.c:187
-#: ../xfce4-mixer/xfce-mixer-window.c:288
-#: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
-msgid "Xfce Mixer"
-msgstr "Mikser Xfce"
 
 #: ../xfce4-mixer/main.c:92
 #, c-format
@@ -167,7 +164,8 @@ msgid "_Quit"
 msgstr "_Wyjdź"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:88
-msgid "Exit Xfce Mixer"
+#, fuzzy
+msgid "Exit the mixer"
 msgstr "Zamyka Mikser Xfce"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:90
@@ -179,8 +177,8 @@ msgid "Select which controls are displayed"
 msgstr "Wybierz kontrolki, które mają być widoczne"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:188
-msgid "A comfortable audio mixer for your sound card."
-msgstr "Mikser audio dla twojej karty dźwiękowej"
+msgid "Configure your sound card(s) and control the volume of selected tracks"
+msgstr ""
 
 #: ../xfce4-mixer/xfce-mixer-window.c:203
 msgid "Sound card:"
@@ -189,6 +187,12 @@ msgstr "Karta dźwiękowa:"
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:1
 msgid "Audio mixer for the Xfce Desktop Environment"
 msgstr "Mikser Audio dla Xfce"
+
+#~ msgid "A comfortable audio mixer for your sound card."
+#~ msgstr "Mikser audio dla twojej karty dźwiękowej"
+
+#~ msgid "Xfce Mixer"
+#~ msgstr "Mikser Xfce"
 
 #~ msgid "Could not find xfce4-mixer in PATH."
 #~ msgstr "Nie można znaleźć xfce4-mixera w ścieżce."

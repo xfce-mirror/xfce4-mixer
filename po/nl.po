@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.5.0svn-r\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-18 00:48+0200\n"
+"POT-Creation-Date: 2008-09-20 17:02+0200\n"
 "PO-Revision-Date: 2008-06-21 15:45+0200\n"
 "Last-Translator: XFCE <stephan@xfce.org>\n"
 "Language-Team: Dutch\n"
@@ -101,7 +101,12 @@ msgstr ""
 msgid "Shell Scripts"
 msgstr ""
 
+#. Set application name
 #: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:1
+#: ../xfce4-mixer/main.c:82 ../xfce4-mixer/xfce-mixer-window.c:169
+#: ../xfce4-mixer/xfce-mixer-window.c:187
+#: ../xfce4-mixer/xfce-mixer-window.c:288
+#: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
 #, fuzzy
 msgid "Mixer"
 msgstr "Xfce volumeregelaar"
@@ -115,14 +120,6 @@ msgstr "Een comfortabele volumeregelaar voor uw geluidskaart."
 #, c-format
 msgid "Unknown Volume Control %d"
 msgstr ""
-
-#. Set application name
-#: ../xfce4-mixer/main.c:82 ../xfce4-mixer/xfce-mixer-window.c:169
-#: ../xfce4-mixer/xfce-mixer-window.c:187
-#: ../xfce4-mixer/xfce-mixer-window.c:288
-#: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
-msgid "Xfce Mixer"
-msgstr "Xfce volumeregelaar"
 
 #: ../xfce4-mixer/main.c:92
 #, c-format
@@ -168,7 +165,8 @@ msgid "_Quit"
 msgstr "Af_sluiten"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:88
-msgid "Exit Xfce Mixer"
+#, fuzzy
+msgid "Exit the mixer"
 msgstr "Xfce volumeregelaar afsluiten"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:90
@@ -180,8 +178,8 @@ msgid "Select which controls are displayed"
 msgstr ""
 
 #: ../xfce4-mixer/xfce-mixer-window.c:188
-msgid "A comfortable audio mixer for your sound card."
-msgstr "Een comfortabele volumeregelaar voor uw geluidskaart."
+msgid "Configure your sound card(s) and control the volume of selected tracks"
+msgstr ""
 
 #: ../xfce4-mixer/xfce-mixer-window.c:203
 msgid "Sound card:"
@@ -190,3 +188,9 @@ msgstr "Geluidskaart:"
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:1
 msgid "Audio mixer for the Xfce Desktop Environment"
 msgstr "Volumeregelaar voor de Xfce bureaublad omgeving"
+
+#~ msgid "A comfortable audio mixer for your sound card."
+#~ msgstr "Een comfortabele volumeregelaar voor uw geluidskaart."
+
+#~ msgid "Xfce Mixer"
+#~ msgstr "Xfce volumeregelaar"

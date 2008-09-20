@@ -1,5 +1,12 @@
 2008-09-20	Jannis Pohlmann <jannis@xfce.org>
 
+	* xfce4-mixer/main.c, xfce4-mixer/xfce-mixer-window.c,
+	  xfce4-mixer/xfce4-mixer.desktop.in.in: Don't use the word "Xfce" in
+	  the window title - be more generic and just call it "Mixer". Improve
+	  a few labels and tooltips.
+
+2008-09-20	Jannis Pohlmann <jannis@xfce.org>
+
 	* icons/, xfce4-mixer/xfce-mixer-window.c: Drop xfce4-mixer.{png,svg} 
 	  icon in favour of multimedia-volume-control.
 	* libxfce4mixer/xfce-mixer-card.{c,h}: Fix compiler warnings due to

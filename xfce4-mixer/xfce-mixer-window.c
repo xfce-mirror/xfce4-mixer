@@ -85,7 +85,7 @@ struct _XfceMixerWindow
 
 static const GtkActionEntry action_entries[] = 
 {
-  { "quit", GTK_STOCK_QUIT, N_ ("_Quit"), "<control>Q", N_ ("Exit Xfce Mixer"), 
+  { "quit", GTK_STOCK_QUIT, N_ ("_Quit"), "<control>Q", N_ ("Exit the mixer"), 
     G_CALLBACK (xfce_mixer_window_close) },
   { "select-controls", NULL, N_ ("_Select Controls..."), "<control>S", N_ ("Select which controls are displayed"), 
     G_CALLBACK (xfce_mixer_window_action_select_controls) },
@@ -166,7 +166,7 @@ xfce_mixer_window_init (XfceMixerWindow *window)
 
   /* Configure the main window */
   gtk_window_set_icon_name (GTK_WINDOW (window), "multimedia-volume-control");
-  gtk_window_set_title (GTK_WINDOW (window), _("Xfce Mixer"));
+  gtk_window_set_title (GTK_WINDOW (window), _("Mixer"));
   gtk_window_set_default_size (GTK_WINDOW (window), width, height);
   gtk_window_set_position (GTK_WINDOW (window), GTK_WIN_POS_CENTER);
   g_signal_connect (window, "delete-event", G_CALLBACK (xfce_mixer_window_closed), window);
@@ -184,8 +184,8 @@ xfce_mixer_window_init (XfceMixerWindow *window)
   gtk_widget_show (vbox);
 
   heading = xfce_heading_new ();
-  xfce_heading_set_title (XFCE_HEADING (heading), _("Xfce Mixer"));
-  xfce_heading_set_subtitle (XFCE_HEADING (heading), _("A comfortable audio mixer for your sound card."));
+  xfce_heading_set_title (XFCE_HEADING (heading), _("Mixer"));
+  xfce_heading_set_subtitle (XFCE_HEADING (heading), _("Configure your sound card(s) and control the volume of selected tracks"));
   xfce_heading_set_icon_name (XFCE_HEADING (heading), "multimedia-volume-control");
   gtk_box_pack_start (GTK_BOX (vbox), heading, FALSE, TRUE, 0);
   gtk_widget_show (heading);
@@ -285,7 +285,7 @@ xfce_mixer_window_soundcard_changed (XfceMixerCardCombo *combo,
   g_return_if_fail (IS_XFCE_MIXER_CARD (card));
   g_return_if_fail (IS_XFCE_MIXER_WINDOW (window));
 
-  title = g_strdup_printf ("%s - %s", _("Xfce Mixer"), xfce_mixer_card_get_display_name (card));
+  title = g_strdup_printf ("%s - %s", _("Mixer"), xfce_mixer_card_get_display_name (card));
   gtk_window_set_title (GTK_WINDOW (window), title);
   g_free (title);
 

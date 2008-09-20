@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce 4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-18 00:48+0200\n"
+"POT-Creation-Date: 2008-09-20 17:02+0200\n"
 "PO-Revision-Date: 2008-09-07 20:35+0100\n"
 "Last-Translator: Maximilian Schleiss <maximilian@xfce.org>\n"
 "Language-Team: French <i18n-xfce@xfce.org>\n"
@@ -110,7 +110,12 @@ msgstr "Scripts Ruby"
 msgid "Shell Scripts"
 msgstr "Scripts Shell"
 
+#. Set application name
 #: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:1
+#: ../xfce4-mixer/main.c:82 ../xfce4-mixer/xfce-mixer-window.c:169
+#: ../xfce4-mixer/xfce-mixer-window.c:187
+#: ../xfce4-mixer/xfce-mixer-window.c:288
+#: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
 msgid "Mixer"
 msgstr "Mixer"
 
@@ -122,14 +127,6 @@ msgstr "Contrôle du volume pour votre carte son"
 #, c-format
 msgid "Unknown Volume Control %d"
 msgstr "Périphérique inconnu %d"
-
-#. Set application name
-#: ../xfce4-mixer/main.c:82 ../xfce4-mixer/xfce-mixer-window.c:169
-#: ../xfce4-mixer/xfce-mixer-window.c:187
-#: ../xfce4-mixer/xfce-mixer-window.c:288
-#: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
-msgid "Xfce Mixer"
-msgstr "Mixer Xfce"
 
 #: ../xfce4-mixer/main.c:92
 #, c-format
@@ -177,7 +174,8 @@ msgid "_Quit"
 msgstr "_Quitter"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:88
-msgid "Exit Xfce Mixer"
+#, fuzzy
+msgid "Exit the mixer"
 msgstr "Quitter le Mixer Xfce"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:90
@@ -189,8 +187,8 @@ msgid "Select which controls are displayed"
 msgstr "Sélectionner les contrôles visibles"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:188
-msgid "A comfortable audio mixer for your sound card."
-msgstr "Un confortable mixer audio pour votre carte son"
+msgid "Configure your sound card(s) and control the volume of selected tracks"
+msgstr ""
 
 #: ../xfce4-mixer/xfce-mixer-window.c:203
 msgid "Sound card:"
@@ -199,6 +197,12 @@ msgstr "Carte son :"
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:1
 msgid "Audio mixer for the Xfce Desktop Environment"
 msgstr "Mixer audio pour l'environnement Xfce"
+
+#~ msgid "A comfortable audio mixer for your sound card."
+#~ msgstr "Un confortable mixer audio pour votre carte son"
+
+#~ msgid "Xfce Mixer"
+#~ msgstr "Mixer Xfce"
 
 #~ msgid ""
 #~ "No sound cards could be found. You may have to install additional "

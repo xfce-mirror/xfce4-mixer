@@ -79,7 +79,7 @@ main (int    argc,
 #endif
 
   /* Set application name */
-  g_set_application_name (_("Xfce Mixer"));
+  g_set_application_name (_("Mixer"));
 
   /* Initialize GTK+ */
   gtk_init (&argc, &argv);

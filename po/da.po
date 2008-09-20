@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce 4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-18 00:48+0200\n"
+"POT-Creation-Date: 2008-09-20 17:02+0200\n"
 "PO-Revision-Date: 2008-09-09 20:56+0100\n"
 "Last-Translator: Søren Waaben Hansen <soren@minorflaw.dk>\n"
 "Language-Team: Danish\n"
@@ -106,7 +106,12 @@ msgstr "Ruby skript"
 msgid "Shell Scripts"
 msgstr "Skal skript"
 
+#. Set application name
 #: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:1
+#: ../xfce4-mixer/main.c:82 ../xfce4-mixer/xfce-mixer-window.c:169
+#: ../xfce4-mixer/xfce-mixer-window.c:187
+#: ../xfce4-mixer/xfce-mixer-window.c:288
+#: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
 msgid "Mixer"
 msgstr "Mixer"
 
@@ -118,14 +123,6 @@ msgstr "Lydstyrke kontrol til dit lydkort"
 #, c-format
 msgid "Unknown Volume Control %d"
 msgstr "Ukendt Volumen kontrol %d"
-
-#. Set application name
-#: ../xfce4-mixer/main.c:82 ../xfce4-mixer/xfce-mixer-window.c:169
-#: ../xfce4-mixer/xfce-mixer-window.c:187
-#: ../xfce4-mixer/xfce-mixer-window.c:288
-#: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
-msgid "Xfce Mixer"
-msgstr "Xfce mixer"
 
 #: ../xfce4-mixer/main.c:92
 #, c-format
@@ -173,7 +170,8 @@ msgid "_Quit"
 msgstr "_Afslut"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:88
-msgid "Exit Xfce Mixer"
+#, fuzzy
+msgid "Exit the mixer"
 msgstr "Afslut Xfce mixer"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:90
@@ -185,8 +183,8 @@ msgid "Select which controls are displayed"
 msgstr "Vælg hvilke kontroller der skal vises"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:188
-msgid "A comfortable audio mixer for your sound card."
-msgstr "En behagelig lydmixer til dit lydkort."
+msgid "Configure your sound card(s) and control the volume of selected tracks"
+msgstr ""
 
 #: ../xfce4-mixer/xfce-mixer-window.c:203
 msgid "Sound card:"
@@ -195,6 +193,12 @@ msgstr "Lydkort:"
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:1
 msgid "Audio mixer for the Xfce Desktop Environment"
 msgstr "Lydmixer til Xfce skrivebordsmiljøet"
+
+#~ msgid "A comfortable audio mixer for your sound card."
+#~ msgstr "En behagelig lydmixer til dit lydkort."
+
+#~ msgid "Xfce Mixer"
+#~ msgstr "Xfce mixer"
 
 #~ msgid ""
 #~ "No sound cards could be found. You may have to install additional "

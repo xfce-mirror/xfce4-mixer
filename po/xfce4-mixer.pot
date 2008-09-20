@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-18 00:48+0200\n"
+"POT-Creation-Date: 2008-09-20 17:02+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -100,7 +100,12 @@ msgstr ""
 msgid "Shell Scripts"
 msgstr ""
 
+#. Set application name
 #: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:1
+#: ../xfce4-mixer/main.c:82 ../xfce4-mixer/xfce-mixer-window.c:169
+#: ../xfce4-mixer/xfce-mixer-window.c:187
+#: ../xfce4-mixer/xfce-mixer-window.c:288
+#: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
 msgid "Mixer"
 msgstr ""
 
@@ -111,14 +116,6 @@ msgstr ""
 #: ../libxfce4mixer/xfce-mixer-utilities.c:89
 #, c-format
 msgid "Unknown Volume Control %d"
-msgstr ""
-
-#. Set application name
-#: ../xfce4-mixer/main.c:82 ../xfce4-mixer/xfce-mixer-window.c:169
-#: ../xfce4-mixer/xfce-mixer-window.c:187
-#: ../xfce4-mixer/xfce-mixer-window.c:288
-#: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
-msgid "Xfce Mixer"
 msgstr ""
 
 #: ../xfce4-mixer/main.c:92
@@ -165,7 +162,7 @@ msgid "_Quit"
 msgstr ""
 
 #: ../xfce4-mixer/xfce-mixer-window.c:88
-msgid "Exit Xfce Mixer"
+msgid "Exit the mixer"
 msgstr ""
 
 #: ../xfce4-mixer/xfce-mixer-window.c:90
@@ -177,7 +174,7 @@ msgid "Select which controls are displayed"
 msgstr ""
 
 #: ../xfce4-mixer/xfce-mixer-window.c:188
-msgid "A comfortable audio mixer for your sound card."
+msgid "Configure your sound card(s) and control the volume of selected tracks"
 msgstr ""
 
 #: ../xfce4-mixer/xfce-mixer-window.c:203

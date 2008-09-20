@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-18 00:48+0200\n"
+"POT-Creation-Date: 2008-09-20 17:02+0200\n"
 "PO-Revision-Date: 2008-02-09 22:18+0530\n"
 "Last-Translator: Rashan Anushka <rashan.uoc@gmail.com>\n"
 "Language-Team: Sinhala <si@li.org>\n"
@@ -103,7 +103,12 @@ msgstr ""
 msgid "Shell Scripts"
 msgstr ""
 
+#. Set application name
 #: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:1
+#: ../xfce4-mixer/main.c:82 ../xfce4-mixer/xfce-mixer-window.c:169
+#: ../xfce4-mixer/xfce-mixer-window.c:187
+#: ../xfce4-mixer/xfce-mixer-window.c:288
+#: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
 #, fuzzy
 msgid "Mixer"
 msgstr "Mix"
@@ -116,15 +121,6 @@ msgstr ""
 #, fuzzy, c-format
 msgid "Unknown Volume Control %d"
 msgstr "ශබ්ද පාලකය"
-
-#. Set application name
-#: ../xfce4-mixer/main.c:82 ../xfce4-mixer/xfce-mixer-window.c:169
-#: ../xfce4-mixer/xfce-mixer-window.c:187
-#: ../xfce4-mixer/xfce-mixer-window.c:288
-#: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
-#, fuzzy
-msgid "Xfce Mixer"
-msgstr "Xfce 4 මිශ්‍රක සිටුවම්"
 
 #: ../xfce4-mixer/main.c:92
 #, c-format
@@ -173,7 +169,7 @@ msgid "_Quit"
 msgstr ""
 
 #: ../xfce4-mixer/xfce-mixer-window.c:88
-msgid "Exit Xfce Mixer"
+msgid "Exit the mixer"
 msgstr ""
 
 #: ../xfce4-mixer/xfce-mixer-window.c:90
@@ -186,7 +182,7 @@ msgid "Select which controls are displayed"
 msgstr ""
 
 #: ../xfce4-mixer/xfce-mixer-window.c:188
-msgid "A comfortable audio mixer for your sound card."
+msgid "Configure your sound card(s) and control the volume of selected tracks"
 msgstr ""
 
 #: ../xfce4-mixer/xfce-mixer-window.c:203
@@ -197,6 +193,10 @@ msgstr "ශබ්දය"
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:1
 msgid "Audio mixer for the Xfce Desktop Environment"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Xfce Mixer"
+#~ msgstr "Xfce 4 මිශ්‍රක සිටුවම්"
 
 #~ msgid "Vol"
 #~ msgstr "Vol"
