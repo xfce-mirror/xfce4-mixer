@@ -16,7 +16,7 @@
    inkscape:version="0.45.1"
    version="1.0"
    sodipodi:docbase="/home/jannis/xfce/xfce4-mixer.git/icons/scalable"
-   sodipodi:docname="audio-volume-03.svg"
+   sodipodi:docname="audio-volume-02.svg"
    inkscape:output_extension="org.inkscape.output.svg.inkscape">
   <defs
      id="defs2568">
@@ -688,11 +688,6 @@
            transform="matrix(1.375,0,0,1.375,-5.688929,8.8125)" />
       </g>
     </g>
-    <path
-       sodipodi:nodetypes="csc"
-       id="path3488"
-       d="M 25.243284,45.07512 C 26.226324,40.631287 25.886327,35.237335 24.024099,29.985092 C 22.161871,24.732848 19.102842,20.54016 15.661632,18.05095"
-       style="opacity:1;color:#000000;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:url(#radialGradient3504);stroke-width:4.54232788;stroke-linecap:round;stroke-linejoin:miter;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible" />
     <path
        style="opacity:1;color:#000000;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:url(#radialGradient6919);stroke-width:4.54232788;stroke-linecap:round;stroke-linejoin:miter;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible"
        d="M 16.459372,45.07512 C 17.161073,41.903076 16.918382,38.052827 15.589107,34.303732 C 14.259834,30.554638 12.076273,27.561861 9.6199099,25.785043"

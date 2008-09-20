@@ -1,5 +1,12 @@
 2008-09-20	Jannis Pohlmann <jannis@xfce.org>
 
+	* icons/, libxfce4mixer/xfce-mixer-stock{c,h},
+	  panel-plugin/xfce-volume-button.c: Update SVG and PNG icons. Add 
+	  another icon with no volume bar at all for the ultra-low volume 
+	  state between muted and 15% volume.
+
+2008-09-20	Jannis Pohlmann <jannis@xfce.org>
+
 	* ChangeLog: Insert 4.5.90 release information at the correct location
 	  so that everyone can follow the changes made after that release.
 

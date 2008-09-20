@@ -49,6 +49,7 @@ static const XfceMixerStockIcon xfce_mixer_stock_icons[] =
   { AUDIO_VOLUME_03,            "audio-volume-03", },
   { AUDIO_VOLUME_04,            "audio-volume-04", },
   { AUDIO_VOLUME_05,            "audio-volume-05", },
+  { AUDIO_VOLUME_06,            "audio-volume-06", },
 };
 
 

@@ -8,6 +8,7 @@ stock_DATA =								\
 	audio-volume-03.svg						\
 	audio-volume-04.svg						\
 	audio-volume-05.svg						\
+	audio-volume-06.svg						\
 	stock_xfce4-mixer-record.svg					\
 	stock_xfce4-mixer-no-record.svg					\
 	stock_xfce4-mixer-muted.svg					\

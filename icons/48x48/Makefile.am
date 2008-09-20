@@ -8,6 +8,7 @@ stock_DATA =								\
 	audio-volume-03.png						\
 	audio-volume-04.png						\
 	audio-volume-05.png						\
+	audio-volume-06.png						\
 	stock_xfce4-mixer-record.png					\
 	stock_xfce4-mixer-no-record.png					\
 	stock_xfce4-mixer-muted.png					\

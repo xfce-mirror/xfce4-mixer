@@ -34,6 +34,7 @@ G_BEGIN_DECLS;
 #define AUDIO_VOLUME_03            "audio-volume-03"
 #define AUDIO_VOLUME_04            "audio-volume-04"
 #define AUDIO_VOLUME_05            "audio-volume-05"
+#define AUDIO_VOLUME_06            "audio-volume-06"
 
 void xfce_mixer_stock_init (void) G_GNUC_INTERNAL;
 

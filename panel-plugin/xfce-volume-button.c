@@ -58,6 +58,7 @@ static const char *icons[] = {
   AUDIO_VOLUME_03,
   AUDIO_VOLUME_04,
   AUDIO_VOLUME_05,
+  AUDIO_VOLUME_06,
   NULL
 };
 
