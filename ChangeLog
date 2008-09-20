@@ -1,5 +1,10 @@
 2008-09-20	Jannis Pohlmann <jannis@xfce.org>
 
+	* ChangeLog: Insert 4.5.90 release information at the correct location
+	  so that everyone can follow the changes made after that release.
+
+2008-09-20	Jannis Pohlmann <jannis@xfce.org>
+
 	* xfce4-mixer/main.c, xfce4-mixer/xfce-mixer-window.c,
 	  xfce4-mixer/xfce4-mixer.desktop.in.in: Don't use the word "Xfce" in
 	  the window title - be more generic and just call it "Mixer". Improve
@@ -25,6 +30,10 @@
 	  xfce4-mixer/xfce-mixer-controls-dialog.c,
 	  xfce4-mixer/xfce-mixer-window.c, xfce4-mixer/xfce-mixer.c: Add
 	  xfconf support.
+
+2008-09-14	Jannis Pohlmann <jannis@xfce.org>
+
+	* === 4.5.90 released ===
 
 2008-09-12	Jannis Pohlmann <jannis@xfce.org>
 
