@@ -1,3 +1,8 @@
+2008-09-21	Jannis Pohlmann <jannis@xfce.org>
+
+	* panel-plugin/xfce-plugin-dialog.c: Use multimedia-volume-control
+	  icon instead of xfce4-mixer icon.
+
 2008-09-20	Jannis Pohlmann <jannis@xfce.org>
 
 	* icons/, libxfce4mixer/xfce-mixer-stock{c,h},
