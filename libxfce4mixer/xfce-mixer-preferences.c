@@ -152,7 +152,7 @@ xfce_mixer_preferences_class_init (XfceMixerPreferencesClass *klass)
 static void
 xfce_mixer_preferences_init (XfceMixerPreferences *preferences)
 {
-    preferences->channel = xfconf_channel_new ("xfce4-mixer");
+    preferences->channel = xfconf_channel_get ("xfce4-mixer");
     preferences->controls = g_hash_table_new_full (g_str_hash, g_str_equal, g_free, (GDestroyNotify) g_strfreev);
 
     xfconf_g_property_bind (preferences->channel, "/window-width", G_TYPE_INT, G_OBJECT (preferences), "window-width");
@@ -169,7 +169,6 @@ xfce_mixer_preferences_finalize (GObject *object)
 {
   XfceMixerPreferences *preferences = XFCE_MIXER_PREFERENCES (object);
 
-  g_object_unref (preferences->channel);
   g_hash_table_unref (preferences->controls);
 
   (*G_OBJECT_CLASS (xfce_mixer_preferences_parent_class)->finalize) (object);

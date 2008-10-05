@@ -37,15 +37,30 @@
 
 
 
-static void       xfce_mixer_class_init            (XfceMixerClass *klass);
-static void       xfce_mixer_init                  (XfceMixer      *mixer);
-static void       xfce_mixer_dispose               (GObject        *object);
-static void       xfce_mixer_finalize              (GObject        *object);
-static void       xfce_mixer_create_contents       (XfceMixer      *mixer);
+enum
+{
+  PROP_0,
+  PROP_CARD,
+};
+
+
+
+static void xfce_mixer_class_init      (XfceMixerClass *klass);
+static void xfce_mixer_init            (XfceMixer      *mixer);
+static void xfce_mixer_constructed     (GObject        *object);
+static void xfce_mixer_finalize        (GObject        *object);
+static void xfce_mixer_get_property    (GObject        *object,
+                                        guint           prop_id,
+                                        GValue         *value,
+                                        GParamSpec     *pspec);
+static void xfce_mixer_set_property    (GObject        *object,
+                                        guint           prop_id,
+                                        const GValue   *value,
+                                        GParamSpec     *pspec);
 #ifdef HAVE_GST_MIXER_NOTIFICATION
-static gboolean   xfce_mixer_bus_message           (GstBus         *bus,
-                                                    GstMessage     *message,
-                                                    XfceMixer      *mixer);
+static void xfce_mixer_track_changed   (XfceMixerCard  *card,
+                                        GstMessage     *message,
+                                        XfceMixer      *mixer);
 #endif
 
 
@@ -60,10 +75,6 @@ struct _XfceMixer
   GtkNotebook __parent__;
 
   XfceMixerCard *card;
-
-#ifdef HAVE_GST_MIXER_NOTIFICATION
-  gint           bus_connection_id;
-#endif
 
   GHashTable    *widgets;
 };
@@ -112,8 +123,19 @@ xfce_mixer_class_init (XfceMixerClass *klass)
   xfce_mixer_parent_class = g_type_class_peek_parent (klass);
 
   gobject_class = G_OBJECT_CLASS (klass);
-  gobject_class->dispose = xfce_mixer_dispose;
+  gobject_class->constructed = xfce_mixer_constructed;
   gobject_class->finalize = xfce_mixer_finalize;
+  gobject_class->get_property = xfce_mixer_get_property;
+  gobject_class->set_property = xfce_mixer_set_property;
+
+  g_object_class_install_property (gobject_class,
+                                   PROP_CARD,
+                                   g_param_spec_object ("card",
+                                                        "card",
+                                                        "card",
+                                                        TYPE_XFCE_MIXER_CARD,
+                                                        G_PARAM_CONSTRUCT_ONLY | 
+                                                        G_PARAM_READWRITE));
 }
 
 
@@ -122,73 +144,28 @@ static void
 xfce_mixer_init (XfceMixer *mixer)
 {
   mixer->widgets = g_hash_table_new_full (g_str_hash, g_str_equal, NULL, NULL);
-  mixer->bus_connection_id = 0;
 }
 
 
 
 static void
-xfce_mixer_dispose (GObject *object)
+xfce_mixer_constructed (GObject *object)
 {
-  (*G_OBJECT_CLASS (xfce_mixer_parent_class)->dispose) (object);
-}
-
-
-
-static void
-xfce_mixer_finalize (GObject *object)
-{
-  XfceMixer *mixer = XFCE_MIXER (object);
-
-#ifdef HAVE_GST_MIXER_NOTIFICATION
-  xfce_mixer_card_disconnect (mixer->card, mixer->bus_connection_id);
-#endif
-
-  g_object_unref (G_OBJECT (mixer->card));
-
-  g_hash_table_unref (mixer->widgets);
-
-  (*G_OBJECT_CLASS (xfce_mixer_parent_class)->finalize) (object);
-}
-
-
-
-GtkWidget*
-xfce_mixer_new (XfceMixerCard *card)
-{
-  XfceMixer *mixer;
-
-  g_return_val_if_fail (IS_XFCE_MIXER_CARD (card), NULL);
-  
-  mixer = g_object_new (TYPE_XFCE_MIXER, NULL);
-  mixer->card = XFCE_MIXER_CARD (g_object_ref (card));
-
-  xfce_mixer_create_contents (mixer);
-
-  return GTK_WIDGET (mixer);
-}
-
-
-
-static void
-xfce_mixer_create_contents (XfceMixer *mixer)
-{
-  XfceMixerTrackType    type;
-  GstMixerTrack        *track;
-  const GList          *iter;
-  const gchar          *titles[4] = { _("Playback"), _("Capture"), _("Switches"), _("Options") };
-  GtkWidget            *track_widget;
-  GtkWidget            *labels[4];
-  GtkWidget            *scrollwins[4];
-  GtkWidget            *views[4];
-  GtkWidget            *last_separator[4] = { NULL, NULL, NULL, NULL };
-  GtkWidget            *label1;
-  GtkWidget            *label2;
-  GList                *visible_controls;
-  guint                 num_children[4] = { 0, 0, 0, 0 };
-  gint                  i;
-
-  xfce_mixer_card_set_ready (mixer->card);
+  XfceMixer         *mixer = XFCE_MIXER (object);
+  XfceMixerTrackType type;
+  GstMixerTrack     *track;
+  const GList       *iter;
+  const gchar       *titles[4] = { _("Playback"), _("Capture"), _("Switches"), _("Options") };
+  GtkWidget         *track_widget;
+  GtkWidget         *labels[4];
+  GtkWidget         *scrollwins[4];
+  GtkWidget         *views[4];
+  GtkWidget         *last_separator[4] = { NULL, NULL, NULL, NULL };
+  GtkWidget         *label1;
+  GtkWidget         *label2;
+  GList             *visible_controls;
+  guint              num_children[4] = { 0, 0, 0, 0 };
+  gint               i;
 
   /* Create widgets for all four tabs */
   for (i = 0; i < 4; ++i)
@@ -322,18 +299,85 @@ xfce_mixer_create_contents (XfceMixer *mixer)
       gtk_notebook_append_page (GTK_NOTEBOOK (mixer), label2, label1);
     }
 
-#ifdef HAVE_GST_MIXER_NOTIFICATION
-  mixer->bus_connection_id = xfce_mixer_card_connect (mixer->card, G_CALLBACK (xfce_mixer_bus_message), mixer);
-#endif
+  g_signal_connect (mixer->card, "track-changed", G_CALLBACK (xfce_mixer_track_changed), mixer);
+}
+
+
+
+static void
+xfce_mixer_finalize (GObject *object)
+{
+  XfceMixer *mixer = XFCE_MIXER (object);
+
+  g_object_unref (mixer->card);
+  g_hash_table_unref (mixer->widgets);
+
+  (*G_OBJECT_CLASS (xfce_mixer_parent_class)->finalize) (object);
+}
+
+
+
+static void
+xfce_mixer_get_property (GObject    *object,
+                         guint       prop_id,
+                         GValue     *value,
+                         GParamSpec *pspec)
+{
+  XfceMixer *mixer = XFCE_MIXER (object);
+
+  switch (prop_id)
+    {
+    case PROP_CARD:
+      g_value_set_object (value, g_object_ref (mixer->card));
+      break;
+    default:
+      G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
+      break;
+    }
+}
+
+
+
+static void
+xfce_mixer_set_property (GObject      *object,
+                         guint         prop_id,
+                         const GValue *value,
+                         GParamSpec   *pspec)
+{
+  XfceMixer *mixer = XFCE_MIXER (object);
+
+  switch (prop_id)
+    {
+    case PROP_CARD:
+      mixer->card = g_object_ref (g_value_get_object (value));
+      break;
+    default:
+      G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
+      break;
+    }
+}
+
+
+
+GtkWidget *
+xfce_mixer_new (XfceMixerCard *card)
+{
+  XfceMixer *mixer;
+
+  g_return_val_if_fail (IS_XFCE_MIXER_CARD (card), NULL);
+  
+  mixer = g_object_new (TYPE_XFCE_MIXER, "card", card, NULL);
+
+  return GTK_WIDGET (mixer);
 }
 
 
 
 #ifdef HAVE_GST_MIXER_NOTIFICATION
-static gboolean
-xfce_mixer_bus_message (GstBus     *bus,
-                        GstMessage *message,
-                        XfceMixer  *mixer)
+static void
+xfce_mixer_track_changed (XfceMixerCard *card,
+                          GstMessage    *message,
+                          XfceMixer     *mixer)
 {
   GstMixerMessageType type;
   GstMixerOptions    *options = NULL;
@@ -345,10 +389,7 @@ xfce_mixer_bus_message (GstBus     *bus,
   gint               *volumes;
   gint                num_channels;
 
-  g_return_val_if_fail (IS_XFCE_MIXER (mixer), TRUE);
-
-  if (G_UNLIKELY (!xfce_mixer_card_get_message_owner (mixer->card, message)))
-    return TRUE;
+  g_return_if_fail (IS_XFCE_MIXER (mixer));
 
   g_debug ("Message from card received: %s", GST_MESSAGE_TYPE_NAME (message));
 
@@ -398,7 +439,5 @@ xfce_mixer_bus_message (GstBus     *bus,
       if (IS_XFCE_MIXER_OPTION (widget))
         xfce_mixer_option_update (XFCE_MIXER_OPTION (widget));
     }
-
-  return TRUE;
 }
 #endif

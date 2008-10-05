@@ -38,9 +38,34 @@
 
 
 
-static void xfce_mixer_card_class_init (XfceMixerCardClass *klass);
-static void xfce_mixer_card_init       (XfceMixerCard      *card);
-static void xfce_mixer_card_finalize   (GObject            *object);
+enum
+{
+  PROP_0,
+  PROP_ELEMENT,
+  PROP_DISPLAY_NAME,
+};
+
+
+
+static void     xfce_mixer_card_class_init       (XfceMixerCardClass *klass);
+static void     xfce_mixer_card_init             (XfceMixerCard      *card);
+static void     xfce_mixer_card_constructed      (GObject            *object);
+static void     xfce_mixer_card_finalize         (GObject            *object);
+static void     xfce_mixer_card_get_property     (GObject            *object,
+                                                  guint               prop_id,
+                                                  GValue             *value,
+                                                  GParamSpec         *pspec);
+static void     xfce_mixer_card_set_property     (GObject            *object,
+                                                  guint               prop_id,
+                                                  const GValue       *value,
+                                                  GParamSpec         *pspec);
+#ifdef HAVE_GST_MIXER_NOTIFICATION
+static void     xfce_mixer_card_bus_message      (GstBus             *bus,
+                                                  GstMessage         *message,
+                                                  XfceMixerCard      *card);
+static gboolean xfce_mixer_card_is_message_owner (XfceMixerCard      *card,
+                                                  GstMessage         *message);
+#endif
 
 
 
@@ -57,10 +82,13 @@ struct _XfceMixerCard
 
 #ifdef HAVE_GST_MIXER_NOTIFICATION
   GstBus     *bus;
+  guint       bus_connection_id;
 #endif
 
   gchar      *display_name;
   gchar      *name;
+
+  guint       track_changed_signal;
 };
 
 
@@ -107,7 +135,39 @@ xfce_mixer_card_class_init (XfceMixerCardClass *klass)
   xfce_mixer_card_parent_class = g_type_class_peek_parent (klass);
 
   gobject_class = G_OBJECT_CLASS (klass);
+  gobject_class->constructed = xfce_mixer_card_constructed;
   gobject_class->finalize = xfce_mixer_card_finalize;
+  gobject_class->get_property = xfce_mixer_card_get_property;
+  gobject_class->set_property = xfce_mixer_card_set_property;
+
+  g_signal_new ("track-changed",
+                TYPE_XFCE_MIXER_CARD,
+                G_SIGNAL_RUN_LAST,
+                0,
+                NULL,
+                NULL,
+                g_cclosure_marshal_VOID__OBJECT,
+                G_TYPE_NONE,
+                1,
+                GST_TYPE_MESSAGE);
+
+  g_object_class_install_property (gobject_class,
+                                   PROP_ELEMENT,
+                                   g_param_spec_object ("element",
+                                                        "element",
+                                                        "element",
+                                                        GST_TYPE_ELEMENT,
+                                                        G_PARAM_CONSTRUCT_ONLY |
+                                                        G_PARAM_READWRITE));
+
+  g_object_class_install_property (gobject_class,
+                                   PROP_DISPLAY_NAME,
+                                   g_param_spec_string ("display-name",
+                                                        "display-name",
+                                                        "display-name",
+                                                        NULL,
+                                                        G_PARAM_CONSTRUCT_ONLY |
+                                                        G_PARAM_READWRITE));
 }
 
 
@@ -115,10 +175,29 @@ xfce_mixer_card_class_init (XfceMixerCardClass *klass)
 static void
 xfce_mixer_card_init (XfceMixerCard *card)
 {
+  card->display_name = NULL;
   card->name = NULL;
 
 #ifdef HAVE_GST_MIXER_NOTIFICATION
   card->bus = NULL;
+#endif
+}
+
+
+
+static void
+xfce_mixer_card_constructed (GObject *object)
+{
+  XfceMixerCard *card = XFCE_MIXER_CARD (object);
+
+  xfce_mixer_card_set_ready (card);
+
+#ifdef HAVE_GST_MIXER_NOTIFICATION
+  card->bus = gst_bus_new ();
+  gst_bus_add_signal_watch (card->bus);
+  gst_element_set_bus (card->element, card->bus);
+  
+  card->bus_connection_id = g_signal_connect (card->bus, "message::element", G_CALLBACK (xfce_mixer_card_bus_message), card);
 #endif
 }
 
@@ -133,8 +212,9 @@ xfce_mixer_card_finalize (GObject *object)
   gst_object_unref (card->element);
 
 #ifdef HAVE_GST_MIXER_NOTIFICATION
-  if (G_LIKELY (card->bus != NULL))
-    gst_object_unref (card->bus);
+  g_signal_handler_disconnect (card->bus, card->bus_connection_id);
+  gst_bus_remove_signal_watch (card->bus);
+  gst_object_unref (card->bus);
 #endif
 
   g_free (card->display_name);
@@ -145,19 +225,106 @@ xfce_mixer_card_finalize (GObject *object)
 
 
 
+static void 
+xfce_mixer_card_get_property (GObject    *object,
+                              guint       prop_id,
+                              GValue     *value,
+                              GParamSpec *pspec)
+
+{
+  XfceMixerCard *card = XFCE_MIXER_CARD (object);
+
+  switch (prop_id)
+    {
+    case PROP_ELEMENT:
+      g_value_set_object (value, gst_object_ref (card->element));
+      break;
+    case PROP_DISPLAY_NAME:
+      g_value_set_string (value, card->display_name);
+      break;
+    default:
+      G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
+      break;
+    }
+}
+
+
+
+static void 
+xfce_mixer_card_set_property (GObject      *object,
+                              guint         prop_id,
+                              const GValue *value,
+                              GParamSpec   *pspec)
+{
+  XfceMixerCard *card = XFCE_MIXER_CARD (object);
+
+  switch (prop_id)
+    {
+    case PROP_ELEMENT:
+      card->element = GST_ELEMENT (g_value_get_object (value));
+      break;
+    case PROP_DISPLAY_NAME:
+      card->display_name = g_strdup (g_value_get_string (value));
+      break;
+    default:
+      G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
+      break;
+    }
+}
+
+
+
+#ifdef HAVE_GST_MIXER_NOTIFICATION
+static void 
+xfce_mixer_card_bus_message (GstBus        *bus,
+                             GstMessage    *message,
+                             XfceMixerCard *card)
+{
+  g_return_if_fail (IS_XFCE_MIXER_CARD (card));
+
+  if (G_UNLIKELY (!xfce_mixer_card_is_message_owner (card, message)))
+    return;
+
+  g_signal_emit_by_name (card, "track-changed", message, NULL);
+}
+
+
+
+gboolean
+xfce_mixer_card_is_message_owner (XfceMixerCard *card,
+                                  GstMessage    *message)
+{
+  gboolean  is_owner;
+  gchar    *device_name1;
+  gchar    *device_name2;
+
+  g_return_val_if_fail (IS_XFCE_MIXER_CARD (card), FALSE);
+  g_return_val_if_fail (GST_IS_MESSAGE (message), FALSE);
+
+  if (!GST_IS_MIXER (GST_MESSAGE_SRC (message)))
+    return FALSE;
+
+  g_object_get (G_OBJECT (GST_MESSAGE_SRC (message)), "device-name", &device_name1, NULL);
+  g_object_get (G_OBJECT (card->element), "device-name", &device_name2, NULL);
+
+  is_owner = (GST_MESSAGE_SRC (message) == GST_OBJECT (card->element) || g_utf8_collate (device_name1, device_name2) == 0);
+
+  g_free (device_name1);
+  g_free (device_name2);
+
+  return is_owner;
+}
+#endif
+
+
+
 XfceMixerCard*
 xfce_mixer_card_new (GstElement *element)
 {
-  XfceMixerCard *card;
-
-  card = g_object_new (TYPE_XFCE_MIXER_CARD, NULL);
-//  card->element = gst_object_ref (element);
-  card->element = element;
-  card->display_name = g_strdup (g_object_get_data (G_OBJECT (card->element), "xfce-mixer-control-name"));
-
-  xfce_mixer_card_set_ready (card);
-
-  return card;
+  return g_object_new (TYPE_XFCE_MIXER_CARD, 
+                       "element", element, 
+                       "display-name", g_object_get_data (G_OBJECT (element), "xfce-mixer-control-name"),
+                       NULL);
 }
 
 
@@ -374,63 +541,3 @@ xfce_mixer_card_control_is_visible (XfceMixerCard *card,
 
   return visible;
 }
-
-
-
-#ifdef HAVE_GST_MIXER_NOTIFICATION
-gint
-xfce_mixer_card_connect (XfceMixerCard *card,
-                         GCallback      callback_func,
-                         gpointer       user_data)
-{
-  g_return_if_fail (IS_XFCE_MIXER_CARD (card));
-
-  if (G_UNLIKELY (card->bus == NULL))
-    {
-      card->bus = gst_bus_new ();
-      gst_bus_add_signal_watch (card->bus);
-      gst_element_set_bus (card->element, card->bus);
-    }
-
-  return g_signal_connect (G_OBJECT (card->bus), "message::element", callback_func, user_data);
-}
-
-
-
-void
-xfce_mixer_card_disconnect (XfceMixerCard *card,
-                            gint           handler_id)
-{
-  g_return_if_fail (IS_XFCE_MIXER_CARD (card));
-
-  if (G_LIKELY (card->bus != NULL))
-    g_signal_handler_disconnect (card->bus, handler_id);
-}
-
-
-
-gboolean
-xfce_mixer_card_get_message_owner (XfceMixerCard *card,
-                                   GstMessage    *message)
-{
-  gboolean  is_owner;
-  gchar    *device_name1;
-  gchar    *device_name2;
-
-  g_return_val_if_fail (IS_XFCE_MIXER_CARD (card), FALSE);
-  g_return_val_if_fail (GST_IS_MESSAGE (message), FALSE);
-
-  if (!GST_IS_MIXER (GST_MESSAGE_SRC (message)))
-    return FALSE;
-
-  g_object_get (G_OBJECT (GST_MESSAGE_SRC (message)), "device-name", &device_name1, NULL);
-  g_object_get (G_OBJECT (card->element), "device-name", &device_name2, NULL);
-
-  is_owner = (GST_MESSAGE_SRC (message) == GST_OBJECT (card->element) || g_utf8_collate (device_name1, device_name2) == 0);
-
-  g_free (device_name1);
-  g_free (device_name2);
-
-  return is_owner;
-}
-#endif

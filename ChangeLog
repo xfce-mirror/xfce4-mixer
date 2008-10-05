@@ -1,3 +1,21 @@
+2008-10-05	Jannis Pohlmann <jannis@xfce.org>
+
+	* libxfce4mixer/xfce-mixer-card.{c,h}: Remove the functions 
+	  xfce_mixer_card_connect() and xfce_mixer_card_disconnect(). Add a
+	  new "track-changed" signal to XfceMixerCard instead. Make the
+	  element and display name members GObject properties. Rename
+	  xfce_mixer_card_get_message_owner() to
+	  xfce_mixer_card_is_message_owner() and make it static.
+	* libxfce4mixer/xfce-mixer-preferences.c: Use xfconf_channel_get()
+	  instead of xfconf_channel_new(). Don't unref the channel in the
+	  finalize function.
+	* panel-plugin/xfce-mixer-plugin.c: Make use of the new 
+	  "track-changed" signal of XfceMixerCard. 
+	* xfce4-mixer/xfce-mixer.c: Make the card member of XfceMixer a 
+	  GObject property. Make use of the new "track-changed" signal of
+	  XfceMixerCard. Move code from xfce_mixer_create_contents() into 
+	  xfce_mixer_constructed().
+
 2008-09-21	Jannis Pohlmann <jannis@xfce.org>
 
 	* panel-plugin/xfce-plugin-dialog.c: Use multimedia-volume-control
