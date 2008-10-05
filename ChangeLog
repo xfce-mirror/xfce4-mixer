@@ -1,5 +1,9 @@
 2008-10-05	Jannis Pohlmann <jannis@xfce.org>
 
+	* configure.in.in: Depend on the latest version of xfconf.
+
+2008-10-05	Jannis Pohlmann <jannis@xfce.org>
+
 	* libxfce4mixer/xfce-mixer-card.{c,h}: Remove the functions 
 	  xfce_mixer_card_connect() and xfce_mixer_card_disconnect(). Add a
 	  new "track-changed" signal to XfceMixerCard instead. Make the
