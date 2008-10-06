@@ -1,5 +1,9 @@
 2008-10-06	Jannis Pohlmann <jannis@xfce.org>
 
+	* NEWS: Update news.
+
+2008-10-06	Jannis Pohlmann <jannis@xfce.org>
+
 	* libxfce4mixer/, panel-plugin/, xfce4-mixer/: Move the
 	  xfce_mixer_stock_init() call into xfce_mixer_init(). Rename the
 	  instance init function of XfceMixer to xfce_mixer_instance_init().

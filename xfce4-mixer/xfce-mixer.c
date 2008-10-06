@@ -219,7 +219,6 @@ xfce_mixer_constructed (GObject *object)
           gtk_widget_show (track_widget);
           num_children[0]++;
 
-
           /* Append a separator. The last one will be destroyed later */
           last_separator[0] = gtk_vseparator_new ();
           gtk_table_attach (GTK_TABLE (views[0]), last_separator[0], 
