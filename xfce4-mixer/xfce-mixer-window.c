@@ -292,7 +292,7 @@ xfce_mixer_window_soundcard_changed (XfceMixerCardCombo *combo,
   if (G_LIKELY (window->mixer != NULL))
     gtk_widget_destroy (gtk_bin_get_child (GTK_BIN (window->mixer_frame)));
 
-  DBG ("soundcard_changed to card = %s", xfce_mixer_get_card_internal_name (card));
+  DBG ("card = %s", xfce_mixer_get_card_internal_name (card));
 
   xfce_mixer_select_card (card);
 

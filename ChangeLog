@@ -1,5 +1,9 @@
 2008-10-06	Jannis Pohlmann <jannis@xfce.org>
 
+	* configure.in.in: Add DEBUG define for the DBG macro.
+
+2008-10-06	Jannis Pohlmann <jannis@xfce.org>
+
 	* libxfce4mixer/, panel-plugin/, xfce4-mixer/: Remove XfceMixerCard
 	  entirely and use GstMixer directly instead. Add methods 
 	  xfce_mixer_init() and xfce_mixer_shutdown() to libxfce4mixer. Only 
