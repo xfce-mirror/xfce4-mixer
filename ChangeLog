@@ -1,5 +1,12 @@
 2008-10-06	Jannis Pohlmann <jannis@xfce.org>
 
+	* libxfce4mixer/libxfce4mixer.c: Call gst_bus_remove_signal_watch() in
+	  xfce_mixer_shutdown().
+	* xfce4-mixer/xfce-mixer-track.c: Remove locking mechanism from the
+	  lock button toggle handler.
+
+2008-10-06	Jannis Pohlmann <jannis@xfce.org>
+
 	* configure.in.in: Add DEBUG define for the DBG macro.
 
 2008-10-06	Jannis Pohlmann <jannis@xfce.org>

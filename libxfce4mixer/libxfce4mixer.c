@@ -77,6 +77,7 @@ xfce_mixer_shutdown (void)
       g_list_free (mixers);
 
 #ifdef HAVE_GST_MIXER_NOTIFICATION
+      gst_bus_remove_signal_watch (bus);
       gst_object_unref (bus);
 #endif
     }

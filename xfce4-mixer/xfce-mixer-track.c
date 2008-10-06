@@ -284,7 +284,7 @@ xfce_mixer_track_fader_changed (GtkRange       *range,
   if (G_UNLIKELY (track->ignore_signals))
     return;
 
-  /* Do nothing if another fader already takes care about everything */
+  /* Do nothing if another fader already takes care of everything */
   if (G_UNLIKELY (locked))
     return;
 
@@ -350,10 +350,6 @@ xfce_mixer_track_lock_toggled (GtkToggleButton *button,
   gint           *volumes;
   gint            channel;
 
-  /* Locking mechanism: If locked, the volume change should be applied to all
-   * channels, but only one should deliver the change to GStreamer. */
-  static gboolean locked = FALSE;
-
   /* Do nothing if the channels were unlocked */
   if (G_UNLIKELY (!gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (track->lock_button))))
     {
@@ -364,13 +360,6 @@ xfce_mixer_track_lock_toggled (GtkToggleButton *button,
 
   image = gtk_image_new_from_file (DATADIR "/pixmaps/xfce4-mixer/chain.png");
   gtk_button_set_image (GTK_BUTTON (track->lock_button), image);
-
-  /* Do nothing if another channel already takes care of everything */
-  if (G_UNLIKELY (locked))
-    return;
-
-  /* Otherwise, block the other channels */
-  locked = TRUE;
 
   /* Allocate array for volumes of all channels */
   volumes = g_new (gint, track->gst_track->num_channels);
@@ -395,9 +384,6 @@ xfce_mixer_track_lock_toggled (GtkToggleButton *button,
 
   /* Free the volume array */
   g_free (volumes);
-
-  /* Unlock this function */
-  locked = FALSE;
 }
 
 
