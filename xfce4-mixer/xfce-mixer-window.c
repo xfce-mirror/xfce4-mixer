@@ -23,20 +23,18 @@
 #include <config.h>
 #endif
 
-#include <libxfce4util/libxfce4util.h>
-#include <libxfcegui4/libxfcegui4.h>
-
 #include <gst/gst.h>
 #include <gst/audio/mixerutils.h>
 #include <gst/interfaces/mixer.h>
 
-#include "xfce-mixer-window.h"
-#include "xfce-mixer.h"
-#include "xfce-mixer-controls-dialog.h"
+#include <libxfce4util/libxfce4util.h>
+#include <libxfcegui4/libxfcegui4.h>
 
 #include "libxfce4mixer/libxfce4mixer.h"
-#include "libxfce4mixer/xfce-mixer-card-combo.h"
-#include "libxfce4mixer/xfce-mixer-preferences.h"
+
+#include "xfce-mixer.h"
+#include "xfce-mixer-window.h"
+#include "xfce-mixer-controls-dialog.h"
 
 
 

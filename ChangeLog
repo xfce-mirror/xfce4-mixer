@@ -1,5 +1,13 @@
 2008-10-06	Jannis Pohlmann <jannis@xfce.org>
 
+	* libxfce4mixer/, panel-plugin/, xfce4-mixer/: Move the
+	  xfce_mixer_stock_init() call into xfce_mixer_init(). Rename the
+	  instance init function of XfceMixer to xfce_mixer_instance_init().
+	  Reorder the includes and only include libxfce4mixer.h of the
+	  header files in libxfce4mixer/.
+
+2008-10-06	Jannis Pohlmann <jannis@xfce.org>
+
 	* libxfce4mixer/libxfce4mixer.c: Call gst_bus_remove_signal_watch() in
 	  xfce_mixer_shutdown().
 	* xfce4-mixer/xfce-mixer-track.c: Remove locking mechanism from the

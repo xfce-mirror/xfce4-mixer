@@ -29,7 +29,7 @@
 
 #include <libxfcegui4/libxfcegui4.h>
 
-#include "libxfce4mixer/xfce-mixer-stock.h"
+#include "libxfce4mixer/libxfce4mixer.h"
 
 #include "xfce-volume-button.h"
 

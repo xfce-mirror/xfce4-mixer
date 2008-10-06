@@ -23,39 +23,18 @@
 #include <config.h>
 #endif
 
-#include <stdio.h>
-
 #ifdef HAVE_STDLIB_H
 #include <stdlib.h>
 #endif
 
-#ifdef HAVE_STRING_H
-#include <string.h>
-#endif
+#include <gst/gst.h>
 
 #include <libxfce4util/libxfce4util.h>
 #include <xfconf/xfconf.h>
 
-#include <gst/gst.h>
+#include "libxfce4mixer/libxfce4mixer.h"
 
-#include "libxfce4mixer/xfce-mixer-stock.h"
 #include "xfce-mixer-window.h"
-
-
-
-static void transform_string_to_int (const GValue *src,
-                                     GValue       *dest)
-{
-  g_value_set_int (dest, (gint) strtol (g_value_get_string (src), NULL, 10));
-}
-
-
-
-static void transform_string_to_boolean (const GValue *src,
-                                         GValue       *dest)
-{
-  g_value_set_boolean (dest, strcmp (g_value_get_string (src), "FALSE") != 0);
-}
 
 
 
@@ -99,15 +78,8 @@ main (int    argc,
   /* Initialize GStreamer */
   gst_init (&argc, &argv);
 
-  /* Register special transform functions for GValue types */
-  g_value_register_transform_func (G_TYPE_STRING, G_TYPE_INT, transform_string_to_int);
-  g_value_register_transform_func (G_TYPE_STRING, G_TYPE_BOOLEAN, transform_string_to_boolean);
-
   /* Initialize the mixer library */
   xfce_mixer_init ();
-
-  /* Initialize our own stock icon set */
-  xfce_mixer_stock_init ();
 
   /* Use volume control icon for all mixer windows */
   gtk_window_set_default_icon_name ("xfce4-mixer");

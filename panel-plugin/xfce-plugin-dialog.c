@@ -30,9 +30,6 @@
 #include <libxfcegui4/libxfcegui4.h>
 
 #include "libxfce4mixer/libxfce4mixer.h"
-#include "libxfce4mixer/xfce-mixer-card-combo.h"
-#include "libxfce4mixer/xfce-mixer-track-combo.h"
-#include "libxfce4mixer/xfce-mixer-track-type.h"
 
 #include "xfce-plugin-dialog.h"
 

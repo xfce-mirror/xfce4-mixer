@@ -55,6 +55,9 @@ xfce_mixer_init (void)
 
   if (G_LIKELY (refcount++ == 0))
     {
+      /* Initialize mixer stock icons */
+      xfce_mixer_stock_init ();
+
       /* Get list of all available mixer devices */
       mixers = gst_audio_default_registry_mixer_filter (_xfce_mixer_filter_mixer, FALSE, &counter);
 

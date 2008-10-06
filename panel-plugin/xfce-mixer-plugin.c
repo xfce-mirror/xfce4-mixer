@@ -37,7 +37,6 @@
 #include <libxfce4panel/xfce-hvbox.h>
 
 #include "libxfce4mixer/libxfce4mixer.h"
-#include "libxfce4mixer/xfce-mixer-stock.h"
 
 #include "xfce-volume-button.h"
 #include "xfce-plugin-dialog.h"
@@ -204,9 +203,6 @@ xfce_mixer_plugin_construct (XfcePanelPlugin *plugin)
 
   /* Initialize the mixer library */
   xfce_mixer_init ();
-
-  /* Initialize our own stock icon set */
-  xfce_mixer_stock_init ();
 
   /* Create the plugin */
   mixer_plugin = xfce_mixer_plugin_new (plugin);

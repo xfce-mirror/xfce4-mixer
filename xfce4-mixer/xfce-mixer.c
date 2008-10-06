@@ -23,14 +23,14 @@
 #include <config.h>
 #endif
 
-#include <libxfce4util/libxfce4util.h>
-#include <libxfcegui4/libxfcegui4.h>
-
 #include <gst/gst.h>
 #include <gst/interfaces/mixer.h>
 
-#include "libxfce4mixer/xfce-mixer-track-type.h"
-#include "libxfce4mixer/xfce-mixer-preferences.h"
+#include <libxfce4util/libxfce4util.h>
+#include <libxfcegui4/libxfcegui4.h>
+
+#include "libxfce4mixer/libxfce4mixer.h"
+
 #include "xfce-mixer.h"
 #include "xfce-mixer-track.h"
 #include "xfce-mixer-switch.h"
@@ -47,7 +47,7 @@ enum
 
 
 static void xfce_mixer_class_init      (XfceMixerClass *klass);
-static void xfce_mixer_init            (XfceMixer      *mixer);
+static void xfce_mixer_instance_init   (XfceMixer      *mixer);
 static void xfce_mixer_constructed     (GObject        *object);
 static void xfce_mixer_finalize        (GObject        *object);
 static void xfce_mixer_get_property    (GObject        *object,
@@ -105,7 +105,7 @@ xfce_mixer_get_type (void)
           NULL,
           sizeof (XfceMixer),
           0,
-          (GInstanceInitFunc) xfce_mixer_init,
+          (GInstanceInitFunc) xfce_mixer_instance_init,
           NULL,
         };
 
@@ -144,7 +144,7 @@ xfce_mixer_class_init (XfceMixerClass *klass)
 
 
 static void
-xfce_mixer_init (XfceMixer *mixer)
+xfce_mixer_instance_init (XfceMixer *mixer)
 {
   mixer->widgets = g_hash_table_new_full (g_str_hash, g_str_equal, NULL, NULL);
   mixer->message_handler_id = 0;
