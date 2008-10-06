@@ -26,8 +26,7 @@
 
 #include <gst/gst.h>
 
-#include "xfce-mixer-card.h"
-#include "xfce-mixer-utilities.h"
+#include "libxfce4mixer.h"
 #include "xfce-mixer-card-combo.h"
 
 
@@ -49,34 +48,27 @@ static guint combo_signals[LAST_SIGNAL];
 
 
 
-static void xfce_mixer_card_combo_class_init        (XfceMixerCardComboClass *klass);
-static void xfce_mixer_card_combo_init              (XfceMixerCardCombo      *combo);
-static void xfce_mixer_card_combo_dispose           (GObject                 *object);
-static void xfce_mixer_card_combo_finalize          (GObject                 *object);
-static void xfce_mixer_card_combo_load_soundcards   (XfceMixerCardCombo      *combo,
-                                                     const gchar             *card_name);
-static void xfce_mixer_card_combo_soundcard_changed (XfceMixerCardCombo      *combo,
-                                                     XfceMixerCard           *card);
-static void xfce_mixer_card_combo_changed           (XfceMixerCardCombo      *combo);
+static void  xfce_mixer_card_combo_class_init        (XfceMixerCardComboClass *klass);
+static void  xfce_mixer_card_combo_init              (XfceMixerCardCombo      *combo);
+static void  xfce_mixer_card_combo_finalize          (GObject                 *object);
+static void  xfce_mixer_card_combo_load_soundcards   (XfceMixerCardCombo      *combo,
+                                                      const gchar             *card_name);
+static void  xfce_mixer_card_combo_changed           (XfceMixerCardCombo      *combo);
+static void _xfce_mixer_card_combo_set_active_card   (XfceMixerCardCombo      *combo,
+                                                      GstElement              *card);
 
 
 
 struct _XfceMixerCardComboClass
 {
   GtkComboBoxClass __parent__;
-
-  /* Signals */
-  void (*soundcard_changed) (XfceMixerCardCombo *combo,
-                             XfceMixerCard      *card);
 };
 
 struct _XfceMixerCardCombo
 {
   GtkComboBox __parent__;
 
-  GtkListStore *model;
-
-  GList        *cards;
+  GtkListStore *list_store;
 };
 
 
@@ -123,21 +115,18 @@ xfce_mixer_card_combo_class_init (XfceMixerCardComboClass *klass)
   xfce_mixer_card_combo_parent_class = g_type_class_peek_parent (klass);
 
   gobject_class = G_OBJECT_CLASS (klass);
-  gobject_class->dispose = xfce_mixer_card_combo_dispose;
   gobject_class->finalize = xfce_mixer_card_combo_finalize;
-
-  klass->soundcard_changed = xfce_mixer_card_combo_soundcard_changed;
 
   combo_signals[SOUNDCARD_CHANGED] = g_signal_new ("soundcard-changed",
                                                    G_TYPE_FROM_CLASS (klass),
                                                    G_SIGNAL_RUN_LAST | G_SIGNAL_ACTION,
-                                                   G_STRUCT_OFFSET (XfceMixerCardComboClass, soundcard_changed),
+                                                   0,
                                                    NULL,
                                                    NULL,
                                                    g_cclosure_marshal_VOID__OBJECT,
                                                    G_TYPE_NONE,
                                                    1,
-                                                   TYPE_XFCE_MIXER_CARD);
+                                                   GST_TYPE_ELEMENT);
 }
 
 
@@ -146,25 +135,25 @@ static void
 xfce_mixer_card_combo_init (XfceMixerCardCombo *combo)
 {
   GtkCellRenderer *renderer;
+  GtkTreeIter      tree_iter;
+  GList           *iter;
 
-  combo->model = gtk_list_store_new (2, G_TYPE_STRING, TYPE_XFCE_MIXER_CARD);
-  gtk_combo_box_set_model (GTK_COMBO_BOX (combo), GTK_TREE_MODEL (combo->model));
+  combo->list_store = gtk_list_store_new (2, G_TYPE_STRING, GST_TYPE_ELEMENT);
+  gtk_combo_box_set_model (GTK_COMBO_BOX (combo), GTK_TREE_MODEL (combo->list_store));
 
   renderer = gtk_cell_renderer_text_new ();
   gtk_cell_layout_pack_start (GTK_CELL_LAYOUT (combo), renderer, TRUE);
   gtk_cell_layout_add_attribute (GTK_CELL_LAYOUT (combo), renderer, "text", NAME_COLUMN);
 
-  combo->cards = xfce_mixer_utilities_get_cards ();
+  for (iter = xfce_mixer_get_cards (); iter != NULL; iter = g_list_next (iter))
+    {
+      gtk_list_store_append (combo->list_store, &tree_iter);
+      gtk_list_store_set (combo->list_store, &tree_iter, 
+                          NAME_COLUMN, xfce_mixer_get_card_display_name (iter->data),
+                          CARD_COLUMN, iter->data, -1);
+    }
 
   g_signal_connect_swapped (combo, "changed", G_CALLBACK (xfce_mixer_card_combo_changed), combo);
-}
-
-
-
-static void
-xfce_mixer_card_combo_dispose (GObject *object)
-{
-  (*G_OBJECT_CLASS (xfce_mixer_card_combo_parent_class)->dispose) (object);
 }
 
 
@@ -174,11 +163,8 @@ xfce_mixer_card_combo_finalize (GObject *object)
 {
   XfceMixerCardCombo *combo = XFCE_MIXER_CARD_COMBO (object);
 
-  gtk_list_store_clear (combo->model);
-  g_object_unref (G_OBJECT (combo->model));
-
-  g_list_foreach (combo->cards, (GFunc) g_object_unref, NULL);
-  g_list_free (combo->cards);
+  gtk_list_store_clear (combo->list_store);
+  g_object_unref (combo->list_store);
 
   (*G_OBJECT_CLASS (xfce_mixer_card_combo_parent_class)->finalize) (object);
 }
@@ -186,51 +172,15 @@ xfce_mixer_card_combo_finalize (GObject *object)
 
 
 GtkWidget*
-xfce_mixer_card_combo_new (const gchar *card_name)
+xfce_mixer_card_combo_new (GstElement *card)
 {
-  XfceMixerCardCombo *combo;
+  GtkWidget *combo;
   
-  combo = XFCE_MIXER_CARD_COMBO (g_object_new (TYPE_XFCE_MIXER_CARD_COMBO, NULL));
+  combo = g_object_new (TYPE_XFCE_MIXER_CARD_COMBO, NULL);
 
-  xfce_mixer_card_combo_load_soundcards (combo, card_name);
+  _xfce_mixer_card_combo_set_active_card (XFCE_MIXER_CARD_COMBO (combo), card);
 
-  return GTK_WIDGET (combo);
-}
-
-
-
-static void 
-xfce_mixer_card_combo_load_soundcards (XfceMixerCardCombo *combo,
-                                       const gchar        *card_name)
-{
-  XfceMixerCard *card;
-  GtkTreeIter    iter;
-  GList         *citer;
-  gint           counter;
-  gint           active_index = 0;
-
-  for (citer = g_list_first (combo->cards), counter = 0; citer != NULL; citer = g_list_next (citer), ++counter)
-    {
-      card = XFCE_MIXER_CARD (citer->data);
-
-      g_debug ("Adding sound card: %s", xfce_mixer_card_get_display_name (card));
-
-      gtk_list_store_append (combo->model, &iter);
-      gtk_list_store_set (combo->model, &iter, NAME_COLUMN, xfce_mixer_card_get_display_name (card), CARD_COLUMN, card, -1);
-
-      if (G_UNLIKELY (card_name != NULL && g_utf8_collate (xfce_mixer_card_get_name (card), card_name) == 0))
-        active_index = counter;
-    }
-
-  gtk_combo_box_set_active (GTK_COMBO_BOX (combo), active_index);
-}
-
-
-
-static void
-xfce_mixer_card_combo_soundcard_changed (XfceMixerCardCombo *combo,
-                                         XfceMixerCard      *card)
-{
+  return combo;
 }
 
 
@@ -238,31 +188,61 @@ xfce_mixer_card_combo_soundcard_changed (XfceMixerCardCombo *combo,
 static void
 xfce_mixer_card_combo_changed (XfceMixerCardCombo *combo)
 {
-  XfceMixerCard *card;
-  GtkTreeIter    iter;
+  GstElement *card;
+  GtkTreeIter iter;
 
   if (G_LIKELY (gtk_combo_box_get_active_iter (GTK_COMBO_BOX (combo), &iter)))
     {
-      gtk_tree_model_get (GTK_TREE_MODEL (combo->model), &iter, CARD_COLUMN, &card, -1);
-
-      xfce_mixer_card_set_ready (card);
-
+      gtk_tree_model_get (GTK_TREE_MODEL (combo->list_store), &iter, CARD_COLUMN, &card, -1);
       g_signal_emit_by_name (combo, "soundcard-changed", card);
     }
 }
 
 
 
-XfceMixerCard*
+GstElement *
 xfce_mixer_card_combo_get_active_card (XfceMixerCardCombo *combo)
 {
-  XfceMixerCard *card = NULL;
-  GtkTreeIter    iter;
+  GstElement *card = NULL;
+  GtkTreeIter iter;
 
   g_return_val_if_fail (IS_XFCE_MIXER_CARD_COMBO (combo), NULL);
   
   if (G_LIKELY (gtk_combo_box_get_active_iter (GTK_COMBO_BOX (combo), &iter)))
-    gtk_tree_model_get (GTK_TREE_MODEL (combo->model), &iter, CARD_COLUMN, &card, -1);
+    gtk_tree_model_get (GTK_TREE_MODEL (combo->list_store), &iter, CARD_COLUMN, &card, -1);
 
   return card;
+}
+
+
+
+static void
+_xfce_mixer_card_combo_set_active_card (XfceMixerCardCombo *combo,
+                                        GstElement         *card)
+{
+  GstElement *current_card = NULL;
+  GtkTreeIter iter;
+  gboolean    valid_iter;
+
+  g_return_if_fail (IS_XFCE_MIXER_CARD_COMBO (combo));
+
+  if (G_LIKELY (GST_IS_MIXER (card)))
+    {
+      valid_iter = gtk_tree_model_get_iter_first (GTK_TREE_MODEL (combo->list_store), &iter);
+
+      while (valid_iter)
+        {
+          gtk_tree_model_get (GTK_TREE_MODEL (combo->list_store), &iter, CARD_COLUMN, &current_card, -1);
+
+          if (G_UNLIKELY (current_card == card))
+            break;
+
+          valid_iter = gtk_tree_model_iter_next (GTK_TREE_MODEL (combo->list_store), &iter);
+        }
+    }
+
+  if (G_LIKELY (card != NULL && current_card == card))
+    gtk_combo_box_set_active_iter (GTK_COMBO_BOX (combo), &iter);
+  else
+    gtk_combo_box_set_active (GTK_COMBO_BOX (combo), 0);
 }

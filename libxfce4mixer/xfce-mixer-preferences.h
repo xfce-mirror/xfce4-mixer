@@ -24,6 +24,9 @@
 
 #include <glib-object.h>
 
+#include <gst/gst.h>
+#include <gst/interfaces/mixer.h>
+
 G_BEGIN_DECLS;
 
 typedef struct _XfceMixerPreferencesClass XfceMixerPreferencesClass;
@@ -40,10 +43,13 @@ GType                 xfce_mixer_preferences_get_type             (void) G_GNUC_
 
 XfceMixerPreferences *xfce_mixer_preferences_get                  (void);
 gchar * const        *xfce_mixer_preferences_get_visible_controls (XfceMixerPreferences *preferences,
-                                                                   const gchar          *card_name);
+                                                                   GstElement           *card);
 void                  xfce_mixer_preferences_set_visible_controls (XfceMixerPreferences *preferences,
-                                                                   const gchar          *card_name,
+                                                                   GstElement           *card,
                                                                    gchar * const        *controls);
+gboolean              xfce_mixer_preferences_get_control_visible  (XfceMixerPreferences *preferences,
+                                                                   GstElement           *card,
+                                                                   GstMixerTrack        *track);
 
 G_END_DECLS;
 

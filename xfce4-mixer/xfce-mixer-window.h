@@ -23,9 +23,7 @@
 #define __XFCE_MIXER_WINDOW_H__
 
 #include <gtk/gtk.h>
-#include <gst/interfaces/mixer.h>
-
-#include "libxfce4mixer/xfce-mixer-card.h"
+#include <gst/gst.h>
 
 G_BEGIN_DECLS;
 
@@ -39,10 +37,10 @@ typedef struct _XfceMixerWindow      XfceMixerWindow;
 #define IS_XFCE_MIXER_WINDOW_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), TYPE_XFCE_MIXER_WINDOW))
 #define XFCE_MIXER_WINDOW_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), TYPE_XFCE_MIXER_WINDOW, XfceMixerWindowClass))
 
-GType          xfce_mixer_window_get_type        (void) G_GNUC_CONST;
+GType       xfce_mixer_window_get_type        (void) G_GNUC_CONST;
 
-GtkWidget     *xfce_mixer_window_new             (void);
-XfceMixerCard *xfce_mixer_window_get_active_card (XfceMixerWindow *window);
+GtkWidget  *xfce_mixer_window_new             (void);
+GstElement *xfce_mixer_window_get_active_card (XfceMixerWindow *window);
 
 G_END_DECLS;
 

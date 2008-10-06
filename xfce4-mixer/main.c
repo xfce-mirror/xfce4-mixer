@@ -103,6 +103,9 @@ main (int    argc,
   g_value_register_transform_func (G_TYPE_STRING, G_TYPE_INT, transform_string_to_int);
   g_value_register_transform_func (G_TYPE_STRING, G_TYPE_BOOLEAN, transform_string_to_boolean);
 
+  /* Initialize the mixer library */
+  xfce_mixer_init ();
+
   /* Initialize our own stock icon set */
   xfce_mixer_stock_init ();
 
@@ -110,7 +113,7 @@ main (int    argc,
   gtk_window_set_default_icon_name ("xfce4-mixer");
 
   /* Warn users if there were no sound cards detected by GStreamer */
-  if (G_UNLIKELY (xfce_mixer_utilities_get_n_cards () <= 0))
+  if (G_UNLIKELY (g_list_length (xfce_mixer_get_cards ()) <= 0))
     {
       xfce_err (_("GStreamer was unable to detect any sound cards on your system. "
                   "You might be missing sound system specific GStreamer packages. "
@@ -130,6 +133,9 @@ main (int    argc,
 
   /* Destroy the window */
   gtk_widget_destroy (window);
+
+  /* Shutdown the mixer library */
+  xfce_mixer_shutdown ();
 
   /* Shutdown Xfconf */
   xfconf_shutdown ();

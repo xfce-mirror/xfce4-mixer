@@ -29,8 +29,8 @@
 #include <gst/gst.h>
 #include <gst/interfaces/mixer.h>
 
+#include "libxfce4mixer/libxfce4mixer.h"
 #include "xfce-mixer-option.h"
-#include "libxfce4mixer/xfce-mixer-card.h"
 
 
 
@@ -53,8 +53,7 @@ struct _XfceMixerOption
 {
   GtkHBox __parent__;
 
-  XfceMixerCard *card;
-
+  GstElement    *card;
   GstMixerTrack *track;
 
   GtkWidget     *combo;
@@ -133,27 +132,23 @@ xfce_mixer_option_finalize (GObject *object)
 {
   XfceMixerOption *option = XFCE_MIXER_OPTION (object);
 
-  g_object_unref (G_OBJECT (option->card));
-
-  gst_object_unref (option->track);
-
   (*G_OBJECT_CLASS (xfce_mixer_option_parent_class)->finalize) (object);
 }
 
 
 
 GtkWidget*
-xfce_mixer_option_new (XfceMixerCard *card,
+xfce_mixer_option_new (GstElement    *card,
                        GstMixerTrack *track)
 {
   XfceMixerOption *option;
 
-  g_return_val_if_fail (IS_XFCE_MIXER_CARD (card), NULL);
+  g_return_val_if_fail (GST_IS_MIXER (card), NULL);
   g_return_val_if_fail (GST_IS_MIXER_TRACK (track), NULL);
   
   option = g_object_new (TYPE_XFCE_MIXER_OPTION, NULL);
-  option->card = XFCE_MIXER_CARD (g_object_ref (card));
-  option->track = gst_object_ref (track);
+  option->card = card;
+  option->track = track;
 
   xfce_mixer_option_create_contents (option);
 
@@ -182,7 +177,7 @@ xfce_mixer_option_create_contents (XfceMixerOption *option)
   gtk_widget_show (label);
 
   options = GST_MIXER_OPTIONS (option->track);
-  active_option = xfce_mixer_card_get_track_option (option->card, option->track);
+  active_option = gst_mixer_get_option (GST_MIXER (option->card), options);
 
   option->combo = gtk_combo_box_new_text ();
 
@@ -217,7 +212,7 @@ xfce_mixer_option_changed (GtkComboBox     *combo,
 
   if (G_LIKELY (active_option != NULL))
     {
-      xfce_mixer_card_set_track_option (option->card, option->track, active_option);
+      gst_mixer_set_option (GST_MIXER (option->card), option->track, active_option);
       g_free (active_option);
     }
 }
@@ -236,7 +231,7 @@ xfce_mixer_option_update (XfceMixerOption *option)
   g_return_if_fail (IS_XFCE_MIXER_OPTION (option));
 
   options = GST_MIXER_OPTIONS (option->track);
-  active_option = xfce_mixer_card_get_track_option (option->card, option->track);
+  active_option = gst_mixer_get_option (GST_MIXER (option->card), options);
 
   model = gtk_combo_box_get_model (GTK_COMBO_BOX (option->combo));
 

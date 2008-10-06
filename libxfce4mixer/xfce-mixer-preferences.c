@@ -28,6 +28,7 @@
 #include <libxfce4util/libxfce4util.h>
 #include <xfconf/xfconf.h>
 
+#include "libxfce4mixer.h"
 #include "xfce-mixer-preferences.h"
 
 
@@ -294,7 +295,7 @@ xfce_mixer_preferences_store_controls (const gchar          *card_name,
   property_name = g_strdup_printf ("/sound-cards/%s", card_name);
 
   if (G_UNLIKELY (controls != NULL))
-    xfconf_channel_set_string_list (preferences->channel, property_name, controls);
+    xfconf_channel_set_string_list (preferences->channel, property_name, (const gchar * const *) controls);
   else
     xfconf_channel_remove_property (preferences->channel, property_name);
 
@@ -334,19 +335,16 @@ xfce_mixer_preferences_store (XfceMixerPreferences *preferences)
 
 
 
-XfceRc*
-xfce_mixer_preferences_get_rc (XfceMixerPreferences *preferences)
-{
-  return xfce_rc_config_open (XFCE_RESOURCE_CONFIG, "xfce4/mixerrc", FALSE);
-}
-
-
-
-gchar* const *
+gchar * const *
 xfce_mixer_preferences_get_visible_controls (XfceMixerPreferences *preferences,
-                                             const gchar          *card_name)
+                                             GstElement           *card)
 {
+  const gchar *card_name;
+
   g_return_val_if_fail (IS_XFCE_MIXER_PREFERENCES (preferences), NULL);
+  g_return_val_if_fail (GST_IS_MIXER (card), NULL);
+
+  card_name = xfce_mixer_get_card_internal_name (card);
   return (gchar * const *) g_hash_table_lookup (preferences->controls, card_name);
 }
 
@@ -354,10 +352,46 @@ xfce_mixer_preferences_get_visible_controls (XfceMixerPreferences *preferences,
 
 void
 xfce_mixer_preferences_set_visible_controls (XfceMixerPreferences *preferences,
-                                             const gchar          *card_name,
+                                             GstElement           *card,
                                              gchar * const        *controls)
 {
+  const gchar *card_name;
   g_return_if_fail (IS_XFCE_MIXER_PREFERENCES (preferences));
+  g_return_if_fail (GST_IS_MIXER (card));
+
+  card_name = xfce_mixer_get_card_internal_name (card);
   g_hash_table_insert (preferences->controls, g_strdup (card_name), g_strdupv ((gchar **) controls));
   xfce_mixer_preferences_store (preferences);
+}
+
+
+
+gboolean
+xfce_mixer_preferences_get_control_visible (XfceMixerPreferences *preferences,
+                                            GstElement           *card,
+                                            GstMixerTrack        *track)
+{
+  gchar * const *controls;
+  const gchar   *card_name;
+  gboolean       visible = FALSE;
+  gint           i;
+
+  g_return_val_if_fail (IS_XFCE_MIXER_PREFERENCES (preferences), FALSE);
+  g_return_val_if_fail (GST_IS_MIXER (card), FALSE);
+  g_return_val_if_fail (GST_IS_MIXER_TRACK (track), FALSE);
+
+  card_name = xfce_mixer_get_card_internal_name (card);
+  controls = g_hash_table_lookup (preferences->controls, card_name);
+
+  if (G_LIKELY (controls != NULL))
+    {
+      for (i = 0; controls != NULL && controls[i] != NULL; ++i)
+        if (g_utf8_collate (controls[i], track->label) == 0)
+          {
+            visible = TRUE;
+            break;
+          }
+    }
+
+  return visible;
 }

@@ -6,18 +6,16 @@ noinst_LTLIBRARIES = 							\
 	libxfce4mixer.la
 
 libxfce4mixer_la_SOURCES =						\
+	libxfce4mixer.h							\
+	libxfce4mixer.c							\
 	xfce-mixer-card-combo.h						\
 	xfce-mixer-card-combo.c						\
 	xfce-mixer-track-combo.h					\
 	xfce-mixer-track-combo.c					\
-	xfce-mixer-card.h						\
-	xfce-mixer-card.c						\
 	xfce-mixer-stock.h						\
 	xfce-mixer-stock.c						\
 	xfce-mixer-track-type.h						\
 	xfce-mixer-track-type.c						\
-	xfce-mixer-utilities.h						\
-	xfce-mixer-utilities.c						\
 	xfce-mixer-preferences.h					\
 	xfce-mixer-preferences.c
 

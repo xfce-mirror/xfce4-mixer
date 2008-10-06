@@ -23,6 +23,9 @@
 
 #include <gtk/gtk.h>
 
+#include <gst/gst.h>
+#include <gst/interfaces/mixer.h>
+
 G_BEGIN_DECLS;
 
 typedef struct _XfcePluginDialogClass XfcePluginDialogClass;
@@ -37,12 +40,12 @@ typedef struct _XfcePluginDialog      XfcePluginDialog;
 
 GType     xfce_plugin_dialog_get_type  (void) G_GNUC_CONST;
 
-GtkWidget *xfce_plugin_dialog_new      (const gchar *active_card,
-                                        const gchar *active_track,
-                                        const gchar *command);
+GtkWidget *xfce_plugin_dialog_new      (GstElement    *active_card,
+                                        GstMixerTrack *active_track,
+                                        const gchar   *command);
 
 void       xfce_plugin_dialog_get_data (XfcePluginDialog *dialog,
-                                        XfceMixerCard   **card,
+                                        GstElement      **card,
                                         GstMixerTrack   **track,
                                         gchar           **command);
 

@@ -26,9 +26,12 @@
 
 #include <gtk/gtk.h>
 
+#include <gst/gst.h>
+#include <gst/interfaces/mixer.h>
+
+#include "libxfce4mixer.h"
 #include "xfce-mixer-track-type.h"
 #include "xfce-mixer-track-combo.h"
-#include "xfce-mixer-utilities.h"
 
 
 
@@ -49,34 +52,28 @@ static guint combo_signals[LAST_SIGNAL];
 
 
 
-static void xfce_mixer_track_combo_class_init    (XfceMixerTrackComboClass *klass);
-static void xfce_mixer_track_combo_init          (XfceMixerTrackCombo      *combo);
-static void xfce_mixer_track_combo_dispose       (GObject                  *object);
-static void xfce_mixer_track_combo_finalize      (GObject                  *object);
-static void xfce_mixer_track_combo_changed       (XfceMixerTrackCombo      *combo);
-static void xfce_mixer_track_combo_track_changed (XfceMixerTrackCombo      *combo,
-                                                  GstMixerTrack            *track);
+static void  xfce_mixer_track_combo_class_init (XfceMixerTrackComboClass *klass);
+static void  xfce_mixer_track_combo_init       (XfceMixerTrackCombo      *combo);
+static void  xfce_mixer_track_combo_finalize   (GObject                  *object);
+static void  xfce_mixer_track_combo_changed    (XfceMixerTrackCombo      *combo);
+static void _xfce_mixer_track_combo_set_track  (XfceMixerTrackCombo      *combo,
+                                                GstMixerTrack            *track);
 
 
 
 struct _XfceMixerTrackComboClass
 {
   GtkComboBoxClass __parent__;
-
-  /* Signals */
-  void (*track_changed) (XfceMixerTrackCombo *combo,
-                         GstMixerTrack       *track);
 };
 
 struct _XfceMixerTrackCombo
 {
-  GtkComboBox __parent__;
+  GtkComboBox    __parent__;
 
-  GtkListStore  *model;
+  GtkListStore  *list_store;
 
-  XfceMixerCard *card;
-
-  gchar         *track_name;
+  GstElement    *card;
+  GstMixerTrack *track;
 };
 
 
@@ -123,15 +120,12 @@ xfce_mixer_track_combo_class_init (XfceMixerTrackComboClass *klass)
   xfce_mixer_track_combo_parent_class = g_type_class_peek_parent (klass);
 
   gobject_class = G_OBJECT_CLASS (klass);
-  gobject_class->dispose = xfce_mixer_track_combo_dispose;
   gobject_class->finalize = xfce_mixer_track_combo_finalize;
-
-  klass->track_changed = xfce_mixer_track_combo_track_changed;
 
   combo_signals[TRACK_CHANGED] = g_signal_new ("track-changed",
                                                G_TYPE_FROM_CLASS (klass),
                                                G_SIGNAL_RUN_LAST | G_SIGNAL_ACTION,
-                                               G_STRUCT_OFFSET (XfceMixerTrackComboClass, track_changed),
+                                               0,
                                                NULL,
                                                NULL,
                                                g_cclosure_marshal_VOID__OBJECT,
@@ -148,10 +142,10 @@ xfce_mixer_track_combo_init (XfceMixerTrackCombo *combo)
   GtkCellRenderer *renderer;
 
   combo->card = NULL;
-  combo->track_name = NULL;
+  combo->track = NULL;
 
-  combo->model = gtk_list_store_new (2, G_TYPE_STRING, GST_TYPE_MIXER_TRACK);
-  gtk_combo_box_set_model (GTK_COMBO_BOX (combo), GTK_TREE_MODEL (combo->model));
+  combo->list_store = gtk_list_store_new (2, G_TYPE_STRING, GST_TYPE_MIXER_TRACK);
+  gtk_combo_box_set_model (GTK_COMBO_BOX (combo), GTK_TREE_MODEL (combo->list_store));
 
   renderer = gtk_cell_renderer_text_new ();
   gtk_cell_layout_pack_start (GTK_CELL_LAYOUT (combo), renderer, TRUE);
@@ -163,20 +157,12 @@ xfce_mixer_track_combo_init (XfceMixerTrackCombo *combo)
 
 
 static void
-xfce_mixer_track_combo_dispose (GObject *object)
-{
-  (*G_OBJECT_CLASS (xfce_mixer_track_combo_parent_class)->dispose) (object);
-}
-
-
-
-static void
 xfce_mixer_track_combo_finalize (GObject *object)
 {
   XfceMixerTrackCombo *combo = XFCE_MIXER_TRACK_COMBO (object);
 
-  gtk_list_store_clear (combo->model);
-  g_object_unref (G_OBJECT (combo->model));
+  gtk_list_store_clear (combo->list_store);
+  g_object_unref (combo->list_store);
 
   (*G_OBJECT_CLASS (xfce_mixer_track_combo_parent_class)->finalize) (object);
 }
@@ -184,67 +170,60 @@ xfce_mixer_track_combo_finalize (GObject *object)
 
 
 GtkWidget*
-xfce_mixer_track_combo_new (XfceMixerCard *card,
-                            const gchar   *track_name)
+xfce_mixer_track_combo_new (GstElement    *card,
+                            GstMixerTrack *track)
 {
-  XfceMixerTrackCombo *combo;
+  GtkWidget *combo;
 
-  combo = XFCE_MIXER_TRACK_COMBO (g_object_new (TYPE_XFCE_MIXER_TRACK_COMBO, NULL));
+  combo = g_object_new (TYPE_XFCE_MIXER_TRACK_COMBO, NULL);
 
-  xfce_mixer_track_combo_set_track (combo, track_name);
-  xfce_mixer_track_combo_set_soundcard (combo, card);
+  _xfce_mixer_track_combo_set_track (XFCE_MIXER_TRACK_COMBO (combo), track);
+  xfce_mixer_track_combo_set_soundcard (XFCE_MIXER_TRACK_COMBO (combo), card);
 
-  return GTK_WIDGET (combo);
+  return combo;
 }
 
 
 
 void
 xfce_mixer_track_combo_set_soundcard (XfceMixerTrackCombo *combo,
-                                      XfceMixerCard       *card)
+                                      GstElement          *card)
 {
   XfceMixerTrackType type;
+  GtkTreeIter        tree_iter;
+  const GList       *iter;
   GList             *cards;
-  const GList       *titer;
-  GtkTreeIter        iter;
   gint               counter;
   gint               active_index = 0;
 
   g_return_if_fail (IS_XFCE_MIXER_TRACK_COMBO (combo));
 
-  if (G_LIKELY (combo->card != NULL))
-    g_object_unref (G_OBJECT (combo->card));
-
-  if (IS_XFCE_MIXER_CARD (card))
-    combo->card = XFCE_MIXER_CARD (g_object_ref (G_OBJECT (card)));
+  /* Remember card. If the card is invalid, use the first one available */
+  if (GST_IS_MIXER (card))
+    combo->card = card;
   else
     {
-      cards = xfce_mixer_utilities_get_cards ();
+      cards = xfce_mixer_get_cards ();
 
       if (G_LIKELY (g_list_length (cards) > 0))
-        {
-          combo->card = XFCE_MIXER_CARD (g_object_ref (G_OBJECT ( (g_list_first (cards)->data))));
-          xfce_mixer_card_set_ready (combo->card);
-        }
-
-      g_list_foreach (cards, (GFunc) g_object_unref, NULL);
-      g_list_free (cards);
+        combo->card = g_list_first (cards)->data;
     }
 
-  gtk_list_store_clear (combo->model);
+  /* Clear the list store data */
+  gtk_list_store_clear (combo->list_store);
 
-  for (titer = xfce_mixer_card_get_tracks (combo->card), counter = 0; titer != NULL; titer = g_list_next (titer))
+  for (iter = gst_mixer_list_tracks (GST_MIXER (combo->card)), counter = 0; iter != NULL; iter = g_list_next (iter))
     {
-      type = xfce_mixer_track_type_new (titer->data);
+      type = xfce_mixer_track_type_new (iter->data);
 
       if (type == XFCE_MIXER_TRACK_TYPE_PLAYBACK || type == XFCE_MIXER_TRACK_TYPE_CAPTURE)
         {
-          gtk_list_store_append (combo->model, &iter);
-          gtk_list_store_set (combo->model, &iter, 
-                              NAME_COLUMN, GST_MIXER_TRACK (titer->data)->label, 
-                              TRACK_COLUMN, GST_MIXER_TRACK (titer->data), -1);
+          gtk_list_store_append (combo->list_store, &tree_iter);
+          gtk_list_store_set (combo->list_store, &tree_iter, 
+                              NAME_COLUMN, GST_MIXER_TRACK (iter->data)->label, 
+                              TRACK_COLUMN, GST_MIXER_TRACK (iter->data), -1);
 
-          if (G_UNLIKELY (combo->track_name != NULL && g_utf8_collate (GST_MIXER_TRACK (titer->data)->label, combo->track_name) == 0))
+          if (G_UNLIKELY (combo->track != NULL && combo->track == GST_MIXER_TRACK (iter->data)))
             active_index = counter;
 
           ++counter;
@@ -257,19 +236,11 @@ xfce_mixer_track_combo_set_soundcard (XfceMixerTrackCombo *combo,
 
 
 void
-xfce_mixer_track_combo_set_track (XfceMixerTrackCombo *combo,
-                                  const gchar         *track_name)
+_xfce_mixer_track_combo_set_track (XfceMixerTrackCombo *combo,
+                                   GstMixerTrack       *track)
 {
   g_return_if_fail (IS_XFCE_MIXER_TRACK_COMBO (combo));
-
-  g_free (combo->track_name);
-
-  if (G_UNLIKELY (track_name != NULL))
-    {
-      combo->track_name = g_strdup (track_name);
-      
-      /* TODO: Reset the active iter */
-    }
+  combo->track = track;
 }
 
 
@@ -284,18 +255,9 @@ xfce_mixer_track_combo_changed (XfceMixerTrackCombo *combo)
 
   if (G_LIKELY (gtk_combo_box_get_active_iter (GTK_COMBO_BOX (combo), &iter)))
     {
-      gtk_tree_model_get (GTK_TREE_MODEL (combo->model), &iter, TRACK_COLUMN, &track, -1);
-
+      gtk_tree_model_get (GTK_TREE_MODEL (combo->list_store), &iter, TRACK_COLUMN, &track, -1);
       g_signal_emit_by_name (combo, "track-changed", track);
     }
-}
-
-
-
-static void 
-xfce_mixer_track_combo_track_changed (XfceMixerTrackCombo *combo,
-                                      GstMixerTrack       *track)
-{
 }
 
 
@@ -309,7 +271,7 @@ xfce_mixer_track_combo_get_active_track (XfceMixerTrackCombo *combo)
   g_return_val_if_fail (IS_XFCE_MIXER_TRACK_COMBO (combo), NULL);
 
   if (G_LIKELY (gtk_combo_box_get_active_iter (GTK_COMBO_BOX (combo), &iter)))
-    gtk_tree_model_get (GTK_TREE_MODEL (combo->model), &iter, TRACK_COLUMN, &track, -1);
+    gtk_tree_model_get (GTK_TREE_MODEL (combo->list_store), &iter, TRACK_COLUMN, &track, -1);
 
   return track;
 }

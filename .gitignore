@@ -20,7 +20,6 @@ POTFILES
 *.swp
 .deps
 .libs
-xfce4-mixer
 missing
 install-sh
 compile

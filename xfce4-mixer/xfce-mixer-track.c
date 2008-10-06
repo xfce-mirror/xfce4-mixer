@@ -29,10 +29,10 @@
 #include <gst/gst.h>
 #include <gst/interfaces/mixer.h>
 
+#include "libxfce4mixer/libxfce4mixer.h"
 #include "libxfce4mixer/xfce-mixer-stock.h"
-#include "xfce-mixer-track.h"
 #include "libxfce4mixer/xfce-mixer-track-type.h"
-#include "libxfce4mixer/xfce-mixer-card.h"
+#include "xfce-mixer-track.h"
 
 
 
@@ -71,8 +71,7 @@ struct _XfceMixerTrack
 
   GList         *channel_faders;
 
-  XfceMixerCard *card;
-
+  GstElement    *card;
   GstMixerTrack *gst_track;
 
   gboolean       ignore_signals;
@@ -155,27 +154,23 @@ xfce_mixer_track_finalize (GObject *object)
 {
   XfceMixerTrack *track = XFCE_MIXER_TRACK (object);
 
-  g_object_unref (G_OBJECT (track->card));
-
-  gst_object_unref (track->gst_track);
-
   (*G_OBJECT_CLASS (xfce_mixer_track_parent_class)->finalize) (object);
 }
 
 
 
 GtkWidget*
-xfce_mixer_track_new (XfceMixerCard *card,
+xfce_mixer_track_new (GstElement    *card,
                       GstMixerTrack *gst_track)
 {
   XfceMixerTrack *track;
 
-  g_return_val_if_fail (IS_XFCE_MIXER_CARD (card), NULL);
+  g_return_val_if_fail (GST_IS_MIXER (card), NULL);
   g_return_val_if_fail (GST_IS_MIXER_TRACK (gst_track), NULL);
   
   track = g_object_new (TYPE_XFCE_MIXER_TRACK, NULL);
-  track->card = XFCE_MIXER_CARD (g_object_ref (card));
-  track->gst_track = gst_object_ref (gst_track);
+  track->card = card;
+  track->gst_track = gst_track;
 
   xfce_mixer_track_create_contents (track);
 
@@ -201,7 +196,7 @@ xfce_mixer_track_create_contents (XfceMixerTrack *track)
 
   /* Get volumes of all channels of the track */
   volumes = g_new (gint, track->gst_track->num_channels);
-  xfce_mixer_card_get_track_volume (track->card, track->gst_track, volumes);
+  gst_mixer_get_volume (GST_MIXER (track->card), track->gst_track, volumes);
 
   /* Put some space between channel faders */
   gtk_table_set_col_spacings (GTK_TABLE (track), 6);
@@ -310,7 +305,7 @@ xfce_mixer_track_fader_changed (GtkRange       *range,
     }
 
   /* Deliver the volume update to GStreamer */
-  xfce_mixer_card_set_track_volume (track->card, track->gst_track, volumes);
+  gst_mixer_set_volume (GST_MIXER (track->card), track->gst_track, volumes);
 
   /* Free volume array */
   g_free (volumes);
@@ -331,12 +326,12 @@ xfce_mixer_track_mute_toggled (GtkToggleButton *button,
   if (gtk_toggle_button_get_active (button))
     {
       stock = XFCE_MIXER_STOCK_MUTED;
-      xfce_mixer_card_set_track_muted (track->card, track->gst_track, TRUE);
+      gst_mixer_set_mute (GST_MIXER (track->card), track->gst_track, TRUE);
     }
   else
     {
       stock = XFCE_MIXER_STOCK_NO_MUTED;
-      xfce_mixer_card_set_track_muted (track->card, track->gst_track, FALSE);
+      gst_mixer_set_mute (GST_MIXER (track->card), track->gst_track, FALSE);
     }
 
   image = gtk_image_new_from_stock (stock, XFCE_MIXER_ICON_SIZE);
@@ -396,7 +391,7 @@ xfce_mixer_track_lock_toggled (GtkToggleButton *button,
     }
 
   /* Deliver the volume update to GStreamer */
-  xfce_mixer_card_set_track_volume (track->card, track->gst_track, volumes);
+  gst_mixer_set_volume (GST_MIXER (track->card), track->gst_track, volumes);
 
   /* Free the volume array */
   g_free (volumes);
@@ -417,12 +412,12 @@ xfce_mixer_track_record_toggled (GtkToggleButton *button,
   if (gtk_toggle_button_get_active (button))
     {
       stock = XFCE_MIXER_STOCK_RECORD;
-      xfce_mixer_card_set_track_record (track->card, track->gst_track, TRUE);
+      gst_mixer_set_record (GST_MIXER (track->card), track->gst_track, TRUE);
     }
   else
     {
       stock = XFCE_MIXER_STOCK_NO_RECORD;
-      xfce_mixer_card_set_track_record (track->card, track->gst_track, FALSE);
+      gst_mixer_set_record (GST_MIXER (track->card), track->gst_track, FALSE);
     }
 
   image = gtk_image_new_from_stock (stock, XFCE_MIXER_ICON_SIZE);
@@ -467,7 +462,7 @@ xfce_mixer_track_update_volume (XfceMixerTrack *track)
   g_return_if_fail (IS_XFCE_MIXER_TRACK (track));
 
   volumes = g_new0 (gint, track->gst_track->num_channels);
-  xfce_mixer_card_get_track_volume (track->card, track->gst_track, volumes);
+  gst_mixer_get_volume (GST_MIXER (track->card), track->gst_track, volumes);
 
   track->ignore_signals = TRUE;
 

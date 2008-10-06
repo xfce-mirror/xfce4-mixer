@@ -29,8 +29,9 @@
 #include <gst/gst.h>
 #include <gst/interfaces/mixer.h>
 
-#include "xfce-mixer.h"
 #include "libxfce4mixer/xfce-mixer-track-type.h"
+#include "libxfce4mixer/xfce-mixer-preferences.h"
+#include "xfce-mixer.h"
 #include "xfce-mixer-track.h"
 #include "xfce-mixer-switch.h"
 #include "xfce-mixer-option.h"
@@ -58,7 +59,7 @@ static void xfce_mixer_set_property    (GObject        *object,
                                         const GValue   *value,
                                         GParamSpec     *pspec);
 #ifdef HAVE_GST_MIXER_NOTIFICATION
-static void xfce_mixer_track_changed   (XfceMixerCard  *card,
+static void xfce_mixer_bus_message     (GstBus         *bus,
                                         GstMessage     *message,
                                         XfceMixer      *mixer);
 #endif
@@ -74,9 +75,11 @@ struct _XfceMixer
 {
   GtkNotebook __parent__;
 
-  XfceMixerCard *card;
+  GstElement *card;
 
-  GHashTable    *widgets;
+  GHashTable *widgets;
+
+  guint       message_handler_id;
 };
 
 
@@ -133,7 +136,7 @@ xfce_mixer_class_init (XfceMixerClass *klass)
                                    g_param_spec_object ("card",
                                                         "card",
                                                         "card",
-                                                        TYPE_XFCE_MIXER_CARD,
+                                                        GST_TYPE_ELEMENT,
                                                         G_PARAM_CONSTRUCT_ONLY | 
                                                         G_PARAM_READWRITE));
 }
@@ -144,6 +147,7 @@ static void
 xfce_mixer_init (XfceMixer *mixer)
 {
   mixer->widgets = g_hash_table_new_full (g_str_hash, g_str_equal, NULL, NULL);
+  mixer->message_handler_id = 0;
 }
 
 
@@ -151,21 +155,24 @@ xfce_mixer_init (XfceMixer *mixer)
 static void
 xfce_mixer_constructed (GObject *object)
 {
-  XfceMixer         *mixer = XFCE_MIXER (object);
-  XfceMixerTrackType type;
-  GstMixerTrack     *track;
-  const GList       *iter;
-  const gchar       *titles[4] = { _("Playback"), _("Capture"), _("Switches"), _("Options") };
-  GtkWidget         *track_widget;
-  GtkWidget         *labels[4];
-  GtkWidget         *scrollwins[4];
-  GtkWidget         *views[4];
-  GtkWidget         *last_separator[4] = { NULL, NULL, NULL, NULL };
-  GtkWidget         *label1;
-  GtkWidget         *label2;
-  GList             *visible_controls;
-  guint              num_children[4] = { 0, 0, 0, 0 };
-  gint               i;
+  XfceMixer            *mixer = XFCE_MIXER (object);
+  XfceMixerPreferences *preferences;
+  XfceMixerTrackType    type;
+  GstMixerTrack        *track;
+  const GList          *iter;
+  const gchar          *titles[4] = { _("Playback"), _("Capture"), _("Switches"), _("Options") };
+  GtkWidget            *track_widget;
+  GtkWidget            *labels[4];
+  GtkWidget            *scrollwins[4];
+  GtkWidget            *views[4];
+  GtkWidget            *last_separator[4] = { NULL, NULL, NULL, NULL };
+  GtkWidget            *label1;
+  GtkWidget            *label2;
+  GList                *visible_controls;
+  guint                 num_children[4] = { 0, 0, 0, 0 };
+  gint                  i;
+
+  preferences = xfce_mixer_preferences_get ();
 
   /* Create widgets for all four tabs */
   for (i = 0; i < 4; ++i)
@@ -192,11 +199,11 @@ xfce_mixer_constructed (GObject *object)
     }
 
   /* Create controls for all mixer tracks */
-  for (iter = xfce_mixer_card_get_tracks (mixer->card); iter != NULL; iter = g_list_next (iter))
+  for (iter = gst_mixer_list_tracks (GST_MIXER (mixer->card)); iter != NULL; iter = g_list_next (iter))
     {
       track = iter->data;
 
-      if (!xfce_mixer_card_control_is_visible (mixer->card, track->label))
+      if (!xfce_mixer_preferences_get_control_visible (preferences, mixer->card, track))
         continue;
 
       /* Determine the type of the mixer track */
@@ -299,7 +306,11 @@ xfce_mixer_constructed (GObject *object)
       gtk_notebook_append_page (GTK_NOTEBOOK (mixer), label2, label1);
     }
 
-  g_signal_connect (mixer->card, "track-changed", G_CALLBACK (xfce_mixer_track_changed), mixer);
+#ifdef HAVE_GST_MIXER_NOTIFICATION
+  mixer->message_handler_id = xfce_mixer_bus_connect (G_CALLBACK (xfce_mixer_bus_message), mixer);
+#endif
+
+  g_object_unref (preferences);
 }
 
 
@@ -308,6 +319,8 @@ static void
 xfce_mixer_finalize (GObject *object)
 {
   XfceMixer *mixer = XFCE_MIXER (object);
+
+  xfce_mixer_bus_disconnect (mixer->message_handler_id);
 
   g_object_unref (mixer->card);
   g_hash_table_unref (mixer->widgets);
@@ -360,24 +373,19 @@ xfce_mixer_set_property (GObject      *object,
 
 
 GtkWidget *
-xfce_mixer_new (XfceMixerCard *card)
+xfce_mixer_new (GstElement *card)
 {
-  XfceMixer *mixer;
-
-  g_return_val_if_fail (IS_XFCE_MIXER_CARD (card), NULL);
-  
-  mixer = g_object_new (TYPE_XFCE_MIXER, "card", card, NULL);
-
-  return GTK_WIDGET (mixer);
+  g_return_val_if_fail (GST_IS_MIXER (card), NULL);
+  return g_object_new (TYPE_XFCE_MIXER, "card", card, NULL);
 }
 
 
 
 #ifdef HAVE_GST_MIXER_NOTIFICATION
 static void
-xfce_mixer_track_changed (XfceMixerCard *card,
-                          GstMessage    *message,
-                          XfceMixer     *mixer)
+xfce_mixer_bus_message (GstBus *bus,
+                        GstMessage *message,
+                        XfceMixer  *mixer)
 {
   GstMixerMessageType type;
   GstMixerOptions    *options = NULL;
@@ -391,14 +399,15 @@ xfce_mixer_track_changed (XfceMixerCard *card,
 
   g_return_if_fail (IS_XFCE_MIXER (mixer));
 
-  g_debug ("Message from card received: %s", GST_MESSAGE_TYPE_NAME (message));
+  if (G_UNLIKELY (GST_MESSAGE_SRC (message) != GST_OBJECT (mixer->card)))
+    return;
 
   type = gst_mixer_message_get_type (message);
 
   if (type == GST_MIXER_MESSAGE_MUTE_TOGGLED)
     {
       gst_mixer_message_parse_mute_toggled (message, &track, &muted);
-      g_debug ("Track '%s' was %s", track->label, muted ? "muted" : "unmuted");
+      DBG ("Track '%s' was %s", track->label, muted ? "muted" : "unmuted");
   
       widget = g_hash_table_lookup (mixer->widgets, track->label);
 
@@ -410,7 +419,7 @@ xfce_mixer_track_changed (XfceMixerCard *card,
   else if (type == GST_MIXER_MESSAGE_RECORD_TOGGLED)
     {
       gst_mixer_message_parse_record_toggled (message, &track, &record);
-      g_debug ("Recording on track '%s' was %s", track->label, record ? "turned on" : "turned off");
+      DBG ("Recording on track '%s' was %s", track->label, record ? "turned on" : "turned off");
 
       widget = g_hash_table_lookup (mixer->widgets, track->label);
 
@@ -422,7 +431,7 @@ xfce_mixer_track_changed (XfceMixerCard *card,
   else if (type == GST_MIXER_MESSAGE_VOLUME_CHANGED)
     {
       gst_mixer_message_parse_volume_changed (message, &track, &volumes, &num_channels);
-      g_debug ("Volume on track '%s' changed to %i", track->label, volumes[0]);
+      DBG ("Volume on track '%s' changed to %i", track->label, volumes[0]);
 
       widget = g_hash_table_lookup (mixer->widgets, track->label);
 
@@ -432,7 +441,7 @@ xfce_mixer_track_changed (XfceMixerCard *card,
   else if (type == GST_MIXER_MESSAGE_OPTION_CHANGED)
     {
       gst_mixer_message_parse_option_changed (message, &options, &option);
-      g_debug ("Option '%s' was set to '%s'", GST_MIXER_TRACK (options)->label, option);
+      DBG ("Option '%s' was set to '%s'", GST_MIXER_TRACK (options)->label, option);
 
       widget = g_hash_table_lookup (mixer->widgets, GST_MIXER_TRACK (options)->label);
 

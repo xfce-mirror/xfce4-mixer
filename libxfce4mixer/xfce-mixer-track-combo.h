@@ -23,7 +23,8 @@
 
 #include <gtk/gtk.h>
 
-#include "xfce-mixer-card.h"
+#include <gst/gst.h>
+#include <gst/interfaces/mixer.h>
 
 G_BEGIN_DECLS;
 
@@ -39,13 +40,11 @@ typedef struct _XfceMixerTrackCombo      XfceMixerTrackCombo;
 
 GType          xfce_mixer_track_combo_get_type         (void) G_GNUC_CONST;
 
-GtkWidget     *xfce_mixer_track_combo_new              (XfceMixerCard       *card,
-                                                        const gchar         *track_name);
+GtkWidget     *xfce_mixer_track_combo_new              (GstElement          *card,
+                                                        GstMixerTrack       *track);
 
 void           xfce_mixer_track_combo_set_soundcard    (XfceMixerTrackCombo *combo,
-                                                        XfceMixerCard       *card);
-void           xfce_mixer_track_combo_set_track        (XfceMixerTrackCombo *combo,
-                                                        const gchar         *track_name);
+                                                        GstElement          *card);
 GstMixerTrack *xfce_mixer_track_combo_get_active_track (XfceMixerTrackCombo *combo);
 
 G_END_DECLS;

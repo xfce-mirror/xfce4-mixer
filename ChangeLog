@@ -1,3 +1,18 @@
+2008-10-06	Jannis Pohlmann <jannis@xfce.org>
+
+	* libxfce4mixer/, panel-plugin/, xfce4-mixer/: Remove XfceMixerCard
+	  entirely and use GstMixer directly instead. Add methods 
+	  xfce_mixer_init() and xfce_mixer_shutdown() to libxfce4mixer. Only 
+	  determine the list of sound cards once inside xfce_mixer_init(). 
+	  Move code from xfce-mixer-utilities.{c,h} to libxfce4mixer.{c,h}. 
+	  Use a single GstBus for all sound cards. Add new methods 
+	  xfce_mixer_bus_connect() and xfce_mixer_bus_disconnect(). Move 
+	  methods from XfceMixerCard to libxfce4menu.{c,h} and 
+	  xfce-mixer-preferences.{c,h}. Update all the other classes so that
+	  they work with the new code.
+	* po/xfce4-mixer.pot, po/*.po, po/POTFILES.in: Update POTFILES.in and
+	  the po files (no new strings have been added though).
+
 2008-10-05	Jannis Pohlmann <jannis@xfce.org>
 
 	* configure.in.in: Depend on the latest version of xfconf.

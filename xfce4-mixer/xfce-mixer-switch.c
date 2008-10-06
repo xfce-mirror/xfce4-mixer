@@ -29,8 +29,8 @@
 #include <gst/gst.h>
 #include <gst/interfaces/mixer.h>
 
+#include "libxfce4mixer/libxfce4mixer.h"
 #include "xfce-mixer-switch.h"
-#include "libxfce4mixer/xfce-mixer-card.h"
 
 
 
@@ -53,8 +53,7 @@ struct _XfceMixerSwitch
 {
   GtkHBox __parent__;
 
-  XfceMixerCard *card;
-
+  GstElement    *card;
   GstMixerTrack *track;
 
   GtkWidget     *check_button;
@@ -133,26 +132,23 @@ xfce_mixer_switch_finalize (GObject *object)
 {
   XfceMixerSwitch *mixer_switch = XFCE_MIXER_SWITCH (object);
 
-  g_object_unref (G_OBJECT (mixer_switch->card));
-  gst_object_unref (mixer_switch->track);
-
   (*G_OBJECT_CLASS (xfce_mixer_switch_parent_class)->finalize) (object);
 }
 
 
 
 GtkWidget*
-xfce_mixer_switch_new (XfceMixerCard *card,
+xfce_mixer_switch_new (GstElement    *card,
                        GstMixerTrack *track)
 {
   XfceMixerSwitch *mixer_switch;
 
-  g_return_val_if_fail (IS_XFCE_MIXER_CARD (card), NULL);
+  g_return_val_if_fail (GST_IS_MIXER (card), NULL);
   g_return_val_if_fail (GST_IS_MIXER_TRACK (track), NULL);
   
   mixer_switch = g_object_new (TYPE_XFCE_MIXER_SWITCH, NULL);
-  mixer_switch->card = XFCE_MIXER_CARD (g_object_ref (card));
-  mixer_switch->track = gst_object_ref (track);
+  mixer_switch->card = card;
+  mixer_switch->track = track;
 
   xfce_mixer_switch_create_contents (mixer_switch);
 
@@ -186,9 +182,9 @@ xfce_mixer_switch_toggled (GtkToggleButton *button,
     return;
 
   if (G_LIKELY (GST_MIXER_TRACK_HAS_FLAG (mixer_switch->track, GST_MIXER_TRACK_INPUT)))
-    xfce_mixer_card_set_track_record (mixer_switch->card, mixer_switch->track, gtk_toggle_button_get_active (button));
+    gst_mixer_set_record (GST_MIXER (mixer_switch->card), mixer_switch->track, gtk_toggle_button_get_active (button));
   else
-    xfce_mixer_card_set_track_muted (mixer_switch->card, mixer_switch->track, !gtk_toggle_button_get_active (button));
+    gst_mixer_set_mute (GST_MIXER (mixer_switch->card), mixer_switch->track, !gtk_toggle_button_get_active (button));
 }
 
 

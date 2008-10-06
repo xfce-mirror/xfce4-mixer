@@ -29,10 +29,9 @@
 
 #include <libxfcegui4/libxfcegui4.h>
 
-#include "libxfce4mixer/xfce-mixer-card.h"
+#include "libxfce4mixer/libxfce4mixer.h"
 #include "libxfce4mixer/xfce-mixer-card-combo.h"
 #include "libxfce4mixer/xfce-mixer-track-combo.h"
-#include "libxfce4mixer/xfce-mixer-utilities.h"
 #include "libxfce4mixer/xfce-mixer-track-type.h"
 
 #include "xfce-plugin-dialog.h"
@@ -44,14 +43,14 @@ static void xfce_plugin_dialog_init                   (XfcePluginDialog      *di
 static void xfce_plugin_dialog_dispose                (GObject               *object);
 static void xfce_plugin_dialog_finalize               (GObject               *object);
 static void xfce_plugin_dialog_create_contents        (XfcePluginDialog      *dialog,
-                                                       const gchar           *card_name,
-                                                       const gchar           *track_name,
+                                                       GstElement            *card_name,
+                                                       GstMixerTrack         *track_name,
                                                        const gchar           *command);
 static void xfce_plugin_dialog_soundcard_changed      (XfceMixerCardCombo    *combo,
-                                                       XfceMixerCard         *card,
+                                                       GstElement            *card,
                                                        XfcePluginDialog      *dialog);
 static void xfce_plugin_dialog_update_tracks          (XfcePluginDialog      *dialog,
-                                                       XfceMixerCard         *card);
+                                                       GstElement            *card);
 static void xfce_plugin_dialog_track_changed          (XfceMixerTrackCombo   *combo,
                                                        GstMixerTrack         *track,
                                                        XfcePluginDialog      *dialog);
@@ -150,15 +149,15 @@ xfce_plugin_dialog_finalize (GObject *object)
 
 
 GtkWidget*
-xfce_plugin_dialog_new (const gchar *card_name,
-                        const gchar *track_name,
-                        const gchar *command)
+xfce_plugin_dialog_new (GstElement    *active_card,
+                        GstMixerTrack *active_track,
+                        const gchar   *command)
 {
   XfcePluginDialog *dialog;
   
   dialog = XFCE_PLUGIN_DIALOG (g_object_new (TYPE_XFCE_PLUGIN_DIALOG, NULL));
 
-  xfce_plugin_dialog_create_contents (dialog, card_name, track_name, command);
+  xfce_plugin_dialog_create_contents (dialog, active_card, active_track, command);
 
   return GTK_WIDGET (dialog);
 }
@@ -167,8 +166,8 @@ xfce_plugin_dialog_new (const gchar *card_name,
 
 static void 
 xfce_plugin_dialog_soundcard_changed (XfceMixerCardCombo *combo,
-                                      XfceMixerCard      *card,
-                                      XfcePluginDialog *dialog)
+                                      GstElement         *card,
+                                      XfcePluginDialog   *dialog)
 {
   xfce_plugin_dialog_update_tracks (dialog, card);
 }
@@ -177,7 +176,7 @@ xfce_plugin_dialog_soundcard_changed (XfceMixerCardCombo *combo,
 
 static void 
 xfce_plugin_dialog_update_tracks (XfcePluginDialog *dialog,
-                                  XfceMixerCard    *card)
+                                  GstElement       *card)
 {
   xfce_mixer_track_combo_set_soundcard (XFCE_MIXER_TRACK_COMBO (dialog->track_combo), card);
 }
@@ -186,19 +185,19 @@ xfce_plugin_dialog_update_tracks (XfcePluginDialog *dialog,
 
 void
 xfce_plugin_dialog_get_data (XfcePluginDialog *dialog,
-                             XfceMixerCard   **card,
+                             GstElement      **card,
                              GstMixerTrack   **track,
                              gchar           **command)
 {
-  XfceMixerCard *active_card;
+  GstElement    *active_card;
   GstMixerTrack *active_track;
 
   g_return_if_fail (IS_XFCE_PLUGIN_DIALOG (dialog));
 
   active_card = xfce_mixer_card_combo_get_active_card (XFCE_MIXER_CARD_COMBO (dialog->card_combo));
 
-  if (G_LIKELY (IS_XFCE_MIXER_CARD (active_card)))
-    *card = XFCE_MIXER_CARD (g_object_ref (G_OBJECT (active_card)));
+  if (G_LIKELY (GST_IS_MIXER (active_card)))
+    *card = active_card;
 
   active_track = xfce_mixer_track_combo_get_active_track (XFCE_MIXER_TRACK_COMBO (dialog->track_combo));
 
@@ -215,26 +214,24 @@ xfce_plugin_dialog_track_changed (XfceMixerTrackCombo *combo,
                                   GstMixerTrack       *track,
                                   XfcePluginDialog    *dialog)
 {
-  g_debug ("track changed to: %s", GST_MIXER_TRACK (track)->label);
 }
 
 
 
 static void
 xfce_plugin_dialog_create_contents (XfcePluginDialog *dialog,
-                                    const gchar      *card_name,
-                                    const gchar      *track_name,
+                                    GstElement       *active_card,
+                                    GstMixerTrack    *active_track,
                                     const gchar      *command)
 {
-  XfceMixerCard   *card = NULL;
-  GtkWidget       *alignment;
-  GtkWidget       *vbox;
-  GtkWidget       *hbox;
-  GtkWidget       *button;
-  GtkWidget       *label;
-  GtkWidget       *card_frame;
-  GtkWidget       *track_frame;
-  gchar           *title;
+  GtkWidget  *alignment;
+  GtkWidget  *vbox;
+  GtkWidget  *hbox;
+  GtkWidget  *button;
+  GtkWidget  *label;
+  GtkWidget  *card_frame;
+  GtkWidget  *track_frame;
+  gchar      *title;
 
   gtk_window_set_icon_name (GTK_WINDOW (dialog), "multimedia-volume-control");
   gtk_window_set_title (GTK_WINDOW (dialog), _("Mixer Plugin"));
@@ -263,7 +260,7 @@ xfce_plugin_dialog_create_contents (XfcePluginDialog *dialog,
   gtk_box_pack_start (GTK_BOX (vbox), alignment, FALSE, TRUE, 0);
   gtk_widget_show (alignment);
 
-  dialog->card_combo = xfce_mixer_card_combo_new (card_name);
+  dialog->card_combo = xfce_mixer_card_combo_new (active_card);
   g_signal_connect (G_OBJECT (dialog->card_combo), "soundcard-changed", G_CALLBACK (xfce_plugin_dialog_soundcard_changed), dialog);
   gtk_container_add (GTK_CONTAINER (alignment), dialog->card_combo);
   gtk_widget_show (dialog->card_combo);
@@ -281,9 +278,7 @@ xfce_plugin_dialog_create_contents (XfcePluginDialog *dialog,
   gtk_box_pack_start (GTK_BOX (vbox), alignment, FALSE, TRUE, 0);
   gtk_widget_show (alignment);
 
-  card = card_name == NULL ? NULL : xfce_mixer_utilities_get_card_by_name (card_name);
-
-  dialog->track_combo = xfce_mixer_track_combo_new (card, track_name);
+  dialog->track_combo = xfce_mixer_track_combo_new (active_card, active_track);
   g_signal_connect (G_OBJECT (dialog->track_combo), "track-changed", G_CALLBACK (xfce_plugin_dialog_track_changed), dialog);
   gtk_container_add (GTK_CONTAINER (alignment), dialog->track_combo);
   gtk_widget_show (dialog->track_combo);

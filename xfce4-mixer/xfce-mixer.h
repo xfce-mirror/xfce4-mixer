@@ -23,9 +23,7 @@
 #define __XFCE_MIXER_H__
 
 #include <gtk/gtk.h>
-#include <gst/interfaces/mixer.h>
-
-#include "libxfce4mixer/xfce-mixer-card.h"
+#include <gst/gst.h>
 
 G_BEGIN_DECLS;
 
@@ -41,7 +39,7 @@ typedef struct _XfceMixer      XfceMixer;
 
 GType      xfce_mixer_get_type (void) G_GNUC_CONST;
 
-GtkWidget *xfce_mixer_new      (XfceMixerCard *card);
+GtkWidget *xfce_mixer_new      (GstElement *card);
 
 G_END_DECLS;
 
