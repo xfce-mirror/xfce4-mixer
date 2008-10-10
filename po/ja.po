@@ -1,99 +1,98 @@
-# French translation for the xfce-mixer package
+# Japanese translation for the xfce-mixer package
 # Copyright (C) 2008 Jannis Pohlmann <jannis@xfce.org>.
 # This file is distributed under the same license as the xfce package.
-# Mike Massonnet <mmassonnet@gmail.com>, 2008.
-# Maximilian Schleiss <maximilian@xfce.org>, 2008.
-#
+# Nobuhiro Iwamatsu <iwamatsu@nigauri.org>, 2008.
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-10-06 15:29+0200\n"
-"PO-Revision-Date: 2008-10-07 22:18+0100\n"
-"Last-Translator: Maximilian Schleiss <maximilian@xfce.org>\n"
-"Language-Team: French <i18n-xfce@xfce.org>\n"
+"PO-Revision-Date: 2008-10-10 00:06+0900\n"
+"Last-Translator: Nobuhiro Iwamatsu <iwamatsu@nigauri.org>\n"
+"Language-Team: xfce-i18n@xfce.org <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-Language: Japanese\n"
+"X-Poedit-Country: JAPAN\n"
 
 #. Set tooltip (e.g. 'Master: 50%')
 #: ../panel-plugin/xfce-mixer-plugin.c:276
 #: ../panel-plugin/xfce-mixer-plugin.c:550
 #, c-format
 msgid "%s: %i%%"
-msgstr "%s : %i%%"
+msgstr "%s: %i%%"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:351
 msgid "No left-click command defined"
-msgstr "Pas de commande définie pour clic-gauche"
+msgstr "左クリック時のコマンドが設定されていません"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:354
 msgid "No left-click command defined yet. You can change this in the plugin properties."
-msgstr "Pas de commande définie pour clic-gauche. Vous pouvez le faire dans les propriétés du greffon."
+msgstr "まだ左クリック時のコマンドが設定されていません。プラグインの設定で変更することができます。"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:355
 msgid "Properties"
-msgstr "Propriétés"
+msgstr "設定"
 
 #. Generate error message and insert the current command
 #: ../panel-plugin/xfce-mixer-plugin.c:370
 #, c-format
 msgid "Could not execute the command %s. Perhaps you need to adjust the PATH variable."
-msgstr "La commande %s n'a pas pu être exécutée. La variable du PATH doit éventuellement être ajustée."
+msgstr "コマンド %s を実行できませんでした。たぶん PATH 環境変数を調整する必要があります。"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:400
 #: ../xfce4-mixer/main.c:118
 msgid "GStreamer was unable to detect any sound cards on your system. You might be missing sound system specific GStreamer packages. It might as well be a permission problem."
-msgstr "GStreamer n'a pas détecté de carte son dans votre système. Certains paquets de GStreamer peuvent être manquants ou un simple problème de permissions peivent en être la cause."
+msgstr "GStreamer はシステム上で一つもサウンドカードを検出できませんでした。サウンドシステム用の GStreamer パッケージがないかもしれません。また、パーミッション問題の可能性もあります。"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:237
 msgid "Mixer Plugin"
-msgstr "Greffon mixer"
+msgstr "ミキサープラグイン"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:239
 msgid "Please select which mixer track should be used by the plugin"
-msgstr "Veuillez sélectionner quel piste du mixer doivent être utilisée par le greffon"
+msgstr "どのミキサートラックがプラグインによって使用されるべきか選択してください"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:251
 msgid "Sound card"
-msgstr "Carte son"
+msgstr "サウンドカード"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:269
 msgid "Mixer track"
-msgstr "Piste mixer"
+msgstr "ミキサートラック"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:287
 msgid "Left-click command"
-msgstr "Commande clic-gauche"
+msgstr "左クリック時のコマンド"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:325
 msgid "Select command"
-msgstr "Sélectionnez une commande"
+msgstr "コマンドを選択"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:333
 msgid "All Files"
-msgstr "Tous les fichiers"
+msgstr "すべてのファイル"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:338
 msgid "Executable Files"
-msgstr "Fichiers exécutables"
+msgstr "実行可能なファイル"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:353
 msgid "Perl Scripts"
-msgstr "Scripts Perl"
+msgstr "Perl スクリプト"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:359
 msgid "Python Scripts"
-msgstr "Scripts Python"
+msgstr "Python スクリプト"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:365
 msgid "Ruby Scripts"
-msgstr "Scripts Ruby"
+msgstr "Ruby スクリプト"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:371
 msgid "Shell Scripts"
-msgstr "Scripts Shell"
+msgstr "シェルスクリプト"
 
 #. Set application name
 #: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:1
@@ -103,91 +102,79 @@ msgstr "Scripts Shell"
 #: ../xfce4-mixer/xfce-mixer-window.c:287
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
 msgid "Mixer"
-msgstr "Mixer"
+msgstr "ミキサー"
 
 #: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:2
 msgid "Volume control for your sound card"
-msgstr "Contrôle du volume pour votre carte son"
+msgstr "サウンドカード向けボリュームコントロール"
 
 #: ../libxfce4mixer/libxfce4mixer.c:237
 #, c-format
 msgid "Unknown Volume Control %d"
-msgstr "Périphérique inconnu %d"
+msgstr "不明なボリュームコントロール %d"
 
 #: ../xfce4-mixer/main.c:92
 #, c-format
 msgid "Failed to initialize xfconf: %s"
-msgstr "Échec à l'initialisation de xfconf : %s"
+msgstr "xfconf の初期化の失敗しました: %s"
 
 #: ../xfce4-mixer/xfce-mixer.c:163
 msgid "Playback"
-msgstr "Contrôles"
+msgstr "再生"
 
 #: ../xfce4-mixer/xfce-mixer.c:163
 msgid "Capture"
-msgstr "Captures"
+msgstr "録音"
 
 #: ../xfce4-mixer/xfce-mixer.c:163
 msgid "Switches"
-msgstr "Interrupteurs"
+msgstr "スイッチ"
 
 #: ../xfce4-mixer/xfce-mixer.c:163
 msgid "Options"
-msgstr "Options"
+msgstr "オプション"
 
 #: ../xfce4-mixer/xfce-mixer.c:298
 msgid "No Controls Visible"
-msgstr "Aucun contrôle visible"
+msgstr "可視コントロールがありません"
 
 #: ../xfce4-mixer/xfce-mixer.c:302
 msgid "No controls are marked as visible. Please open the <span size='large'><b>Select Controls</b></span> dialog to select some."
-msgstr "Aucun contrôle n'est marqué en tant que visible.  Cliquez sur le bouton <span size='large'><b>Contrôles</b></span> afin d'en ajouter."
+msgstr "可視としてマークされたコントロールがありません。<span size='large'><b>コントロールを選択</b></span> ダイアログを開いて、いくつか選択してください。"
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:135
 msgid "Select Controls"
-msgstr "Sélection des contrôles"
+msgstr "コントロールの選択"
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:137
 msgid "Please select which controls you want to be visible"
-msgstr "Veuillez sélectionner les contrôles que vous désirez voir"
+msgstr "可視させたいコントロールを選択してください"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:87
 msgid "_Quit"
-msgstr "_Quitter"
+msgstr "終了(_Q)"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:87
 msgid "Exit the mixer"
-msgstr "Quitter le mixer"
+msgstr "ミキサーを終了"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:89
 msgid "_Select Controls..."
-msgstr "_Contrôles"
+msgstr "コントロールを選択...(_S)"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:89
 msgid "Select which controls are displayed"
-msgstr "Sélectionner les contrôles visibles"
+msgstr "表示されるコントロールを選択する"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:187
 msgid "Configure your sound card(s) and control the volume of selected tracks"
-msgstr "Configurez votre ou vos cartes son et contrôlez le volume des pistes sélectionnées"
+msgstr "サウンドカードを設定し、選択されたトラックのボリュームをコントロールします"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:202
 msgid "Sound card:"
-msgstr "Carte son :"
+msgstr "サウンドカード:"
 
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:1
 msgid "Audio mixer for the Xfce Desktop Environment"
-msgstr "Mixer audio pour l'environnement Xfce"
-
-#~ msgid "A comfortable audio mixer for your sound card."
-#~ msgstr "Un confortable mixer audio pour votre carte son"
-#~ msgid "Xfce Mixer"
-#~ msgstr "Mixer Xfce"
-#~ msgid ""
-#~ "No sound cards could be found. You may have to install additional "
-#~ "gstreamer packages for ALSA or OSS support."
-#~ msgstr ""
-#~ "Aucune carte son n'a pu être trouvé. Vous avez peut-être besoin "
-#~ "d'installer des paquets gstreamer supplémentaires pour le support de ALSA "
-#~ "ou OSS."
+msgstr "Xfce デスクトップ環境向けオーディオミキサー"
 
