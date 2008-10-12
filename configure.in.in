@@ -8,10 +8,10 @@ dnl *** Version information ***
 dnl ***************************
 m4_define([xfce4_mixer_version_major], [4])
 m4_define([xfce4_mixer_version_minor], [5])
-m4_define([xfce4_mixer_version_micro], [90])
+m4_define([xfce4_mixer_version_micro], [91])
 m4_define([xfce4_mixer_version_nano],  []) dnl leave this empty to have no nano version
 m4_define([xfce4_mixer_version_build], [r@REVISION@])
-m4_define([xfce4_mixer_version_tag],   [svn])
+m4_define([xfce4_mixer_version_tag],   [])
 m4_define([xfce4_mixer_version], [xfce4_mixer_version_major().xfce4_mixer_version_minor().xfce4_mixer_version_micro()ifelse(xfce4_mixer_version_nano(), [], [], [.xfce4_mixer_version_nano()])ifelse(xfce4_mixer_version_tag(), [svn], [xfce4_mixer_version_tag()-xfce4_mixer_version_build()], [xfce4_mixer_version_tag()])])
 
 dnl *******************************************
@@ -79,7 +79,7 @@ XDT_CHECK_PACKAGE([GTK], [gtk+-2.0], [2.10.0])
 XDT_CHECK_PACKAGE([LIBXFCE4UTIL], [libxfce4util-1.0], [4.5.90])
 XDT_CHECK_PACKAGE([LIBXFCEGUI4], [libxfcegui4-1.0], [4.5.90])
 XDT_CHECK_PACKAGE([LIBXFCE4PANEL], [libxfce4panel-1.0], [4.5.90])
-XDT_CHECK_PACKAGE([XFCONF], [libxfconf-0], [4.5.90svn-r28042])
+XDT_CHECK_PACKAGE([XFCONF], [libxfconf-0], [4.5.90])
 
 dnl **************************************
 dnl *** Check for GstMixer bus support ***
