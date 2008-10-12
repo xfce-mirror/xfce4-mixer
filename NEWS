@@ -7,12 +7,11 @@
   and 15%.
 - Panel plugin now refreshes properly after using the plugin properties
   dialog (fixes bug #4370).
-- Translation updates: 
-    Brazilian Portuguese (Fábio Nogueira), 
-    Czech (Michal Várady),
-    German (Jannis Pohlmann),
-    Indonesian (Andhika Padmawan),
-    Spanish (Abel Martín).
+- Improve .desktop file: add the mixer to the "Audio" and "X-XFCE"
+  categories, and add StartupNotify=true and Terminal=false.
+- Add DEBUG define to make the DBG macro work.
+- Translation updates: Brazilian Portuguese, Czech, Finnish, French, 
+  German, Hungarian, Indonesian, Japanese, Sinhalese, Spanish.
 
 4.5.90
 ======
