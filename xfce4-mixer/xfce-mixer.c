@@ -126,7 +126,9 @@ xfce_mixer_class_init (XfceMixerClass *klass)
   xfce_mixer_parent_class = g_type_class_peek_parent (klass);
 
   gobject_class = G_OBJECT_CLASS (klass);
+#if GLIB_CHECK_VERSION (2,14,0)
   gobject_class->constructed = xfce_mixer_constructed;
+#endif
   gobject_class->finalize = xfce_mixer_finalize;
   gobject_class->get_property = xfce_mixer_get_property;
   gobject_class->set_property = xfce_mixer_set_property;
@@ -375,7 +377,11 @@ GtkWidget *
 xfce_mixer_new (GstElement *card)
 {
   g_return_val_if_fail (GST_IS_MIXER (card), NULL);
-  return g_object_new (TYPE_XFCE_MIXER, "card", card, NULL);
+  GObject *object = g_object_new (TYPE_XFCE_MIXER, "card", card, NULL);
+#if !GLIB_CHECK_VERSION (2,14,0)
+  xfce_mixer_constructed (object);
+#endif
+  return GTK_WIDGET (object);
 }
 
 
