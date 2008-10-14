@@ -1,3 +1,7 @@
+2008-10-14	Olivier Fourdan <olivier@xfce.org>
+
+	* xfce4-mixer/xfce-mixer.c: Fix build with gstreamer < 0.10.14.
+
 2008-10-13	Jannis Pohlmann <jannis@xfce.org>
 
 	* NEWS: Update news for the first beta release. Translators will be

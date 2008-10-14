@@ -321,7 +321,9 @@ xfce_mixer_finalize (GObject *object)
 {
   XfceMixer *mixer = XFCE_MIXER (object);
 
+#ifdef HAVE_GST_MIXER_NOTIFICATION
   xfce_mixer_bus_disconnect (mixer->message_handler_id);
+#endif
 
   g_object_unref (mixer->card);
   g_hash_table_unref (mixer->widgets);
