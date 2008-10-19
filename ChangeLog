@@ -1,3 +1,8 @@
+2008-10-19	Jannis Pohlmann <jannis@xfce.org>
+
+	* xfce4-mixer/xfce4-mixer.desktop.in.in: Fix icon name. It has to be
+	  multimed-volume-control.
+
 2008-10-14	Olivier Fourdan <olivier@xfce.org>
 
 	* xfce4-mixer/xfce-mixer.c: Fix build with gstreamer < 0.10.14.
