@@ -1,0 +1,185 @@
+# Catalan translations for xfce package.
+# Copyright (C) 2008 THE xfce'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the xfce package.
+# Carles Muñoz Gorriz <carlesmu@internautas.org>, 2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce 4-mixer\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-09-20 17:02+0200\n"
+"PO-Revision-Date: 2008-10-19 20:55+0100\n"
+"Last-Translator: Carles Muñoz Gorriz <carlesmu@internautas.org>\n"
+"Language-Team: Catalan\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. Set tooltip (e.g. 'Master: 50%')
+#: ../panel-plugin/xfce-mixer-plugin.c:272
+#: ../panel-plugin/xfce-mixer-plugin.c:540
+#, c-format
+msgid "%s: %i%%"
+msgstr "%s: %i%%"
+
+#: ../panel-plugin/xfce-mixer-plugin.c:341
+msgid "No left-click command defined"
+msgstr "No s'ha definit cap ordre pel clic esquerre"
+
+#: ../panel-plugin/xfce-mixer-plugin.c:344
+msgid "No left-click command defined yet. You can change this in the plugin properties."
+msgstr "Encara no s'ha definit una ordre pel clic esquerre. Podeu canviar-ho a les propietats del connector."
+
+#: ../panel-plugin/xfce-mixer-plugin.c:345
+msgid "Properties"
+msgstr "Propietats"
+
+#. Generate error message and insert the current command
+#: ../panel-plugin/xfce-mixer-plugin.c:360
+#, c-format
+msgid "Could not execute the command %s. Perhaps you need to adjust the PATH variable."
+msgstr "No es pot executar l'ordre «%s». Pot ser que calgui ajustar la variable d'entorn «PATH»."
+
+#: ../panel-plugin/xfce-mixer-plugin.c:390
+#: ../xfce4-mixer/main.c:115
+msgid "GStreamer was unable to detect any sound cards on your system. You might be missing sound system specific GStreamer packages. It might as well be a permission problem."
+msgstr "«GStreamer» no ha pogut detectar cap tarja de so. Pot ser que no tingueu algun paquet del sistema de so de «GStreamer». També pot ser un problema de permisos."
+
+#: ../panel-plugin/xfce-plugin-dialog.c:240
+msgid "Mixer Plugin"
+msgstr "Connector del mesclador"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:242
+msgid "Please select which mixer track should be used by the plugin"
+msgstr "Seleccioneu quina pista del mesclador voleu emprar amb el connector"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:254
+msgid "Sound card"
+msgstr "Targeta de so"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:272
+msgid "Mixer track"
+msgstr "Pista del mesclador"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:292
+msgid "Left-click command"
+msgstr "Ordre pel clic esquerre"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:330
+msgid "Select command"
+msgstr "Seleccioneu ordre"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:338
+msgid "All Files"
+msgstr "Tots els fitxers"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:343
+msgid "Executable Files"
+msgstr "Fitxers executables"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:358
+msgid "Perl Scripts"
+msgstr "Seqüències de Perl"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:364
+msgid "Python Scripts"
+msgstr "Seqüències de Python"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:370
+msgid "Ruby Scripts"
+msgstr "Seqüències de Ruby"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:376
+msgid "Shell Scripts"
+msgstr "Seqüències de l’intèrpret d’ordres"
+
+#. Set application name
+#: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:1
+#: ../xfce4-mixer/main.c:82
+#: ../xfce4-mixer/xfce-mixer-window.c:169
+#: ../xfce4-mixer/xfce-mixer-window.c:187
+#: ../xfce4-mixer/xfce-mixer-window.c:288
+#: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
+msgid "Mixer"
+msgstr "Mesclador"
+
+#: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:2
+msgid "Volume control for your sound card"
+msgstr "Control de volum per la vostra tarja de so"
+
+#: ../libxfce4mixer/xfce-mixer-utilities.c:89
+#, c-format
+msgid "Unknown Volume Control %d"
+msgstr "Control de volum %d desconegut"
+
+#: ../xfce4-mixer/main.c:92
+#, c-format
+msgid "Failed to initialize xfconf: %s"
+msgstr "No s'ha pogut inicialitzar «xfconf»: %s"
+
+#: ../xfce4-mixer/xfce-mixer.c:179
+msgid "Playback"
+msgstr "Reproducció"
+
+#: ../xfce4-mixer/xfce-mixer.c:179
+msgid "Capture"
+msgstr "Captura"
+
+#: ../xfce4-mixer/xfce-mixer.c:179
+msgid "Switches"
+msgstr "Commutadors"
+
+#: ../xfce4-mixer/xfce-mixer.c:179
+msgid "Options"
+msgstr "Opcions"
+
+#: ../xfce4-mixer/xfce-mixer.c:314
+msgid "No Controls Visible"
+msgstr "Cap control visible"
+
+#: ../xfce4-mixer/xfce-mixer.c:318
+msgid "No controls are marked as visible. Please open the <span size='large'><b>Select Controls</b></span> dialog to select some."
+msgstr "No s'ha marcar cap control com visible. Obriu la finestra de diàleg <span size='large'><b>Selecció de controls</b></span> per seleccionar-los."
+
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:135
+msgid "Select Controls"
+msgstr "Selecció de controls"
+
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:137
+msgid "Please select which controls you want to be visible"
+msgstr "Seleccioneu els controls que voleu que siguin visibles"
+
+#: ../xfce4-mixer/xfce-mixer-window.c:88
+msgid "_Quit"
+msgstr "S_urt"
+
+#: ../xfce4-mixer/xfce-mixer-window.c:88
+msgid "Exit the mixer"
+msgstr "Surt del mesclador"
+
+#: ../xfce4-mixer/xfce-mixer-window.c:90
+msgid "_Select Controls..."
+msgstr "_Selecció de controls…"
+
+#: ../xfce4-mixer/xfce-mixer-window.c:90
+msgid "Select which controls are displayed"
+msgstr "Seleccioneu quins controls es mostren"
+
+#: ../xfce4-mixer/xfce-mixer-window.c:188
+msgid "Configure your sound card(s) and control the volume of selected tracks"
+msgstr "Configureu la vostra tarjeta o tarjetes de so i controleu el volumen de les pistes seleccionades"
+
+#: ../xfce4-mixer/xfce-mixer-window.c:203
+msgid "Sound card:"
+msgstr "Tarja de so"
+
+#: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:1
+msgid "Audio mixer for the Xfce Desktop Environment"
+msgstr "Mesclador d'àudio per l'entorn d'escriptori Xfce"
+
+#~ msgid "Xfce Mixer"
+#~ msgstr "Mesclador de Xfce"
+#~ msgid "A comfortable audio mixer for your sound card."
+#~ msgstr "Un mesclador d'àudio apropiat per la vostra tarja de so. "
+
