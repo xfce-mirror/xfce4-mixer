@@ -5,12 +5,14 @@ lib/vc_alsa.c
 lib/vc_oss.c
 panel-plugin/launcher-entry.c
 panel-plugin/mixer-control.gob
+panel-plugin/mixer-prefbox.gob
 panel-plugin/plugin.c
 panel-plugin/xfce-mixer-control.c
 panel-plugin/xfce-mixer-prefbox.c
 settings/mixer-settingsbox.gob
 settings/sound.c
 settings/xfce-mixer-settingsbox.c
+src/main.c
 src/menus.c
 src/mixer-control.gob
 src/mixer-info.gob
@@ -22,8 +24,8 @@ src/mixer-window.gob
 src/xfce-mixer-cache-vc.c
 src/xfce-mixer-control.c
 src/xfce-mixer-info.c
-src/xfce-mixer-profilebox-detail.c
 src/xfce-mixer-profilebox.c
+src/xfce-mixer-profilebox-detail.c
 src/xfce-mixer-profiles.c
 src/xfce-mixer-view.c
 src/xfce-mixer-window.c
