@@ -1,3 +1,46 @@
+2008-10-22 21:37  lars
+
+	* po/da.po: update-po
+
+2008-10-22 21:37  lars
+
+	* po/ChangeLog, po/LINGUAS: update-po
+
+2008-06-22 10:02  mmassonnet
+
+	* po/ChangeLog, po/LINGUAS, po/id.po: update-po
+
+2008-05-17 22:35  mmassonnet
+
+	* po/ChangeLog, po/sk.po: update translation
+
+2008-04-12 09:56  mmassonnet
+
+	* po/ChangeLog, po/lv.po: Update Latvian translation
+
+2008-02-15 13:39  mmassonnet
+
+	* po/LINGUAS: Add si to LINGUAS
+
+2008-02-14 22:55  stephan
+
+	* po/ChangeLog, po/si.po: Add Sinhala translations by Rashan
+	  Anushka <rashan.uoc@gmail.com>
+
+2007-12-23 16:50  pollux
+
+	* po/ChangeLog, po/sq.po: Updated Albanian translations by Besnik
+	  Bleta <bbleta@otenet.gr>
+
+2007-12-02 16:49  maximilian
+
+	* po/ChangeLog, po/es.po: Spanish translations branch updates and
+	  German translations trunk updates
+
+2007-11-17 18:42  kelnos
+
+	* ChangeLog: update changelogs; ready to tag 4.4.2
+
 2007-11-17 17:47  kelnos
 
 	* INSTALL: various pre-release updates - po files, docs, etc.
@@ -220,7 +263,7 @@
 
 2007-01-21 14:08  maximilian
 
-	* : * fr.po: Minor changes to the French translations
+	* * fr.po: Minor changes to the French translations
 	  in xfce-utils, libxfce4util and mousepad
 	  * pl.po: Updated the Polish translation by Szymon Kałasz
 	  <szymon_maestro@gazeta.pl>
@@ -231,173 +274,173 @@
 
 2007-01-20 17:29  benny
 
-	* : Bump version. Update NEWS. Update Project-Id-Version.
+	* Bump version. Update NEWS. Update Project-Id-Version.
 
 2007-01-20 00:40  nab
 
-	* : 2007-01-20 Alexander Nyakhaychyk <nyakhaychyk@gmail.com>
+	* 2007-01-20 Alexander Nyakhaychyk <nyakhaychyk@gmail.com>
 	  
 	  * be.po: Added Belarusian Translation
 
 2007-01-19 22:05  olivier
 
-	* : Update ChangeLog
+	* Update ChangeLog
 
 2007-01-19 21:29  olivier
 
-	* : Update version
+	* Update version
 
 2006-12-25 11:14  maximilian
 
-	* : Added the new translations from the Macedonian team for plenty
-	  of packages, Merry Christmas
+	* Added the new translations from the Macedonian team for plenty of
+	  packages, Merry Christmas
 
 2006-12-22 18:52  maximilian
 
-	* : Updated the French translation for the xarchiver package and
+	* Updated the French translation for the xarchiver package and
 	  fixed a mistake I introduced in Changelog's lately
 
 2006-12-20 22:53  maximilian
 
-	* : Updated the Russian translations by Andrey Fedoseev for a lot
-	  of packages
+	* Updated the Russian translations by Andrey Fedoseev for a lot of
+	  packages
 
 2006-11-30 18:23  stavrosg
 
-	* : E-mail address change. Sorry for the noise.
+	* E-mail address change. Sorry for the noise.
 
 2006-11-04 18:26  benny
 
-	* : Bump version and requirements. Update Project-Id-Version.
+	* Bump version and requirements. Update Project-Id-Version.
 
 2006-10-28 13:04  paurullan
 
-	* : added whole Dzongkha translation
+	* added whole Dzongkha translation
 	  
 	  congratulations to the dz team.
 
 2006-10-24 21:46  olivier
 
-	* : Update version
+	* Update version
 
 2006-10-17 20:23  maximilian
 
-	* : Korean translation updates by ByungHyun Choi and French thunar
+	* Korean translation updates by ByungHyun Choi and French thunar
 	  translation update (some typos)
 
 2006-10-13 00:04  paurullan
 
-	* : i18n various updates and add
+	* i18n various updates and add
 
 2006-09-18 21:00  paurullan
 
-	* : [i18n] update catalan translation
+	* [i18n] update catalan translation
 
 2006-09-07 18:58  pollux
 
-	* : Updated Vietnamese translations
+	* Updated Vietnamese translations
 
 2006-09-05 18:29  dannym
 
-	* : consistency
+	* consistency
 
 2006-09-02 15:52  benny
 
-	* : Bump version and requirements.
+	* Bump version and requirements.
 
 2006-09-02 12:15  benny
 
-	* : 2006-09-02 Benedikt Meurer <benny@xfce.org>
+	* 2006-09-02 Benedikt Meurer <benny@xfce.org>
 	  
 	  * cs.po: Updated Czech translations by Michal VÃ¡rady
 	  <miko.vaji@gmail.com>.
 
 2006-09-02 08:57  sas
 
-	* : hungarian updates
+	* hungarian updates
 
 2006-08-31 18:46  dannym
 
-	* : try to support capture controls (alsa weird :))
+	* try to support capture controls (alsa weird :))
 
 2006-08-31 18:26  dannym
 
-	* : debugging message
+	* debugging message
 
 2006-08-31 18:25  dannym
 
-	* : fix sizing some more
+	* fix sizing some more
 
 2006-08-31 18:16  dannym
 
-	* : fix sizing some more
+	* fix sizing some more
 
 2006-08-31 18:06  dannym
 
-	* : fix bug #1552
+	* fix bug #1552
 
 2006-08-27 20:54  pollux
 
-	* : Updated German translations
+	* Updated German translations
 
 2006-08-27 11:35  pollux
 
-	* : add Georgian translations
+	* add Georgian translations
 
 2006-08-20 18:54  pollux
 
-	* : remove executable property from gl.po
+	* remove executable property from gl.po
 
 2006-08-20 18:51  pollux
 
-	* : Add Galician translations
+	* Add Galician translations
 
 2006-07-19 19:48  dannym
 
-	* : do not crash when RecSelect value is NULL
+	* do not crash when RecSelect value is NULL
 
 2006-07-09 09:56  pollux
 
-	* : bump all versions and dependencies to 4.3.90.2
+	* bump all versions and dependencies to 4.3.90.2
 
 2006-06-28 18:50  eulex
 
-	* : Updated Swedish translations for xfce4-mixer
+	* Updated Swedish translations for xfce4-mixer
 
 2006-06-17 21:31  dannym
 
-	* : switch to gtk icontheme (I can already feel the bugreports
+	* switch to gtk icontheme (I can already feel the bugreports
 	  approaching :))
 
 2006-06-17 21:10  dannym
 
-	* : eew... don't pass gpointer around
+	* eew... don't pass gpointer around
 
 2006-06-12 14:26  hydonsingore
 
-	* : Update traditional Chinese translations; Modify personal e-mail
+	* Update traditional Chinese translations; Modify personal e-mail
 	  address.
 
 2006-06-10 15:03  daichi
 
-	* : Updated Japanese translations.
+	* Updated Japanese translations.
 
 2006-06-10 12:02  daichi
 
-	* : Updated Polish translations by Szymon Kalasz
+	* Updated Polish translations by Szymon Kalasz
 	  <szymon_maestro@gazeta.pl>.
 
 2006-06-05 23:11  adriano
 
-	* : Updated brazilian portuguese translations.
+	* Updated brazilian portuguese translations.
 
 2006-06-04 10:42  daichi
 
-	* : Updated French translations.
+	* Updated French translations.
 
 2006-06-04 08:12  eulex
 
-	* : Changelogs for appfinder, exo, utils, mcs-plugins, mcs-manager,
+	* Changelogs for appfinder, exo, utils, mcs-plugins, mcs-manager,
 	  xfce4-session, xfce4-mixer, thunar, libgui, xfwm4, the panel,
 	  orage, trigger-launcher and terminal updated.
 	  Also couldn't resist to fix a small error in the xfce4-mixer
@@ -408,7 +451,7 @@
 
 2006-06-03 23:44  eulex
 
-	* : Merged Swedish translations (by me and Jens Hagerman) into the
+	* Merged Swedish translations (by me and Jens Hagerman) into the
 	  xfce svn.
 	  This includes updated translations of appfinder, xfce-utils,
 	  mcs-plugins,
@@ -420,869 +463,866 @@
 
 2006-05-30 23:21  yuvaltanny
 
-	* : Update Hebrew translation
+	* Update Hebrew translation
 
 2006-05-30 22:22  dannym
 
-	* : -> xfce-sound
+	* -> xfce-sound
 
 2006-05-30 22:18  dannym
 
-	* : new icon
+	* new icon
 
 2006-05-30 22:17  dannym
 
-	* : rename as suggested in bug# 1817
+	* rename as suggested in bug# 1817
 
 2006-05-25 16:34  pollux
 
-	* : * add LINGUAS support
+	* * add LINGUAS support
 	  * update svn:ignore
 
 2006-05-23 17:32  hydonsingore
 
-	* : Correct strings containing Button Label in traditional Chinese
+	* Correct strings containing Button Label in traditional Chinese
 	  translations.
 
 2006-05-23 02:45  daichi
 
-	* : Changed an address.
+	* Changed an address.
 
 2006-05-21 10:56  dannym
 
-	* : close the mixer prematurely (i sure hope this has no side
+	* close the mixer prematurely (i sure hope this has no side
 	  effects)
 	  maybe fixes bug #1831
 
 2006-05-21 10:50  dannym
 
-	* : set elem = NULL after close
+	* set elem = NULL after close
 
 2006-05-21 03:13  daichi
 
-	* : Updated Polish translations by Szymon Kalasz
+	* Updated Polish translations by Szymon Kalasz
 	  <szymon_maestro@gazeta.pl>.
 
 2006-05-20 11:38  stavrosg
 
-	* : Greek translations update
+	* Greek translations update
 
 2006-05-18 13:13  daichi
 
-	* : Updated Japanese translations.
+	* Updated Japanese translations.
 
 2006-05-18 04:42  sas
 
-	* : hu trunk: mixer & t-l update
+	* hu trunk: mixer & t-l update
 
 2006-05-17 14:44  jari
 
-	* : Finnish translations updated.
+	* Finnish translations updated.
 
 2006-05-17 09:56  piarres
 
-	* : [l10n:eu] Basque translation update
+	* [l10n:eu] Basque translation update
 
 2006-05-17 04:27  daichi
 
-	* : Updated French translations by Gerald Barre <g.barre@free.fr>.
+	* Updated French translations by Gerald Barre <g.barre@free.fr>.
 
 2006-05-17 04:25  daichi
 
-	* : Updated.
+	* Updated.
 
 2006-05-15 18:34  dannym
 
-	* : moe's terratec
+	* moe's terratec
 
 2006-05-15 18:33  dannym
 
-	* : fix typo
+	* fix typo
 
 2006-05-15 18:32  dannym
 
-	* : fix messages
+	* fix messages
 
 2006-05-15 18:28  dannym
 
-	* : fix bug in bug reporting
+	* fix bug in bug reporting
 
 2006-05-15 18:27  dannym
 
-	* : shut up when no useful info is available
+	* shut up when no useful info is available
 
 2006-05-15 18:26  dannym
 
-	* : nicer
+	* nicer
 
 2006-05-15 18:25  dannym
 
-	* : better string
+	* better string
 
 2006-05-15 18:25  dannym
 
-	* : add even nicer error messages
+	* add even nicer error messages
 
 2006-05-15 17:59  dannym
 
-	* : sanity-check control type as Moe suggested
+	* sanity-check control type as Moe suggested
 
 2006-05-15 17:54  dannym
 
-	* : support moe's hardware and prepare for more :)
+	* support moe's hardware and prepare for more :)
 
 2006-05-13 04:56  daichi
 
-	* : Updated Polish translations by Szymon Kalasz
+	* Updated Polish translations by Szymon Kalasz
 	  <szymon_maestro@gazeta.pl>.
 
 2006-05-09 15:00  paurullan
 
-	* : [i18n] catalan
+	* [i18n] catalan
 	  update mailwatch plugin, mixer
 
 2006-05-07 09:26  daichi
 
-	* : Added/Updated Czech translations by Michal Varady
+	* Added/Updated Czech translations by Michal Varady
 	  <miko.vaji@gmail.com>.
 
 2006-05-07 08:54  daichi
 
-	* : Updated.
+	* Updated.
 
 2006-05-07 08:53  daichi
 
-	* : Added translatable strings.
+	* Added translatable strings.
 
 2006-05-06 23:58  dannym
 
-	* : add config.h
+	* add config.h
 
 2006-05-06 23:57  dannym
 
-	* : add config.h
+	* add config.h
 
 2006-05-06 23:57  dannym
 
-	* : add config.h
+	* add config.h
 
 2006-05-06 14:30  stavrosg
 
-	* : Greek translations update.
+	* Greek translations update.
 
 2006-05-06 12:21  benny
 
-	* : Use XfceTitledDialog for the settings dialog. Set
+	* Use XfceTitledDialog for the settings dialog. Set
 	  "mcs-plugin-icon-name"
 	  property.
 
 2006-05-06 10:36  dannym
 
-	* : use XfceTitledDialog
+	* use XfceTitledDialog
 
 2006-05-05 21:50  daichi
 
-	* : Updated Slovak translations by Roman Moravcik
+	* Updated Slovak translations by Roman Moravcik
 	  <roman.moravcik@gmail.com>.
 
 2006-05-05 21:01  daichi
 
-	* : Bump.
+	* Bump.
 
 2006-05-05 19:23  yuvaltanny
 
-	* : Updated Hebrew translation
+	* Updated Hebrew translation
 
 2006-05-05 06:11  daichi
 
-	* : Updated Japanese translations.
+	* Updated Japanese translations.
 
 2006-05-03 08:23  piarres
 
-	* : [l10n:eu] Basque translation update
+	* [l10n:eu] Basque translation update
 
 2006-05-02 21:49  dannym
 
-	* : apply patch by lehmann@ans-netz.de to make it work in gcc 2.95
+	* apply patch by lehmann@ans-netz.de to make it work in gcc 2.95
 
 2006-05-02 16:06  daichi
 
-	* : Removed timestamps so that a translator isn't bothered:
+	* Removed timestamps so that a translator isn't bothered:
 	  "Then, what time is it now in UTC?"
 
 2006-05-02 13:09  hydonsingore
 
-	* : several traditional Chinese translations update.
+	* several traditional Chinese translations update.
 
 2006-05-02 12:23  daichi
 
-	* : Updated Polish translations by Piotr Malinski
-	  <admin@rk.edu.pl>.
+	* Updated Polish translations by Piotr Malinski <admin@rk.edu.pl>.
 
 2006-05-01 14:11  jari
 
-	* : Finnish translations updated.
+	* Finnish translations updated.
 
 2006-05-01 13:31  daichi
 
-	* : Updated Russian translations by
+	* Updated Russian translations by
 	  Anthony Ivanoff <a-i@bk.ru>,
 	  Maxim Zenin <webmechanics@gmail.com>,
 	  Sergey Fedoseev <fedoseev.sergey@gmail.com>.
 
 2006-05-01 12:47  daichi
 
-	* : Updated Japanese translations.
+	* Updated Japanese translations.
 
 2006-05-01 07:23  sas
 
-	* : hu trunk: updates
+	* hu trunk: updates
 
 2006-05-01 07:04  daichi
 
-	* : Updated.
+	* Updated.
 
 2006-04-25 16:17  mvd
 
-	* : 2006-04-25 Maxim Dziumanenko <mvd@mylinux.ua>
+	* 2006-04-25 Maxim Dziumanenko <mvd@mylinux.ua>
 	  
 	  * Updated Ukrainian translation.
 
 2006-04-22 09:53  daichi
 
-	* : Updated Simplified Chinese by Jick Nan <jick.nan@gmail.com>.
+	* Updated Simplified Chinese by Jick Nan <jick.nan@gmail.com>.
 
 2006-04-21 21:58  yuvaltanny
 
-	* : Hebrew translations update
+	* Hebrew translations update
 
 2006-04-19 16:01  benny
 
-	* : Separate translation for the settings manager label. Patch from
+	* Separate translation for the settings manager label. Patch from
 	  Adriano Winter Bess. Bug #1669.
 
 2006-04-16 11:45  benny
 
-	* : Update for 4.4beta1.
+	* Update for 4.4beta1.
 
 2006-04-16 08:05  sas
 
-	* : hu trunk: terminal: full
+	* hu trunk: terminal: full
 
 2006-04-16 04:36  daichi
 
-	* : Updated Russian translations by Andrey Fedoseev
+	* Updated Russian translations by Andrey Fedoseev
 	  <andrey.fedoseev@gmail.com>.
 
 2006-04-15 17:39  olivier
 
-	* : Update ChangeLog
+	* Update ChangeLog
 
 2006-04-15 16:08  sas
 
-	* : hu trunk: mixer (finally)
+	* hu trunk: mixer (finally)
 
 2006-04-15 12:10  daichi
 
-	* : Bump, etc.
+	* Bump, etc.
 
 2006-04-15 02:12  daichi
 
-	* : Added/Updated Korean translations by ByungHyun Choi
+	* Added/Updated Korean translations by ByungHyun Choi
 	  <byunghyun.choi@gmail.com>.
 
 2006-04-13 13:57  daichi
 
-	* : A minor fix by Jari Rahkonen <jari.rahkonen@pp1.inet.fi>.
+	* A minor fix by Jari Rahkonen <jari.rahkonen@pp1.inet.fi>.
 
 2006-04-11 11:26  daichi
 
-	* : Updated Finnish translations by Jari Rahkonen
+	* Updated Finnish translations by Jari Rahkonen
 	  <jari.rahkonen@pp1.inet.fi>.
 
 2006-04-02 20:32  paurullan
 
-	* : [i18n] catalan
+	* [i18n] catalan
 	  little of work on catalan translations
 
 2006-04-01 03:37  stavrosg
 
-	* : Greek translations update & polish by Stathis Kamperis
+	* Greek translations update & polish by Stathis Kamperis
 	  <ekamperi@auth.gr>
 
 2006-03-30 13:41  daichi
 
-	* : Updated Vietnamese translations by Phan Vinh Thinh
+	* Updated Vietnamese translations by Phan Vinh Thinh
 	  <teppi@vnlinux.org>.
 
 2006-03-27 14:34  daichi
 
-	* : Added/Updated Russian translations by
+	* Added/Updated Russian translations by
 	  Andrey Fedoseev <andrey.fedoseev@gmail.com> and
 	  Sergey Fedoseev <fedoseev.sergey@gmail.com>.
 
 2006-03-19 16:54  paurullan
 
-	* : [i18n] catalan
+	* [i18n] catalan
 	  seems a lot of work but they all are fuzzy
 
 2006-03-19 15:37  daichi
 
-	* : Updated Polish translations by Piotr Malinski
-	  <admin@rk.edu.pl>.
+	* Updated Polish translations by Piotr Malinski <admin@rk.edu.pl>.
 
 2006-03-18 09:15  daichi
 
-	* : Added/Updated Russian translations by
+	* Added/Updated Russian translations by
 	  Andrey Fedoseev <andrey.fedoseev@gmail.com>,
 	  Sergey Fedoseev <fedoseev.sergey@gmail.com>.
 
 2006-03-07 00:07  stavrosg
 
-	* : Greek translation update
+	* Greek translation update
 
 2006-03-04 11:10  daichi
 
-	* : Updated.
+	* Updated.
 
 2006-03-02 13:03  daichi
 
-	* : Added/Updated Estonian translations by Peeter Vois
+	* Added/Updated Estonian translations by Peeter Vois
 	  <Peeter.Vois@mail.ee>.
 
 2006-02-21 22:00  dannym
 
-	* : add "Analog Front" (SB Live)
+	* add "Analog Front" (SB Live)
 
 2006-02-21 18:53  dannym
 
-	* : don't use @PANEL_DESKTOPDATADIR@ (gone)
+	* don't use @PANEL_DESKTOPDATADIR@ (gone)
 
 2006-02-19 16:35  daichi
 
-	* : Updated German translations by Fabian Nowak
-	  <timystery@arcor.de>.
+	* Updated German translations by Fabian Nowak <timystery@arcor.de>.
 
 2006-02-18 13:43  daichi
 
-	* : Updated.
+	* Updated.
 
 2006-02-16 16:31  pollux
 
-	* : updated zh_CN translations
+	* updated zh_CN translations
 
 2006-02-13 12:28  pollux
 
-	* : updated VI translations
+	* updated VI translations
 
 2006-02-05 17:53  yuvaltanny
 
-	* : Update Hebrew translations
+	* Update Hebrew translations
 
 2006-02-01 22:25  daichi
 
-	* : Updated Dutch translations by Vincent Tunru <imnotb@gmail.com>.
+	* Updated Dutch translations by Vincent Tunru <imnotb@gmail.com>.
 
 2006-01-29 06:52  daichi
 
-	* : * Updated.
+	* * Updated.
 	  * Discarded obsolete translations.
 
 2006-01-18 17:48  daichi
 
-	* : Updated.
+	* Updated.
 
 2006-01-15 21:13  piarres
 
-	* : Basque translation update
+	* Basque translation update
 
 2006-01-13 05:52  daichi
 
-	* : Updated Polish translations by Piotr Malinski
+	* Updated Polish translations by Piotr Malinski
 	  <riklaunim@gmail.com>.
 
 2006-01-12 22:09  dannym
 
-	* : fixed an unclaimed initial reference for gtk_tooltips thanks to
+	* fixed an unclaimed initial reference for gtk_tooltips thanks to
 	  Jani Monoses <jani@ubuntu.com>
 
 2006-01-08 21:12  paurullan
 
-	* : catalan translation:
+	* catalan translation:
 	  little heading fixing but in every trunk file
 	  Created the xfmedia translation
 
 2006-01-08 16:29  daichi
 
-	* : Updated Japanese translations.
+	* Updated Japanese translations.
 
 2006-01-07 09:40  daichi
 
-	* : Updated copyright information.
+	* Updated copyright information.
 
 2006-01-07 09:14  daichi
 
-	* : Added a file.
+	* Added a file.
 
 2006-01-07 09:03  daichi
 
-	* : Marked strings translatable.
+	* Marked strings translatable.
 
 2006-01-07 03:17  daichi
 
-	* : It didn't make sense at all.
+	* It didn't make sense at all.
 
 2006-01-02 23:43  daichi
 
-	* : It required Device/Interface names actually :)
+	* It required Device/Interface names actually :)
 	  and excludes unnecessary strings from binary.
 
 2006-01-02 04:14  daichi
 
-	* : Additional strings for IRIX AL.
+	* Additional strings for IRIX AL.
 	  
 	  By the way, Danny, can I add these strings here?
 
 2006-01-02 04:06  daichi
 
-	* : Getting consistent with others.
+	* Getting consistent with others.
 
 2006-01-01 21:30  daichi
 
-	* : * Style change.
+	* * Style change.
 	  * Warning clean.
 
 2006-01-01 19:03  daichi
 
-	* : Updated Japanese translations.
+	* Updated Japanese translations.
 
 2006-01-01 18:12  daichi
 
-	* : Updated.
+	* Updated.
 
 2005-12-31 04:05  dannym
 
-	* : use default by default
+	* use default by default
 
 2005-12-31 03:06  dannym
 
-	* : no return there
+	* no return there
 
 2005-12-31 03:03  dannym
 
-	* : remove debugging messages
+	* remove debugging messages
 
 2005-12-31 02:52  dannym
 
-	* : readd debugging
+	* readd debugging
 
 2005-12-31 02:50  dannym
 
-	* : implement vc_set_volume
+	* implement vc_set_volume
 
 2005-12-31 02:44  dannym
 
-	* : no min for now
+	* no min for now
 
 2005-12-31 02:43  dannym
 
-	* : get rid of debugging stuff
+	* get rid of debugging stuff
 
 2005-12-31 02:39  dannym
 
-	* : try to handle "OFF"
+	* try to handle "OFF"
 
 2005-12-31 02:29  dannym
 
-	* : add separator
+	* add separator
 
 2005-12-31 02:29  dannym
 
-	* : spy on it
+	* spy on it
 
 2005-12-31 02:24  dannym
 
-	* : forgot
+	* forgot
 
 2005-12-31 02:12  dannym
 
-	* : add test for getting volume
+	* add test for getting volume
 
 2005-12-31 02:11  dannym
 
-	* : fix vc_get_volume
+	* fix vc_get_volume
 
 2005-12-31 01:51  dannym
 
-	* : note to self: don't do that
+	* note to self: don't do that
 
 2005-12-31 01:35  dannym
 
-	* : fix error message
+	* fix error message
 
 2005-12-31 01:34  dannym
 
-	* : add control test
+	* add control test
 
 2005-12-31 01:32  dannym
 
-	* : update test
+	* update test
 
 2005-12-31 01:30  dannym
 
-	* : add small test program
+	* add small test program
 
 2005-12-31 01:29  dannym
 
-	* : translateable
+	* translateable
 
 2005-12-31 01:21  dannym
 
-	* : fix names
+	* fix names
 
 2005-12-31 01:16  dannym
 
-	* : fix typo
+	* fix typo
 
 2005-12-31 01:16  dannym
 
-	* : fix typos and a bad bad local variable return (by disabling)
+	* fix typos and a bad bad local variable return (by disabling)
 
 2005-12-31 01:02  dannym
 
-	* : make vc_get_control_list dynamically determine controls
+	* make vc_get_control_list dynamically determine controls
 
 2005-12-31 00:29  dannym
 
-	* : rename variable
+	* rename variable
 
 2005-12-31 00:25  dannym
 
-	* : use g_warning
+	* use g_warning
 
 2005-12-31 00:21  dannym
 
-	* : initial commit of daichi's IRIX AL mixer support
+	* initial commit of daichi's IRIX AL mixer support
 
 2005-12-24 13:31  dannym
 
-	* : fix the loading
+	* fix the loading
 
 2005-12-24 13:28  dannym
 
-	* : fix save order
+	* fix save order
 
 2005-12-24 13:26  dannym
 
-	* : remove debug messages, make saving work
+	* remove debug messages, make saving work
 
 2005-12-24 13:24  dannym
 
-	* : save config more often
+	* save config more often
 
 2005-12-24 13:19  dannym
 
-	* : fix "run in terminal"
+	* fix "run in terminal"
 
 2005-12-24 12:42  dannym
 
-	* : fix launcher entry gui bindings
+	* fix launcher entry gui bindings
 
 2005-12-24 12:37  dannym
 
-	* : fix prefbox
+	* fix prefbox
 
 2005-12-24 11:59  dannym
 
-	* : fix property names
+	* fix property names
 
 2005-12-19 20:53  dannym
 
-	* : fix warnings
+	* fix warnings
 
 2005-12-19 20:52  dannym
 
-	* : oops
+	* oops
 
 2005-12-19 20:51  dannym
 
-	* : remove old cruft
+	* remove old cruft
 
 2005-12-19 20:07  dannym
 
-	* : fix property dialog
+	* fix property dialog
 
 2005-12-19 20:02  dannym
 
-	* : fix right-click bug
+	* fix right-click bug
 
 2005-12-19 19:47  dannym
 
-	* : curious... why did it update those?
+	* curious... why did it update those?
 
 2005-12-19 19:46  dannym
 
-	* : don't support braindeadness
+	* don't support braindeadness
 
 2005-12-19 19:45  dannym
 
-	* : a little bit of cleanup
+	* a little bit of cleanup
 
 2005-12-19 19:44  dannym
 
-	* : a little bit of cleanup
+	* a little bit of cleanup
 
 2005-12-18 15:39  dannym
 
-	* : use xfce_create_framebox instead of xfce_framebox_new
+	* use xfce_create_framebox instead of xfce_framebox_new
 
 2005-12-18 15:38  dannym
 
-	* : fix order of loading the default device (because devicelist
+	* fix order of loading the default device (because devicelist
 	  changed of the combo box messed with the default before it can be
 	  loaded)
 
 2005-12-18 15:28  dannym
 
-	* : add some handle = NULL just in case
+	* add some handle = NULL just in case
 
 2005-12-18 15:19  dannym
 
-	* : fix notify prototype
+	* fix notify prototype
 
 2005-12-07 09:15  piarres
 
-	* : [i18n] Basque translation update
+	* [i18n] Basque translation update
 
 2005-11-29 21:45  daichi
 
-	* : Fixed mistranslations.
+	* Fixed mistranslations.
 	  Revised some translations.
 
 2005-11-28 15:44  daichi
 
-	* : Updated Japanese translations.
+	* Updated Japanese translations.
 
 2005-11-28 15:19  daichi
 
-	* : Updated.
+	* Updated.
 
 2005-11-21 18:21  daichi
 
-	* : Updated Japanese translations.
+	* Updated Japanese translations.
 
 2005-11-21 17:14  daichi
 
-	* : Updated.
+	* Updated.
 
 2005-11-21 16:06  daichi
 
-	* : Updated POTFILES.in files.
+	* Updated POTFILES.in files.
 
 2005-11-10 22:59  dannym
 
-	* : make sound actually work, by initializing it
+	* make sound actually work, by initializing it
 
 2005-11-10 22:37  dannym
 
-	* : fix prefbox
+	* fix prefbox
 
 2005-11-10 22:13  dannym
 
-	* : not *that* small
+	* not *that* small
 
 2005-11-10 22:12  dannym
 
-	* : smaller slider
+	* smaller slider
 
 2005-11-10 22:00  dannym
 
-	* : comment out orientation handling for now
+	* comment out orientation handling for now
 
 2005-11-10 21:57  dannym
 
-	* : more runtime warning fixes
+	* more runtime warning fixes
 
 2005-11-10 21:57  dannym
 
-	* : get rid of the weird angle stuff
+	* get rid of the weird angle stuff
 
 2005-11-10 21:56  dannym
 
-	* : fix some runtime warnings
+	* fix some runtime warnings
 
 2005-11-10 21:51  dannym
 
-	* : fix name
+	* fix name
 
 2005-11-10 21:50  dannym
 
-	* : use [Xfce Panel] instead of standard desktop file section
+	* use [Xfce Panel] instead of standard desktop file section
 
 2005-11-10 21:41  dannym
 
-	* : small fixes for making it work in new panel
+	* small fixes for making it work in new panel
 
 2005-11-10 21:31  dannym
 
-	* : port to 4.4 panel
+	* port to 4.4 panel
 
 2005-11-07 13:13  daichi
 
-	* : Updated Spanish translations by Rudy Godoy
+	* Updated Spanish translations by Rudy Godoy
 	  <rudy@kernel-panik.org>.
 
 2005-11-05 14:59  daichi
 
-	* : Deciphering.
+	* Deciphering.
 
 2005-11-05 14:38  daichi
 
-	* : Trimmed and updated.
+	* Trimmed and updated.
 
 2005-11-03 13:48  daichi
 
-	* : Updated Korean translations by ByungHyun Choi
+	* Updated Korean translations by ByungHyun Choi
 	  <byunghyun.choi@gmail.com>.
 
 2005-10-27 20:32  paurullan
 
-	* : begin process to 4.4 work
+	* begin process to 4.4 work
 	  autotranslation of most of the actual po
 	  
 	  -- paurullan@bulma.net , ca translator
 
 2005-10-27 20:11  piarres
 
-	* : Basque translations update
+	* Basque translations update
 
 2005-10-21 12:22  daichi
 
-	* : Updated with the latest POT file.
+	* Updated with the latest POT file.
 
 2005-10-21 12:21  daichi
 
-	* : Updated with the latest sources.
+	* Updated with the latest sources.
 
 2005-10-21 09:03  daichi
 
-	* : Updated Polish translations by Piotr Malinski
+	* Updated Polish translations by Piotr Malinski
 	  <riklaunim@gmail.com>.
 
 2005-10-20 21:34  dannym
 
-	* : remove unused method
+	* remove unused method
 
 2005-10-20 21:34  dannym
 
-	* : don't use swap_pixbuf_ptrs
+	* don't use swap_pixbuf_ptrs
 
 2005-10-20 21:32  dannym
 
-	* : prepare get_pixbuf_by_id
+	* prepare get_pixbuf_by_id
 
 2005-10-20 21:18  dannym
 
-	* : port some more parts to the new panel
+	* port some more parts to the new panel
 
 2005-10-20 20:39  dannym
 
-	* : move launcher-entry to the corrent place
+	* move launcher-entry to the corrent place
 
 2005-10-20 20:38  dannym
 
-	* : add launcher-entry (copied+pasted from xfce4-panel launcher
+	* add launcher-entry (copied+pasted from xfce4-panel launcher
 	  plugin)
 
 2005-10-20 12:37  alex
 
-	* : Update Italian translations.
+	* Update Italian translations.
 
 2005-10-19 20:51  daichi
 
-	* : Changed addresses.
+	* Changed addresses.
 
 2005-10-16 22:19  daichi
 
-	* : Updated.
+	* Updated.
 
 2005-10-11 09:53  daichi
 
-	* : Changed an address.
+	* Changed an address.
 
 2005-10-11 08:56  daichi
 
-	* : Changed an address.
+	* Changed an address.
 
 2005-10-09 06:31  hydonsingore
 
-	* : Update xfce4-mixer zh_TW translations
+	* Update xfce4-mixer zh_TW translations
 
 2005-10-07 23:51  daichi
 
-	* : Added missing language codes.
+	* Added missing language codes.
 
 2005-10-07 23:50  daichi
 
-	* : Updated with the latest POT file.
+	* Updated with the latest POT file.
 
 2005-10-06 20:05  stavrosg
 
-	* : Minor updates & polishing for the Greek translations
+	* Minor updates & polishing for the Greek translations
 
 2005-09-26 17:59  dannym
 
-	* : move init down a bit
+	* move init down a bit
 
 2005-09-24 07:45  daichi
 
-	* : * Added initial "$Id$".
+	* * Added initial "$Id$".
 	  
 	  * Updated some translations.
 
 2005-09-18 17:38  dannym
 
-	* : switch to standalone executable for panel plugin
+	* switch to standalone executable for panel plugin
 
 2005-09-18 17:35  dannym
 
-	* : use PACKAGE_LOCALE_DIR
+	* use PACKAGE_LOCALE_DIR
 
 2005-09-18 17:34  dannym
 
-	* : fix configure dialog (?)
+	* fix configure dialog (?)
 
 2005-09-18 17:25  dannym
 
-	* : prepare for new panel
+	* prepare for new panel
 
 2005-09-18 17:22  dannym
 
-	* : prepare for new panel
+	* prepare for new panel
 
 2005-09-18 17:14  dannym
 
-	* : prepare for new panel
+	* prepare for new panel
 
 2005-09-09 12:06  daichi
 
-	* : Changed translator's representation in spelling by the request.
+	* Changed translator's representation in spelling by the request.
 
 2005-09-08 20:21  dannym
 
-	* : use the only file that _can_ be included now
+	* use the only file that _can_ be included now
 
 2005-08-26 04:54  ankit
 
-	* : Updated Gujarati Translations
+	* Updated Gujarati Translations
 
 2005-08-26 04:53  ankit
 
-	* : Updated Gujarati Translations
+	* Updated Gujarati Translations
 
 2005-08-21 07:19  daichi
 
-	* : Added missing '\n', which causes parsing error at
+	* Added missing '\n', which causes parsing error at
 	  http://xfce.org/~kelnos/xfce4/i18n/
 	  
 	  Modified initial comment strings with template by 'msginit'.
@@ -1291,17 +1331,17 @@
 
 2005-08-18 12:05  daichi
 
-	* : Updated Japanese translations.
+	* Updated Japanese translations.
 
 2005-08-17 15:46  daichi
 
-	* : Fixed errors emitted by 'msgfmt -c'.
+	* Fixed errors emitted by 'msgfmt -c'.
 	  
 	  Modified initial comment strings with template by 'msginit'.
 
 2005-08-17 15:37  daichi
 
-	* : Fixed errors emitted by 'msgfmt -c'.
+	* Fixed errors emitted by 'msgfmt -c'.
 	  
 	  Added fall back address at the 'Language-Team: ', according to
 	  the
@@ -1311,367 +1351,367 @@
 
 2005-08-17 15:03  daichi
 
-	* : Converted local charsets to UTF-8.
+	* Converted local charsets to UTF-8.
 
 2005-08-13 14:09  daichi
 
-	* : Updated Finnish translations by Jari Rahkonen.
+	* Updated Finnish translations by Jari Rahkonen.
 
 2005-08-11 19:12  dannym
 
-	* : is not executable.
+	* is not executable.
 
 2005-08-11 19:09  dannym
 
-	* : since that's english I doubt its in iso-8859-1, so no trouble
+	* since that's english I doubt its in iso-8859-1, so no trouble
 	  converting :) actually ascii would suffice too
 
 2005-08-11 19:06  dannym
 
-	* : make make dist work again
+	* make make dist work again
 
 2005-08-11 17:04  stavrosg
 
-	* : Add initial Greek translations in trunk for xfce4-session,
+	* Add initial Greek translations in trunk for xfce4-session,
 	  xfce4-mixer
 	  & xfce4-panel, and some corrections in xfcalendar/trunk/po/el.po
 
 2005-08-04 15:17  pollux
 
-	* : add some HY translations
+	* add some HY translations
 
 2005-07-19 19:08  pollux
 
-	* : update JA translations
+	* update JA translations
 
 2005-07-06 09:01  pollux
 
-	* : update zh_TW translations
+	* update zh_TW translations
 
 2005-07-04 11:47  pollux
 
-	* : update KO translations
+	* update KO translations
 
 2005-07-02 21:30  dannym
 
-	* : remove message since that fits better into readme or something
+	* remove message since that fits better into readme or something
 
 2005-07-02 21:29  dannym
 
-	* : clarify message about default device
+	* clarify message about default device
 
 2005-07-02 21:28  dannym
 
-	* : remove debugging messages
+	* remove debugging messages
 
 2005-07-02 21:27  dannym
 
-	* : workaround gtk 2.6 (600.7) bug 'option menu set_history with
+	* workaround gtk 2.6 (600.7) bug 'option menu set_history with
 	  index of already selected item replaces item in the popup by a
 	  separator'
 
 2005-07-02 21:19  dannym
 
-	* : add recording source
+	* add recording source
 
 2005-07-02 21:18  dannym
 
-	* : remove debugging message
+	* remove debugging message
 
 2005-07-02 21:16  dannym
 
-	* : - fix leak in new oss recsrc code
+	* - fix leak in new oss recsrc code
 	  - update translations, include a RecSelect
 
 2005-07-02 20:27  dannym
 
-	* : add perldude's request: a way to define the recording device
+	* add perldude's request: a way to define the recording device
 
 2005-07-02 20:27  dannym
 
-	* : add perldude's request: a way to define the recording device
+	* add perldude's request: a way to define the recording device
 
 2005-06-26 17:09  pollux
 
-	* : update KO translations
+	* update KO translations
 
 2005-06-07 15:02  pollux
 
-	* : update GU translations
+	* update GU translations
 
 2005-05-14 19:49  olivier
 
-	* : Update ChangeLog
+	* Update ChangeLog
 
 2005-05-14 19:49  olivier
 
-	* : Update ChangeLog
+	* Update ChangeLog
 
 2005-05-06 19:01  pollux
 
-	* : add bn_IN translations
+	* add bn_IN translations
 
 2005-05-06 18:48  pollux
 
-	* : add MR translations
+	* add MR translations
 
 2005-05-04 21:03  olivier
 
-	* : Update ChangeLog
+	* Update ChangeLog
 
 2005-05-04 21:03  olivier
 
-	* : Update ChangeLog
+	* Update ChangeLog
 
 2005-05-01 17:35  dannym
 
-	* : add some spacing around the switches
+	* add some spacing around the switches
 
 2005-05-01 17:31  dannym
 
-	* : fix bug with loosing settings (there is a sideeffect of
+	* fix bug with loosing settings (there is a sideeffect of
 	  devicelst_updated when device_changed is called with
 	  sel_device=NULL, then it doesnt store settings but does load
 	  them)
 
 2005-05-01 16:58  dannym
 
-	* : oops, plug new memleak with mcs client and actually set the mcs
+	* oops, plug new memleak with mcs client and actually set the mcs
 	  channel
 
 2005-05-01 16:55  dannym
 
-	* : add setting to remember default device (mcs), loaded by big
-	  mixer on startup (except when there is an commandline arg given)
+	* add setting to remember default device (mcs), loaded by big mixer
+	  on startup (except when there is an commandline arg given)
 
 2005-05-01 16:47  dannym
 
-	* : add default device field
+	* add default device field
 
 2005-04-08 11:56  pollux
 
-	* : add SV translations
+	* add SV translations
 
 2005-04-02 13:09  dannym
 
-	* : maybe bugfix alsa_cb bug
+	* maybe bugfix alsa_cb bug
 
 2005-03-27 20:30  dannym
 
-	* : add some temp files
+	* add some temp files
 
 2005-03-27 20:07  fleclainche
 
-	* : Updated icon
+	* Updated icon
 
 2005-03-26 22:18  dannym
 
-	* : remove remainder of generated files
+	* remove remainder of generated files
 
 2005-03-26 22:14  dannym
 
-	* : remove the remainder of generated files
+	* remove the remainder of generated files
 
 2005-03-26 11:21  pollux
 
-	* : update KO translations
+	* update KO translations
 
 2005-03-26 11:17  pollux
 
-	* : update JA translations
+	* update JA translations
 
 2005-03-23 20:26  dannym
 
-	* : Fix an alsa_cb bug after finally finding someone where alsa_cb
+	* Fix an alsa_cb bug after finally finding someone where alsa_cb
 	  does get
 	  called for at all :)
 
 2005-03-17 20:11  dannym
 
-	* : add missing set_playback_volume_all
+	* add missing set_playback_volume_all
 
 2005-03-17 06:29  dannym
 
-	* : make sami's card happy
+	* make sami's card happy
 
 2005-03-09 20:20  dannym
 
-	* : fix function ordering
+	* fix function ordering
 
 2005-02-21 08:39  pollux
 
-	* : update JA translations
+	* update JA translations
 
 2005-02-13 12:39  pollux
 
-	* : update KO translations (with a big delay)
+	* update KO translations (with a big delay)
 
 2005-02-11 11:32  jasper
 
-	* : initialize intltool stuff
+	* initialize intltool stuff
 
 2005-02-01 11:45  pollux
 
-	* : update zh_CN translations
+	* update zh_CN translations
 
 2005-01-27 20:10  benny
 
-	* : Remove autogenerated files.
+	* Remove autogenerated files.
 	  Switch to xfce4-dev-tools.
 
 2005-01-27 19:53  dannym
 
-	* : remove autogenerated files
+	* remove autogenerated files
 
 2005-01-27 19:50  dannym
 
-	* : remove depcomp, aclocal
+	* remove depcomp, aclocal
 
 2005-01-27 19:36  dannym
 
-	* : remove autogenerated files
+	* remove autogenerated files
 
 2005-01-23 09:48  dannym
 
-	* : fix typo
+	* fix typo
 
 2005-01-22 12:22  pollux
 
-	* : update FI translations
+	* update FI translations
 
 2005-01-10 16:29  benny
 
-	* : Meh.
+	* Meh.
 
 2005-01-09 14:20  benny
 
-	* : Backport from 4.2.0.
+	* Backport from 4.2.0.
 
 2005-01-08 15:04  pollux
 
-	* : update RU translations
+	* update RU translations
 
 2005-01-06 19:24  pollux
 
-	* : update UK translations
+	* update UK translations
 
 2005-01-05 16:01  pollux
 
-	* : update HE translations
+	* update HE translations
 
 2005-01-02 12:51  olivier
 
-	* : Update version and changelog
+	* Update version and changelog
 
 2004-12-25 20:33  kelnos
 
-	* : fix distcheck-bz2
+	* fix distcheck-bz2
 
 2004-12-24 00:03  kelnos
 
-	* : add dist-bz2 and distcheck-bz2 targets
+	* add dist-bz2 and distcheck-bz2 targets
 
 2004-12-23 21:24  pollux
 
-	* : update ET translations
+	* update ET translations
 
 2004-12-22 20:56  benny
 
-	* : Update ChangeLog. Fix make distcheck.
+	* Update ChangeLog. Fix make distcheck.
 
 2004-12-21 09:03  kelnos
 
-	* : add/update czech translations
+	* add/update czech translations
 
 2004-12-20 21:32  pollux
 
-	* : rename NO pofiles to no_NB
+	* rename NO pofiles to no_NB
 
 2004-12-20 21:00  jasper
 
-	* : Update versions and ChangeLog
+	* Update versions and ChangeLog
 
 2004-12-19 20:49  pollux
 
-	* : update KO translations
+	* update KO translations
 
 2004-12-15 19:04  pollux
 
-	* : update pt_BR translations
+	* update pt_BR translations
 
 2004-12-14 20:33  pollux
 
-	* : add RO translations
+	* add RO translations
 
 2004-12-13 22:08  pollux
 
-	* : update KO translations
+	* update KO translations
 
 2004-12-11 17:51  olivier
 
-	* : Various changes and small fixes
+	* Various changes and small fixes
 
 2004-12-05 21:20  pollux
 
-	* : add en_GB translations
+	* add en_GB translations
 
 2004-12-05 20:50  pollux
 
-	* : update KO translations and add screenshots in xfprint doc
+	* update KO translations and add screenshots in xfprint doc
 
 2004-12-04 17:09  benny
 
-	* : Update configure and ChangeLog.
+	* Update configure and ChangeLog.
 
 2004-12-01 17:53  dannym
 
-	* : use volcontrol_t for get_control_list rather than gchar*
+	* use volcontrol_t for get_control_list rather than gchar*
 
 2004-12-01 17:51  dannym
 
-	* : add comment
+	* add comment
 
 2004-11-30 19:39  benny
 
-	* : More Solaris fixes.
+	* More Solaris fixes.
 
 2004-11-28 18:01  pollux
 
-	* : update TR translations
+	* update TR translations
 
 2004-11-26 19:06  pollux
 
-	* : update KO translations
+	* update KO translations
 
 2004-11-23 00:31  benny
 
-	* : autogen for danny.
+	* autogen for danny.
 
 2004-11-22 23:59  dannym
 
-	* : remove translation workaround since root cause was found and
+	* remove translation workaround since root cause was found and
 	  fixed now
 
 2004-11-22 22:49  dannym
 
-	* : add todo
+	* add todo
 
 2004-11-22 22:35  dannym
 
-	* : remove debugging stuff
+	* remove debugging stuff
 
 2004-11-22 22:34  dannym
 
-	* : weird workaround for translations to work
+	* weird workaround for translations to work
 
 2004-11-22 22:16  dannym
 
-	* : leave one the old way
+	* leave one the old way
 
 2004-11-22 22:15  dannym
 
-	* : dgettext(GETTEXT_PACKAGE, "Sound") works fine in translating
-	  the header (not
+	* dgettext(GETTEXT_PACKAGE, "Sound") works fine in translating the
+	  header (not
 	  window title) in the settings dialog. _() doesnt. O_o
 	  
 	  I leave dgettext() in for now.
@@ -1679,67 +1719,67 @@
 
 2004-11-22 21:49  dannym
 
-	* : make config.h happy by putting it before string.h include
+	* make config.h happy by putting it before string.h include
 
 2004-11-22 21:31  olivier
 
-	* : Update fr locale
+	* Update fr locale
 
 2004-11-22 21:22  olivier
 
-	* : Update fr locale
+	* Update fr locale
 
 2004-11-22 21:19  dannym
 
-	* : fix translation
+	* fix translation
 
 2004-11-22 20:49  olivier
 
-	* : Redoing Danny's update with newer auto tools
+	* Redoing Danny's update with newer auto tools
 
 2004-11-22 20:36  dannym
 
-	* : make main menu translateable (!)
+	* make main menu translateable (!)
 
 2004-11-22 15:23  moe
 
-	* : Updating german translation
+	* Updating german translation
 
 2004-11-18 22:25  olivier
 
-	* : Try to figure out why so many strings aren't translated in the
+	* Try to figure out why so many strings aren't translated in the
 	  mixer while the po files is all correct.
 
 2004-11-13 18:01  olivier
 
-	* : Update ChangeLog
+	* Update ChangeLog
 
 2004-11-06 22:45  fleclainche
 
-	* : Committing new sound/mixer icon.
+	* Committing new sound/mixer icon.
 
 2004-11-06 16:24  olivier
 
-	* : Update automake/autoconf/libtool/gettext versions to generate
-	  the configure scripts and Makefiles,
+	* Update automake/autoconf/libtool/gettext versions to generate the
+	  configure scripts and Makefiles,
 	  Update versions of all packages to 4.1.99.1 (ie 4.2 RC1),
 	  Update ChangeLogs.
 
 2004-10-30 19:03  olivier
 
-	* : Global update for 4.1.91 (Xfce 4.2 beta 2)
+	* Global update for 4.1.91 (Xfce 4.2 beta 2)
 
 2004-10-30 14:42  jasper
 
-	* : Update a few nl translations
+	* Update a few nl translations
 
 2004-10-30 14:00  pollux
 
-	* : update LT translations
+	* update LT translations
 
 2004-10-29 20:11  dannym
 
-	* : fixed a few remaining bugs:
+	* fixed a few remaining bugs:
 	  - free window state properly
 	  - remove timer before its too late
 	  - prevent strict aliasing rules from kicking in by preventing
@@ -1747,56 +1787,56 @@
 
 2004-10-29 19:59  dannym
 
-	* : makefile temp files cleaner
+	* makefile temp files cleaner
 
 2004-10-29 19:20  dannym
 
-	* : fix destroy order
+	* fix destroy order
 
 2004-10-29 19:08  dannym
 
-	* : shut gcc up
+	* shut gcc up
 
 2004-10-29 15:37  benny
 
-	* : Check AUDIODEV environment variable to support SunRay devices.
+	* Check AUDIODEV environment variable to support SunRay devices.
 
 2004-10-28 11:55  pollux
 
-	* : update HE translations
+	* update HE translations
 
 2004-10-27 13:43  jasper
 
-	* : Probably could be smarter than this, but at least it should
-	  solve bug #357
+	* Probably could be smarter than this, but at least it should solve
+	  bug #357
 
 2004-10-23 14:45  olivier
 
-	* : Update ChangeLog
+	* Update ChangeLog
 
 2004-10-22 20:38  olivier
 
-	* : Updated versions and change logs
+	* Updated versions and change logs
 
 2004-10-21 17:37  benny
 
-	* : Fix casting bug that breaks gcc34 based plattforms. Danny,
-	  please get rid
+	* Fix casting bug that breaks gcc34 based plattforms. Danny, please
+	  get rid
 	  of gob as soon as possible, it generates faulty code!
 
 2004-10-21 17:35  benny
 
-	* : Fix memory corruption, calling g_free on data, which is
-	  accessed later on.
+	* Fix memory corruption, calling g_free on data, which is accessed
+	  later on.
 
 2004-10-15 09:42  pollux
 
-	* : update FI translations
+	* update FI translations
 
 2004-10-11 18:10  benny
 
-	* : Here we go, Sun mixer support. Just what I have so far. Seems
-	  to block the
+	* Here we go, Sun mixer support. Just what I have so far. Seems to
+	  block the
 	  mixer device, tho it shouldn't. Since I merged this from my test
 	  .c files,
 	  it may not even compile. I'll check once I get my hands on
@@ -1807,321 +1847,321 @@
 
 2004-10-11 16:30  benny
 
-	* : update-po for Moe.
+	* update-po for Moe.
 
 2004-10-10 11:52  pollux
 
-	* : update pt_PT translations
+	* update pt_PT translations
 
 2004-10-09 14:20  pollux
 
-	* : update FA translations
+	* update FA translations
 
 2004-10-08 14:01  edscott
 
-	* : add spanish translation
+	* add spanish translation
 
 2004-10-08 13:58  edscott
 
-	* : update translation
+	* update translation
 
 2004-10-07 20:35  benny
 
-	* : Added --enable-final (-O1 for GNU ld) as per Jaspers request.
+	* Added --enable-final (-O1 for GNU ld) as per Jaspers request.
 	  Added missing
 	  m4 files.
 
 2004-10-03 16:14  pollux
 
-	* : Punjabi translations (PA) from jaswinderlinux@netscape.net
+	* Punjabi translations (PA) from jaswinderlinux@netscape.net
 
 2004-10-03 15:43  pollux
 
-	* : zh_TW translations of desktop files from Ambrose Li
+	* zh_TW translations of desktop files from Ambrose Li
 	  <acli@ada.dhs.org>
 
 2004-10-03 15:00  jasper
 
-	* : Missing file from tarball
+	* Missing file from tarball
 
 2004-10-02 23:26  olivier
 
-	* : Missing files from spec file
+	* Missing files from spec file
 
 2004-10-02 13:28  olivier
 
-	* : Update all files for 4.2 beta 1
+	* Update all files for 4.2 beta 1
 
 2004-09-30 11:12  jasper
 
-	* : Update version and fix make distcheck target
+	* Update version and fix make distcheck target
 
 2004-09-29 08:22  pollux
 
-	* : updated zh_TW translations from Ambrose Li <acli@ada.dhs.org>
+	* updated zh_TW translations from Ambrose Li <acli@ada.dhs.org>
 
 2004-09-29 07:59  pollux
 
-	* : updated zh_CN translations from yongtao yang
+	* updated zh_CN translations from yongtao yang
 	  <yongtao.yang@gmail.com>
 
 2004-09-26 08:32  jasper
 
-	* : autogen for danny
+	* autogen for danny
 
 2004-09-26 08:21  dannym
 
-	* : apply patch from a.c.li at ieee.org
+	* apply patch from a.c.li at ieee.org
 
 2004-09-25 12:31  dannym
 
-	* : fix crash by removing g_object_unref from the icontheme and the
+	* fix crash by removing g_object_unref from the icontheme and the
 	  gdkscreen
 
 2004-09-25 12:13  dannym
 
-	* : autogen O_O
+	* autogen O_O
 
 2004-09-25 11:43  dannym
 
-	* : add libxfcegui4 dep for icon loader
+	* add libxfcegui4 dep for icon loader
 
 2004-09-25 11:40  dannym
 
-	* : add icon loader
+	* add icon loader
 
 2004-09-23 21:36  pollux
 
-	* : add Gujarati translations (GU) from Ankit Patel
+	* add Gujarati translations (GU) from Ankit Patel
 	  <ankit@redhat.com>
 
 2004-09-23 09:09  jasper
 
-	* : Better translation
+	* Better translation
 
 2004-09-23 08:22  jasper
 
-	* : Add nl translations
+	* Add nl translations
 
 2004-09-22 03:18  kelnos
 
-	* : add GenericName tags to settings .desktop files
+	* add GenericName tags to settings .desktop files
 
 2004-09-21 11:51  jasper
 
-	* : Run make update-po at Moe's request.
+	* Run make update-po at Moe's request.
 
 2004-09-20 22:22  olivier
 
-	* : Update all ChangeLogs
+	* Update all ChangeLogs
 
 2004-09-19 14:47  jasper
 
-	* : i18n fixes
+	* i18n fixes
 
 2004-09-19 10:14  jasper
 
-	* : Update nl translations
+	* Update nl translations
 
 2004-09-18 20:50  jasper
 
-	* : Fix translations for mcs plugins
+	* Fix translations for mcs plugins
 
 2004-09-18 18:27  jasper
 
-	* : autogen for Maarten + basedir tweaks
+	* autogen for Maarten + basedir tweaks
 
 2004-09-18 16:41  pollux
 
-	* : update EU translations
+	* update EU translations
 
 2004-09-18 00:02  moe
 
-	* : Updating these for alpha release. Not yet finished .. but I'm
+	* Updating these for alpha release. Not yet finished .. but I'm
 	  just too tired to continue. Needs extensive spell checking
 	  and approvement (Note to myself: Write mail to the list!).
 
 2004-09-16 22:10  pollux
 
-	* : add BE translations from Ales Nyakhaychyk <nab@mail.by>
+	* add BE translations from Ales Nyakhaychyk <nab@mail.by>
 
 2004-09-12 19:35  jasper
 
-	* : Basedir spec changes mcs plugin
+	* Basedir spec changes mcs plugin
 
 2004-09-11 22:35  dannym
 
-	* : shut warning up when there is no old config
+	* shut warning up when there is no old config
 
 2004-09-11 22:06  dannym
 
-	* : config stuff
+	* config stuff
 
 2004-09-11 21:58  dannym
 
-	* : all config files use temp file
+	* all config files use temp file
 
 2004-09-11 21:34  dannym
 
-	* : fix names of my-config functions
+	* fix names of my-config functions
 
 2004-09-11 21:23  dannym
 
-	* : add xfce4/ to .config path
+	* add xfce4/ to .config path
 
 2004-09-11 21:20  dannym
 
-	* : add comment to use strerror_r with threads, but use g_strerror
+	* add comment to use strerror_r with threads, but use g_strerror
 	  for now
 
 2004-09-11 21:14  dannym
 
-	* : name the parameter xerrno instead of errno
+	* name the parameter xerrno instead of errno
 
 2004-09-11 21:12  dannym
 
-	* : add comment about return value of rename_tmp_file
+	* add comment about return value of rename_tmp_file
 
 2004-09-11 21:11  dannym
 
-	* : return value
+	* return value
 
 2004-09-11 21:10  dannym
 
-	* : no flock
+	* no flock
 
 2004-09-11 21:08  dannym
 
-	* : #if 0 unused function
+	* #if 0 unused function
 
 2004-09-11 21:08  dannym
 
-	* : mixer-mcs-client.gob:76: warning: function called through a
+	* mixer-mcs-client.gob:76: warning: function called through a
 	  non-compatible type
 	  mixer-mcs-client.gob:76: note: if this code is reached, the
 	  program will abort
 
 2004-09-11 21:05  dannym
 
-	* : fix CHECK_HEADERS so my autotools understand
+	* fix CHECK_HEADERS so my autotools understand
 
 2004-09-11 21:03  dannym
 
-	* : fix additional error string parameter
+	* fix additional error string parameter
 
 2004-09-11 20:53  dannym
 
-	* : readd configure, ran autogen, ...
+	* readd configure, ran autogen, ...
 
 2004-09-11 20:30  dannym
 
-	* : config stuff, tempfile
+	* config stuff, tempfile
 
 2004-09-11 20:22  dannym
 
-	* : xdg config stuff
+	* xdg config stuff
 
 2004-09-11 20:15  dannym
 
-	* : cvs ! work ! now !
+	* cvs ! work ! now !
 
 2004-09-11 19:18  dannym
 
-	* : rename _str to _print since that is what it does
+	* rename _str to _print since that is what it does
 
 2004-09-11 19:15  dannym
 
-	* : previous commit: add XDG config mechanism; this commit; typo
+	* previous commit: add XDG config mechanism; this commit; typo
 
 2004-09-11 19:15  dannym
 
-	* : flock
+	* flock
 
 2004-09-10 20:49  pollux
 
-	* : HE translations update from Yuval Tanny <tanai@int.gov.il>
+	* HE translations update from Yuval Tanny <tanai@int.gov.il>
 
 2004-09-09 18:51  pollux
 
-	* : update VI translations
+	* update VI translations
 
 2004-09-08 20:18  dannym
 
-	* : add fancy header
+	* add fancy header
 
 2004-09-06 19:48  jasper
 
-	* : Build fixes. Don't link test_vc object into library.
+	* Build fixes. Don't link test_vc object into library.
 
 2004-09-06 14:08  pollux
 
-	* : ET translations from Peeter Vois <Peeter.Vois@proekspert.ee>
+	* ET translations from Peeter Vois <Peeter.Vois@proekspert.ee>
 
 2004-08-29 16:03  pollux
 
-	* : AZ translations update from Metin Amiroff <metin@karegen.com>
+	* AZ translations update from Metin Amiroff <metin@karegen.com>
 
 2004-08-28 23:03  dannym
 
-	* : add vc_handle_events, empty
+	* add vc_handle_events, empty
 
 2004-08-28 19:20  pollux
 
-	* : add Slovak translations from Juraj Brosz <Juraj.Brosz@pobox.sk>
+	* add Slovak translations from Juraj Brosz <Juraj.Brosz@pobox.sk>
 
 2004-08-26 15:19  dannym
 
-	* : again autotools
+	* again autotools
 
 2004-08-26 15:17  dannym
 
-	* : update using autotools by hand
+	* update using autotools by hand
 
 2004-08-26 14:58  dannym
 
-	* : add inc files
+	* add inc files
 
 2004-08-26 14:56  dannym
 
-	* : add missing headers to Makefile.am
+	* add missing headers to Makefile.am
 
 2004-08-26 14:38  dannym
 
-	* : ran autogen... heavens help me.
+	* ran autogen... heavens help me.
 	  To be on the safe side, someone that knows how to force the
 	  correct autotools versions should run it again. Thanks :)
 
 2004-08-26 13:17  dannym
 
-	* : add note to self
+	* add note to self
 
 2004-08-26 13:04  dannym
 
-	* : removed main.c from Makefile.am
+	* removed main.c from Makefile.am
 
 2004-08-26 05:57  olivier
 
-	* : Try to fix dist for this package, but it doesn't build.
+	* Try to fix dist for this package, but it doesn't build.
 
 2004-08-25 22:10  olivier
 
-	* : another make dist fix
+	* another make dist fix
 
 2004-08-25 21:38  dannym
 
-	* : add missing files
+	* add missing files
 
 2004-08-25 18:34  jasper
 
-	* : Update dutch translations, only po files for now
+	* Update dutch translations, only po files for now
 
 2004-08-24 10:04  pollux
 
-	* : RU translations update from Anthony Ivanoff <a-i@bk.ru>
+	* RU translations update from Anthony Ivanoff <a-i@bk.ru>
 
 2004-08-15 19:39  olivier
 
-	* : Resync with repository, most notably:
+	* Resync with repository, most notably:
 	  - libxfcegui4 fixes with gtk 2.2
 	  - xfwm4 updates
 	  - Present panel plugins in alphabetical order
@@ -2131,136 +2171,135 @@
 
 2004-08-08 22:14  dannym
 
-	* : add a bit spacing between the selects
+	* add a bit spacing between the selects
 
 2004-07-28 21:22  benny
 
-	* : Fixed (module)_FOUND bug reported by brian. Hopefully nothing
+	* Fixed (module)_FOUND bug reported by brian. Hopefully nothing
 	  else broke
 	  this time.
 
 2004-07-25 15:38  benny
 
-	* : Run autogen.sh.
+	* Run autogen.sh.
 
 2004-07-25 12:26  dannym
 
-	* : clear todo
+	* clear todo
 
 2004-07-25 12:05  dannym
 
-	* : break plugin by adding XFCE_PANEL_[UN]LOCK
+	* break plugin by adding XFCE_PANEL_[UN]LOCK
 
 2004-07-24 18:52  benny
 
-	* : Readded XFCE_MCS_PLUGIN() again, dunno how I manage to remove
-	  it everytime
+	* Readded XFCE_MCS_PLUGIN() again, dunno how I manage to remove it
+	  everytime
 	  I edit depends.m4!
 
 2004-07-24 17:30  benny
 
-	* : XFCE_PANEL_PLUGIN had wrong panel version for the threaded
-	  test.
+	* XFCE_PANEL_PLUGIN had wrong panel version for the threaded test.
 
 2004-07-24 17:28  benny
 
-	* : Extended the XFCE_PANEL_PLUGIN macro to include some magic for
+	* Extended the XFCE_PANEL_PLUGIN macro to include some magic for
 	  threaded panels.
 
 2004-07-23 23:07  benny
 
-	* : Made icon themable.
+	* Made icon themable.
 
 2004-07-21 23:00  benny
 
-	* : Readded the XFCE_MCS_PLUGIN macro. I didn't ment to remove it,
+	* Readded the XFCE_MCS_PLUGIN macro. I didn't ment to remove it,
 	  tho.
 
 2004-07-21 19:15  dannym
 
-	* : updated gob preprocessor to 2.0.9 and regenerated the files...
+	* updated gob preprocessor to 2.0.9 and regenerated the files...
 
 2004-07-21 18:47  dannym
 
-	* : more gcc 3.4 fixes
+	* more gcc 3.4 fixes
 
 2004-07-21 18:38  dannym
 
-	* : possible fix for gcc/gob weirdness to mixer cvs
+	* possible fix for gcc/gob weirdness to mixer cvs
 
 2004-07-20 20:58  benny
 
-	* : Modifed panel plugin check, so one (the installer) can choose
-	  to install
+	* Modifed panel plugin check, so one (the installer) can choose to
+	  install
 	  into a different plugin dir.
 
 2004-07-19 21:47  dannym
 
-	* : include string.h if neccessary
+	* include string.h if neccessary
 
 2004-06-20 20:57  dannym
 
-	* : fix possible breakage when setting couldn't be read.
+	* fix possible breakage when setting couldn't be read.
 
 2004-06-20 08:25  dannym
 
-	* : sanity check volume in mixer-slider-tiny
+	* sanity check volume in mixer-slider-tiny
 
 2004-06-18 05:47  dannym
 
-	* : better comment
+	* better comment
 
 2004-06-18 05:45  dannym
 
-	* : add usage comment
+	* add usage comment
 
 2004-06-13 21:18  pollux
 
-	* : Updated lt translations from Mantas Zapolskas
+	* Updated lt translations from Mantas Zapolskas
 
 2004-06-13 09:40  pollux
 
-	* : .gmo files updated
+	* .gmo files updated
 
 2004-06-11 19:59  pollux
 
-	* : Update zh_CN translations
+	* Update zh_CN translations
 
 2004-06-09 21:46  dannym
 
-	* : add missing (dummy) file with translations in it for
-	  regeneration of xfce4-mixer.pot to work
+	* add missing (dummy) file with translations in it for regeneration
+	  of xfce4-mixer.pot to work
 
 2004-05-03 21:44  olivier
 
-	* : Update zh_TW translations from umm <umm@pchome.com.tw>
+	* Update zh_TW translations from umm <umm@pchome.com.tw>
 
 2004-05-03 20:18  kelnos
 
-	* : mixer settings .desktop w/EXTRA_DIST
+	* mixer settings .desktop w/EXTRA_DIST
 
 2004-05-02 22:12  dannym
 
-	* : Cute Icon from Francois :)
+	* Cute Icon from Francois :)
 
 2004-04-16 19:10  dannym
 
-	* : XFce -> Xfce
+	* XFce -> Xfce
 
 2004-04-15 16:36  dannym
 
-	* : --version, good idea :)
+	* --version, good idea :)
 
 2004-04-12 13:28  dannym
 
-	* : VS:
+	* VS:
 	  ----------------------------------------------------------------------
 	  Update catalan translations by Carles Mu��oz Gorriz
 
 2004-04-10 12:28  dannym
 
-	* : got rid of GTK_DISABLE_DEPRECATED as with gtk+ 2.4 it
-	  deprecated GtkCombo and
+	* got rid of GTK_DISABLE_DEPRECATED as with gtk+ 2.4 it deprecated
+	  GtkCombo and
 	  GtkOptionMenu which are perfectly normal to use with gtk+ 2.2
 	  (and since xfce
 	  supports both gtk+ 2.2 and 2.4 ...)
@@ -2269,21 +2308,21 @@
 
 2004-03-31 19:46  benny
 
-	* : Generate files for danny.
+	* Generate files for danny.
 
 2004-03-31 19:37  dannym
 
-	* : add --disable-big-mixer support for Moe :)
+	* add --disable-big-mixer support for Moe :)
 
 2004-03-18 12:14  benny
 
-	* : <libxfce4util/*.h> -> <libxfce4util/libxfce4util.h>, Fixed
+	* <libxfce4util/*.h> -> <libxfce4util/libxfce4util.h>, Fixed
 	  compile problems
 	  with sun forte cc (resolves bug #140). Make compiler happy.
 
 2004-03-15 07:36  olivier
 
-	* : Add/update i18n for:
+	* Add/update i18n for:
 	  Bulgarian from Miroslav Yordanov <miordanov@i-space.org> and
 	  Peter Slavov <peshka@i-space.org>
 	  Italian from Alex Dupre <ale@FreeBSD.org>
@@ -2291,174 +2330,174 @@
 
 2004-03-10 23:58  benny
 
-	* : Removed unneccesary lib depends from the mcs plugins, as
+	* Removed unneccesary lib depends from the mcs plugins, as
 	  xfce-mcs-manager provides them.
 
 2004-03-09 12:45  dannym
 
-	* : comments what to fill in to make it work for netbsd... patches
+	* comments what to fill in to make it work for netbsd... patches
 	  accepted :)
 
 2004-03-01 21:09  benny
 
-	* : Added --enable-gcov to compile xfce with support for coverage
+	* Added --enable-gcov to compile xfce with support for coverage
 	  tests. Very
 	  useful.
 
 2004-02-28 22:59  dannym
 
-	* : cleanup, change atexit to normal call in main
+	* cleanup, change atexit to normal call in main
 
 2004-02-28 22:57  dannym
 
-	* : use g_module_unload instead of atexit
+	* use g_module_unload instead of atexit
 
 2004-02-28 22:04  dannym
 
-	* : use g_atexit instead of atexit, maybe that helps...
+	* use g_atexit instead of atexit, maybe that helps...
 
 2004-02-24 19:13  dannym
 
-	* : fix bug #0000102
+	* fix bug #0000102
 
 2004-02-24 19:03  dannym
 
-	* : ...
+	* ...
 
 2004-02-24 18:02  dannym
 
-	* : get rid of a bunch of g_warning's
+	* get rid of a bunch of g_warning's
 
 2004-02-24 17:57  dannym
 
-	* : up and down button
+	* up and down button
 
 2004-02-24 17:45  dannym
 
-	* : load/save/manage profiles work now... although somewhat
+	* load/save/manage profiles work now... although somewhat
 	  unordered...
 
 2004-02-23 22:43  dannym
 
-	* : alsa: get_volume: when mute, return 0
+	* alsa: get_volume: when mute, return 0
 
 2004-02-23 22:36  dannym
 
-	* : fix 'cannot mute' bug for alsa backend
+	* fix 'cannot mute' bug for alsa backend
 
 2004-02-21 10:22  dannym
 
-	* : actually use the "presents" uniqueness hash.
+	* actually use the "presents" uniqueness hash.
 
 2004-02-20 15:28  dannym
 
-	* : loading of profile into profile manager box works now
+	* loading of profile into profile manager box works now
 
 2004-02-20 13:45  dannym
 
-	* : save/restore accelerators :)
+	* save/restore accelerators :)
 
 2004-02-20 13:10  dannym
 
-	* : fix bug when entering profile manager, creating profile,
-	  leaving profile manager,
+	* fix bug when entering profile manager, creating profile, leaving
+	  profile manager,
 	  then entering profile manager, deleting the recently created
 	  profile, leaving profile manager: crashed
 
 2004-02-20 12:40  dannym
 
-	* : update todo
+	* update todo
 
 2004-02-17 19:36  jasper
 
-	* : Update Malay translations
+	* Update Malay translations
 
 2004-02-12 22:17  dannym
 
-	* : fix resizing oddity
+	* fix resizing oddity
 
 2004-02-12 20:14  dannym
 
-	* : save disclosure widget state as well
+	* save disclosure widget state as well
 
 2004-02-11 21:50  dannym
 
-	* : one down, three to go
+	* one down, three to go
 
 2004-02-11 21:04  dannym
 
-	* : clean up
+	* clean up
 
 2004-02-11 20:44  jasper
 
-	* : Add Basque (eu) translations
+	* Add Basque (eu) translations
 
 2004-02-11 20:17  dannym
 
-	* : unbreak mixer
+	* unbreak mixer
 
 2004-02-11 19:59  dannym
 
-	* : save&restore window pos,size,stickyness works now
+	* save&restore window pos,size,stickyness works now
 
 2004-02-11 19:28  dannym
 
-	* : breaking the mixer muhahaha
+	* breaking the mixer muhahaha
 
 2004-02-11 18:27  dannym
 
-	* : working save/restore position & size
+	* working save/restore position & size
 
 2004-02-11 18:26  dannym
 
-	* : pxml additions
+	* pxml additions
 
 2004-02-11 18:16  dannym
 
-	* : bugfix pxml, initial try to store pos&size
+	* bugfix pxml, initial try to store pos&size
 
 2004-02-08 21:10  dannym
 
-	* : updated todo file :P things list in order of descending
+	* updated todo file :P things list in order of descending
 	  importance, and removed
 	  stuff already done.
 
 2004-02-01 21:57  dannym
 
-	* : fixed bug with floating references (mixer-preferences from
+	* fixed bug with floating references (mixer-preferences from
 	  Gtk:Object to G:Object)
 
 2004-02-01 21:07  dannym
 
-	* : xml bugfix from panel-plugin -> src
+	* xml bugfix from panel-plugin -> src
 
 2004-02-01 21:06  dannym
 
-	* : don't free xml document
+	* don't free xml document
 
 2004-01-31 23:26  dannym
 
-	* : fix mcs leak.
+	* fix mcs leak.
 
 2004-01-31 20:44  dannym
 
-	* : make mixer plugin unique since current mixer api doesnt allow
-	  for anything
+	* make mixer plugin unique since current mixer api doesnt allow for
+	  anything
 	  more fancy :P
 	  
 	  misc. additions to xml wrapper...
 
 2004-01-29 15:51  jasper
 
-	* : Update Persian translations
+	* Update Persian translations
 
 2004-01-28 20:24  dannym
 
-	* : alright, remove annoying debug messages
+	* alright, remove annoying debug messages
 
 2004-01-28 20:21  dannym
 
-	* : profile <-> xml
+	* profile <-> xml
 	  profiles <-> xml
 	  window: set_profile
 	  fix leaks
@@ -2466,24 +2505,23 @@
 
 2004-01-25 17:10  dannym
 
-	* : add missing file...again
+	* add missing file...again
 
 2004-01-25 16:59  dannym
 
-	* : and fill up some dummy functions with real code ;)
+	* and fill up some dummy functions with real code ;)
 
 2004-01-25 16:53  dannym
 
-	* : profile update on mcs change, working version
+	* profile update on mcs change, working version
 
 2004-01-25 00:07  olivier
 
-	* : Update libtool and other automake, autoconf and gettext
-	  packages
+	* Update libtool and other automake, autoconf and gettext packages
 
 2004-01-21 19:18  dannym
 
-	* : hm, cvs, work, will you ?
+	* hm, cvs, work, will you ?
 	  what did I change ? profiles data and view seperated.
 	  Translations and autogen seem to have been recompiled by someone
 	  else.
@@ -2492,677 +2530,671 @@
 
 2004-01-21 18:41  dannym
 
-	* : add missing file
+	* add missing file
 
 2004-01-21 18:40  dannym
 
-	* : add missing files
+	* add missing files
 
 2004-01-21 18:24  dannym
 
-	* : add missing files
+	* add missing files
 
 2004-01-21 16:25  dannym
 
-	* : adding missing files
+	* adding missing files
 
 2004-01-21 13:44  jasper
 
-	* : Translations added/updated for spanish, persian, japanese,
+	* Translations added/updated for spanish, persian, japanese,
 	  korean, brasilian and chinese
 
 2004-01-21 12:09  dannym
 
-	* : made (oss) mixer names translateable in po files.
+	* made (oss) mixer names translateable in po files.
 	  added (non-working) mixer-profiles storage class.
 
 2004-01-20 23:30  dannym
 
-	* : fix &s typo (should be %s)
+	* fix &s typo (should be %s)
 
 2004-01-20 23:17  dannym
 
-	* : adding colon to "Device" translation string
+	* adding colon to "Device" translation string
 
 2004-01-20 23:15  dannym
 
-	* : adding colon to fuzzy stuff
+	* adding colon to fuzzy stuff
 
 2004-01-20 23:14  dannym
 
-	* : humm... menus, translate, will you...
+	* humm... menus, translate, will you...
 
 2004-01-20 23:05  dannym
 
-	* : fixed menus.c not getting translated, I think.
+	* fixed menus.c not getting translated, I think.
 	  I knew I forgot something... *sweatdrop*
 
 2004-01-20 22:59  dannym
 
-	* : updated translations. fixed newlines. make update-po
+	* updated translations. fixed newlines. make update-po
 
 2004-01-20 15:06  dannym
 
-	* : starting to make mixer translateable
+	* starting to make mixer translateable
 
 2004-01-20 14:41  dannym
 
-	* : updated pot file. Updated de translation.
+	* updated pot file. Updated de translation.
 
 2004-01-20 14:21  dannym
 
-	* : updating translation
+	* updating translation
 
 2004-01-20 14:05  dannym
 
-	* : added pt_BR translation. Ran autogen. Beware.
+	* added pt_BR translation. Ran autogen. Beware.
 
 2004-01-19 12:49  dannym
 
-	* : remove destroy_command_options as it is called automatically...
+	* remove destroy_command_options as it is called automatically...
 
 2004-01-18 21:57  dannym
 
-	* : since jasper added the command option stuff, here you go with
-	  new simplified
+	* since jasper added the command option stuff, here you go with new
+	  simplified
 	  panel-plugin, among other things ;)
 
 2004-01-16 02:20  dannym
 
-	* : various fixes
+	* various fixes
 
 2004-01-10 22:26  dannym
 
-	* : fix leak
+	* fix leak
 
 2004-01-10 22:26  dannym
 
-	* : show "default" entry..
+	* show "default" entry..
 
 2004-01-10 22:16  dannym
 
-	* : add a profile reference to profilebox-detail for modifications.
+	* add a profile reference to profilebox-detail for modifications.
 
 2004-01-10 21:56  dannym
 
-	* : profile dialog can add and remove profiles now, their data is
+	* profile dialog can add and remove profiles now, their data is
 	  still not used though.
 
 2004-01-10 20:00  dannym
 
-	* : add profile dialogs as prototypes (non-working)
+	* add profile dialogs as prototypes (non-working)
 
 2004-01-09 21:34  dannym
 
-	* : add missing files
+	* add missing files
 
 2004-01-08 23:23  dannym
 
-	* : pretty formatting of mcs settings device options menu.
+	* pretty formatting of mcs settings device options menu.
 	  include config.h in all gobs
 
 2004-01-08 23:06  dannym
 
-	* : perldude's settings :)
+	* perldude's settings :)
 
 2004-01-08 22:26  dannym
 
-	* : sanity checks...
+	* sanity checks...
 
 2004-01-08 21:55  dannym
 
-	* : preparation for changing listbox to option menu as Moe
-	  suggested
+	* preparation for changing listbox to option menu as Moe suggested
 
 2004-01-08 21:29  dannym
 
-	* : make it actually use the command setting ;)
+	* make it actually use the command setting ;)
 
 2004-01-08 20:57  dannym
 
-	* : remove -ansi hack
+	* remove -ansi hack
 
 2004-01-08 20:51  dannym
 
-	* : make autogen.sh work as i want it to, i.e. not #define const
+	* make autogen.sh work as i want it to, i.e. not #define const
 	  make --enable-debug=full work correctly
 
 2004-01-08 18:45  dannym
 
-	* : remove debugging messages
+	* remove debugging messages
 
 2004-01-08 17:57  dannym
 
-	* : remove old header inclusion
+	* remove old header inclusion
 
 2004-01-08 17:55  dannym
 
-	* : remove debugging stuff
+	* remove debugging stuff
 
 2004-01-08 17:53  dannym
 
-	* : add missing headers, remove unneccessary cruft
+	* add missing headers, remove unneccessary cruft
 
 2004-01-08 16:29  dannym
 
-	* : declare the variable, free the variable...
+	* declare the variable, free the variable...
 
 2004-01-08 16:20  dannym
 
-	* : add "xfce4-mixer" to panel plugin properties Command Combo if
+	* add "xfce4-mixer" to panel plugin properties Command Combo if
 	  program found...
 
 2004-01-08 15:58  dannym
 
-	* : add missing files
+	* add missing files
 
 2004-01-06 21:57  dannym
 
-	* : more mcs client stuff...
+	* more mcs client stuff...
 
 2004-01-06 21:07  dannym
 
-	* : implement extended controls (switch, select) on all levels,
+	* implement extended controls (switch, select) on all levels,
 	  including vc level
 
 2004-01-06 19:45  dannym
 
-	* : standalone xfce4-mixer: check if soundsystem registration
-	  worked
+	* standalone xfce4-mixer: check if soundsystem registration worked
 
 2004-01-06 19:10  dannym
 
-	* : add missing files
+	* add missing files
 	  <
 
 2004-01-06 19:09  dannym
 
-	* : "update" translations, that is add untranslated strings
+	* "update" translations, that is add untranslated strings
 
 2004-01-06 18:56  dannym
 
-	* : make update-po
+	* make update-po
 
 2004-01-06 18:54  dannym
 
-	* : make notification half working
+	* make notification half working
 
 2004-01-06 17:45  dannym
 
-	* : ditto
+	* ditto
 
 2004-01-06 17:40  dannym
 
-	* : remove automatic refresh call until it works
+	* remove automatic refresh call until it works
 
 2004-01-06 17:30  dannym
 
-	* : working again... my bad... now i know what the first param of
+	* working again... my bad... now i know what the first param of
 	  BM_DEPEND is for :)
 
 2004-01-06 17:18  dannym
 
-	* : broken not that bad...
+	* broken not that bad...
 
 2004-01-06 17:08  dannym
 
-	* : translateable files, good way
+	* translateable files, good way
 
 2004-01-06 16:52  dannym
 
-	* : broken real bad
+	* broken real bad
 
 2004-01-06 16:42  dannym
 
-	* : unbreak my ... m4
+	* unbreak my ... m4
 
 2004-01-06 16:31  dannym
 
-	* : add empty m4 dir ?
+	* add empty m4 dir ?
 
 2004-01-06 16:26  dannym
 
-	* : add "no" language
+	* add "no" language
 
 2004-01-06 16:22  dannym
 
-	* : mcs client?
+	* mcs client?
 
 2004-01-06 16:01  dannym
 
-	* : dummy mcs client
+	* dummy mcs client
 
 2004-01-06 15:24  dannym
 
-	* : make settings plugin really work
+	* make settings plugin really work
 
 2004-01-06 15:23  dannym
 
-	* : minor fixes (trim, ...)
+	* minor fixes (trim, ...)
 
 2004-01-06 00:17  dannym
 
-	* : automake fix
+	* automake fix
 
 2004-01-06 00:04  dannym
 
-	* : include library
+	* include library
 
 2004-01-06 00:01  dannym
 
-	* : library split...
+	* library split...
 
 2004-01-05 23:54  dannym
 
-	* : stuffing lowlevel things in a separate library
+	* stuffing lowlevel things in a separate library
 
 2004-01-05 23:13  dannym
 
-	* : prototype for sun audio / BSD from bmeurer...
+	* prototype for sun audio / BSD from bmeurer...
 	  unfinished.
 
 2004-01-05 22:50  dannym
 
-	* : table layout fixes
+	* table layout fixes
 
 2004-01-05 20:59  dannym
 
-	* : added select (option menu) support.
+	* added select (option menu) support.
 	  tables = vbox(switches, selects)
 	  disclosure.add(tables)
 
 2004-01-05 20:09  dannym
 
-	* : add preliminary select support.
+	* add preliminary select support.
 	  fix event order bug.
 
 2004-01-05 19:49  dannym
 
-	* : fix text typo.
+	* fix text typo.
 
 2004-01-05 19:41  dannym
 
-	* : hide "default" device entry.
+	* hide "default" device entry.
 
 2004-01-05 19:35  dannym
 
-	* : mcs storing
+	* mcs storing
 
 2004-01-05 19:30  dannym
 
-	* : add mcs manager connection, modify icon
+	* add mcs manager connection, modify icon
 
 2004-01-05 18:10  dannym
 
-	* : take 2
+	* take 2
 
 2004-01-05 17:43  dannym
 
-	* : mcs plugin, take 1
+	* mcs plugin, take 1
 
 2004-01-05 14:15  dannym
 
-	* : fix compiler warning
+	* fix compiler warning
 
 2004-01-05 09:38  jasper
 
-	* : Fix build system and icon/slider sizing.
+	* Fix build system and icon/slider sizing.
 
 2004-01-04 22:16  dannym
 
-	* : linking common files
+	* linking common files
 
 2004-01-04 22:07  dannym
 
-	* : helpers
+	* helpers
 
 2004-01-04 21:32  dannym
 
-	* : sanity checks
+	* sanity checks
 
 2004-01-04 21:30  dannym
 
-	* : make disclosure widget disappear if there is nothing to
-	  disclose
+	* make disclosure widget disappear if there is nothing to disclose
 
 2004-01-04 20:57  dannym
 
-	* : driver update, i18n
+	* driver update, i18n
 
 2004-01-04 20:56  dannym
 
-	* : breaking i18n
+	* breaking i18n
 
 2004-01-04 20:54  dannym
 
-	* : linking common files
+	* linking common files
 
 2004-01-04 20:51  dannym
 
-	* : eat dupes
+	* eat dupes
 
 2004-01-04 20:34  dannym
 
-	* : menu changes ...
+	* menu changes ...
 
 2004-01-04 20:29  dannym
 
-	* : make panel plugin work again
+	* make panel plugin work again
 
 2004-01-04 20:25  dannym
 
-	* : updates to make --enable-debug=full work
+	* updates to make --enable-debug=full work
 
 2004-01-04 20:20  dannym
 
-	* : sources
+	* sources
 
 2004-01-04 20:16  dannym
 
-	* : honor the gnu
+	* honor the gnu
 
 2004-01-04 20:07  dannym
 
-	* : new gobject-based mixer
+	* new gobject-based mixer
 
 2003-12-29 15:18  olivier
 
-	* : Fix missing CHARSET in potfiles
+	* Fix missing CHARSET in potfiles
 
 2003-12-29 10:56  jasper
 
-	* : Update Norwegian and Turkish translations
+	* Update Norwegian and Turkish translations
 
 2003-12-27 19:46  jasper
 
-	* : Update Polish translations
+	* Update Polish translations
 
 2003-12-15 20:56  jasper
 
-	* : Add Azerbaijani translations
+	* Add Azerbaijani translations
 
 2003-11-23 13:44  moe
 
-	* : Updating german translation
+	* Updating german translation
 
 2003-11-16 08:45  jasper
 
-	* : Update Czech translations
+	* Update Czech translations
 
 2003-11-09 19:22  jasper
 
-	* : Add Check translations
+	* Add Check translations
 
 2003-11-03 18:06  jasper
 
-	* : Add Ukranian translations
+	* Add Ukranian translations
 
 2003-11-02 08:22  olivier
 
-	* : Add hi.po
+	* Add hi.po
 
 2003-11-01 18:46  dannym
 
-	* : updated version...
+	* updated version...
 
 2003-10-29 19:46  dannym
 
-	* : Small fix to the translations by David
+	* Small fix to the translations by David
 	  <byunghyunchoi@hotmail.com>
 
 2003-10-29 19:45  dannym
 
-	* : Updated Korean Translations by David
-	  <byunghyunchoi@hotmail.com>
+	* Updated Korean Translations by David <byunghyunchoi@hotmail.com>
 
 2003-10-25 19:21  jasper
 
-	* : Improve sizing
+	* Improve sizing
 
 2003-10-24 22:20  jasper
 
-	* : Add vietnamese translations by Lam Vinh Nien <nienvl@yahoo.ca>.
+	* Add vietnamese translations by Lam Vinh Nien <nienvl@yahoo.ca>.
 
 2003-10-15 11:20  jasper
 
-	* : Update korean translations
+	* Update korean translations
 
 2003-10-13 18:51  jasper
 
-	* : Update ChangeLog's after syncing with SF. Everything should now
+	* Update ChangeLog's after syncing with SF. Everything should now
 	  be up-to-date.
 
 2003-09-28 08:16  huysmans
 
-	* : Fix latest po file changes
+	* Fix latest po file changes
 
 2003-09-27 12:36  huysmans
 
-	* : Update tamil translation
+	* Update tamil translation
 
 2003-09-27 12:01  dannym
 
-	* : added korean translation
+	* added korean translation
 
 2003-09-22 20:56  huysmans
 
-	* : Update ChangeLogs
+	* Update ChangeLogs
 
 2003-09-22 20:44  huysmans
 
-	* : Update version numbers and po files for release
+	* Update version numbers and po files for release
 
 2003-09-21 22:43  xfce
 
-	* : Update version number to 4.0.0
+	* Update version number to 4.0.0
 
 2003-09-15 21:08  huysmans
 
-	* : Big portugese translation update
+	* Big portugese translation update
 
 2003-09-10 07:57  huysmans
 
-	* : Update ChangeLogs
+	* Update ChangeLogs
 
 2003-09-10 07:49  huysmans
 
-	* : Update version numbers and po files for release
+	* Update version numbers and po files for release
 
 2003-09-02 07:17  huysmans
 
-	* : Add malaysian translations
+	* Add malaysian translations
 
 2003-08-30 12:49  huysmans
 
-	* : Rename zh_TW.Big5 -> zh_TW
+	* Rename zh_TW.Big5 -> zh_TW
 
 2003-08-30 08:59  huysmans
 
-	* : Add traditional chinese translations
+	* Add traditional chinese translations
 
 2003-08-26 07:38  huysmans
 
-	* : Update changelogs
+	* Update changelogs
 
 2003-08-26 07:22  huysmans
 
-	* : Update version numbers and po files for release
+	* Update version numbers and po files for release
 
 2003-08-17 11:36  huysmans
 
-	* : Add lithuanian translations
+	* Add lithuanian translations
 
 2003-08-10 19:54  huysmans
 
-	* : Update chinese translations
+	* Update chinese translations
 
 2003-08-07 21:57  huysmans
 
-	* : Update catalan translations
+	* Update catalan translations
 
 2003-08-04 16:38  dannym
 
-	* : Bernhard Walle's translations
+	* Bernhard Walle's translations
 
 2003-08-02 09:41  dannym
 
-	* : added translateable strings for "Visible", "Control" (for the
+	* added translateable strings for "Visible", "Control" (for the
 	  tree)
 
 2003-08-01 12:38  dannym
 
-	* : added mvisible_opts.c to translateable files
+	* added mvisible_opts.c to translateable files
 
 2003-08-01 12:36  dannym
 
-	* : ups
+	* ups
 
 2003-08-01 12:34  dannym
 
-	* : translateable "Control" and "Visible"
+	* translateable "Control" and "Visible"
 
 2003-07-30 20:34  dannym
 
-	* : small nice helpers
+	* small nice helpers
 
 2003-07-30 20:30  dannym
 
-	* : device listing, alsa fixups for proper (hopefully) device
+	* device listing, alsa fixups for proper (hopefully) device
 	  selection...
 
 2003-07-30 11:31  huysmans
 
-	* : Update changlogs
+	* Update changlogs
 
 2003-07-30 08:16  huysmans
 
-	* : Update version numbers and po files for release
+	* Update version numbers and po files for release
 
 2003-07-29 22:30  dannym
 
-	* : fixed source of a warning with --enable-debug=full
+	* fixed source of a warning with --enable-debug=full
 
 2003-07-29 22:28  dannym
 
-	* : bugfix for when the internal mixer window is left open and USR1
+	* bugfix for when the internal mixer window is left open and USR1
 	  is sent
 	  to the panel
 
 2003-07-29 22:07  dannym
 
-	* : free_optionsdialog bugfix
+	* free_optionsdialog bugfix
 
 2003-07-29 21:41  dannym
 
-	* : centered, resized icon
+	* centered, resized icon
 
 2003-07-29 21:20  dannym
 
-	* : bugfix for treeview handling
+	* bugfix for treeview handling
 
 2003-07-29 19:37  dannym
 
-	* : temporarily removed device entry box for rc
+	* temporarily removed device entry box for rc
 
 2003-07-29 06:28  huysmans
 
-	* : Update russian translations
+	* Update russian translations
 
 2003-07-27 22:45  dannym
 
-	* : test vc stuff
+	* test vc stuff
 
 2003-07-27 22:34  dannym
 
-	* : more debugging messages
+	* more debugging messages
 
 2003-07-27 22:24  dannym
 
-	* : init() cleanup
+	* init() cleanup
 
 2003-07-27 22:22  dannym
 
-	* : find_master in init()
+	* find_master in init()
 
 2003-07-27 22:19  dannym
 
-	* : testing
+	* testing
 
 2003-07-27 22:15  dannym
 
-	* : testing...
+	* testing...
 
 2003-07-27 22:08  dannym
 
-	* :
-	  ----------------------------------------------------------------------
+	* ----------------------------------------------------------------------
 	  test program for the vc stuff (oss so far)
 
 2003-07-27 21:59  dannym
 
-	* : mixer_handle + multiple devices
+	* mixer_handle + multiple devices
 
 2003-07-27 21:33  dannym
 
-	* : bugfix in list device function
+	* bugfix in list device function
 
 2003-07-27 21:26  dannym
 
-	* : Bugfix *sweatdrops*
+	* Bugfix *sweatdrops*
 
 2003-07-27 20:40  dannym
 
-	* : bugfix set_device
+	* bugfix set_device
 
 2003-07-27 19:57  dannym
 
-	* : close_device
+	* close_device
 
 2003-07-27 19:38  dannym
 
-	* :
-	  ----------------------------------------------------------------------
+	* ----------------------------------------------------------------------
 	  set_device by Toby :)
 
 2003-07-19 09:30  huysmans
 
-	* : Update ChangeLogs
+	* Update ChangeLogs
 
 2003-07-19 09:08  huysmans
 
-	* : Update version numbers and po files for release
+	* Update version numbers and po files for release
 
 2003-07-18 18:16  bmeurer
 
-	* : Make this depend on the latest panel.
+	* Make this depend on the latest panel.
 
 2003-07-18 15:58  huysmans
 
-	* : Change panel API again to prevent old plugins to crah the panel
+	* Change panel API again to prevent old plugins to crah the panel
 
 2003-07-18 10:57  huysmans
 
-	* : Update hungarian translations
+	* Update hungarian translations
 
 2003-07-18 07:46  huysmans
 
-	* : Update turkish translations
+	* Update turkish translations
 
 2003-07-16 18:01  huysmans
 
-	* : Update dutch translations
+	* Update dutch translations
 
 2003-07-16 09:57  huysmans
 
-	* : Add hungarian translations
+	* Add hungarian translations
 
 2003-07-16 08:22  huysmans
 
-	* : Update catalan translations
+	* Update catalan translations
 
 2003-07-15 17:21  dannym
 
-	* : Moved the scroll-window be as big as possible, but without
+	* Moved the scroll-window be as big as possible, but without
 	  leaving
 	  empty space in the window, and smaller than the whole screen, to
 	  a
@@ -3170,400 +3202,398 @@
 
 2003-07-13 08:43  huysmans
 
-	* : Update ChangeLogs for release
+	* Update ChangeLogs for release
 
 2003-07-12 13:34  huysmans
 
-	* : Update ChangeLog before release
+	* Update ChangeLog before release
 
 2003-07-12 13:27  huysmans
 
-	* : Update po files before release (again ;)
+	* Update po files before release (again ;)
 
 2003-07-12 13:04  xfce
 
-	* : Set fixed width and set hscrollbar policy to automatic
+	* Set fixed width and set hscrollbar policy to automatic
 
 2003-07-12 12:12  xfce
 
-	* : Remove the hack for map event on mixer window.
+	* Remove the hack for map event on mixer window.
 
 2003-07-12 09:08  dannym
 
-	* : Update, breaks stored configuration, ow well
+	* Update, breaks stored configuration, ow well
 
 2003-07-11 07:33  huysmans
 
-	* : Update ChangeLog's for release
+	* Update ChangeLog's for release
 
 2003-07-11 07:18  huysmans
 
-	* : Update Chinese translations (2)
+	* Update Chinese translations (2)
 
 2003-07-10 09:56  huysmans
 
-	* : Update ChangeLog's for release
+	* Update ChangeLog's for release
 
 2003-07-10 09:45  huysmans
 
-	* : Bump versions for release and update po files
+	* Bump versions for release and update po files
 
 2003-07-09 08:47  huysmans
 
-	* : Update to new plugin API
+	* Update to new plugin API
 
 2003-07-08 20:55  xfce
 
-	* : Don't perform an update-po on make dist as it causes far too
-	  much trouble
+	* Don't perform an update-po on make dist as it causes far too much
+	  trouble
 
 2003-07-08 18:01  huysmans
 
-	* : Replave ... button with gtk stock open icon
+	* Replave ... button with gtk stock open icon
 
 2003-07-07 21:22  huysmans
 
-	* : Update catalan translations
+	* Update catalan translations
 
 2003-07-07 20:46  dannym
 
-	* : trying to fix the one-pixel-below bug phrep_ reported...
+	* trying to fix the one-pixel-below bug phrep_ reported...
 
 2003-07-07 20:43  dannym
 
-	* : Ok, since the draw_value from GtkScale is starting to annoy me,
-	  I just
+	* Ok, since the draw_value from GtkScale is starting to annoy me, I
+	  just
 	  switched it off now. Bah.
 
 2003-07-06 20:14  huysmans
 
-	* : Update ChangeLogs
+	* Update ChangeLogs
 
 2003-07-06 13:35  xfce
 
-	* : libtool update
+	* libtool update
 
 2003-07-02 21:00  dannym
 
-	* : Added nice border
+	* Added nice border
 
 2003-07-01 22:32  dannym
 
-	* : Small xinerama/xrandr fixup... needs work...
+	* Small xinerama/xrandr fixup... needs work...
 
 2003-06-29 14:17  dannym
 
-	* : gtk < 2.2 compat code added...
+	* gtk < 2.2 compat code added...
 
 2003-06-29 14:09  dannym
 
-	* : Finally... scroller only has scrollbars if required. If
-	  possible,
+	* Finally... scroller only has scrollbars if required. If possible,
 	  the window just gets bigger instead of adding scrollbars...
 
 2003-06-28 10:00  xfce
 
-	* : Switch to GNU libtool 1.5
+	* Switch to GNU libtool 1.5
 
 2003-06-24 22:38  xfce
 
-	* : Fix it.po file
+	* Fix it.po file
 
 2003-06-24 20:49  xfce
 
-	* : Add Italian locale
+	* Add Italian locale
 
 2003-06-19 11:19  dannym
 
-	* : grr. recommit.
+	* grr. recommit.
 
 2003-06-18 17:40  dannym
 
-	* : Recommit
+	* Recommit
 
 2003-06-18 17:22  dannym
 
-	* : Now unmutes alsa automatically (damn you, alsa). Needs more
+	* Now unmutes alsa automatically (damn you, alsa). Needs more
 	  testing...
 
 2003-06-17 22:04  dannym
 
-	* : fix for muting
+	* fix for muting
 
 2003-06-17 22:01  dannym
 
-	* : mute bugfix
+	* mute bugfix
 
 2003-06-17 21:55  dannym
 
-	* : Muting with middle or right mouse button on green bar
+	* Muting with middle or right mouse button on green bar
 
 2003-06-16 11:53  dannym
 
-	* : Fix
+	* Fix
 
 2003-06-15 12:11  dannym
 
-	* : Name Change ;)
+	* Name Change ;)
 
 2003-06-15 11:29  dannym
 
-	* : Load/Store visible mixer controls...
+	* Load/Store visible mixer controls...
 
 2003-06-14 21:51  bmeurer
 
-	* : Fixed forgotten file.
+	* Fixed forgotten file.
 
 2003-06-14 09:34  dannym
 
-	* : small bugfixes for the case there is no working sound device...
+	* small bugfixes for the case there is no working sound device...
 
 2003-06-14 08:35  dannym
 
-	* : oops
+	* oops
 
 2003-06-14 08:32  dannym
 
-	* : bugfix in next_vc
+	* bugfix in next_vc
 
 2003-06-13 22:39  bmeurer
 
-	* : Fixed bind_textdomain_codeset() problem on linux.
+	* Fixed bind_textdomain_codeset() problem on linux.
 
 2003-06-12 18:16  dannym
 
-	* : added two source files...
+	* added two source files...
 
 2003-06-12 18:12  dannym
 
-	* : Ercin Eker's translations... thankies :)
+	* Ercin Eker's translations... thankies :)
 
 2003-06-12 11:13  dannym
 
-	* : Update... mixer window and all
+	* Update... mixer window and all
 
 2003-06-12 06:53  dannym
 
-	* : oops... hereby add missing file
+	* oops... hereby add missing file
 
 2003-06-10 21:47  dannym
 
-	* : Check for bind_textdomain_codeset before using it.
+	* Check for bind_textdomain_codeset before using it.
 
 2003-06-10 20:28  dannym
 
-	* : Fixed multiple controls handling for get_volume in OSS.
+	* Fixed multiple controls handling for get_volume in OSS.
 
 2003-06-08 14:28  huysmans
 
-	* : Really add russion translations
+	* Really add russion translations
 
 2003-06-08 14:24  huysmans
 
-	* : Add russian translation
+	* Add russian translation
 
 2003-06-07 18:14  bmeurer
 
-	* : cosmetics
+	* cosmetics
 
 2003-06-07 00:03  xfce
 
-	* : Add missing file
+	* Add missing file
 
 2003-06-07 00:02  xfce
 
-	* : Fix a bunch of errors is build process!
+	* Fix a bunch of errors is build process!
 
 2003-06-05 11:47  huysmans
 
-	* : Add spec file and Dutch translations
+	* Add spec file and Dutch translations
 
 2003-06-05 07:31  huysmans
 
-	* : Updated translations
+	* Updated translations
 
 2003-05-31 11:10  huysmans
 
-	* : Update turkish translations
+	* Update turkish translations
 
 2003-05-29 15:41  dannym
 
-	* : Internal Mixer Window uniqueified ^^
+	* Internal Mixer Window uniqueified ^^
 
 2003-05-29 15:24  dannym
 
-	* : re-commit
+	* re-commit
 
 2003-05-29 12:35  huysmans
 
-	* : Update catalan translations
+	* Update catalan translations
 
 2003-05-29 09:17  dannym
 
-	* : bug fix: first init graphics controls then connect changed
+	* bug fix: first init graphics controls then connect changed
 	  signal.
 
 2003-05-28 22:29  dannym
 
-	* : format_value taken out.
+	* format_value taken out.
 
 2003-05-28 22:04  dannym
 
-	* : part 2 of the mixer window ;)
+	* part 2 of the mixer window ;)
 
 2003-05-28 21:36  dannym
 
-	* : Mixer Window, part 2 ;) now can actually change volume
+	* Mixer Window, part 2 ;) now can actually change volume
 
 2003-05-28 21:13  dannym
 
-	* : added mixer_window{.c,.h}
+	* added mixer_window{.c,.h}
 
 2003-05-28 20:43  dannym
 
-	* : Beginning of a mixer window with sliders etc... leave the
-	  launch command
+	* Beginning of a mixer window with sliders etc... leave the launch
+	  command
 	  of the panel plugin empty to use.
 
 2003-05-27 19:41  dannym
 
-	* : check_volume interval shortened...
+	* check_volume interval shortened...
 
 2003-05-22 12:33  dannym
 
-	* : Default app for mixer = None
+	* Default app for mixer = None
 
 2003-05-21 21:43  huysmans
 
-	* : Add Turkish translations
+	* Add Turkish translations
 
 2003-05-08 19:17  dannym
 
-	* : set_master_volume is more fault-tolerant now.
+	* set_master_volume is more fault-tolerant now.
 
 2003-05-08 17:46  dannym
 
-	* : trying something else... hmmmm alsa will you still play dumb?
+	* trying something else... hmmmm alsa will you still play dumb?
 
 2003-05-08 17:21  dannym
 
-	* : Removed snd_mixer_close in the error handling block of
+	* Removed snd_mixer_close in the error handling block of
 	  snd_mixer_attach,
 	  since that makes an assertion fail within alsa 0.9.2 lib's
 	  snd_mixer_close routine O_o
 
 2003-05-03 10:47  huysmans
 
-	* : Add Chinese translations (really)
+	* Add Chinese translations (really)
 
 2003-05-03 10:36  huysmans
 
-	* : Add Chinese translations
+	* Add Chinese translations
 
 2003-05-01 18:49  dannym
 
-	* : Now using translations sourced from the panel (P_)
+	* Now using translations sourced from the panel (P_)
 
 2003-04-30 18:42  bmeurer
 
-	* : Added de.gmo for people w/o msgfmt.
+	* Added de.gmo for people w/o msgfmt.
 
 2003-04-30 17:24  bmeurer
 
-	* : BM_DEPEND_CHECK need to appear after BM_DEPENDs
+	* BM_DEPEND_CHECK need to appear after BM_DEPENDs
 
 2003-04-30 15:22  dannym
 
-	* : Added startup notification check for the options dialog ;)
+	* Added startup notification check for the options dialog ;)
 
 2003-04-30 14:52  dannym
 
-	* : Launcher dependent code copy-and-pasted to mixer (trying to fix
+	* Launcher dependent code copy-and-pasted to mixer (trying to fix
 	  what belial reported)
 
 2003-04-29 17:02  dannym
 
-	* : You README you, will you go into the right place, already? :)
+	* You README you, will you go into the right place, already? :)
 
 2003-04-29 11:33  dannym
 
-	* : This time the right one ;)
+	* This time the right one ;)
 
 2003-04-27 21:15  bmeurer
 
-	* : Fixed bug: g_new->g_new0
+	* Fixed bug: g_new->g_new0
 
 2003-04-27 21:01  bmeurer
 
-	* : Fixes.
+	* Fixes.
 
 2003-04-27 20:43  dannym
 
-	* : Removed focus-out-event as it caused weird crashes. Hmz.
+	* Removed focus-out-event as it caused weird crashes. Hmz.
 
 2003-04-27 14:37  dannym
 
-	* : Fixed all the dialog callbacks. The options dialog should work
+	* Fixed all the dialog callbacks. The options dialog should work
 	  fine now
 	  :)
 
 2003-04-27 13:24  dannym
 
-	* : disabled alsa_fallback completely.
+	* disabled alsa_fallback completely.
 
 2003-04-27 10:02  xfce
 
-	* : Fix i18n
+	* Fix i18n
 
 2003-04-26 21:30  bmeurer
 
-	* : Updated autostuff.
+	* Updated autostuff.
 
 2003-04-26 21:11  dannym
 
-	* : next_vc in another way
+	* next_vc in another way
 
 2003-04-26 20:56  dannym
 
-	* : Now thats what you call a dumb bug :) Found it, anyways: vc.c:
+	* Now thats what you call a dumb bug :) Found it, anyways: vc.c:
 	  register:
 	  "break" was missing.
 
 2003-04-26 15:40  dannym
 
-	* : Right click on the volume indicator: Mute
+	* Right click on the volume indicator: Mute
 
 2003-04-26 13:42  dannym
 
-	* : Fixed leak that could happen if never going to the property
+	* Fixed leak that could happen if never going to the property
 	  dialog. (no
 	  freed options.command)
 
 2003-04-26 13:30  dannym
 
-	* : tooltip "Volume:" instead of "Volume -"
+	* tooltip "Volume:" instead of "Volume -"
 
 2003-04-26 13:29  dannym
 
-	* : update_volume_display: caption: Tooltip: "Volume" instead
-	  "Volume
+	* update_volume_display: caption: Tooltip: "Volume" instead "Volume
 	  control"
 
 2003-04-26 12:37  dannym
 
-	* : Fixed bug in mixer_command_entry_lost_focus handler.
+	* Fixed bug in mixer_command_entry_lost_focus handler.
 
 2003-04-26 10:49  bmeurer
 
-	* : Added gettext framework. Some improvements to the OSS mixer
+	* Added gettext framework. Some improvements to the OSS mixer
 	  stuff. Some
 	  fixes and cleanups.
 
 2003-04-26 09:01  bmeurer
 
-	* : Initial revision
+	* Initial revision
 
 2003-04-26 09:01  
 
-	* : New repository initialized by cvs2svn.
+	* New repository initialized by cvs2svn.
 
