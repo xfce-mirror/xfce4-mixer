@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xfce 4-mixer 4.4.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-11-04 19:21+0100\n"
-"PO-Revision-Date: 2008-10-22 21:07+0100\n"
+"PO-Revision-Date: 2008-10-26 15:23+0100\n"
 "Last-Translator: Per Kongstad <p_kongstad@op.pl>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "MIME-Version: 1.0\n"
@@ -206,17 +206,19 @@ msgstr "alsa: info: afslutning på information til udvikler\n"
 msgid "alsa: Mixer %s open error: %s\n"
 msgstr "alsa: Fejl ved åbning af mikser %s: %s\n"
 
-# Anmodet om forklaring
+# I should have written:
+# "alsa: snd_mixer_attach(\"%s\"): error: %s\n"
 #: ../lib/vc_alsa.c:141
 #, c-format
 msgid "alsa: Mixer attach %s error: %s\n"
-msgstr "alsa: Mikser vedhæft %s fejl: %s\n"
+msgstr "alsa: snd_mixer_attach(\"%s\"): fejl: %s\n"
 
-# Anmodet om forklaring
+#It should have said:
+#"alsa: snd_mixer_selem_register(...): error: %s\n".
 #: ../lib/vc_alsa.c:149
 #, c-format
 msgid "alsa: Mixer register error: %s\n"
-msgstr "alsa; Mikser registeringsfejl: %s\n"
+msgstr "alsa: snd_mixer_selem_register: fejl %s\n"
 
 #: ../lib/vc_alsa.c:158
 #, c-format
