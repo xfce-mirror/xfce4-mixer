@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: xfce4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-10-06 15:29+0200\n"
-"PO-Revision-Date: \n"
-"Last-Translator: SZERVÁC Attila <sas@321.hu>\n"
+"PO-Revision-Date: 2008-10-25 22:15+0100\n"
+"Last-Translator: Csécsey Károly <csarlee@gmail.com>\n"
 "Language-Team: Hungarian <debian-l10n-hungarian@lists.d.o>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,20 +36,20 @@ msgstr "Tulajdonságok"
 #: ../panel-plugin/xfce-mixer-plugin.c:370
 #, c-format
 msgid "Could not execute the command %s. Perhaps you need to adjust the PATH variable."
-msgstr ""
+msgstr "Nem lehet a %s parancsot végrehajtani. Talán be kell állítanod a PATH változót."
 
 #: ../panel-plugin/xfce-mixer-plugin.c:400
 #: ../xfce4-mixer/main.c:118
 msgid "GStreamer was unable to detect any sound cards on your system. You might be missing sound system specific GStreamer packages. It might as well be a permission problem."
-msgstr ""
+msgstr "GStreamer nem talált semmilyen hangkártyát a rendszeren. Lehet, hogy néhány hangrendszer specifikus GStreamer csomag hiányzik. Elképzelhető, az is hogy jogosultság probléma."
 
 #: ../panel-plugin/xfce-plugin-dialog.c:237
 msgid "Mixer Plugin"
-msgstr ""
+msgstr "Mixer Bővítmény"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:239
 msgid "Please select which mixer track should be used by the plugin"
-msgstr ""
+msgstr "Kérjük válaszd ki melyik hangcsatornát használja a bővítmény"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:251
 msgid "Sound card"
@@ -57,7 +57,7 @@ msgstr "Hangkártya"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:269
 msgid "Mixer track"
-msgstr ""
+msgstr "Mixer hangcsatorna"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:287
 msgid "Left-click command"
@@ -108,12 +108,12 @@ msgstr "Hangerő-szabályzó a hangkártyához"
 #: ../libxfce4mixer/libxfce4mixer.c:237
 #, c-format
 msgid "Unknown Volume Control %d"
-msgstr ""
+msgstr "Ismeretlen hangerő szabályozó %d"
 
 #: ../xfce4-mixer/main.c:92
 #, c-format
 msgid "Failed to initialize xfconf: %s"
-msgstr ""
+msgstr "Az xfconf: %s indítása sikertelen"
 
 #: ../xfce4-mixer/xfce-mixer.c:163
 msgid "Playback"
@@ -137,7 +137,7 @@ msgstr "Nincsenek látható szabályzók"
 
 #: ../xfce4-mixer/xfce-mixer.c:302
 msgid "No controls are marked as visible. Please open the <span size='large'><b>Select Controls</b></span> dialog to select some."
-msgstr ""
+msgstr "Nincs látható szabályzó. Kérlek, nyisd meg a <span size='large'><b>Szabályzók választása</b></span> paneltés válassz ki néhányat."
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:135
 msgid "Select Controls"
@@ -165,7 +165,7 @@ msgstr "Jelöld ki, mely szabályzók jelenjenek meg"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:187
 msgid "Configure your sound card(s) and control the volume of selected tracks"
-msgstr ""
+msgstr "Állítsd be a hangkártyá(i)dat és szabályozd a kiválasztott csatornák hangerejét"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:202
 msgid "Sound card:"
