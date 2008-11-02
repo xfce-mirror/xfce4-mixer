@@ -1,3 +1,9 @@
+2008-11-02	Jannis Pohlmann <jannis@xfce.org>
+
+	* panel-plugin/xfce-volume-button.c: Change step and page increment
+	  size to 0.01 instead of 0.05. This allows for better fine-tuning of
+	  the volume. Having a 5% step size has been annoying.
+
 2008-11-01	Jannis Pohlmann <jannis@xfce.org>
 
 	* libxfce4mixer/*.{c,h}, panel-plugin/*.{c,h}, xfce4-mixer/*.{c,h}:

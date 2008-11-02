@@ -201,8 +201,8 @@ xfce_volume_button_init (XfceVolumeButton *button)
   /* Allocate array for preloaded icons */
   button->pixbufs = g_new0 (GdkPixbuf*, G_N_ELEMENTS (icons)-1);
 
-  /* Create adjustment for the button (from 0.0 to 1.0 in 5% steps) */
-  button->adjustment = gtk_adjustment_new (0.0, 0.0, 1.0, 0.05, 0.05, 0.2);
+  /* Create adjustment for the button (from 0.0 to 1.0 in 1% steps) */
+  button->adjustment = gtk_adjustment_new (0.0, 0.0, 1.0, 0.01, 0.01, 0.1);
 
   /* Create a new scaled image for the button icon */
   button->image = xfce_scaled_image_new ();
@@ -216,7 +216,7 @@ xfce_volume_button_init (XfceVolumeButton *button)
 
   /* Connect to button signals */
 #if 0
-  /* UNSED FOR NOW DUE TO TOO MUCH PROBLEMS WITH KEYBOARD FOCUS GRABBING */
+  /* UNUSED FOR NOW DUE TO TOO MUCH PROBLEMS WITH KEYBOARD FOCUS GRABBING */
   g_signal_connect (G_OBJECT (button), "key-press-event", G_CALLBACK (xfce_volume_button_key_pressed), button);
 #endif
   g_signal_connect (G_OBJECT (button), "button-press-event", G_CALLBACK (xfce_volume_button_button_pressed), button);
