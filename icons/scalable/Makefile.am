@@ -2,13 +2,13 @@
 
 stockdir = $(datadir)/icons/hicolor/scalable/stock/media
 stock_DATA =								\
-	audio-volume-00.svg						\
-	audio-volume-01.svg						\
-	audio-volume-02.svg						\
-	audio-volume-03.svg						\
-	audio-volume-04.svg						\
-	audio-volume-05.svg						\
-	audio-volume-06.svg						\
+	stock_xfce4-mixer-volume-00.svg					\
+	stock_xfce4-mixer-volume-01.svg					\
+	stock_xfce4-mixer-volume-02.svg					\
+	stock_xfce4-mixer-volume-03.svg					\
+	stock_xfce4-mixer-volume-04.svg					\
+	stock_xfce4-mixer-volume-05.svg					\
+	stock_xfce4-mixer-volume-06.svg					\
 	stock_xfce4-mixer-record.svg					\
 	stock_xfce4-mixer-no-record.svg					\
 	stock_xfce4-mixer-muted.svg					\

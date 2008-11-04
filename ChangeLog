@@ -1,3 +1,10 @@
+2008-11-04	Jannis Pohlmann <jannis@xfce.org>
+
+	* icons/, libxfce4mixer/xfce-mixer-stock.{c,h},
+	  panel-plugin/xfce-volume-button.c: Rename volume status icons from
+	  audio-volume-{00-06} to stock_xfce4-mixer-volume-{00-06} to avoid
+	  possible conflicts with other packages.
+
 2008-11-02	Jannis Pohlmann <jannis@xfce.org>
 
 	* panel-plugin/xfce-volume-button.c: Change step and page increment

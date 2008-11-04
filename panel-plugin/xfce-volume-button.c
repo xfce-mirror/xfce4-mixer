@@ -52,13 +52,13 @@ static guint button_signals[LAST_SIGNAL];
 
 /* Icons for different volume levels */
 static const char *icons[] = {
-  AUDIO_VOLUME_00,
-  AUDIO_VOLUME_01,
-  AUDIO_VOLUME_02,
-  AUDIO_VOLUME_03,
-  AUDIO_VOLUME_04,
-  AUDIO_VOLUME_05,
-  AUDIO_VOLUME_06,
+  XFCE_MIXER_VOLUME_00,
+  XFCE_MIXER_VOLUME_01,
+  XFCE_MIXER_VOLUME_02,
+  XFCE_MIXER_VOLUME_03,
+  XFCE_MIXER_VOLUME_04,
+  XFCE_MIXER_VOLUME_05,
+  XFCE_MIXER_VOLUME_06,
   NULL
 };
 

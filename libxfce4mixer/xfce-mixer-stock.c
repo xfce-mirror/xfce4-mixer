@@ -42,13 +42,13 @@ static const XfceMixerStockIcon xfce_mixer_stock_icons[] =
   { XFCE_MIXER_STOCK_NO_RECORD, "stock_xfce4-mixer-no-record", },
   { XFCE_MIXER_STOCK_MUTED,     "stock_xfce4-mixer-muted",     },
   { XFCE_MIXER_STOCK_NO_MUTED,  "stock_xfce4-mixer-no-muted",  },
-  { AUDIO_VOLUME_00,            "audio-volume-00", },
-  { AUDIO_VOLUME_01,            "audio-volume-01", },
-  { AUDIO_VOLUME_02,            "audio-volume-02", },
-  { AUDIO_VOLUME_03,            "audio-volume-03", },
-  { AUDIO_VOLUME_04,            "audio-volume-04", },
-  { AUDIO_VOLUME_05,            "audio-volume-05", },
-  { AUDIO_VOLUME_06,            "audio-volume-06", },
+  { XFCE_MIXER_VOLUME_00,       "stock_xfce4-mixer-volume-00", },
+  { XFCE_MIXER_VOLUME_01,       "stock_xfce4-mixer-volume-01", },
+  { XFCE_MIXER_VOLUME_02,       "stock_xfce4-mixer-volume-02", },
+  { XFCE_MIXER_VOLUME_03,       "stock_xfce4-mixer-volume-03", },
+  { XFCE_MIXER_VOLUME_04,       "stock_xfce4-mixer-volume-04", },
+  { XFCE_MIXER_VOLUME_05,       "stock_xfce4-mixer-volume-05", },
+  { XFCE_MIXER_VOLUME_06,       "stock_xfce4-mixer-volume-06", },
 };
 
 

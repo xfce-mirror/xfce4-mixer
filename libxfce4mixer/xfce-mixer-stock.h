@@ -27,13 +27,13 @@ G_BEGIN_DECLS;
 #define XFCE_MIXER_STOCK_NO_RECORD "xfce-mixer-no-record"
 #define XFCE_MIXER_STOCK_MUTED     "xfce-mixer-muted"
 #define XFCE_MIXER_STOCK_NO_MUTED  "xfce-mixer-no-muted"
-#define AUDIO_VOLUME_00            "audio-volume-00"
-#define AUDIO_VOLUME_01            "audio-volume-01"
-#define AUDIO_VOLUME_02            "audio-volume-02"
-#define AUDIO_VOLUME_03            "audio-volume-03"
-#define AUDIO_VOLUME_04            "audio-volume-04"
-#define AUDIO_VOLUME_05            "audio-volume-05"
-#define AUDIO_VOLUME_06            "audio-volume-06"
+#define XFCE_MIXER_VOLUME_00       "xfce-mixer-volume-00"
+#define XFCE_MIXER_VOLUME_01       "xfce-mixer-volume-01"
+#define XFCE_MIXER_VOLUME_02       "xfce-mixer-volume-02"
+#define XFCE_MIXER_VOLUME_03       "xfce-mixer-volume-03"
+#define XFCE_MIXER_VOLUME_04       "xfce-mixer-volume-04"
+#define XFCE_MIXER_VOLUME_05       "xfce-mixer-volume-05"
+#define XFCE_MIXER_VOLUME_06       "xfce-mixer-volume-06"
 
 void xfce_mixer_stock_init (void) G_GNUC_INTERNAL;
 
