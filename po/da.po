@@ -1,0 +1,80 @@
+# Danish translations for xfce 4-mixer package.
+# Copyright (C) 2008 THE xfce 4-mixer'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the xfce 4-mixer package.
+# Ole Guldberg <olegb@omgwtf.dk>, 2008.
+# Per Kongstad <p_kongstad@op.pl>, 2008.
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce 4-mixer 4.0.6\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-07-09 09:57+0200\n"
+"PO-Revision-Date: 2008-10-29 19:37+0100\n"
+"Last-Translator: Per Kongstad <p_kongstad@op.pl>\n"
+"Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Language: Danish\n"
+"X-Poedit-Country: DENMARK\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: panel-plugin/mixer.c:154
+msgid "No working sound"
+msgstr "Lyd virker ikke"
+
+#: panel-plugin/mixer.c:293
+#, c-format
+msgid "Volume: %d%%"
+msgstr "Styrke: %d%%"
+
+#: panel-plugin/mixer.c:1001
+msgid "Use _internal mixer"
+msgstr "Brug _internmikser"
+
+#: panel-plugin/mixer.c:1211
+#: panel-plugin/mixer_window.c:196
+msgid "Volume Control"
+msgstr "Styrkekontrol"
+
+#: panel-plugin/mvisible_opts.c:76
+msgid "Visible"
+msgstr "Synlig"
+
+#: panel-plugin/mvisible_opts.c:84
+msgid "Control"
+msgstr "Kontrol"
+
+#: panel-plugin/vc_alsa.c:90
+#, c-format
+msgid "alsa: Mixer %s open error: %s\n"
+msgstr "alsa: Fejl ved åbning af mikser %s: %s\n"
+
+# I should have written:
+# "alsa: snd_mixer_attach(\"%s\"): error: %s\n
+#: panel-plugin/vc_alsa.c:95
+#, c-format
+msgid "alsa: Mixer attach %s error: %s\n"
+msgstr "alsa: snd_mixer_attach(\"%s\"): fejl: %s\n"
+
+# It should have said:
+# "alsa: snd_mixer_selem_register(...): error: %s\n
+#: panel-plugin/vc_alsa.c:103
+#, c-format
+msgid "alsa: Mixer register error: %s"
+msgstr "alsa: snd_mixer_selem_register: fejl %s"
+
+#: panel-plugin/vc_alsa.c:112
+#, c-format
+msgid "alsa: Mixer load error: %s"
+msgstr "alsa: Mikser-indlæsningsfejl: %s"
+
+#: panel-plugin/vc_alsa.c:122
+#, c-format
+msgid "alsa: Unable to find simple control '%s',%i\n"
+msgstr "alsa: Kunne ikke finde simpel kontrol '%s',%i\n"
+
+#: panel-plugin/vc_oss.c:137
+msgid "oss: No master volume"
+msgstr "oss: Ingen lydstyrkekontrol for master"
+
