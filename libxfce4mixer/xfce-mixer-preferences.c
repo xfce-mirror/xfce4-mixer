@@ -296,7 +296,7 @@ xfce_mixer_preferences_store_controls (const gchar          *card_name,
   if (G_UNLIKELY (controls != NULL))
     xfconf_channel_set_string_list (preferences->channel, property_name, (const gchar * const *) controls);
   else
-    xfconf_channel_remove_property (preferences->channel, property_name);
+    xfconf_channel_reset_property (preferences->channel, property_name, TRUE);
 
   g_free (property_name);
 }
@@ -311,7 +311,7 @@ xfce_mixer_preferences_update_controls (const gchar          *property_name,
   g_return_if_fail (IS_XFCE_MIXER_PREFERENCES (preferences));
   g_return_if_fail (XFCONF_IS_CHANNEL (preferences->channel));
 
-  xfconf_channel_remove_property (preferences->channel, property_name);
+  xfconf_channel_reset_property (preferences->channel, property_name, TRUE);
 }
 
 

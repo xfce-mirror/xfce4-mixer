@@ -1,5 +1,11 @@
 2008-11-06	Jannis Pohlmann <jannis@xfce.org>
 
+	* libxfce4mixer/xfce-mixer-preferences.c: Use
+	  xfconf_channel_reset_property() instead of
+	  xfconf_channel_remove_property() which has been deprecated.
+
+2008-11-06	Jannis Pohlmann <jannis@xfce.org>
+
 	* icons/, libxfce4mixer/, panel-plugin/, xfce4-mixer/: Icons have been
 	  renamed again. They're installed to $(pkgdatadir)/icons/hicolor now to
 	  make them themeable. Remove the stock code.
