@@ -228,7 +228,7 @@ xfce_mixer_track_create_contents (XfceMixerTrack *track)
 
   /* Create the control buttons. Depending on the type (playback/capture) these may differ */
   track->mute_button = gtk_toggle_button_new ();
-  image = gtk_image_new_from_stock (XFCE_MIXER_STOCK_NO_MUTED, XFCE_MIXER_ICON_SIZE); 
+  image = gtk_image_new_from_icon_name ("xfce4-mixer-no-muted", XFCE_MIXER_ICON_SIZE); 
   gtk_button_set_image (GTK_BUTTON (track->mute_button), image);
   g_signal_connect (track->mute_button, "toggled", G_CALLBACK (xfce_mixer_track_mute_toggled), track);
   gtk_box_pack_start (GTK_BOX (button_box), track->mute_button, FALSE, FALSE, 0);
@@ -248,7 +248,7 @@ xfce_mixer_track_create_contents (XfceMixerTrack *track)
   if (G_UNLIKELY (xfce_mixer_track_type_new (track->gst_track) == XFCE_MIXER_TRACK_TYPE_CAPTURE))
     {
       track->record_button = gtk_toggle_button_new ();
-      image = gtk_image_new_from_stock (XFCE_MIXER_STOCK_NO_RECORD, XFCE_MIXER_ICON_SIZE);
+      image = gtk_image_new_from_icon_name ("xfce4-mixer-no-record", XFCE_MIXER_ICON_SIZE);
       gtk_button_set_image (GTK_BUTTON (track->record_button), image);
       g_signal_connect (track->record_button, "toggled", G_CALLBACK (xfce_mixer_track_record_toggled), track);
       gtk_box_pack_start (GTK_BOX (button_box), track->record_button, FALSE, FALSE, 0);
@@ -323,16 +323,16 @@ xfce_mixer_track_mute_toggled (GtkToggleButton *button,
 
   if (gtk_toggle_button_get_active (button))
     {
-      stock = XFCE_MIXER_STOCK_MUTED;
+      stock = "xfce4-mixer-muted";
       gst_mixer_set_mute (GST_MIXER (track->card), track->gst_track, TRUE);
     }
   else
     {
-      stock = XFCE_MIXER_STOCK_NO_MUTED;
+      stock = "xfce4-mixer-no-muted";
       gst_mixer_set_mute (GST_MIXER (track->card), track->gst_track, FALSE);
     }
 
-  image = gtk_image_new_from_stock (stock, XFCE_MIXER_ICON_SIZE);
+  image = gtk_image_new_from_icon_name (stock, XFCE_MIXER_ICON_SIZE);
   gtk_button_set_image (GTK_BUTTON (button), image);
 }
 
@@ -395,16 +395,16 @@ xfce_mixer_track_record_toggled (GtkToggleButton *button,
 
   if (gtk_toggle_button_get_active (button))
     {
-      stock = XFCE_MIXER_STOCK_RECORD;
+      stock = "xfce4-mixer-record";
       gst_mixer_set_record (GST_MIXER (track->card), track->gst_track, TRUE);
     }
   else
     {
-      stock = XFCE_MIXER_STOCK_NO_RECORD;
+      stock = "xfce4-mixer-no-record";
       gst_mixer_set_record (GST_MIXER (track->card), track->gst_track, FALSE);
     }
 
-  image = gtk_image_new_from_stock (stock, XFCE_MIXER_ICON_SIZE);
+  image = gtk_image_new_from_icon_name (stock, XFCE_MIXER_ICON_SIZE);
   gtk_button_set_image (GTK_BUTTON (button), image);
 }
 

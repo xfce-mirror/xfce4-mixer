@@ -51,12 +51,14 @@ static GstElement *selected_card = NULL;
 void
 xfce_mixer_init (void)
 {
-  gint counter = 0;
+  GtkIconTheme *icon_theme;
+  gint          counter = 0;
 
   if (G_LIKELY (refcount++ == 0))
     {
-      /* Initialize mixer stock icons */
-      xfce_mixer_stock_init ();
+      /* Append application icons to the search path */
+      icon_theme = gtk_icon_theme_get_default ();
+      gtk_icon_theme_append_search_path (icon_theme, MIXER_DATADIR G_DIR_SEPARATOR_S "icons");
 
       /* Get list of all available mixer devices */
       mixers = gst_audio_default_registry_mixer_filter (_xfce_mixer_filter_mixer, FALSE, &counter);

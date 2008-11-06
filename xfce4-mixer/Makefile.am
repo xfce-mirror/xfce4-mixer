@@ -24,6 +24,7 @@ xfce4_mixer_CFLAGS = 							\
 	-I$(top_srcdir)							\
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"				\
 	-DDATADIR=\"$(datadir)\"					\
+	-DMIXER_DATADIR=\"$(pkgdatadir)\"				\
 	$(GLIB_CFLAGS)							\
 	$(GTK_CFLAGS)							\
 	$(LIBXFCE4UTIL_CFLAGS)						\

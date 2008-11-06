@@ -1,20 +1,20 @@
 # $Id$
 
-stockdir = $(datadir)/icons/hicolor/48x48/stock/media
-stock_DATA =								\
-	stock_xfce4-mixer-volume-00.png					\
-	stock_xfce4-mixer-volume-01.png					\
-	stock_xfce4-mixer-volume-02.png					\
-	stock_xfce4-mixer-volume-03.png					\
-	stock_xfce4-mixer-volume-04.png					\
-	stock_xfce4-mixer-volume-05.png					\
-	stock_xfce4-mixer-volume-06.png					\
-	stock_xfce4-mixer-record.png					\
-	stock_xfce4-mixer-no-record.png					\
-	stock_xfce4-mixer-muted.png					\
-	stock_xfce4-mixer-no-muted.png
+iconsdir = $(pkgdatadir)/icons/hicolor/48x48/status
+icons_DATA =								\
+	xfce4-mixer-volume-muted.png					\
+	xfce4-mixer-volume-ultra-low.png				\
+	xfce4-mixer-volume-low.png					\
+	xfce4-mixer-volume-low-medium.png				\
+	xfce4-mixer-volume-medium.png					\
+	xfce4-mixer-volume-high.png					\
+	xfce4-mixer-volume-very-high.png				\
+	xfce4-mixer-record.png						\
+	xfce4-mixer-no-record.png					\
+	xfce4-mixer-muted.png						\
+	xfce4-mixer-no-muted.png
 
 EXTRA_DIST =								\
-	$(stock_DATA)
+	$(icons_DATA)
 
 # vi:set ts=8 sw=8 noet ai nocindent syntax=automake:

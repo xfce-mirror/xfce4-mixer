@@ -52,13 +52,13 @@ static guint button_signals[LAST_SIGNAL];
 
 /* Icons for different volume levels */
 static const char *icons[] = {
-  XFCE_MIXER_VOLUME_00,
-  XFCE_MIXER_VOLUME_01,
-  XFCE_MIXER_VOLUME_02,
-  XFCE_MIXER_VOLUME_03,
-  XFCE_MIXER_VOLUME_04,
-  XFCE_MIXER_VOLUME_05,
-  XFCE_MIXER_VOLUME_06,
+  "xfce4-mixer-volume-muted",
+  "xfce4-mixer-volume-ultra-low",
+  "xfce4-mixer-volume-low",
+  "xfce4-mixer-volume-low-medium",
+  "xfce4-mixer-volume-medium",
+  "xfce4-mixer-volume-high",
+  "xfce4-mixer-volume-very-high",
   NULL
 };
 

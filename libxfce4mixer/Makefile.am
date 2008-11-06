@@ -12,8 +12,6 @@ libxfce4mixer_la_SOURCES =						\
 	xfce-mixer-card-combo.c						\
 	xfce-mixer-track-combo.h					\
 	xfce-mixer-track-combo.c					\
-	xfce-mixer-stock.h						\
-	xfce-mixer-stock.c						\
 	xfce-mixer-track-type.h						\
 	xfce-mixer-track-type.c						\
 	xfce-mixer-preferences.h					\
@@ -25,6 +23,7 @@ libxfce4mixer_la_CFLAGS = 						\
 	-DDATADIR=\"$(datadir)\"					\
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"				\
 	-DG_LOG_DOMAIN=\"libxfce4mixer\"				\
+	-DMIXER_DATADIR=\"$(pkgdatadir)\"				\
 	$(PLATFORM_CFLAGS)						\
 	$(GLIB_CFLAGS)							\
 	$(GTK_FLAGS)							\

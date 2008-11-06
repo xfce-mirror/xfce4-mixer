@@ -25,7 +25,6 @@
 
 #include <gst/interfaces/mixer.h>
 
-#include "xfce-mixer-stock.h"
 #include "xfce-mixer-preferences.h"
 #include "xfce-mixer-card-combo.h"
 #include "xfce-mixer-track-combo.h"

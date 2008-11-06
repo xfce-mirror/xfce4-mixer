@@ -1,3 +1,9 @@
+2008-11-06	Jannis Pohlmann <jannis@xfce.org>
+
+	* icons/, libxfce4mixer/, panel-plugin/, xfce4-mixer/: Icons have been
+	  renamed again. They're installed to $(pkgdatadir)/icons/hicolor now to
+	  make them themeable. Remove the stock code.
+
 2008-11-04	Jannis Pohlmann <jannis@xfce.org>
 
 	* icons/, libxfce4mixer/xfce-mixer-stock.{c,h},
