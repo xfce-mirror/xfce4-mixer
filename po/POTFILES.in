@@ -7,12 +7,10 @@ panel-plugin/xfce4-mixer-plugin.desktop.in.in
 libxfce4mixer/libxfce4mixer.c
 libxfce4mixer/xfce-mixer-card-combo.c
 libxfce4mixer/xfce-mixer-preferences.c
-libxfce4mixer/xfce-mixer-stock.c
 libxfce4mixer/xfce-mixer-track-combo.c
 libxfce4mixer/xfce-mixer-track-type.c
 libxfce4mixer/xfce-mixer-card-combo.h
 libxfce4mixer/xfce-mixer-preferences.h
-libxfce4mixer/xfce-mixer-stock.h
 libxfce4mixer/xfce-mixer-track-combo.h
 libxfce4mixer/xfce-mixer-track-type.h
 xfce4-mixer/main.c
