@@ -1,3 +1,7 @@
+2008-11-11	Jannis Pohlmann <jannis@xfce.org>
+
+	* NEWS: Update NEWS file for the upcoming beta2 release.
+
 2008-11-06	Jannis Pohlmann <jannis@xfce.org>
 
 	* libxfce4mixer/xfce-mixer-preferences.c: Use

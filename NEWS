@@ -1,3 +1,17 @@
+4.5.92
+======
+- Use xfconf_channel_reset_property() instead
+  xfconf_channel_remove_property().
+- Rename stock icons and install them as application icons to
+  $(pkgdatadir)/icons/hicolor. Remove stock code.
+- Change step and page increment size of the panel plugin to 1%.
+- Fix license headers to use GPL everywhere.
+- Use "multimedia-volume-control" icon in the desktop entry.
+- Fix build with GStreamer < 0.10.14.
+- Translation updates: Carles Muños Gorriz (ca), Abel Martín (es),
+  Csécsey Károly (hu). Andhika Padmawan (id), Terje Uriansrud (nb_NO)
+  Gökmen Görgen (tr).
+
 4.5.91
 ======
 - Remove XfceMixerCard abstraction over GstMixer.
