@@ -1,7 +1,7 @@
 2008-11-11	Jannis Pohlmann <jannis@xfce.org>
 
 	* == 4.5.92 released ==
-	* configure.in.in: Bump version.
+	* configure.in.in: Bump version. Update dependencies.
 
 2008-11-11	Jannis Pohlmann <jannis@xfce.org>
 
