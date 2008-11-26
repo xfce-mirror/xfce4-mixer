@@ -1,0 +1,197 @@
+# translation of es.po to Euskara
+# Spanish/ES translation for the xfce-mixer package
+# Copyright (C) 2008 Jannis Pohlmann <jannis@xfce.org>.
+# This file is distributed under the same license as the xfce package.
+#
+# Abel Martín <abel.martin.ruiz@gmail.com>, 2008.
+# Piarres Beobide <pi@beobide.net>, 2008.
+msgid ""
+msgstr ""
+"Project-Id-Version: es\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-11-15 19:23+0100\n"
+"PO-Revision-Date: 2008-11-27 00:30+0100\n"
+"Last-Translator: Piarres Beobide <pi@beobide.net>\n"
+"Language-Team: Euskara <debian-l10n-basque@lists.debian.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#. Set tooltip (e.g. 'Master: 50%')
+#: ../panel-plugin/xfce-mixer-plugin.c:271
+#: ../panel-plugin/xfce-mixer-plugin.c:545
+#, c-format
+msgid "%s: %i%%"
+msgstr "%s: %%%i"
+
+#: ../panel-plugin/xfce-mixer-plugin.c:346
+msgid "No left-click command defined"
+msgstr "Ez dago ezker-klik komando ezarririk"
+
+#: ../panel-plugin/xfce-mixer-plugin.c:349
+msgid ""
+"No left-click command defined yet. You can change this in the plugin "
+"properties."
+msgstr ""
+"Ez dago ezker-klik komando ezarririk oraindik. Hau plugin propietatean "
+"aldatu dezakezu."
+
+#: ../panel-plugin/xfce-mixer-plugin.c:350
+msgid "Properties"
+msgstr "Propietateak"
+
+#. Generate error message and insert the current command
+#: ../panel-plugin/xfce-mixer-plugin.c:365
+#, c-format
+msgid ""
+"Could not execute the command %s. Perhaps you need to adjust the PATH "
+"variable."
+msgstr "Ezinda %s komandoa exekutatu. Agian PATH aldagaia doitu beharko duzu."
+
+#: ../panel-plugin/xfce-mixer-plugin.c:395 ../xfce4-mixer/main.c:89
+msgid ""
+"GStreamer was unable to detect any sound cards on your system. You might be "
+"missing sound system specific GStreamer packages. It might as well be a "
+"permission problem."
+msgstr ""
+"GStramer ez da zure sistema soinu txartelik aurkitzeko gia. Agian beharrezko "
+"Gstreamer pakete zehatzen bat falta zaizu. Hau baimen arazo bat ere izan "
+"daiteke."
+
+#: ../panel-plugin/xfce-plugin-dialog.c:234
+msgid "Mixer Plugin"
+msgstr "Nahastaile plugina"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:236
+msgid "Please select which mixer track should be used by the plugin"
+msgstr "Mesedez hautatu zein nahasle pista erabili behar duen pluginak"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:248
+msgid "Sound card"
+msgstr "Soinu txartela"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:266
+msgid "Mixer track"
+msgstr "Nahastaile pista"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:284
+msgid "Left-click command"
+msgstr "Ezker-klik komandoa"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:322
+msgid "Select command"
+msgstr "Hautatu komandoa"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:330
+msgid "All Files"
+msgstr "Fitxategi denak"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:335
+msgid "Executable Files"
+msgstr "Fitxategi exekutagarriak"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:350
+msgid "Perl Scripts"
+msgstr "Perl skript-ak"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:356
+msgid "Python Scripts"
+msgstr "Python skript-ak"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:362
+msgid "Ruby Scripts"
+msgstr "Ruby skript-ak"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:368
+msgid "Shell Scripts"
+msgstr "Shell skript-ak"
+
+#. Set application name
+#: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:1
+#: ../xfce4-mixer/main.c:60 ../xfce4-mixer/xfce-mixer-window.c:165
+#: ../xfce4-mixer/xfce-mixer-window.c:183
+#: ../xfce4-mixer/xfce-mixer-window.c:284
+#: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
+msgid "Mixer"
+msgstr "Nahastailea"
+
+#: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:2
+msgid "Volume control for your sound card"
+msgstr "Zure soinu txartelaren bolumen kontrola"
+
+#: ../libxfce4mixer/libxfce4mixer.c:243
+#, c-format
+msgid "Unknown Volume Control %d"
+msgstr "%d bolumen-kontrol ezezaguna"
+
+#: ../xfce4-mixer/main.c:70
+#, c-format
+msgid "Failed to initialize xfconf: %s"
+msgstr "Huts egin du xfconf exekutatzean: %s"
+
+#: ../xfce4-mixer/xfce-mixer.c:164
+msgid "Playback"
+msgstr "Erreproduzitu"
+
+#: ../xfce4-mixer/xfce-mixer.c:164
+msgid "Capture"
+msgstr "Kapturatu"
+
+#: ../xfce4-mixer/xfce-mixer.c:164
+msgid "Switches"
+msgstr "Kommutadoreak"
+
+#: ../xfce4-mixer/xfce-mixer.c:164
+msgid "Options"
+msgstr "Aukerak"
+
+#: ../xfce4-mixer/xfce-mixer.c:298
+msgid "No Controls Visible"
+msgstr "Ez kontrolik ikusgai"
+
+#: ../xfce4-mixer/xfce-mixer.c:302
+msgid ""
+"No controls are marked as visible. Please open the <span "
+"size='large'><b>Select Controls</b></span> dialog to select some."
+msgstr ""
+"Ez dago kontrolik ikusgarri bezala markaturik. Mesedez ireki <span "
+"size='large'><b>Hautatu kontrolak</b></span> elkarrizketa eta batenbat hautatu."
+
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:135
+msgid "Select Controls"
+msgstr "Hautatu kontrolak"
+
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:137
+msgid "Please select which controls you want to be visible"
+msgstr "Mesedez hautatu zein kontrol izango diren ikusgarri"
+
+#: ../xfce4-mixer/xfce-mixer-window.c:84
+msgid "_Quit"
+msgstr "Irte_n"
+
+#: ../xfce4-mixer/xfce-mixer-window.c:84
+msgid "Exit the mixer"
+msgstr "Nahasletik irten"
+
+#: ../xfce4-mixer/xfce-mixer-window.c:86
+msgid "_Select Controls..."
+msgstr "_Hautatu kontrolak..."
+
+#: ../xfce4-mixer/xfce-mixer-window.c:86
+msgid "Select which controls are displayed"
+msgstr "Hautatu zein kontrol bistaraziko diren"
+
+#: ../xfce4-mixer/xfce-mixer-window.c:184
+msgid "Configure your sound card(s) and control the volume of selected tracks"
+msgstr "Konfiguratu soinu txartela(k) eta kontrolatu hautatutako pisten bolumena"
+
+#: ../xfce4-mixer/xfce-mixer-window.c:199
+msgid "Sound card:"
+msgstr "Soinu txartela:"
+
+#: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:1
+msgid "Audio mixer for the Xfce Desktop Environment"
+msgstr "Xfce idazmahai ingurunearen audio nahasgailua"
+
