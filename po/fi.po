@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.4.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-10-06 19:07+0300\n"
+"POT-Creation-Date: 2008-12-01 13:00+0100\n"
 "PO-Revision-Date: 2008-10-06 19:09+0300\n"
 "Last-Translator: Jari Rahkonen <jari.rahkonen@pp1.inet.fi>\n"
 "Language-Team: Finnish <translation-team-fi@lists.sourceforge.net>\n"
@@ -17,17 +17,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #. Set tooltip (e.g. 'Master: 50%')
-#: ../panel-plugin/xfce-mixer-plugin.c:272
-#: ../panel-plugin/xfce-mixer-plugin.c:546
+#: ../panel-plugin/xfce-mixer-plugin.c:271
+#: ../panel-plugin/xfce-mixer-plugin.c:545
 #, c-format
 msgid "%s: %i%%"
 msgstr "%s: %i%%"
 
-#: ../panel-plugin/xfce-mixer-plugin.c:347
+#: ../panel-plugin/xfce-mixer-plugin.c:346
 msgid "No left-click command defined"
 msgstr "Vasemman napsautuksen komentoa ei määritetty"
 
-#: ../panel-plugin/xfce-mixer-plugin.c:350
+#: ../panel-plugin/xfce-mixer-plugin.c:349
 msgid ""
 "No left-click command defined yet. You can change this in the plugin "
 "properties."
@@ -35,12 +35,12 @@ msgstr ""
 "Vasemmalle hiiren painikkeelle ei ole määritetty komentoa. Voit määrittää "
 "sen liitännäisen ominaisuuksista."
 
-#: ../panel-plugin/xfce-mixer-plugin.c:351
+#: ../panel-plugin/xfce-mixer-plugin.c:350
 msgid "Properties"
 msgstr "Ominaisuudet"
 
 #. Generate error message and insert the current command
-#: ../panel-plugin/xfce-mixer-plugin.c:366
+#: ../panel-plugin/xfce-mixer-plugin.c:365
 #, c-format
 msgid ""
 "Could not execute the command %s. Perhaps you need to adjust the PATH "
@@ -49,7 +49,7 @@ msgstr ""
 "Komentoa \"%s\" ei voi suorittaa. Ehkä sinun pitäisi tarkistaa PATH-"
 "muuttujasi sisältö."
 
-#: ../panel-plugin/xfce-mixer-plugin.c:396 ../xfce4-mixer/main.c:90
+#: ../panel-plugin/xfce-mixer-plugin.c:395 ../xfce4-mixer/main.c:89
 msgid ""
 "GStreamer was unable to detect any sound cards on your system. You might be "
 "missing sound system specific GStreamer packages. It might as well be a "
@@ -109,9 +109,9 @@ msgstr "Päätekomentosarjat"
 
 #. Set application name
 #: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:1
-#: ../xfce4-mixer/main.c:61 ../xfce4-mixer/xfce-mixer-window.c:166
-#: ../xfce4-mixer/xfce-mixer-window.c:184
-#: ../xfce4-mixer/xfce-mixer-window.c:285
+#: ../xfce4-mixer/main.c:60 ../xfce4-mixer/xfce-mixer-window.c:165
+#: ../xfce4-mixer/xfce-mixer-window.c:183
+#: ../xfce4-mixer/xfce-mixer-window.c:284
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
 msgid "Mixer"
 msgstr "Äänenvoimakkuus"
@@ -120,37 +120,37 @@ msgstr "Äänenvoimakkuus"
 msgid "Volume control for your sound card"
 msgstr "Äänikorttisi äänenvoimakkuuksien säätö"
 
-#: ../libxfce4mixer/libxfce4mixer.c:241
+#: ../libxfce4mixer/libxfce4mixer.c:243
 #, c-format
 msgid "Unknown Volume Control %d"
 msgstr "Tuntematon äänen säädin %d"
 
-#: ../xfce4-mixer/main.c:71
+#: ../xfce4-mixer/main.c:70
 #, c-format
 msgid "Failed to initialize xfconf: %s"
 msgstr "xfconfin alustus epäonnistui: %s"
 
-#: ../xfce4-mixer/xfce-mixer.c:163
+#: ../xfce4-mixer/xfce-mixer.c:164
 msgid "Playback"
 msgstr "Toisto"
 
-#: ../xfce4-mixer/xfce-mixer.c:163
+#: ../xfce4-mixer/xfce-mixer.c:164
 msgid "Capture"
 msgstr "Kaappaus"
 
-#: ../xfce4-mixer/xfce-mixer.c:163
+#: ../xfce4-mixer/xfce-mixer.c:164
 msgid "Switches"
 msgstr "Kytkimet"
 
-#: ../xfce4-mixer/xfce-mixer.c:163
+#: ../xfce4-mixer/xfce-mixer.c:164
 msgid "Options"
 msgstr "Asetukset"
 
-#: ../xfce4-mixer/xfce-mixer.c:297
+#: ../xfce4-mixer/xfce-mixer.c:298
 msgid "No Controls Visible"
 msgstr "Ei säätimiä näkyvillä"
 
-#: ../xfce4-mixer/xfce-mixer.c:301
+#: ../xfce4-mixer/xfce-mixer.c:302
 msgid ""
 "No controls are marked as visible. Please open the <span "
 "size='large'><b>Select Controls</b></span> dialog to select some."
@@ -158,39 +158,39 @@ msgstr ""
 "Yhtään säädintä ei ole asetettu näkyväksi. Ole hyvä ja valitse näkyvät "
 "säätimet <span size='large'><b>Valitse säätimet</b></span> -dialogista."
 
-#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:136
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:135
 msgid "Select Controls"
 msgstr "Valitse säätimet"
 
-#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:138
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:137
 msgid "Please select which controls you want to be visible"
 msgstr "Valitse säätimet, jotka haluat näytettävän"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:85
+#: ../xfce4-mixer/xfce-mixer-window.c:84
 msgid "_Quit"
 msgstr "_Poistu"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:85
+#: ../xfce4-mixer/xfce-mixer-window.c:84
 msgid "Exit the mixer"
 msgstr "Lopeta äänen säätö"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:87
+#: ../xfce4-mixer/xfce-mixer-window.c:86
 msgid "_Select Controls..."
 msgstr "_Valitse säätimet..."
 
-#: ../xfce4-mixer/xfce-mixer-window.c:87
+#: ../xfce4-mixer/xfce-mixer-window.c:86
 msgid "Select which controls are displayed"
 msgstr "Valitse näytettävät säätimet"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:185
+#: ../xfce4-mixer/xfce-mixer-window.c:184
 msgid "Configure your sound card(s) and control the volume of selected tracks"
-msgstr "Säädä äänikortti(e)si asetuksia ja valitsemiesi kanavien äänenvoimakkuutta"
+msgstr ""
+"Säädä äänikortti(e)si asetuksia ja valitsemiesi kanavien äänenvoimakkuutta"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:200
+#: ../xfce4-mixer/xfce-mixer-window.c:199
 msgid "Sound card:"
 msgstr "Äänikortti"
 
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:1
 msgid "Audio mixer for the Xfce Desktop Environment"
 msgstr "Äänenvoimakkuuden säätöohjelma Xfce-työpöytäympäristöön"
-

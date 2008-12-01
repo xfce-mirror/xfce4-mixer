@@ -1,43 +1,41 @@
-# Danish translations for xfce package.
-# Copyright (C) 2008 THE xfce'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the xfce package.
-# Ole Guldberg <olegb@omgwtf.dk>, 2008.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce 4-mixer\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-12-01 13:00+0100\n"
-"PO-Revision-Date: 2008-09-09 20:56+0100\n"
-"Last-Translator: Søren Waaben Hansen <soren@minorflaw.dk>\n"
-"Language-Team: Danish\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. Set tooltip (e.g. 'Master: 50%')
 #: ../panel-plugin/xfce-mixer-plugin.c:271
 #: ../panel-plugin/xfce-mixer-plugin.c:545
 #, c-format
 msgid "%s: %i%%"
-msgstr "%s: %i%%"
+msgstr ""
 
 #: ../panel-plugin/xfce-mixer-plugin.c:346
 msgid "No left-click command defined"
-msgstr "Ingen venstrekliks kommando defineret"
+msgstr ""
 
 #: ../panel-plugin/xfce-mixer-plugin.c:349
 msgid ""
 "No left-click command defined yet. You can change this in the plugin "
 "properties."
 msgstr ""
-"Ingen venstrekliks kommando defineret endnu. Du kan ændre dette i egenskaber "
-"for plugin'et."
 
 #: ../panel-plugin/xfce-mixer-plugin.c:350
 msgid "Properties"
-msgstr "Egenskaber"
+msgstr ""
 
 #. Generate error message and insert the current command
 #: ../panel-plugin/xfce-mixer-plugin.c:365
@@ -46,7 +44,6 @@ msgid ""
 "Could not execute the command %s. Perhaps you need to adjust the PATH "
 "variable."
 msgstr ""
-"Kunne ikke køre kommandoen %s. Det kan være du skal justere PATH variablen."
 
 #: ../panel-plugin/xfce-mixer-plugin.c:395 ../xfce4-mixer/main.c:89
 msgid ""
@@ -54,57 +51,54 @@ msgid ""
 "missing sound system specific GStreamer packages. It might as well be a "
 "permission problem."
 msgstr ""
-"GStreamer kunne ikke finde nogle lydkort på dit system. Det kan være du "
-"mangler nogle specifikke GStreamer pakker. Eller det kan være et problem med "
-"rettigheder til lydkortet."
 
 #: ../panel-plugin/xfce-plugin-dialog.c:234
 msgid "Mixer Plugin"
-msgstr "Mixer plugin"
+msgstr ""
 
 #: ../panel-plugin/xfce-plugin-dialog.c:236
 msgid "Please select which mixer track should be used by the plugin"
-msgstr "Vælg venligst hvilket mixer spor som plugin'et skal bruge"
+msgstr ""
 
 #: ../panel-plugin/xfce-plugin-dialog.c:248
 msgid "Sound card"
-msgstr "Lydkort"
+msgstr ""
 
 #: ../panel-plugin/xfce-plugin-dialog.c:266
 msgid "Mixer track"
-msgstr "Mixer spor"
+msgstr ""
 
 #: ../panel-plugin/xfce-plugin-dialog.c:284
 msgid "Left-click command"
-msgstr "Venstrekliks kommando"
+msgstr ""
 
 #: ../panel-plugin/xfce-plugin-dialog.c:322
 msgid "Select command"
-msgstr "Vælg kommando"
+msgstr ""
 
 #: ../panel-plugin/xfce-plugin-dialog.c:330
 msgid "All Files"
-msgstr "Alle filer"
+msgstr ""
 
 #: ../panel-plugin/xfce-plugin-dialog.c:335
 msgid "Executable Files"
-msgstr "Kørbare filer"
+msgstr ""
 
 #: ../panel-plugin/xfce-plugin-dialog.c:350
 msgid "Perl Scripts"
-msgstr "Perl skript"
+msgstr ""
 
 #: ../panel-plugin/xfce-plugin-dialog.c:356
 msgid "Python Scripts"
-msgstr "Python skript"
+msgstr ""
 
 #: ../panel-plugin/xfce-plugin-dialog.c:362
 msgid "Ruby Scripts"
-msgstr "Ruby skript"
+msgstr ""
 
 #: ../panel-plugin/xfce-plugin-dialog.c:368
 msgid "Shell Scripts"
-msgstr "Skal skript"
+msgstr ""
 
 #. Set application name
 #: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:1
@@ -113,16 +107,16 @@ msgstr "Skal skript"
 #: ../xfce4-mixer/xfce-mixer-window.c:284
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
 msgid "Mixer"
-msgstr "Mixer"
+msgstr ""
 
 #: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:2
 msgid "Volume control for your sound card"
-msgstr "Lydstyrke kontrol til dit lydkort"
+msgstr ""
 
 #: ../libxfce4mixer/libxfce4mixer.c:243
 #, c-format
 msgid "Unknown Volume Control %d"
-msgstr "Ukendt Volumen kontrol %d"
+msgstr ""
 
 #: ../xfce4-mixer/main.c:70
 #, c-format
@@ -131,56 +125,53 @@ msgstr ""
 
 #: ../xfce4-mixer/xfce-mixer.c:164
 msgid "Playback"
-msgstr "Afspil"
+msgstr ""
 
 #: ../xfce4-mixer/xfce-mixer.c:164
 msgid "Capture"
-msgstr "Indspil"
+msgstr ""
 
 #: ../xfce4-mixer/xfce-mixer.c:164
 msgid "Switches"
-msgstr "Kontakter"
+msgstr ""
 
 #: ../xfce4-mixer/xfce-mixer.c:164
 msgid "Options"
-msgstr "Indstillinger"
+msgstr ""
 
 #: ../xfce4-mixer/xfce-mixer.c:298
 msgid "No Controls Visible"
-msgstr "Ingen synlige kontroller"
+msgstr ""
 
 #: ../xfce4-mixer/xfce-mixer.c:302
 msgid ""
 "No controls are marked as visible. Please open the <span "
 "size='large'><b>Select Controls</b></span> dialog to select some."
 msgstr ""
-"Ingen kontroller er markeret som synlige. Åben <span size='large'><b>Vælg "
-"kontroller</b></span> dialogen for at vælge nogle."
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:135
 msgid "Select Controls"
-msgstr "Vælg kontroller"
+msgstr ""
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:137
 msgid "Please select which controls you want to be visible"
-msgstr "Vælg hvilke kontroller du vil have til at være synlige"
+msgstr ""
 
 #: ../xfce4-mixer/xfce-mixer-window.c:84
 msgid "_Quit"
-msgstr "_Afslut"
+msgstr ""
 
 #: ../xfce4-mixer/xfce-mixer-window.c:84
-#, fuzzy
 msgid "Exit the mixer"
-msgstr "Afslut Xfce mixer"
+msgstr ""
 
 #: ../xfce4-mixer/xfce-mixer-window.c:86
 msgid "_Select Controls..."
-msgstr "_Vælg kontroller..."
+msgstr ""
 
 #: ../xfce4-mixer/xfce-mixer-window.c:86
 msgid "Select which controls are displayed"
-msgstr "Vælg hvilke kontroller der skal vises"
+msgstr ""
 
 #: ../xfce4-mixer/xfce-mixer-window.c:184
 msgid "Configure your sound card(s) and control the volume of selected tracks"
@@ -188,21 +179,8 @@ msgstr ""
 
 #: ../xfce4-mixer/xfce-mixer-window.c:199
 msgid "Sound card:"
-msgstr "Lydkort:"
+msgstr ""
 
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:1
 msgid "Audio mixer for the Xfce Desktop Environment"
-msgstr "Lydmixer til Xfce skrivebordsmiljøet"
-
-#~ msgid "A comfortable audio mixer for your sound card."
-#~ msgstr "En behagelig lydmixer til dit lydkort."
-
-#~ msgid "Xfce Mixer"
-#~ msgstr "Xfce mixer"
-
-#~ msgid ""
-#~ "No sound cards could be found. You may have to install additional "
-#~ "gstreamer packages for ALSA or OSS support."
-#~ msgstr ""
-#~ "Ingen lydkort blev fundet. Du skal måske installere yderligere gstreamer "
-#~ "pakker for at få ALSA eller OSS understøttelse. "
+msgstr ""

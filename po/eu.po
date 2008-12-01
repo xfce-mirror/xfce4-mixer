@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: es\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-11-15 19:23+0100\n"
+"POT-Creation-Date: 2008-12-01 13:00+0100\n"
 "PO-Revision-Date: 2008-11-27 00:30+0100\n"
 "Last-Translator: Piarres Beobide <pi@beobide.net>\n"
 "Language-Team: Euskara <debian-l10n-basque@lists.debian.org>\n"
@@ -157,7 +157,8 @@ msgid ""
 "size='large'><b>Select Controls</b></span> dialog to select some."
 msgstr ""
 "Ez dago kontrolik ikusgarri bezala markaturik. Mesedez ireki <span "
-"size='large'><b>Hautatu kontrolak</b></span> elkarrizketa eta batenbat hautatu."
+"size='large'><b>Hautatu kontrolak</b></span> elkarrizketa eta batenbat "
+"hautatu."
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:135
 msgid "Select Controls"
@@ -185,7 +186,8 @@ msgstr "Hautatu zein kontrol bistaraziko diren"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:184
 msgid "Configure your sound card(s) and control the volume of selected tracks"
-msgstr "Konfiguratu soinu txartela(k) eta kontrolatu hautatutako pisten bolumena"
+msgstr ""
+"Konfiguratu soinu txartela(k) eta kontrolatu hautatutako pisten bolumena"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:199
 msgid "Sound card:"
@@ -194,4 +196,3 @@ msgstr "Soinu txartela:"
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:1
 msgid "Audio mixer for the Xfce Desktop Environment"
 msgstr "Xfce idazmahai ingurunearen audio nahasgailua"
-

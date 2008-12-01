@@ -1,48 +1,54 @@
-2008-11-27  Piarre Beobide <pi@beobide.net>
+2008-12-01	Jannis Pohlmann <jannis@xfce.org>
 
-        * eu.po, LINGUAS: Basque translation added
+	* xfce4-mixer.pot: .pot file added.
+	* *.po: Update translation files (no new strings though).
 
-2008-11-25  Maximilian Schleiss <maximilian@xfce.org>
+2008-11-27	Piarre Beobide <pi@beobide.net>
+
+	* eu.po, LINGUAS: Basque translation added
+
+2008-11-25	Maximilian Schleiss <maximilian@xfce.org>
 
 	* es.po: Spanish translation update (Abel Martín)
 
-2008-11-16  Maximilian Schleiss <maximilian@xfce.org>
+2008-11-16	Maximilian Schleiss <maximilian@xfce.org>
 
 	* de.po: German translation update (Fabian Nowak)
 	* es.po: Spanish translation update (Abel Martín)
 
-2008-11-02  Maximilian Schleiss <maximilian@xfce.org>
+2008-11-02	Maximilian Schleiss <maximilian@xfce.org>
 
 	* es.po: Spanish translation update (Abel Martín)
 	* tr.po; LINGUAS: Turkish translation added (Gökmen Görgen)
 
-2008-10-20  Maximilian Schleiss <maximilian@xfce.org>
+2008-10-20	Maximilian Schleiss <maximilian@xfce.org>
 
 	* ca.po, LINGUAS: Catalan translation added (Carles Muñoz Gorriz)
 
-2008-10-18  Maximilian Schleiss <maximilian@xfce.org>
+2008-10-18	Maximilian Schleiss <maximilian@xfce.org>
 
 	* id.po: Indonesian translation update (Andhika Padmawan)
-	* nb_NO.po, LINGUAS: Norwegian Bokmal translation added (Terje Uriansrud)
+	* nb_NO.po, LINGUAS: Norwegian Bokmal translation added (Terje 
+	  Uriansrud)
 
-2008-10-10  Maximilian Schleiss <maximilian@xfce.org>
+2008-10-10	Maximilian Schleiss <maximilian@xfce.org>
 
 	* ja.po, LINGUAS: Japanese translation added (Nobuhiro Iwamatsu)
 
-2008-10-07  Maximilian Schleiss <maximilian@xfce.org>
+2008-10-07	Maximilian Schleiss <maximilian@xfce.org>
 
 	* si.po: Sinhalese translation update (Rashan Anushka)
 
-2008-10-06  Jari Rahkonen <jari.rahkonen@xfce.org>
+2008-10-06	Jari Rahkonen <jari.rahkonen@xfce.org>
 
 	* fi.po: Update Finnish translation.
 
-2008-10-05  Maximilian Schleiss <maximilian@xfce.org>
+2008-10-05	Maximilian Schleiss <maximilian@xfce.org>
 
 	* es.po, LINGUAS: Spanish translation added (Abel Martín)
 	* id.po: Indonesian translation update (Andhika Padmawan)
 
-2008-09-23 Og Maciel <ogmaciel@gnome.org>
+2008-09-23	Og Maciel <ogmaciel@gnome.org>
 
 	* pt_BR.po: Updated Brazilian Portuguese translation by Fábio Nogueira.
 
