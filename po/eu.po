@@ -157,8 +157,7 @@ msgid ""
 "size='large'><b>Select Controls</b></span> dialog to select some."
 msgstr ""
 "Ez dago kontrolik ikusgarri bezala markaturik. Mesedez ireki <span "
-"size='large'><b>Hautatu kontrolak</b></span> elkarrizketa eta batenbat "
-"hautatu."
+"size='large'><b>Hautatu kontrolak</b></span> elkarrizketa eta batenbat hautatu."
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:135
 msgid "Select Controls"
@@ -186,8 +185,7 @@ msgstr "Hautatu zein kontrol bistaraziko diren"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:184
 msgid "Configure your sound card(s) and control the volume of selected tracks"
-msgstr ""
-"Konfiguratu soinu txartela(k) eta kontrolatu hautatutako pisten bolumena"
+msgstr "Konfiguratu soinu txartela(k) eta kontrolatu hautatutako pisten bolumena"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:199
 msgid "Sound card:"
