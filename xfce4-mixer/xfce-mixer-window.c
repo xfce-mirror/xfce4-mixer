@@ -181,7 +181,7 @@ xfce_mixer_window_init (XfceMixerWindow *window)
 
   heading = xfce_heading_new ();
   xfce_heading_set_title (XFCE_HEADING (heading), _("Mixer"));
-  xfce_heading_set_subtitle (XFCE_HEADING (heading), _("Configure your sound card(s) and control the volume of selected tracks"));
+  xfce_heading_set_subtitle (XFCE_HEADING (heading), _("Configure sound card(s) and control the volume of selected tracks"));
   xfce_heading_set_icon_name (XFCE_HEADING (heading), "multimedia-volume-control");
   gtk_box_pack_start (GTK_BOX (vbox), heading, FALSE, TRUE, 0);
   gtk_widget_show (heading);

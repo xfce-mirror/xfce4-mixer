@@ -295,11 +295,11 @@ xfce_mixer_constructed (GObject *object)
 
   if (G_UNLIKELY (gtk_notebook_get_n_pages (GTK_NOTEBOOK (mixer)) == 0))
     {
-      label1 = gtk_label_new (_("No Controls Visible"));
+      label1 = gtk_label_new (_("No controls visible"));
       gtk_widget_show (label1);
 
       label2 = gtk_label_new (NULL);
-      gtk_label_set_markup (GTK_LABEL (label2), _("No controls are marked as visible. Please open the <span size='large'><b>Select Controls</b></span> dialog to select some."));
+      gtk_label_set_markup (GTK_LABEL (label2), _("No controls are marked as visible. Open the <span size='large'><b>Select Controls</b></span> dialog to select some."));
       gtk_label_set_line_wrap (GTK_LABEL (label2), TRUE);
       gtk_widget_show (label2);
 

@@ -363,7 +363,7 @@ xfce_mixer_plugin_clicked (XfceMixerPlugin *mixer_plugin)
     {
       /* Generate error message and insert the current command */
       message = g_strdup_printf (_("Could not execute the command %s. "
-                                   "Perhaps you need to adjust the PATH variable."), 
+                                   "Perhaps the PATH variable needs adjustment."), 
                                  mixer_plugin->command);
 
       /* Display error */
@@ -392,9 +392,9 @@ xfce_mixer_plugin_configure (XfceMixerPlugin *mixer_plugin)
   /* Warn user if no sound cards are available */
   if (G_UNLIKELY (g_list_length (xfce_mixer_get_cards ()) <= 0))
     {
-      xfce_err (_("GStreamer was unable to detect any sound cards on your system. "
-                  "You might be missing sound system specific GStreamer packages. "
-                  "It might as well be a permission problem."));
+      xfce_err (_("GStreamer was unable to detect any sound cards. "
+                  "Some sound system specific GStreamer packages may "
+                  "be missing. It may also be a permission problem."));
     }
   else
     {

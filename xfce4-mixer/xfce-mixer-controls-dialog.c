@@ -134,7 +134,7 @@ xfce_mixer_controls_dialog_init (XfceMixerControlsDialog *dialog)
   gtk_window_set_icon_name (GTK_WINDOW (dialog), "preferences-desktop");
   gtk_window_set_title (GTK_WINDOW (dialog), _("Select Controls"));
 
-  xfce_titled_dialog_set_subtitle (XFCE_TITLED_DIALOG (dialog), _("Please select which controls you want to be visible"));
+  xfce_titled_dialog_set_subtitle (XFCE_TITLED_DIALOG (dialog), _("Select which controls should be visible"));
 
   button = gtk_button_new_from_stock (GTK_STOCK_CLOSE);
   gtk_dialog_add_action_widget (GTK_DIALOG (dialog), button, GTK_RESPONSE_CLOSE);

@@ -1,3 +1,10 @@
+2008-12-10	Josh Saddler <nightmorph@gentoo.org>
+
+	* panel-plugin/xfce-mixer-plugin.c, panel-plugin/xfce-plugin-dialog.c,
+	  xfce4-mixer/xfce-mixer-controls-dialog.c,
+	  xfce4-mixer/xfce-mixer-window.c, xfce4-mixer/xfce-mixer.c: Improve
+	  strings as part of the string review process.
+
 2008-11-11	Jannis Pohlmann <jannis@xfce.org>
 
 	* == 4.5.92 released ==
