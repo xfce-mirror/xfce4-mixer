@@ -233,7 +233,7 @@ xfce_plugin_dialog_create_contents (XfcePluginDialog *dialog,
   gtk_window_set_icon_name (GTK_WINDOW (dialog), "multimedia-volume-control");
   gtk_window_set_title (GTK_WINDOW (dialog), _("Mixer Plugin"));
 
-  xfce_titled_dialog_set_subtitle (XFCE_TITLED_DIALOG (dialog), _("Select which mixer track should be used by the plugin"));
+  xfce_titled_dialog_set_subtitle (XFCE_TITLED_DIALOG (dialog), _("Configure the mixer track and left-click command"));
   
   button = gtk_button_new_from_stock (GTK_STOCK_CLOSE);
   gtk_dialog_add_action_widget (GTK_DIALOG (dialog), button, GTK_RESPONSE_CLOSE);

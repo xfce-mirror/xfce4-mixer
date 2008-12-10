@@ -86,9 +86,9 @@ main (int    argc,
   /* Warn users if there were no sound cards detected by GStreamer */
   if (G_UNLIKELY (g_list_length (xfce_mixer_get_cards ()) <= 0))
     {
-      xfce_err (_("GStreamer was unable to detect any sound cards on your system. "
-                  "You might be missing sound system specific GStreamer packages. "
-                  "It might as well be a permission problem."));
+      xfce_err (_("GStreamer was unable to detect any sound devices. "
+                  "Some sound system specific GStreamer packages may "
+                  "be missing. It may also be a permissions problem."));
 
       return EXIT_FAILURE;
     }
