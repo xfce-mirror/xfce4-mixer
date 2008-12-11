@@ -1,5 +1,10 @@
 2008-12-10	Jannis Pohlmann <jannis@xfce.org>
 
+	* panel-plugin/xfce-mixer-plugin.c: Another string improvement
+	  (hopefully).
+
+2008-12-10	Jannis Pohlmann <jannis@xfce.org>
+
 	* panel-plugin/xfce-mixer-plugin.c, panel-plugin/xfce-plugin-dialog.c,
 	  xfce4-mixer/main.c, xfce4-mixer/xfce-mixer.c: Try to improve strings
 	  even further in reply to Brian's comments.

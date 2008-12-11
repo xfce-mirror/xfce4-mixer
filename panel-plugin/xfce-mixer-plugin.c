@@ -362,10 +362,11 @@ xfce_mixer_plugin_clicked (XfceMixerPlugin *mixer_plugin)
   if (G_UNLIKELY (!g_spawn_command_line_async (mixer_plugin->command, NULL)))
     {
       /* Generate error message and insert the current command */
-      message = g_strdup_printf (_("Could not execute the command %s. "
+      message = g_strdup_printf (_("Could not execute the command \"%s\". "
                                    "Ensure that either the location of the command "
                                    "is included in the PATH environment variable or "
-                                   "the full path of the command is used."), 
+                                   "that you are providing the full path to the "
+                                   "command."), 
                                  mixer_plugin->command);
 
       /* Display error */
