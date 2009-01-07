@@ -81,7 +81,7 @@ main (int    argc,
   xfce_mixer_init ();
 
   /* Use volume control icon for all mixer windows */
-  gtk_window_set_default_icon_name ("xfce4-mixer");
+  gtk_window_set_default_icon_name ("multimedia-volume-control");
 
   /* Warn users if there were no sound cards detected by GStreamer */
   if (G_UNLIKELY (g_list_length (xfce_mixer_get_cards ()) <= 0))
