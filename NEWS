@@ -1,3 +1,14 @@
+4.5.93
+======
+- Change plugin volume step size from 1% to 5%.
+- Use "multimedia-volume-control" icon as the default window icon 
+  instead of "xfce4-mixer".
+- Review strings.
+- Translation updates: cs (Michal Varady), de (Fabian Nowak), es (Abel 
+  Martín), eu (Piarres Beobide), fi (Jari Rahkonen), fr (Maximilian 
+  Schleiss), gl (Leandro Regueiro), hu (Szervác Attila), ja (Nobohiro
+  Iwamatsu), sv (Daniel Nylander), uk (Dmitry Nikitin), 
+
 4.5.92
 ======
 - Use xfconf_channel_reset_property() instead
