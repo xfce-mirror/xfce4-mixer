@@ -228,12 +228,12 @@ msgstr "alsa: Mikserio %s atidarymo klaida: %s\n"
 
 #: ../lib/vc_alsa.c:141
 #, c-format
-msgid "alsa: Mixer attach %s error: %s\n"
+msgid "alsa: snd_mixer_attach(\"%s\"): error: %s\n" 
 msgstr "alsa: Mikserio prijungimo %s klaida: %s\n"
 
 #: ../lib/vc_alsa.c:149
 #, c-format
-msgid "alsa: Mixer register error: %s\n"
+msgid "alsa: snd_mixer_selem_register(...): error: %s\n"
 msgstr "alsa: Mikserio registro klaida: %s\n"
 
 #: ../lib/vc_alsa.c:158

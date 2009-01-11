@@ -213,12 +213,12 @@ msgstr "alsa: སྦྱོར་འཕྲུལ་%s ཁ་ཕྱེ་འཛོ
 
 #: ../lib/vc_alsa.c:141
 #, c-format
-msgid "alsa: Mixer attach %s error: %s\n"
+msgid "alsa: snd_mixer_attach(\"%s\"): error: %s\n" 
 msgstr "alsa: སྦྱོར་འཕྲུལ་མཉམ་སྦྲགས་%s འཛོལ་བ་: %s\n"
 
 #: ../lib/vc_alsa.c:149
 #, c-format
-msgid "alsa: Mixer register error: %s\n"
+msgid "alsa: snd_mixer_selem_register(...): error: %s\n"
 msgstr "alsa: སྦྱོར་འཕྲུལ་ཐོ་འགོད་འཛོལ་བ་: %s\n"
 
 #: ../lib/vc_alsa.c:158

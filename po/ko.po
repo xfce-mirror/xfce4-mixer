@@ -211,12 +211,12 @@ msgstr "alsa: 믹서 %s 열기 오류 : %s\n"
 
 #: ../lib/vc_alsa.c:141
 #, c-format
-msgid "alsa: Mixer attach %s error: %s\n"
+msgid "alsa: snd_mixer_attach(\"%s\"): error: %s\n" 
 msgstr "alsa: 믹서 추가 %s 오류 : %s\n"
 
 #: ../lib/vc_alsa.c:149
 #, c-format
-msgid "alsa: Mixer register error: %s\n"
+msgid "alsa: snd_mixer_selem_register(...): error: %s\n"
 msgstr "alsa: 믹서 등록 오류 : %s\n"
 
 #: ../lib/vc_alsa.c:158

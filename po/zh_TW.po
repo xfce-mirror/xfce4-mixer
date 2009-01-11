@@ -211,12 +211,12 @@ msgstr "alsa: 混頻器 %s 開啟錯誤： %s\n"
 
 #: ../lib/vc_alsa.c:141
 #, c-format
-msgid "alsa: Mixer attach %s error: %s\n"
+msgid "alsa: snd_mixer_attach(\"%s\"): error: %s\n" 
 msgstr "alsa: 混頻器連接至 %s 途中發生錯誤：%s\n"
 
 #: ../lib/vc_alsa.c:149
 #, c-format
-msgid "alsa: Mixer register error: %s\n"
+msgid "alsa: snd_mixer_selem_register(...): error: %s\n"
 msgstr "alsa: 混頻器註冊錯誤：%s\n"
 
 #: ../lib/vc_alsa.c:158

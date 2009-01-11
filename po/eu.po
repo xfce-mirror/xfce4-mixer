@@ -214,12 +214,12 @@ msgstr "alsa: Errorea %s nahaslea abiarazterakoan: %s\n"
 
 #: ../lib/vc_alsa.c:141
 #, c-format
-msgid "alsa: Mixer attach %s error: %s\n"
+msgid "alsa: snd_mixer_attach(\"%s\"): error: %s\n" 
 msgstr "alsa: Errorea %s nahaslea atxikitzerakoan: %s\n"
 
 #: ../lib/vc_alsa.c:149
 #, c-format
-msgid "alsa: Mixer register error: %s\n"
+msgid "alsa: snd_mixer_selem_register(...): error: %s\n"
 msgstr "alsa: Errorea nahasle erregistroan: %s\n"
 
 #: ../lib/vc_alsa.c:158

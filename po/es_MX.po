@@ -210,12 +210,12 @@ msgstr "alsa: Error de apertura del mezclador %s: %s\n"
 
 #: ../lib/vc_alsa.c:141
 #, c-format
-msgid "alsa: Mixer attach %s error: %s\n"
+msgid "alsa: snd_mixer_attach(\"%s\"): error: %s\n" 
 msgstr "alsa: Error de anexión del mezclador %s: %s\n"
 
 #: ../lib/vc_alsa.c:149
 #, c-format
-msgid "alsa: Mixer register error: %s\n"
+msgid "alsa: snd_mixer_selem_register(...): error: %s\n"
 msgstr "alsa: Error de registro del mezclador: %s\n"
 
 #: ../lib/vc_alsa.c:158

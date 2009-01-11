@@ -213,12 +213,12 @@ msgstr "alsa: Миксер %s Грешка при отварање: %s\n"
 
 #: ../lib/vc_alsa.c:141
 #, c-format
-msgid "alsa: Mixer attach %s error: %s\n"
+msgid "alsa: snd_mixer_attach(\"%s\"): error: %s\n" 
 msgstr "alsa: Грешка во прикачувањето на %s на миксерот: %s\n"
 
 #: ../lib/vc_alsa.c:149
 #, c-format
-msgid "alsa: Mixer register error: %s\n"
+msgid "alsa: snd_mixer_selem_register(...): error: %s\n"
 msgstr "alsa: Грешка при регистрирање на миксерот: %s\n"
 
 #: ../lib/vc_alsa.c:158
