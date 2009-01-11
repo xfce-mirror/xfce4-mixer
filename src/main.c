@@ -38,7 +38,7 @@ static gboolean
 timer_vc_cb (gpointer data)
 {
 	vc_handle_events ();
-	vol_changed_cb (NULL, NULL);
+	vol_changed_cb (NULL, VE_VALUE_CHANGED, NULL);
 	return TRUE;
 }
 
