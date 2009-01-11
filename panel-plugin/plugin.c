@@ -438,6 +438,7 @@ mixer_new(void)
 	t_mixer *mixer;
 	GdkPixbuf *pb;
 	GtkWidget *align;
+	GtkWidget *slider_box;
 	
 	mixer = g_new0 (t_mixer, 1);
 
@@ -463,6 +464,10 @@ mixer_new(void)
 
 	gtk_box_pack_start (GTK_BOX (mixer->box), GTK_WIDGET (mixer->ib), TRUE, TRUE, 0);
 
+	slider_box = gtk_hbox_new (FALSE, 0);
+	gtk_container_set_border_width (GTK_CONTAINER (slider_box), 2);
+	gtk_widget_show (slider_box);
+
 	mixer->slider = XFCE_MIXER_CONTROL (xfce_mixer_slider_tiny_new ());
 	g_signal_connect (
 		G_OBJECT (mixer->slider), "notify::value", 
@@ -470,7 +475,8 @@ mixer_new(void)
 	);
 	
 	gtk_widget_show (GTK_WIDGET (mixer->slider));
-	gtk_box_pack_start (GTK_BOX (mixer->box), GTK_WIDGET (mixer->slider), FALSE, TRUE, 0);
+	gtk_box_pack_start (GTK_BOX (slider_box), GTK_WIDGET (mixer->slider), FALSE, FALSE, 0);
+	gtk_box_pack_start (GTK_BOX (mixer->box), GTK_WIDGET (slider_box), FALSE, FALSE, 0);
 		
 	g_signal_connect_swapped (
 		G_OBJECT (mixer->ib), "scroll-event", 
