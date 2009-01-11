@@ -33,7 +33,7 @@ AC_HELP_STRING([--with-sound=auto|alsa|oss|sun|sgi], [Check what sound system to
 
 if test x"$with_sound" != x"alsa" -a x"$with_sound" != x"oss" -a x"$with_sound" != x"sun" -a x"$with_sound" != x"sgi"; then
   if test x`uname -s` != x"SunOS"; then
-    if test x`uname -s` != x"IRIX"; then
+    if test x`uname -s` != x"IRIX" -a x`uname -s` != x"IRIX64"; then
       with_sound=oss
     else
       with_sound=sgi
