@@ -135,14 +135,14 @@ static void find_master(void)
 	}
 	
 	if ((err = snd_mixer_attach(handle, card)) < 0) {
-		error(_("alsa: Mixer attach %s error: %s\n"), card, snd_strerror(err));
+		error(_("alsa: snd_mixer_attach(\"%s\"): error: %s\n"), card, snd_strerror(err));
 		snd_mixer_close(handle); /* <-- alsa 0.9.3a fails assert(hctl) if I do that... weeeeird... */
 		handle = NULL;
 		return;
 	}
 	if ((err = snd_mixer_selem_register(handle, NULL, NULL)) < 0) {
 #ifdef DEBUG
-		error(_("alsa: Mixer register error: %s\n"), snd_strerror(err));  
+		error(_("alsa: snd_mixer_selem_register(...): error: %s\n"), snd_strerror(err));  
 #endif
 		snd_mixer_close(handle);
 		handle = NULL;
@@ -614,7 +614,7 @@ static void vc_set_select(char const *which, gchar const *v)
 		}
 	}
 	
-	stringlist_free (g);
+	vc_free_choices (g);
 } 
 
 static gchar *vc_get_select(char const *which)
@@ -622,7 +622,8 @@ static gchar *vc_get_select(char const *which)
 	gint j;
 	unsigned int jj;
 	GList *g;
-	gchar *s;
+	volchoice_t* item;
+
 	snd_mixer_elem_t *xelem = NULL;
 	if (handle == NULL) {
 		return NULL;
@@ -643,13 +644,15 @@ static gchar *vc_get_select(char const *which)
 	if (!g)
 		return NULL;
 
-	s = (gchar *) g_list_nth_data (g, j);
+	item = (volchoice_t *) g_list_nth_data (g, j);
 	
-	if (!s)
+	if (!item) {
+		vc_free_choices (g);
 		return NULL;
+	}
 		
-	s = g_strdup (s);
-	stringlist_free (g);
+	s = g_strdup (item->name);
+	vc_free_choices (g);
 	return s;
 }
         
