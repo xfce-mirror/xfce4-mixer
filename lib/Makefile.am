@@ -26,5 +26,5 @@ noinst_PROGRAMS = test_vc
 
 xfce4_mixerincludedir = $(includedir)/xfce4/libxfce4mixer
 
-xfce4_mixerinclude_HEADERS = ../include/vc.h
+xfce4_mixerinclude_HEADERS = ../include/vc.h ../include/vcs.h
 
