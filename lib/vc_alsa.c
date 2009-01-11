@@ -547,6 +547,9 @@ static void vc_close_device()
 		return;
 	}
 	
+	snd_mixer_set_callback_private (handle, NULL);
+	snd_mixer_set_callback (handle, NULL);
+	
 	snd_mixer_close (handle); /* FIXME does this close all related stuff? */
 	handle = NULL;
 }
