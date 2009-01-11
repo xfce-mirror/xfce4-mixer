@@ -69,8 +69,6 @@
 
 #include <glib.h>
 
-#include <libxfce4util/libxfce4util.h>
-
 #define VC_PLUGIN
 #include "vc.h"
 

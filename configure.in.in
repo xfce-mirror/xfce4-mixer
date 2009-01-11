@@ -120,6 +120,7 @@ Makefile
 xfce4-mixer.spec
 include/Makefile
 lib/Makefile
+lib/libxfce4mixer-1.0.pc
 src/Makefile
 panel-plugin/Makefile
 settings/Makefile
