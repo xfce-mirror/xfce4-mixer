@@ -1,3 +1,10 @@
+2009-01-10	Jannis Pohlmann <jannis@xfce.org>
+
+	* panel-plugin/xfce-volume-button.c: Change step size to 5% instead
+	  of 1% because 1% is unusable if you don't have a laptop with a nice
+	  touchpad. I'll have to come up with a more intelligent solution for
+	  that in the next release, I guess.
+
 2009-01-08	Jannis Pohlmann <jannis@xfce.org>
 
 	* xfce4-mixer/main.c: Use multimedia-volume-control instead of
