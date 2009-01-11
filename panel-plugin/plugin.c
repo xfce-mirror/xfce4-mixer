@@ -284,10 +284,15 @@ mixer_update_tips(t_mixer *mixer)
 }
 
 
-static void callback_vc_cb(char const *which, void *privdata)
+static void callback_vc_cb(char const *which, volchanger_callback_event_t kind, void *privdata)
 {
 	t_mixer *mixer;
 	mixer = (t_mixer *) privdata;
+	
+	if (kind == VE_REMOVED) {
+		vc_close_device ();
+		return;
+	}
 	
 	xfce_mixer_control_vc_feed_value (mixer->slider);
 	mixer_update_tips (mixer);
