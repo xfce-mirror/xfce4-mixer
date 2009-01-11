@@ -127,6 +127,8 @@ response_cb(GtkDialog* dialog, gint arg1, gpointer user_data)
 {
     t_mixer *mixer = (t_mixer *) user_data;
 
+    xfce_panel_plugin_unblock_menu (mixer->temp_plugin);
+
     xfce_mixer_prefbox_save_preferences (mixer->prefbox, mixer->prefs);
  
     mixer_write_config(mixer->temp_plugin, mixer);
@@ -149,11 +151,13 @@ mixer_configure (XfcePanelPlugin *plugin, gpointer user_data)
 
     mixer = (t_mixer *) user_data;
     
+    xfce_panel_plugin_block_menu (plugin);
+
     /* TODO TRANSLATE TITLE OR SOMETHING */
 
     dialog = GTK_DIALOG (
              gtk_dialog_new_with_buttons (xfce_panel_plugin_get_name (plugin), 
-                                          GTK_WINDOW(gtk_widget_get_toplevel(GTK_WIDGET(plugin))), 
+                                          NULL, 
                                           GTK_DIALOG_DESTROY_WITH_PARENT,
                                           GTK_STOCK_CLOSE, GTK_RESPONSE_CLOSE, 
                                           NULL));
