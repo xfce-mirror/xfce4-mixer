@@ -42,6 +42,14 @@ static gchar *fmt_device_cb(gchar const *c)
 	return s;
 }
 
+static void volume_event_cb(char const *control, volchanger_callback_event_t kind, void *p_settings_box)
+{
+	if (kind == VE_REMOVED) {
+		g_warning ("sound device was removed.");
+		vc_close_device ();
+	}
+}
+
 %}
 
 class Xfce:Mixer:Settingsbox from Gtk:VBox {
@@ -219,7 +227,9 @@ class Xfce:Mixer:Settingsbox from Gtk:VBox {
 
 			gtk_label_set_text (self->dev_label, s);
 			TRACE ("set vc device");
+			vc_set_volume_callback (NULL, NULL);
 			vc_set_device (s);
+			vc_set_volume_callback (volume_event_cb, self);
 			TRACE ("free sel_device");
 			if (self->sel_device) {
 				g_free (self->sel_device);
