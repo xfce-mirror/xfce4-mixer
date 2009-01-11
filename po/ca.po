@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce 4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-12-01 13:00+0100\n"
+"POT-Creation-Date: 2009-01-11 00:59+0100\n"
 "PO-Revision-Date: 2008-10-19 20:55+0100\n"
 "Last-Translator: Carles Muñoz Gorriz <carlesmu@internautas.org>\n"
 "Language-Team: Catalan\n"
@@ -18,7 +18,7 @@ msgstr ""
 
 #. Set tooltip (e.g. 'Master: 50%')
 #: ../panel-plugin/xfce-mixer-plugin.c:271
-#: ../panel-plugin/xfce-mixer-plugin.c:545
+#: ../panel-plugin/xfce-mixer-plugin.c:548
 #, c-format
 msgid "%s: %i%%"
 msgstr "%s: %i%%"
@@ -43,17 +43,16 @@ msgstr "Propietats"
 #: ../panel-plugin/xfce-mixer-plugin.c:365
 #, c-format
 msgid ""
-"Could not execute the command %s. Perhaps you need to adjust the PATH "
-"variable."
+"Could not execute the command \"%s\". Ensure that either the location of the "
+"command is included in the PATH environment variable or that you are "
+"providing the full path to the command."
 msgstr ""
-"No es pot executar l'ordre «%s». Pot ser que calgui ajustar la variable "
-"d'entorn «PATH»."
 
-#: ../panel-plugin/xfce-mixer-plugin.c:395 ../xfce4-mixer/main.c:89
+#: ../panel-plugin/xfce-mixer-plugin.c:398 ../xfce4-mixer/main.c:89
+#, fuzzy
 msgid ""
-"GStreamer was unable to detect any sound cards on your system. You might be "
-"missing sound system specific GStreamer packages. It might as well be a "
-"permission problem."
+"GStreamer was unable to detect any sound devices. Some sound system specific "
+"GStreamer packages may be missing. It may also be a permissions problem."
 msgstr ""
 "«GStreamer» no ha pogut detectar cap tarja de so. Pot ser que no tingueu "
 "algun paquet del sistema de so de «GStreamer». També pot ser un problema de "
@@ -64,8 +63,8 @@ msgid "Mixer Plugin"
 msgstr "Connector del mesclador"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:236
-msgid "Please select which mixer track should be used by the plugin"
-msgstr "Seleccioneu quina pista del mesclador voleu emprar amb el connector"
+msgid "Configure the mixer track and left-click command"
+msgstr ""
 
 #: ../panel-plugin/xfce-plugin-dialog.c:248
 msgid "Sound card"
@@ -147,7 +146,8 @@ msgid "Options"
 msgstr "Opcions"
 
 #: ../xfce4-mixer/xfce-mixer.c:298
-msgid "No Controls Visible"
+#, fuzzy
+msgid "No controls visible"
 msgstr "Cap control visible"
 
 #: ../xfce4-mixer/xfce-mixer.c:302
@@ -163,8 +163,9 @@ msgid "Select Controls"
 msgstr "Selecció de controls"
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:137
-msgid "Please select which controls you want to be visible"
-msgstr "Seleccioneu els controls que voleu que siguin visibles"
+#, fuzzy
+msgid "Select which controls should be visible"
+msgstr "Seleccioneu quins controls es mostren"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:84
 msgid "_Quit"
@@ -183,7 +184,8 @@ msgid "Select which controls are displayed"
 msgstr "Seleccioneu quins controls es mostren"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:184
-msgid "Configure your sound card(s) and control the volume of selected tracks"
+#, fuzzy
+msgid "Configure sound card(s) and control the volume of selected tracks"
 msgstr ""
 "Configureu la vostra tarjeta o tarjetes de so i controleu el volumen de les "
 "pistes seleccionades"
@@ -195,6 +197,19 @@ msgstr "Tarja de so"
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:1
 msgid "Audio mixer for the Xfce Desktop Environment"
 msgstr "Mesclador d'àudio per l'entorn d'escriptori Xfce"
+
+#~ msgid ""
+#~ "Could not execute the command %s. Perhaps you need to adjust the PATH "
+#~ "variable."
+#~ msgstr ""
+#~ "No es pot executar l'ordre «%s». Pot ser que calgui ajustar la variable "
+#~ "d'entorn «PATH»."
+
+#~ msgid "Please select which mixer track should be used by the plugin"
+#~ msgstr "Seleccioneu quina pista del mesclador voleu emprar amb el connector"
+
+#~ msgid "Please select which controls you want to be visible"
+#~ msgstr "Seleccioneu els controls que voleu que siguin visibles"
 
 #~ msgid "Xfce Mixer"
 #~ msgstr "Mesclador de Xfce"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce 4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-12-01 13:00+0100\n"
+"POT-Creation-Date: 2009-01-11 00:59+0100\n"
 "PO-Revision-Date: 2008-09-09 20:56+0100\n"
 "Last-Translator: Søren Waaben Hansen <soren@minorflaw.dk>\n"
 "Language-Team: Danish\n"
@@ -18,7 +18,7 @@ msgstr ""
 
 #. Set tooltip (e.g. 'Master: 50%')
 #: ../panel-plugin/xfce-mixer-plugin.c:271
-#: ../panel-plugin/xfce-mixer-plugin.c:545
+#: ../panel-plugin/xfce-mixer-plugin.c:548
 #, c-format
 msgid "%s: %i%%"
 msgstr "%s: %i%%"
@@ -43,16 +43,16 @@ msgstr "Egenskaber"
 #: ../panel-plugin/xfce-mixer-plugin.c:365
 #, c-format
 msgid ""
-"Could not execute the command %s. Perhaps you need to adjust the PATH "
-"variable."
+"Could not execute the command \"%s\". Ensure that either the location of the "
+"command is included in the PATH environment variable or that you are "
+"providing the full path to the command."
 msgstr ""
-"Kunne ikke køre kommandoen %s. Det kan være du skal justere PATH variablen."
 
-#: ../panel-plugin/xfce-mixer-plugin.c:395 ../xfce4-mixer/main.c:89
+#: ../panel-plugin/xfce-mixer-plugin.c:398 ../xfce4-mixer/main.c:89
+#, fuzzy
 msgid ""
-"GStreamer was unable to detect any sound cards on your system. You might be "
-"missing sound system specific GStreamer packages. It might as well be a "
-"permission problem."
+"GStreamer was unable to detect any sound devices. Some sound system specific "
+"GStreamer packages may be missing. It may also be a permissions problem."
 msgstr ""
 "GStreamer kunne ikke finde nogle lydkort på dit system. Det kan være du "
 "mangler nogle specifikke GStreamer pakker. Eller det kan være et problem med "
@@ -63,8 +63,8 @@ msgid "Mixer Plugin"
 msgstr "Mixer plugin"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:236
-msgid "Please select which mixer track should be used by the plugin"
-msgstr "Vælg venligst hvilket mixer spor som plugin'et skal bruge"
+msgid "Configure the mixer track and left-click command"
+msgstr ""
 
 #: ../panel-plugin/xfce-plugin-dialog.c:248
 msgid "Sound card"
@@ -146,7 +146,8 @@ msgid "Options"
 msgstr "Indstillinger"
 
 #: ../xfce4-mixer/xfce-mixer.c:298
-msgid "No Controls Visible"
+#, fuzzy
+msgid "No controls visible"
 msgstr "Ingen synlige kontroller"
 
 #: ../xfce4-mixer/xfce-mixer.c:302
@@ -162,8 +163,9 @@ msgid "Select Controls"
 msgstr "Vælg kontroller"
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:137
-msgid "Please select which controls you want to be visible"
-msgstr "Vælg hvilke kontroller du vil have til at være synlige"
+#, fuzzy
+msgid "Select which controls should be visible"
+msgstr "Vælg hvilke kontroller der skal vises"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:84
 msgid "_Quit"
@@ -183,7 +185,7 @@ msgid "Select which controls are displayed"
 msgstr "Vælg hvilke kontroller der skal vises"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:184
-msgid "Configure your sound card(s) and control the volume of selected tracks"
+msgid "Configure sound card(s) and control the volume of selected tracks"
 msgstr ""
 
 #: ../xfce4-mixer/xfce-mixer-window.c:199
@@ -193,6 +195,19 @@ msgstr "Lydkort:"
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:1
 msgid "Audio mixer for the Xfce Desktop Environment"
 msgstr "Lydmixer til Xfce skrivebordsmiljøet"
+
+#~ msgid ""
+#~ "Could not execute the command %s. Perhaps you need to adjust the PATH "
+#~ "variable."
+#~ msgstr ""
+#~ "Kunne ikke køre kommandoen %s. Det kan være du skal justere PATH "
+#~ "variablen."
+
+#~ msgid "Please select which mixer track should be used by the plugin"
+#~ msgstr "Vælg venligst hvilket mixer spor som plugin'et skal bruge"
+
+#~ msgid "Please select which controls you want to be visible"
+#~ msgstr "Vælg hvilke kontroller du vil have til at være synlige"
 
 #~ msgid "A comfortable audio mixer for your sound card."
 #~ msgstr "En behagelig lydmixer til dit lydkort."

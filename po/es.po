@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce 4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-12-01 13:00+0100\n"
+"POT-Creation-Date: 2009-01-11 00:59+0100\n"
 "PO-Revision-Date: 2008-11-14 18:56+0100\n"
 "Last-Translator: Abel Martín <abel.martin.ruiz@gmail.com>\n"
 "Language-Team: Spanish/ES <xfce-i18n@xfce.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 
 #. Set tooltip (e.g. 'Master: 50%')
 #: ../panel-plugin/xfce-mixer-plugin.c:271
-#: ../panel-plugin/xfce-mixer-plugin.c:545
+#: ../panel-plugin/xfce-mixer-plugin.c:548
 #, c-format
 msgid "%s: %i%%"
 msgstr "%s : %i%%"
@@ -43,16 +43,16 @@ msgstr "Propiedades"
 #: ../panel-plugin/xfce-mixer-plugin.c:365
 #, c-format
 msgid ""
-"Could not execute the command %s. Perhaps you need to adjust the PATH "
-"variable."
+"Could not execute the command \"%s\". Ensure that either the location of the "
+"command is included in the PATH environment variable or that you are "
+"providing the full path to the command."
 msgstr ""
-"No se pudo ejecutar el comando %s. Quizás necesite ajustar la variable PATH."
 
-#: ../panel-plugin/xfce-mixer-plugin.c:395 ../xfce4-mixer/main.c:89
+#: ../panel-plugin/xfce-mixer-plugin.c:398 ../xfce4-mixer/main.c:89
+#, fuzzy
 msgid ""
-"GStreamer was unable to detect any sound cards on your system. You might be "
-"missing sound system specific GStreamer packages. It might as well be a "
-"permission problem."
+"GStreamer was unable to detect any sound devices. Some sound system specific "
+"GStreamer packages may be missing. It may also be a permissions problem."
 msgstr ""
 "GStreamer no pudo detectar ninguna tarjeta de sonido en su sistema. Puede "
 "que falten paquetes de GStreamer específicos del sistema de sonido. También "
@@ -63,10 +63,8 @@ msgid "Mixer Plugin"
 msgstr "Complemento mezclador"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:236
-msgid "Please select which mixer track should be used by the plugin"
+msgid "Configure the mixer track and left-click command"
 msgstr ""
-"Por favor, seleccione qué pista del mezclador debería ser utilizado por el "
-"complemento"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:248
 msgid "Sound card"
@@ -148,7 +146,8 @@ msgid "Options"
 msgstr "Opciones"
 
 #: ../xfce4-mixer/xfce-mixer.c:298
-msgid "No Controls Visible"
+#, fuzzy
+msgid "No controls visible"
 msgstr "Ningún control visible"
 
 #: ../xfce4-mixer/xfce-mixer.c:302
@@ -164,8 +163,9 @@ msgid "Select Controls"
 msgstr "Selección de controles"
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:137
-msgid "Please select which controls you want to be visible"
-msgstr "Por favor, seleccione qué controles quiere que sean visibles"
+#, fuzzy
+msgid "Select which controls should be visible"
+msgstr "Seleccione qué controles se mostrarán"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:84
 msgid "_Quit"
@@ -184,7 +184,8 @@ msgid "Select which controls are displayed"
 msgstr "Seleccione qué controles se mostrarán"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:184
-msgid "Configure your sound card(s) and control the volume of selected tracks"
+#, fuzzy
+msgid "Configure sound card(s) and control the volume of selected tracks"
 msgstr ""
 "Configure su tarjeta de sonido y el control de volumen de las pistas "
 "seleccionadas"
@@ -196,6 +197,21 @@ msgstr "Tarjeta de sonido:"
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:1
 msgid "Audio mixer for the Xfce Desktop Environment"
 msgstr "Mezclador de audio para el entorno de escritorio Xfce"
+
+#~ msgid ""
+#~ "Could not execute the command %s. Perhaps you need to adjust the PATH "
+#~ "variable."
+#~ msgstr ""
+#~ "No se pudo ejecutar el comando %s. Quizás necesite ajustar la variable "
+#~ "PATH."
+
+#~ msgid "Please select which mixer track should be used by the plugin"
+#~ msgstr ""
+#~ "Por favor, seleccione qué pista del mezclador debería ser utilizado por "
+#~ "el complemento"
+
+#~ msgid "Please select which controls you want to be visible"
+#~ msgstr "Por favor, seleccione qué controles quiere que sean visibles"
 
 #~ msgid "A comfortable audio mixer for your sound card."
 #~ msgstr "Un confortable mixer audio pour votre carte son"

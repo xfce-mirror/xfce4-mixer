@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-12-01 13:00+0100\n"
+"POT-Creation-Date: 2009-01-11 00:59+0100\n"
 "PO-Revision-Date: 2008-09-23 19:25-0300\n"
 "Last-Translator: Fábio Nogueira <deb-user-ba@ubuntu.com>\n"
 "Language-Team: Brazilian Portuguese <ldp-br@bazar2.conectiva.com.br>\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 #. Set tooltip (e.g. 'Master: 50%')
 #: ../panel-plugin/xfce-mixer-plugin.c:271
-#: ../panel-plugin/xfce-mixer-plugin.c:545
+#: ../panel-plugin/xfce-mixer-plugin.c:548
 #, c-format
 msgid "%s: %i%%"
 msgstr "%s: %i%%"
@@ -44,17 +44,16 @@ msgstr "Propriedades"
 #: ../panel-plugin/xfce-mixer-plugin.c:365
 #, c-format
 msgid ""
-"Could not execute the command %s. Perhaps you need to adjust the PATH "
-"variable."
+"Could not execute the command \"%s\". Ensure that either the location of the "
+"command is included in the PATH environment variable or that you are "
+"providing the full path to the command."
 msgstr ""
-"Não foi possível executar o comando %s. Talvez você precise ajustar a "
-"variável PATH."
 
-#: ../panel-plugin/xfce-mixer-plugin.c:395 ../xfce4-mixer/main.c:89
+#: ../panel-plugin/xfce-mixer-plugin.c:398 ../xfce4-mixer/main.c:89
+#, fuzzy
 msgid ""
-"GStreamer was unable to detect any sound cards on your system. You might be "
-"missing sound system specific GStreamer packages. It might as well be a "
-"permission problem."
+"GStreamer was unable to detect any sound devices. Some sound system specific "
+"GStreamer packages may be missing. It may also be a permissions problem."
 msgstr ""
 "O Gstreamer não detectou nenhuma placa de áudio no seu sistema. Pode ser que "
 "esteja faltando algum pacote do Gstreamer específico do sistema de som. Isso "
@@ -65,9 +64,8 @@ msgid "Mixer Plugin"
 msgstr "Plug-in Mixador"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:236
-msgid "Please select which mixer track should be used by the plugin"
+msgid "Configure the mixer track and left-click command"
 msgstr ""
-"Por favor escolha qual o mixador de faixa que deve ser usado pelo plug-in"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:248
 msgid "Sound card"
@@ -149,7 +147,8 @@ msgid "Options"
 msgstr "Opções"
 
 #: ../xfce4-mixer/xfce-mixer.c:298
-msgid "No Controls Visible"
+#, fuzzy
+msgid "No controls visible"
 msgstr "Nenhum controle visível"
 
 #: ../xfce4-mixer/xfce-mixer.c:302
@@ -165,8 +164,9 @@ msgid "Select Controls"
 msgstr "Selecionar controles"
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:137
-msgid "Please select which controls you want to be visible"
-msgstr "Por favor selecione quais controles você deseja manter visíveis"
+#, fuzzy
+msgid "Select which controls should be visible"
+msgstr "Seleciona quais controles são mostrados"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:84
 msgid "_Quit"
@@ -185,7 +185,8 @@ msgid "Select which controls are displayed"
 msgstr "Seleciona quais controles são mostrados"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:184
-msgid "Configure your sound card(s) and control the volume of selected tracks"
+#, fuzzy
+msgid "Configure sound card(s) and control the volume of selected tracks"
 msgstr ""
 "Configura sua(s) placa(s) de áudio e controla o volume das trilhas "
 "selecionadas"
@@ -197,6 +198,20 @@ msgstr "Placa de áudio:"
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:1
 msgid "Audio mixer for the Xfce Desktop Environment"
 msgstr "Mixador de áudio para o ambiente de área de trabalho do Xfce"
+
+#~ msgid ""
+#~ "Could not execute the command %s. Perhaps you need to adjust the PATH "
+#~ "variable."
+#~ msgstr ""
+#~ "Não foi possível executar o comando %s. Talvez você precise ajustar a "
+#~ "variável PATH."
+
+#~ msgid "Please select which mixer track should be used by the plugin"
+#~ msgstr ""
+#~ "Por favor escolha qual o mixador de faixa que deve ser usado pelo plug-in"
+
+#~ msgid "Please select which controls you want to be visible"
+#~ msgstr "Por favor selecione quais controles você deseja manter visíveis"
 
 #~ msgid "A comfortable audio mixer for your sound card."
 #~ msgstr "Um mixador de áudio confortável para a sua placa de áudio."

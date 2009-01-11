@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: es\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-12-01 13:00+0100\n"
+"POT-Creation-Date: 2009-01-11 00:59+0100\n"
 "PO-Revision-Date: 2008-11-27 00:30+0100\n"
 "Last-Translator: Piarres Beobide <pi@beobide.net>\n"
 "Language-Team: Euskara <debian-l10n-basque@lists.debian.org>\n"
@@ -21,7 +21,7 @@ msgstr ""
 
 #. Set tooltip (e.g. 'Master: 50%')
 #: ../panel-plugin/xfce-mixer-plugin.c:271
-#: ../panel-plugin/xfce-mixer-plugin.c:545
+#: ../panel-plugin/xfce-mixer-plugin.c:548
 #, c-format
 msgid "%s: %i%%"
 msgstr "%s: %%%i"
@@ -46,15 +46,16 @@ msgstr "Propietateak"
 #: ../panel-plugin/xfce-mixer-plugin.c:365
 #, c-format
 msgid ""
-"Could not execute the command %s. Perhaps you need to adjust the PATH "
-"variable."
-msgstr "Ezinda %s komandoa exekutatu. Agian PATH aldagaia doitu beharko duzu."
+"Could not execute the command \"%s\". Ensure that either the location of the "
+"command is included in the PATH environment variable or that you are "
+"providing the full path to the command."
+msgstr ""
 
-#: ../panel-plugin/xfce-mixer-plugin.c:395 ../xfce4-mixer/main.c:89
+#: ../panel-plugin/xfce-mixer-plugin.c:398 ../xfce4-mixer/main.c:89
+#, fuzzy
 msgid ""
-"GStreamer was unable to detect any sound cards on your system. You might be "
-"missing sound system specific GStreamer packages. It might as well be a "
-"permission problem."
+"GStreamer was unable to detect any sound devices. Some sound system specific "
+"GStreamer packages may be missing. It may also be a permissions problem."
 msgstr ""
 "GStramer ez da zure sistema soinu txartelik aurkitzeko gia. Agian beharrezko "
 "Gstreamer pakete zehatzen bat falta zaizu. Hau baimen arazo bat ere izan "
@@ -65,8 +66,8 @@ msgid "Mixer Plugin"
 msgstr "Nahastaile plugina"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:236
-msgid "Please select which mixer track should be used by the plugin"
-msgstr "Mesedez hautatu zein nahasle pista erabili behar duen pluginak"
+msgid "Configure the mixer track and left-click command"
+msgstr ""
 
 #: ../panel-plugin/xfce-plugin-dialog.c:248
 msgid "Sound card"
@@ -148,7 +149,8 @@ msgid "Options"
 msgstr "Aukerak"
 
 #: ../xfce4-mixer/xfce-mixer.c:298
-msgid "No Controls Visible"
+#, fuzzy
+msgid "No controls visible"
 msgstr "Ez kontrolik ikusgai"
 
 #: ../xfce4-mixer/xfce-mixer.c:302
@@ -157,15 +159,17 @@ msgid ""
 "size='large'><b>Select Controls</b></span> dialog to select some."
 msgstr ""
 "Ez dago kontrolik ikusgarri bezala markaturik. Mesedez ireki <span "
-"size='large'><b>Hautatu kontrolak</b></span> elkarrizketa eta batenbat hautatu."
+"size='large'><b>Hautatu kontrolak</b></span> elkarrizketa eta batenbat "
+"hautatu."
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:135
 msgid "Select Controls"
 msgstr "Hautatu kontrolak"
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:137
-msgid "Please select which controls you want to be visible"
-msgstr "Mesedez hautatu zein kontrol izango diren ikusgarri"
+#, fuzzy
+msgid "Select which controls should be visible"
+msgstr "Hautatu zein kontrol bistaraziko diren"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:84
 msgid "_Quit"
@@ -184,8 +188,10 @@ msgid "Select which controls are displayed"
 msgstr "Hautatu zein kontrol bistaraziko diren"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:184
-msgid "Configure your sound card(s) and control the volume of selected tracks"
-msgstr "Konfiguratu soinu txartela(k) eta kontrolatu hautatutako pisten bolumena"
+#, fuzzy
+msgid "Configure sound card(s) and control the volume of selected tracks"
+msgstr ""
+"Konfiguratu soinu txartela(k) eta kontrolatu hautatutako pisten bolumena"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:199
 msgid "Sound card:"
@@ -194,3 +200,15 @@ msgstr "Soinu txartela:"
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:1
 msgid "Audio mixer for the Xfce Desktop Environment"
 msgstr "Xfce idazmahai ingurunearen audio nahasgailua"
+
+#~ msgid ""
+#~ "Could not execute the command %s. Perhaps you need to adjust the PATH "
+#~ "variable."
+#~ msgstr ""
+#~ "Ezinda %s komandoa exekutatu. Agian PATH aldagaia doitu beharko duzu."
+
+#~ msgid "Please select which mixer track should be used by the plugin"
+#~ msgstr "Mesedez hautatu zein nahasle pista erabili behar duen pluginak"
+
+#~ msgid "Please select which controls you want to be visible"
+#~ msgstr "Mesedez hautatu zein kontrol izango diren ikusgarri"

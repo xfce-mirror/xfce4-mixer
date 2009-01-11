@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.4.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-12-01 13:00+0100\n"
+"POT-Creation-Date: 2009-01-11 00:59+0100\n"
 "PO-Revision-Date: 2008-01-14 20:00+0600\n"
 "Last-Translator: Andrey Fedoseev <andrey.fedoseev@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -21,7 +21,7 @@ msgstr ""
 
 #. Set tooltip (e.g. 'Master: 50%')
 #: ../panel-plugin/xfce-mixer-plugin.c:271
-#: ../panel-plugin/xfce-mixer-plugin.c:545
+#: ../panel-plugin/xfce-mixer-plugin.c:548
 #, c-format
 msgid "%s: %i%%"
 msgstr ""
@@ -44,15 +44,15 @@ msgstr ""
 #: ../panel-plugin/xfce-mixer-plugin.c:365
 #, c-format
 msgid ""
-"Could not execute the command %s. Perhaps you need to adjust the PATH "
-"variable."
+"Could not execute the command \"%s\". Ensure that either the location of the "
+"command is included in the PATH environment variable or that you are "
+"providing the full path to the command."
 msgstr ""
 
-#: ../panel-plugin/xfce-mixer-plugin.c:395 ../xfce4-mixer/main.c:89
+#: ../panel-plugin/xfce-mixer-plugin.c:398 ../xfce4-mixer/main.c:89
 msgid ""
-"GStreamer was unable to detect any sound cards on your system. You might be "
-"missing sound system specific GStreamer packages. It might as well be a "
-"permission problem."
+"GStreamer was unable to detect any sound devices. Some sound system specific "
+"GStreamer packages may be missing. It may also be a permissions problem."
 msgstr ""
 
 #: ../panel-plugin/xfce-plugin-dialog.c:234
@@ -60,7 +60,7 @@ msgid "Mixer Plugin"
 msgstr ""
 
 #: ../panel-plugin/xfce-plugin-dialog.c:236
-msgid "Please select which mixer track should be used by the plugin"
+msgid "Configure the mixer track and left-click command"
 msgstr ""
 
 #: ../panel-plugin/xfce-plugin-dialog.c:248
@@ -147,7 +147,8 @@ msgid "Options"
 msgstr "Параметры"
 
 #: ../xfce4-mixer/xfce-mixer.c:298
-msgid "No Controls Visible"
+#, fuzzy
+msgid "No controls visible"
 msgstr "Не выбраны управляемые каналы"
 
 #: ../xfce4-mixer/xfce-mixer.c:302
@@ -163,8 +164,9 @@ msgid "Select Controls"
 msgstr "Управляемые каналы"
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:137
-msgid "Please select which controls you want to be visible"
-msgstr "Выберите отображаемые управляемые каналы"
+#, fuzzy
+msgid "Select which controls should be visible"
+msgstr "Выбрать, какие каналы будут отображены"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:84
 msgid "_Quit"
@@ -184,7 +186,7 @@ msgid "Select which controls are displayed"
 msgstr "Выбрать, какие каналы будут отображены"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:184
-msgid "Configure your sound card(s) and control the volume of selected tracks"
+msgid "Configure sound card(s) and control the volume of selected tracks"
 msgstr ""
 
 #: ../xfce4-mixer/xfce-mixer-window.c:199
@@ -194,6 +196,9 @@ msgstr "Звуковая карта:"
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:1
 msgid "Audio mixer for the Xfce Desktop Environment"
 msgstr "Регулятор громкости для рабочего окружения Xfce"
+
+#~ msgid "Please select which controls you want to be visible"
+#~ msgstr "Выберите отображаемые управляемые каналы"
 
 #~ msgid "A comfortable audio mixer for your sound card."
 #~ msgstr "Удобный регулятор громкости для вашей звуковой карты."

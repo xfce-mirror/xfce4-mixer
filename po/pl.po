@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-12-01 13:00+0100\n"
+"POT-Creation-Date: 2009-01-11 00:59+0100\n"
 "PO-Revision-Date: 2007-01-20 23:10+0200\n"
 "Last-Translator: Piotr Maliński <riklaunim@gmail.com>\n"
 "Language-Team: Polish <xfce-i18n@xfce.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 
 #. Set tooltip (e.g. 'Master: 50%')
 #: ../panel-plugin/xfce-mixer-plugin.c:271
-#: ../panel-plugin/xfce-mixer-plugin.c:545
+#: ../panel-plugin/xfce-mixer-plugin.c:548
 #, c-format
 msgid "%s: %i%%"
 msgstr "%s: %i%%"
@@ -40,15 +40,15 @@ msgstr ""
 #: ../panel-plugin/xfce-mixer-plugin.c:365
 #, c-format
 msgid ""
-"Could not execute the command %s. Perhaps you need to adjust the PATH "
-"variable."
+"Could not execute the command \"%s\". Ensure that either the location of the "
+"command is included in the PATH environment variable or that you are "
+"providing the full path to the command."
 msgstr ""
 
-#: ../panel-plugin/xfce-mixer-plugin.c:395 ../xfce4-mixer/main.c:89
+#: ../panel-plugin/xfce-mixer-plugin.c:398 ../xfce4-mixer/main.c:89
 msgid ""
-"GStreamer was unable to detect any sound cards on your system. You might be "
-"missing sound system specific GStreamer packages. It might as well be a "
-"permission problem."
+"GStreamer was unable to detect any sound devices. Some sound system specific "
+"GStreamer packages may be missing. It may also be a permissions problem."
 msgstr ""
 
 #: ../panel-plugin/xfce-plugin-dialog.c:234
@@ -56,8 +56,8 @@ msgid "Mixer Plugin"
 msgstr "Wtyczka Miksera"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:236
-msgid "Please select which mixer track should be used by the plugin"
-msgstr "Wybierz ścieżkę miksera, z której korzystać ma ta wtyczka"
+msgid "Configure the mixer track and left-click command"
+msgstr ""
 
 #: ../panel-plugin/xfce-plugin-dialog.c:248
 msgid "Sound card"
@@ -140,7 +140,8 @@ msgid "Options"
 msgstr "Opcje"
 
 #: ../xfce4-mixer/xfce-mixer.c:298
-msgid "No Controls Visible"
+#, fuzzy
+msgid "No controls visible"
 msgstr "Brak Kontrolek"
 
 #: ../xfce4-mixer/xfce-mixer.c:302
@@ -156,7 +157,8 @@ msgid "Select Controls"
 msgstr "Wybierz Kontrolki"
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:137
-msgid "Please select which controls you want to be visible"
+#, fuzzy
+msgid "Select which controls should be visible"
 msgstr "Wybierz kontrolki, które mają być widoczne"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:84
@@ -177,7 +179,7 @@ msgid "Select which controls are displayed"
 msgstr "Wybierz kontrolki, które mają być widoczne"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:184
-msgid "Configure your sound card(s) and control the volume of selected tracks"
+msgid "Configure sound card(s) and control the volume of selected tracks"
 msgstr ""
 
 #: ../xfce4-mixer/xfce-mixer-window.c:199
@@ -187,6 +189,12 @@ msgstr "Karta dźwiękowa:"
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:1
 msgid "Audio mixer for the Xfce Desktop Environment"
 msgstr "Mikser Audio dla Xfce"
+
+#~ msgid "Please select which mixer track should be used by the plugin"
+#~ msgstr "Wybierz ścieżkę miksera, z której korzystać ma ta wtyczka"
+
+#~ msgid "Please select which controls you want to be visible"
+#~ msgstr "Wybierz kontrolki, które mają być widoczne"
 
 #~ msgid "A comfortable audio mixer for your sound card."
 #~ msgstr "Mikser audio dla twojej karty dźwiękowej"
