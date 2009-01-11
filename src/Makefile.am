@@ -67,6 +67,11 @@ xfce4_mixer_LDADD = 							\
 #%.c %.h %-private.h: %.gob
 #	@GOB2@ $<
 
+appsdir = $(datadir)/applications
+apps_in_files = xfce4-mixer.desktop.in
+apps_DATA = $(apps_in_files:.desktop.in=.desktop)
+@INTLTOOL_DESKTOP_RULE@
+
 ACLOCAL_AMFLAGS = -I m4
 
 xfce4_mixer_DEPENDENCIES = $(top_builddir)/lib/libxfce4mixer.la
@@ -86,5 +91,7 @@ EXTRA_DIST =								\
 	mixer-switch.gob						\
 	mixer-view-tiny.gob						\
 	mixer-view.gob							\
-	mixer-window.gob
+	mixer-window.gob \
+	$(apps_in_files)
 
+DISTCLEANFILES = $(apps_DATA)

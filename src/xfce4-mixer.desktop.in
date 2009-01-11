@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Name=Volume Control
+Type=Application
+Comment=Mixer GUI
+Exec=xfce4-mixer
+TryExec=xfce4-mixer
+Icon=multimedia-volume-control
+Categories=Application;AudioVideo;
