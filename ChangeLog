@@ -1,3 +1,11 @@
+2009-01-11 18:00  dannym
+
+	* support IRIX64.
+
+2009-01-11 17:30  dannym
+
+	* fix "libxfce4mixer" library.
+
 2009-01-11 17:02  dannym
 
 	* apply patch to honor left/right balance.

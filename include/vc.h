@@ -82,6 +82,7 @@ volchanger_t *selected_vc();
 volchanger_t **first_vc();
 volchanger_t **next_vc(volchanger_t **);
 
+void vc_free_choices(GList* choices);
 #ifndef VC_PLUGIN
 /* these operate on the selected_vc: */
 int vc_get_volume(char const *which);
@@ -96,7 +97,6 @@ void vc_handle_events(void);
 GList *vc_get_control_list();
 
 void vc_free_control_list(GList *g);
-void vc_free_choices(GList* choices);
 volchoice_t* vc_choice_dup(const volchoice_t *choice);
 
 void vc_set_volume_callback (volchanger_callback_t cb, void *data);

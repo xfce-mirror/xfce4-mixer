@@ -643,6 +643,7 @@ static gchar *vc_get_select(char const *which)
 	unsigned int jj;
 	GList *g;
 	volchoice_t* item;
+	char* s;
 
 	snd_mixer_elem_t *xelem = NULL;
 	if (handle == NULL) {
