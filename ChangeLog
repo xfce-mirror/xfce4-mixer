@@ -1,3 +1,11 @@
+2009-01-11 17:02  dannym
+
+	* apply patch to honor left/right balance.
+
+2009-01-11 17:00  dannym
+
+	* fix "lib/vc_alsa.c" memory leak.
+
 2009-01-11 15:47  dannym
 
 	* add "src/xfce4-mixer.desktop.in".

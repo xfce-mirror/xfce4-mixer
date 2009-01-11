@@ -232,6 +232,16 @@ static snd_mixer_elem_t * find_control(char const *which)
 	return elem;
 }
 
+static double calculate_balance_ratio(long left, long right)
+{
+	return (left != right) ? (left > right ? (double)left / right : 0 -(double)right / left) : 0;
+}
+
+static long calculate_volume_delta(long left, long right, long new)
+{
+	return new - ((left + right) >> 1);
+}
+
 static int vc_get_volume(char const *which)
 {
 	int playback_enable;
@@ -315,10 +325,11 @@ static void vc_set_volume(char const *which, int vol_p)
 	long playback_max;
 	long capture_min;
 	long capture_max;
-	long playback_value;
+	long delta;
+	long playback_value, playback_value_left, playback_value_right;
 	long capture_value;
-	double playback_value_double;
-	double capture_value_double;
+	long playback_value_current_left, playback_value_current_right;
+	static double balance;
 
 	/*snd_mixer_selem_channel_id_t chn;*/
 	snd_mixer_elem_t *xelem;
@@ -335,34 +346,43 @@ static void vc_set_volume(char const *which, int vol_p)
 
 	snd_mixer_selem_get_playback_volume_range (xelem, &playback_min, &playback_max);
 	snd_mixer_selem_get_capture_volume_range (xelem, &capture_min, &capture_max);
+	snd_mixer_selem_get_playback_volume(xelem, SND_MIXER_SCHN_FRONT_LEFT, &playback_value_current_left);
+	snd_mixer_selem_get_playback_volume(xelem, SND_MIXER_SCHN_FRONT_RIGHT, &playback_value_current_right);
+
+	if (playback_value_current_left && playback_value_current_right) {
+		balance = calculate_balance_ratio(playback_value_current_left, playback_value_current_right);
+	}
 
 	playback_min = 0;
 	capture_min = 0;
 
 	/*vol_p = (lval - pmin) * 100 / (pmax - pmin);*/
-	playback_value_double = vol_p;
-	capture_value_double = vol_p;
-	if (vol_p != 0) {
-		playback_value_double += 0.999999;
-		capture_value_double += 0.999999;
-	}
-		
-	playback_value = (long) playback_min + (playback_value_double) * (playback_max - playback_min) / 100;
-	capture_value = (long) capture_min + (capture_value_double) * (capture_max - capture_min) / 100;
+	playback_value = (long)(((double)(vol_p *playback_max) /100) +0.5);
+	capture_value = (long)(((double)(vol_p *capture_max) /100) +0.5);
+
+	delta = calculate_volume_delta(playback_value_current_left, playback_value_current_right, playback_value);
+
+	/* FIXME
+	 * This doesn't always work perfectly, due to rounding delta might endup being +1 instead of 0.
+	 * Though not audiable, it might be visible on the slider.
+	 */
+	playback_value_left = playback_value_current_left +delta;
+	playback_value_right = playback_value_current_right +delta;
+
+	/* TODO
+	 * Clipping top and bottom isn't respected yet.
+	 */
 
 	/*
 	snd_mixer_selem_get_playback_switch(Ex_elem, SND_MIXER_SCHN_MONO, &status);
 	*/
 	
-	/* use _all functions for sami's card ... */
-	if (playback_value == 0) /* mute */
-		snd_mixer_selem_set_playback_switch_all (xelem, 0);
-	else /* unmute, just in case. */
-		snd_mixer_selem_set_playback_switch_all (xelem, 1);
-		
-	snd_mixer_selem_set_playback_volume_all (xelem, playback_value);
-	snd_mixer_selem_set_capture_volume_all (xelem, capture_value);
+	snd_mixer_selem_set_playback_switch(xelem, SND_MIXER_SCHN_FRONT_LEFT, playback_value_left);
+	snd_mixer_selem_set_playback_switch(xelem, SND_MIXER_SCHN_FRONT_RIGHT, playback_value_right);
 
+	snd_mixer_selem_set_playback_volume(xelem, SND_MIXER_SCHN_FRONT_LEFT, playback_value_left);
+	snd_mixer_selem_set_playback_volume(xelem, SND_MIXER_SCHN_FRONT_RIGHT, playback_value_right);
+	snd_mixer_selem_set_capture_volume_all (xelem, capture_value);
 #if 0		
 	for (chn = 0; chn <= SND_MIXER_SCHN_LAST; chn++) {
 		if (!snd_mixer_selem_has_playback_channel(xelem, chn)) continue;
