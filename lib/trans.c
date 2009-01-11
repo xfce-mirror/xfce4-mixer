@@ -64,10 +64,13 @@ char *oss_names[] = {
 /*
  * IRIX AL translatable names
  *
- * The strings below come from SGI O2
+ * The strings below come from SGI
+ * O2
  * (Iris Audio Processor: version A3 revision 0)
+ * Fuel
+ * (Iris Audio Processor: version MAD revision 1, number 1)
  *
- * If you have an another processor (e.g. A2, RAD, MAD) and
+ * If you have an another processor (e.g. A2, RAD) and
  * Device/Interface names, let me <daichi@xfce.org> know.
  * 
  */
@@ -77,6 +80,9 @@ char *irixal_names[] = {
 	_("A3.AnalogIn"),		/* Analog In		*/
 	_("A3.AnalogOut"),		/* Analog Out		*/
 	_("A3.AnalogOut2"),		/* Analog Out 2		*/
+	_("MAD1.AnalogIn"),		/* Analog In		*/
+	_("MAD1.AnalogOut"),	/* Analog Out		*/
+	_("MAD1.AESOut"),		/* AES Out			*/
 	/* Interface */
 	_("A3.CameraMic"),		/* Camera Mic		*/
 	_("A3.Microphone"),		/* Microphone		*/
@@ -85,7 +91,10 @@ char *irixal_names[] = {
 	_("A3.DAC2In"),			/* DAC2 In			*/
 	_("A3.Speaker"),		/* Speaker/Line Out	*/
 	_("A3.LineOut2"),		/* Line Out 2		*/
+	_("MAD1.Microphone"),	/* Microphone		*/
+	_("MAD1.LineIn"),		/* Line In			*/
+	_("MAD1.LineOut"),		/* Line Out			*/
+	_("MAD1.AESOut"),		/* AES Output		*/
 };
 
 /* vi: set ts=4 sw=4 cindent: */
-
