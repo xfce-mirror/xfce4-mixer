@@ -1,3 +1,7 @@
+2009-01-11 20:38  dannym
+
+	* libxfce4mixer: notification when the sound driver is being unloaded.
+
 2009-01-11 18:00  dannym
 
 	* support IRIX64.
