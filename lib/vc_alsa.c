@@ -499,15 +499,27 @@ static void *mydata = NULL;
 static int alsa_cb(snd_mixer_t *ctl, unsigned int mask, snd_mixer_elem_t *elem)
 {
 	const char *which;
+	volchanger_callback_event_t event;
+
 	g_warning ("alsa_cb\n");
+
+	
 	if (elem && snd_mixer_elem_get_type (elem) == SND_MIXER_ELEM_SIMPLE) {
 		which = snd_mixer_selem_get_name (elem);
 	} else {
 		which = NULL;
 	}
-	
+
+	if (mask == SND_CTL_EVENT_MASK_REMOVE) {
+		event = VE_REMOVED;
+	} else if (mask & (SND_CTL_EVENT_MASK_VALUE | SND_CTL_EVENT_MASK_INFO)) {
+		event = VE_VALUE_CHANGED;
+	} else {
+		return 0;
+	}
+
 	if (mycb) 
-		(*mycb) (which, mydata);
+		(*mycb) (which, event, mydata);
 		
 	return 0;
 }
@@ -526,6 +538,7 @@ static void vc_set_volume_callback(volchanger_callback_t cb, void *data)
 
 	snd_mixer_set_callback_private (handle, data);
 	snd_mixer_set_callback (handle, alsa_cb);
+	/* snd_mixer_elem_set_callback(elem, melem_event); */
 }
 
 static void vc_close_device()

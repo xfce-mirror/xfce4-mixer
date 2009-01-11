@@ -31,7 +31,12 @@
 
 /* this is the volume changer stuff */
 
-typedef void (*volchanger_callback_t)(char const *which, void *privdata);
+typedef enum {
+	VE_VALUE_CHANGED,
+	VE_REMOVED,
+} volchanger_callback_event_t;
+
+typedef void (*volchanger_callback_t)(char const *which, volchanger_callback_event_t kind, void *privdata);
 
 typedef enum {
 	CT_SLIDER = 0,
@@ -56,6 +61,10 @@ typedef struct {
 	void (*vc_set_switch)(char const *which, gboolean b);
 	char const *(*vc_get_device)(void);
 	void (*vc_handle_events)(void);
+	void (*__dummy_1)(void);
+	void (*__dummy_2)(void);
+	void (*__dummy_3)(void);
+	void (*__dummy_4)(void);
 } volchanger_t;
 
 typedef struct {
@@ -66,11 +75,15 @@ typedef struct {
 	
 	/* only for type == CT_SELECT: */
 	GList		*choices; /* list item = volchoice_t */
+	void* __dummy_1;
+	void* __dummy_2;
 } volcontrol_t;
 
 typedef struct {
-  gchar* name;
-  gchar* displayname;
+	gchar* name;
+	gchar* displayname;
+	void*  __dummy_1;
+	int    __dummy_2;
 } volchoice_t; /* choices entry for select */
 
 void register_vc(volchanger_t *vc);
@@ -122,7 +135,11 @@ static volchanger_t vc = { \
         vc_get_switch: vc_get_switch, \
         vc_set_switch: vc_set_switch, \
         vc_get_device: vc_get_device, \
-        vc_handle_events: vc_handle_events \
+        vc_handle_events: vc_handle_events, \
+        __dummy_1: 0, \
+        __dummy_2: 0, \
+        __dummy_3: 0, \
+        __dummy_4: 0 \
 }; \
 \
 int register_##a(void) \

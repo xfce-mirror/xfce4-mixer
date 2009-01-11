@@ -27,7 +27,7 @@ XfceMixerProfiles *profiles = NULL;
 static guint src;
 
 
-static void vol_changed_cb (char const *vcname, void *privdata)
+static void vol_changed_cb (char const *vcname, volchanger_callback_event_t kind, void *privdata)
 {
 	if (mixer_window) {
 		xfce_mixer_window_refresh_value (XFCE_MIXER_WINDOW (mixer_window), vcname);
