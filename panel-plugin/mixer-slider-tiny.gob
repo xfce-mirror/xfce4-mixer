@@ -119,7 +119,7 @@ class Xfce:Mixer:Slider:Tiny from Xfce:Mixer:Control {
 	}
 
 	/* returns the volume in range 0..100, given a coordinate in the widget. */
-        protected int figure_out_volume(self, GtkWidget *widget, int y) {
+	protected int figure_out_volume(self, GtkWidget *widget, int y) {
 		int	sy; /* size in pixels. */
 
 		sy = widget->allocation.height; /* size */
@@ -139,7 +139,7 @@ class Xfce:Mixer:Slider:Tiny from Xfce:Mixer:Control {
 			y = 100;
 		}
 		return y;
-        }
+	}
 
 	protected gboolean motion_cb (self, GdkEventMotion *m, GtkWidget *widget)
 	{
@@ -172,8 +172,8 @@ class Xfce:Mixer:Slider:Tiny from Xfce:Mixer:Control {
 	}
 
 	override (Xfce:Mixer:Control) void
-        vcname_changed (Xfce:Mixer:Control *pself (check null type))
-        {
+	vcname_changed (Xfce:Mixer:Control *pself (check null type))
+	{
 		Self *self;
 		char *sanename;
 		PARENT_HANDLER (pself);

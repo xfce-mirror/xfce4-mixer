@@ -328,7 +328,7 @@ xfce_mixer_slider_tiny_figure_out_volume (XfceMixerSliderTiny * self, GtkWidget 
 			y = 100;
 		}
 		return y;
-        }}
+	}}
 #line 333 "xfce-mixer-slider-tiny.c"
 #undef __GOB_FUNCTION__
 
