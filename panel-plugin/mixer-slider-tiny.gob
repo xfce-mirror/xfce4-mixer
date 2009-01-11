@@ -15,6 +15,7 @@ class Xfce:Mixer:Slider:Tiny from Xfce:Mixer:Control {
 	protected GtkProgressBar *progress = NULL;
 	/*protected GtkBox *hbox = NULL;*/
 	public GtkEventBox *eb = NULL;
+	protected gboolean pressed = FALSE;
 
 	protected void set_vval (self, gint vval)
 	{
@@ -63,6 +64,7 @@ class Xfce:Mixer:Slider:Tiny from Xfce:Mixer:Control {
 		g_signal_connect_swapped (self->eb, "scroll-event", G_CALLBACK(self_scroll_cb), self);
 		g_signal_connect_swapped (self->eb, "button-press-event", G_CALLBACK(self_button_cb), self);
 		g_signal_connect_swapped (self->eb, "button-release-event", G_CALLBACK(self_button_cb), self);
+		g_signal_connect_swapped (self->eb, "motion-notify-event", G_CALLBACK(self_motion_cb), self);
 	}
 
 	public gboolean scroll_cb (self, GdkEventScroll *event, GtkWidget *w)
@@ -88,36 +90,67 @@ class Xfce:Mixer:Slider:Tiny from Xfce:Mixer:Control {
 
 	protected gboolean button_cb (self, GdkEventButton *b, GtkWidget *widget)
 	{
-		int	y; /* pos */
-		int	sy; /* size */
+		int        y;
 
-		y = (int)b->y;
+		y = (int) b->y; /* pos */
 
 		if (b->button == 3 || b->button == 2) {
 			if (b->type == GDK_BUTTON_PRESS) {
+				/* mute */
 				y = 0;
 			} else {
 				return TRUE;
 			}
 		} else if (b->button == 1) {
-			sy = widget->allocation.height;
-			if (sy != 0) {
-				/* this is a hack 'cause I dont know how to get the height 
-				 * of the border of the progressbar yet ;) 
-				 */
-				y = (sy + 2 - y) * 100 / sy;
-				if (y <= 0) y = 0;
-			} else y = 0;
+			if (b->type == GDK_BUTTON_PRESS) {
+				y = self_figure_out_volume(self, widget, y);
+				self->pressed = TRUE;
+			} else if (b->type == GDK_BUTTON_RELEASE){
+				y = self_figure_out_volume(self, widget, y);
+				self->pressed = FALSE;
+			} else {
+				return TRUE;
+			}
 		} else {
 			return FALSE;
 		}
-
-		if (y < 0) { y = 0; }
-		if (y > 100) { y = 100; }
 		self_set_vval (self, y);
 		return TRUE;
 	}
 
+	/* returns the volume in range 0..100, given a coordinate in the widget. */
+        protected int figure_out_volume(self, GtkWidget *widget, int y) {
+		int	sy; /* size in pixels. */
+
+		sy = widget->allocation.height; /* size */
+		if (sy > 4) {
+			sy -= 4;
+			/* this is a hack 'cause I dont know how to get the height of the border of the progressbar yet ;) */
+			y = (sy + 2 - y) * 100 / sy;
+			if (y <= 0)
+				y = 0;
+		} else {
+			y = 0;
+		}
+
+		if (y < 0) {
+			y = 0;
+		} else if (y > 100) {
+			y = 100;
+		}
+		return y;
+        }
+
+	protected gboolean motion_cb (self, GdkEventMotion *m, GtkWidget *widget)
+	{
+		if (self->pressed) {
+			int y = (int) m->y; /* pos */
+			y = self_figure_out_volume(self, widget, y);
+			self_set_vval (self, y);
+			return TRUE;
+		}
+		return FALSE;
+	}
 
 	public XfceMixerControl *new(void)
 	{
