@@ -102,6 +102,7 @@ static GtkVBoxClass *parent_class = NULL;
 #define self_find_name_by_master_i xfce_mixer_prefbox_find_name_by_master_i
 #define self_find_master_by_name xfce_mixer_prefbox_find_master_by_name
 #define self_device_changed xfce_mixer_prefbox_device_changed
+#define self_focus_out_event_cb xfce_mixer_prefbox_focus_out_event_cb
 #define self_add_command_box xfce_mixer_prefbox_add_command_box
 #define self_device_changed_delayed_cb xfce_mixer_prefbox_device_changed_delayed_cb
 #define self_device_changed_cb xfce_mixer_prefbox_device_changed_cb
@@ -167,7 +168,7 @@ ___finalize(GObject *obj_self)
 			stringlist_free(VAR);
 			VAR = NULL;
 		}
-#line 171 "xfce-mixer-prefbox.c"
+#line 172 "xfce-mixer-prefbox.c"
 	memset(&master_lst, 0, sizeof(master_lst));
 #undef VAR
 #undef master_lst
@@ -176,7 +177,7 @@ ___finalize(GObject *obj_self)
 	{
 #line 47 "mixer-prefbox.gob"
 	 delayer_free (VAR); }
-#line 180 "xfce-mixer-prefbox.c"
+#line 181 "xfce-mixer-prefbox.c"
 	memset(&device_entry_delayer, 0, sizeof(device_entry_delayer));
 #undef VAR
 #undef device_entry_delayer
@@ -204,39 +205,42 @@ xfce_mixer_prefbox_class_init (XfceMixerPrefboxClass * c G_GNUC_UNUSED)
 
 #line 135 "mixer-prefbox.gob"
 	c->device_changed = ___real_xfce_mixer_prefbox_device_changed;
-#line 208 "xfce-mixer-prefbox.c"
+#line 209 "xfce-mixer-prefbox.c"
 	g_object_class->finalize = ___finalize;
 }
 #undef __GOB_FUNCTION__
-#line 166 "mixer-prefbox.gob"
+#line 178 "mixer-prefbox.gob"
 static void 
 xfce_mixer_prefbox_init (XfceMixerPrefbox * self G_GNUC_UNUSED)
-#line 215 "xfce-mixer-prefbox.c"
+#line 216 "xfce-mixer-prefbox.c"
 {
 #define __GOB_FUNCTION__ "Xfce:Mixer:Prefbox::init"
 	self->_priv = G_TYPE_INSTANCE_GET_PRIVATE(self,XFCE_TYPE_MIXER_PREFBOX,XfceMixerPrefboxPrivate);
 #line 23 "mixer-prefbox.gob"
 	self->master_lst = NULL;
-#line 221 "xfce-mixer-prefbox.c"
+#line 222 "xfce-mixer-prefbox.c"
 #line 37 "mixer-prefbox.gob"
 	self->_priv->device_entry_delayer = 0;
-#line 224 "xfce-mixer-prefbox.c"
+#line 225 "xfce-mixer-prefbox.c"
 #line 47 "mixer-prefbox.gob"
 	self->launcher_entry = NULL;
-#line 227 "xfce-mixer-prefbox.c"
+#line 228 "xfce-mixer-prefbox.c"
 #line 47 "mixer-prefbox.gob"
 	self->click_b = NULL;
-#line 230 "xfce-mixer-prefbox.c"
+#line 231 "xfce-mixer-prefbox.c"
  {
-#line 167 "mixer-prefbox.gob"
+#line 179 "mixer-prefbox.gob"
 
 		GtkWidget *dentry;
 		GtkWidget *item;
 
 		gtk_box_set_spacing (GTK_BOX (self), 5);
 		self->device_cb = GTK_COMBO (gtk_combo_new ());
-		self->master_om = GTK_OPTION_MENU (gtk_option_menu_new ());
 
+		g_signal_connect_data (G_OBJECT(GTK_COMBO(self->device_cb)->entry), "focus-out-event", G_CALLBACK(self_focus_out_event_cb), self, NULL, G_CONNECT_SWAPPED | G_CONNECT_AFTER);
+		/* = g_signal_connect_after_swapped (G_OBJECT(GTK_COMBO(self->device_cb)->entry), "focus-out-event", G_CALLBACK(self_focus_out_event_cb), self); */
+
+		self->master_om = GTK_OPTION_MENU (gtk_option_menu_new ());
 
 		gtk_container_set_border_width (GTK_CONTAINER (self), 5);
 		gtk_box_pack_start (GTK_BOX (self), twocol_label (_("Device:"), GTK_WIDGET (self->device_cb)), FALSE, FALSE, 0);
@@ -265,7 +269,7 @@ xfce_mixer_prefbox_init (XfceMixerPrefbox * self G_GNUC_UNUSED)
 			gtk_container_add (GTK_CONTAINER (GTK_COMBO (self->execu_cb)->list), item);
 		}
 	
-#line 269 "xfce-mixer-prefbox.c"
+#line 273 "xfce-mixer-prefbox.c"
  }
 }
 #undef __GOB_FUNCTION__
@@ -274,14 +278,14 @@ xfce_mixer_prefbox_init (XfceMixerPrefbox * self G_GNUC_UNUSED)
 #line 51 "mixer-prefbox.gob"
 void 
 xfce_mixer_prefbox_fill_defaults (XfceMixerPrefbox * self)
-#line 278 "xfce-mixer-prefbox.c"
+#line 282 "xfce-mixer-prefbox.c"
 {
 #define __GOB_FUNCTION__ "Xfce:Mixer:Prefbox::fill_defaults"
 #line 51 "mixer-prefbox.gob"
 	g_return_if_fail (self != NULL);
 #line 51 "mixer-prefbox.gob"
 	g_return_if_fail (XFCE_IS_MIXER_PREFBOX (self));
-#line 285 "xfce-mixer-prefbox.c"
+#line 289 "xfce-mixer-prefbox.c"
 {
 #line 52 "mixer-prefbox.gob"
 	
@@ -289,20 +293,20 @@ xfce_mixer_prefbox_fill_defaults (XfceMixerPrefbox * self)
 		gtk_entry_set_text (GTK_ENTRY (self->device_cb->entry), "");
 		emit self_device_changed (self);
 	}}
-#line 293 "xfce-mixer-prefbox.c"
+#line 297 "xfce-mixer-prefbox.c"
 #undef __GOB_FUNCTION__
 
 #line 58 "mixer-prefbox.gob"
 void 
 xfce_mixer_prefbox_fill_device_list (XfceMixerPrefbox * self)
-#line 299 "xfce-mixer-prefbox.c"
+#line 303 "xfce-mixer-prefbox.c"
 {
 #define __GOB_FUNCTION__ "Xfce:Mixer:Prefbox::fill_device_list"
 #line 58 "mixer-prefbox.gob"
 	g_return_if_fail (self != NULL);
 #line 58 "mixer-prefbox.gob"
 	g_return_if_fail (XFCE_IS_MIXER_PREFBOX (self));
-#line 306 "xfce-mixer-prefbox.c"
+#line 310 "xfce-mixer-prefbox.c"
 {
 #line 59 "mixer-prefbox.gob"
 	
@@ -317,20 +321,20 @@ xfce_mixer_prefbox_fill_device_list (XfceMixerPrefbox * self)
 			/* gtk_combo_set_popdown_strings (, NUL); issues warning */
 		}
 	}}
-#line 321 "xfce-mixer-prefbox.c"
+#line 325 "xfce-mixer-prefbox.c"
 #undef __GOB_FUNCTION__
 
 #line 72 "mixer-prefbox.gob"
 void 
 xfce_mixer_prefbox_fill_master_list (XfceMixerPrefbox * self)
-#line 327 "xfce-mixer-prefbox.c"
+#line 331 "xfce-mixer-prefbox.c"
 {
 #define __GOB_FUNCTION__ "Xfce:Mixer:Prefbox::fill_master_list"
 #line 72 "mixer-prefbox.gob"
 	g_return_if_fail (self != NULL);
 #line 72 "mixer-prefbox.gob"
 	g_return_if_fail (XFCE_IS_MIXER_PREFBOX (self));
-#line 334 "xfce-mixer-prefbox.c"
+#line 338 "xfce-mixer-prefbox.c"
 {
 #line 73 "mixer-prefbox.gob"
 	
@@ -340,20 +344,20 @@ xfce_mixer_prefbox_fill_master_list (XfceMixerPrefbox * self)
 
 		fill_string_option_menu (self->master_om, self->master_lst);
 	}}
-#line 344 "xfce-mixer-prefbox.c"
+#line 348 "xfce-mixer-prefbox.c"
 #undef __GOB_FUNCTION__
 
 #line 81 "mixer-prefbox.gob"
 gchar * 
 xfce_mixer_prefbox_find_name_by_master_i (XfceMixerPrefbox * self, gint master_i)
-#line 350 "xfce-mixer-prefbox.c"
+#line 354 "xfce-mixer-prefbox.c"
 {
 #define __GOB_FUNCTION__ "Xfce:Mixer:Prefbox::find_name_by_master_i"
 #line 81 "mixer-prefbox.gob"
 	g_return_val_if_fail (self != NULL, (gchar * )0);
 #line 81 "mixer-prefbox.gob"
 	g_return_val_if_fail (XFCE_IS_MIXER_PREFBOX (self), (gchar * )0);
-#line 357 "xfce-mixer-prefbox.c"
+#line 361 "xfce-mixer-prefbox.c"
 {
 #line 82 "mixer-prefbox.gob"
 	
@@ -378,20 +382,20 @@ xfce_mixer_prefbox_find_name_by_master_i (XfceMixerPrefbox * self, gint master_i
 		}
 		return NULL;
 	}}
-#line 382 "xfce-mixer-prefbox.c"
+#line 386 "xfce-mixer-prefbox.c"
 #undef __GOB_FUNCTION__
 
 #line 105 "mixer-prefbox.gob"
 gint 
 xfce_mixer_prefbox_find_master_by_name (XfceMixerPrefbox * self, gchar const * name)
-#line 388 "xfce-mixer-prefbox.c"
+#line 392 "xfce-mixer-prefbox.c"
 {
 #define __GOB_FUNCTION__ "Xfce:Mixer:Prefbox::find_master_by_name"
 #line 105 "mixer-prefbox.gob"
 	g_return_val_if_fail (self != NULL, (gint )0);
 #line 105 "mixer-prefbox.gob"
 	g_return_val_if_fail (XFCE_IS_MIXER_PREFBOX (self), (gint )0);
-#line 395 "xfce-mixer-prefbox.c"
+#line 399 "xfce-mixer-prefbox.c"
 {
 #line 106 "mixer-prefbox.gob"
 	
@@ -421,13 +425,13 @@ xfce_mixer_prefbox_find_master_by_name (XfceMixerPrefbox * self, gchar const * n
 
 		return master_i;
 	}}
-#line 425 "xfce-mixer-prefbox.c"
+#line 429 "xfce-mixer-prefbox.c"
 #undef __GOB_FUNCTION__
 
 #line 135 "mixer-prefbox.gob"
 void 
 xfce_mixer_prefbox_device_changed (XfceMixerPrefbox * self)
-#line 431 "xfce-mixer-prefbox.c"
+#line 435 "xfce-mixer-prefbox.c"
 {
 	GValue ___param_values[1];
 	GValue ___return_val;
@@ -439,7 +443,7 @@ memset (&___param_values, 0, sizeof (___param_values));
 	g_return_if_fail (self != NULL);
 #line 135 "mixer-prefbox.gob"
 	g_return_if_fail (XFCE_IS_MIXER_PREFBOX (self));
-#line 443 "xfce-mixer-prefbox.c"
+#line 447 "xfce-mixer-prefbox.c"
 
 	___param_values[0].g_type = 0;
 	g_value_init (&___param_values[0], G_TYPE_FROM_INSTANCE (self));
@@ -455,7 +459,7 @@ memset (&___param_values, 0, sizeof (___param_values));
 #line 135 "mixer-prefbox.gob"
 static void 
 ___real_xfce_mixer_prefbox_device_changed (XfceMixerPrefbox * self G_GNUC_UNUSED)
-#line 459 "xfce-mixer-prefbox.c"
+#line 463 "xfce-mixer-prefbox.c"
 {
 #define __GOB_FUNCTION__ "Xfce:Mixer:Prefbox::device_changed"
 {
@@ -488,23 +492,49 @@ ___real_xfce_mixer_prefbox_device_changed (XfceMixerPrefbox * self G_GNUC_UNUSED
 		gtk_option_menu_set_history (self->master_om, omi);
 
 	}}
-#line 492 "xfce-mixer-prefbox.c"
+#line 496 "xfce-mixer-prefbox.c"
+#undef __GOB_FUNCTION__
+
+#line 166 "mixer-prefbox.gob"
+gboolean 
+xfce_mixer_prefbox_focus_out_event_cb (XfceMixerPrefbox * self, GdkEventFocus * event, GtkWidget * widget)
+#line 502 "xfce-mixer-prefbox.c"
+{
+#define __GOB_FUNCTION__ "Xfce:Mixer:Prefbox::focus_out_event_cb"
+#line 166 "mixer-prefbox.gob"
+	g_return_val_if_fail (self != NULL, (gboolean )0);
+#line 166 "mixer-prefbox.gob"
+	g_return_val_if_fail (XFCE_IS_MIXER_PREFBOX (self), (gboolean )0);
+#line 509 "xfce-mixer-prefbox.c"
+{
+#line 167 "mixer-prefbox.gob"
+	
+		/* handle the device change immediately so the Wannabe Master option box will have the new device's entries for sure. */
+		if (self->_priv->device_entry_delayer) { /* something was changed. */
+			delayer_free(self->_priv->device_entry_delayer);
+			self->_priv->device_entry_delayer = 0;
+			emit self_device_changed (self);
+		}
+
+		return FALSE;
+	}}
+#line 522 "xfce-mixer-prefbox.c"
 #undef __GOB_FUNCTION__
 
 
-#line 204 "mixer-prefbox.gob"
+#line 219 "mixer-prefbox.gob"
 void 
 xfce_mixer_prefbox_add_command_box (XfceMixerPrefbox * self)
-#line 499 "xfce-mixer-prefbox.c"
+#line 529 "xfce-mixer-prefbox.c"
 {
 #define __GOB_FUNCTION__ "Xfce:Mixer:Prefbox::add_command_box"
-#line 204 "mixer-prefbox.gob"
+#line 219 "mixer-prefbox.gob"
 	g_return_if_fail (self != NULL);
-#line 204 "mixer-prefbox.gob"
+#line 219 "mixer-prefbox.gob"
 	g_return_if_fail (XFCE_IS_MIXER_PREFBOX (self));
-#line 506 "xfce-mixer-prefbox.c"
+#line 536 "xfce-mixer-prefbox.c"
 {
-#line 205 "mixer-prefbox.gob"
+#line 220 "mixer-prefbox.gob"
 	
 		self->launcher_entry = launcher_entry_new ();
 		self->execu_cb = NULL; /*self->ic->combo;*/
@@ -514,43 +544,43 @@ xfce_mixer_prefbox_add_command_box (XfceMixerPrefbox * self)
 		gtk_widget_show (GTK_WIDGET (launcher_entry_get_widget (self->launcher_entry)));
 		gtk_box_pack_start (GTK_BOX (self->click_b), GTK_WIDGET (launcher_entry_get_widget (self->launcher_entry)), FALSE, FALSE, 0);
 	}}
-#line 518 "xfce-mixer-prefbox.c"
+#line 548 "xfce-mixer-prefbox.c"
 #undef __GOB_FUNCTION__
 
-#line 215 "mixer-prefbox.gob"
+#line 230 "mixer-prefbox.gob"
 gboolean 
 xfce_mixer_prefbox_device_changed_delayed_cb (XfceMixerPrefbox * self)
-#line 524 "xfce-mixer-prefbox.c"
+#line 554 "xfce-mixer-prefbox.c"
 {
 #define __GOB_FUNCTION__ "Xfce:Mixer:Prefbox::device_changed_delayed_cb"
-#line 215 "mixer-prefbox.gob"
+#line 230 "mixer-prefbox.gob"
 	g_return_val_if_fail (self != NULL, (gboolean )0);
-#line 215 "mixer-prefbox.gob"
+#line 230 "mixer-prefbox.gob"
 	g_return_val_if_fail (XFCE_IS_MIXER_PREFBOX (self), (gboolean )0);
-#line 531 "xfce-mixer-prefbox.c"
+#line 561 "xfce-mixer-prefbox.c"
 {
-#line 216 "mixer-prefbox.gob"
+#line 231 "mixer-prefbox.gob"
 	
-		/*printf ("delayed\n");*/
 		emit self_device_changed (self);
+		self->_priv->device_entry_delayer = 0;
 		return FALSE;
 	}}
-#line 539 "xfce-mixer-prefbox.c"
+#line 569 "xfce-mixer-prefbox.c"
 #undef __GOB_FUNCTION__
 
-#line 222 "mixer-prefbox.gob"
+#line 237 "mixer-prefbox.gob"
 void 
 xfce_mixer_prefbox_device_changed_cb (XfceMixerPrefbox * self, GtkEditable * e)
-#line 545 "xfce-mixer-prefbox.c"
+#line 575 "xfce-mixer-prefbox.c"
 {
 #define __GOB_FUNCTION__ "Xfce:Mixer:Prefbox::device_changed_cb"
-#line 222 "mixer-prefbox.gob"
+#line 237 "mixer-prefbox.gob"
 	g_return_if_fail (self != NULL);
-#line 222 "mixer-prefbox.gob"
+#line 237 "mixer-prefbox.gob"
 	g_return_if_fail (XFCE_IS_MIXER_PREFBOX (self));
-#line 552 "xfce-mixer-prefbox.c"
+#line 582 "xfce-mixer-prefbox.c"
 {
-#line 223 "mixer-prefbox.gob"
+#line 238 "mixer-prefbox.gob"
 	
 		delayer_restart (
 			&self->_priv->device_entry_delayer, 
@@ -558,39 +588,39 @@ xfce_mixer_prefbox_device_changed_cb (XfceMixerPrefbox * self, GtkEditable * e)
 			self
 		);
 	}}
-#line 562 "xfce-mixer-prefbox.c"
+#line 592 "xfce-mixer-prefbox.c"
 #undef __GOB_FUNCTION__
 
-#line 231 "mixer-prefbox.gob"
+#line 246 "mixer-prefbox.gob"
 XfceMixerPrefbox * 
 xfce_mixer_prefbox_new (void)
-#line 568 "xfce-mixer-prefbox.c"
+#line 598 "xfce-mixer-prefbox.c"
 {
 #define __GOB_FUNCTION__ "Xfce:Mixer:Prefbox::new"
 {
-#line 232 "mixer-prefbox.gob"
+#line 247 "mixer-prefbox.gob"
 	
 		XfceMixerPrefbox* w;
 		w = (XfceMixerPrefbox*) (GET_NEW);
 		xfce_mixer_prefbox_add_command_box (XFCE_MIXER_PREFBOX (w));
 		return w;
 	}}
-#line 579 "xfce-mixer-prefbox.c"
+#line 609 "xfce-mixer-prefbox.c"
 #undef __GOB_FUNCTION__
 
-#line 239 "mixer-prefbox.gob"
+#line 254 "mixer-prefbox.gob"
 void 
 xfce_mixer_prefbox_fill_preferences (XfceMixerPrefbox * self, XfceMixerPreferences * p)
-#line 585 "xfce-mixer-prefbox.c"
+#line 615 "xfce-mixer-prefbox.c"
 {
 #define __GOB_FUNCTION__ "Xfce:Mixer:Prefbox::fill_preferences"
-#line 239 "mixer-prefbox.gob"
+#line 254 "mixer-prefbox.gob"
 	g_return_if_fail (self != NULL);
-#line 239 "mixer-prefbox.gob"
+#line 254 "mixer-prefbox.gob"
 	g_return_if_fail (XFCE_IS_MIXER_PREFBOX (self));
-#line 592 "xfce-mixer-prefbox.c"
+#line 622 "xfce-mixer-prefbox.c"
 {
-#line 240 "mixer-prefbox.gob"
+#line 255 "mixer-prefbox.gob"
 	
 		gint omi;
 		gchar* launcher_command;
@@ -627,14 +657,6 @@ xfce_mixer_prefbox_fill_preferences (XfceMixerPrefbox * self, XfceMixerPreferenc
 
 		gtk_entry_set_text (GTK_ENTRY (self->device_cb->entry), nvl (device, ""));
 
-		omi = self_find_master_by_name (self, master_control);
-
-		gtk_option_menu_set_history (self->master_om, omi);
-
-		if (master_control) {
-			g_free (master_control);
-			master_control = NULL;
-		}
 
 		if (device) {
 			g_free (device);
@@ -647,23 +669,33 @@ xfce_mixer_prefbox_fill_preferences (XfceMixerPrefbox * self, XfceMixerPreferenc
 		}
 
 		emit self_device_changed (self);
+
+		omi = self_find_master_by_name (self, master_control);
+
+		gtk_option_menu_set_history (self->master_om, omi);
+
+		if (master_control) {
+			g_free (master_control);
+			master_control = NULL;
+		}
+
 	}}
-#line 652 "xfce-mixer-prefbox.c"
+#line 684 "xfce-mixer-prefbox.c"
 #undef __GOB_FUNCTION__
 
-#line 298 "mixer-prefbox.gob"
+#line 315 "mixer-prefbox.gob"
 void 
 xfce_mixer_prefbox_save_preferences (XfceMixerPrefbox * self, XfceMixerPreferences * p)
-#line 658 "xfce-mixer-prefbox.c"
+#line 690 "xfce-mixer-prefbox.c"
 {
 #define __GOB_FUNCTION__ "Xfce:Mixer:Prefbox::save_preferences"
-#line 298 "mixer-prefbox.gob"
+#line 315 "mixer-prefbox.gob"
 	g_return_if_fail (self != NULL);
-#line 298 "mixer-prefbox.gob"
+#line 315 "mixer-prefbox.gob"
 	g_return_if_fail (XFCE_IS_MIXER_PREFBOX (self));
-#line 665 "xfce-mixer-prefbox.c"
+#line 697 "xfce-mixer-prefbox.c"
 {
-#line 299 "mixer-prefbox.gob"
+#line 316 "mixer-prefbox.gob"
 	
 		gint omi;
 		gchar *execu;
@@ -698,5 +730,5 @@ xfce_mixer_prefbox_save_preferences (XfceMixerPrefbox * self, XfceMixerPreferenc
 		if (master)
 			g_free (master);
 	}}
-#line 702 "xfce-mixer-prefbox.c"
+#line 734 "xfce-mixer-prefbox.c"
 #undef __GOB_FUNCTION__

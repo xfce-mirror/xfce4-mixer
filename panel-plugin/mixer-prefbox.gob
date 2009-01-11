@@ -163,6 +163,18 @@ class Xfce:Mixer:Prefbox from Gtk:VBox {
 
 	}
 
+	protected gboolean focus_out_event_cb(self, GdkEventFocus* event, GtkWidget* widget)
+	{
+		/* handle the device change immediately so the Wannabe Master option box will have the new device's entries for sure. */
+		if (self->_priv->device_entry_delayer) { /* something was changed. */
+			delayer_free(self->_priv->device_entry_delayer);
+			self->_priv->device_entry_delayer = 0;
+			emit self_device_changed (self);
+		}
+
+		return FALSE;
+	}
+
 	init(self)
 	{
 		GtkWidget *dentry;
@@ -170,8 +182,11 @@ class Xfce:Mixer:Prefbox from Gtk:VBox {
 
 		gtk_box_set_spacing (GTK_BOX (self), 5);
 		self->device_cb = GTK_COMBO (gtk_combo_new ());
-		self->master_om = GTK_OPTION_MENU (gtk_option_menu_new ());
 
+		g_signal_connect_data (G_OBJECT(GTK_COMBO(self->device_cb)->entry), "focus-out-event", G_CALLBACK(self_focus_out_event_cb), self, NULL, G_CONNECT_SWAPPED | G_CONNECT_AFTER);
+		/* = g_signal_connect_after_swapped (G_OBJECT(GTK_COMBO(self->device_cb)->entry), "focus-out-event", G_CALLBACK(self_focus_out_event_cb), self); */
+
+		self->master_om = GTK_OPTION_MENU (gtk_option_menu_new ());
 
 		gtk_container_set_border_width (GTK_CONTAINER (self), 5);
 		gtk_box_pack_start (GTK_BOX (self), twocol_label (_("Device:"), GTK_WIDGET (self->device_cb)), FALSE, FALSE, 0);
@@ -214,8 +229,8 @@ class Xfce:Mixer:Prefbox from Gtk:VBox {
 
 	protected gboolean device_changed_delayed_cb (self)
 	{
-		/*printf ("delayed\n");*/
 		emit self_device_changed (self);
+		self->_priv->device_entry_delayer = 0;
 		return FALSE;
 	}
 
@@ -273,14 +288,6 @@ class Xfce:Mixer:Prefbox from Gtk:VBox {
 
 		gtk_entry_set_text (GTK_ENTRY (self->device_cb->entry), nvl (device, ""));
 
-		omi = self_find_master_by_name (self, master_control);
-
-		gtk_option_menu_set_history (self->master_om, omi);
-
-		if (master_control) {
-			g_free (master_control);
-			master_control = NULL;
-		}
 
 		if (device) {
 			g_free (device);
@@ -293,6 +300,16 @@ class Xfce:Mixer:Prefbox from Gtk:VBox {
 		}
 
 		emit self_device_changed (self);
+
+		omi = self_find_master_by_name (self, master_control);
+
+		gtk_option_menu_set_history (self->master_om, omi);
+
+		if (master_control) {
+			g_free (master_control);
+			master_control = NULL;
+		}
+
 	}
 
 	public void save_preferences (self, XfceMixerPreferences *p)
