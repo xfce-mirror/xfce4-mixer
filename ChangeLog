@@ -1,4 +1,8 @@
-2009-01-10	Jannis Pohlmann <jannis@xfce.org>
+2009-01-11	Jannis Pohlmann <jannis@xfce.org>
+
+	* NEWS: Update NEWS for the upcoming 4.5.93 release.
+
+2009-01-11	Jannis Pohlmann <jannis@xfce.org>
 
 	* panel-plugin/xfce-volume-button.c: Change step size to 5% instead
 	  of 1% because 1% is unusable if you don't have a laptop with a nice
