@@ -1,14 +1,14 @@
 # Catalan translations for xfce package.
 # Copyright (C) 2008 THE xfce'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the xfce package.
-# Carles Muñoz Gorriz <carlesmu@internautas.org>, 2008.
+# Carles Muñoz Gorriz <carlesmu@internautas.org>, 2008-2009.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce 4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-01-11 00:59+0100\n"
-"PO-Revision-Date: 2008-10-19 20:55+0100\n"
+"PO-Revision-Date: 2009-01-11 12:12+0100\n"
 "Last-Translator: Carles Muñoz Gorriz <carlesmu@internautas.org>\n"
 "Language-Team: Catalan\n"
 "MIME-Version: 1.0\n"
@@ -47,16 +47,18 @@ msgid ""
 "command is included in the PATH environment variable or that you are "
 "providing the full path to the command."
 msgstr ""
+"No es por executar l'ordre «%s». Comproveu que la localització de l'ordre "
+"està inclosa en la variable d'entorn «PATH» o que heu posat tot el camí per "
+"l'ordre."
 
 #: ../panel-plugin/xfce-mixer-plugin.c:398 ../xfce4-mixer/main.c:89
-#, fuzzy
 msgid ""
 "GStreamer was unable to detect any sound devices. Some sound system specific "
 "GStreamer packages may be missing. It may also be a permissions problem."
 msgstr ""
-"«GStreamer» no ha pogut detectar cap tarja de so. Pot ser que no tingueu "
-"algun paquet del sistema de so de «GStreamer». També pot ser un problema de "
-"permisos."
+"«GStreamer» no ha pogut detectar cap targeta de so. Pot ser que falti algun "
+"paquet específic del sistema de so de «GStreamer». També pot ser un problema "
+"de permisos."
 
 #: ../panel-plugin/xfce-plugin-dialog.c:234
 msgid "Mixer Plugin"
@@ -64,7 +66,7 @@ msgstr "Connector del mesclador"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:236
 msgid "Configure the mixer track and left-click command"
-msgstr ""
+msgstr "Configureu la sortida del mesclador i l'ordre del botó esquerra"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:248
 msgid "Sound card"
@@ -72,11 +74,11 @@ msgstr "Targeta de so"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:266
 msgid "Mixer track"
-msgstr "Pista del mesclador"
+msgstr "Sortida del mesclador"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:284
 msgid "Left-click command"
-msgstr "Ordre pel clic esquerre"
+msgstr "Ordre pel botó esquerre del ratolí"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:322
 msgid "Select command"
@@ -104,7 +106,7 @@ msgstr "Seqüències de Ruby"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:368
 msgid "Shell Scripts"
-msgstr "Seqüències de l’intèrpret d’ordres"
+msgstr "Seqüències de l’intèrpret d'ordres"
 
 #. Set application name
 #: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:1
@@ -117,7 +119,7 @@ msgstr "Mesclador"
 
 #: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:2
 msgid "Volume control for your sound card"
-msgstr "Control de volum per la vostra tarja de so"
+msgstr "Control de volum per la vostra targeta de so"
 
 #: ../libxfce4mixer/libxfce4mixer.c:243
 #, c-format
@@ -146,7 +148,6 @@ msgid "Options"
 msgstr "Opcions"
 
 #: ../xfce4-mixer/xfce-mixer.c:298
-#, fuzzy
 msgid "No controls visible"
 msgstr "Cap control visible"
 
@@ -163,9 +164,8 @@ msgid "Select Controls"
 msgstr "Selecció de controls"
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:137
-#, fuzzy
 msgid "Select which controls should be visible"
-msgstr "Seleccioneu quins controls es mostren"
+msgstr "Seleccioneu quins controls es mostraran"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:84
 msgid "_Quit"
@@ -184,15 +184,14 @@ msgid "Select which controls are displayed"
 msgstr "Seleccioneu quins controls es mostren"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:184
-#, fuzzy
 msgid "Configure sound card(s) and control the volume of selected tracks"
 msgstr ""
-"Configureu la vostra tarjeta o tarjetes de so i controleu el volumen de les "
-"pistes seleccionades"
+"Configureu la vostra targeta(es) de so i controleu el volum de les sortides "
+"seleccionades"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:199
 msgid "Sound card:"
-msgstr "Tarja de so"
+msgstr "Targeta de so:"
 
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:1
 msgid "Audio mixer for the Xfce Desktop Environment"
