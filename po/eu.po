@@ -50,15 +50,16 @@ msgid ""
 "command is included in the PATH environment variable or that you are "
 "providing the full path to the command."
 msgstr ""
+"Ezin da \"%s\" komandoa exekutatu. Ziurtatu zaitez komandoaren kokalekuak ingurune "
+"bidean konfiguraturik dagoela edo komandoaren bide osoa ezartzen duzula."
 
 #: ../panel-plugin/xfce-mixer-plugin.c:398 ../xfce4-mixer/main.c:89
-#, fuzzy
 msgid ""
 "GStreamer was unable to detect any sound devices. Some sound system specific "
 "GStreamer packages may be missing. It may also be a permissions problem."
 msgstr ""
-"GStramer ez da zure sistema soinu txartelik aurkitzeko gia. Agian beharrezko "
-"Gstreamer pakete zehatzen bat falta zaizu. Hau baimen arazo bat ere izan "
+"GStramer ez da  soinu txartelik aurkitzeko gia. Zenait soinu sistemak  "
+"Gstreamer pakete zehatzen bat behar dute. Hau baimen arazo bat ere izan "
 "daiteke."
 
 #: ../panel-plugin/xfce-plugin-dialog.c:234
@@ -67,7 +68,7 @@ msgstr "Nahastaile plugina"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:236
 msgid "Configure the mixer track and left-click command"
-msgstr ""
+msgstr "Konfiguratu nahasle pista eta ezker-klik komandoa"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:248
 msgid "Sound card"
@@ -149,7 +150,6 @@ msgid "Options"
 msgstr "Aukerak"
 
 #: ../xfce4-mixer/xfce-mixer.c:298
-#, fuzzy
 msgid "No controls visible"
 msgstr "Ez kontrolik ikusgai"
 
@@ -167,7 +167,6 @@ msgid "Select Controls"
 msgstr "Hautatu kontrolak"
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:137
-#, fuzzy
 msgid "Select which controls should be visible"
 msgstr "Hautatu zein kontrol bistaraziko diren"
 
@@ -188,7 +187,6 @@ msgid "Select which controls are displayed"
 msgstr "Hautatu zein kontrol bistaraziko diren"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:184
-#, fuzzy
 msgid "Configure sound card(s) and control the volume of selected tracks"
 msgstr ""
 "Konfiguratu soinu txartela(k) eta kontrolatu hautatutako pisten bolumena"
