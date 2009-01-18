@@ -5,7 +5,7 @@
 # Yongtao Yang <yongtao.yang@telia.com>, 2004.
 # Huang Huan <unicon221@gmail.com>, 2006.
 # Jick Nan <jick.nan@gmail.com>, 2006.
-# 
+# Chris K. Zhang <plutino@gmail.com>, 2009.
 # 
 msgid ""
 msgstr ""
@@ -133,17 +133,17 @@ msgstr "录音选择"
 #. Label
 #: ../lib/trans.c:77
 msgid "A3.AnalogIn"
-msgstr ""
+msgstr "A3.模拟输入"
 
 #. Analog In
 #: ../lib/trans.c:78
 msgid "A3.AnalogOut"
-msgstr ""
+msgstr "A3.模拟输出"
 
 #. Analog Out
 #: ../lib/trans.c:79
 msgid "A3.AnalogOut2"
-msgstr ""
+msgstr "A3.模拟输出2"
 
 #. Analog Out 2
 #. Interface
@@ -164,17 +164,17 @@ msgstr "A3.线路输入"
 #. Line In
 #: ../lib/trans.c:84
 msgid "A3.DAC1In"
-msgstr ""
+msgstr "A3.DAC1输入"
 
 #. DAC1 In
 #: ../lib/trans.c:85
 msgid "A3.DAC2In"
-msgstr ""
+msgstr "A3.DAC2输入"
 
 #. DAC2 In
 #: ../lib/trans.c:86
 msgid "A3.Speaker"
-msgstr "A3.话筒"
+msgstr "A3.扬声器"
 
 #. Speaker/Line Out
 #: ../lib/trans.c:87
@@ -187,6 +187,7 @@ msgid ""
 "alsa: error: master control not found. I even tried to guess wildly, but to "
 "no avail.\n"
 msgstr ""
+"alsa: 错误：找不到主音量控制，所有猜测都不合适。\n"
 
 #: ../lib/vc_alsa.c:98
 #, c-format
@@ -194,16 +195,17 @@ msgid ""
 "alsa: info: developer information follows: (send E-Mail to Developer with "
 "that)\n"
 msgstr ""
+"alsa: 信息：提供给程序作者的信息：(请 email 给程序作者)\n"
 
 #: ../lib/vc_alsa.c:112
 #, c-format
 msgid "hint hint"
-msgstr ""
+msgstr "提示 提示"
 
 #: ../lib/vc_alsa.c:118
 #, c-format
 msgid "alsa: info: end of developer information\n"
-msgstr ""
+msgstr "alsa: 信息：寄发给作者的信息到此结束\n"
 
 #: ../lib/vc_alsa.c:136
 #, c-format
@@ -212,7 +214,7 @@ msgstr "alsa: 混频器 %s 打开错误: %s\n"
 
 #: ../lib/vc_alsa.c:141
 #, c-format
-msgid "alsa: snd_mixer_attach(\"%s\"): error: %s\n" 
+msgid "alsa: snd_mixer_attach(\"%s\"): error: %s\n"
 msgstr "alsa: 混频器绑定 %s 错误: %s\n"
 
 #: ../lib/vc_alsa.c:149
@@ -221,9 +223,9 @@ msgid "alsa: snd_mixer_selem_register(...): error: %s\n"
 msgstr "alsa: 混频器注册错误: %s\n"
 
 #: ../lib/vc_alsa.c:158
-#, fuzzy, c-format
+#, c-format
 msgid "alsa: Mixer load error: %s: %s\n"
-msgstr "alsa: 混频器加载错误: %s\n"
+msgstr "alsa: 混频器加载错误: %s: %s\n"
 
 #: ../lib/vc_alsa.c:184
 #, c-format
@@ -290,7 +292,7 @@ msgstr "有用的控制"
 #. the button label in the xfce-mcs-manager dialog
 #: ../settings/sound.c:81
 msgid "Button Label|Sound"
-msgstr ""
+msgstr "声音"
 
 #: ../settings/sound.c:104
 msgid "Sound"
@@ -331,9 +333,9 @@ msgid ""
 "directory.\n"
 "No warranty in any way."
 msgstr ""
-"这是 xfce4-mixer，一个音量控制程序。\n"
+"这是 xfce4-mixer 音量控制程序。\n"
 "它以 GPL-2 许可证发布，您可以在 source 目录下找到 GPL-2 许可证全文。\n"
-"无任何形式的保证。 "
+"作者不提供任何形式的保证。 "
 
 #: ../src/mixer-profilebox-detail.gob:163 mixer-profilebox-detail.gob:163
 msgid "Control"
@@ -361,7 +363,7 @@ msgstr "将条目下移"
 
 #: ../src/mixer-profilebox-detail.gob:200 mixer-profilebox-detail.gob:200
 msgid "Profile Name:"
-msgstr "用户文件名："
+msgstr "用户设置名称："
 
 #: ../src/mixer-profilebox-detail.gob:382
 #: ../src/mixer-profilebox-detail.gob:447 mixer-profilebox-detail.gob:382
@@ -389,44 +391,44 @@ msgstr "<选择>"
 
 #: ../src/mixer-profilebox.gob:142 mixer-profilebox.gob:142
 msgid "Create new profile"
-msgstr "创建新的用户文件"
+msgstr "创建新的用户设置"
 
 #: ../src/mixer-profilebox.gob:151 mixer-profilebox.gob:151
 msgid "Delete this profile"
-msgstr "删除该用户文件"
+msgstr "删除该用户设置"
 
 #: ../src/mixer-profilebox.gob:170 mixer-profilebox.gob:170
 msgid "Profile"
-msgstr "用户文件"
+msgstr "用户设置"
 
 #: ../src/mixer-profilebox.gob:374 mixer-profilebox.gob:374
 #, c-format
 msgid "Really delete those %d profiles?"
-msgstr "真的要删除这 %d 个用户文件吗? "
+msgstr "真的要删除这 %d 个用户设置吗? "
 
 #: ../src/mixer-profilebox.gob:377 mixer-profilebox.gob:377
 #, c-format
 msgid "Really delete profile \"%s\"?"
-msgstr "真的要删除用户文件 “%s” 吗?"
+msgstr "真的要删除用户设置 “%s” 吗?"
 
 #: ../src/mixer-profilebox.gob:491 mixer-profilebox.gob:491
 #, c-format
 msgid "%s - New"
-msgstr "%s - 新"
+msgstr "%s - 新建"
 
 #: ../src/mixer-profilebox.gob:528 mixer-profilebox.gob:528
 msgid "A profile needs a name"
-msgstr "用户文件需要名称"
+msgstr "用户设置需要名称"
 
 #: ../src/mixer-profilebox.gob:542 mixer-profilebox.gob:542
 msgid "A profile with that name already exists"
-msgstr "该用户文件名已经存在"
+msgstr "该用户设置名已经存在"
 
 #: ../src/mixer-profiles.gob:262 ../src/mixer-profiles.gob:269
 #: mixer-profiles.gob:262 mixer-profiles.gob:269
 #, c-format
 msgid "profile%d"
-msgstr "用户文件 %d"
+msgstr "用户设置 %d"
 
 #: ../src/mixer-view.gob:259 mixer-view.gob:259
 msgid "Show Switches"
