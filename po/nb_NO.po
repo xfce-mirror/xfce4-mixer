@@ -46,14 +46,15 @@ msgid ""
 "command is included in the PATH environment variable or that you are "
 "providing the full path to the command."
 msgstr ""
+"Kunne ikke kjøre kommandoen «%s». Sørg for at stien til kommandoen er "
+"inkludert i PATH stien etter at full sti er oppgitt for kommandoen."
 
 #: ../panel-plugin/xfce-mixer-plugin.c:398 ../xfce4-mixer/main.c:89
-#, fuzzy
 msgid ""
 "GStreamer was unable to detect any sound devices. Some sound system specific "
 "GStreamer packages may be missing. It may also be a permissions problem."
 msgstr ""
-"GStreamer fant ingen lydkort på på systemet ditt. Du mangler muligens "
+"GStreamer fant ingen lydenheter på systemet ditt. Du mangler muligens "
 "lydsystem-spesifikke GStreamer pakker. Det kan også være feil i rettigheter."
 
 #: ../panel-plugin/xfce-plugin-dialog.c:234
@@ -62,7 +63,7 @@ msgstr "Mikser"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:236
 msgid "Configure the mixer track and left-click command"
-msgstr ""
+msgstr "Sett opp mikserspor og venstreklikk kommando"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:248
 msgid "Sound card"
@@ -144,7 +145,6 @@ msgid "Options"
 msgstr "Innstillinger"
 
 #: ../xfce4-mixer/xfce-mixer.c:298
-#, fuzzy
 msgid "No controls visible"
 msgstr "Ingen kontroller synlige"
 
@@ -161,7 +161,6 @@ msgid "Select Controls"
 msgstr "Velg kontroller"
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:137
-#, fuzzy
 msgid "Select which controls should be visible"
 msgstr "Velg hvilke kontroller som skal vises"
 
@@ -182,9 +181,8 @@ msgid "Select which controls are displayed"
 msgstr "Velg hvilke kontroller som skal vises"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:184
-#, fuzzy
 msgid "Configure sound card(s) and control the volume of selected tracks"
-msgstr "Konfigurer lydkortet og styre volum for valgte spor."
+msgstr "Konfigurer lydkort(ene) og styre volum for valgte spor."
 
 #: ../xfce4-mixer/xfce-mixer-window.c:199
 msgid "Sound card:"
@@ -193,16 +191,3 @@ msgstr "Lydkort:"
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:1
 msgid "Audio mixer for the Xfce Desktop Environment"
 msgstr "Lydmikser for Xfce Skrivebordsmiljøet"
-
-#~ msgid ""
-#~ "Could not execute the command %s. Perhaps you need to adjust the PATH "
-#~ "variable."
-#~ msgstr ""
-#~ "Klarte ikke starte kommandoen %s. Kanskje du trenger å justere PATH-"
-#~ "variabelen."
-
-#~ msgid "Please select which mixer track should be used by the plugin"
-#~ msgstr "Vennligst velg hvilket lydspor som skal brukes av programtillegget."
-
-#~ msgid "Please select which controls you want to be visible"
-#~ msgstr "Velg hvilke kontroller du vil ha synlige"
