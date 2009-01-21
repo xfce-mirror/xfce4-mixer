@@ -1,3 +1,7 @@
+2009-01-21  Maximilian Schleiss <maximilian@xfce.org>
+
+	* zh_CN.po, LINGUAS: Simplified Chinese translation added (Chris K. Zhang)
+
 2009-01-19  Maximilian Schleiss <maximilian@xfce.org>
 
 	* nb_NO.po: Norwegian Bokmal translation update (Terje Uriansrud)
@@ -8,9 +12,9 @@
 
 2009-01-15 Piarres Beobide <pi@beobide.net>
 
-        * eu.po: Basque translation update
+	* eu.po: Basque translation update
 
-2009-01-14  Michal V�rady <miko.vaji@gmail.com>
+2009-01-14  Michal Várady <miko.vaji@gmail.com>
 
 	* cs.po: Czech translation updated
 
@@ -74,7 +78,7 @@
 
 2008-10-20	Maximilian Schleiss <maximilian@xfce.org>
 
-	* ca.po, LINGUAS: Catalan translation added (Carles Muñoz Gorriz)
+	* ca.po, LINGUAS: Catalan translation added (Carles MuÃ±oz Gorriz)
 
 2008-10-18	Maximilian Schleiss <maximilian@xfce.org>
 
@@ -159,7 +163,7 @@
 2008-06-22	Og Maciel <ogmaciel@gnome.org>
 
 	* pt_BR.po: Updated Brazilian Portuguese translation
-	by Fábio Nogueira <deb-user-ba@ubuntu.com>
+	by FÃ¡bio Nogueira <deb-user-ba@ubuntu.com>
 
 2008-06-22	Jannis Pohlmann <jannis@xfce.org>
 
