@@ -2,13 +2,13 @@
 # Copyright (C) 2008 THE xfce'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the xfce 4-mixer package.
 # Ole Guldberg <olegb@omgwtf.dk>, 2008.
-# Per Kongstad <p_kongstad@op.pl>, 2008.
+# Per Kongstad <p_kongstad@op.pl>, 2008,09.
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce 4-mixer 4.4.2\n"
+"Project-Id-Version: xfce 4-mixer 4.4.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-11-04 19:21+0100\n"
-"PO-Revision-Date: 2008-10-26 15:23+0100\n"
+"PO-Revision-Date: 2009-01-22 20:32+0100\n"
 "Last-Translator: Per Kongstad <p_kongstad@op.pl>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "MIME-Version: 1.0\n"
@@ -207,18 +207,18 @@ msgid "alsa: Mixer %s open error: %s\n"
 msgstr "alsa: Fejl ved åbning af mikser %s: %s\n"
 
 # I should have written:
-# "alsa: snd_mixer_attach(\"%s\"): error: %s\n"
+# "alsa: snd_mixer_attach(\"%s\"): error: %s\n
 #: ../lib/vc_alsa.c:141
 #, c-format
-msgid "alsa: Mixer attach %s error: %s\n"
+msgid "alsa: snd_mixer_attach(\"%s\"): error: %s\n"
 msgstr "alsa: snd_mixer_attach(\"%s\"): fejl: %s\n"
 
-#It should have said:
-#"alsa: snd_mixer_selem_register(...): error: %s\n".
+# It should have said:
+# "alsa: snd_mixer_selem_register(...): error: %s\n
 #: ../lib/vc_alsa.c:149
 #, c-format
-msgid "alsa: Mixer register error: %s\n"
-msgstr "alsa: snd_mixer_selem_register: fejl %s\n"
+msgid "alsa: snd_mixer_selem_register(...): error: %s\n"
+msgstr "alsa: snd_mixer_selem_register(...): fejl: %s\n"
 
 #: ../lib/vc_alsa.c:158
 #, c-format
