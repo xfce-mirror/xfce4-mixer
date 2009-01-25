@@ -48,9 +48,9 @@ msgid ""
 "command is included in the PATH environment variable or that you are "
 "providing the full path to the command."
 msgstr ""
-"Impossible d'exécuter la commande « %s ». Vérifier que le chemin vers la commande "
-"est inclue dans la variable d'environnement PATH ou que vous fournisser le chemin "
-"complet vers la commande."
+"Impossible d'exécuter la commande « %s ». Vérifier que le chemin vers la "
+"commande est inclue dans la variable d'environnement PATH ou que vous "
+"fournisser le chemin complet vers la commande."
 
 #: ../panel-plugin/xfce-mixer-plugin.c:398 ../xfce4-mixer/main.c:89
 msgid ""
@@ -194,4 +194,3 @@ msgstr "Carte son :"
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:1
 msgid "Audio mixer for the Xfce Desktop Environment"
 msgstr "Mixer audio pour l'environnement Xfce"
-

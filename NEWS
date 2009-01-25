@@ -1,3 +1,9 @@
+4.5.99.1
+========
+- Translation updates: cz (Michal Varady), da (Per Kongstad), 
+  eu (Piarres Beobide), fr (Mike Massonnet), nb_NO (Terje Uriansrud),
+  pt_BR (Og Maciel), zh_CN (Chris K. Zhang).
+
 4.5.93
 ======
 - Change plugin volume step size from 1% to 5%.
@@ -7,7 +13,7 @@
 - Translation updates: cs (Michal Varady), de (Fabian Nowak), es (Abel 
   Martín), eu (Piarres Beobide), fi (Jari Rahkonen), fr (Maximilian 
   Schleiss), gl (Leandro Regueiro), hu (Szervác Attila), ja (Nobohiro
-  Iwamatsu), sv (Daniel Nylander), uk (Dmitry Nikitin), 
+  Iwamatsu), sv (Daniel Nylander), uk (Dmitry Nikitin).
 
 4.5.92
 ======

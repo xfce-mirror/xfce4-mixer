@@ -50,8 +50,9 @@ msgid ""
 "command is included in the PATH environment variable or that you are "
 "providing the full path to the command."
 msgstr ""
-"Ezin da \"%s\" komandoa exekutatu. Ziurtatu zaitez komandoaren kokalekuak ingurune "
-"bidean konfiguraturik dagoela edo komandoaren bide osoa ezartzen duzula."
+"Ezin da \"%s\" komandoa exekutatu. Ziurtatu zaitez komandoaren kokalekuak "
+"ingurune bidean konfiguraturik dagoela edo komandoaren bide osoa ezartzen "
+"duzula."
 
 #: ../panel-plugin/xfce-mixer-plugin.c:398 ../xfce4-mixer/main.c:89
 msgid ""

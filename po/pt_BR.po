@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-01-16 12:27-0500\n"
+"POT-Creation-Date: 2009-01-11 00:59+0100\n"
 "PO-Revision-Date: 2009-01-16 12:33-0500\n"
 "Last-Translator: Og Maciel <ogmaciel@gnome.org>\n"
 "Language-Team: Brazilian Portuguese <ldp-br@bazar2.conectiva.com.br>\n"
@@ -29,8 +29,12 @@ msgid "No left-click command defined"
 msgstr "Nenhum comando definido para o clique-esquerdo"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:349
-msgid "No left-click command defined yet. You can change this in the plugin properties."
-msgstr "Ainda não foi definido nenhum comando para o clique-esquerdo. Você pode alterar isto nas propriedades do plug-in."
+msgid ""
+"No left-click command defined yet. You can change this in the plugin "
+"properties."
+msgstr ""
+"Ainda não foi definido nenhum comando para o clique-esquerdo. Você pode "
+"alterar isto nas propriedades do plug-in."
 
 #: ../panel-plugin/xfce-mixer-plugin.c:350
 msgid "Properties"
@@ -39,13 +43,23 @@ msgstr "Propriedades"
 #. Generate error message and insert the current command
 #: ../panel-plugin/xfce-mixer-plugin.c:365
 #, c-format
-msgid "Could not execute the command \"%s\". Ensure that either the location of the command is included in the PATH environment variable or that you are providing the full path to the command."
-msgstr "Não foi possível executar o comand \"%s\". Certifique-se que a localização do comando está incluída na variavel de ambiente PATH ou que você está usando o caminho completo do comando."
+msgid ""
+"Could not execute the command \"%s\". Ensure that either the location of the "
+"command is included in the PATH environment variable or that you are "
+"providing the full path to the command."
+msgstr ""
+"Não foi possível executar o comand \"%s\". Certifique-se que a localização "
+"do comando está incluída na variavel de ambiente PATH ou que você está "
+"usando o caminho completo do comando."
 
-#: ../panel-plugin/xfce-mixer-plugin.c:398
-#: ../xfce4-mixer/main.c:89
-msgid "GStreamer was unable to detect any sound devices. Some sound system specific GStreamer packages may be missing. It may also be a permissions problem."
-msgstr "O Gstreamer não detectou nenhum dispositivo de áudio. Pode ser que esteja faltando algum pacote do Gstreamer específico do sistema de som. Isso pode ser também algum problema de permissão."
+#: ../panel-plugin/xfce-mixer-plugin.c:398 ../xfce4-mixer/main.c:89
+msgid ""
+"GStreamer was unable to detect any sound devices. Some sound system specific "
+"GStreamer packages may be missing. It may also be a permissions problem."
+msgstr ""
+"O Gstreamer não detectou nenhum dispositivo de áudio. Pode ser que esteja "
+"faltando algum pacote do Gstreamer específico do sistema de som. Isso pode "
+"ser também algum problema de permissão."
 
 #: ../panel-plugin/xfce-plugin-dialog.c:234
 msgid "Mixer Plugin"
@@ -97,8 +111,7 @@ msgstr "Scripts em Shell"
 
 #. Set application name
 #: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:1
-#: ../xfce4-mixer/main.c:60
-#: ../xfce4-mixer/xfce-mixer-window.c:165
+#: ../xfce4-mixer/main.c:60 ../xfce4-mixer/xfce-mixer-window.c:165
 #: ../xfce4-mixer/xfce-mixer-window.c:183
 #: ../xfce4-mixer/xfce-mixer-window.c:284
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
@@ -140,8 +153,12 @@ msgid "No controls visible"
 msgstr "Nenhum controle visível"
 
 #: ../xfce4-mixer/xfce-mixer.c:302
-msgid "No controls are marked as visible. Please open the <span size='large'><b>Select Controls</b></span> dialog to select some."
-msgstr "Nenhum controle está marcado como visível. Por favor abra o diálogo <span size=\"large\"><b>Selecionar controles</b></span> para selecionar alguns."
+msgid ""
+"No controls are marked as visible. Please open the <span "
+"size='large'><b>Select Controls</b></span> dialog to select some."
+msgstr ""
+"Nenhum controle está marcado como visível. Por favor abra o diálogo <span "
+"size=\"large\"><b>Selecionar controles</b></span> para selecionar alguns."
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:135
 msgid "Select Controls"
@@ -169,7 +186,9 @@ msgstr "Seleciona quais controles são mostrados"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:184
 msgid "Configure sound card(s) and control the volume of selected tracks"
-msgstr "Configura sua(s) placa(s) de áudio e controla o volume das trilhas selecionadas"
+msgstr ""
+"Configura sua(s) placa(s) de áudio e controla o volume das trilhas "
+"selecionadas"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:199
 msgid "Sound card:"
@@ -185,21 +204,26 @@ msgstr "Mixador de áudio para o ambiente de área de trabalho do Xfce"
 #~ msgstr ""
 #~ "Não foi possível executar o comando %s. Talvez você precise ajustar a "
 #~ "variável PATH."
+
 #~ msgid "Please select which mixer track should be used by the plugin"
 #~ msgstr ""
 #~ "Por favor escolha qual o mixador de faixa que deve ser usado pelo plug-in"
+
 #~ msgid "Please select which controls you want to be visible"
 #~ msgstr "Por favor selecione quais controles você deseja manter visíveis"
+
 #~ msgid "A comfortable audio mixer for your sound card."
 #~ msgstr "Um mixador de áudio confortável para a sua placa de áudio."
+
 #~ msgid "Xfce Mixer"
 #~ msgstr "Mixador do Xfce"
+
 #~ msgid "Could not find xfce4-mixer in PATH."
 #~ msgstr "Não foi possível encontrar o xfce4-mixer no CAMINHO."
+
 #~ msgid ""
 #~ "No sound cards could be found. You may have to install additional "
 #~ "gstreamer packages for ALSA or OSS support."
 #~ msgstr ""
 #~ "Nenhuma placa de áudio foi encontrada. Talvez você tenha de instalar "
 #~ "pacotes do gstreamer adicionais para suporte de ALSA ou OSS."
-

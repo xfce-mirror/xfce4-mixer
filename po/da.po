@@ -31,8 +31,12 @@ msgid "No left-click command defined"
 msgstr "Ingen venstrekliks-kommando defineret"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:349
-msgid "No left-click command defined yet. You can change this in the plugin properties."
-msgstr "Ingen venstrekliks-kommando defineret endnu. Du kan ændre dette i egenskaber for udvidelsesmodulet."
+msgid ""
+"No left-click command defined yet. You can change this in the plugin "
+"properties."
+msgstr ""
+"Ingen venstrekliks-kommando defineret endnu. Du kan ændre dette i egenskaber "
+"for udvidelsesmodulet."
 
 #: ../panel-plugin/xfce-mixer-plugin.c:350
 msgid "Properties"
@@ -41,13 +45,23 @@ msgstr "Egenskaber"
 #. Generate error message and insert the current command
 #: ../panel-plugin/xfce-mixer-plugin.c:365
 #, c-format
-msgid "Could not execute the command \"%s\". Ensure that either the location of the command is included in the PATH environment variable or that you are providing the full path to the command."
-msgstr "Kunne ikke køre kommandoen \"%s\". Kontrollér at enten placeringen af kommandoen er med i PATH's miljøvariabel, eller at du angiver den fulde sti til kommandoen."
+msgid ""
+"Could not execute the command \"%s\". Ensure that either the location of the "
+"command is included in the PATH environment variable or that you are "
+"providing the full path to the command."
+msgstr ""
+"Kunne ikke køre kommandoen \"%s\". Kontrollér at enten placeringen af "
+"kommandoen er med i PATH's miljøvariabel, eller at du angiver den fulde sti "
+"til kommandoen."
 
-#: ../panel-plugin/xfce-mixer-plugin.c:398
-#: ../xfce4-mixer/main.c:89
-msgid "GStreamer was unable to detect any sound devices. Some sound system specific GStreamer packages may be missing. It may also be a permissions problem."
-msgstr "GStreamer kunne ikke finde nogle lydkort på dit system. Det kan være du mangler nogle specifikke GStreamer-pakker. Eller det kan være et problem med rettigheder til lydkortet."
+#: ../panel-plugin/xfce-mixer-plugin.c:398 ../xfce4-mixer/main.c:89
+msgid ""
+"GStreamer was unable to detect any sound devices. Some sound system specific "
+"GStreamer packages may be missing. It may also be a permissions problem."
+msgstr ""
+"GStreamer kunne ikke finde nogle lydkort på dit system. Det kan være du "
+"mangler nogle specifikke GStreamer-pakker. Eller det kan være et problem med "
+"rettigheder til lydkortet."
 
 #: ../panel-plugin/xfce-plugin-dialog.c:234
 msgid "Mixer Plugin"
@@ -99,8 +113,7 @@ msgstr "Skalskripter"
 
 #. Set application name
 #: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:1
-#: ../xfce4-mixer/main.c:60
-#: ../xfce4-mixer/xfce-mixer-window.c:165
+#: ../xfce4-mixer/main.c:60 ../xfce4-mixer/xfce-mixer-window.c:165
 #: ../xfce4-mixer/xfce-mixer-window.c:183
 #: ../xfce4-mixer/xfce-mixer-window.c:284
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
@@ -142,8 +155,12 @@ msgid "No controls visible"
 msgstr "Ingen synlige kontroller"
 
 #: ../xfce4-mixer/xfce-mixer.c:302
-msgid "No controls are marked as visible. Please open the <span size='large'><b>Select Controls</b></span> dialog to select some."
-msgstr "Ingen kontroller er markeret som synlige. Åben <span size='large'><b>Vælg kontroller</b></span> dialogen for at vælge nogle."
+msgid ""
+"No controls are marked as visible. Please open the <span "
+"size='large'><b>Select Controls</b></span> dialog to select some."
+msgstr ""
+"Ingen kontroller er markeret som synlige. Åben <span size='large'><b>Vælg "
+"kontroller</b></span> dialogen for at vælge nogle."
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:135
 msgid "Select Controls"
@@ -180,4 +197,3 @@ msgstr "Lydkort:"
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:1
 msgid "Audio mixer for the Xfce Desktop Environment"
 msgstr "Lydmikser til Xfce-skrivebordsmiljøet"
-
