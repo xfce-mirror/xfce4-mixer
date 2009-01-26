@@ -8,15 +8,14 @@ msgstr ""
 "Project-Id-Version: xfce4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-01-11 00:59+0100\n"
-"PO-Revision-Date: 2008-12-05 17:05+0200\n"
+"PO-Revision-Date: 2009-01-26 12:17+0200\n"
 "Last-Translator: Dmitry Nikitin <luckas_fb@mail.ru>\n"
 "Language-Team: Ukrainian <xfce4-dev@xfce.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
-"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #. Set tooltip (e.g. 'Master: 50%')
 #: ../panel-plugin/xfce-mixer-plugin.c:271
@@ -49,16 +48,17 @@ msgid ""
 "command is included in the PATH environment variable or that you are "
 "providing the full path to the command."
 msgstr ""
+"Неможливо виконати команду \"%s\". Впевніться, що інший шлях для цієї "
+"команди включено до середовища змінних PATH або зазначте повний "
+"шлях до команди."
 
 #: ../panel-plugin/xfce-mixer-plugin.c:398 ../xfce4-mixer/main.c:89
-#, fuzzy
 msgid ""
 "GStreamer was unable to detect any sound devices. Some sound system specific "
 "GStreamer packages may be missing. It may also be a permissions problem."
 msgstr ""
-"GStreamer не вдалось виявити будь-яких звукових карт у Вашій системі. У "
-"Вашій системі може бути не встановлено відповідних пакунків GStreamer для "
-"звукової системи. Можливо проблеми з правами доступу."
+"GStreamer не вдалось виявити будь-яких звукових карт. У Вашій системі "
+"можливо відсутні пакунки для GStreamer. Можливо проблеми прав доступу."
 
 #: ../panel-plugin/xfce-plugin-dialog.c:234
 msgid "Mixer Plugin"
@@ -66,7 +66,7 @@ msgstr "Плагін мікшера"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:236
 msgid "Configure the mixer track and left-click command"
-msgstr ""
+msgstr "Налаштувати повзунок міксера і команду по лівому клацанню"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:248
 msgid "Sound card"
@@ -148,9 +148,8 @@ msgid "Options"
 msgstr "Параметри"
 
 #: ../xfce4-mixer/xfce-mixer.c:298
-#, fuzzy
 msgid "No controls visible"
-msgstr "Не вибрані канали для управління"
+msgstr "Немає видимих елементів управління"
 
 #: ../xfce4-mixer/xfce-mixer.c:302
 msgid ""
@@ -165,9 +164,8 @@ msgid "Select Controls"
 msgstr "Вибір каналів"
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:137
-#, fuzzy
 msgid "Select which controls should be visible"
-msgstr "Виберіть канали, які будуть відображатись"
+msgstr "Виберіть елементи управління, які будуть відображатись"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:84
 msgid "_Quit"
@@ -186,9 +184,8 @@ msgid "Select which controls are displayed"
 msgstr "Виберіть канали, які будуть відображатись"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:184
-#, fuzzy
 msgid "Configure sound card(s) and control the volume of selected tracks"
-msgstr "Налаштуйте Вашу звукову карту(и) і канали гучності для вибраних треків"
+msgstr "Налаштуйте Вашу звукову карту(и) і елементи управління гучністю вибраних треків"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:199
 msgid "Sound card:"
@@ -198,16 +195,3 @@ msgstr "Звукова карта:"
 msgid "Audio mixer for the Xfce Desktop Environment"
 msgstr "Регулятор гучності для середовища стільниці Xfce"
 
-#~ msgid ""
-#~ "Could not execute the command %s. Perhaps you need to adjust the PATH "
-#~ "variable."
-#~ msgstr ""
-#~ "Неможливо виконати команду %s. Можливо, Вам необхідно налаштувати змінну "
-#~ "середовища PATH."
-
-#~ msgid "Please select which mixer track should be used by the plugin"
-#~ msgstr ""
-#~ "Будь ласка виберіть який трек мікшера буде буде використовуватись плагіном"
-
-#~ msgid "Please select which controls you want to be visible"
-#~ msgstr "Будь ласка, виберіть канали які Ви хочете бачити"
