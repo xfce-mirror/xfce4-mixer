@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xfce4-mixer SVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-01-11 00:59+0100\n"
-"PO-Revision-Date: 2008-11-02 15:07+0200\n"
+"PO-Revision-Date: 2009-01-30 19:03+0200\n"
 "Last-Translator: Gökmen Görgen <gkmngrgn@gmail.com>\n"
 "Language-Team: Türkçe <turkce@pardus.org.tr>\n"
 "MIME-Version: 1.0\n"
@@ -27,12 +27,8 @@ msgid "No left-click command defined"
 msgstr "Sağ tıklama komutu tanımlanmamış"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:349
-msgid ""
-"No left-click command defined yet. You can change this in the plugin "
-"properties."
-msgstr ""
-"Sağ tıklama komutu tanımlı değil. Eklenti özelliklerinden bunu "
-"tanımlayabilirsiniz."
+msgid "No left-click command defined yet. You can change this in the plugin properties."
+msgstr "Sağ tıklama komutu tanımlı değil. Eklenti özelliklerinden bunu tanımlayabilirsiniz."
 
 #: ../panel-plugin/xfce-mixer-plugin.c:350
 msgid "Properties"
@@ -41,21 +37,13 @@ msgstr "Özellikler"
 #. Generate error message and insert the current command
 #: ../panel-plugin/xfce-mixer-plugin.c:365
 #, c-format
-msgid ""
-"Could not execute the command \"%s\". Ensure that either the location of the "
-"command is included in the PATH environment variable or that you are "
-"providing the full path to the command."
-msgstr ""
+msgid "Could not execute the command \"%s\". Ensure that either the location of the command is included in the PATH environment variable or that you are providing the full path to the command."
+msgstr "\"%s\" komutu başlatılamadı. PATH çevre değişkeninin, verdiğiniz komutun yerleşimini kapsadığınızdan emin olun ya da komutun tam yolunu yazınız."
 
-#: ../panel-plugin/xfce-mixer-plugin.c:398 ../xfce4-mixer/main.c:89
-#, fuzzy
-msgid ""
-"GStreamer was unable to detect any sound devices. Some sound system specific "
-"GStreamer packages may be missing. It may also be a permissions problem."
-msgstr ""
-"GStreamer, sisteminizdeki ses kartını bulmak için uyumlu değil. Belki önemli "
-"bir GStreamer paketini yüklemeyi unutmuş olabilirsiniz ve bu da sorunun "
-"kaynağı olabilir."
+#: ../panel-plugin/xfce-mixer-plugin.c:398
+#: ../xfce4-mixer/main.c:89
+msgid "GStreamer was unable to detect any sound devices. Some sound system specific GStreamer packages may be missing. It may also be a permissions problem."
+msgstr "GStreamer, sisteminizdeki ses kartını bulmak için uyumlu değil. Belki önemli bir GStreamer paketini yüklemeyi unutmuş olabilirsiniz ve bu da sorunun kaynağı olabilir."
 
 #: ../panel-plugin/xfce-plugin-dialog.c:234
 msgid "Mixer Plugin"
@@ -63,7 +51,7 @@ msgstr "Düzenleyici Eklentisi"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:236
 msgid "Configure the mixer track and left-click command"
-msgstr ""
+msgstr "Düzenleyiciyi ve sol tıklama komutunu ayarla"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:248
 msgid "Sound card"
@@ -107,7 +95,8 @@ msgstr "Kabuk Betikleri"
 
 #. Set application name
 #: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:1
-#: ../xfce4-mixer/main.c:60 ../xfce4-mixer/xfce-mixer-window.c:165
+#: ../xfce4-mixer/main.c:60
+#: ../xfce4-mixer/xfce-mixer-window.c:165
 #: ../xfce4-mixer/xfce-mixer-window.c:183
 #: ../xfce4-mixer/xfce-mixer-window.c:284
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
@@ -145,27 +134,20 @@ msgid "Options"
 msgstr "Seçenekler"
 
 #: ../xfce4-mixer/xfce-mixer.c:298
-#, fuzzy
 msgid "No controls visible"
-msgstr "Görünürde Düzenek Yok"
+msgstr "Görünürde düzenek yok"
 
 #: ../xfce4-mixer/xfce-mixer.c:302
-msgid ""
-"No controls are marked as visible. Please open the <span "
-"size='large'><b>Select Controls</b></span> dialog to select some."
-msgstr ""
-"Ayar yapmak için hiç seçilmiş bir düzenek yok. Lütfen <span "
-"size='large'><b>Düzenekleri Seç</b></span> penceresini açın ve "
-"istediklerinizi seçin."
+msgid "No controls are marked as visible. Please open the <span size='large'><b>Select Controls</b></span> dialog to select some."
+msgstr "Ayar yapmak için hiç seçilmiş bir düzenek yok. Lütfen <span size='large'><b>Düzenekleri Seç</b></span> penceresini açın ve istediklerinizi seçin."
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:135
 msgid "Select Controls"
 msgstr "Düzenekleri Seç"
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:137
-#, fuzzy
 msgid "Select which controls should be visible"
-msgstr "Görünen düzenekleri seç"
+msgstr "Görünecek düzenekleri seç"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:84
 msgid "_Quit"
@@ -184,9 +166,8 @@ msgid "Select which controls are displayed"
 msgstr "Görünen düzenekleri seç"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:184
-#, fuzzy
 msgid "Configure sound card(s) and control the volume of selected tracks"
-msgstr "Ses kartınızı ve seçili izlerin ses düzeylerini ayarlayın"
+msgstr "Ses kart(lar)ınızı ve seçili izlerin ses düzeylerini yapılandırın"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:199
 msgid "Sound card:"
@@ -200,9 +181,8 @@ msgstr "Xfce Masaüstü Yöneticisi için ses düzenleyicisi"
 #~ "Could not execute the command %s. Perhaps you need to adjust the PATH "
 #~ "variable."
 #~ msgstr "%s komutu çalıştırılamadı. Komutun dizin yolunu belirtmeyi deneyin."
-
 #~ msgid "Please select which mixer track should be used by the plugin"
 #~ msgstr "Lütfen eklenti tarafından ihtiyaç duyulan düzenleyici izini seçin"
-
 #~ msgid "Please select which controls you want to be visible"
 #~ msgstr "Lütfen görünmesini istediğiniz düzenekleri seçin"
+
