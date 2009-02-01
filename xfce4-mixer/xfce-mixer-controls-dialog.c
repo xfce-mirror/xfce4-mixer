@@ -251,6 +251,7 @@ xfce_mixer_controls_dialog_create_contents (XfceMixerControlsDialog *dialog)
   GtkWidget            *frame;
   GtkWidget            *scrollwin;
   GList                *item;
+  gchar                *label;
   gboolean              visible;
 
   dialog->store = gtk_list_store_new (2, G_TYPE_BOOLEAN, G_TYPE_STRING);
@@ -293,11 +294,15 @@ xfce_mixer_controls_dialog_create_contents (XfceMixerControlsDialog *dialog)
         {
           visible = xfce_mixer_preferences_get_control_visible (preferences, dialog->card, iter->data);
 
+          g_object_get (GST_MIXER_TRACK (iter->data), "label", &label, NULL, NULL);
+
           gtk_list_store_append (dialog->store, &tree_iter);
           gtk_list_store_set (dialog->store, &tree_iter, 
                               VISIBLE_COLUMN, visible, 
-                              NAME_COLUMN, GST_MIXER_TRACK (iter->data)->label, 
+                              NAME_COLUMN, label, 
                               -1);
+
+          g_free (label);
         }
     }
 

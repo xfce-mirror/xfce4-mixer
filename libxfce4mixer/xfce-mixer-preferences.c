@@ -373,11 +373,14 @@ xfce_mixer_preferences_get_control_visible (XfceMixerPreferences *preferences,
   gchar * const *controls;
   const gchar   *card_name;
   gboolean       visible = FALSE;
+  gchar         *label;
   gint           i;
 
   g_return_val_if_fail (IS_XFCE_MIXER_PREFERENCES (preferences), FALSE);
   g_return_val_if_fail (GST_IS_MIXER (card), FALSE);
   g_return_val_if_fail (GST_IS_MIXER_TRACK (track), FALSE);
+
+  g_object_get (track, "label", &label, NULL);
 
   card_name = xfce_mixer_get_card_internal_name (card);
   controls = g_hash_table_lookup (preferences->controls, card_name);
@@ -385,12 +388,14 @@ xfce_mixer_preferences_get_control_visible (XfceMixerPreferences *preferences,
   if (G_LIKELY (controls != NULL))
     {
       for (i = 0; controls != NULL && controls[i] != NULL; ++i)
-        if (g_utf8_collate (controls[i], track->label) == 0)
+        if (g_utf8_collate (controls[i], label) == 0)
           {
             visible = TRUE;
             break;
           }
     }
+
+  g_free (label);
 
   return visible;
 }

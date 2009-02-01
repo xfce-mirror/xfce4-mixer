@@ -164,13 +164,16 @@ xfce_mixer_option_create_contents (XfceMixerOption *option)
   GtkWidget       *label;
   const GList     *iter;
   const gchar     *active_option;
+  gchar           *track_label;
   gchar           *title;
   gint             i;
 
   gtk_box_set_homogeneous (GTK_BOX (option), FALSE);
   gtk_box_set_spacing (GTK_BOX (option), 12);
 
-  title = g_strdup_printf ("%s:", option->track->label);
+  g_object_get (option->track, "label", &track_label, NULL);
+  title = g_strdup_printf ("%s:", track_label);
+  g_free (track_label);
 
   label = gtk_label_new (title);
   gtk_box_pack_start (GTK_BOX (option), label, FALSE, FALSE, 0);

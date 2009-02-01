@@ -185,6 +185,7 @@ xfce_mixer_track_create_contents (XfceMixerTrack *track)
   GtkWidget   *button_box;
   GtkWidget   *fader;
   gdouble      step;
+  gchar       *track_label;
   gint         channel;
   gint         columns;
   gint        *volumes;
@@ -200,7 +201,9 @@ xfce_mixer_track_create_contents (XfceMixerTrack *track)
   gtk_table_set_col_spacings (GTK_TABLE (track), 6);
 
   /* Put the name of the track on top of the other elements */
-  label = gtk_label_new (track->gst_track->label);
+  g_object_get (track->gst_track, "label", &track_label, NULL);
+  label = gtk_label_new (track_label);
+  g_free (track_label);
   gtk_misc_set_alignment (GTK_MISC (label), 0.5f, 0.5f);
   gtk_table_attach (GTK_TABLE (track), label, 0, columns, 0, 1, GTK_FILL, GTK_SHRINK, 0, 0);
   gtk_widget_show (label);

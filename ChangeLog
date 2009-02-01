@@ -1,3 +1,15 @@
+2009-02-01	Jannis Pohlmann <jannis@xfce.org>
+
+	* libxfce4mixer/libxfce4mixer.c,
+	  libxfce4mixer/xfce-mixer-preferences.c,
+	  libxfce4mixer/xfce-mixer-track-combo.c,
+	  xfce4-mixer/xfce-mixer-controls-dialog.c,
+	  xfce4-mixer/xfce-mixer-option.c, xfce4-mixer/xfce-mixer-switch.c,
+	  xfce4-mixer/xfce-mixer-track.c, xfce4-mixer/xfce-mixer.c: Don't read
+	  track labels from the 'label' member of the GstMixerTrack struct. 
+	  Instead, use the 'label' property. The struct member is undocumented
+	  and may not work with all backends.
+
 2009-01-25	Jannis Pohlmann <jannis@xfce.org>
 
 	* == 4.5.99.1 released! ==

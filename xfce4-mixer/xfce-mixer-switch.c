@@ -160,10 +160,14 @@ xfce_mixer_switch_new (GstElement    *card,
 static void
 xfce_mixer_switch_create_contents (XfceMixerSwitch *mixer_switch)
 {
+  gchar *label;
+
   gtk_box_set_homogeneous (GTK_BOX (mixer_switch), FALSE);
   gtk_box_set_spacing (GTK_BOX (mixer_switch), 12);
 
-  mixer_switch->check_button = gtk_check_button_new_with_mnemonic (mixer_switch->track->label);
+  g_object_get (mixer_switch->track, "label", &label, NULL);
+  mixer_switch->check_button = gtk_check_button_new_with_mnemonic (label);
+  g_free (label);
   gtk_box_pack_start (GTK_BOX (mixer_switch), mixer_switch->check_button, FALSE, FALSE, 0);
   gtk_widget_show (mixer_switch->check_button);
 

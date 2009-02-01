@@ -164,16 +164,24 @@ xfce_mixer_get_track (GstElement  *card,
 {
   GstMixerTrack *track = NULL;
   const GList   *iter;
+  gchar         *label;
 
   g_return_val_if_fail (GST_IS_MIXER (card), NULL);
   g_return_val_if_fail (track_name != NULL, NULL);
 
   for (iter = gst_mixer_list_tracks (GST_MIXER (card)); iter != NULL; iter = g_list_next (iter))
-    if (g_utf8_collate (GST_MIXER_TRACK (iter->data)->label, track_name) == 0)
-      {
-        track = iter->data;
-        break;
-      }
+    {
+      g_object_get (GST_MIXER_TRACK (iter->data), "label", &label, NULL);
+
+      if (g_utf8_collate (label, track_name) == 0)
+        {
+          track = iter->data;
+          g_free (label);
+          break;
+        }
+      
+      g_free (label);
+    }
 
   return track;
 }
