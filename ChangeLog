@@ -1,3 +1,16 @@
+2009-02-03	Jannis Pohlmann <jannis@xfce.org>
+
+	* panel-plugin/xfce-mixer-plugin.c: Use the GstMixerTrack "label"
+	  property instead of the struct member to access the name of a track.
+	  Toggle record for capture tracks instead of trying to mute them.
+	  Capture tracks don't support muting (bug #4777).
+	* xfce4-mixer/xfce-mixer-track.c: Don't show the mute button for 
+	  capture tracks (follow up of bug #4777). 
+	* xfce4-mixer/xfce-mixer.c: Use the "label" property everywhere. I 
+	  missed a few appearances of the struct member in the previous commit.
+	  Copy track labels for the hash table keys. The previous commit b0rked
+	  this (follow up of bug #4521).
+
 2009-02-01	Jannis Pohlmann <jannis@xfce.org>
 
 	* libxfce4mixer/libxfce4mixer.c,

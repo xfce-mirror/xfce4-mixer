@@ -229,13 +229,16 @@ xfce_mixer_track_create_contents (XfceMixerTrack *track)
   gtk_table_attach (GTK_TABLE (track), button_box, 0, columns, 2, 3, GTK_FILL, GTK_SHRINK, 0, 0);
   gtk_widget_show (button_box);
 
-  /* Create the control buttons. Depending on the type (playback/capture) these may differ */
-  track->mute_button = gtk_toggle_button_new ();
-  image = gtk_image_new_from_icon_name ("xfce4-mixer-no-muted", XFCE_MIXER_ICON_SIZE); 
-  gtk_button_set_image (GTK_BUTTON (track->mute_button), image);
-  g_signal_connect (track->mute_button, "toggled", G_CALLBACK (xfce_mixer_track_mute_toggled), track);
-  gtk_box_pack_start (GTK_BOX (button_box), track->mute_button, FALSE, FALSE, 0);
-  gtk_widget_show (track->mute_button);
+  /* Create mute button for playback tracks */
+  if (G_LIKELY (xfce_mixer_track_type_new (track->gst_track) == XFCE_MIXER_TRACK_TYPE_PLAYBACK))
+    {
+      track->mute_button = gtk_toggle_button_new ();
+      image = gtk_image_new_from_icon_name ("xfce4-mixer-no-muted", XFCE_MIXER_ICON_SIZE); 
+      gtk_button_set_image (GTK_BUTTON (track->mute_button), image);
+      g_signal_connect (track->mute_button, "toggled", G_CALLBACK (xfce_mixer_track_mute_toggled), track);
+      gtk_box_pack_start (GTK_BOX (button_box), track->mute_button, FALSE, FALSE, 0);
+      gtk_widget_show (track->mute_button);
+    }
 
   if (G_LIKELY (track->gst_track->num_channels >= 2))
     {
@@ -248,6 +251,7 @@ xfce_mixer_track_create_contents (XfceMixerTrack *track)
       gtk_widget_show (track->lock_button);
     }
 
+  /* Create record button for capture tracks */
   if (G_UNLIKELY (xfce_mixer_track_type_new (track->gst_track) == XFCE_MIXER_TRACK_TYPE_CAPTURE))
     {
       track->record_button = gtk_toggle_button_new ();
@@ -419,6 +423,9 @@ xfce_mixer_track_update_mute (XfceMixerTrack *track)
   gboolean muted;
 
   g_return_if_fail (IS_XFCE_MIXER_TRACK (track));
+
+  if (G_UNLIKELY (xfce_mixer_track_type_new (track->gst_track) == XFCE_MIXER_TRACK_TYPE_CAPTURE))
+    return;
 
   muted = GST_MIXER_TRACK_HAS_FLAG (track->gst_track, GST_MIXER_TRACK_MUTE);
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (track->mute_button), muted);
