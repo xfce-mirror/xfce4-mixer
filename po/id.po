@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xfce4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-01-11 00:59+0100\n"
-"PO-Revision-Date: 2008-10-11 19:49+0700\n"
+"PO-Revision-Date: 2009-01-27 22:24+0700\n"
 "Last-Translator: Andhika Padmawan <andhika.padmawan@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -27,12 +27,8 @@ msgid "No left-click command defined"
 msgstr "Tak ada perintah klik-kiri yang ditentukan"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:349
-msgid ""
-"No left-click command defined yet. You can change this in the plugin "
-"properties."
-msgstr ""
-"Tak ada perintah klik-kiri yang ditentukan. Anda dapat mengubah ini di "
-"properti plugin."
+msgid "No left-click command defined yet. You can change this in the plugin properties."
+msgstr "Tak ada perintah klik-kiri yang ditentukan. Anda dapat mengubah ini di properti plugin."
 
 #: ../panel-plugin/xfce-mixer-plugin.c:350
 msgid "Properties"
@@ -41,21 +37,13 @@ msgstr "Properti"
 #. Generate error message and insert the current command
 #: ../panel-plugin/xfce-mixer-plugin.c:365
 #, c-format
-msgid ""
-"Could not execute the command \"%s\". Ensure that either the location of the "
-"command is included in the PATH environment variable or that you are "
-"providing the full path to the command."
-msgstr ""
+msgid "Could not execute the command \"%s\". Ensure that either the location of the command is included in the PATH environment variable or that you are providing the full path to the command."
+msgstr "Tak dapat mengeksekusi perintah \"%s\". Pastikan bahwa lokasi perintah ikut disertakan dalam variabel lingkungan ALAMAT atau anda menyediakan alamat penuh ke perintah."
 
-#: ../panel-plugin/xfce-mixer-plugin.c:398 ../xfce4-mixer/main.c:89
-#, fuzzy
-msgid ""
-"GStreamer was unable to detect any sound devices. Some sound system specific "
-"GStreamer packages may be missing. It may also be a permissions problem."
-msgstr ""
-"GStreamer tak dapat mendeteksi kartu suara apapun di sistem anda. Anda "
-"mungkin kehilangan paket sistem suara spesifik GStreamer. Mungkin juga "
-"masalah hak akses."
+#: ../panel-plugin/xfce-mixer-plugin.c:398
+#: ../xfce4-mixer/main.c:89
+msgid "GStreamer was unable to detect any sound devices. Some sound system specific GStreamer packages may be missing. It may also be a permissions problem."
+msgstr "GStreamer tak dapat mendeteksi kartu suara apapun. Beberapa sistem suara spesifik GStreamer mungkin hilang. Atau mungkin juga masalah hak akses."
 
 #: ../panel-plugin/xfce-plugin-dialog.c:234
 msgid "Mixer Plugin"
@@ -63,7 +51,7 @@ msgstr "Plugin Mixer"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:236
 msgid "Configure the mixer track and left-click command"
-msgstr ""
+msgstr "Atur jalur mixer dan perintah klik-kiri"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:248
 msgid "Sound card"
@@ -107,7 +95,8 @@ msgstr "Skrip Shell"
 
 #. Set application name
 #: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:1
-#: ../xfce4-mixer/main.c:60 ../xfce4-mixer/xfce-mixer-window.c:165
+#: ../xfce4-mixer/main.c:60
+#: ../xfce4-mixer/xfce-mixer-window.c:165
 #: ../xfce4-mixer/xfce-mixer-window.c:183
 #: ../xfce4-mixer/xfce-mixer-window.c:284
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
@@ -145,26 +134,20 @@ msgid "Options"
 msgstr "Opsi"
 
 #: ../xfce4-mixer/xfce-mixer.c:298
-#, fuzzy
 msgid "No controls visible"
-msgstr "Tak Ada Kontrol Terlihat"
+msgstr "Tak ada kontrol tampak"
 
 #: ../xfce4-mixer/xfce-mixer.c:302
-msgid ""
-"No controls are marked as visible. Please open the <span "
-"size='large'><b>Select Controls</b></span> dialog to select some."
-msgstr ""
-"Tak ada kontrol yang ditandai sebagai terlihat. Silakan buka dialog <span "
-"size='large'><b>Pilih Kontrol</b></span> untuk memilih."
+msgid "No controls are marked as visible. Please open the <span size='large'><b>Select Controls</b></span> dialog to select some."
+msgstr "Tak ada kontrol yang ditandai sebagai terlihat. Silakan buka dialog <span size='large'><b>Pilih Kontrol</b></span> untuk memilih."
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:135
 msgid "Select Controls"
 msgstr "Pilih Kontrol"
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:137
-#, fuzzy
 msgid "Select which controls should be visible"
-msgstr "Pilih kontrol mana yang ditampilkan"
+msgstr "Pilih kontrol mana yang harus tampak"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:84
 msgid "_Quit"
@@ -183,9 +166,8 @@ msgid "Select which controls are displayed"
 msgstr "Pilih kontrol mana yang ditampilkan"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:184
-#, fuzzy
 msgid "Configure sound card(s) and control the volume of selected tracks"
-msgstr "Mengatur kartu suara anda dan mengendalikan volume jalur terpilih"
+msgstr "Atur kartu suara anda dan kendalikan volume jalur terpilih"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:199
 msgid "Sound card:"
@@ -201,18 +183,14 @@ msgstr "Mixer audio untuk Lingkungan Destop Xfce"
 #~ msgstr ""
 #~ "Tak dapat mengeksekusi perintah %s. Mungkin anda perlu menyesuaikan "
 #~ "variabel PATH."
-
 #~ msgid "Please select which mixer track should be used by the plugin"
 #~ msgstr "Silakan pilih jalur mixer mana yang harus digunakan oleh plugin"
-
 #~ msgid "Please select which controls you want to be visible"
 #~ msgstr "Silakan pilih kontrol mana yang anda inginkan untuk terlihat"
-
 #~ msgid "A comfortable audio mixer for your sound card."
 #~ msgstr "Mixer audio yang nyaman untuk kartu suara anda."
-
 #~ msgid "Xfce Mixer"
 #~ msgstr "Mixer Xfce"
-
 #~ msgid "Could not find xfce4-mixer in PATH."
 #~ msgstr "Tak dapat menemukan xfce4-mixer dalam ALAMAT"
+

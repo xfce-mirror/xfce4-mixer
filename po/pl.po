@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: xfce4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-01-11 00:59+0100\n"
-"PO-Revision-Date: 2007-01-20 23:10+0200\n"
-"Last-Translator: Piotr Maliński <riklaunim@gmail.com>\n"
+"PO-Revision-Date: 2009-02-03 12:07+0100\n"
+"Last-Translator: Piotr Sokół <piotr.sokol@10g.pl>\n"
 "Language-Team: Polish <xfce-i18n@xfce.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,36 +24,30 @@ msgstr "%s: %i%%"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:346
 msgid "No left-click command defined"
-msgstr ""
+msgstr "Nie zdefiniowano polecenia lewego klawisza myszy"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:349
-msgid ""
-"No left-click command defined yet. You can change this in the plugin "
-"properties."
-msgstr ""
+msgid "No left-click command defined yet. You can change this in the plugin properties."
+msgstr "Nie skonfigurowano jeszcze polecenia lewego klawisza myszy. Można to zrobić w oknie preferencji elementu."
 
 #: ../panel-plugin/xfce-mixer-plugin.c:350
 msgid "Properties"
-msgstr ""
+msgstr "Właściwości"
 
 #. Generate error message and insert the current command
 #: ../panel-plugin/xfce-mixer-plugin.c:365
 #, c-format
-msgid ""
-"Could not execute the command \"%s\". Ensure that either the location of the "
-"command is included in the PATH environment variable or that you are "
-"providing the full path to the command."
-msgstr ""
+msgid "Could not execute the command \"%s\". Ensure that either the location of the command is included in the PATH environment variable or that you are providing the full path to the command."
+msgstr "Nie można wykonać polecenia „%s”. Proszę upewnić się czy wprowadzono pełną ścieżkę do programu lub czy położenie programu uwzględniono w zmiennej systemowej PATH."
 
-#: ../panel-plugin/xfce-mixer-plugin.c:398 ../xfce4-mixer/main.c:89
-msgid ""
-"GStreamer was unable to detect any sound devices. Some sound system specific "
-"GStreamer packages may be missing. It may also be a permissions problem."
-msgstr ""
+#: ../panel-plugin/xfce-mixer-plugin.c:398
+#: ../xfce4-mixer/main.c:89
+msgid "GStreamer was unable to detect any sound devices. Some sound system specific GStreamer packages may be missing. It may also be a permissions problem."
+msgstr "GStreamer nie odnalazł żadnego urządzenia muzycznego. Możliwe, że brakuje niektórych pakietów systemu dźwiękowego GStreamer lub istnieje problem z prawami dostępu."
 
 #: ../panel-plugin/xfce-plugin-dialog.c:234
 msgid "Mixer Plugin"
-msgstr "Wtyczka Miksera"
+msgstr "Wtyczka miksera dźwięku"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:236
 msgid "Configure the mixer track and left-click command"
@@ -69,67 +63,67 @@ msgstr "Ścieżka miksera"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:284
 msgid "Left-click command"
-msgstr ""
+msgstr "Polecenie lewego klawisza myszy"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:322
-#, fuzzy
 msgid "Select command"
-msgstr "Wybierz Kontrolki"
+msgstr "Wybór kontrolek"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:330
 msgid "All Files"
-msgstr ""
+msgstr "Wszystkie pliki"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:335
 msgid "Executable Files"
-msgstr ""
+msgstr "Pliki wykonywalne"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:350
 msgid "Perl Scripts"
-msgstr ""
+msgstr "Skrypty Perl"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:356
 msgid "Python Scripts"
-msgstr ""
+msgstr "Skrypty Python"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:362
 msgid "Ruby Scripts"
-msgstr ""
+msgstr "Skrypty Ruby"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:368
 msgid "Shell Scripts"
-msgstr ""
+msgstr "Skrypty powłoki"
 
 #. Set application name
 #: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:1
-#: ../xfce4-mixer/main.c:60 ../xfce4-mixer/xfce-mixer-window.c:165
+#: ../xfce4-mixer/main.c:60
+#: ../xfce4-mixer/xfce-mixer-window.c:165
 #: ../xfce4-mixer/xfce-mixer-window.c:183
 #: ../xfce4-mixer/xfce-mixer-window.c:284
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
 msgid "Mixer"
-msgstr "Miksera"
+msgstr "Mikser dźwięku"
 
 #: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:2
 msgid "Volume control for your sound card"
-msgstr "Kontrola głośności dla twojej karty dźwiękowej"
+msgstr "Konfiguruje głośność kart dźwiękowych"
 
 #: ../libxfce4mixer/libxfce4mixer.c:243
 #, c-format
 msgid "Unknown Volume Control %d"
-msgstr "Nieznana Kontrola Głośności %d"
+msgstr "Nieznana kontrola głośności %d"
 
 #: ../xfce4-mixer/main.c:70
 #, c-format
 msgid "Failed to initialize xfconf: %s"
-msgstr ""
+msgstr "Nie udało się zainicjować xfconf: %s"
 
 #: ../xfce4-mixer/xfce-mixer.c:164
 msgid "Playback"
-msgstr "Playback"
+msgstr "Odtwarzanie"
 
 #: ../xfce4-mixer/xfce-mixer.c:164
 msgid "Capture"
-msgstr "Przechwycenie"
+msgstr "Przechwytywanie"
 
 #: ../xfce4-mixer/xfce-mixer.c:164
 msgid "Switches"
@@ -140,47 +134,40 @@ msgid "Options"
 msgstr "Opcje"
 
 #: ../xfce4-mixer/xfce-mixer.c:298
-#, fuzzy
 msgid "No controls visible"
-msgstr "Brak Kontrolek"
+msgstr "Brak widocznych kontrolek"
 
 #: ../xfce4-mixer/xfce-mixer.c:302
-msgid ""
-"No controls are marked as visible. Please open the <span "
-"size='large'><b>Select Controls</b></span> dialog to select some."
-msgstr ""
-"Brak widocznych kontrolek. Otwórz <span size='large'><b>Wybierz Kontrolki</"
-"b></span> i wybierz jakieś."
+msgid "No controls are marked as visible. Please open the <span size='large'><b>Select Controls</b></span> dialog to select some."
+msgstr "Brak widocznych kontrolek. Proszę otworzyć okno konfiguracyjne klikając przycisk <span size='large'><b>Wybierz kontrolki...</b></span>."
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:135
 msgid "Select Controls"
-msgstr "Wybierz Kontrolki"
+msgstr "Wybór kontrolek"
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:137
-#, fuzzy
 msgid "Select which controls should be visible"
-msgstr "Wybierz kontrolki, które mają być widoczne"
+msgstr "Proszę wybrać kontrolki, które mają być widoczne"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:84
 msgid "_Quit"
-msgstr "_Wyjdź"
+msgstr "Za_kończ"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:84
-#, fuzzy
 msgid "Exit the mixer"
-msgstr "Zamyka Mikser Xfce"
+msgstr "Kończy działanie programu"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:86
 msgid "_Select Controls..."
-msgstr "_Wybierz Kontrolki..."
+msgstr "_Wybierz kontrolki..."
 
 #: ../xfce4-mixer/xfce-mixer-window.c:86
 msgid "Select which controls are displayed"
-msgstr "Wybierz kontrolki, które mają być widoczne"
+msgstr "Proszę wybrać kontrolki, które mają być widoczne"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:184
 msgid "Configure sound card(s) and control the volume of selected tracks"
-msgstr ""
+msgstr "Konfiguruje karty dźwiękowe i ich głośność"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:199
 msgid "Sound card:"
@@ -188,19 +175,16 @@ msgstr "Karta dźwiękowa:"
 
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:1
 msgid "Audio mixer for the Xfce Desktop Environment"
-msgstr "Mikser Audio dla Xfce"
+msgstr "Mikser dźwięku dla środowiska Xfce"
 
 #~ msgid "Please select which mixer track should be used by the plugin"
 #~ msgstr "Wybierz ścieżkę miksera, z której korzystać ma ta wtyczka"
-
 #~ msgid "Please select which controls you want to be visible"
 #~ msgstr "Wybierz kontrolki, które mają być widoczne"
-
 #~ msgid "A comfortable audio mixer for your sound card."
 #~ msgstr "Mikser audio dla twojej karty dźwiękowej"
-
 #~ msgid "Xfce Mixer"
 #~ msgstr "Mikser Xfce"
-
 #~ msgid "Could not find xfce4-mixer in PATH."
 #~ msgstr "Nie można znaleźć xfce4-mixera w ścieżce."
+
