@@ -191,6 +191,7 @@ xfce_mixer_constructed (GObject *object)
         {
           views[i] = gtk_table_new (1, 1, FALSE);
           gtk_table_set_col_spacings (GTK_TABLE (views[i]), 12);
+          gtk_table_set_row_spacings (GTK_TABLE (views[i]), 6);
         }
       else
         views[i] = gtk_vbox_new (FALSE, 6);

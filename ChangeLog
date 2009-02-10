@@ -1,3 +1,12 @@
+2009-02-10	Jannis Pohlmann <jannis@xfce.org>
+
+	* TODO: Remove a few things from the TODO list.
+	* configure.in.in: Add the svn version tag back again.
+	* xfce4-mixer/xfce-mixer.c, xfce4-mixer/xfce-mixer-track.c: Minor
+	  cosmetic fixes (row spacing of 6px in tables).
+	* xfce4-mixer/xfce-mixer-window.c: Make <Control>q and <Control>s
+	  trigger the corresponding actions.
+
 2009-02-03	Jannis Pohlmann <jannis@xfce.org>
 
 	* panel-plugin/xfce-mixer-plugin.c: Use the GstMixerTrack "label"

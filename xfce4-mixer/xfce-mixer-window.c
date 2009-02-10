@@ -81,9 +81,9 @@ struct _XfceMixerWindow
 
 static const GtkActionEntry action_entries[] = 
 {
-  { "quit", GTK_STOCK_QUIT, N_ ("_Quit"), "<control>Q", N_ ("Exit the mixer"), 
+  { "quit", GTK_STOCK_QUIT, N_ ("_Quit"), "<Control>q", N_ ("Exit the mixer"), 
     G_CALLBACK (xfce_mixer_window_close) },
-  { "select-controls", NULL, N_ ("_Select Controls..."), "<control>S", N_ ("Select which controls are displayed"), 
+  { "select-controls", NULL, N_ ("_Select Controls..."), "<Control>s", N_ ("Select which controls are displayed"), 
     G_CALLBACK (xfce_mixer_window_action_select_controls) },
 };
 
@@ -144,17 +144,20 @@ xfce_mixer_window_class_init (XfceMixerWindowClass *klass)
 static void
 xfce_mixer_window_init (XfceMixerWindow *window)
 {
-  GtkWidget       *heading;
-  GtkWidget       *separator;
-  GtkWidget       *label;
-  GtkWidget       *button;
-  GtkWidget       *vbox;
-  GtkWidget       *hbox;
-  GtkWidget       *bbox;
-  gchar           *active_card = NULL;
-  gchar           *title;
-  gint             width;
-  gint             height;
+  GtkAccelGroup *accel_group;
+  GtkAction     *action;
+  GtkWidget     *heading;
+  GtkWidget     *separator;
+  GtkWidget     *label;
+  GtkWidget     *button;
+  GtkWidget     *vbox;
+  GtkWidget     *hbox;
+  GtkWidget     *bbox;
+  gchar         *active_card = NULL;
+  gchar         *title;
+  gint           width;
+  gint           height;
+  gint           i;
 
   window->preferences = xfce_mixer_preferences_get ();
 
@@ -174,6 +177,17 @@ xfce_mixer_window_init (XfceMixerWindow *window)
   window->action_group = gtk_action_group_new ("XfceMixerWindow");
   gtk_action_group_set_translation_domain (window->action_group, GETTEXT_PACKAGE);
   gtk_action_group_add_actions (window->action_group, action_entries, G_N_ELEMENTS (action_entries), GTK_WIDGET (window));
+
+  /* Install action accelerators for the mixer window */
+  accel_group = gtk_accel_group_new ();
+  for (i = 0; i < G_N_ELEMENTS (action_entries); ++i)
+    {
+      action = gtk_action_group_get_action (window->action_group, action_entries[i].name);
+      gtk_action_set_accel_group (action, accel_group);
+      gtk_action_connect_accelerator (action);
+      gtk_action_set_sensitive (action, TRUE);
+    }
+  gtk_window_add_accel_group (GTK_WINDOW (window), accel_group);
 
   vbox = gtk_vbox_new (FALSE, 0);
   gtk_container_add (GTK_CONTAINER (window), vbox);

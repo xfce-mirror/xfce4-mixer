@@ -199,6 +199,7 @@ xfce_mixer_track_create_contents (XfceMixerTrack *track)
 
   /* Put some space between channel faders */
   gtk_table_set_col_spacings (GTK_TABLE (track), 6);
+  gtk_table_set_row_spacings (GTK_TABLE (track), 6);
 
   /* Put the name of the track on top of the other elements */
   g_object_get (track->gst_track, "label", &track_label, NULL);
