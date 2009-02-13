@@ -8,4 +8,4 @@ Exec=xfce4-mixer
 Type=Application
 StartupNotify=true
 Terminal=false
-Categories=X-XFCE;Audio;Mixer;
+Categories=X-XFCE;Audio;Mixer;AudioVideo;
