@@ -1,7 +1,8 @@
 2009-02-13	Jannis Pohlmann <jannis@xfce.org>
 
 	* xfce4-mixer/xfce4-mixer.desktop.in.in: Add missing AudioVideo
-	  category which is obligatory if you use the Audio category.
+	  category which is obligatory if you use the Audio category (bug
+	  #4933).
 
 2009-02-10	Jannis Pohlmann <jannis@xfce.org>
 
