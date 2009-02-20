@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: xfce4-mixer 4.4.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-01-11 00:59+0100\n"
-"PO-Revision-Date: 2008-12-14 15:30+0100\n"
+"PO-Revision-Date: 2009-02-11 17:31+0100\n"
 "Last-Translator: Leandro Regueiro <leandro DOT regueiro AT gmail DOT com>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
 "MIME-Version: 1.0\n"
@@ -32,9 +32,7 @@ msgid "No left-click command defined"
 msgstr ""
 
 #: ../panel-plugin/xfce-mixer-plugin.c:349
-msgid ""
-"No left-click command defined yet. You can change this in the plugin "
-"properties."
+msgid "No left-click command defined yet. You can change this in the plugin properties."
 msgstr ""
 
 #: ../panel-plugin/xfce-mixer-plugin.c:350
@@ -44,21 +42,18 @@ msgstr "Propiedades"
 #. Generate error message and insert the current command
 #: ../panel-plugin/xfce-mixer-plugin.c:365
 #, c-format
-msgid ""
-"Could not execute the command \"%s\". Ensure that either the location of the "
-"command is included in the PATH environment variable or that you are "
-"providing the full path to the command."
+msgid "Could not execute the command \"%s\". Ensure that either the location of the command is included in the PATH environment variable or that you are providing the full path to the command."
 msgstr ""
 
-#: ../panel-plugin/xfce-mixer-plugin.c:398 ../xfce4-mixer/main.c:89
-msgid ""
-"GStreamer was unable to detect any sound devices. Some sound system specific "
-"GStreamer packages may be missing. It may also be a permissions problem."
+#: ../panel-plugin/xfce-mixer-plugin.c:398
+#: ../xfce4-mixer/main.c:89
+msgid "GStreamer was unable to detect any sound devices. Some sound system specific GStreamer packages may be missing. It may also be a permissions problem."
 msgstr ""
 
 #: ../panel-plugin/xfce-plugin-dialog.c:234
+#, fuzzy
 msgid "Mixer Plugin"
-msgstr ""
+msgstr "Mesturador de canles"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:236
 msgid "Configure the mixer track and left-click command"
@@ -69,12 +64,14 @@ msgid "Sound card"
 msgstr "Tarxeta de son"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:266
+#, fuzzy
 msgid "Mixer track"
-msgstr ""
+msgstr "Mesturador de canles"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:284
+#, fuzzy
 msgid "Left-click command"
-msgstr ""
+msgstr "Opcións de Liña de Comandos"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:322
 msgid "Select command"
@@ -106,7 +103,8 @@ msgstr "Scripts de Shell"
 
 #. Set application name
 #: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:1
-#: ../xfce4-mixer/main.c:60 ../xfce4-mixer/xfce-mixer-window.c:165
+#: ../xfce4-mixer/main.c:60
+#: ../xfce4-mixer/xfce-mixer-window.c:165
 #: ../xfce4-mixer/xfce-mixer-window.c:183
 #: ../xfce4-mixer/xfce-mixer-window.c:284
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
@@ -118,9 +116,9 @@ msgid "Volume control for your sound card"
 msgstr "Control de volume para a tarxeta de son"
 
 #: ../libxfce4mixer/libxfce4mixer.c:243
-#, c-format
+#, fuzzy, c-format
 msgid "Unknown Volume Control %d"
-msgstr ""
+msgstr "Amosar os puntos de control"
 
 #: ../xfce4-mixer/main.c:70
 #, c-format
@@ -128,8 +126,9 @@ msgid "Failed to initialize xfconf: %s"
 msgstr "Fallo ó iniciar xfconf: %s"
 
 #: ../xfce4-mixer/xfce-mixer.c:164
+#, fuzzy
 msgid "Playback"
-msgstr ""
+msgstr "_Reproducir..."
 
 #: ../xfce4-mixer/xfce-mixer.c:164
 msgid "Capture"
@@ -144,13 +143,12 @@ msgid "Options"
 msgstr "Opcións"
 
 #: ../xfce4-mixer/xfce-mixer.c:298
+#, fuzzy
 msgid "No controls visible"
-msgstr ""
+msgstr "Copiar _visible con nome..."
 
 #: ../xfce4-mixer/xfce-mixer.c:302
-msgid ""
-"No controls are marked as visible. Please open the <span "
-"size='large'><b>Select Controls</b></span> dialog to select some."
+msgid "No controls are marked as visible. Please open the <span size='large'><b>Select Controls</b></span> dialog to select some."
 msgstr ""
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:135
@@ -196,9 +194,8 @@ msgstr "Mesturador de audio do ambiente de escritorio Xfce"
 #~ msgstr ""
 #~ "Non se puido executar o comando %s. Quizais teña que axustar a variable "
 #~ "PATH."
-
 #~ msgid "Please select which controls you want to be visible"
 #~ msgstr "Seleccione que controis desexa que estean visibles"
-
 #~ msgid "Could not find xfce4-mixer in PATH."
 #~ msgstr "Non se puido atopar xfce4-mixer no PATH."
+
