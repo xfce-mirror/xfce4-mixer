@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Piotr Sokół <piotr.sokol@10g.pl>, 2009.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-01-11 00:59+0100\n"
-"PO-Revision-Date: 2009-02-03 12:07+0100\n"
+"PO-Revision-Date: 2009-02-24 19:24+0100\n"
 "Last-Translator: Piotr Sokół <piotr.sokol@10g.pl>\n"
 "Language-Team: Polish <xfce-i18n@xfce.org>\n"
 "MIME-Version: 1.0\n"
@@ -135,19 +135,19 @@ msgstr "Opcje"
 
 #: ../xfce4-mixer/xfce-mixer.c:298
 msgid "No controls visible"
-msgstr "Brak widocznych kontrolek"
+msgstr "Brak widocznych elementów sterujących"
 
 #: ../xfce4-mixer/xfce-mixer.c:302
 msgid "No controls are marked as visible. Please open the <span size='large'><b>Select Controls</b></span> dialog to select some."
-msgstr "Brak widocznych kontrolek. Proszę otworzyć okno konfiguracyjne klikając przycisk <span size='large'><b>Wybierz kontrolki...</b></span>."
+msgstr "Brak widocznych elementów sterujących. Proszę otworzyć okno konfiguracyjne klikając przycisk „<b>Wybierz elementy sterujące...</b>”."
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:135
 msgid "Select Controls"
-msgstr "Wybór kontrolek"
+msgstr "Wybór elementów sterujących"
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:137
 msgid "Select which controls should be visible"
-msgstr "Proszę wybrać kontrolki, które mają być widoczne"
+msgstr "Wybiera widoczne elementy sterujące"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:84
 msgid "_Quit"
@@ -159,7 +159,7 @@ msgstr "Kończy działanie programu"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:86
 msgid "_Select Controls..."
-msgstr "_Wybierz kontrolki..."
+msgstr "_Wybierz elementy sterujące..."
 
 #: ../xfce4-mixer/xfce-mixer-window.c:86
 msgid "Select which controls are displayed"
