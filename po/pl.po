@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xfce4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-01-11 00:59+0100\n"
-"PO-Revision-Date: 2009-02-25 21:44+0100\n"
+"PO-Revision-Date: 2009-03-29 15:12+0100\n"
 "Last-Translator: Piotr Sokół <piotr.sokol@10g.pl>\n"
 "Language-Team: Polish <xfce-i18n@xfce.org>\n"
 "MIME-Version: 1.0\n"
@@ -51,7 +51,7 @@ msgstr "Mikser dźwięku"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:236
 msgid "Configure the mixer track and left-click command"
-msgstr "Konfiguruje wtyczkę miksera dźwięku"
+msgstr "Konfiguruje ustawienia wtyczki miksera dźwięku"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:248
 msgid "Sound card"
@@ -143,7 +143,7 @@ msgstr "Brak widocznych elementów sterujących. Proszę otworzyć okno konfigur
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:135
 msgid "Select Controls"
-msgstr "Wybór elementów sterujących"
+msgstr "Elementy sterujące"
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:137
 msgid "Select which controls should be visible"
