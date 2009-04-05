@@ -1,3 +1,13 @@
+2009-04-05	Jannis Pohlmann <jannis@xfce.org>
+
+	* panel-plugin/xfce-mixer-plugin.c: Display mute/record state properly
+	  on startup (bug #5002). Fix segfault when destroying the plugin
+	  (thanks to Cody Somerville for hunting this one down) (bug #4948).
+	* xfce4-mixer/xfce-mixer-track.c: Move capture track check into
+	  xfce_mixer_track_update_record().
+	* xfce4-mixer/xfce-mixer.c: Don't increment the reference count on
+	  GObjects when passing them to GValue using g_value_set_object().
+
 2009-02-13	Jannis Pohlmann <jannis@xfce.org>
 
 	* xfce4-mixer/xfce4-mixer.desktop.in.in: Add missing AudioVideo

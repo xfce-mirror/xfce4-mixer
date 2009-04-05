@@ -86,8 +86,8 @@ struct _XfceMixerPlugin
 /* Function prototypes */
 static void             xfce_mixer_plugin_construct         (XfcePanelPlugin  *plugin);
 static XfceMixerPlugin *xfce_mixer_plugin_new               (XfcePanelPlugin  *plugin);
-static void             xfce_mixer_plugin_free              (XfcePanelPlugin  *plugin,
-                                                             XfceMixerPlugin  *mixer_plugin);
+static void             xfce_mixer_plugin_free              (XfceMixerPlugin  *mixer_plugin,
+                                                             XfcePanelPlugin  *plugin);
 static gboolean         xfce_mixer_plugin_size_changed      (XfceMixerPlugin  *mixer_plugin,
                                                              gint              size);
 static void             xfce_mixer_plugin_volume_changed    (XfceMixerPlugin  *mixer_plugin,
@@ -167,8 +167,8 @@ xfce_mixer_plugin_new (XfcePanelPlugin *plugin)
 
 
 static void
-xfce_mixer_plugin_free (XfcePanelPlugin *plugin,
-                        XfceMixerPlugin *mixer_plugin)
+xfce_mixer_plugin_free (XfceMixerPlugin *mixer_plugin,
+                        XfcePanelPlugin *plugin)
 {
   /* Free card and track names */
   g_free (mixer_plugin->command);
@@ -529,9 +529,11 @@ xfce_mixer_plugin_write_config (XfceMixerPlugin *mixer_plugin)
 static void
 xfce_mixer_plugin_update_track (XfceMixerPlugin *mixer_plugin)
 {
-  gint   *volumes;
-  gdouble volume;
-  gchar  *tip_text;
+  XfceMixerTrackType track_type;
+  gboolean           muted = FALSE;
+  gdouble            volume;
+  gint              *volumes;
+  gchar             *tip_text;
 
   g_return_if_fail (mixer_plugin != NULL);
   g_return_if_fail (GST_IS_MIXER (mixer_plugin->card));
@@ -549,8 +551,17 @@ xfce_mixer_plugin_update_track (XfceMixerPlugin *mixer_plugin)
   gtk_tooltips_set_tip (mixer_plugin->tooltips, mixer_plugin->button, tip_text, "test");
   g_free (tip_text);
 
+  /* Determine track type */
+  track_type = xfce_mixer_track_type_new (mixer_plugin->track);
+
+  if (G_LIKELY (track_type == XFCE_MIXER_TRACK_TYPE_PLAYBACK))
+    muted = GST_MIXER_TRACK_HAS_FLAG (mixer_plugin->track, GST_MIXER_TRACK_MUTE);
+  else if (track_type == XFCE_MIXER_TRACK_TYPE_CAPTURE)
+    muted = !GST_MIXER_TRACK_HAS_FLAG (mixer_plugin->track, GST_MIXER_TRACK_RECORD);
+
   /* Update the volume button */
   xfce_volume_button_set_volume (XFCE_VOLUME_BUTTON (mixer_plugin->button), volume);
+  xfce_volume_button_set_muted (XFCE_VOLUME_BUTTON (mixer_plugin->button), muted);
 
   /* Free volume array */
   g_free (volumes);
@@ -650,7 +661,9 @@ xfce_mixer_plugin_set_track (XfceMixerPlugin *mixer_plugin,
 
   /* Replace the track label */
   g_free (mixer_plugin->track_label);
+  mixer_plugin->track_label = NULL;
   g_object_get (track, "label", &mixer_plugin->track_label, NULL);
+  g_debug ("mixer_plugin->track_label = '%s'", mixer_plugin->track_label);
 }
 
 

@@ -351,7 +351,7 @@ xfce_mixer_get_property (GObject    *object,
   switch (prop_id)
     {
     case PROP_CARD:
-      g_value_set_object (value, g_object_ref (mixer->card));
+      g_value_set_object (value, mixer->card);
       break;
     default:
       G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -372,7 +372,7 @@ xfce_mixer_set_property (GObject      *object,
   switch (prop_id)
     {
     case PROP_CARD:
-      mixer->card = g_object_ref (g_value_get_object (value));
+      mixer->card = g_value_dup_object (value);
       break;
     default:
       G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);

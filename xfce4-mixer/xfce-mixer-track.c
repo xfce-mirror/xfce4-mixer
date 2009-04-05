@@ -265,8 +265,7 @@ xfce_mixer_track_create_contents (XfceMixerTrack *track)
 
   /* Some of the mixer controls need to be updated before they can be used */
   xfce_mixer_track_update_mute (track);
-  if (G_UNLIKELY (xfce_mixer_track_type_new (track->gst_track) == XFCE_MIXER_TRACK_TYPE_CAPTURE))
-    xfce_mixer_track_update_record (track);
+  xfce_mixer_track_update_record (track);
 
   /* Free volume array */
   g_free (volumes);
@@ -425,11 +424,11 @@ xfce_mixer_track_update_mute (XfceMixerTrack *track)
 
   g_return_if_fail (IS_XFCE_MIXER_TRACK (track));
 
-  if (G_UNLIKELY (xfce_mixer_track_type_new (track->gst_track) == XFCE_MIXER_TRACK_TYPE_CAPTURE))
-    return;
-
-  muted = GST_MIXER_TRACK_HAS_FLAG (track->gst_track, GST_MIXER_TRACK_MUTE);
-  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (track->mute_button), muted);
+  if (G_LIKELY (xfce_mixer_track_type_new (track->gst_track) != XFCE_MIXER_TRACK_TYPE_CAPTURE))
+    {
+      muted = GST_MIXER_TRACK_HAS_FLAG (track->gst_track, GST_MIXER_TRACK_MUTE);
+      gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (track->mute_button), muted);
+    }
 }
 
 
@@ -441,8 +440,11 @@ xfce_mixer_track_update_record (XfceMixerTrack *track)
 
   g_return_if_fail (IS_XFCE_MIXER_TRACK (track));
 
-  record = GST_MIXER_TRACK_HAS_FLAG (track->gst_track, GST_MIXER_TRACK_RECORD);
-  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (track->record_button), record);
+  if (G_UNLIKELY (xfce_mixer_track_type_new (track->gst_track) == XFCE_MIXER_TRACK_TYPE_CAPTURE))
+    {
+      record = GST_MIXER_TRACK_HAS_FLAG (track->gst_track, GST_MIXER_TRACK_RECORD);
+      gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (track->record_button), record);
+    }
 }
 
 
