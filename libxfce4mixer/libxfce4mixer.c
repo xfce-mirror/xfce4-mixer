@@ -232,7 +232,7 @@ _xfce_mixer_filter_mixer (GstMixer *mixer,
 {
   GstElementFactory *factory;
   const gchar       *long_name;
-  gchar             *device_name;
+  gchar             *device_name = NULL;
   gchar             *internal_name;
   gchar             *name;
   gchar             *p;
@@ -244,11 +244,12 @@ _xfce_mixer_filter_mixer (GstMixer *mixer,
   long_name = gst_element_factory_get_longname (factory);
 
   /* Get the device name of the mixer element */
-  g_object_get (mixer, "device-name", &device_name, NULL);
-
+  if (g_object_class_find_property (G_OBJECT_GET_CLASS (G_OBJECT (mixer)), "device-name"))
+    g_object_get (mixer, "device-name", &device_name, NULL);
+  
   /* Fall back to default name if neccessary */
-  if (G_LIKELY (device_name == NULL))
-     device_name = g_strdup_printf (_("Unknown Volume Control %d"), (*counter)++);
+  if (G_UNLIKELY (device_name == NULL))
+    device_name = g_strdup_printf (_("Unknown Volume Control %d"), (*counter)++);
 
   /* Build display name */
   name = g_strdup_printf ("%s (%s)", device_name, long_name);

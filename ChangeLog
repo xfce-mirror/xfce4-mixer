@@ -1,3 +1,10 @@
+2009-04-08	Jannis Pohlmann <jannis@xfce.org>
+
+	* libxfce4mixer/libxfce4mixer.c: Fix crash with backends where the 
+	  GstMixer implementation has no "device-name" property (bug #5201).
+	* xfce4-mixer/main.c: Include libxfcegui4.h to avoid implicit
+	  declaration of xfce_err().
+
 2009-04-05	Jannis Pohlmann <jannis@xfce.org>
 
 	* panel-plugin/xfce-mixer-plugin.c: Display mute/record state properly
