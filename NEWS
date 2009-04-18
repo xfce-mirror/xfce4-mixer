@@ -1,3 +1,34 @@
+4.6.1
+=====
+- Translation updates: es (Abel Martín), pl (Piotr Sokół),
+  gl (Leandro Regueiro), pt (Nuno Miguel), it (Cristian Marchi)
+- Make <Control>q and <Control>s trigger the corresponding actions.
+- Minor cosmetic fixes (row spacing of 6px in tables).
+- Add missing AudioVideo category which is obligatory if you use the Audio 
+  category (bug #4933).
+- Display mute/record state properly on startup (bug #5002). 
+- Fix segfault when destroying the plugin
+- Move capture track check into xfce_mixer_track_update_record().
+- Don't increment the reference count on GObjects when passing them to GValue 
+  using g_value_set_object().
+- Fix crash with backends where the GstMixer implementation has no 
+  "device-name" property (bug #5201).
+- Include libxfcegui4.h to avoid implicit declaration of xfce_err().
+
+
+4.6.0
+=====
+- Translation updates: sv (Daniel Nylander), gl (Leandro Regueiro),
+  uk (Dmitry Nikitin), tr (Gökmen Görgen, Samed Beyribey),
+  es (Abel Martín), de (Enrico Tröger), id (Andhika Padmawan),
+  nb (Terje Uriansrud), pl (Piotr Sokół)
+- Don't read track labels from the 'label' member of the GstMixerTrack struct. 
+  Instead, use the 'label' property. The struct member is undocumented and may 
+- Use the GstMixerTrack "label" property instead of the struct member to access
+  the name of a track. Toggle record for capture tracks instead of trying to 
+  mute them. Capture tracks don't support muting (bug #4777).
+- Don't show the mute button for capture tracks (follow up of bug #4777). 
+
 4.5.99.1
 ========
 - Translation updates: cz (Michal Varady), da (Per Kongstad), 
