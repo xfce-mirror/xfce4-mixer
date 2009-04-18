@@ -1,3 +1,9 @@
+2009-04-18  Stephan Arts <stephan@xfce.org>
+
+	* == Xfce 4.6.1 Released ==
+	* NEWS: update NEWS, add 4.6.0 stuff too
+	* configure.in.in: Bump version number
+
 2009-04-08	Jannis Pohlmann <jannis@xfce.org>
 
 	* libxfce4mixer/libxfce4mixer.c: Fix crash with backends where the 
