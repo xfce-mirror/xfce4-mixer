@@ -27,8 +27,12 @@ msgid "No left-click command defined"
 msgstr "Tak ada perintah klik-kiri yang ditentukan"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:349
-msgid "No left-click command defined yet. You can change this in the plugin properties."
-msgstr "Tak ada perintah klik-kiri yang ditentukan. Anda dapat mengubah ini di properti plugin."
+msgid ""
+"No left-click command defined yet. You can change this in the plugin "
+"properties."
+msgstr ""
+"Tak ada perintah klik-kiri yang ditentukan. Anda dapat mengubah ini di "
+"properti plugin."
 
 #: ../panel-plugin/xfce-mixer-plugin.c:350
 msgid "Properties"
@@ -37,13 +41,22 @@ msgstr "Properti"
 #. Generate error message and insert the current command
 #: ../panel-plugin/xfce-mixer-plugin.c:365
 #, c-format
-msgid "Could not execute the command \"%s\". Ensure that either the location of the command is included in the PATH environment variable or that you are providing the full path to the command."
-msgstr "Tak dapat mengeksekusi perintah \"%s\". Pastikan bahwa lokasi perintah ikut disertakan dalam variabel lingkungan ALAMAT atau anda menyediakan alamat penuh ke perintah."
+msgid ""
+"Could not execute the command \"%s\". Ensure that either the location of the "
+"command is included in the PATH environment variable or that you are "
+"providing the full path to the command."
+msgstr ""
+"Tak dapat mengeksekusi perintah \"%s\". Pastikan bahwa lokasi perintah ikut "
+"disertakan dalam variabel lingkungan ALAMAT atau anda menyediakan alamat "
+"penuh ke perintah."
 
-#: ../panel-plugin/xfce-mixer-plugin.c:398
-#: ../xfce4-mixer/main.c:89
-msgid "GStreamer was unable to detect any sound devices. Some sound system specific GStreamer packages may be missing. It may also be a permissions problem."
-msgstr "GStreamer tak dapat mendeteksi kartu suara apapun. Beberapa sistem suara spesifik GStreamer mungkin hilang. Atau mungkin juga masalah hak akses."
+#: ../panel-plugin/xfce-mixer-plugin.c:398 ../xfce4-mixer/main.c:89
+msgid ""
+"GStreamer was unable to detect any sound devices. Some sound system specific "
+"GStreamer packages may be missing. It may also be a permissions problem."
+msgstr ""
+"GStreamer tak dapat mendeteksi kartu suara apapun. Beberapa sistem suara "
+"spesifik GStreamer mungkin hilang. Atau mungkin juga masalah hak akses."
 
 #: ../panel-plugin/xfce-plugin-dialog.c:234
 msgid "Mixer Plugin"
@@ -95,8 +108,7 @@ msgstr "Skrip Shell"
 
 #. Set application name
 #: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:1
-#: ../xfce4-mixer/main.c:60
-#: ../xfce4-mixer/xfce-mixer-window.c:165
+#: ../xfce4-mixer/main.c:60 ../xfce4-mixer/xfce-mixer-window.c:165
 #: ../xfce4-mixer/xfce-mixer-window.c:183
 #: ../xfce4-mixer/xfce-mixer-window.c:284
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
@@ -138,8 +150,12 @@ msgid "No controls visible"
 msgstr "Tak ada kontrol tampak"
 
 #: ../xfce4-mixer/xfce-mixer.c:302
-msgid "No controls are marked as visible. Please open the <span size='large'><b>Select Controls</b></span> dialog to select some."
-msgstr "Tak ada kontrol yang ditandai sebagai terlihat. Silakan buka dialog <span size='large'><b>Pilih Kontrol</b></span> untuk memilih."
+msgid ""
+"No controls are marked as visible. Please open the <span "
+"size='large'><b>Select Controls</b></span> dialog to select some."
+msgstr ""
+"Tak ada kontrol yang ditandai sebagai terlihat. Silakan buka dialog <span "
+"size='large'><b>Pilih Kontrol</b></span> untuk memilih."
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:135
 msgid "Select Controls"
@@ -183,14 +199,18 @@ msgstr "Mixer audio untuk Lingkungan Destop Xfce"
 #~ msgstr ""
 #~ "Tak dapat mengeksekusi perintah %s. Mungkin anda perlu menyesuaikan "
 #~ "variabel PATH."
+
 #~ msgid "Please select which mixer track should be used by the plugin"
 #~ msgstr "Silakan pilih jalur mixer mana yang harus digunakan oleh plugin"
+
 #~ msgid "Please select which controls you want to be visible"
 #~ msgstr "Silakan pilih kontrol mana yang anda inginkan untuk terlihat"
+
 #~ msgid "A comfortable audio mixer for your sound card."
 #~ msgstr "Mixer audio yang nyaman untuk kartu suara anda."
+
 #~ msgid "Xfce Mixer"
 #~ msgstr "Mixer Xfce"
+
 #~ msgid "Could not find xfce4-mixer in PATH."
 #~ msgstr "Tak dapat menemukan xfce4-mixer dalam ALAMAT"
-

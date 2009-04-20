@@ -11,7 +11,8 @@ msgstr ""
 "POT-Creation-Date: 2009-01-11 00:59+0100\n"
 "PO-Revision-Date: 2009-03-21 08:39+0100\n"
 "Last-Translator: Cristian Marchi <cri.penta@gmail.com>\n"
-"Language-Team: Italian Translation Team <xfce-it-translators@googlegroups.com>\n"
+"Language-Team: Italian Translation Team <xfce-it-translators@googlegroups."
+"com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ASCII\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -30,18 +31,25 @@ msgstr "%s: %i%%"
 #: ../panel-plugin/xfce-mixer-plugin.c:350
 #: ../panel-plugin/xfce-mixer-plugin.c:365
 #, c-format
-msgid "Could not execute the command \"%s\". Ensure that either the location of the command is included in the PATH environment variable or that you are providing the full path to the command."
-msgstr "Impossibile eseguire il comando \"%s\". Assicurarsi che la posizione del comando sia compreso nella variabile di ambiente PATH o che si stia fornendo il percorso completo al comando."
+msgid ""
+"Could not execute the command \"%s\". Ensure that either the location of the "
+"command is included in the PATH environment variable or that you are "
+"providing the full path to the command."
+msgstr ""
+"Impossibile eseguire il comando \"%s\". Assicurarsi che la posizione del "
+"comando sia compreso nella variabile di ambiente PATH o che si stia fornendo "
+"il percorso completo al comando."
 
-#: ../panel-plugin/xfce-mixer-plugin.c:398
-#: ../xfce4-mixer/main.c:89
+#: ../panel-plugin/xfce-mixer-plugin.c:398 ../xfce4-mixer/main.c:89
 #: ../panel-plugin/xfce-plugin-dialog.c:234
 msgid "Mixer Plugin"
 msgstr "Plugin del Mixer"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:236
 msgid "Configure the mixer track and left-click command"
-msgstr "Permette di configurare la pista del mixer e il comando per il clic con il tasto sinistro"
+msgstr ""
+"Permette di configurare la pista del mixer e il comando per il clic con il "
+"tasto sinistro"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:248
 msgid "Sound card"
@@ -85,8 +93,7 @@ msgstr "Script per la shell"
 
 #. Set application name
 #: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:1
-#: ../xfce4-mixer/main.c:60
-#: ../xfce4-mixer/xfce-mixer-window.c:165
+#: ../xfce4-mixer/main.c:60 ../xfce4-mixer/xfce-mixer-window.c:165
 #: ../xfce4-mixer/xfce-mixer-window.c:183
 #: ../xfce4-mixer/xfce-mixer-window.c:284
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
@@ -154,7 +161,9 @@ msgstr "Selezionare i controlli da visualizzare"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:184
 msgid "Configure sound card(s) and control the volume of selected tracks"
-msgstr "Permette di configurare la (o le) schede audio e di controllare il volume delle piste selezionate"
+msgstr ""
+"Permette di configurare la (o le) schede audio e di controllare il volume "
+"delle piste selezionate"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:199
 msgid "Sound card:"
@@ -163,4 +172,3 @@ msgstr "Scheda audio:"
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:1
 msgid "Audio mixer for the Xfce Desktop Environment"
 msgstr "Mixer audio per l'ambiente grafico Xfce"
-

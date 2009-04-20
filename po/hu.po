@@ -25,8 +25,12 @@ msgid "No left-click command defined"
 msgstr "Nincs megadott bal-kattintó parancs"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:349
-msgid "No left-click command defined yet. You can change this in the plugin properties."
-msgstr "Nincs még baal-kattintó parancs megadva. A beillesztés tulajdonságaiban lehet."
+msgid ""
+"No left-click command defined yet. You can change this in the plugin "
+"properties."
+msgstr ""
+"Nincs még baal-kattintó parancs megadva. A beillesztés tulajdonságaiban "
+"lehet."
 
 #: ../panel-plugin/xfce-mixer-plugin.c:350
 msgid "Properties"
@@ -35,13 +39,21 @@ msgstr "Tulajdonságok"
 #. Generate error message and insert the current command
 #: ../panel-plugin/xfce-mixer-plugin.c:365
 #, c-format
-msgid "Could not execute the command \"%s\". Ensure that either the location of the command is included in the PATH environment variable or that you are providing the full path to the command."
-msgstr "Nem tudom futtatni e parancsot: \"%s\". A parancs helye legyen a PATH környezeti változóban vagy add meg a parancs teljes útvonalát!"
+msgid ""
+"Could not execute the command \"%s\". Ensure that either the location of the "
+"command is included in the PATH environment variable or that you are "
+"providing the full path to the command."
+msgstr ""
+"Nem tudom futtatni e parancsot: \"%s\". A parancs helye legyen a PATH "
+"környezeti változóban vagy add meg a parancs teljes útvonalát!"
 
-#: ../panel-plugin/xfce-mixer-plugin.c:398
-#: ../xfce4-mixer/main.c:89
-msgid "GStreamer was unable to detect any sound devices. Some sound system specific GStreamer packages may be missing. It may also be a permissions problem."
-msgstr "A GStreamer nem talált hangeszközöket. Lehet, hogy pár hangrendszer-függő GStreamer csomag hiányzik. Jogosultság gond is lehet."
+#: ../panel-plugin/xfce-mixer-plugin.c:398 ../xfce4-mixer/main.c:89
+msgid ""
+"GStreamer was unable to detect any sound devices. Some sound system specific "
+"GStreamer packages may be missing. It may also be a permissions problem."
+msgstr ""
+"A GStreamer nem talált hangeszközöket. Lehet, hogy pár hangrendszer-függő "
+"GStreamer csomag hiányzik. Jogosultság gond is lehet."
 
 #: ../panel-plugin/xfce-plugin-dialog.c:234
 msgid "Mixer Plugin"
@@ -93,8 +105,7 @@ msgstr "Héj szkriptek"
 
 #. Set application name
 #: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:1
-#: ../xfce4-mixer/main.c:60
-#: ../xfce4-mixer/xfce-mixer-window.c:165
+#: ../xfce4-mixer/main.c:60 ../xfce4-mixer/xfce-mixer-window.c:165
 #: ../xfce4-mixer/xfce-mixer-window.c:183
 #: ../xfce4-mixer/xfce-mixer-window.c:284
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
@@ -136,8 +147,13 @@ msgid "No controls visible"
 msgstr "Nincsenek látható szabályzók"
 
 #: ../xfce4-mixer/xfce-mixer.c:302
-msgid "No controls are marked as visible. Please open the <span size='large'><b>Select Controls</b></span> dialog to select some."
-msgstr "Nincs látható szabályzó. Kérlek, nyisd meg a <span size='large'><b>Szabályzók választása</b></span> paneltés válassz ki néhányat."
+msgid ""
+"No controls are marked as visible. Please open the <span "
+"size='large'><b>Select Controls</b></span> dialog to select some."
+msgstr ""
+"Nincs látható szabályzó. Kérlek, nyisd meg a <span "
+"size='large'><b>Szabályzók választása</b></span> paneltés válassz ki "
+"néhányat."
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:135
 msgid "Select Controls"
@@ -181,8 +197,9 @@ msgstr "Hangkeverő az Xfce munkakörnyezethez"
 #~ msgstr ""
 #~ "Nem lehet a %s parancsot végrehajtani. Talán be kell állítanod a PATH "
 #~ "változót."
+
 #~ msgid "Please select which mixer track should be used by the plugin"
 #~ msgstr "Kérjük válaszd ki melyik hangcsatornát használja a bővítmény"
+
 #~ msgid "Please select which controls you want to be visible"
 #~ msgstr "Jelöld ki, mely szabályzók legyenek láthatók"
-

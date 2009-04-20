@@ -27,8 +27,12 @@ msgid "No left-click command defined"
 msgstr "Nie zdefiniowano polecenia lewego klawisza myszy"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:349
-msgid "No left-click command defined yet. You can change this in the plugin properties."
-msgstr "Nie zdefiniowano jeszcze polecenia lewego klawisza myszy. Można to zrobić w oknie preferencji elementu."
+msgid ""
+"No left-click command defined yet. You can change this in the plugin "
+"properties."
+msgstr ""
+"Nie zdefiniowano jeszcze polecenia lewego klawisza myszy. Można to zrobić w "
+"oknie preferencji elementu."
 
 #: ../panel-plugin/xfce-mixer-plugin.c:350
 msgid "Properties"
@@ -37,13 +41,23 @@ msgstr "Właściwości"
 #. Generate error message and insert the current command
 #: ../panel-plugin/xfce-mixer-plugin.c:365
 #, c-format
-msgid "Could not execute the command \"%s\". Ensure that either the location of the command is included in the PATH environment variable or that you are providing the full path to the command."
-msgstr "Nie można wykonać polecenia „%s”. Proszę upewnić się czy wprowadzono pełną ścieżkę do programu lub czy położenie programu uwzględniono w zmiennej systemowej PATH."
+msgid ""
+"Could not execute the command \"%s\". Ensure that either the location of the "
+"command is included in the PATH environment variable or that you are "
+"providing the full path to the command."
+msgstr ""
+"Nie można wykonać polecenia „%s”. Proszę upewnić się czy wprowadzono pełną "
+"ścieżkę do programu lub czy położenie programu uwzględniono w zmiennej "
+"systemowej PATH."
 
-#: ../panel-plugin/xfce-mixer-plugin.c:398
-#: ../xfce4-mixer/main.c:89
-msgid "GStreamer was unable to detect any sound devices. Some sound system specific GStreamer packages may be missing. It may also be a permissions problem."
-msgstr "Program GStreamer nie odnalazł żadnego urządzenia muzycznego. Przypuszczalnie brakuje niektórych pakietów systemu dźwiękowego GStreamer lub istnieje problem z prawami dostępu."
+#: ../panel-plugin/xfce-mixer-plugin.c:398 ../xfce4-mixer/main.c:89
+msgid ""
+"GStreamer was unable to detect any sound devices. Some sound system specific "
+"GStreamer packages may be missing. It may also be a permissions problem."
+msgstr ""
+"Program GStreamer nie odnalazł żadnego urządzenia muzycznego. "
+"Przypuszczalnie brakuje niektórych pakietów systemu dźwiękowego GStreamer "
+"lub istnieje problem z prawami dostępu."
 
 #: ../panel-plugin/xfce-plugin-dialog.c:234
 msgid "Mixer Plugin"
@@ -95,8 +109,7 @@ msgstr "Skrypty powłoki"
 
 #. Set application name
 #: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:1
-#: ../xfce4-mixer/main.c:60
-#: ../xfce4-mixer/xfce-mixer-window.c:165
+#: ../xfce4-mixer/main.c:60 ../xfce4-mixer/xfce-mixer-window.c:165
 #: ../xfce4-mixer/xfce-mixer-window.c:183
 #: ../xfce4-mixer/xfce-mixer-window.c:284
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
@@ -138,8 +151,12 @@ msgid "No controls visible"
 msgstr "Brak widocznych elementów sterujących"
 
 #: ../xfce4-mixer/xfce-mixer.c:302
-msgid "No controls are marked as visible. Please open the <span size='large'><b>Select Controls</b></span> dialog to select some."
-msgstr "Brak widocznych elementów sterujących. Proszę otworzyć okno konfiguracyjne klikając przycisk „<b>Wybierz elementy sterujące...</b>”."
+msgid ""
+"No controls are marked as visible. Please open the <span "
+"size='large'><b>Select Controls</b></span> dialog to select some."
+msgstr ""
+"Brak widocznych elementów sterujących. Proszę otworzyć okno konfiguracyjne "
+"klikając przycisk „<b>Wybierz elementy sterujące...</b>”."
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:135
 msgid "Select Controls"
@@ -179,12 +196,15 @@ msgstr "Mikser dźwięku dla środowiska Xfce"
 
 #~ msgid "Please select which mixer track should be used by the plugin"
 #~ msgstr "Wybierz ścieżkę miksera, z której korzystać ma ta wtyczka"
+
 #~ msgid "Please select which controls you want to be visible"
 #~ msgstr "Wybierz kontrolki, które mają być widoczne"
+
 #~ msgid "A comfortable audio mixer for your sound card."
 #~ msgstr "Mikser audio dla twojej karty dźwiękowej"
+
 #~ msgid "Xfce Mixer"
 #~ msgstr "Mikser Xfce"
+
 #~ msgid "Could not find xfce4-mixer in PATH."
 #~ msgstr "Nie można znaleźć xfce4-mixera w ścieżce."
-

@@ -17,8 +17,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#. Set tooltip (e.g. 'Master: 50%')
 # #: ../panel-plugin/xfce-mixer-plugin.c:271
+#. Set tooltip (e.g. 'Master: 50%')
 #: ../panel-plugin/xfce-mixer-plugin.c:548
 #, c-format
 msgid "%s: %i%%"

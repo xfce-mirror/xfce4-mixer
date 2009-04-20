@@ -15,7 +15,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
-"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #. Set tooltip (e.g. 'Master: 50%')
 #: ../panel-plugin/xfce-mixer-plugin.c:271
@@ -49,8 +50,8 @@ msgid ""
 "providing the full path to the command."
 msgstr ""
 "Неможливо виконати команду \"%s\". Впевніться, що інший шлях для цієї "
-"команди включено до середовища змінних PATH або зазначте повний "
-"шлях до команди."
+"команди включено до середовища змінних PATH або зазначте повний шлях до "
+"команди."
 
 #: ../panel-plugin/xfce-mixer-plugin.c:398 ../xfce4-mixer/main.c:89
 msgid ""
@@ -185,7 +186,9 @@ msgstr "Виберіть канали, які будуть відображат�
 
 #: ../xfce4-mixer/xfce-mixer-window.c:184
 msgid "Configure sound card(s) and control the volume of selected tracks"
-msgstr "Налаштуйте Вашу звукову карту(и) і елементи управління гучністю вибраних треків"
+msgstr ""
+"Налаштуйте Вашу звукову карту(и) і елементи управління гучністю вибраних "
+"треків"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:199
 msgid "Sound card:"
@@ -194,4 +197,3 @@ msgstr "Звукова карта:"
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:1
 msgid "Audio mixer for the Xfce Desktop Environment"
 msgstr "Регулятор гучності для середовища стільниці Xfce"
-
