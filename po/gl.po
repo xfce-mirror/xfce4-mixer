@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: xfce4-mixer 4.4.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-01-11 00:59+0100\n"
-"PO-Revision-Date: 2009-04-14 22:28+0100\n"
+"PO-Revision-Date: 2009-04-18 00:20+0100\n"
 "Last-Translator: Leandro Regueiro <leandro.regueiro@gmail.com>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
 "MIME-Version: 1.0\n"
@@ -28,13 +28,12 @@ msgid "%s: %i%%"
 msgstr "%s: %i%%"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:346
-#, fuzzy
 msgid "No left-click command defined"
-msgstr "Non se definiu ningún comando %d.\n"
+msgstr "Non se definiu ningún comando para o clic do botón esquerdo"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:349
 msgid "No left-click command defined yet. You can change this in the plugin properties."
-msgstr ""
+msgstr "Aínda non se definiu ningún comando para o clic do botón esquerdo. Pode cambiar isto nas propiedades do engadido."
 
 #: ../panel-plugin/xfce-mixer-plugin.c:350
 msgid "Properties"
@@ -52,9 +51,8 @@ msgid "GStreamer was unable to detect any sound devices. Some sound system speci
 msgstr "GStreamer non foi capaz de detectar ningún dispositivo de son. Pode que falten algúns paquetes de GStreamer específicos para o sistema de son. Tamén podería ser un problema de permisos."
 
 #: ../panel-plugin/xfce-plugin-dialog.c:234
-#, fuzzy
 msgid "Mixer Plugin"
-msgstr "Erros de complementos"
+msgstr "Engadido de mesturador"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:236
 msgid "Configure the mixer track and left-click command"
@@ -65,14 +63,12 @@ msgid "Sound card"
 msgstr "Tarxeta de son"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:266
-#, fuzzy
 msgid "Mixer track"
-msgstr "Dividir unha pi_sta..."
+msgstr "Mesturador de pistas"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:284
-#, fuzzy
 msgid "Left-click command"
-msgstr "Prema sobre o botón de comando"
+msgstr "Comando do clic do botón esquerdo"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:322
 msgid "Select command"
@@ -132,9 +128,8 @@ msgid "Playback"
 msgstr "Reprodución"
 
 #: ../xfce4-mixer/xfce-mixer.c:164
-#, fuzzy
 msgid "Capture"
-msgstr "Captura do punteiro"
+msgstr "Captura"
 
 #: ../xfce4-mixer/xfce-mixer.c:164
 #, fuzzy
@@ -151,7 +146,7 @@ msgstr "Non mostra ningún control"
 
 #: ../xfce4-mixer/xfce-mixer.c:302
 msgid "No controls are marked as visible. Please open the <span size='large'><b>Select Controls</b></span> dialog to select some."
-msgstr ""
+msgstr "Non hai ningún control marcado coma visible. Abra o diálogo <span size='large'><b>Seleccionar controis</b></span> para seleccionar algúns."
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:135
 msgid "Select Controls"
@@ -179,7 +174,7 @@ msgstr "Seleccione que controis se mostran"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:184
 msgid "Configure sound card(s) and control the volume of selected tracks"
-msgstr ""
+msgstr "Configura as tarxetas de son e controla o volume das pistas seleccionadas"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:199
 msgid "Sound card:"
