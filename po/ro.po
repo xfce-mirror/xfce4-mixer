@@ -1,0 +1,196 @@
+# French translation for the xfce-mixer package
+# Copyright (C) 2008-2009 Jannis Pohlmann <jannis@xfce.org>.
+# This file is distributed under the same license as the xfce package.
+# Mișu Moldovan <dumol@gnome.ro>, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4-mixer\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-04-22 20:30+0300\n"
+"PO-Revision-Date: 2009-04-22 20:29+0300\n"
+"Last-Translator: Mișu Moldovan <dumol@gnome.ro>\n"
+"Language-Team: Romanian <xfce-i18n@xfce.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3;plural=(n==1?0:(n==0||((n%100)>0&&(n%100)<20))?"
+"1:2)\n"
+
+#. Set tooltip (e.g. 'Master: 50%')
+#: ../panel-plugin/xfce-mixer-plugin.c:274
+#: ../panel-plugin/xfce-mixer-plugin.c:550
+#, c-format
+msgid "%s: %i%%"
+msgstr "%s : %i%%"
+
+#: ../panel-plugin/xfce-mixer-plugin.c:346
+msgid "No left-click command defined"
+msgstr "Nu s-a definit o comandă asociată clicului stânga"
+
+#: ../panel-plugin/xfce-mixer-plugin.c:349
+msgid ""
+"No left-click command defined yet. You can change this in the plugin "
+"properties."
+msgstr ""
+"Nu s-a definit o comandă asociată clicului stânga. Puteți schimba asta în "
+"proprietăți."
+
+#: ../panel-plugin/xfce-mixer-plugin.c:350
+msgid "Properties"
+msgstr "Proprietăți"
+
+#. Generate error message and insert the current command
+#: ../panel-plugin/xfce-mixer-plugin.c:365
+#, c-format
+msgid ""
+"Could not execute the command \"%s\". Ensure that either the location of the "
+"command is included in the PATH environment variable or that you are "
+"providing the full path to the command."
+msgstr ""
+"Nu s-a putut executa comanda „%s”. Asigurați-vă că directorul aplicației "
+"este inclus în variabila de mediu PATH sau indicați calea completă către "
+"aceasta."
+
+#: ../panel-plugin/xfce-mixer-plugin.c:398 ../xfce4-mixer/main.c:90
+msgid ""
+"GStreamer was unable to detect any sound devices. Some sound system specific "
+"GStreamer packages may be missing. It may also be a permissions problem."
+msgstr ""
+"Folosing GStreamer, nu s-a detectat nici un dispozitiv de sunet. S-ar putea "
+"să lipsească unele pachete din sistem sau să aveți drepturi insuficiente."
+
+#: ../panel-plugin/xfce-plugin-dialog.c:234
+msgid "Mixer Plugin"
+msgstr "Mixer"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:236
+msgid "Configure the mixer track and left-click command"
+msgstr "Schimbați pista mixerului și comanda asociată clicului stânga"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:248
+msgid "Sound card"
+msgstr "Placă de sunet"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:266
+msgid "Mixer track"
+msgstr "Piste mixer"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:284
+msgid "Left-click command"
+msgstr "Comandă clic stânga"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:322
+msgid "Select command"
+msgstr "Selectați o comandă"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:330
+msgid "All Files"
+msgstr "Toate fișierele"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:335
+msgid "Executable Files"
+msgstr "Fișiere executabile"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:350
+msgid "Perl Scripts"
+msgstr "Scripturi Perl"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:356
+msgid "Python Scripts"
+msgstr "Scripturi Python"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:362
+msgid "Ruby Scripts"
+msgstr "Scripturi Ruby"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:368
+msgid "Shell Scripts"
+msgstr "Scripturi Shell"
+
+#. Set application name
+#: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:1
+#: ../xfce4-mixer/main.c:61 ../xfce4-mixer/xfce-mixer-window.c:168
+#: ../xfce4-mixer/xfce-mixer-window.c:197
+#: ../xfce4-mixer/xfce-mixer-window.c:298
+#: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
+msgid "Mixer"
+msgstr "Mixer"
+
+#: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:2
+msgid "Volume control for your sound card"
+msgstr "Controale de volum ale plăcii de sunet"
+
+#: ../libxfce4mixer/libxfce4mixer.c:252
+#, c-format
+msgid "Unknown Volume Control %d"
+msgstr "Periferic necunoscut %d"
+
+#: ../xfce4-mixer/main.c:71
+#, c-format
+msgid "Failed to initialize xfconf: %s"
+msgstr "Nu s-a putut inițializa xfconf : %s"
+
+#: ../xfce4-mixer/xfce-mixer.c:164
+msgid "Playback"
+msgstr "Redare"
+
+#: ../xfce4-mixer/xfce-mixer.c:164
+msgid "Capture"
+msgstr "Captură"
+
+#: ../xfce4-mixer/xfce-mixer.c:164
+msgid "Switches"
+msgstr "Comutatoare"
+
+#: ../xfce4-mixer/xfce-mixer.c:164
+msgid "Options"
+msgstr "Opțiuni"
+
+#: ../xfce4-mixer/xfce-mixer.c:306
+msgid "No controls visible"
+msgstr "Fără controale vizibile"
+
+#: ../xfce4-mixer/xfce-mixer.c:310
+msgid ""
+"No controls are marked as visible. Please open the <span "
+"size='large'><b>Select Controls</b></span> dialog to select some."
+msgstr ""
+"Nici un control al plăcii de sunet nu e vizibil. Deschideți fereastra <span "
+"size='large'><b>Selectare controale</b></span> pentru a le activa."
+
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:135
+msgid "Select Controls"
+msgstr "Selectare controale"
+
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:137
+msgid "Select which controls should be visible"
+msgstr "Alegeți ce controale doriți să fie vizibile"
+
+#: ../xfce4-mixer/xfce-mixer-window.c:84
+msgid "_Quit"
+msgstr "_Ieșire"
+
+#: ../xfce4-mixer/xfce-mixer-window.c:84
+msgid "Exit the mixer"
+msgstr "Ieșire din mixer"
+
+#: ../xfce4-mixer/xfce-mixer-window.c:86
+msgid "_Select Controls..."
+msgstr "_Selectare controale..."
+
+#: ../xfce4-mixer/xfce-mixer-window.c:86
+msgid "Select which controls are displayed"
+msgstr "Selectați controalele vizibile"
+
+#: ../xfce4-mixer/xfce-mixer-window.c:198
+msgid "Configure sound card(s) and control the volume of selected tracks"
+msgstr "Schimbați opțiunile plăcii de sunet și volumul pistelor selectate"
+
+#: ../xfce4-mixer/xfce-mixer-window.c:213
+msgid "Sound card:"
+msgstr "Placă de sunet:"
+
+#: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:1
+msgid "Audio mixer for the Xfce Desktop Environment"
+msgstr "Mixer audio pentru mediul desktop Xfce"
