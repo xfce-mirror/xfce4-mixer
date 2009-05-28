@@ -1,3 +1,9 @@
+2009-05-28	Jannis Pohlmann <jannis@xfce.org>
+
+	* panel-plugin/xfce-volume-button.c: Set the page size to 0 which
+	  allows the volume to be changed up to 100% instead of just 90% (bug
+	  #5243).
+
 2009-04-18  Stephan Arts <stephan@xfce.org>
 
 	* == Xfce 4.6.1 Released ==
