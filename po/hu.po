@@ -1,36 +1,38 @@
+# Hungarian translation of xfce4-mixer
+# Copyright (C) 2009. Free Software Foundation, Inc.
+# This file is distributed under the same license as the xfce4-mixer package.
+#
+# Gabor Kelemen <kelemeng at gnome dot hu>, 2009.
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-mixer\n"
+"Project-Id-Version: untitled\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-01-11 00:59+0100\n"
-"PO-Revision-Date: 2009-02-11 01:42+0100\n"
-"Last-Translator: SZERVÁC Attila <sas@321.hu>\n"
-"Language-Team: Hungarian <debian-l10n-hungarian@lists.d.o>\n"
+"POT-Creation-Date: 2009-06-15 20:20+0200\n"
+"PO-Revision-Date: 2009-06-16 01:59+0200\n"
+"Last-Translator: Gabor Kelemen <kelemeng at gnome dot hu>\n"
+"Language-Team: Hungarian <gnome at gnome dot hu>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n>1;\n"
-"X-Poedit-Language: Hungarian\n"
-"X-Poedit-Country: HUNGARY\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms:  nplurals=2; plural=(n != 1);\n"
 
 #. Set tooltip (e.g. 'Master: 50%')
-#: ../panel-plugin/xfce-mixer-plugin.c:271
-#: ../panel-plugin/xfce-mixer-plugin.c:548
+#: ../panel-plugin/xfce-mixer-plugin.c:274
+#: ../panel-plugin/xfce-mixer-plugin.c:550
 #, c-format
 msgid "%s: %i%%"
 msgstr "%s: %i%%"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:346
 msgid "No left-click command defined"
-msgstr "Nincs megadott bal-kattintó parancs"
+msgstr "Nincs megadva parancs a bal kattintáshoz"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:349
 msgid ""
 "No left-click command defined yet. You can change this in the plugin "
 "properties."
-msgstr ""
-"Nincs még baal-kattintó parancs megadva. A beillesztés tulajdonságaiban "
-"lehet."
+msgstr "Nincs megadva parancs a bal kattintáshoz. Ezt a bővítmény tulajdonságainál módosíthatja."
 
 #: ../panel-plugin/xfce-mixer-plugin.c:350
 msgid "Properties"
@@ -43,25 +45,21 @@ msgid ""
 "Could not execute the command \"%s\". Ensure that either the location of the "
 "command is included in the PATH environment variable or that you are "
 "providing the full path to the command."
-msgstr ""
-"Nem tudom futtatni e parancsot: \"%s\". A parancs helye legyen a PATH "
-"környezeti változóban vagy add meg a parancs teljes útvonalát!"
+msgstr "A parancs (%s) nem hajtható végre. Győződjön meg, hogy a parancs helyét tartalmazza a PATH környezeti változó, vagy adja meg a teljes elérési utat a parancsban."
 
-#: ../panel-plugin/xfce-mixer-plugin.c:398 ../xfce4-mixer/main.c:89
+#: ../panel-plugin/xfce-mixer-plugin.c:398 ../xfce4-mixer/main.c:90
 msgid ""
 "GStreamer was unable to detect any sound devices. Some sound system specific "
 "GStreamer packages may be missing. It may also be a permissions problem."
-msgstr ""
-"A GStreamer nem talált hangeszközöket. Lehet, hogy pár hangrendszer-függő "
-"GStreamer csomag hiányzik. Jogosultság gond is lehet."
+msgstr "A GStreamer nem észlelt hangeszközöket. Lehetséges, hogy egyes hangrendszer-specifikus GStreamer csomagok hiányoznak. Jogosultsági probléma is fennállhat."
 
 #: ../panel-plugin/xfce-plugin-dialog.c:234
 msgid "Mixer Plugin"
-msgstr "Mixer Bővítmény"
+msgstr "Keverőbővítmény"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:236
 msgid "Configure the mixer track and left-click command"
-msgstr ""
+msgstr "A keverősáv és a bal kattintáskor futtatandó parancs beállítása"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:248
 msgid "Sound card"
@@ -69,15 +67,15 @@ msgstr "Hangkártya"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:266
 msgid "Mixer track"
-msgstr "Mixer hangcsatorna"
+msgstr "Keverősáv"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:284
 msgid "Left-click command"
-msgstr "Bal-kattintó parancs"
+msgstr "Bal kattintás parancsa"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:322
 msgid "Select command"
-msgstr "Válassz parancsot"
+msgstr "Válasszon parancsot"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:330
 msgid "All Files"
@@ -85,54 +83,54 @@ msgstr "Minden fájl"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:335
 msgid "Executable Files"
-msgstr "Futtatható fájlok"
+msgstr "Végrehajtható fájlok"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:350
 msgid "Perl Scripts"
-msgstr "Perl Szkriptek"
+msgstr "Perl-parancsfájlok"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:356
 msgid "Python Scripts"
-msgstr "Python szkriptek"
+msgstr "Python-parancsfájlok"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:362
 msgid "Ruby Scripts"
-msgstr "Ruby szkriptek"
+msgstr "Ruby-parancsfájlok"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:368
 msgid "Shell Scripts"
-msgstr "Héj szkriptek"
+msgstr "Shell-parancsfájlok"
 
 #. Set application name
 #: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:1
-#: ../xfce4-mixer/main.c:60 ../xfce4-mixer/xfce-mixer-window.c:165
-#: ../xfce4-mixer/xfce-mixer-window.c:183
-#: ../xfce4-mixer/xfce-mixer-window.c:284
+#: ../xfce4-mixer/main.c:61 ../xfce4-mixer/xfce-mixer-window.c:168
+#: ../xfce4-mixer/xfce-mixer-window.c:197
+#: ../xfce4-mixer/xfce-mixer-window.c:298
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
 msgid "Mixer"
 msgstr "Keverő"
 
 #: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:2
 msgid "Volume control for your sound card"
-msgstr "Hangerő-szabályzó a hangkártyához"
+msgstr "Hangerőszabályzás a hangkártyához"
 
-#: ../libxfce4mixer/libxfce4mixer.c:243
+#: ../libxfce4mixer/libxfce4mixer.c:252
 #, c-format
 msgid "Unknown Volume Control %d"
-msgstr "Ismeretlen hangerő szabályozó %d"
+msgstr "Ismeretlen hangerőszabályzó %d"
 
-#: ../xfce4-mixer/main.c:70
+#: ../xfce4-mixer/main.c:71
 #, c-format
 msgid "Failed to initialize xfconf: %s"
-msgstr "Az xfconf: %s indítása sikertelen"
+msgstr "Az xfconf előkészítése meghiúsult: %s"
 
 #: ../xfce4-mixer/xfce-mixer.c:164
 msgid "Playback"
-msgstr "Lejátszó"
+msgstr "Lejátszás"
 
 #: ../xfce4-mixer/xfce-mixer.c:164
 msgid "Capture"
-msgstr "Rögzítő"
+msgstr "Felvétel"
 
 #: ../xfce4-mixer/xfce-mixer.c:164
 msgid "Switches"
@@ -140,66 +138,51 @@ msgstr "Kapcsolók"
 
 #: ../xfce4-mixer/xfce-mixer.c:164
 msgid "Options"
-msgstr "Lehetőségek"
+msgstr "Beállítások"
 
-#: ../xfce4-mixer/xfce-mixer.c:298
+#: ../xfce4-mixer/xfce-mixer.c:306
 msgid "No controls visible"
-msgstr "Nincsenek látható szabályzók"
+msgstr "Nincsenek látható vezérlők"
 
-#: ../xfce4-mixer/xfce-mixer.c:302
+#: ../xfce4-mixer/xfce-mixer.c:310
 msgid ""
 "No controls are marked as visible. Please open the <span "
 "size='large'><b>Select Controls</b></span> dialog to select some."
-msgstr ""
-"Nincs látható szabályzó. Kérlek, nyisd meg a <span "
-"size='large'><b>Szabályzók választása</b></span> paneltés válassz ki "
-"néhányat."
+msgstr "Egyik vezérlő sincs láthatóként megjelölve. Nyissa meg a <span size='large'><b>Vezérlők kiválasztása</b></span> ablakot és válasszon ki néhányat."
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:135
 msgid "Select Controls"
-msgstr "Szabályzók választása"
+msgstr "Vezérlők kiválasztása"
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:137
 msgid "Select which controls should be visible"
-msgstr "Jelöld ki, mely szabályzók látszódjanak"
+msgstr "Válassza ki a megjelenítendő vezérlőket"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:84
 msgid "_Quit"
-msgstr "Kilép"
+msgstr "_Kilépés"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:84
 msgid "Exit the mixer"
-msgstr "Kilép a keverőből"
+msgstr "Kilépés a keverőből"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:86
 msgid "_Select Controls..."
-msgstr "_Szabályzók választása..."
+msgstr "_Vezérlők kiválasztása…"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:86
 msgid "Select which controls are displayed"
-msgstr "Jelöld ki, mely szabályzók jelenjenek meg"
+msgstr "Válassza ki a megjelenítendő vezérlőket"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:184
+#: ../xfce4-mixer/xfce-mixer-window.c:198
 msgid "Configure sound card(s) and control the volume of selected tracks"
-msgstr "Állítsd be hangkártyáidat és szabályozd a kijelölt csatornák erejét"
+msgstr "Hangkártyák beállítása és a kiválasztott sávok hangerejének szabályozása"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:199
+#: ../xfce4-mixer/xfce-mixer-window.c:213
 msgid "Sound card:"
 msgstr "Hangkártya:"
 
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:1
 msgid "Audio mixer for the Xfce Desktop Environment"
-msgstr "Hangkeverő az Xfce munkakörnyezethez"
+msgstr "Hangkeverő az Xfce asztali környezethez"
 
-#~ msgid ""
-#~ "Could not execute the command %s. Perhaps you need to adjust the PATH "
-#~ "variable."
-#~ msgstr ""
-#~ "Nem lehet a %s parancsot végrehajtani. Talán be kell állítanod a PATH "
-#~ "változót."
-
-#~ msgid "Please select which mixer track should be used by the plugin"
-#~ msgstr "Kérjük válaszd ki melyik hangcsatornát használja a bővítmény"
-
-#~ msgid "Please select which controls you want to be visible"
-#~ msgstr "Jelöld ki, mely szabályzók legyenek láthatók"
