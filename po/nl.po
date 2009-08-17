@@ -21,21 +21,23 @@ msgstr ""
 #: ../panel-plugin/xfce-mixer-plugin.c:548
 #, c-format
 msgid "%s: %i%%"
-msgstr ""
+msgstr "%s: %i%%"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:346
 msgid "No left-click command defined"
-msgstr ""
+msgstr "Er is geen linker muisklikactie ingesteld"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:349
 msgid ""
 "No left-click command defined yet. You can change this in the plugin "
 "properties."
 msgstr ""
+"Er is nog geen linker muisklikactie ingesteld. Dit kan worden gewijzigd in "
+"de plugin eigenschappen."
 
 #: ../panel-plugin/xfce-mixer-plugin.c:350
 msgid "Properties"
-msgstr ""
+msgstr "Eigenschappen"
 
 #. Generate error message and insert the current command
 #: ../panel-plugin/xfce-mixer-plugin.c:365
@@ -45,61 +47,66 @@ msgid ""
 "command is included in the PATH environment variable or that you are "
 "providing the full path to the command."
 msgstr ""
+"Het commando \"%s\" kan niet worden uitgevoerd. Controlleer of de locatie "
+"van het commando is toegevoegd aan de PATH omgevingsvariabele, of dat het "
+"volledige pad naar het commando is opgegeven."
 
 #: ../panel-plugin/xfce-mixer-plugin.c:398 ../xfce4-mixer/main.c:89
 msgid ""
 "GStreamer was unable to detect any sound devices. Some sound system specific "
 "GStreamer packages may be missing. It may also be a permissions problem."
 msgstr ""
+"GStreamer heeft geen geluidsapparatuur kunnen detecteren. Sommige "
+"systeem-specifieke GStreamer pakketten kunnen ontbreken. Het kan ook een "
+"rechten-probleem zijn."
 
 #: ../panel-plugin/xfce-plugin-dialog.c:234
 msgid "Mixer Plugin"
-msgstr ""
+msgstr "Mixer Plugin"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:236
 msgid "Configure the mixer track and left-click command"
-msgstr ""
+msgstr "Configureer het mixer kanaal en linker muisklikactie"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:248
-#, fuzzy
 msgid "Sound card"
-msgstr "Geluidskaart:"
+msgstr "Geluidskaart"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:266
 msgid "Mixer track"
-msgstr ""
+msgstr "Mixer kanaal"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:284
 msgid "Left-click command"
-msgstr ""
+msgstr "Linker muisklikactie"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:322
 msgid "Select command"
-msgstr ""
+msgstr "Selecteer opdracht"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:330
 msgid "All Files"
-msgstr ""
+msgstr "Alle Bestanden"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:335
 msgid "Executable Files"
-msgstr ""
+msgstr "Uitvoerbare Bestanden"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:350
 msgid "Perl Scripts"
-msgstr ""
+msgstr "Perl Scripts"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:356
 msgid "Python Scripts"
-msgstr ""
+msgstr "Python Scripts"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:362
 msgid "Ruby Scripts"
-msgstr ""
+msgstr "Ruby Scripts"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:368
 msgid "Shell Scripts"
-msgstr ""
+msgstr "Shell Scripts"
 
 #. Set application name
 #: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:1
@@ -107,24 +114,24 @@ msgstr ""
 #: ../xfce4-mixer/xfce-mixer-window.c:183
 #: ../xfce4-mixer/xfce-mixer-window.c:284
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
-#, fuzzy
 msgid "Mixer"
-msgstr "Xfce volumeregelaar"
+msgstr "Mixer"
 
 #: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:2
-#, fuzzy
+
+
 msgid "Volume control for your sound card"
-msgstr "Een comfortabele volumeregelaar voor uw geluidskaart."
+msgstr "Volumeregelaar voor de geluidskaart"
 
 #: ../libxfce4mixer/libxfce4mixer.c:243
 #, c-format
 msgid "Unknown Volume Control %d"
-msgstr ""
+msgstr "Onbekende volumeregelaar %d"
 
 #: ../xfce4-mixer/main.c:70
 #, c-format
 msgid "Failed to initialize xfconf: %s"
-msgstr ""
+msgstr "Xfconf kon niet worden gestart: %s"
 
 #: ../xfce4-mixer/xfce-mixer.c:164
 msgid "Playback"
@@ -144,7 +151,7 @@ msgstr "Opties"
 
 #: ../xfce4-mixer/xfce-mixer.c:298
 msgid "No controls visible"
-msgstr ""
+msgstr "Geen besturingselementen zichtbaar"
 
 #: ../xfce4-mixer/xfce-mixer.c:302
 msgid ""
@@ -154,7 +161,7 @@ msgstr ""
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:135
 msgid "Select Controls"
-msgstr ""
+msgstr "Besturingselementen selecteren"
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:137
 msgid "Select which controls should be visible"
@@ -165,21 +172,21 @@ msgid "_Quit"
 msgstr "Af_sluiten"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:84
-#, fuzzy
 msgid "Exit the mixer"
-msgstr "Xfce volumeregelaar afsluiten"
+msgstr "Mixer afsluiten"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:86
 msgid "_Select Controls..."
-msgstr ""
+msgstr "Besturingselementen _selecteren..."
 
 #: ../xfce4-mixer/xfce-mixer-window.c:86
 msgid "Select which controls are displayed"
-msgstr ""
+msgstr "Selecteer welke besturingselementen worden getoond"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:184
 msgid "Configure sound card(s) and control the volume of selected tracks"
-msgstr ""
+msgstr "Geluidskaart(en) configureren en het volume van de geselecteerde "
+"kanalen besturen"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:199
 msgid "Sound card:"
@@ -189,8 +196,3 @@ msgstr "Geluidskaart:"
 msgid "Audio mixer for the Xfce Desktop Environment"
 msgstr "Volumeregelaar voor de Xfce bureaublad omgeving"
 
-#~ msgid "A comfortable audio mixer for your sound card."
-#~ msgstr "Een comfortabele volumeregelaar voor uw geluidskaart."
-
-#~ msgid "Xfce Mixer"
-#~ msgstr "Xfce volumeregelaar"
