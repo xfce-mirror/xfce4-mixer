@@ -9,14 +9,17 @@ msgstr ""
 "Project-Id-Version: xfce4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-01-11 00:59+0100\n"
-"PO-Revision-Date: 2009-03-21 08:39+0100\n"
+"PO-Revision-Date: 2009-12-04 20:38+0100\n"
 "Last-Translator: Cristian Marchi <cri.penta@gmail.com>\n"
 "Language-Team: Italian Translation Team <xfce-it-translators@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ASCII\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+# GLOSSARIO
+# mixer = mixer
+# track = pista (del mixer) da non confondere con track (traccia musicale)
 #. Set tooltip (e.g. 'Master: 50%')
 #: ../panel-plugin/xfce-mixer-plugin.c:271
 #: ../panel-plugin/xfce-mixer-plugin.c:548
@@ -24,17 +27,29 @@ msgstr ""
 msgid "%s: %i%%"
 msgstr "%s: %i%%"
 
-#. Generate error message and insert the current command
 #: ../panel-plugin/xfce-mixer-plugin.c:346
+msgid "No left-click command defined"
+msgstr "Comando per il clic con il tasto sinistro non definito"
+
 #: ../panel-plugin/xfce-mixer-plugin.c:349
+msgid "No left-click command defined yet. You can change this in the plugin properties."
+msgstr "Non è ancora stato definito un comando per il clic con il tasto sinistro del mouse. È possibile associarne uno nelle proprietà del plugin."
+
 #: ../panel-plugin/xfce-mixer-plugin.c:350
+msgid "Properties"
+msgstr "Proprietà"
+
+#. Generate error message and insert the current command
 #: ../panel-plugin/xfce-mixer-plugin.c:365
 #, c-format
 msgid "Could not execute the command \"%s\". Ensure that either the location of the command is included in the PATH environment variable or that you are providing the full path to the command."
-msgstr "Impossibile eseguire il comando \"%s\". Assicurarsi che la posizione del comando sia compreso nella variabile di ambiente PATH o che si stia fornendo il percorso completo al comando."
+msgstr "Impossibile eseguire il comando \"%s\". Assicurarsi che la posizione del comando sia compresa nella variabile di ambiente PATH o che si stia fornendo il percorso completo al comando."
 
 #: ../panel-plugin/xfce-mixer-plugin.c:398
 #: ../xfce4-mixer/main.c:89
+msgid "GStreamer was unable to detect any sound devices. Some sound system specific GStreamer packages may be missing. It may also be a permissions problem."
+msgstr "GStreamer non è riuscito a individuare un dispositivo audio. Potrebbero mancare dei pacchetti di GStreamer specifici per il sistema audio. Potrebbe anche trattarsi di un problema con i permessi."
+
 #: ../panel-plugin/xfce-plugin-dialog.c:234
 msgid "Mixer Plugin"
 msgstr "Plugin del Mixer"
@@ -128,13 +143,16 @@ msgid "No controls visible"
 msgstr "Nessun controllo visibile"
 
 #: ../xfce4-mixer/xfce-mixer.c:302
+msgid "No controls are marked as visible. Please open the <span size='large'><b>Select Controls</b></span> dialog to select some."
+msgstr "Non ci sono controlli marcati come visibili. Aprire la finestra <span size='large'><b>Selezione dei controlli</b></span> per sceglierne alcuni."
+
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:135
 msgid "Select Controls"
 msgstr "Selezione dei controlli"
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:137
 msgid "Select which controls should be visible"
-msgstr "Selezionare i controlli che dovrebbero essere visibili"
+msgstr "Selezionare i controlli da rendere visibili"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:84
 msgid "_Quit"
@@ -150,7 +168,7 @@ msgstr "_Selezione dei controlli..."
 
 #: ../xfce4-mixer/xfce-mixer-window.c:86
 msgid "Select which controls are displayed"
-msgstr "Selezionare i controlli da visualizzare"
+msgstr "Selezione dei controlli da visualizzare"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:184
 msgid "Configure sound card(s) and control the volume of selected tracks"
