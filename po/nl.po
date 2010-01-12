@@ -50,16 +50,14 @@ msgid "Mixer Plugin"
 msgstr "Mixer Plugin"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:236
-#, fuzzy
 msgid "Configure the mixer track and left-click command"
-msgstr "Configureer de mixer track en links-klik op commando"
+msgstr "Configureer de mixer track en links-klik commando"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:248
 msgid "Sound card"
 msgstr "Geluidskaart"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:266
-#, fuzzy
 msgid "Mixer track"
 msgstr "Mixer track"
 
@@ -105,9 +103,8 @@ msgid "Mixer"
 msgstr "Volumeregelaar"
 
 #: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:2
-#, fuzzy
 msgid "Volume control for your sound card"
-msgstr "Een comfortabele volumeregelaar voor uw geluidskaart."
+msgstr "Volumeregeling voor uw geluidskaart"
 
 #: ../libxfce4mixer/libxfce4mixer.c:243
 #, c-format
@@ -140,9 +137,8 @@ msgid "No controls visible"
 msgstr "Geen zichtbare controles"
 
 #: ../xfce4-mixer/xfce-mixer.c:302
-#, fuzzy
 msgid "No controls are marked as visible. Please open the <span size='large'><b>Select Controls</b></span> dialog to select some."
-msgstr "Geen controles worden gemarkeerd als zichtbaar. Open de <b><span size='large'>Selecteer Controls</span></b> dialoogvenster om een aantal te selecteren."
+msgstr "Geen controleszijn gemarkeerd als zichtbaar. Open de <b><span size='large'>Selecteer Controls</span></b> dialoogvenster om een aantal te selecteren."
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:135
 msgid "Select Controls"
