@@ -237,9 +237,6 @@ xfce_mixer_plugin_size_changed (XfceMixerPlugin *mixer_plugin,
   /* Get the orientation of the panel */
   orientation = xfce_panel_plugin_get_orientation (mixer_plugin->plugin);
 
-  /* Resize the panel plugin */
-  gtk_widget_set_size_request (GTK_WIDGET (mixer_plugin->plugin), size, size);
-
   /* Determine size for the volume button icons */
   size -= 2 + 2 * MAX (mixer_plugin->button->style->xthickness, mixer_plugin->button->style->ythickness);
 
