@@ -1,0 +1,180 @@
+# xfce4-mixer to kazakh.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Baurzhan Muftakhidinov <baurthefirst@gmail.com>, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: trunk\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-11 00:59+0100\n"
+"PO-Revision-Date: 2009-08-16 13:04+0600\n"
+"Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>\n"
+"Language-Team: Kazakh <kk_KZ@googlegroups.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+
+#. Set tooltip (e.g. 'Master: 50%')
+#: ../panel-plugin/xfce-mixer-plugin.c:271
+#: ../panel-plugin/xfce-mixer-plugin.c:548
+#, c-format
+msgid "%s: %i%%"
+msgstr "%s: %i%%"
+
+#: ../panel-plugin/xfce-mixer-plugin.c:346
+msgid "No left-click command defined"
+msgstr "Сол жақ шерту командасы орнатылмаған"
+
+#: ../panel-plugin/xfce-mixer-plugin.c:349
+msgid "No left-click command defined yet. You can change this in the plugin properties."
+msgstr "Сол жақ шерту командасы әді орнатылмаған. Сіз оны осы плагиннің қасиеттерінде өзгерте аласыз."
+
+#: ../panel-plugin/xfce-mixer-plugin.c:350
+msgid "Properties"
+msgstr "Қасиеттері"
+
+#. Generate error message and insert the current command
+#: ../panel-plugin/xfce-mixer-plugin.c:365
+#, c-format
+msgid "Could not execute the command \"%s\". Ensure that either the location of the command is included in the PATH environment variable or that you are providing the full path to the command."
+msgstr "\"%s\" командасын орындау мүмкін емес. Осы команданың орналақан орны қоршамыңыздың PATH айнымалысында бар екеніне не осы командаға толық жолды көрсеткеніңізге көз жеткізіңіз."
+
+#: ../panel-plugin/xfce-mixer-plugin.c:398
+#: ../xfce4-mixer/main.c:89
+msgid "GStreamer was unable to detect any sound devices. Some sound system specific GStreamer packages may be missing. It may also be a permissions problem."
+msgstr "GStreamer бірде-бір дыбыстық картаны таба алмаған. Дыбыстық жүйеге тән кейбір GStreamer дестелері жоқ болып тұрған мүмкін. Сонымен қатар, бұл рұқсат мәселесі болуы мүмкін."
+
+#: ../panel-plugin/xfce-plugin-dialog.c:234
+msgid "Mixer Plugin"
+msgstr "Миксер плагині"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:236
+msgid "Configure the mixer track and left-click command"
+msgstr "Миксер каналын мен сол жақ шерту командасын  баптау"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:248
+msgid "Sound card"
+msgstr "Дыбыстық карта"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:266
+msgid "Mixer track"
+msgstr "Миксер каналы"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:284
+msgid "Left-click command"
+msgstr "Сол жақ шерту командасы"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:322
+msgid "Select command"
+msgstr "Команда таңдаңыз"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:330
+msgid "All Files"
+msgstr "Барлық файлдар"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:335
+msgid "Executable Files"
+msgstr "Орындалатын файлдар"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:350
+msgid "Perl Scripts"
+msgstr "Perl скриптері"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:356
+msgid "Python Scripts"
+msgstr "Python скриптері"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:362
+msgid "Ruby Scripts"
+msgstr "Ruby скриптері"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:368
+msgid "Shell Scripts"
+msgstr "Shell скриптері"
+
+#. Set application name
+#: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:1
+#: ../xfce4-mixer/main.c:60
+#: ../xfce4-mixer/xfce-mixer-window.c:165
+#: ../xfce4-mixer/xfce-mixer-window.c:183
+#: ../xfce4-mixer/xfce-mixer-window.c:284
+#: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
+msgid "Mixer"
+msgstr "Миксер"
+
+#: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:2
+msgid "Volume control for your sound card"
+msgstr "Дыбыстық картаңыз үшін дыбыс деңгейін орнату"
+
+#: ../libxfce4mixer/libxfce4mixer.c:243
+#, c-format
+msgid "Unknown Volume Control %d"
+msgstr "Белгісіз дыбыс каналы %d"
+
+#: ../xfce4-mixer/main.c:70
+#, c-format
+msgid "Failed to initialize xfconf: %s"
+msgstr "Xfconf іске қосу қатесі: %s"
+
+#: ../xfce4-mixer/xfce-mixer.c:164
+msgid "Playback"
+msgstr "Ойнату"
+
+#: ../xfce4-mixer/xfce-mixer.c:164
+msgid "Capture"
+msgstr "Ұстау"
+
+#: ../xfce4-mixer/xfce-mixer.c:164
+msgid "Switches"
+msgstr "Ауыстырғыштар"
+
+#: ../xfce4-mixer/xfce-mixer.c:164
+msgid "Options"
+msgstr "Опциялар"
+
+#: ../xfce4-mixer/xfce-mixer.c:298
+msgid "No controls visible"
+msgstr "Көрінетін каналдар жоқ"
+
+#: ../xfce4-mixer/xfce-mixer.c:302
+msgid "No controls are marked as visible. Please open the <span size='large'><b>Select Controls</b></span> dialog to select some."
+msgstr "Бірде-бір канал көрінетін деп белгіленбеген. <span size='large'><b>Каналдарды таңдау</b></span> сұхбат терезесін ашып, керек каналдарды таңдаңыз."
+
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:135
+msgid "Select Controls"
+msgstr "Каналдарды таңдау"
+
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:137
+msgid "Select which controls should be visible"
+msgstr "Көрінетін каналдарды таңдаңыз"
+
+#: ../xfce4-mixer/xfce-mixer-window.c:84
+msgid "_Quit"
+msgstr "_Шығу"
+
+#: ../xfce4-mixer/xfce-mixer-window.c:84
+msgid "Exit the mixer"
+msgstr "Миксерден шығу"
+
+#: ../xfce4-mixer/xfce-mixer-window.c:86
+msgid "_Select Controls..."
+msgstr "_Каналдарды таңдау..."
+
+#: ../xfce4-mixer/xfce-mixer-window.c:86
+msgid "Select which controls are displayed"
+msgstr "Көрсетілетін каналдарды таңдаңыз"
+
+#: ../xfce4-mixer/xfce-mixer-window.c:184
+msgid "Configure sound card(s) and control the volume of selected tracks"
+msgstr "Дыбыстық карта(лар)ды баптау мен дауыс деңгейін орнату"
+
+#: ../xfce4-mixer/xfce-mixer-window.c:199
+msgid "Sound card:"
+msgstr "Дыбыстық карта:"
+
+#: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:1
+msgid "Audio mixer for the Xfce Desktop Environment"
+msgstr "Xfce жұмыс үстел ортасы үшін аудио миксер"
+
