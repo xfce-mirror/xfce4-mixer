@@ -28,7 +28,7 @@ libxfce4mixer_la_CFLAGS = 						\
 	$(GLIB_CFLAGS)							\
 	$(GTK_FLAGS)							\
 	$(LIBXFCE4UTIL_CFLAGS)						\
-	$(LIBXFCEGUI4_CFLAGS)						\
+	$(LIBXFCE4UI_CFLAGS)						\
 	$(XFCONF_CFLAGS)						\
 	$(GST_PLUGINS_BASE_CFLAGS)
 
@@ -40,7 +40,7 @@ libxfce4mixer_la_LIBADD =						\
 	$(GLIB_LIBS)							\
 	$(GTK_FLAGS)							\
 	$(LIBXFCE4UTIL_LIBS)						\
-	$(LIBXFCEGUI4_LIBS)						\
+	$(LIBXFCE4UI_LIBS)						\
 	$(XFCONF_LIBS)							\
 	$(GST_PLUGINS_BASE_LIBS)					\
 	-lgstaudio-0.10							\

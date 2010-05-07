@@ -29,7 +29,7 @@
 #include <gst/gst.h>
 
 #include <libxfce4util/libxfce4util.h>
-#include <libxfcegui4/libxfcegui4.h>
+#include <libxfce4ui/libxfce4ui.h>
 #include <xfconf/xfconf.h>
 
 #include "libxfce4mixer/libxfce4mixer.h"
@@ -87,9 +87,11 @@ main (int    argc,
   /* Warn users if there were no sound cards detected by GStreamer */
   if (G_UNLIKELY (g_list_length (xfce_mixer_get_cards ()) <= 0))
     {
-      xfce_err (_("GStreamer was unable to detect any sound devices. "
-                  "Some sound system specific GStreamer packages may "
-                  "be missing. It may also be a permissions problem."));
+      xfce_dialog_show_error (NULL,
+                              NULL,
+                              _("GStreamer was unable to detect any sound devices. "
+                              "Some sound system specific GStreamer packages may "
+                              "be missing. It may also be a permissions problem."));
 
       return EXIT_FAILURE;
     }

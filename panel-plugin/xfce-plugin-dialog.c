@@ -27,7 +27,7 @@
 #include <gst/gst.h>
 #include <gst/interfaces/mixer.h>
 
-#include <libxfcegui4/libxfcegui4.h>
+#include <libxfce4ui/libxfce4ui.h>
 
 #include "libxfce4mixer/libxfce4mixer.h"
 

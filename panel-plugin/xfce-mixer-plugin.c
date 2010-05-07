@@ -31,9 +31,8 @@
 #include <gst/gst.h>
 
 #include <libxfce4util/libxfce4util.h>
-#include <libxfcegui4/libxfcegui4.h>
-#include <libxfce4panel/xfce-panel-plugin.h>
-#include <libxfce4panel/xfce-hvbox.h>
+#include <libxfce4ui/libxfce4ui.h>
+#include <libxfce4panel/libxfce4panel.h>
 
 #include "libxfce4mixer/libxfce4mixer.h"
 
@@ -344,7 +343,7 @@ xfce_mixer_plugin_clicked (XfceMixerPlugin *mixer_plugin)
                                       GTK_STOCK_DIALOG_ERROR,
                                       NULL,
                                       _("No left-click command defined yet. You can change this in the plugin properties."),
-                                      XFCE_CUSTOM_STOCK_BUTTON, _("Properties"), GTK_STOCK_PREFERENCES, GTK_RESPONSE_ACCEPT,
+                                      XFCE_BUTTON_TYPE_MIXED, _("Properties"), GTK_STOCK_PREFERENCES, GTK_RESPONSE_ACCEPT,
                                       GTK_STOCK_CLOSE, GTK_RESPONSE_REJECT,
                                       NULL);
 
@@ -367,7 +366,9 @@ xfce_mixer_plugin_clicked (XfceMixerPlugin *mixer_plugin)
                                  mixer_plugin->command);
 
       /* Display error */
-      xfce_err (message);
+      xfce_dialog_show_error (NULL,
+                              NULL,
+                              message); 
 
       /* Free error message */
       g_free (message);
@@ -392,9 +393,12 @@ xfce_mixer_plugin_configure (XfceMixerPlugin *mixer_plugin)
   /* Warn user if no sound cards are available */
   if (G_UNLIKELY (g_list_length (xfce_mixer_get_cards ()) <= 0))
     {
-      xfce_err (_("GStreamer was unable to detect any sound devices. "
-                  "Some sound system specific GStreamer packages may "
-                  "be missing. It may also be a permissions problem."));
+      xfce_dialog_show_error (NULL,
+                              NULL,
+                              _("GStreamer was unable to detect any sound devices. "
+                              "Some sound system specific GStreamer packages may "
+                              "be missing. It may also be a permissions problem.")); 
+
     }
   else
     {

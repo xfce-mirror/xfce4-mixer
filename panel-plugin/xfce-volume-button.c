@@ -27,7 +27,9 @@
 
 #include <gdk/gdkkeysyms.h>
 
-#include <libxfcegui4/libxfcegui4.h>
+#include <libxfce4ui/libxfce4ui.h>
+
+#include <libxfce4panel/libxfce4panel.h>
 
 #include "libxfce4mixer/libxfce4mixer.h"
 
@@ -205,7 +207,7 @@ xfce_volume_button_init (XfceVolumeButton *button)
   button->adjustment = gtk_adjustment_new (0.0, 0.0, 1.0, 0.05, 0.05, 0.0);
 
   /* Create a new scaled image for the button icon */
-  button->image = xfce_scaled_image_new ();
+  button->image = xfce_panel_image_new ();
   gtk_container_add (GTK_CONTAINER (button), button->image);
   gtk_widget_show (button->image);
 
@@ -430,7 +432,7 @@ xfce_volume_button_update (XfceVolumeButton *button)
 
   /* Update the button icon */
   if (G_LIKELY (pixbuf != NULL))
-    xfce_scaled_image_set_from_pixbuf (XFCE_SCALED_IMAGE (button->image), pixbuf);
+    xfce_panel_image_set_from_pixbuf (XFCE_PANEL_IMAGE (button->image), pixbuf);
 }
 
 
@@ -491,7 +493,11 @@ xfce_volume_button_set_icon_size (XfceVolumeButton *button,
       if (GDK_IS_PIXBUF (button->pixbufs[i]))
         g_object_unref (G_OBJECT (button->pixbufs[i]));
 
-      button->pixbufs[i] = xfce_themed_icon_load (icons[i], button->icon_size);
+      button->pixbufs[i] = gtk_icon_theme_load_icon (gtk_icon_theme_get_default(),
+                                                     icons[i],
+                                                     button->icon_size,
+                                                     GTK_ICON_LOOKUP_GENERIC_FALLBACK,
+                                                     NULL);
     }
 }
 

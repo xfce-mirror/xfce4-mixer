@@ -27,7 +27,7 @@
 #include <gst/interfaces/mixer.h>
 
 #include <libxfce4util/libxfce4util.h>
-#include <libxfcegui4/libxfcegui4.h>
+#include <libxfce4ui/libxfce4ui.h>
 
 #include "libxfce4mixer/libxfce4mixer.h"
 
@@ -57,12 +57,12 @@ static void     xfce_mixer_window_update_contents        (XfceMixerWindow      *
 
 struct _XfceMixerWindowClass
 {
-  GtkWindowClass __parent__;
+  XfceTitledDialogClass __parent__;
 };
 
 struct _XfceMixerWindow
 {
-  GtkWindow __parent__;
+  XfceTitledDialog __parent__;
 
   XfceMixerPreferences *preferences;
 
@@ -118,7 +118,8 @@ xfce_mixer_window_get_type (void)
           NULL,
         };
 
-      type = g_type_register_static (GTK_TYPE_WINDOW, "XfceMixerWindow", &info, 0);
+      type = g_type_register_static (XFCE_TYPE_TITLED_DIALOG, "XfceMixerWindow", &info, 0);
+
     }
   
   return type;
@@ -146,7 +147,6 @@ xfce_mixer_window_init (XfceMixerWindow *window)
 {
   GtkAccelGroup *accel_group;
   GtkAction     *action;
-  GtkWidget     *heading;
   GtkWidget     *separator;
   GtkWidget     *label;
   GtkWidget     *button;
@@ -168,6 +168,8 @@ xfce_mixer_window_init (XfceMixerWindow *window)
   gtk_window_set_title (GTK_WINDOW (window), _("Mixer"));
   gtk_window_set_default_size (GTK_WINDOW (window), width, height);
   gtk_window_set_position (GTK_WINDOW (window), GTK_WIN_POS_CENTER);
+  xfce_titled_dialog_set_subtitle (XFCE_TITLED_DIALOG (window), _("Configure sound card(s) and control the volume of selected tracks"));
+
   g_signal_connect (window, "delete-event", G_CALLBACK (xfce_mixer_window_closed), window);
 
   /* Quit mixer when the main window is closed */
@@ -189,16 +191,8 @@ xfce_mixer_window_init (XfceMixerWindow *window)
     }
   gtk_window_add_accel_group (GTK_WINDOW (window), accel_group);
 
-  vbox = gtk_vbox_new (FALSE, 0);
-  gtk_container_add (GTK_CONTAINER (window), vbox);
+  vbox = gtk_dialog_get_content_area (GTK_DIALOG (window));
   gtk_widget_show (vbox);
-
-  heading = xfce_heading_new ();
-  xfce_heading_set_title (XFCE_HEADING (heading), _("Mixer"));
-  xfce_heading_set_subtitle (XFCE_HEADING (heading), _("Configure sound card(s) and control the volume of selected tracks"));
-  xfce_heading_set_icon_name (XFCE_HEADING (heading), "multimedia-volume-control");
-  gtk_box_pack_start (GTK_BOX (vbox), heading, FALSE, TRUE, 0);
-  gtk_widget_show (heading);
 
   separator = gtk_hseparator_new ();
   gtk_box_pack_start (GTK_BOX (vbox), separator, FALSE, TRUE, 0);
