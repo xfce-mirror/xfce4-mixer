@@ -203,7 +203,8 @@ void
 xfce_mixer_bus_disconnect (guint signal_handler_id)
 {
   g_return_if_fail (refcount > 0);
-  g_signal_handler_disconnect (bus, signal_handler_id);
+  if (signal_handler_id != 0)
+    g_signal_handler_disconnect (bus, signal_handler_id);
 }
 #endif
 
