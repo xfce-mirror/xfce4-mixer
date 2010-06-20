@@ -1,0 +1,180 @@
+# xfce4-mixer el translation.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Jeff Bailes <thepizzaking@gmail.com>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4-mixer\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-11 00:59+0100\n"
+"PO-Revision-Date: 2010-06-20 18:43+0200\n"
+"Last-Translator: Spiros Georgaras <sng@hellug.gr>\n"
+"Language-Team: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Bookmarks: 4,-1,-1,-1,-1,-1,-1,-1,-1,-1\n"
+
+#. Set tooltip (e.g. 'Master: 50%')
+#: ../panel-plugin/xfce-mixer-plugin.c:271
+#: ../panel-plugin/xfce-mixer-plugin.c:548
+#, c-format
+msgid "%s: %i%%"
+msgstr "%s: %i%%"
+
+#: ../panel-plugin/xfce-mixer-plugin.c:346
+msgid "No left-click command defined"
+msgstr "Δεν έχει οριστεί εντολή αριστερού κλικ"
+
+#: ../panel-plugin/xfce-mixer-plugin.c:349
+msgid "No left-click command defined yet. You can change this in the plugin properties."
+msgstr "Δεν έχει οριστεί ακόμα κάποια εντολή αριστερού κλικ. Μπορείτε να την ορίσετε στις ιδιότητες του αρθρώματος."
+
+#: ../panel-plugin/xfce-mixer-plugin.c:350
+msgid "Properties"
+msgstr "Ιδιότητες"
+
+#. Generate error message and insert the current command
+#: ../panel-plugin/xfce-mixer-plugin.c:365
+#, c-format
+msgid "Could not execute the command \"%s\". Ensure that either the location of the command is included in the PATH environment variable or that you are providing the full path to the command."
+msgstr "Δεν είναι δυνατή η εκτέλεση της εντολής \"%s\". Σιγουρευτείτε ότι η διαδρομή όπου βρίσκεται η εντολή περιλαμβάνεται στη μεταβλητή περιβάλλοντος PATH, ή ότι έχετε δώσει την πλήρη διαδρομή της εντολής."
+
+#: ../panel-plugin/xfce-mixer-plugin.c:398
+#: ../xfce4-mixer/main.c:89
+msgid "GStreamer was unable to detect any sound devices. Some sound system specific GStreamer packages may be missing. It may also be a permissions problem."
+msgstr "Το GStreamer δεν εντόπισε καμία συσκευή ήχου. Κάποια πακέτα του GStreamer μπορεί να μην είναι εγκατεστημένα. Μπορεί επίσης να υπάρχει πρόβλημα δικαιωμάτων πρόσβασης."
+
+#: ../panel-plugin/xfce-plugin-dialog.c:234
+msgid "Mixer Plugin"
+msgstr "Άρθρωμα μίκτη"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:236
+msgid "Configure the mixer track and left-click command"
+msgstr "Ρυθμίστε το κανάλι του μίκτη και την εντολή αριστερού κλικ"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:248
+msgid "Sound card"
+msgstr "Κάρτα ήχου"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:266
+msgid "Mixer track"
+msgstr "Κανάλι μίκτη"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:284
+msgid "Left-click command"
+msgstr "Εντολή αριστερού κλικ"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:322
+msgid "Select command"
+msgstr "Επιλογή εντολής"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:330
+msgid "All Files"
+msgstr "Όλα τα αρχεία"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:335
+msgid "Executable Files"
+msgstr "Εκτελέσιμα αρχεία"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:350
+msgid "Perl Scripts"
+msgstr "Δέσμες ενεργειών Perl"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:356
+msgid "Python Scripts"
+msgstr "Δέσμες ενεργειών Python"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:362
+msgid "Ruby Scripts"
+msgstr "Δέσμες ενεργειών Ruby"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:368
+msgid "Shell Scripts"
+msgstr "Δέσμες ενεργειών κέλυφους"
+
+#. Set application name
+#: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:1
+#: ../xfce4-mixer/main.c:60
+#: ../xfce4-mixer/xfce-mixer-window.c:165
+#: ../xfce4-mixer/xfce-mixer-window.c:183
+#: ../xfce4-mixer/xfce-mixer-window.c:284
+#: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
+msgid "Mixer"
+msgstr "Μίκτης"
+
+#: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:2
+msgid "Volume control for your sound card"
+msgstr "Ρύθμιση έντασης ήχου της κάρτας ήχου σας"
+
+#: ../libxfce4mixer/libxfce4mixer.c:243
+#, c-format
+msgid "Unknown Volume Control %d"
+msgstr "Άγνωστο ρυθμιστικό έντασης %d"
+
+#: ../xfce4-mixer/main.c:70
+#, c-format
+msgid "Failed to initialize xfconf: %s"
+msgstr "Αποτυχία της αρχικοποίησης του xfconf: %s"
+
+#: ../xfce4-mixer/xfce-mixer.c:164
+msgid "Playback"
+msgstr "Αναπαραγωγή"
+en_GB
+#: ../xfce4-mixer/xfce-mixer.c:164
+msgid "Capture"
+msgstr "Ηχογράφηση"
+
+#: ../xfce4-mixer/xfce-mixer.c:164
+msgid "Switches"
+msgstr "Διακόπτες"
+
+#: ../xfce4-mixer/xfce-mixer.c:164
+msgid "Options"
+msgstr "Επιλογές"
+
+#: ../xfce4-mixer/xfce-mixer.c:298
+msgid "No controls visible"
+msgstr "Κανένα ρυθμιστικό ορατό"
+
+#: ../xfce4-mixer/xfce-mixer.c:302
+msgid "No controls are marked as visible. Please open the <span size='large'><b>Select Controls</b></span> dialog to select some."
+msgstr "Κανένα ρυθμιστικό δεν έχει σημειωθεί ως ορατό. Παρακαλώ ανοίξτε το διάλογο <span size='large'><b>Επιλογή ρυθμιστικών</b></span> για να επιλέξετε κάποια από αυτά."
+
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:135
+msgid "Select Controls"
+msgstr "Επιλογή ρυθμιστικών"
+
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:137
+msgid "Select which controls should be visible"
+msgstr "Επιλέξτε τα ρυθμιστικά που θα είναι ορατά"
+
+#: ../xfce4-mixer/xfce-mixer-window.c:84
+msgid "_Quit"
+msgstr "Έ_ξοδος"
+
+#: ../xfce4-mixer/xfce-mixer-window.c:84
+msgid "Exit the mixer"
+msgstr "Έξοδος από το μίκτη"
+
+#: ../xfce4-mixer/xfce-mixer-window.c:86
+msgid "_Select Controls..."
+msgstr "Επιλογή ρυθμι_στικών..."
+
+#: ../xfce4-mixer/xfce-mixer-window.c:86
+msgid "Select which controls are displayed"
+msgstr "Επιλέξτε ποιά ρυθμιστικά θα είναι ορατά"
+
+#: ../xfce4-mixer/xfce-mixer-window.c:184
+msgid "Configure sound card(s) and control the volume of selected tracks"
+msgstr "Ρυθμίστε τις κάρτες ήχου σας και την ένταση επιλεγμένων καναλιών"
+
+#: ../xfce4-mixer/xfce-mixer-window.c:199
+msgid "Sound card:"
+msgstr "Κάρτα ήχου:"
+
+#: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:1
+msgid "Audio mixer for the Xfce Desktop Environment"
+msgstr "Μίκτης ήχου για το Περιβάλλον Εργασίας Xfce"
+
