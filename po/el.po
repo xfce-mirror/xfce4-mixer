@@ -121,7 +121,7 @@ msgstr "Αποτυχία της αρχικοποίησης του xfconf: %s"
 #: ../xfce4-mixer/xfce-mixer.c:164
 msgid "Playback"
 msgstr "Αναπαραγωγή"
-en_GB
+
 #: ../xfce4-mixer/xfce-mixer.c:164
 msgid "Capture"
 msgstr "Ηχογράφηση"
