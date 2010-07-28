@@ -147,7 +147,6 @@ xfce_mixer_window_init (XfceMixerWindow *window)
 {
   GtkAccelGroup *accel_group;
   GtkAction     *action;
-  GtkWidget     *separator;
   GtkWidget     *label;
   GtkWidget     *button;
   GtkWidget     *vbox;
@@ -168,6 +167,7 @@ xfce_mixer_window_init (XfceMixerWindow *window)
   gtk_window_set_title (GTK_WINDOW (window), _("Mixer"));
   gtk_window_set_default_size (GTK_WINDOW (window), width, height);
   gtk_window_set_position (GTK_WINDOW (window), GTK_WIN_POS_CENTER);
+  gtk_dialog_set_has_separator (GTK_DIALOG (window), FALSE);
   xfce_titled_dialog_set_subtitle (XFCE_TITLED_DIALOG (window), _("Configure sound card(s) and control the volume of selected tracks"));
 
   g_signal_connect (window, "delete-event", G_CALLBACK (xfce_mixer_window_closed), window);
@@ -194,10 +194,6 @@ xfce_mixer_window_init (XfceMixerWindow *window)
   vbox = gtk_dialog_get_content_area (GTK_DIALOG (window));
   gtk_widget_show (vbox);
 
-  separator = gtk_hseparator_new ();
-  gtk_box_pack_start (GTK_BOX (vbox), separator, FALSE, TRUE, 0);
-  gtk_widget_show (separator);
-
   hbox = gtk_hbox_new (FALSE, 12);
   gtk_container_set_border_width (GTK_CONTAINER (hbox), 6);
   gtk_box_pack_start (GTK_BOX (vbox), hbox, FALSE, TRUE, 0);
@@ -221,11 +217,9 @@ xfce_mixer_window_init (XfceMixerWindow *window)
   gtk_container_add (GTK_CONTAINER (vbox), window->mixer_frame);
   gtk_widget_show (window->mixer_frame);
 
-  bbox = gtk_hbutton_box_new ();
+  bbox = gtk_dialog_get_action_area (GTK_DIALOG (window));
   gtk_button_box_set_layout (GTK_BUTTON_BOX (bbox), GTK_BUTTONBOX_EDGE);
   gtk_container_set_border_width (GTK_CONTAINER (bbox), 6);
-  gtk_box_pack_start (GTK_BOX (vbox), bbox, FALSE, TRUE, 0);
-  gtk_widget_show (bbox);
 
   window->select_controls_button = gtk_button_new ();
   gtk_action_connect_proxy (gtk_action_group_get_action (window->action_group, "select-controls"), 
