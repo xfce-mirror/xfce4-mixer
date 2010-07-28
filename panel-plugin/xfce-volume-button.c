@@ -496,7 +496,7 @@ xfce_volume_button_set_icon_size (XfceVolumeButton *button,
       button->pixbufs[i] = gtk_icon_theme_load_icon (gtk_icon_theme_get_default(),
                                                      icons[i],
                                                      button->icon_size,
-                                                     GTK_ICON_LOOKUP_GENERIC_FALLBACK,
+                                                     GTK_ICON_LOOKUP_USE_BUILTIN,
                                                      NULL);
     }
 }
