@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: xfce4-mixer 4.4.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-01-11 00:59+0100\n"
-"PO-Revision-Date: 2009-08-20 14:52+0100\n"
+"PO-Revision-Date: 2010-11-02 18:12+0100\n"
 "Last-Translator: Leandro Regueiro <leandro.regueiro@gmail.com>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
 "MIME-Version: 1.0\n"
@@ -29,11 +29,11 @@ msgstr "%s: %i%%"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:346
 msgid "No left-click command defined"
-msgstr "Non se definiu ningún comando para o clic do botón esquerdo"
+msgstr "Non se definiu ningunha orde para o clic do botón esquerdo"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:349
 msgid "No left-click command defined yet. You can change this in the plugin properties."
-msgstr "Aínda non se definiu ningún comando para o clic do botón esquerdo. Pode cambiar isto nas propiedades do engadido."
+msgstr "Aínda non se definiu ningunha orde para o clic do botón esquerdo. Pode cambiar isto nas propiedades do engadido."
 
 #: ../panel-plugin/xfce-mixer-plugin.c:350
 msgid "Properties"
@@ -43,7 +43,7 @@ msgstr "Propiedades"
 #: ../panel-plugin/xfce-mixer-plugin.c:365
 #, c-format
 msgid "Could not execute the command \"%s\". Ensure that either the location of the command is included in the PATH environment variable or that you are providing the full path to the command."
-msgstr "Non se puido executar o comando \"%s\". Asegúrese de que a localización do comando está incluída na variable de contorno PATH ou de que está proporcionando a ruta completa ao comando."
+msgstr "Non foi posible executar a orde \"%s\". Asegúrese de que a localización da orde está incluída na variable de contorno PATH ou de que está proporcionando a ruta completa á orde."
 
 #: ../panel-plugin/xfce-mixer-plugin.c:398
 #: ../xfce4-mixer/main.c:89
@@ -56,7 +56,7 @@ msgstr "Engadido de mesturador"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:236
 msgid "Configure the mixer track and left-click command"
-msgstr "Configurar a pista do mesturador e o comando do clic co botón esquerdo"
+msgstr "Configurar a pista do mesturador e a orde do clic co botón esquerdo"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:248
 msgid "Sound card"
@@ -68,11 +68,11 @@ msgstr "Mesturador de pistas"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:284
 msgid "Left-click command"
-msgstr "Comando do clic do botón esquerdo"
+msgstr "Orde do clic do botón esquerdo"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:322
 msgid "Select command"
-msgstr "Seleccione un comando"
+msgstr "Seleccione unha orde"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:330
 msgid "All Files"
