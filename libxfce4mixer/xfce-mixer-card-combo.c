@@ -51,8 +51,6 @@ static guint combo_signals[LAST_SIGNAL];
 static void  xfce_mixer_card_combo_class_init        (XfceMixerCardComboClass *klass);
 static void  xfce_mixer_card_combo_init              (XfceMixerCardCombo      *combo);
 static void  xfce_mixer_card_combo_finalize          (GObject                 *object);
-static void  xfce_mixer_card_combo_load_soundcards   (XfceMixerCardCombo      *combo,
-                                                      const gchar             *card_name);
 static void  xfce_mixer_card_combo_changed           (XfceMixerCardCombo      *combo);
 static void _xfce_mixer_card_combo_set_active_card   (XfceMixerCardCombo      *combo,
                                                       GstElement              *card);

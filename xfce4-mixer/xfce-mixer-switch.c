@@ -130,8 +130,6 @@ xfce_mixer_switch_dispose (GObject *object)
 static void
 xfce_mixer_switch_finalize (GObject *object)
 {
-  XfceMixerSwitch *mixer_switch = XFCE_MIXER_SWITCH (object);
-
   (*G_OBJECT_CLASS (xfce_mixer_switch_parent_class)->finalize) (object);
 }
 

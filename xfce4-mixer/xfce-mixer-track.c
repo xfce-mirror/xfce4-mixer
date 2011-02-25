@@ -150,8 +150,6 @@ xfce_mixer_track_dispose (GObject *object)
 static void
 xfce_mixer_track_finalize (GObject *object)
 {
-  XfceMixerTrack *track = XFCE_MIXER_TRACK (object);
-
   (*G_OBJECT_CLASS (xfce_mixer_track_parent_class)->finalize) (object);
 }
 

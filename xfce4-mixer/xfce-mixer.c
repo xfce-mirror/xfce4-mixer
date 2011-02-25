@@ -169,7 +169,6 @@ xfce_mixer_constructed (GObject *object)
   GtkWidget            *last_separator[4] = { NULL, NULL, NULL, NULL };
   GtkWidget            *label1;
   GtkWidget            *label2;
-  GList                *visible_controls;
   gchar                *label;
   guint                 num_children[4] = { 0, 0, 0, 0 };
   gint                  i;
@@ -385,11 +384,15 @@ xfce_mixer_set_property (GObject      *object,
 GtkWidget *
 xfce_mixer_new (GstElement *card)
 {
+  GObject *object = NULL;
+
   g_return_val_if_fail (GST_IS_MIXER (card), NULL);
-  GObject *object = g_object_new (TYPE_XFCE_MIXER, "card", card, NULL);
+ 
+  object = g_object_new (TYPE_XFCE_MIXER, "card", card, NULL);
 #if !GLIB_CHECK_VERSION (2,14,0)
   xfce_mixer_constructed (object);
 #endif
+
   return GTK_WIDGET (object);
 }
 

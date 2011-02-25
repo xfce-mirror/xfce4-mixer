@@ -130,9 +130,6 @@ xfce_mixer_option_dispose (GObject *object)
 static void
 xfce_mixer_option_finalize (GObject *object)
 {
-  XfceMixerOption *option = XFCE_MIXER_OPTION (object);
-
-  (*G_OBJECT_CLASS (xfce_mixer_option_parent_class)->finalize) (object);
 }
 
 
@@ -215,7 +212,8 @@ xfce_mixer_option_changed (GtkComboBox     *combo,
 
   if (G_LIKELY (active_option != NULL))
     {
-      gst_mixer_set_option (GST_MIXER (option->card), option->track, active_option);
+      gst_mixer_set_option (GST_MIXER (option->card), GST_MIXER_OPTIONS (option->track), 
+                            active_option);
       g_free (active_option);
     }
 }

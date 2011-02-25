@@ -190,7 +190,7 @@ xfce_mixer_controls_dialog_response (GtkDialog *dialog,
   XfceMixerPreferences    *preferences;
   GList                   *visible_controls = NULL;
   gchar                  **controls;
-  gint                     i;
+  guint                    i;
 
   gtk_tree_model_foreach (GTK_TREE_MODEL (mixer_dialog->store), 
                           (GtkTreeModelForeachFunc) xfce_mixer_controls_dialog_collect_visible_controls,
@@ -250,7 +250,6 @@ xfce_mixer_controls_dialog_create_contents (XfceMixerControlsDialog *dialog)
   GtkWidget            *view;
   GtkWidget            *frame;
   GtkWidget            *scrollwin;
-  GList                *item;
   gchar                *label;
   gboolean              visible;
 

@@ -366,9 +366,7 @@ xfce_mixer_plugin_clicked (XfceMixerPlugin *mixer_plugin)
                                  mixer_plugin->command);
 
       /* Display error */
-      xfce_dialog_show_error (NULL,
-                              NULL,
-                              message); 
+      xfce_dialog_show_error (NULL, NULL, "%s", message); 
 
       /* Free error message */
       g_free (message);
@@ -577,12 +575,9 @@ xfce_mixer_plugin_bus_message (GstBus          *bus,
                                XfceMixerPlugin *mixer_plugin)
 {
   GstMixerTrack      *track = NULL;
-  gdouble             volume;
-  gchar              *label;
-  gint               *volumes;
-  gint                num_channels;
   gboolean            mute;
   gboolean            record;
+  gchar              *label;
 
   /* Don't do anything if GstBus messages are to be ignored */
   if (G_UNLIKELY (mixer_plugin->ignore_bus_messages))

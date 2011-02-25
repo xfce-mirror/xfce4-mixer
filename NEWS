@@ -1,3 +1,17 @@
+4.8.0
+=====
+- Fix too small plugin button in the new panel.
+- Ellipsize sound card names in the combo box (bug #6671).
+- Remove deprecated Encoding key from desktop files.
+- Port to libxfce4ui.
+- Fix wrong use of GTK+ causing the panel plugin volume to be set no higher
+  than 90% (bug #5243).
+- Fixed a lot of compiler warnnings and errors.
+- Updated translations: Dutch, English (United Kingdom), Galician, Greek,
+  Italian, Kazakh, Portuguese, Romanian, Russian, Sinhala, Turkish, 
+  Uyghur and more.
+
+
 4.6.1
 =====
 - Translation updates: es (Abel Martín), pl (Piotr Sokół),

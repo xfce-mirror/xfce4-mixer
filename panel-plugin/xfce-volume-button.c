@@ -241,7 +241,7 @@ xfce_volume_button_dispose (GObject *object)
 static void
 xfce_volume_button_finalize (GObject *object)
 {
-  gint i;
+  guint i;
 
   XfceVolumeButton *button = XFCE_VOLUME_BUTTON (object);
 
@@ -404,7 +404,7 @@ xfce_volume_button_update (XfceVolumeButton *button)
   gdouble    lower;
   gdouble    value;
   gdouble    range;
-  gint       i;
+  guint      i;
 
   g_return_if_fail (IS_XFCE_VOLUME_BUTTON (button));
 
@@ -479,7 +479,7 @@ void
 xfce_volume_button_set_icon_size (XfceVolumeButton *button,
                                   gint              size)
 {
-  gint i;
+  guint i;
 
   g_return_if_fail (IS_XFCE_VOLUME_BUTTON (button));
   g_return_if_fail (size >= 0);

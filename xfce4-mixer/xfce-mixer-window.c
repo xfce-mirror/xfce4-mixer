@@ -154,9 +154,9 @@ xfce_mixer_window_init (XfceMixerWindow *window)
   GtkWidget     *bbox;
   gchar         *active_card = NULL;
   gchar         *title;
+  guint          i;
   gint           width;
   gint           height;
-  gint           i;
 
   window->preferences = xfce_mixer_preferences_get ();
 

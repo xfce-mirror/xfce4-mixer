@@ -226,8 +226,6 @@ xfce_plugin_dialog_create_contents (XfcePluginDialog *dialog,
   GtkWidget  *hbox;
   GtkWidget  *button;
   GtkWidget  *label;
-  GtkWidget  *card_frame;
-  GtkWidget  *track_frame;
   gchar      *title;
 
   gtk_window_set_icon_name (GTK_WINDOW (dialog), "multimedia-volume-control");
