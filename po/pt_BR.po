@@ -40,7 +40,7 @@ msgstr "Propriedades"
 #: ../panel-plugin/xfce-mixer-plugin.c:365
 #, c-format
 msgid "Could not execute the command \"%s\". Ensure that either the location of the command is included in the PATH environment variable or that you are providing the full path to the command."
-msgstr "Não foi possível executar o comand \"%s\". Certifique-se que a localização do comando está incluída na variavel de ambiente PATH ou que você está usando o caminho completo do comando."
+msgstr "Não foi possível executar o comando \"%s\". Certifique-se que a localização do comando está incluída na variavel de ambiente PATH ou que você está usando o caminho completo do comando."
 
 #: ../panel-plugin/xfce-mixer-plugin.c:398 ../xfce4-mixer/main.c:89
 msgid "GStreamer was unable to detect any sound devices. Some sound system specific GStreamer packages may be missing. It may also be a permissions problem."
