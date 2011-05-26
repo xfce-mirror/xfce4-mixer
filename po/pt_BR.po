@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the xfce4-mixer package.
 # Og Maciel <ogmaciel@gnome.org>, 2007-2008.
 # Fábio Nogueira <deb-user-ba@ubuntu.com>, 2008.
-# 
+# Sérgio Cipolla <secipolla@gmail.com>, 2011.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-01-11 00:59+0100\n"
-"PO-Revision-Date: 2009-01-16 12:33-0500\n"
-"Last-Translator: Og Maciel <ogmaciel@gnome.org>\n"
+"PO-Revision-Date: 2011-04-20 20:35-0300\n"
+"Last-Translator: Sérgio Cipolla <secipolla@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <ldp-br@bazar2.conectiva.com.br>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -42,7 +43,8 @@ msgstr "Propriedades"
 msgid "Could not execute the command \"%s\". Ensure that either the location of the command is included in the PATH environment variable or that you are providing the full path to the command."
 msgstr "Não foi possível executar o comando \"%s\". Certifique-se que a localização do comando está incluída na variavel de ambiente PATH ou que você está usando o caminho completo do comando."
 
-#: ../panel-plugin/xfce-mixer-plugin.c:398 ../xfce4-mixer/main.c:89
+#: ../panel-plugin/xfce-mixer-plugin.c:398
+#: ../xfce4-mixer/main.c:89
 msgid "GStreamer was unable to detect any sound devices. Some sound system specific GStreamer packages may be missing. It may also be a permissions problem."
 msgstr "O Gstreamer não detectou nenhum dispositivo de áudio. Pode ser que esteja faltando algum pacote do Gstreamer específico do sistema de som. Isso pode ser também algum problema de permissão."
 
@@ -96,7 +98,8 @@ msgstr "Scripts em Shell"
 
 #. Set application name
 #: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:1
-#: ../xfce4-mixer/main.c:60 ../xfce4-mixer/xfce-mixer-window.c:165
+#: ../xfce4-mixer/main.c:60
+#: ../xfce4-mixer/xfce-mixer-window.c:165
 #: ../xfce4-mixer/xfce-mixer-window.c:183
 #: ../xfce4-mixer/xfce-mixer-window.c:284
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
@@ -181,16 +184,16 @@ msgstr "Mixer de áudio para o ambiente de trabalho Xfce"
 #~ msgstr "Não foi possível executar o comando %s. Talvez você precise ajustar a variável PATH."
 
 #~ msgid "Please select which mixer track should be used by the plugin"
-#~ msgstr "Por favor escolha qual o mixador de faixa que deve ser usado pelo plug-in"
+#~ msgstr "Por favor escolha qual faixa do mixer deve ser usada pelo plug-in"
 
 #~ msgid "Please select which controls you want to be visible"
 #~ msgstr "Por favor selecione quais controles você deseja manter visíveis"
 
 #~ msgid "A comfortable audio mixer for your sound card."
-#~ msgstr "Um mixador de áudio confortável para a sua placa de áudio."
+#~ msgstr "Um mixer de áudio confortável para a sua placa de áudio."
 
 #~ msgid "Xfce Mixer"
-#~ msgstr "Mixador do Xfce"
+#~ msgstr "Mixer do Xfce"
 
 #~ msgid "Could not find xfce4-mixer in PATH."
 #~ msgstr "Não foi possível encontrar o xfce4-mixer no CAMINHO."
