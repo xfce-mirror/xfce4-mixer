@@ -23,7 +23,7 @@ msgstr ""
 #: ../panel-plugin/xfce-mixer-plugin.c:548
 #, c-format
 msgid "%s: %i%%"
-msgstr "%s:% i%%"
+msgstr "%s: %i%%"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:346
 msgid "No left-click command defined"
