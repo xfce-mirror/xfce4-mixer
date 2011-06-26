@@ -139,7 +139,7 @@ msgstr "لا متحكمات مرئية"
 
 #: ../xfce4-mixer/xfce-mixer.c:302
 msgid "No controls are marked as visible. Please open the <span size='large'><b>Select Controls</b></span> dialog to select some."
-msgstr ""
+msgstr "لم يتم وضع علامة لتفعيل الضوابط. الرجاء فتح المسار<b><span size='large'>حدد ضوابط</span></b> لتحديد بعض."
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:135
 msgid "Select Controls"
