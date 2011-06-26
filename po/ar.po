@@ -26,7 +26,7 @@ msgstr "%s: %i%%"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:346
 msgid "No left-click command defined"
-msgstr ""
+msgstr "لم تعرف  أوامر الزر الايسر"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:349
 msgid "No left-click command defined yet. You can change this in the plugin properties."
@@ -64,7 +64,7 @@ msgstr "مازج المقطع"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:284
 msgid "Left-click command"
-msgstr ""
+msgstr "أوامر الزر الايسر"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:322
 msgid "Select command"
@@ -122,7 +122,6 @@ msgid "Playback"
 msgstr "تشغيل"
 
 #: ../xfce4-mixer/xfce-mixer.c:164
-#, fuzzy
 msgid "Capture"
 msgstr "لاقط"
 
@@ -148,7 +147,7 @@ msgstr "اختر المتحكمات"
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:137
 msgid "Select which controls should be visible"
-msgstr ""
+msgstr "تحديد الضوابط المرئية"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:84
 msgid "_Quit"
@@ -168,7 +167,7 @@ msgstr "إختر أي متحكم سيتم عرضه"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:184
 msgid "Configure sound card(s) and control the volume of selected tracks"
-msgstr ""
+msgstr "تكوين بطاقة الصوت (ق) والتحكم بحجم مسارات المحددة"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:199
 msgid "Sound card:"
