@@ -30,7 +30,7 @@ msgstr "لم تعرف  أوامر الزر الايسر"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:349
 msgid "No left-click command defined yet. You can change this in the plugin properties."
-msgstr ""
+msgstr "لم تهيئ أوامر الزر الايسر بعد. يمكنك تغيير خصائص هذه الإضافة. ."
 
 #: ../panel-plugin/xfce-mixer-plugin.c:350
 msgid "Properties"
@@ -40,11 +40,11 @@ msgstr "خصائص"
 #: ../panel-plugin/xfce-mixer-plugin.c:365
 #, c-format
 msgid "Could not execute the command \"%s\". Ensure that either the location of the command is included in the PATH environment variable or that you are providing the full path to the command."
-msgstr ""
+msgstr "لا يمكن تنفيذ الأمر\"%s\".  تأكد من تضمينها في مسار القيادة لمتغير البيئة وأنك وفرت المسار الكامل إلى الأمر."
 
 #: ../panel-plugin/xfce-mixer-plugin.c:398 ../xfce4-mixer/main.c:89
 msgid "GStreamer was unable to detect any sound devices. Some sound system specific GStreamer packages may be missing. It may also be a permissions problem."
-msgstr ""
+msgstr "GStreamer غير قادر على الكشف عن أية أجهزة الصوت. قد تكون بعض حزم صوت GStreamer مفقودة أو قد يكون مشكلة في الأذونات."
 
 #: ../panel-plugin/xfce-plugin-dialog.c:234
 msgid "Mixer Plugin"
@@ -52,7 +52,7 @@ msgstr "ملحق المازج"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:236
 msgid "Configure the mixer track and left-click command"
-msgstr ""
+msgstr "إعداد دمج  المسار وأوامر الزر الايسر."
 
 #: ../panel-plugin/xfce-plugin-dialog.c:248
 msgid "Sound card"
