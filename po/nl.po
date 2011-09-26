@@ -140,7 +140,7 @@ msgstr "Geen zichtbare bedieningsknoppen"
 
 #: ../xfce4-mixer/xfce-mixer.c:302
 msgid "No controls are marked as visible. Please open the <span size='large'><b>Select Controls</b></span> dialog to select some."
-msgstr "Er zijn geen bedieningsknoppen gemarkeerd als zichtbaar. Open het <b><span size='large'>Kies Bedieningknoppen</span></b>-dialoogvenster om er te kiezen."
+msgstr "Er zijn geen bedieningsknoppen gemarkeerd als zichtbaar. Open het <b><span size='large'>Kies Bedieningsknoppen</span></b>-dialoogvenster om er te kiezen."
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:135
 msgid "Select Controls"
