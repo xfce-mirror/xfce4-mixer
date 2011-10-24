@@ -2,15 +2,16 @@
 # Copyright (C) 2009 Xfce development team
 # This file is distributed under the same license as the xfce-mixer package.
 # Chris K. Zhang <plutino@gmail.com>, 2009
-#
+# Chipong Luo <chipong_l@yahoo.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-01-11 00:59+0100\n"
 "PO-Revision-Date: 2009-01-19 12:59-0800\n"
-"Last-Translator: Chris K. Zhang <plutino@gmail.com\n"
+"Last-Translator: Chipong Luo <chipong_l@yahoo.com>\n"
 "Language-Team: Simplified Chinese <i18n-xfce@xfce.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,17 +21,17 @@ msgstr ""
 #: ../panel-plugin/xfce-mixer-plugin.c:548
 #, c-format
 msgid "%s: %i%%"
-msgstr "%s: %i%%"
+msgstr "%s： %i%%"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:346
 msgid "No left-click command defined"
-msgstr "鼠标左键点击命令未定义"
+msgstr "未定义左键点击命令"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:349
 msgid ""
 "No left-click command defined yet. You can change this in the plugin "
 "properties."
-msgstr "鼠标左键点击命令未定义，可以通过插件属性来定义。"
+msgstr "左键点击命令仍未定义。您可以在插件属性中更改。"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:350
 msgid "Properties"
@@ -44,16 +45,16 @@ msgid ""
 "command is included in the PATH environment variable or that you are "
 "providing the full path to the command."
 msgstr ""
-"无法运行命令“%s”，请确定该命令的路径包含在 PATH 环境变量中，或者你使用了该\n"
-"命令的完整路径。"
+"无法执行命令 “%s”。确保要么该命令的路径包含在 PATH 环境变量中，"
+"要么您提供了该命令的完整路径。"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:398 ../xfce4-mixer/main.c:89
 msgid ""
 "GStreamer was unable to detect any sound devices. Some sound system specific "
 "GStreamer packages may be missing. It may also be a permissions problem."
 msgstr ""
-"Gstreamer 检测不到任何声音设备。可能是一些 Gstreamer 的设备插件没有安装，\n"
-"或者您没有使用声音设备的权限。"
+"Gstreamer 未能检测到任何声音设备。一些声音系统的特定 Gstreamer "
+"插件可能缺失。也可能是权限问题。"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:234
 msgid "Mixer Plugin"
@@ -61,7 +62,7 @@ msgstr "混音器插件"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:236
 msgid "Configure the mixer track and left-click command"
-msgstr "配置混音器通道和鼠标左击命令"
+msgstr "配置混音器音轨和左键点击命令"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:248
 msgid "Sound card"
@@ -69,11 +70,11 @@ msgstr "声卡"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:266
 msgid "Mixer track"
-msgstr "混音器通道"
+msgstr "混音器音轨"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:284
 msgid "Left-click command"
-msgstr "鼠标左击命令"
+msgstr "左键点击命令"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:322
 msgid "Select command"
@@ -151,7 +152,7 @@ msgid ""
 "No controls are marked as visible. Please open the <span "
 "size='large'><b>Select Controls</b></span> dialog to select some."
 msgstr ""
-"没有控制被标为可见。请打开 <span size='large'><b>选择控制</b></span> \n"
+"没有控制被标为可见。请打开 <span size='large'><b>选择控制</b></span> "
 "对话框来选一些。"
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:135
@@ -160,7 +161,7 @@ msgstr "选择控制"
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:137
 msgid "Select which controls should be visible"
-msgstr "选择那些控制可见"
+msgstr "选择哪些控制应该可见"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:84
 msgid "_Quit"
@@ -180,7 +181,7 @@ msgstr "选择显示哪些控制"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:184
 msgid "Configure sound card(s) and control the volume of selected tracks"
-msgstr "配置声卡并控制所选通道的音量"
+msgstr "配置声卡并控制选中音轨的音量"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:199
 msgid "Sound card:"
@@ -188,4 +189,4 @@ msgstr "声卡："
 
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:1
 msgid "Audio mixer for the Xfce Desktop Environment"
-msgstr "Xfce 桌面环境混音器"
+msgstr "Xfce 桌面环境下的音频混音器"
