@@ -1,14 +1,14 @@
-# translation of xfce4-mixer.master.xfce4-mixer.po to Icelandic
+# translation of is.po to Icelandic
 # Copyright (C) 2011 Free Software Foundation
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Sveinn í Felli <sveinki@nett.is>, 2011.
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-mixer.master.xfce4-mixer\n"
+"Project-Id-Version: is\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-01-11 00:59+0100\n"
-"PO-Revision-Date: 2011-12-01 20:07+0000\n"
+"PO-Revision-Date: 2011-12-08 21:52+0000\n"
 "Last-Translator: Sveinn í Felli <sveinki@nett.is>\n"
 "Language-Team: Icelandic <translation-team-is@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -22,17 +22,17 @@ msgstr ""
 #: ../panel-plugin/xfce-mixer-plugin.c:548
 #, c-format
 msgid "%s: %i%%"
-msgstr ""
+msgstr "%s: %i%%"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:346
 msgid "No left-click command defined"
-msgstr ""
+msgstr "Engin vinstri-smells-skipun skilgreind"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:349
 msgid ""
 "No left-click command defined yet. You can change this in the plugin "
 "properties."
-msgstr ""
+msgstr "Engin vinstri-smells-skipun er skilgreind eins og er. Þú getur breytt því í eiginleikum viðbótarinnar."
 
 #: ../panel-plugin/xfce-mixer-plugin.c:350
 msgid "Properties"
@@ -59,7 +59,7 @@ msgstr "Hljóðblöndunarviðbót"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:236
 msgid "Configure the mixer track and left-click command"
-msgstr ""
+msgstr "Stilla hljóðblöndunarrás og vinstri-smells-skipun"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:248
 msgid "Sound card"
@@ -112,7 +112,7 @@ msgstr "Hljóðblandari"
 
 #: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:2
 msgid "Volume control for your sound card"
-msgstr ""
+msgstr "Hljóðstyrksstýring fyrir hljóðkortið þitt"
 
 #: ../libxfce4mixer/libxfce4mixer.c:243
 #, c-format
@@ -122,7 +122,7 @@ msgstr "Óþekkt hljóðstyrksstjórnun %d"
 #: ../xfce4-mixer/main.c:70
 #, c-format
 msgid "Failed to initialize xfconf: %s"
-msgstr ""
+msgstr "Mistókst að frumstilla xfconf: %s"
 
 #: ../xfce4-mixer/xfce-mixer.c:164
 msgid "Playback"
@@ -142,7 +142,7 @@ msgstr "Valkostir"
 
 #: ../xfce4-mixer/xfce-mixer.c:298
 msgid "No controls visible"
-msgstr ""
+msgstr "Engin stjórntæki sýnieg"
 
 #: ../xfce4-mixer/xfce-mixer.c:302
 msgid ""
@@ -156,7 +156,7 @@ msgstr "Veldu stjórntæki"
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:137
 msgid "Select which controls should be visible"
-msgstr ""
+msgstr "Veldu hvaða stjórntæki ættu að vera sýnieg"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:84
 msgid "_Quit"
@@ -168,11 +168,11 @@ msgstr "Hætta í hljóðblandaranum"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:86
 msgid "_Select Controls..."
-msgstr ""
+msgstr "_Veldu stjórntæki"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:86
 msgid "Select which controls are displayed"
-msgstr ""
+msgstr "Veldu hvaða stjórntæki eru birt"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:184
 msgid "Configure sound card(s) and control the volume of selected tracks"
@@ -185,3 +185,4 @@ msgstr "Hljóðkort:"
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:1
 msgid "Audio mixer for the Xfce Desktop Environment"
 msgstr "Hljóðblandari fyrir Xfce skjáborðsumhverfið"
+
