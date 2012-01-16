@@ -229,12 +229,7 @@ static gboolean
 xfce_mixer_plugin_size_changed (XfceMixerPlugin *mixer_plugin,
                                 gint             size)
 {
-  GtkOrientation orientation;
-
   g_return_val_if_fail (mixer_plugin != NULL, FALSE);
-
-  /* Get the orientation of the panel */
-  orientation = xfce_panel_plugin_get_orientation (mixer_plugin->plugin);
 
   /* Determine size for the volume button icons */
   size -= 2 + 2 * MAX (mixer_plugin->button->style->xthickness, mixer_plugin->button->style->ythickness);
