@@ -3,7 +3,7 @@
 # This file is distributed under the same license as
 # the xfce4-mixer package.
 # Chris K. Zhang <plutino@gmail.com>, 2009
-# Chipong Luo <chipong_l@yahoo.com>, 2011.
+# Chipong Luo <chipong_l@yahoo.com>, 2011, 2012.
 #
 msgid ""
 msgstr ""
@@ -23,17 +23,19 @@ msgstr ""
 #: ../panel-plugin/xfce-mixer-plugin.c:548
 #, c-format
 msgid "%s: %i%%"
-msgstr "%s： %i%%"
+msgstr "%s：%i%%"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:346
 msgid "No left-click command defined"
-msgstr "未定义左键点击命令"
+msgstr "未定义左击命令"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:349
 msgid ""
 "No left-click command defined yet. You can change this in the plugin "
 "properties."
-msgstr "左键点击命令仍未定义。您可以在插件属性中更改。"
+msgstr ""
+"左键点击命令仍未定义。您可以在插件属性中"
+"更改它。"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:350
 msgid "Properties"
@@ -47,16 +49,18 @@ msgid ""
 "command is included in the PATH environment variable or that you are "
 "providing the full path to the command."
 msgstr ""
-"无法执行命令 “%s”。确保要么该命令的路径包含在 PATH 环境变量中，"
-"要么您提供了该命令的完整路径。"
+"未能执行命令 “%s”。确保要么该命令的路径"
+"包含在 PATH 环境变量中，要么您提供了此"
+"命令的完整路径。"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:398 ../xfce4-mixer/main.c:89
 msgid ""
 "GStreamer was unable to detect any sound devices. Some sound system specific "
 "GStreamer packages may be missing. It may also be a permissions problem."
 msgstr ""
-"Gstreamer 未能检测到任何声音设备。一些声音系统的特定 Gstreamer "
-"插件可能缺失。也可能是权限问题。"
+"Gstreamer 未能检测到任何声音设备。一些"
+"声音系统的特定 Gstreamer 软件包可能缺失。"
+"也可能是权限问题。"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:234
 msgid "Mixer Plugin"
@@ -64,7 +68,7 @@ msgstr "混音器插件"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:236
 msgid "Configure the mixer track and left-click command"
-msgstr "配置混音器音轨和左键点击命令"
+msgstr "配置混音器音轨和左击命令"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:248
 msgid "Sound card"
@@ -76,7 +80,7 @@ msgstr "混音器音轨"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:284
 msgid "Left-click command"
-msgstr "左键点击命令"
+msgstr "左击命令"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:322
 msgid "Select command"
@@ -117,12 +121,12 @@ msgstr "混音器"
 
 #: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:2
 msgid "Volume control for your sound card"
-msgstr "声卡音量控制"
+msgstr "声卡音量控制器"
 
 #: ../libxfce4mixer/libxfce4mixer.c:243
 #, c-format
 msgid "Unknown Volume Control %d"
-msgstr "未知音量控制 %d"
+msgstr "未知音量控制器 %d"
 
 #: ../xfce4-mixer/main.c:70
 #, c-format
@@ -135,7 +139,7 @@ msgstr "回放"
 
 #: ../xfce4-mixer/xfce-mixer.c:164
 msgid "Capture"
-msgstr "采集"
+msgstr "捕获"
 
 #: ../xfce4-mixer/xfce-mixer.c:164
 msgid "Switches"
@@ -147,23 +151,24 @@ msgstr "选项"
 
 #: ../xfce4-mixer/xfce-mixer.c:298
 msgid "No controls visible"
-msgstr "没有可见控制"
+msgstr "没有可见的控制器"
 
 #: ../xfce4-mixer/xfce-mixer.c:302
 msgid ""
 "No controls are marked as visible. Please open the <span "
 "size='large'><b>Select Controls</b></span> dialog to select some."
 msgstr ""
-"没有控制被标为可见。请打开 <span size='large'><b>选择控制</b></span> "
-"对话框来选一些。"
+"没有控制器标为可见。请打开 "
+"<span size='large'><b>选择控制器</b></span> 对话框"
+"来选一些。"
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:135
 msgid "Select Controls"
-msgstr "选择控制"
+msgstr "选择控制器"
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:137
 msgid "Select which controls should be visible"
-msgstr "选择哪些控制应该可见"
+msgstr "选择哪些控制器应该可见"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:84
 msgid "_Quit"
@@ -175,11 +180,11 @@ msgstr "退出混音器"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:86
 msgid "_Select Controls..."
-msgstr "选择控制(_S)..."
+msgstr "选择控制器(_S)..."
 
 #: ../xfce4-mixer/xfce-mixer-window.c:86
 msgid "Select which controls are displayed"
-msgstr "选择显示哪些控制"
+msgstr "选择显示哪些控制器"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:184
 msgid "Configure sound card(s) and control the volume of selected tracks"
