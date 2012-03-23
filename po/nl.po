@@ -27,7 +27,7 @@ msgstr "%s: %i%%"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:346
 msgid "No left-click command defined"
-msgstr "Geen linksklik-opdracht gedefinieerd"
+msgstr "Er is geen linksklikopdracht gedefinieerd"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:349
 msgid ""
@@ -64,11 +64,11 @@ msgstr ""
 
 #: ../panel-plugin/xfce-plugin-dialog.c:234
 msgid "Mixer Plugin"
-msgstr "Volumeregelaar-plugin"
+msgstr "Volumeregelaarplugin"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:236
 msgid "Configure the mixer track and left-click command"
-msgstr "Configureer het volumeregelaarspoor en de linksklikopdracht"
+msgstr "Het volumeregelaarspoor en de linksklikopdracht configureren"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:248
 msgid "Sound card"
@@ -80,11 +80,11 @@ msgstr "Volumeregelaarspoor"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:284
 msgid "Left-click command"
-msgstr "Linksklik-opdracht"
+msgstr "Linksklikopdracht"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:322
 msgid "Select command"
-msgstr "Selecteer opdracht"
+msgstr "Opdracht kiezen"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:330
 msgid "All Files"
@@ -96,19 +96,19 @@ msgstr "Uitvoerbare bestanden"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:350
 msgid "Perl Scripts"
-msgstr "Perl-scripts"
+msgstr "Perlscripts"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:356
 msgid "Python Scripts"
-msgstr "Python-scripts"
+msgstr "Pythonscripts"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:362
 msgid "Ruby Scripts"
-msgstr "Ruby-scripts"
+msgstr "Rubyscripts"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:368
 msgid "Shell Scripts"
-msgstr "Shell-scripts"
+msgstr "Shellscripts"
 
 #. Set application name
 #: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:1
