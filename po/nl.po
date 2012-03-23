@@ -164,11 +164,11 @@ msgstr ""
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:135
 msgid "Select Controls"
-msgstr "Selecteer bedieningsknoppen"
+msgstr "Bedieningsknoppen kiezen"
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:137
 msgid "Select which controls should be visible"
-msgstr "Selecteer welke bedieningsknoppen er zichtbaar moeten zijn "
+msgstr "Kiezen welke bedieningsknoppen er zichtbaar moeten zijn "
 
 #: ../xfce4-mixer/xfce-mixer-window.c:84
 msgid "_Quit"
@@ -180,11 +180,11 @@ msgstr "Volumeregelaar afsluiten"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:86
 msgid "_Select Controls..."
-msgstr "_Kies bedieningsknoppen..."
+msgstr "_Bedieningsknoppen kiezen..."
 
 #: ../xfce4-mixer/xfce-mixer-window.c:86
 msgid "Select which controls are displayed"
-msgstr "Kies welke bedieningsknoppen er worden weergegeven"
+msgstr "Kiezen welke bedieningsknoppen er worden weergegeven"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:184
 msgid "Configure sound card(s) and control the volume of selected tracks"
