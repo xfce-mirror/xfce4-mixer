@@ -109,12 +109,12 @@ msgstr "믹서"
 
 #: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:2
 msgid "Volume control for your sound card"
-msgstr "사운드 카드에 대한 볼륨 컨트롤"
+msgstr "사운드 카드 소리 크기 조절기"
 
 #: ../libxfce4mixer/libxfce4mixer.c:243
 #, c-format
 msgid "Unknown Volume Control %d"
-msgstr "알 수 없는 볼륨 컨트롤 %d"
+msgstr "알 수 없는 소리 크기 조절기 %d"
 
 #: ../xfce4-mixer/main.c:70
 #, c-format
@@ -139,19 +139,19 @@ msgstr "옵션"
 
 #: ../xfce4-mixer/xfce-mixer.c:298
 msgid "No controls visible"
-msgstr "보일 컨트롤이 없음"
+msgstr "보일 조절기 없음"
 
 #: ../xfce4-mixer/xfce-mixer.c:302
 msgid "No controls are marked as visible. Please open the <span size='large'><b>Select Controls</b></span> dialog to select some."
-msgstr "보이도록 표시한 컨트롤이 없습니다. 선택하려면 <span size='large'><b>컨트롤 선택</b></span> 대화상자를 열어주시기 바랍니다."
+msgstr "보이도록 표시한 조절기가 없습니다. 선택하려면 <span size='large'><b>조절기 선택</b></span> 대화상자를 열어주시기 바랍니다."
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:135
 msgid "Select Controls"
-msgstr "컨트롤 선택"
+msgstr "조절기 선택"
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:137
 msgid "Select which controls should be visible"
-msgstr "보일 컨트롤을 선택합니다"
+msgstr "보일 조절기를 선택합니다"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:84
 msgid "_Quit"
@@ -163,15 +163,15 @@ msgstr "믹서 끝내기"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:86
 msgid "_Select Controls..."
-msgstr "컨트롤 선택(_S)..."
+msgstr "조절기 선택(_S)..."
 
 #: ../xfce4-mixer/xfce-mixer-window.c:86
 msgid "Select which controls are displayed"
-msgstr "표시할 컨트롤을 선택합니다"
+msgstr "표시할 조절기를 선택합니다"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:184
 msgid "Configure sound card(s) and control the volume of selected tracks"
-msgstr "사운드 카드를 설정하고 선택한 트랙에 대한 볼륨을 조절합니다"
+msgstr "사운드 카드를 설정하고 선택한 트랙에 대한 소리 크기를 조절합니다"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:199
 msgid "Sound card:"
