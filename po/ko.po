@@ -179,5 +179,5 @@ msgstr "사운드 카드:"
 
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:1
 msgid "Audio mixer for the Xfce Desktop Environment"
-msgstr "Xfce 데스크톱 환경을 위한 오디오 믹서"
+msgstr "Xfce 데스크톱 환경의 오디오 믹서"
 
