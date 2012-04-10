@@ -1,14 +1,14 @@
 # Portuguese translations for xfce4-mixer.
 # Copyright (C) 2008 THE xfce4-mixer'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the xfce4-mixer package.
-# Nuno Miguel <nunis@netcabo.pt>, 2007, 2008, 2009.
+# Nuno Miguel <nunomgue@gmail.com>, 2007-2012.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-01-11 00:59+0100\n"
-"PO-Revision-Date: 2012-03-11 19:20+0100\n"
+"PO-Revision-Date: 2012-04-10 15:22+0100\n"
 "Last-Translator: Nuno Miguel <nunomgue@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -30,7 +30,7 @@ msgstr "Comando de clique no botão esquerdo não definido"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:349
 msgid "No left-click command defined yet. You can change this in the plugin properties."
-msgstr "Comando de clique no botão esquerdo não definido. Pode alterar a configuração nas propriedades do \"plug-in\""
+msgstr "Comando de clique no botão esquerdo não definido. Pode alterar a configuração nas propriedades do \"plugin\"."
 
 #: ../panel-plugin/xfce-mixer-plugin.c:350
 msgid "Properties"
@@ -49,7 +49,7 @@ msgstr "O GStreamer não foi capaz de detetar quaisquer dispositivos de som. Pod
 
 #: ../panel-plugin/xfce-plugin-dialog.c:234
 msgid "Mixer Plugin"
-msgstr "\"Plug-in\" gestor de som"
+msgstr "\"Plugin\" gestor de som"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:236
 msgid "Configure the mixer track and left-click command"
@@ -141,7 +141,7 @@ msgstr "Nenhum controlo visível"
 
 #: ../xfce4-mixer/xfce-mixer.c:302
 msgid "No controls are marked as visible. Please open the <span size='large'><b>Select Controls</b></span> dialog to select some."
-msgstr "Nenhum controlo marcado como visível. Por favor, abra o diálogo <span size='large'><b>Selecione os controlos</b></span> para os selecionar algum"
+msgstr "Nenhum controlo marcado como visível. Por favor, abra o diálogo <span size='large'><b>Selecione os controlos</b></span> para os selecionar."
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:135
 msgid "Select Controls"
