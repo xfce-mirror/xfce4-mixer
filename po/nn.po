@@ -1,0 +1,182 @@
+# Xfce4-mixer
+# Copyright (C) 2012 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the xfce4-mixer package.
+# Eivind ÃdegÃ¥rd <gingermig@yahoo.no>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce-mixer 4.10\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-11 00:59+0100\n"
+"PO-Revision-Date: 2012-04-10 13:13+0100\n"
+"Last-Translator: Eivind Ødegård <meinmycell-forums@yahoo.no>\n"
+"Language-Team: nn_NO <i18n-nn@lister.ping.uio.no>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Norwegian Nynorsk\n"
+"X-Poedit-Country: NORWAY\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#. Set tooltip (e.g. 'Master: 50%')
+#: ../panel-plugin/xfce-mixer-plugin.c:271
+#: ../panel-plugin/xfce-mixer-plugin.c:548
+#, c-format
+msgid "%s: %i%%"
+msgstr "%s: %i%%"
+
+#: ../panel-plugin/xfce-mixer-plugin.c:346
+msgid "No left-click command defined"
+msgstr "Du har ikkje sett opp nokon venstreklikk-kommando"
+
+#: ../panel-plugin/xfce-mixer-plugin.c:349
+msgid "No left-click command defined yet. You can change this in the plugin properties."
+msgstr "Du har ikkje sett opp nokon venstreklikk-kommando enno. Du kan endra dette i eigenskapane for innstikket."
+
+#: ../panel-plugin/xfce-mixer-plugin.c:350
+msgid "Properties"
+msgstr "Eigenskapar"
+
+#. Generate error message and insert the current command
+#: ../panel-plugin/xfce-mixer-plugin.c:365
+#, c-format
+msgid "Could not execute the command \"%s\". Ensure that either the location of the command is included in the PATH environment variable or that you are providing the full path to the command."
+msgstr "Klarte ikkje kÃ¸yra kommandoen Â«%sÂ». Pass pÃ¥ at du anten har med plasseringa for kommandoen i  PATH-miljÃ¸variabelen, eller at du har med heile stigen til programmet."
+
+#: ../panel-plugin/xfce-mixer-plugin.c:398
+#: ../xfce4-mixer/main.c:89
+msgid "GStreamer was unable to detect any sound devices. Some sound system specific GStreamer packages may be missing. It may also be a permissions problem."
+msgstr "GStreamer klarte ikkje finna nokor lydeining. Det kan henda det manglar nokre GStreamer-pakker. Det kan Ã²g vera eit problem med tilgangslÃ¸yve."
+
+#: ../panel-plugin/xfce-plugin-dialog.c:234
+msgid "Mixer Plugin"
+msgstr "Miksarprogram"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:236
+msgid "Configure the mixer track and left-click command"
+msgstr "Set opp miksarstripa og venstreklikk-kommandoen"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:248
+msgid "Sound card"
+msgstr "Lydkort"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:266
+msgid "Mixer track"
+msgstr "Miksarstripe"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:284
+msgid "Left-click command"
+msgstr "Venstreklikk-kommando"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:322
+msgid "Select command"
+msgstr "Vel kommando"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:330
+msgid "All Files"
+msgstr "Alle filer"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:335
+msgid "Executable Files"
+msgstr "KÃ¸yrbare filer"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:350
+msgid "Perl Scripts"
+msgstr "Perlskript"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:356
+msgid "Python Scripts"
+msgstr "Pythonskript"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:362
+msgid "Ruby Scripts"
+msgstr "Rubyskript"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:368
+msgid "Shell Scripts"
+msgstr "Skalskript"
+
+#. Set application name
+#: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:1
+#: ../xfce4-mixer/main.c:60
+#: ../xfce4-mixer/xfce-mixer-window.c:165
+#: ../xfce4-mixer/xfce-mixer-window.c:183
+#: ../xfce4-mixer/xfce-mixer-window.c:284
+#: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
+msgid "Mixer"
+msgstr "Miksar"
+
+#: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:2
+msgid "Volume control for your sound card"
+msgstr "Volumkontroll for lydkortet ditt"
+
+#: ../libxfce4mixer/libxfce4mixer.c:243
+#, c-format
+msgid "Unknown Volume Control %d"
+msgstr "Ukjend volumkontroll %d"
+
+#: ../xfce4-mixer/main.c:70
+#, c-format
+msgid "Failed to initialize xfconf: %s"
+msgstr "Klarte ikkje starta xfconf: %s"
+
+#: ../xfce4-mixer/xfce-mixer.c:164
+msgid "Playback"
+msgstr "Avspeling"
+
+#: ../xfce4-mixer/xfce-mixer.c:164
+msgid "Capture"
+msgstr "Opptak"
+
+#: ../xfce4-mixer/xfce-mixer.c:164
+msgid "Switches"
+msgstr "Brytarar"
+
+#: ../xfce4-mixer/xfce-mixer.c:164
+msgid "Options"
+msgstr "Val"
+
+#: ../xfce4-mixer/xfce-mixer.c:298
+msgid "No controls visible"
+msgstr "Ingen kontrollar er synlege"
+
+#: ../xfce4-mixer/xfce-mixer.c:302
+msgid "No controls are marked as visible. Please open the <span size='large'><b>Select Controls</b></span> dialog to select some."
+msgstr "Ingen kontrollar er synlege. Opna <span size='large'><b>Vel kontrollar</b></span>-ruta for Ã¥ velja nokre."
+
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:135
+msgid "Select Controls"
+msgstr "Vel kontrollar"
+
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:137
+msgid "Select which controls should be visible"
+msgstr "Vel kva kontrollar du vil syna"
+
+#: ../xfce4-mixer/xfce-mixer-window.c:84
+msgid "_Quit"
+msgstr "A_vslutt"
+
+#: ../xfce4-mixer/xfce-mixer-window.c:84
+msgid "Exit the mixer"
+msgstr "Avslutt miksaren"
+
+#: ../xfce4-mixer/xfce-mixer-window.c:86
+msgid "_Select Controls..."
+msgstr "_Vel kontrollar..."
+
+#: ../xfce4-mixer/xfce-mixer-window.c:86
+msgid "Select which controls are displayed"
+msgstr "Vel kva kontrollar du vil syna"
+
+#: ../xfce4-mixer/xfce-mixer-window.c:184
+msgid "Configure sound card(s) and control the volume of selected tracks"
+msgstr "Set opp lydkort og kontroller volumet pÃ¥ kvar kanal"
+
+#: ../xfce4-mixer/xfce-mixer-window.c:199
+msgid "Sound card:"
+msgstr "Lydkort:"
+
+#: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:1
+msgid "Audio mixer for the Xfce Desktop Environment"
+msgstr "Lydmiksar for Xfce-skrivebordsmiljÃ¸et"
+
