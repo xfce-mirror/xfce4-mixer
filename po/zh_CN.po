@@ -50,7 +50,7 @@ msgid ""
 "command is included in the PATH environment variable or that you are "
 "providing the full path to the command."
 msgstr ""
-"未能执行命令 “%s”。确保要么该命令的路径"
+"未能执行命令 “%s”。确保要么该此命令的路径"
 "包含在 PATH 环境变量中，要么您提供了此"
 "命令的完整路径。"
 
@@ -118,7 +118,7 @@ msgstr "Shell 脚本"
 #: ../xfce4-mixer/xfce-mixer-window.c:284
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
 msgid "Mixer"
-msgstr "混音器"
+msgstr "Mixer 混音器"
 
 #: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:2
 msgid "Volume control for your sound card"
@@ -160,8 +160,7 @@ msgid ""
 "size='large'><b>Select Controls</b></span> dialog to select some."
 msgstr ""
 "没有控制器标为可见。请打开 "
-"<span size='large'><b>选择控制器</b></span> 对话框"
-"来选一些。"
+"<span size='large'><b>选择控制器</b></span> 对话框来选一些。"
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:135
 msgid "Select Controls"
