@@ -2,18 +2,22 @@
 # Copyright (C) 2003-2006 The Xfce development team.
 # This file is distributed under the same license as the xfce4-mixer package.
 # Saleh Alhathal <hathalsal@hotmail.com>, 2004.
-#
+# mohammad <malham1@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-01-11 00:59+0100\n"
-"PO-Revision-Date: 2011-08-08 16:22-0000\n"
-"Last-Translator: كريم أولاد الشلحة <herr.linux88@gmail.com>\n"
-"Language-Team: Arabic Xfce Translation Team <herr.linux88@gmail.com>\n"
+"PO-Revision-Date: 2012-05-21 00:42+0300\n"
+"Last-Translator: mohammad <malham1@gmail.com>\n"
+"Language-Team: http://www.vertaal.com.ar/files/factory/ar/list/\n"
+"Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Virtaal 0.7.1\n"
 "X-Poedit-Language: Arabic\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-Country: Morocco\n"
@@ -27,11 +31,13 @@ msgstr "%s: %i%%"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:346
 msgid "No left-click command defined"
-msgstr "لم تعرف  أوامر الزر الايسر"
+msgstr "لم تعرف أوامر الزر الايسر"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:349
-msgid "No left-click command defined yet. You can change this in the plugin properties."
-msgstr "لم تهيئ أوامر الزر الايسر بعد. يمكنك تغيير خصائص هذه الإضافة. ."
+msgid ""
+"No left-click command defined yet. You can change this in the plugin "
+"properties."
+msgstr "لم تهيئ أوامر الزر الايسر بعد. يمكنك تغيير خصائص هذه الإضافة."
 
 #: ../panel-plugin/xfce-mixer-plugin.c:350
 msgid "Properties"
@@ -40,13 +46,21 @@ msgstr "خصائص"
 #. Generate error message and insert the current command
 #: ../panel-plugin/xfce-mixer-plugin.c:365
 #, c-format
-msgid "Could not execute the command \"%s\". Ensure that either the location of the command is included in the PATH environment variable or that you are providing the full path to the command."
-msgstr "لا يمكن تنفيذ الأمر\"%s\".  تأكد من تضمينها في مسار القيادة لمتغير البيئة وأنك وفرت المسار الكامل إلى الأمر."
+msgid ""
+"Could not execute the command \"%s\". Ensure that either the location of the "
+"command is included in the PATH environment variable or that you are "
+"providing the full path to the command."
+msgstr ""
+"لا يمكن تنفيذ الأمر\"%s\". تأكد من تضمينها في مسار القيادة لمتغير البيئة وأنك "
+"وفرت المسار الكامل إلى الأمر."
 
-#: ../panel-plugin/xfce-mixer-plugin.c:398
-#: ../xfce4-mixer/main.c:89
-msgid "GStreamer was unable to detect any sound devices. Some sound system specific GStreamer packages may be missing. It may also be a permissions problem."
-msgstr "GStreamer غير قادر على الكشف عن أية أجهزة الصوت. قد تكون بعض حزم صوت GStreamer مفقودة أو قد يكون مشكلة في الأذونات."
+#: ../panel-plugin/xfce-mixer-plugin.c:398 ../xfce4-mixer/main.c:89
+msgid ""
+"GStreamer was unable to detect any sound devices. Some sound system specific "
+"GStreamer packages may be missing. It may also be a permissions problem."
+msgstr ""
+"GStreamer غير قادر على الكشف عن أية أجهزة الصوت. قد تكون بعض حزم صوت "
+"GStreamer مفقودة. أو قد يكون مشكلة في الأذونات."
 
 #: ../panel-plugin/xfce-plugin-dialog.c:234
 msgid "Mixer Plugin"
@@ -54,7 +68,7 @@ msgstr "ملحق المازج"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:236
 msgid "Configure the mixer track and left-click command"
-msgstr "إعداد دمج  المسار وأوامر الزر الايسر."
+msgstr "إعداد دمج المسار وأوامر الزر الايسر"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:248
 msgid "Sound card"
@@ -98,8 +112,7 @@ msgstr "سكريبتات شيل"
 
 #. Set application name
 #: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:1
-#: ../xfce4-mixer/main.c:60
-#: ../xfce4-mixer/xfce-mixer-window.c:165
+#: ../xfce4-mixer/main.c:60 ../xfce4-mixer/xfce-mixer-window.c:165
 #: ../xfce4-mixer/xfce-mixer-window.c:183
 #: ../xfce4-mixer/xfce-mixer-window.c:284
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
@@ -141,8 +154,12 @@ msgid "No controls visible"
 msgstr "لا متحكمات مرئية"
 
 #: ../xfce4-mixer/xfce-mixer.c:302
-msgid "No controls are marked as visible. Please open the <span size='large'><b>Select Controls</b></span> dialog to select some."
-msgstr "لم يتم وضع علامة لتفعيل الضوابط. الرجاء فتح المسار<b><span size='large'>حدد ضوابط</span></b> لتحديد بعض."
+msgid ""
+"No controls are marked as visible. Please open the <span "
+"size='large'><b>Select Controls</b></span> dialog to select some."
+msgstr ""
+"لم يتم وضع علامة لتفعيل الضوابط. الرجاء فتح المسار<span size='large'><b>حدد "
+"ضوابط</b></span> لتحديد بعضها."
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:135
 msgid "Select Controls"
@@ -170,7 +187,7 @@ msgstr "إختر أي متحكم سيتم عرضه"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:184
 msgid "Configure sound card(s) and control the volume of selected tracks"
-msgstr "تكوين بطاقة الصوت (ق) والتحكم بحجم مسارات المحددة"
+msgstr "تكوين بطاقة الصوت(s) والتحكم بحجم مسارات المحددة"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:199
 msgid "Sound card:"
