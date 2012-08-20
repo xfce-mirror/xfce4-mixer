@@ -1,0 +1,186 @@
+# Hebrew translation of the xfce4-mixer package.
+# Copyright (C) 2006-2012 The Xfce development team
+# This file is distributed under the same license as the xfce4-mixer package.
+# Isratine Citizen <genghiskhan@gmx.ca>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: xfce4-mixer\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-11 00:59+0100\n"
+"PO-Revision-Date: 2012-08-20 10:43+0200\n"
+"Last-Translator: Isratine Citizen <genghiskhan@gmx.ca>\n"
+"Language-Team:  <xfce-i18n@xfce.org>\n"
+"Language: he\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Hebrew\n"
+
+#. Set tooltip (e.g. 'Master: 50%')
+#: ../panel-plugin/xfce-mixer-plugin.c:271
+#: ../panel-plugin/xfce-mixer-plugin.c:548
+#, c-format
+msgid "%s: %i%%"
+msgstr "‫%s: ‫%i%%"
+
+# I did not use "־" since the developer has used "-" already
+#: ../panel-plugin/xfce-mixer-plugin.c:346
+msgid "No left-click command defined"
+msgstr "לא הוגדרה פקודת קליק-שמאלי"
+
+#: ../panel-plugin/xfce-mixer-plugin.c:349
+msgid "No left-click command defined yet. You can change this in the plugin properties."
+msgstr "לא הוגדרה פקודת קליק-שמאלי, עדיין. ביכולתך לשנות זאת במאפייני תוסף."
+
+#: ../panel-plugin/xfce-mixer-plugin.c:350
+msgid "Properties"
+msgstr "מאפיינים"
+
+#. Generate error message and insert the current command
+#: ../panel-plugin/xfce-mixer-plugin.c:365
+#, c-format
+msgid "Could not execute the command \"%s\". Ensure that either the location of the command is included in the PATH environment variable or that you are providing the full path to the command."
+msgstr "לא ניתן להריץ את הפקודה \"%s\". נא לוודא שהמיקום של הפקודה הינו כלול בתוך משתני סביבת PATH או שהינך מספק/ת את הנתיב המלא אל הפקודה."
+
+#: ../panel-plugin/xfce-mixer-plugin.c:398
+#: ../xfce4-mixer/main.c:89
+msgid "GStreamer was unable to detect any sound devices. Some sound system specific GStreamer packages may be missing. It may also be a permissions problem."
+msgstr "‏GStreamer לא יכול היה לאתר תקן קול כלשהו. ייתכן שחבילות מערכת קול סגוליות של GStreamer חסרות. ייתכן ובעיה זו קשורה אל הרשאות."
+
+#: ../panel-plugin/xfce-plugin-dialog.c:234
+msgid "Mixer Plugin"
+msgstr "תוסף Mixer"
+
+# Not רצועה
+#: ../panel-plugin/xfce-plugin-dialog.c:236
+msgid "Configure the mixer track and left-click command"
+msgstr "הגדרת ערוץ המערבל ופקודת קליק-שמאלי"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:248
+msgid "Sound card"
+msgstr "כרטיס קול"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:266
+msgid "Mixer track"
+msgstr "ערוץ מערבל"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:284
+msgid "Left-click command"
+msgstr "פקודת קליק-שמאלי"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:322
+msgid "Select command"
+msgstr "בחיררת פקודה"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:330
+msgid "All Files"
+msgstr "כל הקבצים"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:335
+msgid "Executable Files"
+msgstr "קבצים ברי־הרצה"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:350
+msgid "Perl Scripts"
+msgstr "תסריטי Perl"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:356
+msgid "Python Scripts"
+msgstr "תסריטי Python"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:362
+msgid "Ruby Scripts"
+msgstr "תסריטי Ruby"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:368
+msgid "Shell Scripts"
+msgstr "תסריטי Shell"
+
+#. Set application name
+#: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:1
+#: ../xfce4-mixer/main.c:60
+#: ../xfce4-mixer/xfce-mixer-window.c:165
+#: ../xfce4-mixer/xfce-mixer-window.c:183
+#: ../xfce4-mixer/xfce-mixer-window.c:284
+#: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
+msgid "Mixer"
+msgstr "מערבל"
+
+#: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:2
+msgid "Volume control for your sound card"
+msgstr "בקרת עוצמת שמע עבור כרטיס הקול שלך"
+
+# מוכרת
+#: ../libxfce4mixer/libxfce4mixer.c:243
+#, c-format
+msgid "Unknown Volume Control %d"
+msgstr "בקרת עוצמת שמע לא ידועה %d"
+
+#: ../xfce4-mixer/main.c:70
+#, c-format
+msgid "Failed to initialize xfconf: %s"
+msgstr "כשל באתחול xfconf: ‫%s"
+
+#: ../xfce4-mixer/xfce-mixer.c:164
+msgid "Playback"
+msgstr "השמעה"
+
+#: ../xfce4-mixer/xfce-mixer.c:164
+msgid "Capture"
+msgstr "לכידה"
+
+# מפסקים
+#: ../xfce4-mixer/xfce-mixer.c:164
+msgid "Switches"
+msgstr "מתגים"
+
+#: ../xfce4-mixer/xfce-mixer.c:164
+msgid "Options"
+msgstr "אפשרויות"
+
+#: ../xfce4-mixer/xfce-mixer.c:298
+msgid "No controls visible"
+msgstr "אין בקרים נראים"
+
+#: ../xfce4-mixer/xfce-mixer.c:302
+msgid "No controls are marked as visible. Please open the <span size='large'><b>Select Controls</b></span> dialog to select some."
+msgstr "אין בקרים שמסומנים כנראים. נא לפתוח את דו־שיח <span size='large'><b>בחירת בקרים</b></span> כדי לבחור בקרים מסוימים."
+
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:135
+msgid "Select Controls"
+msgstr "בחירת בקרים"
+
+# בחירת אילו בקרים צריכים להיראות
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:137
+msgid "Select which controls should be visible"
+msgstr "בחירה על אילו בקרים להיראות"
+
+#: ../xfce4-mixer/xfce-mixer-window.c:84
+msgid "_Quit"
+msgstr "י_ציאה"
+
+#: ../xfce4-mixer/xfce-mixer-window.c:84
+msgid "Exit the mixer"
+msgstr "יציאה מן המערבל"
+
+#: ../xfce4-mixer/xfce-mixer-window.c:86
+msgid "_Select Controls..."
+msgstr "_בחירת בקרים..."
+
+#: ../xfce4-mixer/xfce-mixer-window.c:86
+msgid "Select which controls are displayed"
+msgstr "בחירת אילו בקרים נראים"
+
+#: ../xfce4-mixer/xfce-mixer-window.c:184
+msgid "Configure sound card(s) and control the volume of selected tracks"
+msgstr "הגדרת כרטיס(י) קול וניהול עוצמת השמע של ערוצים נבחרים"
+
+#: ../xfce4-mixer/xfce-mixer-window.c:199
+msgid "Sound card:"
+msgstr "כרטיס קול:"
+
+#: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:1
+msgid "Audio mixer for the Xfce Desktop Environment"
+msgstr "מערבל שמע עבור סביבת העבודה Xfce"
+
