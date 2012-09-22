@@ -333,8 +333,6 @@ xfce_mixer_window_close (GtkAction       *action,
 {
   /* This is a nasty hack to save the settings before the application quits */
   xfce_mixer_window_closed (GTK_WIDGET (window), NULL, window);
-
-  gtk_main_quit ();
 }
 
 
@@ -350,7 +348,9 @@ xfce_mixer_window_closed (GtkWidget       *window,
   gtk_window_get_size (GTK_WINDOW (mixer_window), &width, &height);
   g_object_set (G_OBJECT (mixer_window->preferences), "window-width", width, "window-height", height, NULL);
 
-  return FALSE;
+  gtk_main_quit ();
+
+  return TRUE;
 }
 
 
