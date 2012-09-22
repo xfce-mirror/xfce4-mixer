@@ -218,6 +218,9 @@ xfce_mixer_get_max_volume (gint *volumes,
 
   g_return_val_if_fail (volumes != NULL, 0);
 
+  if (num_channels > 0)
+    max = volumes[0];
+
   for (--num_channels; num_channels >= 0; --num_channels)
     if (volumes[num_channels] > max)
       max = volumes[num_channels];

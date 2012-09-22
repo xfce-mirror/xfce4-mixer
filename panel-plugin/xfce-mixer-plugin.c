@@ -525,6 +525,7 @@ xfce_mixer_plugin_update_track (XfceMixerPlugin *mixer_plugin)
 {
   XfceMixerTrackType track_type;
   gboolean           muted = FALSE;
+  gint               volume_range;
   gdouble            volume;
   gint              *volumes;
   gchar             *tip_text;
@@ -537,8 +538,11 @@ xfce_mixer_plugin_update_track (XfceMixerPlugin *mixer_plugin)
   volumes = g_new (gint, mixer_plugin->track->num_channels);
   gst_mixer_get_volume (GST_MIXER (mixer_plugin->card), mixer_plugin->track, volumes);
 
+  /* Determine difference between max and min volume */
+  volume_range = mixer_plugin->track->max_volume - mixer_plugin->track->min_volume;
+
   /* Determine maximum value as double between 0.0 and 1.0 */
-  volume = ((gdouble) xfce_mixer_get_max_volume (volumes, mixer_plugin->track->num_channels)) / mixer_plugin->track->max_volume;
+  volume = ((gdouble) xfce_mixer_get_max_volume (volumes, mixer_plugin->track->num_channels) - mixer_plugin->track->min_volume) / volume_range;
 
   /* Set tooltip (e.g. 'Master: 50%') */
   tip_text = g_strdup_printf (_("%s: %i%%"), mixer_plugin->track_label, (gint) (volume * 100));
