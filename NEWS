@@ -1,6 +1,7 @@
 4.9.0
 =====
 - Handle a negative minimal volume correctly.
+- Fix a potential NULL pointer dereference.
 
 
 4.8.0

@@ -57,7 +57,9 @@ XfceMixerTrackType
 xfce_mixer_track_type_new (GstMixerTrack *track)
 {
   XfceMixerTrackType type = XFCE_MIXER_TRACK_TYPE_CAPTURE;
-  
+
+  g_return_val_if_fail (GST_IS_MIXER_TRACK (track), G_TYPE_INVALID);
+
   if (G_UNLIKELY (GST_IS_MIXER_OPTIONS (track)))
     type = XFCE_MIXER_TRACK_TYPE_OPTIONS;
   else
