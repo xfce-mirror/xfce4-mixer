@@ -38,6 +38,10 @@
 
 
 
+#define VOLUME_EPSILON 0.005
+
+
+
 /* Signal identifiers */
 enum
 {
@@ -415,7 +419,7 @@ xfce_volume_button_update (XfceVolumeButton *button)
   /* Determine the difference between upper and lower bound (= volume range) */
   range = (upper - lower) / (G_N_ELEMENTS (icons) - 2);
 
-  if (G_UNLIKELY (button->is_muted || value < 0.005))
+  if (G_UNLIKELY (button->is_muted || value < VOLUME_EPSILON))
     {
       /* By definition, use the first icon if the button is muted or the volume is 0 */
       pixbuf = button->pixbufs[0];

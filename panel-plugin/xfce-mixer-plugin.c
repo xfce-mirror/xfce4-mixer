@@ -210,6 +210,9 @@ xfce_mixer_plugin_construct (XfcePanelPlugin *plugin)
 
   xfce_panel_plugin_menu_show_configure (plugin);
 
+   /* Only occupy a single row in deskbar mode */
+   xfce_panel_plugin_set_small (XFCE_PANEL_PLUGIN (mixer_plugin), TRUE);
+
   /* Connect to plugin signals */
   g_signal_connect_swapped (G_OBJECT (plugin), "free-data", G_CALLBACK (xfce_mixer_plugin_free), mixer_plugin);
   g_signal_connect_swapped (G_OBJECT (plugin), "size-changed", G_CALLBACK (xfce_mixer_plugin_size_changed), mixer_plugin);
@@ -230,6 +233,9 @@ xfce_mixer_plugin_size_changed (XfceMixerPlugin *mixer_plugin,
                                 gint             size)
 {
   g_return_val_if_fail (mixer_plugin != NULL, FALSE);
+
+  /* The plugin only occupies a single row */
+  size /= xfce_panel_plugin_get_nrows (XFCE_PANEL_PLUGIN (mixer_plugin));
 
   /* Determine size for the volume button icons */
   size -= 2 + 2 * MAX (mixer_plugin->button->style->xthickness, mixer_plugin->button->style->ythickness);

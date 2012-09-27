@@ -7,6 +7,7 @@
 - Modernize build system and build panel plugin as a module.
 - Use standard icons where possible.
 - Update the icons on theme change (bug #3498).
+- Support xfce4-panel 4.10 with its deskbar mode (bug #8350).
 
 
 4.8.0
