@@ -31,6 +31,9 @@
 - Add a popup with a scale for setting the volume to the panel plugin which is
   opened on left click, allow running the uder-defined command previously bound
   to left click from the panel plugin context menu instead.
+- Make xfce4-mixer a singleton application, executing xfce4-mixer while another
+  instance is already running brings the running instance to the foreground
+  (bug #5676).
 
 
 4.8.0

@@ -26,6 +26,7 @@ xfce4_mixer_CFLAGS = 							\
 	-DMIXER_DATADIR=\"$(pkgdatadir)\"				\
 	$(GLIB_CFLAGS)							\
 	$(GTK_CFLAGS)							\
+	$(UNIQUE_CFLAGS)						\
 	$(LIBXFCE4UTIL_CFLAGS)						\
 	$(LIBXFCE4UI_CFLAGS)						\
 	$(XFCONF_CFLAGS)						\
@@ -39,6 +40,7 @@ xfce4_mixer_LDFLAGS = 							\
 	$(GLIB_LIBS)							\
 	$(GTHREAD_LIBS)							\
 	$(GTK_LIBS)							\
+	$(UNIQUE_LIBS)							\
 	$(LIBXFCE4UTIL_LIBS)						\
 	$(LIBXFCE4UI_LIBS)						\
 	$(XFCONF_LIBS)							\

@@ -1,6 +1,7 @@
 /* vi:set expandtab sw=2 sts=2: */
 /*-
  * Copyright (c) 2008 Jannis Pohlmann <jannis@xfce.org>
+ * Copyright (c) 2012 Guido Berhoerster <guido+xfce@berhoerster.name>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -28,6 +29,9 @@
 
 #include <gst/gst.h>
 
+#include <gtk/gtk.h>
+#include <unique/unique.h>
+
 #include <libxfce4util/libxfce4util.h>
 #include <libxfce4ui/libxfce4ui.h>
 #include <xfconf/xfconf.h>
@@ -38,12 +42,42 @@
 
 
 
+static UniqueResponse
+message_received (UniqueApp         *app,
+                  UniqueCommand      command,
+                  UniqueMessageData *message,
+                  guint              time_,
+                  GtkWidget         *window)
+{
+  UniqueResponse response;
+
+  switch (command)
+    {
+      case UNIQUE_ACTIVATE:
+        /* Move window to the screen the command was started on */
+        gtk_window_set_screen (GTK_WINDOW (window), unique_message_data_get_screen (message));
+        /* Bring window to the foreground */
+        gtk_window_present_with_time (GTK_WINDOW (window), time_);
+        response = UNIQUE_RESPONSE_OK;
+        break;
+      default:
+        /* Invalid command */
+        response = UNIQUE_RESPONSE_FAIL;
+        break;
+    }
+
+  return response;
+}
+
+
+
 int 
 main (int    argc,
       char **argv)
 {
-  GtkWidget *window;
-  GError    *error = NULL;
+  UniqueApp     *app;
+  GtkWidget     *window;
+  GError        *error = NULL;
 
   /* Setup translation domain */
   xfce_textdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");
@@ -96,17 +130,36 @@ main (int    argc,
       return EXIT_FAILURE;
     }
 
-  /* Create the mixer window */
-  window = xfce_mixer_window_new ();
+  /* Create unique application */
+  app = unique_app_new ("org.xfce.xfce4-mixer", NULL);
+  if (unique_app_is_running (app))
+    {
+      unique_app_send_message (app, UNIQUE_ACTIVATE, NULL);
 
-  /* Display the mixer window */
-  gtk_widget_show (window);
+      g_object_unref (app);
+    }
+  else
+    {
+      /* Create the mixer window */
+      window = xfce_mixer_window_new ();
 
-  /* Enter the GTK+ main loop */
-  gtk_main ();
+      /* Display the mixer window */
+      gtk_widget_show (window);
 
-  /* Destroy the window */
-  gtk_widget_destroy (window);
+      /* Watch mixer window */
+      unique_app_watch_window (app, GTK_WINDOW (window));
+
+      /* Handle messages */
+      g_signal_connect (app, "message-received", G_CALLBACK (message_received), window);
+
+      /* Enter the GTK+ main loop */
+      gtk_main ();
+
+      g_object_unref (app);
+
+      /* Destroy the window */
+      gtk_widget_destroy (window);
+    }
 
   /* Shutdown the mixer library */
   xfce_mixer_shutdown ();
