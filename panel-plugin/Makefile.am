@@ -25,7 +25,8 @@ libmixer_la_CFLAGS =							\
 	$(LIBXFCE4UI_CFLAGS)						\
 	$(LIBXFCE4PANEL_CFLAGS)						\
 	$(XFCONF_CFLAGS)						\
-	$(GST_PLUGINS_BASE_CFLAGS)
+	$(GST_PLUGINS_BASE_CFLAGS)					\
+	$(KEYBINDER_CFLAGS)
 
 libmixer_la_DEPENDENCIES =						\
 	$(top_builddir)/libxfce4mixer/libxfce4mixer.la
@@ -47,7 +48,8 @@ libmixer_la_LIBADD =							\
 	$(XFCONF_LIBS)							\
 	$(GST_PLUGINS_BASE_LIBS)					\
 	-lgstaudio-0.10							\
-	-lgstinterfaces-0.10
+	-lgstinterfaces-0.10						\
+	$(KEYBINDER_LIBS)
 
 desktopdir = $(datadir)/xfce4/panel/plugins
 

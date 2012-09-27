@@ -22,6 +22,8 @@
 - Add an item to the panel plugin context menu for muting (bug #7944).
 - Make name and description more meaningful (bug #5817).
 - Do not use deprecated APIs and adjust requirements to Xfce 4.10.
+- Add global keyboard shortcuts for raising and lowering the volume as well as
+  muting (bug #5314).
 
 
 4.8.0

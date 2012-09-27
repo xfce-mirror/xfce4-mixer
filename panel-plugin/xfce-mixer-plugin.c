@@ -36,6 +36,10 @@
 #include <libxfce4panel/libxfce4panel.h>
 #include <xfconf/xfconf.h>
 
+#ifdef HAVE_KEYBINDER
+#include <keybinder.h>
+#endif
+
 #include "xfce-mixer-plugin.h"
 
 #include "libxfce4mixer/libxfce4mixer.h"
@@ -51,8 +55,19 @@ enum
   PROP_SOUND_CARD,
   PROP_TRACK,
   PROP_COMMAND,
+#ifdef HAVE_KEYBINDER
+  PROP_ENABLE_KEYBOARD_SHORTCUTS,
+#endif
   N_PROPERTIES,
 };
+
+
+
+#ifdef HAVE_KEYBINDER
+#define XFCE_MIXER_PLUGIN_RAISE_VOLUME_KEY  "XF86AudioRaiseVolume"
+#define XFCE_MIXER_PLUGIN_LOWER_VOLUME_KEY  "XF86AudioLowerVolume"
+#define XFCE_MIXER_PLUGIN_MUTE_KEY          "XF86AudioMute"
+#endif
 
 
 
@@ -83,6 +98,12 @@ static void     xfce_mixer_plugin_update_track                (XfceMixerPlugin  
 static void     xfce_mixer_plugin_bus_message                 (GstBus           *bus,
                                                                GstMessage       *message,
                                                                XfceMixerPlugin  *mixer_plugin);
+#ifdef HAVE_KEYBINDER
+static void     xfce_mixer_plugin_volume_key_pressed          (const char      *keystring,
+                                                               void            *user_data);
+static void     xfce_mixer_plugin_mute_pressed                (const char      *keystring,
+                                                               void            *user_data);
+#endif
 
 
 
@@ -110,6 +131,11 @@ struct _XfceMixerPlugin
 
   /* Mixer command */
   gchar           *command;
+
+#ifdef HAVE_KEYBINDER
+  /* Keyboard shortcuts */
+  gboolean         enable_keyboard_shortcuts;
+#endif
 
   /* Widgets */
   GtkWidget       *hvbox;
@@ -173,6 +199,16 @@ xfce_mixer_plugin_class_init (XfceMixerPluginClass *klass)
                                                         "command",
                                                         NULL,
                                                         G_PARAM_READABLE | G_PARAM_WRITABLE));
+
+#ifdef HAVE_KEYBINDER
+  g_object_class_install_property (gobject_class,
+                                   PROP_ENABLE_KEYBOARD_SHORTCUTS,
+                                   g_param_spec_boolean ("enable-keyboard-shortcuts",
+                                                         "enable-keyboard-shortcuts",
+                                                         "enable-keyboard-shortcuts",
+                                                         TRUE,
+                                                         G_PARAM_READABLE | G_PARAM_WRITABLE));
+#endif
 }
 
 
@@ -185,6 +221,9 @@ xfce_mixer_plugin_init (XfceMixerPlugin *mixer_plugin)
   mixer_plugin->track = NULL;
   mixer_plugin->track_label = NULL;
   mixer_plugin->command = NULL;
+#ifdef HAVE_KEYBINDER
+  mixer_plugin->enable_keyboard_shortcuts = FALSE;
+#endif
 
   mixer_plugin->plugin_channel = NULL;
 
@@ -201,6 +240,11 @@ xfce_mixer_plugin_init (XfceMixerPlugin *mixer_plugin)
 
   /* Initialize the mixer library */
   xfce_mixer_init ();
+
+#ifdef HAVE_KEYBINDER
+  /* Initialize libkeybinder */
+  keybinder_init ();
+#endif
 
   /* Create container for the plugin */
   mixer_plugin->hvbox = GTK_WIDGET (xfce_hvbox_new (GTK_ORIENTATION_HORIZONTAL, FALSE, 0));
@@ -242,17 +286,27 @@ xfce_mixer_plugin_construct (XfcePanelPlugin *plugin)
   mixer_plugin->plugin_channel = xfconf_channel_new_with_property_base (xfce_panel_get_channel_name (), xfce_panel_plugin_get_property_base (plugin));
 
   /* Try to set properties to defaults */
-  g_object_set (G_OBJECT (mixer_plugin), "sound-card", NULL, "command", NULL, NULL);
+  g_object_set (G_OBJECT (mixer_plugin), "sound-card", NULL, "command", NULL,
+#ifdef HAVE_KEYBINDER
+                "enable-keyboard-shortcuts", TRUE,
+#endif
+                NULL);
 
   /* Set up xfconf property bindings */
   xfconf_g_property_bind (mixer_plugin->plugin_channel, "/sound-card", G_TYPE_STRING, mixer_plugin, "sound-card");
   xfconf_g_property_bind (mixer_plugin->plugin_channel, "/track", G_TYPE_STRING, mixer_plugin, "track");
   xfconf_g_property_bind (mixer_plugin->plugin_channel, "/command", G_TYPE_STRING, mixer_plugin, "command");
+#ifdef HAVE_KEYBINDER
+  xfconf_g_property_bind (mixer_plugin->plugin_channel, "/enable-keyboard-shortcuts", G_TYPE_BOOLEAN, mixer_plugin, "enable-keyboard-shortcuts");
+#endif
 
   /* Make sure the properties are in xfconf */
   g_object_notify (G_OBJECT (mixer_plugin), "sound-card");
   g_object_notify (G_OBJECT (mixer_plugin), "track");
   g_object_notify (G_OBJECT (mixer_plugin), "command");
+#ifdef HAVE_KEYBINDER
+  g_object_notify (G_OBJECT (mixer_plugin), "enable-keyboard-shortcuts");
+#endif
 }
 
 
@@ -268,6 +322,7 @@ xfce_mixer_plugin_set_property (GObject      *object,
   GstElement      *card = NULL;
   gchar           *track_label = NULL;
   GstMixerTrack   *track = NULL;
+  gboolean         enable_keyboard_shortcuts;
 
   switch(prop_id)
     {
@@ -352,6 +407,30 @@ xfce_mixer_plugin_set_property (GObject      *object,
         if (mixer_plugin->command == NULL)
           mixer_plugin->command = g_strdup (XFCE_MIXER_PLUGIN_DEFAULT_COMMAND);
         break;
+#ifdef HAVE_KEYBINDER
+      case PROP_ENABLE_KEYBOARD_SHORTCUTS:
+        enable_keyboard_shortcuts = g_value_get_boolean (value);
+
+        if (mixer_plugin->enable_keyboard_shortcuts != enable_keyboard_shortcuts)
+          {
+            if (enable_keyboard_shortcuts)
+              {
+                /* Set up global keyboard shortcuts */
+                keybinder_bind(XFCE_MIXER_PLUGIN_LOWER_VOLUME_KEY, xfce_mixer_plugin_volume_key_pressed, mixer_plugin);
+                keybinder_bind(XFCE_MIXER_PLUGIN_RAISE_VOLUME_KEY, xfce_mixer_plugin_volume_key_pressed, mixer_plugin);
+                keybinder_bind(XFCE_MIXER_PLUGIN_MUTE_KEY, xfce_mixer_plugin_mute_pressed, mixer_plugin);
+              }
+            else
+              {
+                /* Remove global keyboard shortcuts */
+                keybinder_unbind(XFCE_MIXER_PLUGIN_LOWER_VOLUME_KEY, xfce_mixer_plugin_volume_key_pressed);
+                keybinder_unbind(XFCE_MIXER_PLUGIN_RAISE_VOLUME_KEY, xfce_mixer_plugin_volume_key_pressed);
+                keybinder_unbind(XFCE_MIXER_PLUGIN_MUTE_KEY, xfce_mixer_plugin_mute_pressed);
+              }
+            mixer_plugin->enable_keyboard_shortcuts = enable_keyboard_shortcuts;
+          }
+        break;
+#endif
       default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
         break;
@@ -379,6 +458,11 @@ xfce_mixer_plugin_get_property (GObject    *object,
       case PROP_COMMAND:
         g_value_set_string (value, mixer_plugin->command);
         break;
+#ifdef HAVE_KEYBINDER
+      case PROP_ENABLE_KEYBOARD_SHORTCUTS:
+        g_value_set_boolean (value, mixer_plugin->enable_keyboard_shortcuts);
+        break;
+#endif
       default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
         break;
@@ -391,6 +475,16 @@ static void
 xfce_mixer_plugin_free_data (XfcePanelPlugin *plugin)
 {
   XfceMixerPlugin *mixer_plugin = XFCE_MIXER_PLUGIN (plugin);
+
+#ifdef HAVE_KEYBINDER
+  if (mixer_plugin->enable_keyboard_shortcuts)
+    {
+      /* Remove global keyboard shortcuts */
+      keybinder_unbind(XFCE_MIXER_PLUGIN_LOWER_VOLUME_KEY, xfce_mixer_plugin_volume_key_pressed);
+      keybinder_unbind(XFCE_MIXER_PLUGIN_RAISE_VOLUME_KEY, xfce_mixer_plugin_volume_key_pressed);
+      keybinder_unbind(XFCE_MIXER_PLUGIN_MUTE_KEY, xfce_mixer_plugin_mute_pressed);
+    }
+#endif
 
   /* Shutdown xfconf */
   g_object_unref (mixer_plugin->plugin_channel);
@@ -736,3 +830,114 @@ xfce_mixer_plugin_bus_message (GstBus          *bus,
         break;
     }
 }
+
+
+
+#ifdef HAVE_KEYBINDER
+static void
+xfce_mixer_plugin_volume_key_pressed (const char *keystring,
+                                      void       *user_data)
+{
+  XfceMixerPlugin *mixer_plugin = XFCE_MIXER_PLUGIN (user_data);
+  gint             volume_range;
+  gint             interval;
+  gint             i;
+  gint            *old_volumes;
+  gint            *new_volumes;
+  gint             old_volume;
+  gint             new_volume;
+  gdouble          button_volume;
+
+  if (G_UNLIKELY (!GST_IS_MIXER (mixer_plugin->card) || !GST_IS_MIXER_TRACK (mixer_plugin->track) || mixer_plugin->track_label == NULL))
+    return;
+
+  /* Get volumes of the mixer track */
+  old_volumes = g_new (gint, mixer_plugin->track->num_channels);
+  gst_mixer_get_volume (GST_MIXER (mixer_plugin->card), mixer_plugin->track, old_volumes);
+  old_volume = xfce_mixer_get_max_volume (old_volumes, mixer_plugin->track->num_channels);
+  g_free (old_volumes);
+
+  volume_range = mixer_plugin->track->max_volume - mixer_plugin->track->min_volume;
+
+  /* Increase/Decrease in intervals of 5% of the volume range but at least 1 */
+  interval = (gint) round (volume_range * 0.05);
+  if (interval == 0)
+    interval = 1;
+
+  if (strcmp (keystring, XFCE_MIXER_PLUGIN_RAISE_VOLUME_KEY) == 0)
+    {
+      /* Determine new volume */
+      new_volume = old_volume + interval;
+      if (new_volume > mixer_plugin->track->max_volume)
+        new_volume = mixer_plugin->track->max_volume;
+    }
+  else if (strcmp (keystring, XFCE_MIXER_PLUGIN_LOWER_VOLUME_KEY) == 0)
+    {
+      /* Determine new volume */
+      new_volume = old_volume - interval;
+      if (new_volume < mixer_plugin->track->min_volume)
+        new_volume = mixer_plugin->track->min_volume;
+    }
+  else
+    return;
+
+  if (new_volume != old_volume)
+    {
+      mixer_plugin->ignore_bus_messages = TRUE;
+
+      /* Calculate volume as double between 0.0 and 1.0 for the button */
+      button_volume = ((gdouble) new_volume - mixer_plugin->track->min_volume) / volume_range;
+      xfce_volume_button_set_volume (XFCE_VOLUME_BUTTON (mixer_plugin->button), button_volume);
+
+      /* Apply volume change to the sound card */
+      new_volumes = g_new (gint, mixer_plugin->track->num_channels);
+      for (i = 0; i < mixer_plugin->track->num_channels; ++i)
+        new_volumes[i] = new_volume;
+      gst_mixer_set_volume (GST_MIXER (mixer_plugin->card), mixer_plugin->track, new_volumes);
+      g_free (new_volumes);
+
+      /* Mute when volume reaches 0%, unmute if volume is raised from 0% */
+      if (old_volume > 0 && new_volume == 0)
+        {
+          xfce_mixer_plugin_mute_changed (mixer_plugin, TRUE);
+          xfce_volume_button_set_muted (XFCE_VOLUME_BUTTON (mixer_plugin->button), TRUE);
+        }
+      else if (old_volume == 0 && new_volume > 0)
+        {
+          xfce_mixer_plugin_mute_changed (mixer_plugin, FALSE);
+          xfce_volume_button_set_muted (XFCE_VOLUME_BUTTON (mixer_plugin->button), FALSE);
+        }
+
+      mixer_plugin->ignore_bus_messages = FALSE;
+    }
+}
+
+
+
+static void
+xfce_mixer_plugin_mute_pressed (const char *keystring,
+                                void       *user_data)
+{
+  XfceMixerPlugin    *mixer_plugin = XFCE_MIXER_PLUGIN (user_data);
+  XfceMixerTrackType  track_type;
+  gboolean            muted = TRUE;
+
+  if (G_UNLIKELY (!GST_IS_MIXER (mixer_plugin->card) || !GST_IS_MIXER_TRACK (mixer_plugin->track) || mixer_plugin->track_label == NULL))
+    return;
+
+  /* Determine track type */
+  track_type = xfce_mixer_track_type_new (mixer_plugin->track);
+
+  /* Determine current mute state */
+  if (G_LIKELY (track_type == XFCE_MIXER_TRACK_TYPE_PLAYBACK))
+    muted = GST_MIXER_TRACK_HAS_FLAG (mixer_plugin->track, GST_MIXER_TRACK_MUTE);
+  else if (track_type == XFCE_MIXER_TRACK_TYPE_CAPTURE)
+    muted = !GST_MIXER_TRACK_HAS_FLAG (mixer_plugin->track, GST_MIXER_TRACK_RECORD);
+
+  /* Set the new mute state */
+  xfce_mixer_plugin_mute_changed (mixer_plugin, !muted);
+
+  /* Update the volume button */
+  xfce_volume_button_set_muted (XFCE_VOLUME_BUTTON (mixer_plugin->button), !muted);
+}
+#endif

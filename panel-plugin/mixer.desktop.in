@@ -5,4 +5,4 @@ _Comment=Adjust volume levels
 Icon=multimedia-volume-control
 X-XFCE-Internal=false
 X-XFCE-Module=mixer
-X-XFCE-Unique=false
+X-XFCE-Unique=true
