@@ -45,13 +45,9 @@ void           xfce_mixer_select_card            (GstElement    *card);
 GstMixerTrack *xfce_mixer_get_track              (GstElement    *card,
                                                   const gchar   *track_name);
 GstMixerTrack *xfce_mixer_get_default_track      (GstElement    *card);
-
-#ifdef HAVE_GST_MIXER_NOTIFICATION
 guint          xfce_mixer_bus_connect            (GCallback      callback,
                                                   gpointer       user_data);
 void           xfce_mixer_bus_disconnect         (guint          signal_handler_id);
-#endif
-
 gint           xfce_mixer_get_max_volume         (gint          *volumes,
                                                   gint           num_channels);
 int            xfce_mixer_utf8_cmp               (const gchar   *s1,

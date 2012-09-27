@@ -93,28 +93,14 @@ AC_CHECK_LIB([m],[round])
 dnl ***********************************
 dnl *** Check for required packages ***
 dnl ***********************************
-XDT_CHECK_PACKAGE([GLIB], [glib-2.0], [2.18.0])
-XDT_CHECK_PACKAGE([GTHREAD], [gthread-2.0], [2.18.0])
-XDT_CHECK_PACKAGE([GST_PLUGINS_BASE], [gstreamer-plugins-base-0.10], [0.10.2])
-XDT_CHECK_PACKAGE([GTK], [gtk+-2.0], [2.14.0])
-XDT_CHECK_PACKAGE([LIBXFCE4UTIL], [libxfce4util-1.0], [4.8.0])
-XDT_CHECK_PACKAGE([LIBXFCE4UI], [libxfce4ui-1], [4.8.0])
-XDT_CHECK_PACKAGE([LIBXFCE4PANEL], [libxfce4panel-1.0], [4.8.0])
+XDT_CHECK_PACKAGE([GLIB], [glib-2.0], [2.24.0])
+XDT_CHECK_PACKAGE([GTHREAD], [gthread-2.0], [2.24.0])
+XDT_CHECK_PACKAGE([GST_PLUGINS_BASE], [gstreamer-plugins-base-0.10], [0.10.23])
+XDT_CHECK_PACKAGE([GTK], [gtk+-2.0], [2.20.0])
+XDT_CHECK_PACKAGE([LIBXFCE4UTIL], [libxfce4util-1.0], [4.10.0])
+XDT_CHECK_PACKAGE([LIBXFCE4UI], [libxfce4ui-1], [4.10.0])
 XDT_CHECK_PACKAGE([LIBXFCE4PANEL], [libxfce4panel-1.0], [4.10.0])
-XDT_CHECK_PACKAGE([XFCONF], [libxfconf-0], [4.8.0])
-
-dnl **************************************
-dnl *** Check for GstMixer bus support ***
-dnl **************************************
-HAVE_GST_MIXER_NOTIFICATION=no
-PKG_CHECK_MODULES(GST_MIXER_NOTIFICATION_API, 
-                  gstreamer-plugins-base-0.10 >= 0.10.14,
-                  HAVE_GST_MIXER_NOTIFICATION=yes, 
-                  HAVE_GST_MIXER_NOTIFICATION=no)
-if test "x$HAVE_GST_MIXER_NOTIFICATION" = "xyes"; then
-  AC_DEFINE(HAVE_GST_MIXER_NOTIFICATION, 1, 
-            [Have GStreamer mixer notification API])
-fi
+XDT_CHECK_PACKAGE([XFCONF], [libxfconf-0], [4.10.0])
 
 dnl ***********************************
 dnl *** Check for debugging support ***
@@ -157,10 +143,5 @@ dnl ***************************
 echo
 echo "Build Configuration:"
 echo
-if test "x$HAVE_GST_MIXER_NOTIFICATION" = "xyes"; then
-echo " * GStreamer mixer notification support: yes"
-else
-echo " * GStreamer mixer notification support: no"
-fi
 echo " * Debug Support:                        $enable_debug"
 echo

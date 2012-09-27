@@ -80,11 +80,9 @@ static void     xfce_mixer_plugin_is_muted_property_changed   (XfceMixerPlugin  
                                                                GParamSpec       *pspec,
                                                                GObject          *object);
 static void     xfce_mixer_plugin_update_track                (XfceMixerPlugin  *mixer_plugin);
-#ifdef HAVE_GST_MIXER_NOTIFICATION
 static void     xfce_mixer_plugin_bus_message                 (GstBus           *bus,
                                                                GstMessage       *message,
                                                                XfceMixerPlugin  *mixer_plugin);
-#endif
 
 
 
@@ -121,13 +119,11 @@ struct _XfceMixerPlugin
   /* Reference to the plugin private xfconf channel */
   XfconfChannel   *plugin_channel;
 
-#ifdef HAVE_GST_MIXER_NOTIFICATION
   /* Flag for ignoring messages from the GstBus */
   gboolean         ignore_bus_messages;
 
   /* GstBus connection id */
   guint            message_handler_id;
-#endif
 };
 
 
@@ -192,10 +188,8 @@ xfce_mixer_plugin_init (XfceMixerPlugin *mixer_plugin)
 
   mixer_plugin->plugin_channel = NULL;
 
-#ifdef HAVE_GST_MIXER_NOTIFICATION
   mixer_plugin->ignore_bus_messages = FALSE;
   mixer_plugin->message_handler_id = 0;
-#endif
 
   mixer_plugin->mute_menu_item = NULL;
 
@@ -304,17 +298,13 @@ xfce_mixer_plugin_set_property (GObject      *object,
             mixer_plugin->card = card;
             mixer_plugin->card_name = g_strdup (card_name);
             xfce_mixer_select_card (mixer_plugin->card);
-#ifdef HAVE_GST_MIXER_NOTIFICATION
             mixer_plugin->message_handler_id = xfce_mixer_bus_connect (G_CALLBACK (xfce_mixer_plugin_bus_message), mixer_plugin);
-#endif
             track_label = xfconf_channel_get_string (mixer_plugin->plugin_channel, "/track", NULL);
           }
         else
           {
             track_label = NULL;
-#ifdef HAVE_GST_MIXER_NOTIFICATION
             xfce_mixer_bus_disconnect (mixer_plugin->message_handler_id);
-#endif
           }
         g_object_set (object, "track", track_label, NULL);
 
@@ -411,10 +401,8 @@ xfce_mixer_plugin_free_data (XfcePanelPlugin *plugin)
   g_free (mixer_plugin->card_name);
   g_free (mixer_plugin->track_label);
 
-#ifdef HAVE_GST_MIXER_NOTIFICATION
   /* Disconnect from GstBus */
   xfce_mixer_bus_disconnect (mixer_plugin->message_handler_id);
-#endif
 
   /* Shutdown the mixer library */
   xfce_mixer_shutdown ();
@@ -543,9 +531,7 @@ xfce_mixer_plugin_volume_changed (XfceMixerPlugin  *mixer_plugin,
   g_return_if_fail (GST_IS_MIXER (mixer_plugin->card));
   g_return_if_fail (GST_IS_MIXER_TRACK (mixer_plugin->track));
 
-#ifdef HAVE_GST_MIXER_NOTIFICATION
   mixer_plugin->ignore_bus_messages = TRUE;
-#endif
 
   /* Allocate array for track volumes */
   volumes = g_new (gint, mixer_plugin->track->num_channels);
@@ -566,9 +552,7 @@ xfce_mixer_plugin_volume_changed (XfceMixerPlugin  *mixer_plugin,
   /* Free volume array */
   g_free (volumes);
 
-#ifdef HAVE_GST_MIXER_NOTIFICATION
   mixer_plugin->ignore_bus_messages = FALSE;
-#endif
 }
 
 
@@ -580,9 +564,7 @@ xfce_mixer_plugin_mute_changed (XfceMixerPlugin *mixer_plugin,
   g_return_if_fail (GST_IS_MIXER (mixer_plugin->card));
   g_return_if_fail (GST_IS_MIXER_TRACK (mixer_plugin->track));
 
-#ifdef HAVE_GST_MIXER_NOTIFICATION
   mixer_plugin->ignore_bus_messages = TRUE;
-#endif
 
 
   if (G_LIKELY (xfce_mixer_track_type_new (mixer_plugin->track) == XFCE_MIXER_TRACK_TYPE_PLAYBACK))
@@ -600,9 +582,7 @@ xfce_mixer_plugin_mute_changed (XfceMixerPlugin *mixer_plugin,
   if (gtk_check_menu_item_get_active (GTK_CHECK_MENU_ITEM (mixer_plugin->mute_menu_item)) != muted)
     gtk_check_menu_item_set_active (GTK_CHECK_MENU_ITEM (mixer_plugin->mute_menu_item), muted);
 
-#ifdef HAVE_GST_MIXER_NOTIFICATION
   mixer_plugin->ignore_bus_messages = FALSE;
-#endif
 }
 
 
@@ -691,7 +671,6 @@ xfce_mixer_plugin_update_track (XfceMixerPlugin *mixer_plugin)
 
 
 
-#ifdef HAVE_GST_MIXER_NOTIFICATION
 static void
 xfce_mixer_plugin_bus_message (GstBus          *bus,
                                GstMessage      *message,
@@ -757,4 +736,3 @@ xfce_mixer_plugin_bus_message (GstBus          *bus,
         break;
     }
 }
-#endif

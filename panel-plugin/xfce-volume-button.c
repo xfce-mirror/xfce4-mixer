@@ -261,7 +261,8 @@ xfce_volume_button_init (XfceVolumeButton *button)
   /* Make the button look flat and make it never grab the focus */
   gtk_button_set_relief (GTK_BUTTON (button), GTK_RELIEF_NONE);
   gtk_button_set_focus_on_click (GTK_BUTTON (button), FALSE);
-  GTK_WIDGET_UNSET_FLAGS (GTK_WIDGET (button), GTK_CAN_DEFAULT|GTK_CAN_FOCUS);
+  gtk_widget_set_can_default (GTK_WIDGET (button), FALSE);
+  gtk_widget_set_can_focus (GTK_WIDGET (button), FALSE);
 
   /* Connect to button signals */
 #if 0

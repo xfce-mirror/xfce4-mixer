@@ -42,10 +42,8 @@ static void     _xfce_mixer_destroy_mixer (GstMixer *mixer);
 
 static guint       refcount = 0;
 static GList      *mixers = NULL;
-#ifdef HAVE_GST_MIXER_NOTIFICATION
 static GstBus     *bus = NULL;
 static GstElement *selected_card = NULL;
-#endif
 
 
 
@@ -64,11 +62,9 @@ xfce_mixer_init (void)
       /* Get list of all available mixer devices */
       mixers = gst_audio_default_registry_mixer_filter (_xfce_mixer_filter_mixer, FALSE, &counter);
 
-#ifdef HAVE_GST_MIXER_NOTIFICATION
       /* Create a GstBus for notifications */
       bus = gst_bus_new ();
       gst_bus_add_signal_watch (bus);
-#endif
     }
 }
 
@@ -82,10 +78,8 @@ xfce_mixer_shutdown (void)
       g_list_foreach (mixers, (GFunc) _xfce_mixer_destroy_mixer, NULL);
       g_list_free (mixers);
 
-#ifdef HAVE_GST_MIXER_NOTIFICATION
       gst_bus_remove_signal_watch (bus);
       gst_object_unref (bus);
-#endif
     }
 }
 
@@ -168,10 +162,8 @@ xfce_mixer_select_card (GstElement *card)
 {
   g_return_if_fail (GST_IS_MIXER (card));
 
-#ifdef HAVE_GST_MIXER_NOTIFICATION
   gst_element_set_bus (card, bus);
   selected_card = card;
-#endif
 }
 
 
@@ -241,7 +233,6 @@ xfce_mixer_get_default_track (GstElement *card)
 
 
 
-#ifdef HAVE_GST_MIXER_NOTIFICATION
 guint
 xfce_mixer_bus_connect (GCallback callback,
                         gpointer  user_data)
@@ -259,7 +250,6 @@ xfce_mixer_bus_disconnect (guint signal_handler_id)
   if (signal_handler_id != 0)
     g_signal_handler_disconnect (bus, signal_handler_id);
 }
-#endif
 
 
 

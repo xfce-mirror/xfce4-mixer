@@ -222,8 +222,8 @@ xfce_mixer_window_init (XfceMixerWindow *window)
   gtk_container_set_border_width (GTK_CONTAINER (bbox), 6);
 
   window->select_controls_button = gtk_button_new ();
-  gtk_action_connect_proxy (gtk_action_group_get_action (window->action_group, "select-controls"), 
-                            window->select_controls_button);
+  gtk_activatable_set_related_action (GTK_ACTIVATABLE (window->select_controls_button),
+                                      gtk_action_group_get_action (window->action_group, "select-controls"));
   gtk_button_set_image (GTK_BUTTON (window->select_controls_button), 
                         gtk_image_new_from_icon_name ("preferences-desktop", GTK_ICON_SIZE_BUTTON));
   gtk_widget_set_sensitive (window->select_controls_button, FALSE);
@@ -231,7 +231,8 @@ xfce_mixer_window_init (XfceMixerWindow *window)
   gtk_widget_show (window->select_controls_button);
 
   button = gtk_button_new ();
-  gtk_action_connect_proxy (gtk_action_group_get_action (window->action_group, "quit"), button);
+  gtk_activatable_set_related_action (GTK_ACTIVATABLE (button),
+                                      gtk_action_group_get_action (window->action_group, "quit"));
   gtk_button_set_image (GTK_BUTTON (button), gtk_image_new_from_stock (GTK_STOCK_QUIT, GTK_ICON_SIZE_BUTTON));
   gtk_box_pack_start (GTK_BOX (bbox), button, FALSE, TRUE, 0);
   gtk_widget_show (button);
