@@ -12,6 +12,8 @@
 - Make the panel plugin use sensible default settings (first card, master
   track) in the absence of an existing configuration (bug #5716, bug #6624,
   bug #7125).
+- Clearly indicate in the plugin when there is no valid card and/or element
+  and ignore mouse wheel and mute toggle events (bug #6625, bug #7630).
 
 
 4.8.0

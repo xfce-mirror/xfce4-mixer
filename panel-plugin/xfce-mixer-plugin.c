@@ -610,10 +610,11 @@ xfce_mixer_plugin_update_track (XfceMixerPlugin *mixer_plugin)
 
   g_return_if_fail (IS_XFCE_MIXER_PLUGIN (mixer_plugin));
 
-  /* Reset tooltip and return if the card or track is invalid */
+  /* Set the volume button to invalid state and return if the card or track is invalid */
   if (!GST_IS_MIXER (mixer_plugin->card) || !GST_IS_MIXER_TRACK (mixer_plugin->track))
     {
-      gtk_tooltips_set_tip (mixer_plugin->tooltips, mixer_plugin->button, NULL, NULL);
+      xfce_volume_button_set_is_configured (XFCE_VOLUME_BUTTON (mixer_plugin->button), FALSE);
+      gtk_tooltips_set_tip (mixer_plugin->tooltips, mixer_plugin->button, _("No valid device and/or element."), NULL);
       return;
     }
 
@@ -641,6 +642,7 @@ xfce_mixer_plugin_update_track (XfceMixerPlugin *mixer_plugin)
     muted = !GST_MIXER_TRACK_HAS_FLAG (mixer_plugin->track, GST_MIXER_TRACK_RECORD);
 
   /* Update the volume button */
+  xfce_volume_button_set_is_configured (XFCE_VOLUME_BUTTON (mixer_plugin->button), TRUE);
   xfce_volume_button_set_volume (XFCE_VOLUME_BUTTON (mixer_plugin->button), volume);
   xfce_volume_button_set_muted (XFCE_VOLUME_BUTTON (mixer_plugin->button), muted);
 

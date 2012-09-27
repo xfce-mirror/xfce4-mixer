@@ -1,6 +1,7 @@
 /* vi:set expandtab sw=2 sts=2: */
 /*-
  * Copyright (c) 2008 Jannis Pohlmann <jannis@xfce.org>
+ * Copyright (c) 2012 Guido Berhoerster <guido+xfce@berhoerster.name>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -35,17 +36,20 @@ typedef struct _XfceVolumeButton      XfceVolumeButton;
 #define IS_XFCE_VOLUME_BUTTON_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), TYPE_XFCE_VOLUME_BUTTON))
 #define XFCE_VOLUME_BUTTON_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), TYPE_XFCE_VOLUME_BUTTON, XfceVolumeButtonClass))
 
-GType     xfce_volume_button_get_type       (void) G_GNUC_CONST;
+GType     xfce_volume_button_get_type           (void) G_GNUC_CONST;
 
-GtkWidget *xfce_volume_button_new           (void);
+GtkWidget *xfce_volume_button_new               (void);
 
-void       xfce_volume_button_set_muted     (XfceVolumeButton *button,
-                                             gboolean          muted);
-void       xfce_volume_button_set_volume    (XfceVolumeButton *button,
-                                             gdouble           volume);
-void       xfce_volume_button_update        (XfceVolumeButton *button);
-void       xfce_volume_button_set_icon_size (XfceVolumeButton *button,
-                                             gint              size);
+void       xfce_volume_button_set_muted         (XfceVolumeButton *button,
+                                                 gboolean          muted);
+void       xfce_volume_button_set_volume        (XfceVolumeButton *button,
+                                                 gdouble           volume);
+void       xfce_volume_button_update            (XfceVolumeButton *button);
+void       xfce_volume_button_set_icon_size     (XfceVolumeButton *button,
+                                                 gint              size);
+void       xfce_volume_button_set_is_configured (XfceVolumeButton *button,
+                                                 gboolean          is_configured);
+gboolean   xfce_volume_button_get_is_configured (XfceVolumeButton *button);
 
 G_END_DECLS;
 
