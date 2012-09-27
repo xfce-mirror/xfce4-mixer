@@ -1,6 +1,7 @@
 /* vi:set expandtab sw=2 sts=2: */
 /*-
  * Copyright (c) 2008 Jannis Pohlmann <jannis@xfce.org>
+ * Copyright (c) 2012 Guido Berhoerster <guido+xfce@berhoerster.name>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -37,7 +38,10 @@ typedef struct _XfceMixerControlsDialog      XfceMixerControlsDialog;
 
 GType      xfce_mixer_controls_dialog_get_type (void) G_GNUC_CONST;
 
-GtkWidget *xfce_mixer_controls_dialog_new      (XfceMixerWindow *parent);
+GtkWidget *xfce_mixer_controls_dialog_new           (XfceMixerWindow         *parent);
+void       xfce_mixer_controls_dialog_set_soundcard (XfceMixerControlsDialog *dialog,
+                                                     GstElement              *card);
+void       xfce_mixer_controls_dialog_update_dialog (XfceMixerControlsDialog *dialog);
 
 G_END_DECLS;
 

@@ -25,6 +25,7 @@
 - Add global keyboard shortcuts for raising and lowering the volume as well as
   muting (bug #5314).
 - Set the main window to normal rather than dialog type (bug #7623).
+- Keep the sound card and controls in sync between the mixer and xfconf.
 
 
 4.8.0

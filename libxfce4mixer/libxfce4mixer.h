@@ -24,12 +24,16 @@
 
 #include <glib.h>
 
+#include <dbus/dbus-glib.h>
+
 #include <gst/interfaces/mixer.h>
 
 #include "xfce-mixer-preferences.h"
 #include "xfce-mixer-card-combo.h"
 #include "xfce-mixer-track-combo.h"
 #include "xfce-mixer-track-type.h"
+
+#define XFCE_MIXER_TYPE_VALUE_ARRAY (xfce_mixer_value_array_get_type ())
 
 G_BEGIN_DECLS;
 
@@ -52,6 +56,7 @@ gint           xfce_mixer_get_max_volume         (gint          *volumes,
                                                   gint           num_channels);
 int            xfce_mixer_utf8_cmp               (const gchar   *s1,
                                                   const gchar   *s2);
+GType          xfce_mixer_value_array_get_type   (void);
 
 G_END_DECLS;
 

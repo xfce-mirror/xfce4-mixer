@@ -1,6 +1,7 @@
 /* vi:set expandtab sw=2 sts=2: */
 /*-
  * Copyright (c) 2008 Jannis Pohlmann <jannis@xfce.org>
+ * Copyright (c) 2012 Guido Berhoerster <guido+xfce@berhoerster.name>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -41,14 +42,11 @@ typedef struct _XfceMixerPreferences      XfceMixerPreferences;
 GType                 xfce_mixer_preferences_get_type             (void) G_GNUC_CONST;
 
 XfceMixerPreferences *xfce_mixer_preferences_get                  (void);
-gchar * const        *xfce_mixer_preferences_get_visible_controls (XfceMixerPreferences *preferences,
-                                                                   GstElement           *card);
-void                  xfce_mixer_preferences_set_visible_controls (XfceMixerPreferences *preferences,
-                                                                   GstElement           *card,
-                                                                   gchar * const        *controls);
+void                  xfce_mixer_preferences_set_controls         (XfceMixerPreferences *preferences,
+                                                                   GPtrArray            *controls);
+GPtrArray            *xfce_mixer_preferences_get_controls         (XfceMixerPreferences *preferences);
 gboolean              xfce_mixer_preferences_get_control_visible  (XfceMixerPreferences *preferences,
-                                                                   GstElement           *card,
-                                                                   GstMixerTrack        *track);
+                                                                   const gchar          *track_label);
 
 G_END_DECLS;
 

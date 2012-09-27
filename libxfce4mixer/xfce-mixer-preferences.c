@@ -1,6 +1,7 @@
 /* vi:set expandtab sw=2 sts=2: */
 /*-
  * Copyright (c) 2008 Jannis Pohlmann <jannis@xfce.org>
+ * Copyright (c) 2012 Guido Berhoerster <guido+xfce@berhoerster.name>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -31,13 +32,13 @@
 #include "xfce-mixer-preferences.h"
 
 
-
 enum
 {
   PROP_0,
   PROP_WINDOW_WIDTH,
   PROP_WINDOW_HEIGHT,
   PROP_SOUND_CARD,
+  PROP_CONTROLS,
   N_PROPERTIES,
 };
 
@@ -54,8 +55,6 @@ static void   xfce_mixer_preferences_set_property      (GObject                 
                                                         guint                      prop_id,
                                                         const GValue              *value,
                                                         GParamSpec                *pspec);
-static void   xfce_mixer_preferences_load              (XfceMixerPreferences      *preferences);
-static void   xfce_mixer_preferences_store             (XfceMixerPreferences      *preferences);
 
 
 
@@ -69,9 +68,15 @@ struct _XfceMixerPreferences
   GObject        __parent__;
 
   XfconfChannel *channel;
-  GHashTable    *controls;
 
-  GValue         values[N_PROPERTIES];
+  gint           window_width;
+  gint           window_height;
+
+  gchar         *sound_card;
+
+  GPtrArray     *controls;
+
+  gulong         sound_cards_property_bind_id;
 };
 
 
@@ -145,6 +150,14 @@ xfce_mixer_preferences_class_init (XfceMixerPreferencesClass *klass)
                                                         "sound-card",
                                                         NULL,
                                                         G_PARAM_READABLE | G_PARAM_WRITABLE));
+
+  g_object_class_install_property (gobject_class, 
+                                   PROP_CONTROLS,
+                                   g_param_spec_boxed ("controls",
+                                                       "controls",
+                                                       "controls",
+                                                       XFCE_MIXER_TYPE_VALUE_ARRAY,
+                                                       G_PARAM_READABLE | G_PARAM_WRITABLE));
 }
 
 
@@ -152,14 +165,20 @@ xfce_mixer_preferences_class_init (XfceMixerPreferencesClass *klass)
 static void
 xfce_mixer_preferences_init (XfceMixerPreferences *preferences)
 {
-    preferences->channel = xfconf_channel_get ("xfce4-mixer");
-    preferences->controls = g_hash_table_new_full (g_str_hash, g_str_equal, g_free, (GDestroyNotify) g_strfreev);
+  preferences->channel = xfconf_channel_get ("xfce4-mixer");
 
-    xfconf_g_property_bind (preferences->channel, "/window-width", G_TYPE_INT, G_OBJECT (preferences), "window-width");
-    xfconf_g_property_bind (preferences->channel, "/window-height", G_TYPE_INT, G_OBJECT (preferences), "window-height");
-    xfconf_g_property_bind (preferences->channel, "/sound-card", G_TYPE_STRING, G_OBJECT (preferences), "sound-card");
+  preferences->window_width = 1;
+  preferences->window_height = 1;
 
-    xfce_mixer_preferences_load (preferences);
+  preferences->sound_card = NULL;
+
+  preferences->controls = g_ptr_array_new ();
+
+  preferences->sound_cards_property_bind_id = 0UL;
+
+  xfconf_g_property_bind (preferences->channel, "/window-width", G_TYPE_INT, G_OBJECT (preferences), "window-width");
+  xfconf_g_property_bind (preferences->channel, "/window-height", G_TYPE_INT, G_OBJECT (preferences), "window-height");
+  xfconf_g_property_bind (preferences->channel, "/sound-card", G_TYPE_STRING, G_OBJECT (preferences), "sound-card");
 }
 
 
@@ -169,7 +188,17 @@ xfce_mixer_preferences_finalize (GObject *object)
 {
   XfceMixerPreferences *preferences = XFCE_MIXER_PREFERENCES (object);
 
-  g_hash_table_unref (preferences->controls);
+  if (preferences->sound_card != NULL)
+    {
+      g_free (preferences->sound_card);
+      preferences->sound_card = NULL;
+    }
+
+  if (preferences->controls != NULL)
+    {
+      xfconf_array_free (preferences->controls);
+      preferences->controls = NULL;
+    }
 
   (*G_OBJECT_CLASS (xfce_mixer_preferences_parent_class)->finalize) (object);
 }
@@ -183,14 +212,25 @@ xfce_mixer_preferences_get_property (GObject    *object,
                                      GParamSpec *pspec)
 {
   XfceMixerPreferences *preferences = XFCE_MIXER_PREFERENCES (object);
-  GValue               *src;
 
-  src = preferences->values + prop_id;
-
-  if (G_LIKELY (G_IS_VALUE (src)))
-    g_value_copy (src, value);
-  else
-    g_param_value_set_default (pspec, value);
+  switch (prop_id)
+    {
+    case PROP_WINDOW_WIDTH:
+      g_value_set_int (value, preferences->window_width);
+      break;
+    case PROP_WINDOW_HEIGHT:
+      g_value_set_int (value, preferences->window_height);
+      break;
+    case PROP_SOUND_CARD:
+      g_value_set_string (value, preferences->sound_card);
+      break;
+    case PROP_CONTROLS:
+      g_value_set_boxed (value, preferences->controls);
+      break;
+    default:
+      G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
+      break;
+    }
 }
 
 
@@ -202,18 +242,75 @@ xfce_mixer_preferences_set_property (GObject      *object,
                                      GParamSpec   *pspec)
 {
   XfceMixerPreferences *preferences = XFCE_MIXER_PREFERENCES (object);
-  GValue               *dest;
+  gchar                *sound_cards_property_name;
+  GPtrArray            *controls;
+  guint                 i;
+  GValue               *element;
+  GValue               *control;
 
-  dest = preferences->values + prop_id;
-
-  if (G_UNLIKELY (!G_IS_VALUE (dest)))
+  switch (prop_id)
     {
-      g_value_init (dest, pspec->value_type);
-      g_param_value_set_default (pspec, dest);
-    }
+    case PROP_WINDOW_WIDTH:
+      preferences->window_width = g_value_get_int (value);
+      break;
+    case PROP_WINDOW_HEIGHT:
+      preferences->window_height = g_value_get_int (value);
+      break;
+    case PROP_SOUND_CARD:
+      /* Freeze "notify" signals since the "controls" property is also manipulated */
+      g_object_freeze_notify (object);
 
-  if (G_LIKELY (g_param_values_cmp (pspec, value, dest) != 0))
-    g_value_copy (value, dest);
+      g_free (preferences->sound_card);
+      preferences->sound_card = g_value_dup_string (value);
+
+      /* Remove the previous binding */
+      if (preferences->sound_cards_property_bind_id > 0)
+        {
+          xfconf_g_property_unbind (preferences->sound_cards_property_bind_id);
+          preferences->sound_cards_property_bind_id = 0UL;
+        }
+
+      /* Make sure the "controls" property is reset */
+      g_object_set (object, "controls", NULL, NULL);
+
+      if (preferences->sound_card != NULL)
+        {
+          /* Bind to the property corresponding to the new sound card */
+          sound_cards_property_name = g_strdup_printf ("/sound-cards/%s", preferences->sound_card);
+          preferences->sound_cards_property_bind_id = xfconf_g_property_bind (preferences->channel, sound_cards_property_name, XFCE_MIXER_TYPE_VALUE_ARRAY, G_OBJECT (preferences), "controls");
+          g_free (sound_cards_property_name);
+        }
+
+      g_object_thaw_notify (object);
+      break;
+    case PROP_CONTROLS:
+      if (preferences->controls != NULL)
+        xfconf_array_free (preferences->controls);
+
+      controls = g_value_get_boxed (value);
+      if (controls != NULL)
+        {
+          preferences->controls = g_ptr_array_sized_new (controls->len);
+          for (i = 0; i < controls->len; ++i)
+            {
+              element = (GValue *) g_ptr_array_index (controls, i);
+
+              /* Filter out invalid value types */
+              if (G_VALUE_HOLDS_STRING (element))
+                {
+                  control = g_value_init (g_new0 (GValue, 1), G_TYPE_STRING);
+                  g_value_copy (element, control);
+                  g_ptr_array_add (preferences->controls, control);
+                }
+            }
+        }
+      else
+        preferences->controls = g_ptr_array_new ();
+      break;
+    default:
+      G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
+      break;
+    }
 }
 
 
@@ -236,166 +333,51 @@ xfce_mixer_preferences_get (void)
 
 
 
-static void
-xfce_mixer_preferences_load_controls (const gchar          *property_name,
-                                      const GValue         *value,
-                                      XfceMixerPreferences *preferences)
+void
+xfce_mixer_preferences_set_controls (XfceMixerPreferences *preferences,
+                                     GPtrArray            *controls)
 {
-  gchar **controls;
-  gchar  *card_name;
-
   g_return_if_fail (IS_XFCE_MIXER_PREFERENCES (preferences));
-  g_return_if_fail (XFCONF_IS_CHANNEL (preferences->channel));
+  g_return_if_fail (controls != NULL);
 
-  if (G_UNLIKELY ((card_name = g_strrstr (property_name, "/")) == NULL))
-    return;
-
-  /* Remove the leading slash */
-  card_name = card_name + 1;
-
-  /* Read controls for this card */
-  controls = xfconf_channel_get_string_list (preferences->channel, property_name);
-
-  if (G_LIKELY (controls != NULL))
-    {
-      /* Store controls in the hash table */
-      g_hash_table_insert (preferences->controls, g_strdup (card_name), controls);
-    }
+  g_object_set (G_OBJECT (preferences), "controls", controls, NULL);
 }
 
 
 
-static void 
-xfce_mixer_preferences_load (XfceMixerPreferences *preferences)
+GPtrArray *
+xfce_mixer_preferences_get_controls (XfceMixerPreferences *preferences)
 {
-  GHashTable *properties;
-
-  g_return_if_fail (IS_XFCE_MIXER_PREFERENCES (preferences));
-  g_return_if_fail (XFCONF_IS_CHANNEL (preferences->channel));
-
-  properties = xfconf_channel_get_properties (preferences->channel, "/sound-cards");
-
-  if (G_LIKELY (properties != NULL))
-    g_hash_table_foreach (properties, (GHFunc) xfce_mixer_preferences_load_controls, preferences);
-}
-
-
-
-static void
-xfce_mixer_preferences_store_controls (const gchar          *card_name,
-                                       gchar * const        *controls,
-                                       XfceMixerPreferences *preferences)
-{
-  gchar *property_name;
-
-  g_return_if_fail (IS_XFCE_MIXER_PREFERENCES (preferences));
-  g_return_if_fail (XFCONF_IS_CHANNEL (preferences->channel));
-
-  property_name = g_strdup_printf ("/sound-cards/%s", card_name);
-
-  if (G_UNLIKELY (controls != NULL))
-    xfconf_channel_set_string_list (preferences->channel, property_name, (const gchar * const *) controls);
-  else
-    xfconf_channel_reset_property (preferences->channel, property_name, TRUE);
-
-  g_free (property_name);
-}
-
-
-
-static void
-xfce_mixer_preferences_update_controls (const gchar          *property_name,
-                                        const GValue         *value,
-                                        XfceMixerPreferences *preferences)
-{
-  g_return_if_fail (IS_XFCE_MIXER_PREFERENCES (preferences));
-  g_return_if_fail (XFCONF_IS_CHANNEL (preferences->channel));
-
-  xfconf_channel_reset_property (preferences->channel, property_name, TRUE);
-}
-
-
-
-static void 
-xfce_mixer_preferences_store (XfceMixerPreferences *preferences)
-{
-  GHashTable *properties;
-
-  g_return_if_fail (IS_XFCE_MIXER_PREFERENCES (preferences));
-  g_return_if_fail (XFCONF_IS_CHANNEL (preferences->channel));
-
-  properties = xfconf_channel_get_properties (preferences->channel, "/sound-cards");
-
-  if (G_LIKELY (properties != NULL))
-    g_hash_table_foreach (properties, (GHFunc) xfce_mixer_preferences_update_controls, preferences);
-
-  g_hash_table_foreach (preferences->controls, (GHFunc) xfce_mixer_preferences_store_controls, preferences);
-}
-
-
-
-gchar * const *
-xfce_mixer_preferences_get_visible_controls (XfceMixerPreferences *preferences,
-                                             GstElement           *card)
-{
-  const gchar *card_name;
+  GPtrArray *controls;
 
   g_return_val_if_fail (IS_XFCE_MIXER_PREFERENCES (preferences), NULL);
-  g_return_val_if_fail (GST_IS_MIXER (card), NULL);
 
-  card_name = xfce_mixer_get_card_internal_name (card);
-  return (gchar * const *) g_hash_table_lookup (preferences->controls, card_name);
-}
+  g_object_get (G_OBJECT (preferences), "controls", &controls, NULL);
 
-
-
-void
-xfce_mixer_preferences_set_visible_controls (XfceMixerPreferences *preferences,
-                                             GstElement           *card,
-                                             gchar * const        *controls)
-{
-  const gchar *card_name;
-  g_return_if_fail (IS_XFCE_MIXER_PREFERENCES (preferences));
-  g_return_if_fail (GST_IS_MIXER (card));
-
-  card_name = xfce_mixer_get_card_internal_name (card);
-  g_hash_table_insert (preferences->controls, g_strdup (card_name), g_strdupv ((gchar **) controls));
-  xfce_mixer_preferences_store (preferences);
+  return controls;
 }
 
 
 
 gboolean
 xfce_mixer_preferences_get_control_visible (XfceMixerPreferences *preferences,
-                                            GstElement           *card,
-                                            GstMixerTrack        *track)
+                                            const gchar          *track_label)
 {
-  gchar * const *controls;
-  const gchar   *card_name;
   gboolean       visible = FALSE;
-  gchar         *label;
-  gint           i;
+  guint          i;
 
   g_return_val_if_fail (IS_XFCE_MIXER_PREFERENCES (preferences), FALSE);
-  g_return_val_if_fail (GST_IS_MIXER (card), FALSE);
-  g_return_val_if_fail (GST_IS_MIXER_TRACK (track), FALSE);
+  g_return_val_if_fail (preferences->controls != NULL, FALSE);
 
-  g_object_get (track, "label", &label, NULL);
-
-  card_name = xfce_mixer_get_card_internal_name (card);
-  controls = g_hash_table_lookup (preferences->controls, card_name);
-
-  if (G_LIKELY (controls != NULL))
+  for (i = 0; i < preferences->controls->len; ++i)
     {
-      for (i = 0; controls != NULL && controls[i] != NULL; ++i)
-        if (g_utf8_collate (controls[i], label) == 0)
-          {
-            visible = TRUE;
-            break;
-          }
+      if (xfce_mixer_utf8_cmp (g_value_get_string (g_ptr_array_index (preferences->controls, i)), track_label) == 0)
+        {
+          visible = TRUE;
+          break;
+        }
     }
-
-  g_free (label);
 
   return visible;
 }
+

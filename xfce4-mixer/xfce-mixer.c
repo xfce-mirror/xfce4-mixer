@@ -1,6 +1,7 @@
 /* vi:set expandtab sw=2 sts=2: */
 /*-
  * Copyright (c) 2008 Jannis Pohlmann <jannis@xfce.org>
+ * Copyright (c) 2012 Guido Berhoerster <guido+xfce@berhoerster.name>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -165,7 +166,7 @@ xfce_mixer_constructed (GObject *object)
   GtkWidget            *last_separator[4] = { NULL, NULL, NULL, NULL };
   GtkWidget            *label1;
   GtkWidget            *label2;
-  gchar                *label;
+  gchar                *track_label;
   guint                 num_children[4] = { 0, 0, 0, 0 };
   gint                  i;
 
@@ -203,13 +204,16 @@ xfce_mixer_constructed (GObject *object)
     {
       track = iter->data;
 
-      if (!xfce_mixer_preferences_get_control_visible (preferences, mixer->card, track))
-        continue;
+      g_object_get (GST_MIXER_TRACK (track), "label", &track_label, NULL);
+
+      if (!xfce_mixer_preferences_get_control_visible (preferences, track_label))
+        {
+          g_free (track_label);
+          continue;
+        }
 
       /* Determine the type of the mixer track */
       type = xfce_mixer_track_type_new (track);
-
-      g_object_get (GST_MIXER_TRACK (track), "label", &label, NULL);
 
       switch (type) 
         {
@@ -229,7 +233,7 @@ xfce_mixer_constructed (GObject *object)
           num_children[0]++;
 
           /* Add the track to the hash table */
-          g_hash_table_insert (mixer->widgets, g_strdup (label), track_widget);
+          g_hash_table_insert (mixer->widgets, g_strdup (track_label), track_widget);
           break;
 
         case XFCE_MIXER_TRACK_TYPE_CAPTURE:
@@ -248,7 +252,7 @@ xfce_mixer_constructed (GObject *object)
           num_children[1]++;
 
           /* Add the track to the hash table */
-          g_hash_table_insert (mixer->widgets, g_strdup (label), track_widget);
+          g_hash_table_insert (mixer->widgets, g_strdup (track_label), track_widget);
           break;
 
         case XFCE_MIXER_TRACK_TYPE_SWITCH:
@@ -258,7 +262,7 @@ xfce_mixer_constructed (GObject *object)
           num_children[2]++;
 
           /* Add the track to the hash table */
-          g_hash_table_insert (mixer->widgets, g_strdup (label), track_widget);
+          g_hash_table_insert (mixer->widgets, g_strdup (track_label), track_widget);
           break;
 
         case XFCE_MIXER_TRACK_TYPE_OPTIONS:
@@ -268,11 +272,11 @@ xfce_mixer_constructed (GObject *object)
           num_children[3]++;
 
           /* Add the track to the hash table */
-          g_hash_table_insert (mixer->widgets, g_strdup (label), track_widget);
+          g_hash_table_insert (mixer->widgets, g_strdup (track_label), track_widget);
           break;
         }
 
-      g_free (label);
+      g_free (track_label);
     }
 
   /* Append tab or destroy all its widgets - depending on the contents of each tab */
