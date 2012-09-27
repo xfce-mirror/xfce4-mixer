@@ -185,6 +185,7 @@ xfce_mixer_track_create_contents (XfceMixerTrack *track)
   GtkWidget   *fader;
   gdouble      step;
   gchar       *track_label;
+  gchar       *tooltip_text;
   gint         channel;
   gint         columns;
   gint        *volumes;
@@ -203,7 +204,6 @@ xfce_mixer_track_create_contents (XfceMixerTrack *track)
   /* Put the name of the track on top of the other elements */
   g_object_get (track->gst_track, "label", &track_label, NULL);
   label = gtk_label_new (track_label);
-  g_free (track_label);
   gtk_misc_set_alignment (GTK_MISC (label), 0.5f, 0.5f);
   gtk_table_attach (GTK_TABLE (track), label, 0, columns, 0, 1, GTK_FILL, GTK_SHRINK, 0, 0);
   gtk_widget_show (label);
@@ -213,15 +213,20 @@ xfce_mixer_track_create_contents (XfceMixerTrack *track)
   /* Create a fader for each channel */
   for (channel = 0; channel < track->gst_track->num_channels; ++channel)
     {
+      tooltip_text = g_strdup_printf (_("Volume of channel %d on %s"), channel, track_label);
+
       fader = gtk_vscale_new_with_range (track->gst_track->min_volume, track->gst_track->max_volume, step);
       gtk_scale_set_draw_value (GTK_SCALE (fader), FALSE);
       gtk_range_set_inverted (GTK_RANGE (fader), TRUE);
       gtk_range_set_value (GTK_RANGE (fader), volumes[channel]);
+      gtk_widget_set_tooltip_text (fader, tooltip_text);
       g_signal_connect (fader, "value-changed", G_CALLBACK (xfce_mixer_track_fader_changed), track);
       gtk_table_attach (GTK_TABLE (track), fader, channel, channel + 1, 1, 2, GTK_SHRINK, GTK_FILL|GTK_EXPAND, 0, 0);
       gtk_widget_show (fader);
 
       track->channel_faders = g_list_append (track->channel_faders, fader);
+
+      g_free (tooltip_text);
     }
 
   /* Create a horizontal for the control buttons */
@@ -232,34 +237,49 @@ xfce_mixer_track_create_contents (XfceMixerTrack *track)
   /* Create mute button for playback tracks */
   if (G_LIKELY (xfce_mixer_track_type_new (track->gst_track) == XFCE_MIXER_TRACK_TYPE_PLAYBACK))
     {
+      tooltip_text = g_strdup_printf (_("Mute/unmute %s"), track_label);
+
       track->mute_button = gtk_toggle_button_new ();
       image = gtk_image_new_from_icon_name ("audio-volume-high", XFCE_MIXER_ICON_SIZE); 
       gtk_button_set_image (GTK_BUTTON (track->mute_button), image);
+      gtk_widget_set_tooltip_text (track->mute_button, tooltip_text);
       g_signal_connect (track->mute_button, "toggled", G_CALLBACK (xfce_mixer_track_mute_toggled), track);
       gtk_box_pack_start (GTK_BOX (button_box), track->mute_button, FALSE, FALSE, 0);
       gtk_widget_show (track->mute_button);
+
+      g_free (tooltip_text);
     }
 
   if (G_LIKELY (track->gst_track->num_channels >= 2))
     {
+      tooltip_text = g_strdup_printf (_("Lock channels for %s together"), track_label);
+
       track->lock_button = gtk_toggle_button_new ();
       image = gtk_image_new_from_file (DATADIR "/pixmaps/xfce4-mixer/chain.png");
       gtk_button_set_image (GTK_BUTTON (track->lock_button), image);
       gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (track->lock_button), TRUE);
+      gtk_widget_set_tooltip_text (track->lock_button, tooltip_text);
       g_signal_connect (track->lock_button, "toggled", G_CALLBACK (xfce_mixer_track_lock_toggled), track);
       gtk_box_pack_start (GTK_BOX (button_box), track->lock_button, FALSE, FALSE, 0);
       gtk_widget_show (track->lock_button);
+
+      g_free (tooltip_text);
     }
 
   /* Create record button for capture tracks */
   if (G_UNLIKELY (xfce_mixer_track_type_new (track->gst_track) == XFCE_MIXER_TRACK_TYPE_CAPTURE))
     {
+      tooltip_text = g_strdup_printf (_("Enable/disable audible input from %s in output"), track_label);
+
       track->record_button = gtk_toggle_button_new ();
       image = gtk_image_new_from_icon_name ("audio-input-microphone-muted", XFCE_MIXER_ICON_SIZE);
       gtk_button_set_image (GTK_BUTTON (track->record_button), image);
+      gtk_widget_set_tooltip_text (track->record_button, tooltip_text);
       g_signal_connect (track->record_button, "toggled", G_CALLBACK (xfce_mixer_track_record_toggled), track);
       gtk_box_pack_start (GTK_BOX (button_box), track->record_button, FALSE, FALSE, 0);
       gtk_widget_show (track->record_button);
+
+      g_free (tooltip_text);
     }
 
   /* Some of the mixer controls need to be updated before they can be used */
@@ -268,6 +288,8 @@ xfce_mixer_track_create_contents (XfceMixerTrack *track)
 
   /* Free volume array */
   g_free (volumes);
+
+  g_free (track_label);
 }
 
 

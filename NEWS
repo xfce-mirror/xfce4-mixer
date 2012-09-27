@@ -37,6 +37,7 @@
 - Remove UI for configuring the mixer command from the panel plugin and assume
   xfce4-mixer, make the panel plugin context menu entry for running the mixer
   more meaningful.
+- Add tooltips to scale widgets in the mixer.
 
 
 4.8.0
