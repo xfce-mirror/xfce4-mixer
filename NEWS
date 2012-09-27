@@ -24,6 +24,7 @@
 - Do not use deprecated APIs and adjust requirements to Xfce 4.10.
 - Add global keyboard shortcuts for raising and lowering the volume as well as
   muting (bug #5314).
+- Set the main window to normal rather than dialog type (bug #7623).
 
 
 4.8.0

@@ -163,6 +163,7 @@ xfce_mixer_window_init (XfceMixerWindow *window)
   g_object_get (window->preferences, "window-width", &width, "window-height", &height, "sound-card", &active_card, NULL);
 
   /* Configure the main window */
+  gtk_window_set_type_hint (GTK_WINDOW (window), GDK_WINDOW_TYPE_HINT_NORMAL);
   gtk_window_set_icon_name (GTK_WINDOW (window), "multimedia-volume-control");
   gtk_window_set_title (GTK_WINDOW (window), _("Audio Mixer"));
   gtk_window_set_default_size (GTK_WINDOW (window), width, height);
