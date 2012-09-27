@@ -23,7 +23,7 @@
 
 #include <gtk/gtk.h>
 
-G_BEGIN_DECLS;
+G_BEGIN_DECLS
 
 typedef struct _XfceMixerPluginClass XfceMixerPluginClass;
 typedef struct _XfceMixerPlugin      XfceMixerPlugin;
@@ -39,6 +39,6 @@ GType     xfce_mixer_plugin_get_type       (void) G_GNUC_CONST;
 
 void  xfce_mixer_plugin_register_type (XfcePanelTypeModule *type_module);
 
-G_END_DECLS;
+G_END_DECLS
 
 #endif /* !__XFCE_MIXER_PLUGIN_H__ */

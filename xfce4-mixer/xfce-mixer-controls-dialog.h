@@ -24,7 +24,7 @@
 
 #include "xfce-mixer-window.h"
 
-G_BEGIN_DECLS;
+G_BEGIN_DECLS
 
 typedef struct _XfceMixerControlsDialogClass XfceMixerControlsDialogClass;
 typedef struct _XfceMixerControlsDialog      XfceMixerControlsDialog;
@@ -43,6 +43,6 @@ void       xfce_mixer_controls_dialog_set_soundcard (XfceMixerControlsDialog *di
                                                      GstElement              *card);
 void       xfce_mixer_controls_dialog_update_dialog (XfceMixerControlsDialog *dialog);
 
-G_END_DECLS;
+G_END_DECLS
 
 #endif /* !__XFCE_MIXER_CONTROLS_DIALOG_H__ */

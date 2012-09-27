@@ -11,8 +11,8 @@ xfce4_mixer_SOURCES =							\
 	xfce-mixer-switch.h						\
 	xfce-mixer-option.c						\
 	xfce-mixer-option.h						\
-	xfce-mixer.c							\
-	xfce-mixer.h							\
+	xfce-mixer-container.c						\
+	xfce-mixer-container.h						\
 	xfce-mixer-controls-dialog.c					\
 	xfce-mixer-controls-dialog.h					\
 	xfce-mixer-window.h						\

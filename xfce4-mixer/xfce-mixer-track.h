@@ -24,7 +24,7 @@
 #include <gtk/gtk.h>
 #include <gst/gst.h>
 
-G_BEGIN_DECLS;
+G_BEGIN_DECLS
 
 typedef struct _XfceMixerTrackClass XfceMixerTrackClass;
 typedef struct _XfceMixerTrack      XfceMixerTrack;
@@ -44,6 +44,6 @@ void       xfce_mixer_track_update_mute   (XfceMixerTrack *track);
 void       xfce_mixer_track_update_record (XfceMixerTrack *track);
 void       xfce_mixer_track_update_volume (XfceMixerTrack *track);
 
-G_END_DECLS;
+G_END_DECLS
 
 #endif /* !__XFCE_MIXER_TRACK_H__ */

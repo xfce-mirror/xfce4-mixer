@@ -23,7 +23,7 @@
 
 #include <gtk/gtk.h>
 
-G_BEGIN_DECLS;
+G_BEGIN_DECLS
 
 typedef struct _XfceMixerCardComboClass XfceMixerCardComboClass;
 typedef struct _XfceMixerCardCombo      XfceMixerCardCombo;
@@ -42,6 +42,6 @@ GstElement *xfce_mixer_card_combo_get_active_card (XfceMixerCardCombo *combo);
 void        xfce_mixer_card_combo_set_active_card (XfceMixerCardCombo *combo,
                                                    GstElement         *card);
 
-G_END_DECLS;
+G_END_DECLS
 
 #endif /* !__XFCE_MIXER_CARD_COMBO_H__ */

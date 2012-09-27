@@ -40,8 +40,6 @@
 
 
 
-static void xfce_plugin_dialog_class_init                 (XfcePluginDialogClass *klass);
-static void xfce_plugin_dialog_init                       (XfcePluginDialog      *dialog);
 static void xfce_plugin_dialog_dispose                    (GObject               *object);
 static void xfce_plugin_dialog_finalize                   (GObject               *object);
 static void xfce_plugin_dialog_create_contents            (XfcePluginDialog      *dialog);
@@ -79,36 +77,7 @@ struct _XfcePluginDialog
 
 
 
-static GObjectClass *xfce_plugin_dialog_parent_class = NULL;
-
-
-
-GType
-xfce_plugin_dialog_get_type (void)
-{
-  static GType type = G_TYPE_INVALID;
-
-  if (G_UNLIKELY (type == G_TYPE_INVALID))
-    {
-      static const GTypeInfo info = 
-        {
-          sizeof (XfcePluginDialogClass),
-          NULL,
-          NULL,
-          (GClassInitFunc) xfce_plugin_dialog_class_init,
-          NULL,
-          NULL,
-          sizeof (XfcePluginDialog),
-          0,
-          (GInstanceInitFunc) xfce_plugin_dialog_init,
-          NULL,
-        };
-
-      type = g_type_register_static (XFCE_TYPE_TITLED_DIALOG, "XfcePluginDialog", &info, 0);
-    }
-  
-  return type;
-}
+G_DEFINE_TYPE (XfcePluginDialog, xfce_plugin_dialog, XFCE_TYPE_TITLED_DIALOG)
 
 
 
@@ -116,9 +85,6 @@ static void
 xfce_plugin_dialog_class_init (XfcePluginDialogClass *klass)
 {
   GObjectClass *gobject_class;
-
-  /* Determine parent type class */
-  xfce_plugin_dialog_parent_class = g_type_class_peek_parent (klass);
 
   gobject_class = G_OBJECT_CLASS (klass);
   gobject_class->dispose = xfce_plugin_dialog_dispose;

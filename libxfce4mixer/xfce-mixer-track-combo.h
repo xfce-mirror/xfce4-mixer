@@ -27,7 +27,7 @@
 #include <gst/gst.h>
 #include <gst/interfaces/mixer.h>
 
-G_BEGIN_DECLS;
+G_BEGIN_DECLS
 
 typedef struct _XfceMixerTrackComboClass XfceMixerTrackComboClass;
 typedef struct _XfceMixerTrackCombo      XfceMixerTrackCombo;
@@ -50,6 +50,6 @@ GstMixerTrack *xfce_mixer_track_combo_get_active_track (XfceMixerTrackCombo *com
 void           xfce_mixer_track_combo_set_active_track (XfceMixerTrackCombo *combo,
                                                         GstMixerTrack       *track);
 
-G_END_DECLS;
+G_END_DECLS
 
 #endif /* !__XFCE_MIXER_TRACK_COMBO_H__ */

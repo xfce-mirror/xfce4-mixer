@@ -27,7 +27,7 @@
 #include <gst/gst.h>
 #include <gst/interfaces/mixer.h>
 
-G_BEGIN_DECLS;
+G_BEGIN_DECLS
 
 typedef struct _XfcePluginDialogClass XfcePluginDialogClass;
 typedef struct _XfcePluginDialog      XfcePluginDialog;
@@ -45,6 +45,6 @@ GType     xfce_plugin_dialog_get_type  (void) G_GNUC_CONST;
 
 GtkWidget *xfce_plugin_dialog_new (XfcePanelPlugin *plugin);
 
-G_END_DECLS;
+G_END_DECLS
 
 #endif /* !__XFCE_PLUGIN_DIALOG_H__ */

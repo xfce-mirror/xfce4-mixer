@@ -24,7 +24,7 @@
 #include <glib-object.h>
 #include <gst/interfaces/mixer.h>
 
-G_BEGIN_DECLS;
+G_BEGIN_DECLS
 
 typedef enum
 {
@@ -40,6 +40,6 @@ GType              xfce_mixer_track_type_get_type (void) G_GNUC_CONST G_GNUC_INT
 
 XfceMixerTrackType xfce_mixer_track_type_new      (GstMixerTrack *track);
 
-G_END_DECLS;
+G_END_DECLS
 
 #endif /* !__XFCE_TRACK_TYPE_H__ */

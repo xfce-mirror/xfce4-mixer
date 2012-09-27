@@ -36,7 +36,7 @@
 
 #define XFCE_MIXER_TYPE_VALUE_ARRAY (xfce_mixer_value_array_get_type ())
 
-G_BEGIN_DECLS;
+G_BEGIN_DECLS
 
 void           xfce_mixer_init                   (void);
 void           xfce_mixer_shutdown               (void);
@@ -52,15 +52,15 @@ GstMixerTrack *xfce_mixer_get_track              (GstElement    *card,
 GstMixerTrack *xfce_mixer_get_default_track      (GstElement    *card);
 GList         *xfce_mixer_get_default_track_list (GstElement    *card);
 const gchar   *xfce_mixer_get_track_label        (GstMixerTrack *track);
-guint          xfce_mixer_bus_connect            (GCallback      callback,
+gulong         xfce_mixer_bus_connect            (GCallback      callback,
                                                   gpointer       user_data);
-void           xfce_mixer_bus_disconnect         (guint          signal_handler_id);
+void           xfce_mixer_bus_disconnect         (gulong         signal_handler_id);
 gint           xfce_mixer_get_max_volume         (gint          *volumes,
                                                   gint           num_channels);
 int            xfce_mixer_utf8_cmp               (const gchar   *s1,
                                                   const gchar   *s2);
 GType          xfce_mixer_value_array_get_type   (void);
 
-G_END_DECLS;
+G_END_DECLS
 
 #endif /* !__LIBXFCE4MIXER_H__ */

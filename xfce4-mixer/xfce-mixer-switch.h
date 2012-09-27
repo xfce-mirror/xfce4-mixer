@@ -24,7 +24,7 @@
 #include <gtk/gtk.h>
 #include <gst/gst.h>
 
-G_BEGIN_DECLS;
+G_BEGIN_DECLS
 
 typedef struct _XfceMixerSwitchClass XfceMixerSwitchClass;
 typedef struct _XfceMixerSwitch      XfceMixerSwitch;
@@ -42,6 +42,6 @@ GtkWidget *xfce_mixer_switch_new      (GstElement      *card,
                                        GstMixerTrack   *track);
 void       xfce_mixer_switch_update   (XfceMixerSwitch *mixer_switch);
 
-G_END_DECLS;
+G_END_DECLS
 
 #endif /* !__XFCE_MIXER_SWITCH_H__ */

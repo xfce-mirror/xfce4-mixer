@@ -26,7 +26,7 @@
 
 #include <libxfce4panel/libxfce4panel.h>
 
-G_BEGIN_DECLS;
+G_BEGIN_DECLS
 
 typedef struct _XfceVolumeButtonClass XfceVolumeButtonClass;
 typedef struct _XfceVolumeButton      XfceVolumeButton;
@@ -62,6 +62,6 @@ void               xfce_volume_button_set_screen_position (XfceVolumeButton   *b
                                                            XfceScreenPosition  screen_position);
 XfceScreenPosition xfce_volume_button_get_screen_position (XfceVolumeButton   *button);
 
-G_END_DECLS;
+G_END_DECLS
 
 #endif /* !__XFCE_VOLUME_BUTTON_H__ */

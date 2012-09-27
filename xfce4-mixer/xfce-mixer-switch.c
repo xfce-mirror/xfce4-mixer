@@ -35,8 +35,6 @@
 
 
 
-static void xfce_mixer_switch_class_init      (XfceMixerSwitchClass *klass);
-static void xfce_mixer_switch_init            (XfceMixerSwitch      *mixer_switch);
 static void xfce_mixer_switch_dispose         (GObject              *object);
 static void xfce_mixer_switch_finalize        (GObject              *object);
 static void xfce_mixer_switch_create_contents (XfceMixerSwitch      *mixer_switch);
@@ -61,36 +59,7 @@ struct _XfceMixerSwitch
 
 
 
-static GObjectClass *xfce_mixer_switch_parent_class = NULL;
-
-
-
-GType
-xfce_mixer_switch_get_type (void)
-{
-  static GType type = G_TYPE_INVALID;
-
-  if (G_UNLIKELY (type == G_TYPE_INVALID))
-    {
-      static const GTypeInfo info = 
-        {
-          sizeof (XfceMixerSwitchClass),
-          NULL,
-          NULL,
-          (GClassInitFunc) xfce_mixer_switch_class_init,
-          NULL,
-          NULL,
-          sizeof (XfceMixerSwitch),
-          0,
-          (GInstanceInitFunc) xfce_mixer_switch_init,
-          NULL,
-        };
-
-      type = g_type_register_static (GTK_TYPE_CHECK_BUTTON, "XfceMixerSwitch", &info, 0);
-    }
-  
-  return type;
-}
+G_DEFINE_TYPE (XfceMixerSwitch, xfce_mixer_switch, GTK_TYPE_CHECK_BUTTON)
 
 
 
@@ -99,9 +68,6 @@ xfce_mixer_switch_class_init (XfceMixerSwitchClass *klass)
 {
   GObjectClass         *gobject_class;
   GtkToggleButtonClass *gtk_toggle_button_class;
-
-  /* Determine parent type class */
-  xfce_mixer_switch_parent_class = g_type_class_peek_parent (klass);
 
   gobject_class = G_OBJECT_CLASS (klass);
   gobject_class->dispose = xfce_mixer_switch_dispose;

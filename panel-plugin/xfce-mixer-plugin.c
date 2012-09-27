@@ -154,7 +154,7 @@ struct _XfceMixerPlugin
   gboolean         ignore_bus_messages;
 
   /* GstBus connection id */
-  guint            message_handler_id;
+  gulong           message_handler_id;
 };
 
 

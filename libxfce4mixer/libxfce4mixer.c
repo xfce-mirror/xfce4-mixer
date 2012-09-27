@@ -355,7 +355,7 @@ xfce_mixer_get_track_label (GstMixerTrack *track)
 
 
 
-guint
+gulong
 xfce_mixer_bus_connect (GCallback callback,
                         gpointer  user_data)
 {
@@ -366,7 +366,7 @@ xfce_mixer_bus_connect (GCallback callback,
 
 
 void
-xfce_mixer_bus_disconnect (guint signal_handler_id)
+xfce_mixer_bus_disconnect (gulong signal_handler_id)
 {
   g_return_if_fail (refcount > 0);
 
@@ -514,7 +514,7 @@ _xfce_mixer_destroy_mixer (GstMixer *mixer)
 
 
 static void
-_xfce_mixer_bus_message (GstBus     *bus,
+_xfce_mixer_bus_message (GstBus     *bus_,
                          GstMessage *message,
                          gpointer    user_data)
 {

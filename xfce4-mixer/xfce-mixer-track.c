@@ -43,8 +43,6 @@
 
 
 
-static void     xfce_mixer_track_class_init                    (XfceMixerTrackClass *klass);
-static void     xfce_mixer_track_init                          (XfceMixerTrack      *track);
 static void     xfce_mixer_track_dispose                       (GObject             *object);
 static void     xfce_mixer_track_finalize                      (GObject             *object);
 static gboolean xfce_mixer_track_lock_button_line_expose_event (GtkWidget           *widget,
@@ -85,36 +83,7 @@ struct _XfceMixerTrack
 
 
 
-static GObjectClass *xfce_mixer_track_parent_class = NULL;
-
-
-
-GType
-xfce_mixer_track_get_type (void)
-{
-  static GType type = G_TYPE_INVALID;
-
-  if (G_UNLIKELY (type == G_TYPE_INVALID))
-    {
-      static const GTypeInfo info = 
-        {
-          sizeof (XfceMixerTrackClass),
-          NULL,
-          NULL,
-          (GClassInitFunc) xfce_mixer_track_class_init,
-          NULL,
-          NULL,
-          sizeof (XfceMixerTrack),
-          0,
-          (GInstanceInitFunc) xfce_mixer_track_init,
-          NULL,
-        };
-
-      type = g_type_register_static (GTK_TYPE_VBOX, "XfceMixerTrack", &info, 0);
-    }
-  
-  return type;
-}
+G_DEFINE_TYPE (XfceMixerTrack, xfce_mixer_track, GTK_TYPE_VBOX)
 
 
 
@@ -122,9 +91,6 @@ static void
 xfce_mixer_track_class_init (XfceMixerTrackClass *klass)
 {
   GObjectClass *gobject_class;
-
-  /* Determine parent type class */
-  xfce_mixer_track_parent_class = g_type_class_peek_parent (klass);
 
   gobject_class = G_OBJECT_CLASS (klass);
   gobject_class->dispose = xfce_mixer_track_dispose;

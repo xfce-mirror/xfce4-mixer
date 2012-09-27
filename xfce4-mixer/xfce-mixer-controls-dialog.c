@@ -37,13 +37,14 @@
 
 
 
-#define VISIBLE_COLUMN       0
-#define NAME_COLUMN          1
+enum
+{
+  VISIBLE_COLUMN,
+  NAME_COLUMN
+};
 
 
 
-static void   xfce_mixer_controls_dialog_class_init           (XfceMixerControlsDialogClass *klass);
-static void   xfce_mixer_controls_dialog_init                 (XfceMixerControlsDialog      *dialog);
 static void   xfce_mixer_controls_dialog_dispose              (GObject                      *object);
 static void   xfce_mixer_controls_dialog_finalize             (GObject                      *object);
 static void   xfce_mixer_controls_dialog_response             (GtkDialog                    *dialog,
@@ -71,7 +72,7 @@ struct _XfceMixerControlsDialog
   XfceMixerWindow      *parent;
   XfceMixerPreferences *preferences;
   GstElement           *card;
-  guint                 signal_handler_id;
+  gulong                signal_handler_id;
 
   GtkWidget            *frame;
   GtkListStore         *store;
@@ -79,36 +80,7 @@ struct _XfceMixerControlsDialog
 
 
 
-static GObjectClass *xfce_mixer_controls_dialog_parent_class = NULL;
-
-
-
-GType
-xfce_mixer_controls_dialog_get_type (void)
-{
-  static GType type = G_TYPE_INVALID;
-
-  if (G_UNLIKELY (type == G_TYPE_INVALID))
-    {
-      static const GTypeInfo info = 
-        {
-          sizeof (XfceMixerControlsDialogClass),
-          NULL,
-          NULL,
-          (GClassInitFunc) xfce_mixer_controls_dialog_class_init,
-          NULL,
-          NULL,
-          sizeof (XfceMixerControlsDialog),
-          0,
-          (GInstanceInitFunc) xfce_mixer_controls_dialog_init,
-          NULL,
-        };
-
-      type = g_type_register_static (XFCE_TYPE_TITLED_DIALOG, "XfceMixerControlsDialog", &info, 0);
-    }
-  
-  return type;
-}
+G_DEFINE_TYPE (XfceMixerControlsDialog, xfce_mixer_controls_dialog, XFCE_TYPE_TITLED_DIALOG)
 
 
 
@@ -117,9 +89,6 @@ xfce_mixer_controls_dialog_class_init (XfceMixerControlsDialogClass *klass)
 {
   GObjectClass   *gobject_class;
   GtkDialogClass *dialog_class;
-
-  /* Determine parent type class */
-  xfce_mixer_controls_dialog_parent_class = g_type_class_peek_parent (klass);
 
   gobject_class = G_OBJECT_CLASS (klass);
   gobject_class->dispose = xfce_mixer_controls_dialog_dispose;

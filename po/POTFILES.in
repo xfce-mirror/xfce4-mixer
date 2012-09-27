@@ -14,14 +14,14 @@ libxfce4mixer/xfce-mixer-preferences.h
 libxfce4mixer/xfce-mixer-track-combo.h
 libxfce4mixer/xfce-mixer-track-type.h
 xfce4-mixer/main.c
-xfce4-mixer/xfce-mixer.c
+xfce4-mixer/xfce-mixer-container.c
 xfce4-mixer/xfce-mixer-controls-dialog.c
 xfce4-mixer/xfce-mixer-option.c
 xfce4-mixer/xfce-mixer-switch.c
 xfce4-mixer/xfce-mixer-track.c
 xfce4-mixer/xfce-mixer-window.c
 xfce4-mixer/xfce-mixer-controls-dialog.h
-xfce4-mixer/xfce-mixer.h
+xfce4-mixer/xfce-mixer-container.h
 xfce4-mixer/xfce-mixer-option.h
 xfce4-mixer/xfce-mixer-switch.h
 xfce4-mixer/xfce-mixer-track.h

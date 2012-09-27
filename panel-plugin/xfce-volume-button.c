@@ -84,8 +84,6 @@ static const char *icons[] = {
 
 
 
-static void       xfce_volume_button_class_init           (XfceVolumeButtonClass *klass);
-static void       xfce_volume_button_init                 (XfceVolumeButton      *button);
 static void       xfce_volume_button_dispose              (GObject               *object);
 static void       xfce_volume_button_finalize             (GObject               *object);
 static void       xfce_volume_button_set_property         (GObject               *object,
@@ -177,36 +175,7 @@ struct _XfceVolumeButton
 
 
 
-static GObjectClass *xfce_volume_button_parent_class = NULL;
-
-
-
-GType
-xfce_volume_button_get_type (void)
-{
-  static GType type = G_TYPE_INVALID;
-
-  if (G_UNLIKELY (type == G_TYPE_INVALID))
-    {
-      static const GTypeInfo info = 
-        {
-          sizeof (XfceVolumeButtonClass),
-          NULL,
-          NULL,
-          (GClassInitFunc) xfce_volume_button_class_init,
-          NULL,
-          NULL,
-          sizeof (XfceVolumeButton),
-          0,
-          (GInstanceInitFunc) xfce_volume_button_init,
-          NULL,
-        };
-
-      type = g_type_register_static (GTK_TYPE_TOGGLE_BUTTON, "XfceVolumeButton", &info, 0);
-    }
-  
-  return type;
-}
+G_DEFINE_TYPE (XfceVolumeButton, xfce_volume_button, GTK_TYPE_TOGGLE_BUTTON)
 
 
 
@@ -216,9 +185,6 @@ xfce_volume_button_class_init (XfceVolumeButtonClass *klass)
   GObjectClass         *gobject_class;
   GtkWidgetClass       *gtk_widget_class;
   GtkToggleButtonClass *gtk_toggle_button_class;
-
-  /* Determine parent type class */
-  xfce_volume_button_parent_class = g_type_class_peek_parent (klass);
 
   gobject_class = G_OBJECT_CLASS (klass);
   gobject_class->dispose = xfce_volume_button_dispose;

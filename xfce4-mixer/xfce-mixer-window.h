@@ -24,7 +24,7 @@
 #include <gtk/gtk.h>
 #include <gst/gst.h>
 
-G_BEGIN_DECLS;
+G_BEGIN_DECLS
 
 typedef struct _XfceMixerWindowClass XfceMixerWindowClass;
 typedef struct _XfceMixerWindow      XfceMixerWindow;
@@ -41,6 +41,6 @@ GType       xfce_mixer_window_get_type        (void) G_GNUC_CONST;
 GtkWidget  *xfce_mixer_window_new             (void);
 GstElement *xfce_mixer_window_get_active_card (XfceMixerWindow *window);
 
-G_END_DECLS;
+G_END_DECLS
 
 #endif /* !__XFCE_MIXER_WINDOW_H__ */

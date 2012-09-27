@@ -35,12 +35,13 @@
 
 
 
-#define OPTION_COLUMN 0
+enum
+{
+  OPTION_COLUMN
+};
 
 
 
-static void xfce_mixer_option_class_init      (XfceMixerOptionClass *klass);
-static void xfce_mixer_option_init            (XfceMixerOption      *option);
 static void xfce_mixer_option_dispose         (GObject              *object);
 static void xfce_mixer_option_finalize        (GObject              *object);
 static void xfce_mixer_option_create_contents (XfceMixerOption      *option);
@@ -65,43 +66,14 @@ struct _XfceMixerOption
 
   GstElement    *card;
   GstMixerTrack *track;
-  guint          signal_handler_id;
+  gulong         signal_handler_id;
 
   gboolean       ignore_signals;
 };
 
 
 
-static GObjectClass *xfce_mixer_option_parent_class = NULL;
-
-
-
-GType
-xfce_mixer_option_get_type (void)
-{
-  static GType type = G_TYPE_INVALID;
-
-  if (G_UNLIKELY (type == G_TYPE_INVALID))
-    {
-      static const GTypeInfo info = 
-        {
-          sizeof (XfceMixerOptionClass),
-          NULL,
-          NULL,
-          (GClassInitFunc) xfce_mixer_option_class_init,
-          NULL,
-          NULL,
-          sizeof (XfceMixerOption),
-          0,
-          (GInstanceInitFunc) xfce_mixer_option_init,
-          NULL,
-        };
-
-      type = g_type_register_static (GTK_TYPE_COMBO_BOX, "XfceMixerOption", &info, 0);
-    }
-  
-  return type;
-}
+G_DEFINE_TYPE (XfceMixerOption, xfce_mixer_option, GTK_TYPE_COMBO_BOX)
 
 
 
@@ -109,9 +81,6 @@ static void
 xfce_mixer_option_class_init (XfceMixerOptionClass *klass)
 {
   GObjectClass *gobject_class;
-
-  /* Determine parent type class */
-  xfce_mixer_option_parent_class = g_type_class_peek_parent (klass);
 
   gobject_class = G_OBJECT_CLASS (klass);
   gobject_class->dispose = xfce_mixer_option_dispose;

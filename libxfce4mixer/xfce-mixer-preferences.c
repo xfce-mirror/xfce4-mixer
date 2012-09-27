@@ -44,8 +44,6 @@ enum
 
 
 
-static void       xfce_mixer_preferences_class_init         (XfceMixerPreferencesClass *klass);
-static void       xfce_mixer_preferences_init               (XfceMixerPreferences      *preferences);
 static void       xfce_mixer_preferences_finalize           (GObject                   *object);
 static void       xfce_mixer_preferences_get_property       (GObject                   *object,
                                                              guint                      prop_id,
@@ -82,36 +80,7 @@ struct _XfceMixerPreferences
 
 
 
-static GObjectClass *xfce_mixer_preferences_parent_class = NULL;
-
-
-
-GType
-xfce_mixer_preferences_get_type (void)
-{
-  static GType type = G_TYPE_INVALID;
-
-  if (G_UNLIKELY (type == G_TYPE_INVALID))
-    {
-      static const GTypeInfo info = 
-        {
-          sizeof (XfceMixerPreferencesClass),
-          NULL,
-          NULL,
-          (GClassInitFunc) xfce_mixer_preferences_class_init,
-          NULL,
-          NULL,
-          sizeof (XfceMixerPreferences),
-          0,
-          (GInstanceInitFunc) xfce_mixer_preferences_init,
-          NULL,
-        };
-
-      type = g_type_register_static (G_TYPE_OBJECT, "XfceMixerPreferences", &info, 0);
-    }
-  
-  return type;
-}
+G_DEFINE_TYPE (XfceMixerPreferences, xfce_mixer_preferences, G_TYPE_OBJECT)
 
 
 
@@ -119,9 +88,6 @@ static void
 xfce_mixer_preferences_class_init (XfceMixerPreferencesClass *klass)
 {
   GObjectClass *gobject_class;
-
-  /* Determine parent type class */
-  xfce_mixer_preferences_parent_class = g_type_class_peek_parent (klass);
 
   gobject_class = G_OBJECT_CLASS (klass);
   gobject_class->get_property = xfce_mixer_preferences_get_property;

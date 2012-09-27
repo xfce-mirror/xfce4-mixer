@@ -24,7 +24,7 @@
 #include <gtk/gtk.h>
 #include <gst/gst.h>
 
-G_BEGIN_DECLS;
+G_BEGIN_DECLS
 
 typedef struct _XfceMixerOptionClass XfceMixerOptionClass;
 typedef struct _XfceMixerOption      XfceMixerOption;
@@ -42,6 +42,6 @@ GtkWidget *xfce_mixer_option_new      (GstElement      *card,
                                        GstMixerTrack   *track);
 void       xfce_mixer_option_update   (XfceMixerOption *option);
 
-G_END_DECLS;
+G_END_DECLS
 
 #endif /* !__XFCE_MIXER_OPTION_H__ */

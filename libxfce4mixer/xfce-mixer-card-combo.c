@@ -31,10 +31,11 @@
 
 
 
-#define NAME_COLUMN 0
-#define CARD_COLUMN 1
-
-
+enum
+{
+  NAME_COLUMN,
+  CARD_COLUMN
+};
 
 enum
 {
@@ -48,8 +49,6 @@ static guint combo_signals[LAST_SIGNAL];
 
 
 
-static void  xfce_mixer_card_combo_class_init        (XfceMixerCardComboClass *klass);
-static void  xfce_mixer_card_combo_init              (XfceMixerCardCombo      *combo);
 static void  xfce_mixer_card_combo_finalize          (GObject                 *object);
 static void  xfce_mixer_card_combo_changed           (XfceMixerCardCombo      *combo);
 
@@ -69,36 +68,7 @@ struct _XfceMixerCardCombo
 
 
 
-static GObjectClass *xfce_mixer_card_combo_parent_class = NULL;
-
-
-
-GType
-xfce_mixer_card_combo_get_type (void)
-{
-  static GType type = G_TYPE_INVALID;
-
-  if (G_UNLIKELY (type == G_TYPE_INVALID))
-    {
-      static const GTypeInfo info = 
-        {
-          sizeof (XfceMixerCardComboClass),
-          NULL,
-          NULL,
-          (GClassInitFunc) xfce_mixer_card_combo_class_init,
-          NULL,
-          NULL,
-          sizeof (XfceMixerCardCombo),
-          0,
-          (GInstanceInitFunc) xfce_mixer_card_combo_init,
-          NULL,
-        };
-
-      type = g_type_register_static (GTK_TYPE_COMBO_BOX, "XfceMixerCardCombo", &info, 0);
-    }
-  
-  return type;
-}
+G_DEFINE_TYPE (XfceMixerCardCombo, xfce_mixer_card_combo, GTK_TYPE_COMBO_BOX)
 
 
 
@@ -106,9 +76,6 @@ static void
 xfce_mixer_card_combo_class_init (XfceMixerCardComboClass *klass)
 {
   GObjectClass *gobject_class;
-
-  /* Determine parent type class */
-  xfce_mixer_card_combo_parent_class = g_type_class_peek_parent (klass);
 
   gobject_class = G_OBJECT_CLASS (klass);
   gobject_class->finalize = xfce_mixer_card_combo_finalize;

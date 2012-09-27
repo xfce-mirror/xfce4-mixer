@@ -36,10 +36,11 @@
 
 
 
-#define NAME_COLUMN  0
-#define TRACK_COLUMN 1
-
-
+enum
+{
+  NAME_COLUMN,
+  TRACK_COLUMN
+};
 
 enum 
 {
@@ -53,8 +54,6 @@ static guint combo_signals[LAST_SIGNAL];
 
 
 
-static void  xfce_mixer_track_combo_class_init        (XfceMixerTrackComboClass *klass);
-static void  xfce_mixer_track_combo_init              (XfceMixerTrackCombo      *combo);
 static void  xfce_mixer_track_combo_finalize          (GObject                  *object);
 static void  xfce_mixer_track_combo_update_track_list (XfceMixerTrackCombo      *combo);
 static void  xfce_mixer_track_combo_bus_message       (GstBus                   *bus,
@@ -77,41 +76,12 @@ struct _XfceMixerTrackCombo
 
   GstElement    *card;
   GstMixerTrack *track;
-  guint          signal_handler_id;
+  gulong         signal_handler_id;
 };
 
 
 
-static GObjectClass *xfce_mixer_track_combo_parent_class = NULL;
-
-
-
-GType
-xfce_mixer_track_combo_get_type (void)
-{
-  static GType type = G_TYPE_INVALID;
-
-  if (G_UNLIKELY (type == G_TYPE_INVALID))
-    {
-      static const GTypeInfo info = 
-        {
-          sizeof (XfceMixerTrackComboClass),
-          NULL,
-          NULL,
-          (GClassInitFunc) xfce_mixer_track_combo_class_init,
-          NULL,
-          NULL,
-          sizeof (XfceMixerTrackCombo),
-          0,
-          (GInstanceInitFunc) xfce_mixer_track_combo_init,
-          NULL,
-        };
-
-      type = g_type_register_static (GTK_TYPE_COMBO_BOX, "XfceMixerTrackCombo", &info, 0);
-    }
-  
-  return type;
-}
+G_DEFINE_TYPE (XfceMixerTrackCombo, xfce_mixer_track_combo, GTK_TYPE_COMBO_BOX)
 
 
 
@@ -119,9 +89,6 @@ static void
 xfce_mixer_track_combo_class_init (XfceMixerTrackComboClass *klass)
 {
   GObjectClass *gobject_class;
-
-  /* Determine parent type class */
-  xfce_mixer_track_combo_parent_class = g_type_class_peek_parent (klass);
 
   gobject_class = G_OBJECT_CLASS (klass);
   gobject_class->finalize = xfce_mixer_track_combo_finalize;

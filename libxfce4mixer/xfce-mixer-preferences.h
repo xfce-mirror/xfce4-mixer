@@ -27,7 +27,7 @@
 #include <gst/gst.h>
 #include <gst/interfaces/mixer.h>
 
-G_BEGIN_DECLS;
+G_BEGIN_DECLS
 
 typedef struct _XfceMixerPreferencesClass XfceMixerPreferencesClass;
 typedef struct _XfceMixerPreferences      XfceMixerPreferences;
@@ -48,6 +48,6 @@ GPtrArray            *xfce_mixer_preferences_get_controls         (XfceMixerPref
 gboolean              xfce_mixer_preferences_get_control_visible  (XfceMixerPreferences *preferences,
                                                                    const gchar          *track_label);
 
-G_END_DECLS;
+G_END_DECLS
 
 #endif /* !__XFCE_MIXER_PREFERENCES_H__ */
