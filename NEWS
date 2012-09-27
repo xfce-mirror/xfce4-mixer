@@ -48,6 +48,14 @@
   changed.
 - Handle options list changed messages which indicate that the available
   options of a track have changed.
+- Separate labels from track and option widgets and align labels and option
+  widgets horizontally.
+- Reduce the distance between faders in track widgets and ensure it is always
+  the same.
+- Put the chain buttons above the mute and record buttons and add lines to the
+  left and right of them.
+- Default to unlocked state if the volume differs between the channels of a
+  track.
 
 
 4.8.0

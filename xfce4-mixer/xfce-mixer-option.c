@@ -54,20 +54,18 @@ static void xfce_mixer_option_bus_message     (GstBus               *bus,
 
 struct _XfceMixerOptionClass
 {
-  GtkHBoxClass __parent__;
+  GtkComboBoxClass __parent__;
 };
 
 struct _XfceMixerOption
 {
-  GtkHBox __parent__;
+  GtkComboBox    __parent__;
 
   GtkListStore  *list_store;
 
   GstElement    *card;
   GstMixerTrack *track;
   guint          signal_handler_id;
-
-  GtkWidget     *combo;
 
   gboolean       ignore_signals;
 };
@@ -99,7 +97,7 @@ xfce_mixer_option_get_type (void)
           NULL,
         };
 
-      type = g_type_register_static (GTK_TYPE_HBOX, "XfceMixerOption", &info, 0);
+      type = g_type_register_static (GTK_TYPE_COMBO_BOX, "XfceMixerOption", &info, 0);
     }
   
   return type;
@@ -181,25 +179,12 @@ static void
 xfce_mixer_option_create_contents (XfceMixerOption *option)
 {
   GstMixerOptions *options;
-  GtkWidget       *label;
   GtkCellRenderer *renderer;
   const GList     *options_iter;
   GtkTreeIter      tree_iter;
   const gchar     *active_option;
-  const gchar     *track_label;
-  gchar           *title;
   gint             i;
   gint             active_index = 0;
-
-  gtk_box_set_homogeneous (GTK_BOX (option), FALSE);
-  gtk_box_set_spacing (GTK_BOX (option), 12);
-
-  track_label = xfce_mixer_get_track_label (option->track);
-  title = g_strdup_printf ("%s:", track_label);
-
-  label = gtk_label_new (title);
-  gtk_box_pack_start (GTK_BOX (option), label, FALSE, FALSE, 0);
-  gtk_widget_show (label);
 
   options = GST_MIXER_OPTIONS (option->track);
   active_option = gst_mixer_get_option (GST_MIXER (option->card), options);
@@ -215,21 +200,18 @@ xfce_mixer_option_create_contents (XfceMixerOption *option)
         active_index = i;
     }
 
-  option->combo = gtk_combo_box_new_with_model (GTK_TREE_MODEL (option->list_store));
-  gtk_box_pack_start (GTK_BOX (option), option->combo, FALSE, FALSE, 0);
+  gtk_combo_box_set_model (GTK_COMBO_BOX (option), GTK_TREE_MODEL (option->list_store));
   /* Make read-only options insensitive */
   if (GST_MIXER_TRACK_HAS_FLAG (option->track, GST_MIXER_TRACK_READONLY))
-    gtk_widget_set_sensitive (option->combo, FALSE);
-  gtk_combo_box_set_active (GTK_COMBO_BOX (option->combo), active_index);
-  gtk_widget_show (option->combo);
+    gtk_widget_set_sensitive (GTK_WIDGET (option), FALSE);
+  gtk_combo_box_set_active (GTK_COMBO_BOX (option), active_index);
+  gtk_widget_show (GTK_WIDGET (option));
 
   renderer = gtk_cell_renderer_text_new ();
-  gtk_cell_layout_pack_start (GTK_CELL_LAYOUT (option->combo), renderer, TRUE);
-  gtk_cell_layout_add_attribute (GTK_CELL_LAYOUT (option->combo), renderer, "text", OPTION_COLUMN);
+  gtk_cell_layout_pack_start (GTK_CELL_LAYOUT (option), renderer, TRUE);
+  gtk_cell_layout_add_attribute (GTK_CELL_LAYOUT (option), renderer, "text", OPTION_COLUMN);
 
-  g_signal_connect (option->combo, "changed", G_CALLBACK (xfce_mixer_option_changed), option);
-
-  g_free (title);
+  g_signal_connect (option, "changed", G_CALLBACK (xfce_mixer_option_changed), option);
 }
 
 
@@ -278,7 +260,7 @@ xfce_mixer_option_update (XfceMixerOption *option)
       if (G_UNLIKELY (g_utf8_collate (current_option, active_option) == 0))
         {
           option->ignore_signals = TRUE;
-          gtk_combo_box_set_active_iter (GTK_COMBO_BOX (option->combo), &iter);
+          gtk_combo_box_set_active_iter (GTK_COMBO_BOX (option), &iter);
           option->ignore_signals = FALSE;
 
           g_free (current_option);
@@ -328,7 +310,7 @@ xfce_mixer_option_bus_message (GstBus          *bus,
               gtk_list_store_set (option->list_store, &tree_iter, OPTION_COLUMN, options_iter->data, -1);
 
               if (G_UNLIKELY (g_utf8_collate (active_option, options_iter->data) == 0))
-                gtk_combo_box_set_active (GTK_COMBO_BOX (option->combo), i);
+                gtk_combo_box_set_active (GTK_COMBO_BOX (option), i);
             }
         }
     }
