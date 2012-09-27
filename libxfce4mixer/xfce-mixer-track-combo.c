@@ -192,7 +192,6 @@ xfce_mixer_track_combo_set_soundcard (XfceMixerTrackCombo *combo,
   XfceMixerTrackType type;
   GtkTreeIter        tree_iter;
   const GList       *iter;
-  GList             *cards;
   gchar             *label;
   gint               counter;
   gint               active_index = 0;
@@ -205,10 +204,10 @@ xfce_mixer_track_combo_set_soundcard (XfceMixerTrackCombo *combo,
     combo->card = card;
   else
     {
-      cards = xfce_mixer_get_cards ();
+      card = xfce_mixer_get_default_card ();
 
-      if (G_LIKELY (g_list_length (cards) > 0))
-        combo->card = g_list_first (cards)->data;
+      if (GST_IS_MIXER (card))
+        combo->card = card;
     }
 
   /* Try to re-use the current track */

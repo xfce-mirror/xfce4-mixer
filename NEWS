@@ -9,6 +9,9 @@
 - Update the icons on theme change (bug #3498).
 - Support xfce4-panel 4.10 with its deskbar mode (bug #8350).
 - Use xfconf for the panel plugin configuration.
+- Make the panel plugin use sensible default settings (first card, master
+  track) in the absence of an existing configuration (bug #5716, bug #6624,
+  bug #7125).
 
 
 4.8.0

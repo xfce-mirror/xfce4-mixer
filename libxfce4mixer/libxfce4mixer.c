@@ -128,6 +128,23 @@ xfce_mixer_get_card (const gchar *name)
 
 
 
+GstElement *
+xfce_mixer_get_default_card (void)
+{
+  GList      *cards;
+  GstElement *card = NULL;
+
+  cards = xfce_mixer_get_cards ();
+
+  /* Try to get the first card */
+  if (g_list_length (cards) > 0)
+    card = g_list_first (cards)->data;
+
+  return card;
+}
+
+
+
 const gchar *
 xfce_mixer_get_card_display_name (GstElement *card)
 {
@@ -182,6 +199,41 @@ xfce_mixer_get_track (GstElement  *card,
         }
       
       g_free (label);
+    }
+
+  return track;
+}
+
+
+
+GstMixerTrack *
+xfce_mixer_get_default_track (GstElement *card)
+{
+  GstMixerTrack *track = NULL;
+  const GList   *iter;
+  GstMixerTrack *track_tmp;
+  const GList   *tracks;
+
+  g_return_val_if_fail (GST_IS_MIXER (card), NULL);
+
+  /* Try to get the master track */
+  for (iter = gst_mixer_list_tracks (GST_MIXER (card)); iter != NULL; iter = g_list_next (iter))
+    {
+      track_tmp = GST_MIXER_TRACK (iter->data);
+
+      if (GST_MIXER_TRACK_HAS_FLAG (track_tmp, GST_MIXER_TRACK_MASTER))
+        {
+          track = track_tmp;
+          break;
+        }
+    }
+
+  /* If there is no master track, try to get the first track */
+  if (!GST_IS_MIXER_TRACK (track))
+    {
+      tracks = gst_mixer_list_tracks (GST_MIXER (card));
+      if (g_list_length (tracks) > 0)
+        track = g_list_first (tracks)->data;
     }
 
   return track;

@@ -38,11 +38,13 @@ void           xfce_mixer_shutdown               (void);
 
 GList         *xfce_mixer_get_cards              (void);
 GstElement    *xfce_mixer_get_card               (const gchar   *name);
+GstElement    *xfce_mixer_get_default_card       (void);
 const gchar   *xfce_mixer_get_card_internal_name (GstElement    *card);
 const gchar   *xfce_mixer_get_card_display_name  (GstElement    *card);
 void           xfce_mixer_select_card            (GstElement    *card);
 GstMixerTrack *xfce_mixer_get_track              (GstElement    *card,
                                                   const gchar   *track_name);
+GstMixerTrack *xfce_mixer_get_default_track      (GstElement    *card);
 
 #ifdef HAVE_GST_MIXER_NOTIFICATION
 guint          xfce_mixer_bus_connect            (GCallback      callback,

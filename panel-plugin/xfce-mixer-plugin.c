@@ -233,11 +233,21 @@ xfce_mixer_plugin_construct (XfcePanelPlugin *plugin)
   /* Only occupy a single row in deskbar mode */
   xfce_panel_plugin_set_small (XFCE_PANEL_PLUGIN (mixer_plugin), TRUE);
 
-  /* Set up xfconf property bindings */
+  /* Set up xfconf channel */
   mixer_plugin->plugin_channel = xfconf_channel_new_with_property_base (xfce_panel_get_channel_name (), xfce_panel_plugin_get_property_base (plugin));
+
+  /* Try to set properties to defaults */
+  g_object_set (G_OBJECT (mixer_plugin), "sound-card", NULL, "command", NULL, NULL);
+
+  /* Set up xfconf property bindings */
   xfconf_g_property_bind (mixer_plugin->plugin_channel, "/sound-card", G_TYPE_STRING, mixer_plugin, "sound-card");
   xfconf_g_property_bind (mixer_plugin->plugin_channel, "/track", G_TYPE_STRING, mixer_plugin, "track");
   xfconf_g_property_bind (mixer_plugin->plugin_channel, "/command", G_TYPE_STRING, mixer_plugin, "command");
+
+  /* Make sure the properties are in xfconf */
+  g_object_notify (G_OBJECT (mixer_plugin), "sound-card");
+  g_object_notify (G_OBJECT (mixer_plugin), "track");
+  g_object_notify (G_OBJECT (mixer_plugin), "command");
 }
 
 
@@ -251,8 +261,7 @@ xfce_mixer_plugin_set_property (GObject      *object,
   XfceMixerPlugin *mixer_plugin = XFCE_MIXER_PLUGIN (object);
   const gchar     *card_name;
   GstElement      *card = NULL;
-  const gchar     *track_label;
-  gchar           *new_track_label;
+  gchar           *track_label = NULL;
   GstMixerTrack   *track = NULL;
 
   switch(prop_id)
@@ -269,6 +278,16 @@ xfce_mixer_plugin_set_property (GObject      *object,
         if (card_name != NULL)
             card = xfce_mixer_get_card (card_name);
 
+        /* If the given card name is invalid resort to the default */
+        if (!GST_IS_MIXER (card))
+          {
+            card = xfce_mixer_get_default_card ();
+            if GST_IS_MIXER (card)
+              card_name = xfce_mixer_get_card_internal_name (card);
+            else
+              card_name = NULL;
+          }
+
         if (GST_IS_MIXER (card))
           {
             mixer_plugin->card = card;
@@ -277,18 +296,18 @@ xfce_mixer_plugin_set_property (GObject      *object,
 #ifdef HAVE_GST_MIXER_NOTIFICATION
             mixer_plugin->message_handler_id = xfce_mixer_bus_connect (G_CALLBACK (xfce_mixer_plugin_bus_message), mixer_plugin);
 #endif
-            new_track_label = xfconf_channel_get_string (mixer_plugin->plugin_channel, "/track", NULL);
+            track_label = xfconf_channel_get_string (mixer_plugin->plugin_channel, "/track", NULL);
           }
         else
           {
-            new_track_label = NULL;
+            track_label = NULL;
 #ifdef HAVE_GST_MIXER_NOTIFICATION
             xfce_mixer_bus_disconnect (mixer_plugin->message_handler_id);
 #endif
           }
-        g_object_set (object, "track", new_track_label, NULL);
+        g_object_set (object, "track", track_label, NULL);
 
-        g_free (new_track_label);
+        g_free (track_label);
 
         g_object_thaw_notify (object);
         break;
@@ -299,21 +318,35 @@ xfce_mixer_plugin_set_property (GObject      *object,
 
         if (GST_IS_MIXER (mixer_plugin->card))
           {
-            track_label = g_value_get_string (value);
+            track_label = g_value_dup_string (value);
             if (track_label != NULL)
               track = xfce_mixer_get_track (mixer_plugin->card, track_label);
+
+            /* If the given track label is invalid resort to the default */
+            if (!GST_IS_MIXER_TRACK (track))
+              {
+                g_free (track_label);
+                track = xfce_mixer_get_default_track (mixer_plugin->card);
+                if (GST_IS_MIXER_TRACK (track))
+                  g_object_get (track, "label", &track_label, NULL);
+                else
+                  track_label = NULL;
+              }
 
             if (GST_IS_MIXER_TRACK (track))
               {
                 mixer_plugin->track = track;
                 mixer_plugin->track_label = g_strdup (track_label);
               }
+
+            g_free (track_label);
           }
 
         xfce_mixer_plugin_update_track (mixer_plugin);
         break;
       case PROP_COMMAND:
         g_free (mixer_plugin->command);
+
         mixer_plugin->command = g_value_dup_string (value);
         if (mixer_plugin->command == NULL)
           mixer_plugin->command = g_strdup (XFCE_MIXER_PLUGIN_DEFAULT_COMMAND);
