@@ -40,6 +40,7 @@
 - Add tooltips to scale widgets in the mixer.
 - Add runtime debugging mode to both the mixer and the panel plugin.
 - Add man page for xfce4-mixer.
+- Handle identically named tracks by making use of the track index property.
 
 
 4.8.0

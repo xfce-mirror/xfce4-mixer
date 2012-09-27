@@ -192,7 +192,6 @@ xfce_mixer_track_combo_set_soundcard (XfceMixerTrackCombo *combo,
   XfceMixerTrackType type;
   GtkTreeIter        tree_iter;
   const GList       *iter;
-  gchar             *label;
   gint               counter;
   gint               active_index = 0;
   GstMixerTrack     *track;
@@ -222,14 +221,10 @@ xfce_mixer_track_combo_set_soundcard (XfceMixerTrackCombo *combo,
 
       if (type == XFCE_MIXER_TRACK_TYPE_PLAYBACK || type == XFCE_MIXER_TRACK_TYPE_CAPTURE)
         {
-          g_object_get (GST_MIXER_TRACK (iter->data), "label", &label, NULL);
-
           gtk_list_store_append (combo->list_store, &tree_iter);
           gtk_list_store_set (combo->list_store, &tree_iter, 
-                              NAME_COLUMN, label, 
+                              NAME_COLUMN, xfce_mixer_get_track_label (GST_MIXER_TRACK (iter->data)), 
                               TRACK_COLUMN, GST_MIXER_TRACK (iter->data), -1);
-
-          g_free (label);
 
           if (G_UNLIKELY (track != NULL && track == GST_MIXER_TRACK (iter->data)))
             active_index = counter;

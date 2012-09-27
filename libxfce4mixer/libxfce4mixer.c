@@ -40,9 +40,11 @@
 
 
 
-static gboolean _xfce_mixer_filter_mixer  (GstMixer *mixer,
-                                           gpointer  user_data);
-static void     _xfce_mixer_destroy_mixer (GstMixer *mixer);
+static gboolean _xfce_mixer_filter_mixer     (GstMixer *mixer,
+                                              gpointer  user_data);
+static void     _xfce_mixer_add_track_labels (gpointer  data,
+                                              gpointer  user_data);
+static void     _xfce_mixer_destroy_mixer    (GstMixer *mixer);
 
 
 
@@ -82,6 +84,9 @@ xfce_mixer_init (void)
 
       /* Get list of all available mixer devices */
       mixers = gst_audio_default_registry_mixer_filter (_xfce_mixer_filter_mixer, FALSE, &counter);
+
+      /* Add custom labels to all tracks of all mixers */
+      g_list_foreach (mixers, (GFunc) _xfce_mixer_add_track_labels, NULL);
 
       /* Create a GstBus for notifications */
       bus = gst_bus_new ();
@@ -195,23 +200,20 @@ xfce_mixer_get_track (GstElement  *card,
 {
   GstMixerTrack *track = NULL;
   const GList   *iter;
-  gchar         *label;
+  const gchar   *label;
 
   g_return_val_if_fail (GST_IS_MIXER (card), NULL);
   g_return_val_if_fail (track_name != NULL, NULL);
 
   for (iter = gst_mixer_list_tracks (GST_MIXER (card)); iter != NULL; iter = g_list_next (iter))
     {
-      g_object_get (GST_MIXER_TRACK (iter->data), "label", &label, NULL);
+      label = xfce_mixer_get_track_label (GST_MIXER_TRACK (iter->data));
 
       if (g_utf8_collate (label, track_name) == 0)
         {
           track = iter->data;
-          g_free (label);
           break;
         }
-      
-      g_free (label);
     }
 
   return track;
@@ -311,6 +313,15 @@ xfce_mixer_get_default_track_list (GstElement *card)
 
 
 
+const gchar *
+xfce_mixer_get_track_label (GstMixerTrack *track)
+{
+  g_return_val_if_fail (GST_IS_MIXER_TRACK (track), NULL);
+  return g_object_get_data (G_OBJECT (track), "xfce-mixer-track-label");
+}
+
+
+
 guint
 xfce_mixer_bus_connect (GCallback callback,
                         gpointer  user_data)
@@ -402,6 +413,41 @@ _xfce_mixer_filter_mixer (GstMixer *mixer,
 
   /* Keep the mixer (we want all devices to be visible) */
   return TRUE;
+}
+
+
+
+static void
+_xfce_mixer_add_track_labels (gpointer data,
+                              gpointer user_data)
+{
+  GstMixer      *mixer = GST_MIXER (data);
+  const GList   *iter;
+  GstMixerTrack *track;
+  gchar         *label;
+  gchar         *xfce_mixer_label;
+  guint          index;
+
+  for (iter = gst_mixer_list_tracks (mixer); iter != NULL; iter = g_list_next (iter))
+    {
+      track = GST_MIXER_TRACK (iter->data);
+
+      g_object_get (track, "label", &label, "index", &index, NULL);
+
+      /*
+       * Build display label including the index if there are mutiple tracks of
+       * the same name
+       */
+      if (index > 0)
+        xfce_mixer_label = g_strdup_printf ("%s (%d)", label, index);
+      else
+        xfce_mixer_label = g_strdup (label);
+
+      /* Set label to be used by xfce4-mixer */
+      g_object_set_data_full (G_OBJECT (track), "xfce-mixer-track-label", xfce_mixer_label, (GDestroyNotify) g_free);
+
+      g_free (label);
+    }
 }
 
 

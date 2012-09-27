@@ -51,6 +51,7 @@ GstMixerTrack *xfce_mixer_get_track              (GstElement    *card,
                                                   const gchar   *track_name);
 GstMixerTrack *xfce_mixer_get_default_track      (GstElement    *card);
 GList         *xfce_mixer_get_default_track_list (GstElement    *card);
+const gchar   *xfce_mixer_get_track_label        (GstMixerTrack *track);
 guint          xfce_mixer_bus_connect            (GCallback      callback,
                                                   gpointer       user_data);
 void           xfce_mixer_bus_disconnect         (guint          signal_handler_id);

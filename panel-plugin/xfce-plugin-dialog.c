@@ -268,15 +268,13 @@ xfce_plugin_dialog_track_changed (XfcePluginDialog    *dialog,
                                   GstMixerTrack       *track,
                                   XfceMixerTrackCombo *combo)
 {
-  gchar *track_label;
+  const gchar *track_label;
 
-  g_object_get (G_OBJECT (track), "label", &track_label, NULL);
+  track_label = xfce_mixer_get_track_label (track);
 
   g_signal_handlers_block_by_func (G_OBJECT (dialog->plugin), xfce_plugin_dialog_track_property_changed, dialog);
   g_object_set (G_OBJECT (dialog->plugin), "track", track_label, NULL);
   g_signal_handlers_unblock_by_func (G_OBJECT (dialog->plugin), xfce_plugin_dialog_track_property_changed, dialog);
-
-  g_free (track_label);
 }
 
 
@@ -328,8 +326,8 @@ xfce_plugin_dialog_track_property_changed (XfcePluginDialog *dialog,
   GstElement    *card;
   GstMixerTrack *old_track;
   GstMixerTrack *new_track = NULL;
-  gchar         *old_track_label = NULL;
-  gchar         *new_track_label = NULL;
+  const gchar   *old_track_label = NULL;
+  gchar         *new_track_label;
 
   g_return_if_fail (IS_XFCE_PLUGIN_DIALOG (dialog));
   g_return_if_fail (G_IS_OBJECT (object));
@@ -344,7 +342,7 @@ xfce_plugin_dialog_track_property_changed (XfcePluginDialog *dialog,
 
   old_track = xfce_mixer_track_combo_get_active_track (XFCE_MIXER_TRACK_COMBO (dialog->track_combo));
   if (GST_IS_MIXER_TRACK (old_track))
-    g_object_get (G_OBJECT (old_track), "label", &old_track_label, NULL);
+    old_track_label = xfce_mixer_get_track_label (old_track);
 
   if (xfce_mixer_utf8_cmp (old_track_label, new_track_label) != 0)
     {
@@ -355,6 +353,5 @@ xfce_plugin_dialog_track_property_changed (XfcePluginDialog *dialog,
     }
 
   g_free (new_track_label);
-  g_free (old_track_label);
 }
 

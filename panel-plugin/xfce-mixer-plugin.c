@@ -414,7 +414,7 @@ xfce_mixer_plugin_set_property (GObject      *object,
                 g_free (track_label);
                 track = xfce_mixer_get_default_track (mixer_plugin->card);
                 if (GST_IS_MIXER_TRACK (track))
-                  g_object_get (track, "label", &track_label, NULL);
+                  track_label = g_strdup (xfce_mixer_get_track_label (track));
                 else
                   track_label = NULL;
               }
@@ -799,7 +799,7 @@ xfce_mixer_plugin_update_track (XfceMixerPlugin *mixer_plugin)
   xfce_volume_button_set_is_configured (XFCE_VOLUME_BUTTON (mixer_plugin->button), TRUE);
   xfce_volume_button_set_volume (XFCE_VOLUME_BUTTON (mixer_plugin->button), volume);
   xfce_volume_button_set_muted (XFCE_VOLUME_BUTTON (mixer_plugin->button), muted);
-  xfce_volume_button_set_track_label (XFCE_VOLUME_BUTTON (mixer_plugin->button), mixer_plugin->track_label);
+  xfce_volume_button_set_track_label (XFCE_VOLUME_BUTTON (mixer_plugin->button), xfce_mixer_get_track_label (mixer_plugin->track));
 
   /* Update mute menu item */
   gtk_check_menu_item_set_active (GTK_CHECK_MENU_ITEM (mixer_plugin->mute_menu_item), muted);
@@ -818,7 +818,7 @@ xfce_mixer_plugin_bus_message (GstBus          *bus,
   GstMixerTrack      *track = NULL;
   gboolean            mute;
   gboolean            record;
-  gchar              *label;
+  const gchar        *label;
 
   /* Don't do anything if GstBus messages are to be ignored */
   if (G_UNLIKELY (mixer_plugin->ignore_bus_messages))
@@ -835,18 +835,17 @@ xfce_mixer_plugin_bus_message (GstBus          *bus,
       case GST_MIXER_MESSAGE_VOLUME_CHANGED:
         /* Get the track of the volume changed message */
         gst_mixer_message_parse_volume_changed (message, &track, NULL, NULL);
-        g_object_get (track, "label", &label, NULL);
+        label = xfce_mixer_get_track_label (track);
 
         /* Update the volume button if the message belongs to the current mixer track */
         if (G_UNLIKELY (g_utf8_collate (label, mixer_plugin->track_label) == 0))
           xfce_mixer_plugin_update_track (mixer_plugin);
 
-        g_free (label);
         break;
       case GST_MIXER_MESSAGE_MUTE_TOGGLED:
         /* Parse the mute message */
         gst_mixer_message_parse_mute_toggled (message, &track, &mute);
-        g_object_get (track, "label", &label, NULL);
+        label = xfce_mixer_get_track_label (track);
 
         /* Update the volume button and mute menu item if the message belongs to the current mixer track */
         if (G_UNLIKELY (g_utf8_collate (label, mixer_plugin->track_label) == 0))
@@ -855,12 +854,11 @@ xfce_mixer_plugin_bus_message (GstBus          *bus,
             gtk_check_menu_item_set_active (GTK_CHECK_MENU_ITEM (mixer_plugin->mute_menu_item), mute);
           }
 
-        g_free (label);
         break;
       case GST_MIXER_MESSAGE_RECORD_TOGGLED:
         /* Parse the record message */
         gst_mixer_message_parse_record_toggled (message, &track, &record);
-        g_object_get (track, "label", &label, NULL);
+        label = xfce_mixer_get_track_label (track);
 
         /* Update the volume button and mute menu item if the message belongs to the current mixer track */
         if (G_UNLIKELY (g_utf8_collate (label, mixer_plugin->track_label) == 0))
@@ -869,7 +867,6 @@ xfce_mixer_plugin_bus_message (GstBus          *bus,
             gtk_check_menu_item_set_active (GTK_CHECK_MENU_ITEM (mixer_plugin->mute_menu_item), !record);
           }
 
-        g_free (label);
         break;
       default:
         break;

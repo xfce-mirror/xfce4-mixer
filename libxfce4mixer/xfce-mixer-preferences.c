@@ -387,12 +387,12 @@ xfce_mixer_preferences_get_control_visible (XfceMixerPreferences *preferences,
 static GPtrArray *
 xfce_mixer_preferences_get_default_tracks (XfceMixerPreferences *preferences)
 {
-  GList      *track_list;
-  GList      *iter;
-  GPtrArray  *tracks;
-  GstElement *card;
-  gchar      *track_label;
-  GValue     *value;
+  GList       *track_list;
+  GList       *iter;
+  GPtrArray   *tracks;
+  GstElement  *card;
+  const gchar *track_label;
+  GValue      *value;
 
   tracks = g_ptr_array_new ();
 
@@ -406,8 +406,8 @@ xfce_mixer_preferences_get_default_tracks (XfceMixerPreferences *preferences)
           for (iter = track_list; iter != NULL; iter = g_list_next (iter))
             {
               value = g_value_init (g_new0 (GValue, 1), G_TYPE_STRING);
-              g_object_get (G_OBJECT (iter->data), "label", &track_label, NULL);
-              g_value_take_string (value, track_label);
+              track_label = xfce_mixer_get_track_label (GST_MIXER_TRACK (iter->data));
+              g_value_set_string (value, track_label);
               g_ptr_array_add (tracks, value);
             }
         }

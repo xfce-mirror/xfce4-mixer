@@ -37,8 +37,8 @@
 
 
 
-#define VISIBLE_COLUMN 0
-#define NAME_COLUMN    1
+#define VISIBLE_COLUMN       0
+#define NAME_COLUMN          1
 
 
 
@@ -246,7 +246,8 @@ xfce_mixer_controls_dialog_update_dialog (XfceMixerControlsDialog *dialog)
 {
   XfceMixerPreferences *preferences;
   const GList          *iter;
-  gchar                *track_label;
+  GstMixerTrack        *track;
+  const gchar          *track_label;
   gboolean              visible;
   GtkTreeIter           tree_iter;
 
@@ -262,7 +263,8 @@ xfce_mixer_controls_dialog_update_dialog (XfceMixerControlsDialog *dialog)
        iter != NULL;
        iter = g_list_next (iter))
     {
-      g_object_get (GST_MIXER_TRACK (iter->data), "label", &track_label, NULL);
+      track = GST_MIXER_TRACK (iter->data);
+      track_label = xfce_mixer_get_track_label (track);
 
       visible = xfce_mixer_preferences_get_control_visible (preferences, track_label);
 
@@ -271,8 +273,6 @@ xfce_mixer_controls_dialog_update_dialog (XfceMixerControlsDialog *dialog)
                         VISIBLE_COLUMN, visible,
                         NAME_COLUMN, track_label,
                         -1);
-
-      g_free (track_label);
     }
 
   g_object_unref (preferences);
@@ -326,12 +326,9 @@ xfce_mixer_controls_dialog_control_toggled (GtkCellRendererToggle   *renderer,
                                             XfceMixerControlsDialog *dialog)
 {
   GtkTreeIter  iter;
-  gchar       *name;
 
   if (G_UNLIKELY (!gtk_tree_model_get_iter_from_string (GTK_TREE_MODEL (dialog->store), &iter, path)))
     return;
-
-  gtk_tree_model_get (GTK_TREE_MODEL (dialog->store), &iter, NAME_COLUMN, &name, -1);
 
   if (!gtk_cell_renderer_toggle_get_active (renderer))
     gtk_list_store_set (dialog->store, &iter, VISIBLE_COLUMN, TRUE, -1);
@@ -339,8 +336,6 @@ xfce_mixer_controls_dialog_control_toggled (GtkCellRendererToggle   *renderer,
     gtk_list_store_set (dialog->store, &iter, VISIBLE_COLUMN, FALSE, -1);
 
   xfce_mixer_controls_dialog_update_preferences (dialog);
-
-  g_free (name);
 }
 
 

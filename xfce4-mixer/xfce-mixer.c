@@ -166,7 +166,7 @@ xfce_mixer_constructed (GObject *object)
   GtkWidget            *last_separator[4] = { NULL, NULL, NULL, NULL };
   GtkWidget            *label1;
   GtkWidget            *label2;
-  gchar                *track_label;
+  const gchar          *track_label;
   guint                 num_children[4] = { 0, 0, 0, 0 };
   gint                  i;
 
@@ -202,15 +202,12 @@ xfce_mixer_constructed (GObject *object)
   /* Create controls for all mixer tracks */
   for (iter = gst_mixer_list_tracks (GST_MIXER (mixer->card)); iter != NULL; iter = g_list_next (iter))
     {
-      track = iter->data;
+      track = GST_MIXER_TRACK (iter->data);
 
-      g_object_get (GST_MIXER_TRACK (track), "label", &track_label, NULL);
+      track_label = xfce_mixer_get_track_label (track);
 
       if (!xfce_mixer_preferences_get_control_visible (preferences, track_label))
-        {
-          g_free (track_label);
-          continue;
-        }
+        continue;
 
       /* Determine the type of the mixer track */
       type = xfce_mixer_track_type_new (track);
@@ -275,8 +272,6 @@ xfce_mixer_constructed (GObject *object)
           g_hash_table_insert (mixer->widgets, g_strdup (track_label), track_widget);
           break;
         }
-
-      g_free (track_label);
     }
 
   /* Append tab or destroy all its widgets - depending on the contents of each tab */
@@ -403,7 +398,7 @@ xfce_mixer_bus_message (GstBus     *bus,
   gboolean            muted;
   gboolean            record;
   const gchar        *option;
-  gchar              *label;
+  const gchar        *label;
   gint               *volumes;
   gint                num_channels;
 
@@ -417,10 +412,9 @@ xfce_mixer_bus_message (GstBus     *bus,
   if (type == GST_MIXER_MESSAGE_MUTE_TOGGLED)
     {
       gst_mixer_message_parse_mute_toggled (message, &track, &muted);
-      g_object_get (track, "label", &label, NULL);
+      label = xfce_mixer_get_track_label (track);
       xfce_mixer_debug ("Track '%s' was %s", label, muted ? "muted" : "unmuted");
       widget = g_hash_table_lookup (mixer->widgets, label);
-      g_free (label);
 
       if (IS_XFCE_MIXER_TRACK (widget))
         xfce_mixer_track_update_mute (XFCE_MIXER_TRACK (widget));
@@ -430,10 +424,9 @@ xfce_mixer_bus_message (GstBus     *bus,
   else if (type == GST_MIXER_MESSAGE_RECORD_TOGGLED)
     {
       gst_mixer_message_parse_record_toggled (message, &track, &record);
-      g_object_get (track, "label", &label, NULL);
+      label = xfce_mixer_get_track_label (track);
       xfce_mixer_debug ("Recording on track '%s' was %s", label, record ? "turned on" : "turned off");
       widget = g_hash_table_lookup (mixer->widgets, label);
-      g_free (label);
 
       if (IS_XFCE_MIXER_TRACK (widget))
         xfce_mixer_track_update_record (XFCE_MIXER_TRACK (widget));
@@ -443,10 +436,9 @@ xfce_mixer_bus_message (GstBus     *bus,
   else if (type == GST_MIXER_MESSAGE_VOLUME_CHANGED)
     {
       gst_mixer_message_parse_volume_changed (message, &track, &volumes, &num_channels);
-      g_object_get (track, "label", &label, NULL);
+      label = xfce_mixer_get_track_label (track);
       xfce_mixer_debug ("Volume on track '%s' changed to %i", label, volumes[0]);
       widget = g_hash_table_lookup (mixer->widgets, label);
-      g_free (label);
 
       if (IS_XFCE_MIXER_TRACK (widget))
         xfce_mixer_track_update_volume (XFCE_MIXER_TRACK (widget));
@@ -454,10 +446,9 @@ xfce_mixer_bus_message (GstBus     *bus,
   else if (type == GST_MIXER_MESSAGE_OPTION_CHANGED)
     {
       gst_mixer_message_parse_option_changed (message, &options, &option);
-      g_object_get (GST_MIXER_TRACK (options), "label", &label, NULL);
+      label = xfce_mixer_get_track_label (GST_MIXER_TRACK (options));
       xfce_mixer_debug ("Option '%s' was set to '%s'", label, option);
       widget = g_hash_table_lookup (mixer->widgets, label);
-      g_free (label);
 
       if (IS_XFCE_MIXER_OPTION (widget))
         xfce_mixer_option_update (XFCE_MIXER_OPTION (widget));
