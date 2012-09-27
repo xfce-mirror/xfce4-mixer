@@ -51,6 +51,8 @@ xfce4_mixer_LDFLAGS = 							\
 	-lgstaudio-0.10							\
 	-lgstinterfaces-0.10
 
+dist_man_MANS = xfce4-mixer.1
+
 desktop_in_files = xfce4-mixer.desktop.in
 desktopdir = $(datadir)/applications
 desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
