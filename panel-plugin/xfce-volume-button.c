@@ -983,7 +983,7 @@ void
 xfce_volume_button_set_no_mute (XfceVolumeButton *button,
                                 gboolean          no_mute)
 {
-  GValue value = G_VALUE_INIT;
+  GValue value = { 0 };
 
   g_return_if_fail (IS_XFCE_VOLUME_BUTTON (button));
 
@@ -997,7 +997,7 @@ xfce_volume_button_set_no_mute (XfceVolumeButton *button,
 gboolean
 xfce_volume_button_get_no_mute (XfceVolumeButton *button)
 {
-  GValue value = G_VALUE_INIT;
+  GValue value = { 0 };
 
   g_return_val_if_fail (IS_XFCE_VOLUME_BUTTON (button), FALSE);
 
@@ -1013,7 +1013,7 @@ void
 xfce_volume_button_set_muted (XfceVolumeButton *button,
                               gboolean          is_muted)
 {
-  GValue value = G_VALUE_INIT;
+  GValue value = { 0 };
 
   g_return_if_fail (IS_XFCE_VOLUME_BUTTON (button));
 
@@ -1027,7 +1027,7 @@ xfce_volume_button_set_muted (XfceVolumeButton *button,
 gboolean
 xfce_volume_button_get_muted (XfceVolumeButton *button)
 {
-  GValue value = G_VALUE_INIT;
+  GValue value = { 0 };
 
   g_return_val_if_fail (IS_XFCE_VOLUME_BUTTON (button), FALSE);
 
@@ -1073,7 +1073,7 @@ void
 xfce_volume_button_set_track_label (XfceVolumeButton *button,
                               const gchar      *track_label)
 {
-  GValue value = G_VALUE_INIT;
+  GValue value = { 0 };
 
   g_return_if_fail (IS_XFCE_VOLUME_BUTTON (button));
 
@@ -1087,7 +1087,7 @@ xfce_volume_button_set_track_label (XfceVolumeButton *button,
 gchar*
 xfce_volume_button_get_track_label (XfceVolumeButton *button)
 {
-  GValue value = G_VALUE_INIT;
+  GValue value = { 0 };
 
   g_return_val_if_fail (IS_XFCE_VOLUME_BUTTON (button), NULL);
 
@@ -1103,7 +1103,7 @@ void
 xfce_volume_button_set_is_configured (XfceVolumeButton *button,
                                       gboolean          is_configured)
 {
-  GValue value = G_VALUE_INIT;
+  GValue value = { 0 };
 
   g_return_if_fail (IS_XFCE_VOLUME_BUTTON (button));
 
@@ -1117,7 +1117,7 @@ xfce_volume_button_set_is_configured (XfceVolumeButton *button,
 gboolean
 xfce_volume_button_get_is_configured (XfceVolumeButton *button)
 {
-  GValue value = G_VALUE_INIT;
+  GValue value = { 0 };
 
   g_return_val_if_fail (IS_XFCE_VOLUME_BUTTON (button), FALSE);
 
@@ -1133,7 +1133,7 @@ void
 xfce_volume_button_set_screen_position (XfceVolumeButton   *button,
                                         XfceScreenPosition  screen_position)
 {
-  GValue value = G_VALUE_INIT;
+  GValue value = { 0 };
 
   g_return_if_fail (IS_XFCE_VOLUME_BUTTON (button));
 
@@ -1147,7 +1147,7 @@ xfce_volume_button_set_screen_position (XfceVolumeButton   *button,
 XfceScreenPosition
 xfce_volume_button_get_screen_position (XfceVolumeButton *button)
 {
-  GValue value = G_VALUE_INIT;
+  GValue value = { 0 };
 
   g_return_val_if_fail (IS_XFCE_VOLUME_BUTTON (button), FALSE);
 
