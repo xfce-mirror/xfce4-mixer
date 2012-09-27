@@ -23,6 +23,10 @@
 #include <config.h>
 #endif
 
+#ifdef HAVE_MATH_H
+#include <math.h>
+#endif
+
 #include <gtk/gtk.h>
 
 #include <gst/gst.h>
@@ -537,7 +541,7 @@ xfce_mixer_plugin_volume_changed (XfceMixerPlugin  *mixer_plugin,
   volume_range = mixer_plugin->track->max_volume - mixer_plugin->track->min_volume;
 
   /* Determine new volume */
-  new_volume = mixer_plugin->track->min_volume + (volume * volume_range);
+  new_volume = (gint) round (mixer_plugin->track->min_volume + (volume * volume_range));
 
   /* Set all channel volumes to the new volume */
   for (i = 0; i < mixer_plugin->track->num_channels; ++i)

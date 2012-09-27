@@ -277,8 +277,11 @@ xfce_mixer_track_fader_changed (GtkRange       *range,
                                 XfceMixerTrack *track)
 {
   GList          *iter;
-  gint           *volumes;
+  gint           *old_volumes;
+  gint           *new_volumes;
   gint            channel;
+  gint            old_max_volume;
+  gint            new_max_volume;
 
   /* Locking mechanism: If locked, the volume change should be applied to all
    * channels, but only one should deliver the change to GStreamer. */
@@ -295,8 +298,15 @@ xfce_mixer_track_fader_changed (GtkRange       *range,
   /* Otherwise, block the other faders */
   locked = TRUE;
 
+  /* Get current volumes of the track */
+  old_volumes = g_new (gint, track->gst_track->num_channels);
+  gst_mixer_get_volume (GST_MIXER (track->card), track->gst_track, old_volumes);
+
+  /* Determine maximum value of all channels */
+  old_max_volume = xfce_mixer_get_max_volume (old_volumes, track->gst_track->num_channels);
+
   /* Allocate array for the volumes to be sent to GStreamer */
-  volumes = g_new (gint, track->gst_track->num_channels);
+  new_volumes = g_new (gint, track->gst_track->num_channels);
 
   /* Collect volumes of all channels */
   for (iter = track->channel_faders, channel = 0; iter != NULL; iter = g_list_next (iter), ++channel)
@@ -305,14 +315,46 @@ xfce_mixer_track_fader_changed (GtkRange       *range,
       if (G_LIKELY (track->gst_track->num_channels >= 2 && gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (track->lock_button))))
           gtk_range_set_value (GTK_RANGE (iter->data), gtk_range_get_value (range));
 
-      volumes[channel] = (gint) gtk_range_get_value (GTK_RANGE (iter->data));
+      new_volumes[channel] = (gint) gtk_range_get_value (GTK_RANGE (iter->data));
     }
 
   /* Deliver the volume update to GStreamer */
-  gst_mixer_set_volume (GST_MIXER (track->card), track->gst_track, volumes);
+  gst_mixer_set_volume (GST_MIXER (track->card), track->gst_track, new_volumes);
 
-  /* Free volume array */
-  g_free (volumes);
+  /* Determine new maximum value of all channels */
+  new_max_volume = xfce_mixer_get_max_volume (new_volumes, track->gst_track->num_channels);
+
+  /* Mute when volume reaches the minimum, unmute if volume is raised from the minimum */
+  if (old_max_volume > track->gst_track->min_volume && new_max_volume == track->gst_track->min_volume)
+    {
+      if (xfce_mixer_track_type_new (track->gst_track) != XFCE_MIXER_TRACK_TYPE_CAPTURE)
+        {
+          gst_mixer_set_mute (GST_MIXER (track->card), track->gst_track, TRUE);
+          xfce_mixer_track_update_mute (track);
+        }
+      else
+        {
+          gst_mixer_set_record (GST_MIXER (track->card), track->gst_track, TRUE);
+          xfce_mixer_track_update_record (track);
+        }
+    }
+  else if (old_max_volume == track->gst_track->min_volume && new_max_volume > track->gst_track->min_volume)
+    {
+      if (xfce_mixer_track_type_new (track->gst_track) != XFCE_MIXER_TRACK_TYPE_CAPTURE)
+        {
+          gst_mixer_set_mute (GST_MIXER (track->card), track->gst_track, FALSE);
+          xfce_mixer_track_update_mute (track);
+        }
+      else
+        {
+          gst_mixer_set_record (GST_MIXER (track->card), track->gst_track, FALSE);
+          xfce_mixer_track_update_record (track);
+        }
+    }
+
+  /* Free volume arrays */
+  g_free (old_volumes);
+  g_free (new_volumes);
 
   /* We're done, unlock this function */
   locked = FALSE;

@@ -84,6 +84,12 @@ dnl *** Check for i18n support ***
 dnl ******************************
 XDT_I18N([@LINGUAS@])
 
+dnl **********************
+dnl *** Check for libm ***
+dnl **********************
+AC_CHECK_HEADERS([math.h])
+AC_CHECK_LIB([m],[round])
+
 dnl ***********************************
 dnl *** Check for required packages ***
 dnl ***********************************

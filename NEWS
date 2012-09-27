@@ -17,6 +17,8 @@
 - Avoid the deprecated GtkTooltips API and let XfceVolumeButton handle
   tooltips.
 - Indicate in the plugin tooltip whether the track is muted.
+- Mute a track when the volume is set to 0% and unmute when set to a higher
+  value (bug #8291).
 
 
 4.8.0

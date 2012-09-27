@@ -23,6 +23,10 @@
 #include <config.h>
 #endif
 
+#ifdef HAVE_MATH_H
+#include <math.h>
+#endif
+
 #include <gdk/gdk.h>
 #include <gtk/gtk.h>
 
@@ -216,7 +220,7 @@ xfce_volume_button_class_init (XfceVolumeButtonClass *klass)
                                    g_param_spec_boolean ("is-muted",
                                                          "is-muted",
                                                          "is-muted",
-                                                         FALSE,
+                                                         TRUE,
                                                          G_PARAM_READABLE | G_PARAM_WRITABLE));
 
   button_signals[VOLUME_CHANGED] = g_signal_new ("volume-changed",
@@ -240,14 +244,14 @@ xfce_volume_button_init (XfceVolumeButton *button)
 
   button->is_configured = FALSE;
 
-  /* By default we expect the button not to be muted */
-  button->is_muted = FALSE;
-
   /* Allocate array for preloaded icons */
   button->pixbufs = g_new0 (GdkPixbuf*, G_N_ELEMENTS (icons)-1);
 
   /* Create adjustment for the button (from 0.0 to 1.0 in 5% steps) */
   button->adjustment = gtk_adjustment_new (0.0, 0.0, 1.0, 0.05, 0.05, 0.0);
+
+  /* Set to muted by default since the initial adjustment value is 0 */
+  button->is_muted = TRUE;
 
   /* Create a new scaled image for the button icon */
   button->image = xfce_panel_image_new ();
@@ -478,7 +482,8 @@ xfce_volume_button_scrolled (GtkWidget        *widget,
                              GdkEventScroll   *event,
                              XfceVolumeButton *button)
 {
-  gdouble value;
+  gdouble old_value;
+  gdouble new_value;
   gdouble step_increment;
 
   g_return_val_if_fail (GTK_IS_WIDGET (widget), FALSE);
@@ -489,7 +494,7 @@ xfce_volume_button_scrolled (GtkWidget        *widget,
     return TRUE;
 
   /* Get current adjustment value and the step increment size */
-  g_object_get (G_OBJECT (button->adjustment), "value", &value, "step-increment", &step_increment, NULL);
+  g_object_get (G_OBJECT (button->adjustment), "value", &old_value, "step-increment", &step_increment, NULL);
 
   /* Distinguish between scroll directions */
   switch (event->direction)
@@ -497,20 +502,32 @@ xfce_volume_button_scrolled (GtkWidget        *widget,
       case GDK_SCROLL_UP:
       case GDK_SCROLL_RIGHT:
         /* Increase one step when scrolling up/right */
-        gtk_adjustment_set_value (GTK_ADJUSTMENT (button->adjustment), value + step_increment);
+        gtk_adjustment_set_value (GTK_ADJUSTMENT (button->adjustment), old_value + step_increment);
         break;
       case GDK_SCROLL_DOWN:
       case GDK_SCROLL_LEFT:
         /* Decrease one step when scrolling down/left */
-        gtk_adjustment_set_value (GTK_ADJUSTMENT (button->adjustment), value - step_increment);
+        gtk_adjustment_set_value (GTK_ADJUSTMENT (button->adjustment), old_value - step_increment);
         break;
     }
 
-  /* Update the state of the button */
-  xfce_volume_button_update (button);
+  new_value = gtk_adjustment_get_value (GTK_ADJUSTMENT (button->adjustment));
+  if (fabs (new_value - old_value) < VOLUME_EPSILON)
+    {
+      /* Mute when volume reaches 0%, unmute if volume is raised from 0% */
+      if (new_value < VOLUME_EPSILON && !button->is_muted)
+        xfce_volume_button_set_muted (button, TRUE);
+      else if (old_value < VOLUME_EPSILON && button->is_muted)
+        xfce_volume_button_set_muted (button, FALSE);
+      else
+        {
+          /* Update the state of the button */
+          xfce_volume_button_update (button);
+        }
 
-  /* Notify listeners of the new volume */
-  g_signal_emit_by_name (button, "volume-changed", gtk_adjustment_get_value (GTK_ADJUSTMENT (button->adjustment)));
+      /* Notify listeners of the new volume */
+      g_signal_emit_by_name (button, "volume-changed", new_value);
+    }
 
   /* The scroll event has been handled, stop other handlers from being invoked */
   return TRUE;
@@ -566,7 +583,7 @@ xfce_volume_button_update (XfceVolumeButton *button)
       if (button->is_muted)
         tip_text = g_strdup_printf (_("%s: muted"), button->track_label);
       else
-        tip_text = g_strdup_printf (_("%s: %i%%"), button->track_label, (gint) (value * 100));
+        tip_text = g_strdup_printf (_("%s: %i%%"), button->track_label, (gint) round (value * 100));
       gtk_widget_set_tooltip_text (GTK_WIDGET (button), tip_text);
       g_free (tip_text);
     }
