@@ -3,8 +3,7 @@ xfce4-mixer Information
 
 This package contains a volume control application based on GStreamer
 0.10 written to conceptually fit into the Xfce desktop environment. It
-also contains a plugin for the Xfce panel which is especially designed
-for use with the mouse wheel.
+includes a plugin for the Xfce panel.
 
 Known Problems with GStreamer
 -----------------------------

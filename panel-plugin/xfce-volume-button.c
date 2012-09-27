@@ -36,12 +36,11 @@
 
 #include <libxfce4panel/libxfce4panel.h>
 
-#include "libxfce4mixer/libxfce4mixer.h"
-
 #include "xfce-volume-button.h"
 
 
 
+#define SCALE_SIZE 128
 #define VOLUME_EPSILON 0.005
 
 
@@ -53,6 +52,7 @@ enum
   PROP_TRACK_LABEL,
   PROP_IS_CONFIGURED,
   PROP_IS_MUTED,
+  PROP_SCREEN_POSITION,
   N_PROPERTIES,
 };
 
@@ -83,39 +83,52 @@ static const char *icons[] = {
 
 
 
-static void       xfce_volume_button_class_init     (XfceVolumeButtonClass *klass);
-static void       xfce_volume_button_init           (XfceVolumeButton      *button);
-static void       xfce_volume_button_dispose        (GObject               *object);
-static void       xfce_volume_button_finalize       (GObject               *object);
-static void       xfce_volume_button_set_property   (GObject               *object,
-                                                     guint                  prop_id,
-                                                     const GValue          *value,
-                                                     GParamSpec            *pspec);
-static void       xfce_volume_button_get_property   (GObject               *object,
-                                                     guint                  prop_id,
-                                                     GValue                *value,
-                                                     GParamSpec            *pspec);
-#if 0
-static gboolean   xfce_volume_button_key_pressed    (GtkWidget             *widget,
-                                                     GdkEventKey           *event,
-                                                     XfceVolumeButton      *button);
-#endif
-static gboolean   xfce_volume_button_button_pressed (GtkWidget             *widget,
-                                                     GdkEventButton        *event,
-                                                     XfceVolumeButton      *button);
-static gboolean   xfce_volume_button_scrolled       (GtkWidget             *widget,
-                                                     GdkEventScroll        *event,
-                                                     XfceVolumeButton      *button);
-static void       xfce_volume_button_volume_changed (XfceVolumeButton      *button,
-                                                     gdouble                volume);
-static void       xfce_volume_button_update_icons   (XfceVolumeButton      *button,
-                                                     GtkIconTheme          *icon_theme);
+static void       xfce_volume_button_class_init           (XfceVolumeButtonClass *klass);
+static void       xfce_volume_button_init                 (XfceVolumeButton      *button);
+static void       xfce_volume_button_dispose              (GObject               *object);
+static void       xfce_volume_button_finalize             (GObject               *object);
+static void       xfce_volume_button_set_property         (GObject               *object,
+                                                           guint                  prop_id,
+                                                           const GValue          *value,
+                                                           GParamSpec            *pspec);
+static void       xfce_volume_button_get_property         (GObject               *object,
+                                                           guint                  prop_id,
+                                                           GValue                *value,
+                                                           GParamSpec            *pspec);
+static gboolean   xfce_volume_button_scale_changed_value  (XfceVolumeButton      *button,
+                                                           GtkScrollType          scroll,
+                                                           gdouble                new_value,
+                                                           GtkRange              *range);
+static void       xfce_volume_button_create_dock_contents (XfceVolumeButton      *button);
+static void       xfce_volume_button_popup_dock           (XfceVolumeButton      *button);
+static void       xfce_volume_button_popdown_dock         (XfceVolumeButton      *button);
+static gboolean   xfce_volume_button_button_press_event   (GtkWidget             *widget,
+                                                           GdkEventButton        *event);
+static gboolean   xfce_volume_button_scroll_event         (GtkWidget             *widget,
+                                                           GdkEventScroll        *event);
+static void       xfce_volume_button_volume_changed       (XfceVolumeButton      *button,
+                                                           gdouble                volume);
+static void       xfce_volume_button_update_icons         (XfceVolumeButton      *button,
+                                                           GtkIconTheme          *icon_theme);
+static void       xfce_volume_button_toggled              (GtkToggleButton       *toggle_button);
+static gboolean   xfce_volume_button_dock_button_press    (XfceVolumeButton      *button,
+                                                           GdkEventButton        *event,
+                                                           GtkWidget             *widget);
+static gboolean   xfce_volume_button_dock_key_release     (XfceVolumeButton      *button,
+                                                           GdkEventKey           *event,
+                                                           GtkWidget             *widget);
+static void       xfce_volume_button_dock_grab_notify     (XfceVolumeButton      *button,
+                                                           gboolean               was_grabbed,
+                                                           GtkWidget             *widget);
+static gboolean   xfce_volume_button_dock_grab_broken     (XfceVolumeButton      *button,
+                                                           gboolean               was_grabbed,
+                                                           GtkWidget             *widget);
 
 
 
 struct _XfceVolumeButtonClass
 {
-  GtkButtonClass __parent__;
+  GtkToggleButtonClass __parent__;
 
   /* Signals */
   void (*volume_changed) (XfceVolumeButton *button,
@@ -124,28 +137,38 @@ struct _XfceVolumeButtonClass
 
 struct _XfceVolumeButton
 {
-  GtkButton __parent__;
+  GtkToggleButton      __parent__;
+
+  /* Position of the dock */
+  XfceScreenPosition   screen_position;
 
   /* Image widget for the volume icon */
-  GtkWidget  *image;
+  GtkWidget           *image;
+
+  /* Popup window containing the scale */
+  GtkWidget           *dock;
+
+  /* Containers for the widgets inside the dock */
+  GtkWidget           *hbox;
+  GtkWidget           *vbox;
 
   /* Adjustment for the volume range and current value */
-  GtkObject  *adjustment;
+  GtkObject           *adjustment;
 
   /* Icon size currently used */
-  gint        icon_size;
+  gint                 icon_size;
 
   /* Array of preloaded icons */
-  GdkPixbuf **pixbufs;
+  GdkPixbuf          **pixbufs;
 
   /* Track label used in tooltip */
-  gchar      *track_label;
+  gchar               *track_label;
 
   /* Whether the button is configured */
-  gboolean    is_configured;
+  gboolean             is_configured;
 
   /* Mute state of the button */
-  gboolean    is_muted;
+  gboolean             is_muted;
 };
 
 
@@ -175,7 +198,7 @@ xfce_volume_button_get_type (void)
           NULL,
         };
 
-      type = g_type_register_static (GTK_TYPE_BUTTON, "XfceVolumeButton", &info, 0);
+      type = g_type_register_static (GTK_TYPE_TOGGLE_BUTTON, "XfceVolumeButton", &info, 0);
     }
   
   return type;
@@ -186,7 +209,9 @@ xfce_volume_button_get_type (void)
 static void
 xfce_volume_button_class_init (XfceVolumeButtonClass *klass)
 {
-  GObjectClass *gobject_class;
+  GObjectClass         *gobject_class;
+  GtkWidgetClass       *gtk_widget_class;
+  GtkToggleButtonClass *gtk_toggle_button_class;
 
   /* Determine parent type class */
   xfce_volume_button_parent_class = g_type_class_peek_parent (klass);
@@ -196,6 +221,13 @@ xfce_volume_button_class_init (XfceVolumeButtonClass *klass)
   gobject_class->finalize = xfce_volume_button_finalize;
   gobject_class->set_property = xfce_volume_button_set_property;
   gobject_class->get_property = xfce_volume_button_get_property;
+
+  gtk_widget_class = GTK_WIDGET_CLASS (klass);
+  gtk_widget_class->button_press_event = xfce_volume_button_button_press_event;
+  gtk_widget_class->scroll_event = xfce_volume_button_scroll_event;
+
+  gtk_toggle_button_class = GTK_TOGGLE_BUTTON_CLASS (klass);
+  gtk_toggle_button_class->toggled = xfce_volume_button_toggled;
 
   klass->volume_changed = xfce_volume_button_volume_changed;
 
@@ -223,6 +255,15 @@ xfce_volume_button_class_init (XfceVolumeButtonClass *klass)
                                                          TRUE,
                                                          G_PARAM_READABLE | G_PARAM_WRITABLE));
 
+  g_object_class_install_property (gobject_class,
+                                   PROP_SCREEN_POSITION,
+                                   g_param_spec_enum ("screen-position",
+                                                      "screen-position",
+                                                      "screen-position",
+                                                      XFCE_TYPE_SCREEN_POSITION,
+                                                      XFCE_SCREEN_POSITION_FLOATING_H,
+                                                      G_PARAM_READABLE | G_PARAM_WRITABLE));
+
   button_signals[VOLUME_CHANGED] = g_signal_new ("volume-changed",
                                                  G_TYPE_FROM_CLASS (klass),
                                                  G_SIGNAL_RUN_LAST | G_SIGNAL_ACTION,
@@ -240,15 +281,24 @@ xfce_volume_button_class_init (XfceVolumeButtonClass *klass)
 static void
 xfce_volume_button_init (XfceVolumeButton *button)
 {
+  /* The dock is created lazily */
+  button->dock = NULL;
+  button->hbox = NULL;
+  button->vbox = NULL;
+
   button->track_label = NULL;
 
+  /* Start in unconfigured state */
   button->is_configured = FALSE;
+
+  /* Default position is floating horizontal */
+  button->screen_position = XFCE_SCREEN_POSITION_FLOATING_H;
 
   /* Allocate array for preloaded icons */
   button->pixbufs = g_new0 (GdkPixbuf*, G_N_ELEMENTS (icons)-1);
 
   /* Create adjustment for the button (from 0.0 to 1.0 in 5% steps) */
-  button->adjustment = gtk_adjustment_new (0.0, 0.0, 1.0, 0.05, 0.05, 0.0);
+  button->adjustment = gtk_adjustment_new (0.0, 0.0, 1.0, 0.01, 0.05, 0.0);
 
   /* Set to muted by default since the initial adjustment value is 0 */
   button->is_muted = TRUE;
@@ -264,13 +314,7 @@ xfce_volume_button_init (XfceVolumeButton *button)
   gtk_widget_set_can_default (GTK_WIDGET (button), FALSE);
   gtk_widget_set_can_focus (GTK_WIDGET (button), FALSE);
 
-  /* Connect to button signals */
-#if 0
-  /* UNUSED FOR NOW DUE TO TOO MUCH PROBLEMS WITH KEYBOARD FOCUS GRABBING */
-  g_signal_connect (G_OBJECT (button), "key-press-event", G_CALLBACK (xfce_volume_button_key_pressed), button);
-#endif
-  g_signal_connect (G_OBJECT (button), "button-press-event", G_CALLBACK (xfce_volume_button_button_pressed), button);
-  g_signal_connect (G_OBJECT (button), "scroll-event", G_CALLBACK (xfce_volume_button_scrolled), button);
+  /* Connect signal for theme changes */
   g_signal_connect_swapped (gtk_icon_theme_get_default (), "changed", G_CALLBACK (xfce_volume_button_update_icons), button);
 
   /* Update the state of the button */
@@ -293,6 +337,12 @@ xfce_volume_button_finalize (GObject *object)
   guint i;
 
   XfceVolumeButton *button = XFCE_VOLUME_BUTTON (object);
+
+  if (button->dock != NULL)
+    {
+      gtk_widget_destroy (button->dock);
+      button->dock = NULL;
+    }
 
   /* Free pre-allocated icon pixbufs */
   for (i = 0; i < G_N_ELEMENTS (icons)-1; ++i)
@@ -341,8 +391,17 @@ static void xfce_volume_button_set_property (GObject      *object,
         if (button->is_configured != is_configured)
           {
             button->is_configured = is_configured;
+
+            /* Popdown the dock when transitioning to unconfigured state */
+            if (is_configured == FALSE &&
+                (button->dock != NULL && gtk_widget_get_visible (button->dock)))
+              xfce_volume_button_popdown_dock (button);
+
             xfce_volume_button_update (button);
           }
+        break;
+      case PROP_SCREEN_POSITION:
+        button->screen_position = g_value_get_enum (value);
         break;
       default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -370,6 +429,9 @@ static void xfce_volume_button_get_property (GObject      *object,
       case PROP_IS_CONFIGURED:
         g_value_set_boolean (value, button->is_configured);
         break;
+      case PROP_SCREEN_POSITION:
+        g_value_set_enum (value, button->screen_position);
+        break;
       default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
         break;
@@ -386,116 +448,332 @@ xfce_volume_button_new (void)
 
 
 
-#if 0
-static gboolean 
-xfce_volume_button_key_pressed (GtkWidget        *widget,
-                                GdkEventKey      *event,
-                                XfceVolumeButton *button)
+static gboolean
+xfce_volume_button_scale_changed_value (XfceVolumeButton *button,
+                                        GtkScrollType     scroll,
+                                        gdouble           value,
+                                        GtkRange         *range)
 {
-  gboolean handled = FALSE;
-  gdouble  value;
-  gdouble  step_increment;
-  gdouble  page_size;
-  gdouble  min_value;
-  gdouble  max_value;
+  gdouble old_value;
+  gdouble new_value;
 
-  g_return_if_fail (IS_XFCE_VOLUME_BUTTON (button));
+  old_value = gtk_adjustment_get_value (GTK_ADJUSTMENT (button->adjustment));
+  gtk_adjustment_set_value (GTK_ADJUSTMENT (button->adjustment), value);
+  new_value = gtk_adjustment_get_value (GTK_ADJUSTMENT (button->adjustment));
 
-  g_object_get (G_OBJECT (button->adjustment), 
-                "value", &value, 
-                "step-increment", &step_increment, 
-                "page-size", &page_size, 
-                "lower", &min_value,
-                "upper", &max_value, NULL);
-
-  switch (event->keyval)
+  if (fabs (new_value - old_value) > VOLUME_EPSILON)
     {
-      case GDK_plus:
-        gtk_adjustment_set_value (GTK_ADJUSTMENT (button->adjustment), value + step_increment);
-        handled = TRUE;
+      /* Mute when volume reaches 0%, unmute if volume is raised from 0% */
+      if (new_value < VOLUME_EPSILON && !button->is_muted)
+        xfce_volume_button_set_muted (button, TRUE);
+      else if (old_value < VOLUME_EPSILON && button->is_muted)
+        xfce_volume_button_set_muted (button, FALSE);
+      else
+        {
+          /* Update the state of the button */
+          xfce_volume_button_update (button);
+        }
+
+      /* Notify listeners of the new volume */
+      g_signal_emit_by_name (button, "volume-changed", new_value);
+    }
+
+  /* Do not propagate further, everything has been handled */
+  return TRUE;
+}
+
+
+
+static void
+xfce_volume_button_create_dock_contents (XfceVolumeButton *button)
+{
+  GtkOrientation   orientation;
+  GtkWidget       *frame;
+  GtkWidget       *box;
+  GtkWidget       *scale;
+  GtkWidget       *image;
+
+  g_return_if_fail (button->dock == NULL);
+
+  orientation = xfce_screen_position_get_orientation (button->screen_position);
+
+  button->dock = gtk_window_new (GTK_WINDOW_POPUP);
+  gtk_window_set_title (GTK_WINDOW (button->dock), "xfce4-mixer-applet-dock-window");
+  gtk_window_set_decorated (GTK_WINDOW (button->dock), FALSE);
+
+  frame = gtk_frame_new (NULL);
+  gtk_frame_set_shadow_type (GTK_FRAME (frame), GTK_SHADOW_OUT);
+  gtk_container_add (GTK_CONTAINER (button->dock), frame);
+  gtk_widget_show (frame);
+
+  /*
+   * Container for the boxes for horizonal and vertical mode, orientation does
+   * not matter here since only one of the boxes it holds will be visibe at any
+   * time depending on the panel orientation
+   */
+  box = gtk_vbox_new (TRUE, 6);
+  gtk_container_set_border_width (GTK_CONTAINER (box), 2);
+  gtk_container_add (GTK_CONTAINER (frame), box);
+  gtk_widget_show (box);
+
+  /* Container for the widgets shown in vertical mode */
+  button->hbox = gtk_hbox_new(FALSE, 6);
+  gtk_box_pack_start (GTK_BOX (box), button->hbox, TRUE, TRUE, 0);
+
+  /* Show the position of lowest and highest volume through icons */
+  image = gtk_image_new_from_icon_name ("audio-volume-low", GTK_ICON_SIZE_BUTTON);
+  gtk_box_pack_start (GTK_BOX (button->hbox), image, TRUE, TRUE, 0);
+  gtk_widget_show (image);
+
+  scale = gtk_hscale_new (GTK_ADJUSTMENT (button->adjustment));
+  gtk_scale_set_draw_value (GTK_SCALE (scale), FALSE);
+  gtk_box_pack_start (GTK_BOX (button->hbox), scale, TRUE, TRUE, 0);
+  gtk_widget_set_size_request (scale, SCALE_SIZE, -1);
+  g_signal_connect_swapped (G_OBJECT (scale), "change-value", G_CALLBACK (xfce_volume_button_scale_changed_value), button);
+  gtk_widget_show (scale);
+
+  image = gtk_image_new_from_icon_name ("audio-volume-high", GTK_ICON_SIZE_BUTTON);
+  gtk_box_pack_start (GTK_BOX (button->hbox), image, TRUE, TRUE, 0);
+  gtk_widget_show (image);
+
+  /* Container for the widgets shown in horizontal mode */
+  button->vbox = gtk_vbox_new(FALSE, 6);
+  gtk_box_pack_start (GTK_BOX (box), button->vbox, TRUE, TRUE, 0);
+
+  scale = gtk_vscale_new (GTK_ADJUSTMENT (button->adjustment));
+  gtk_scale_set_draw_value (GTK_SCALE (scale), FALSE);
+  gtk_range_set_inverted (GTK_RANGE (scale), TRUE);
+  gtk_box_pack_start (GTK_BOX (button->vbox), scale, TRUE, TRUE, 0);
+  gtk_widget_set_size_request (scale, -1, SCALE_SIZE);
+  g_signal_connect_swapped (G_OBJECT (scale), "change-value", G_CALLBACK (xfce_volume_button_scale_changed_value), button);
+  gtk_widget_show (scale);
+
+  if (orientation == GTK_ORIENTATION_VERTICAL)
+    gtk_widget_show (button->hbox);
+  else
+    gtk_widget_show (button->vbox);
+
+  g_signal_connect_swapped (G_OBJECT (button->dock), "button-press-event", G_CALLBACK (xfce_volume_button_dock_button_press), button);
+  g_signal_connect_swapped (G_OBJECT (button->dock), "key-release-event", G_CALLBACK (xfce_volume_button_dock_key_release), button);
+  g_signal_connect_swapped (G_OBJECT (button->dock), "grab-notify", G_CALLBACK (xfce_volume_button_dock_grab_notify), button);
+  g_signal_connect_swapped (G_OBJECT (button->dock), "grab-broken-event", G_CALLBACK (xfce_volume_button_dock_grab_broken), button);
+}
+
+
+
+static void
+xfce_volume_button_popup_dock (XfceVolumeButton *button)
+{
+  GtkWidget       *button_widget = GTK_WIDGET (button);
+  GtkOrientation   orientation;
+  GtkRequisition   dock_requisition;
+  GdkScreen       *screen;
+  GdkRectangle     monitor;
+  gint             monitor_num;
+  gint             window_x;
+  gint             window_y;
+  GdkWindow       *window;
+  gint             x;
+  gint             y;
+  GtkPositionType  position;
+  GdkDisplay      *display;
+
+  /* Lazily create dock contents */
+  if (button->dock == NULL)
+    xfce_volume_button_create_dock_contents (button);
+
+  /* Change orientation if necessary */
+  orientation = xfce_screen_position_get_orientation (button->screen_position);
+  if ((gtk_widget_get_visible (button->hbox) && orientation != GTK_ORIENTATION_VERTICAL) ||
+      (gtk_widget_get_visible (button->vbox) && orientation != GTK_ORIENTATION_HORIZONTAL))
+    {
+      if (orientation == GTK_ORIENTATION_VERTICAL)
+        {
+          gtk_widget_hide (button->vbox);
+          gtk_widget_show (button->hbox);
+        }
+      else
+        {
+          gtk_widget_hide (button->hbox);
+          gtk_widget_show (button->vbox);
+        }
+
+      /* Hack to prevent window from becoming square */
+      gtk_window_resize (GTK_WINDOW (button->dock), 1, 1);
+    }
+
+  /* Get size request of the dock */
+  gtk_widget_size_request (GTK_WIDGET (button->dock), &dock_requisition);
+
+  /* Determine the absolute coordinates of the button widget */
+  gdk_window_get_origin (gtk_widget_get_window (GTK_WIDGET (button)), &x, &y);
+  x += button_widget->allocation.x;
+  y += button_widget->allocation.y;
+
+  /* Determine the geometry of the monitor containing the window containing the button */
+  screen = gtk_widget_get_screen (button_widget);
+  window = gtk_widget_get_window (GTK_WIDGET (button));
+  monitor_num = gdk_screen_get_monitor_at_window (screen, window);
+  gdk_screen_get_monitor_geometry (screen, monitor_num, &monitor);
+
+  /* Determine the position of the window containing the button */
+  if (xfce_screen_position_is_top (button->screen_position))
+    position = GTK_POS_BOTTOM;
+  else if (xfce_screen_position_is_bottom (button->screen_position))
+    position = GTK_POS_TOP;
+  else if (xfce_screen_position_is_left (button->screen_position))
+    position = GTK_POS_RIGHT;
+  else if (xfce_screen_position_is_right (button->screen_position))
+    position = GTK_POS_LEFT;
+  else
+    {
+      /*
+       * If the window containing the button is floating derive a position
+       * based on the the closest monitor edge
+       */
+      gdk_window_get_root_origin (window, &window_x, &window_y);
+
+      if (button->screen_position == XFCE_SCREEN_POSITION_FLOATING_V)
+        position = (window_x < (monitor.x + monitor.width / 2)) ? GTK_POS_RIGHT : GTK_POS_LEFT;
+      else
+        position = (window_y < (monitor.y + monitor.height / 2)) ? GTK_POS_BOTTOM : GTK_POS_TOP;
+    }
+
+  /* Place the dock centered on the correct edge of the button */
+  switch (position)
+    {
+      case GTK_POS_TOP:
+        x += (button_widget->allocation.width / 2) - (dock_requisition.width / 2);
+        y -= dock_requisition.height;
         break;
-      case GDK_minus:
-        gtk_adjustment_set_value (GTK_ADJUSTMENT (button->adjustment), value - step_increment);
-        handled = TRUE;
+      case GTK_POS_RIGHT:
+        x += button_widget->allocation.width;
+        y += (button_widget->allocation.height / 2) - (dock_requisition.height / 2);
         break;
-      case GDK_Page_Up:
-        gtk_adjustment_set_value (GTK_ADJUSTMENT (button->adjustment), value + page_size);
-        handled = TRUE;
+      case GTK_POS_LEFT:
+        x -= dock_requisition.width;
+        y += (button_widget->allocation.height / 2) - (dock_requisition.height / 2);
         break;
-      case GDK_Page_Down:
-        gtk_adjustment_set_value (GTK_ADJUSTMENT (button->adjustment), value - page_size);
-        handled = TRUE;
-        break;
-      case GDK_Home:
-        gtk_adjustment_set_value (GTK_ADJUSTMENT (button->adjustment), max_value);
-        handled = TRUE;
-        break;
-      case GDK_End:
-        gtk_adjustment_set_value (GTK_ADJUSTMENT (button->adjustment), min_value);
-        handled = TRUE;
+      case GTK_POS_BOTTOM:
+      default:
+        /* default to GTK_POS_BOTTOM */
+        x += (button_widget->allocation.width / 2) - (dock_requisition.width / 2);
+        y += button_widget->allocation.height;
         break;
     }
 
-  xfce_volume_button_update (button);
+  /* Ensure the dock remains on the monitor */
+  if (x > monitor.x + monitor.width - dock_requisition.width)
+    x = monitor.x + monitor.width - dock_requisition.width;
+  if (x < monitor.x)
+    x = monitor.x;
+  if (y > monitor.y + monitor.height - dock_requisition.height)
+    y = monitor.y + monitor.height - dock_requisition.height;
+  if (y < monitor.y)
+    y = monitor.y;
 
-  g_signal_emit_by_name (button, "volume-changed", gtk_adjustment_get_value (GTK_ADJUSTMENT (button->adjustment)));
+  /* Position the dock */
+  gtk_window_move (GTK_WINDOW (button->dock), x, y);
 
-  return handled;
+  gtk_widget_show (button->dock);
+
+  /* Grab keyboard and mouse, focus on the slider */
+  gtk_grab_add (button->dock);
+
+  if (gdk_pointer_grab (gtk_widget_get_window (button->dock), TRUE,
+      GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK | GDK_POINTER_MOTION_MASK | GDK_SCROLL_MASK,
+      NULL, NULL, GDK_CURRENT_TIME) != GDK_GRAB_SUCCESS)
+    {
+      gtk_grab_remove (button->dock);
+      gtk_widget_hide (button->dock);
+      return;
+    }
+
+  if (gdk_keyboard_grab (gtk_widget_get_window (button->dock), TRUE, GDK_CURRENT_TIME) != GDK_GRAB_SUCCESS)
+    {
+      display = gtk_widget_get_display (button->dock);
+      gdk_display_pointer_ungrab (display, GDK_CURRENT_TIME);
+      gtk_grab_remove (button->dock);
+      gtk_widget_hide (button->dock);
+      return;
+    }
+  gtk_widget_grab_focus (button->dock);
+
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button), TRUE);
 }
-#endif
 
 
 
-static gboolean 
-xfce_volume_button_button_pressed (GtkWidget        *widget,
-                                   GdkEventButton   *event,
-                                   XfceVolumeButton *button)
+static void
+xfce_volume_button_popdown_dock (XfceVolumeButton *button)
 {
-  gboolean mute;
+  GdkDisplay     *display;
 
-  g_return_val_if_fail (IS_XFCE_VOLUME_BUTTON (button), FALSE);
+  if (button->dock != NULL && gtk_widget_get_visible (button->dock))
+    {
+      display = gtk_widget_get_display (GTK_WIDGET (button->dock));
+      gdk_display_keyboard_ungrab (display, GDK_CURRENT_TIME);
+      gdk_display_pointer_ungrab (display, GDK_CURRENT_TIME);
+      gtk_grab_remove (button->dock);
 
-  /* Check if the middle mouse button was pressed */
-  if (event->button == 2)
+      gtk_widget_hide (button->dock);
+      gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button), FALSE);
+    }
+}
+
+
+
+static gboolean
+xfce_volume_button_button_press_event (GtkWidget      *widget,
+                                       GdkEventButton *event)
+{
+  XfceVolumeButton *button = XFCE_VOLUME_BUTTON (widget);
+  gboolean          muted;
+
+  if (event->button == 1)
+    {
+      if ((button->dock == NULL || !gtk_widget_get_visible (GTK_WIDGET (button->dock))) &&
+          !gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (button)))
+        xfce_volume_button_popup_dock (button);
+
+      return TRUE;
+    }
+  else if (event->button == 2)
     {
       /* Only toggle mute if button is in configured state */
       if (button->is_configured)
         {
           /* Determine the new mute state by negating the current state */
-          mute = !button->is_muted;
+          muted = !button->is_muted;
 
           /* Toggle the button's mute state */
-          xfce_volume_button_set_muted (button, mute);
+          xfce_volume_button_set_muted (button, muted);
         }
 
       /* Middle mouse button was handled, do not propagate the event any further */
       return TRUE;
     }
 
-  /* Left and right mouse buttons are ignored, someone else handle it */
-  return FALSE;
+  return GTK_WIDGET_CLASS (xfce_volume_button_parent_class)->button_press_event (widget, event);
 }
 
 
 
-static gboolean 
-xfce_volume_button_scrolled (GtkWidget        *widget,
-                             GdkEventScroll   *event,
-                             XfceVolumeButton *button)
+static gboolean
+xfce_volume_button_scroll_event (GtkWidget      *widget,
+                                 GdkEventScroll *event)
 {
-  gdouble old_value;
-  gdouble new_value;
-  gdouble step_increment;
-
-  g_return_val_if_fail (GTK_IS_WIDGET (widget), FALSE);
-  g_return_val_if_fail (IS_XFCE_VOLUME_BUTTON (button), FALSE);
+  XfceVolumeButton *button = XFCE_VOLUME_BUTTON (widget);
+  gdouble           old_value;
+  gdouble           new_value;
+  gdouble           increment;
 
   /* Ignore scroll events if the button is not in configured state */
   if (!button->is_configured)
     return TRUE;
 
   /* Get current adjustment value and the step increment size */
-  g_object_get (G_OBJECT (button->adjustment), "value", &old_value, "step-increment", &step_increment, NULL);
+  g_object_get (G_OBJECT (button->adjustment), "value", &old_value, "page-increment", &increment, NULL);
 
   /* Distinguish between scroll directions */
   switch (event->direction)
@@ -503,17 +781,17 @@ xfce_volume_button_scrolled (GtkWidget        *widget,
       case GDK_SCROLL_UP:
       case GDK_SCROLL_RIGHT:
         /* Increase one step when scrolling up/right */
-        gtk_adjustment_set_value (GTK_ADJUSTMENT (button->adjustment), old_value + step_increment);
+        gtk_adjustment_set_value (GTK_ADJUSTMENT (button->adjustment), old_value + increment);
         break;
       case GDK_SCROLL_DOWN:
       case GDK_SCROLL_LEFT:
         /* Decrease one step when scrolling down/left */
-        gtk_adjustment_set_value (GTK_ADJUSTMENT (button->adjustment), old_value - step_increment);
+        gtk_adjustment_set_value (GTK_ADJUSTMENT (button->adjustment), old_value - increment);
         break;
     }
 
   new_value = gtk_adjustment_get_value (GTK_ADJUSTMENT (button->adjustment));
-  if (fabs (new_value - old_value) < VOLUME_EPSILON)
+  if (fabs (new_value - old_value) > VOLUME_EPSILON)
     {
       /* Mute when volume reaches 0%, unmute if volume is raised from 0% */
       if (new_value < VOLUME_EPSILON && !button->is_muted)
@@ -601,6 +879,110 @@ xfce_volume_button_volume_changed (XfceVolumeButton *button,
 
 
 
+static void
+xfce_volume_button_update_icons (XfceVolumeButton *button,
+                                 GtkIconTheme     *icon_theme)
+{
+  guint i;
+
+  g_return_if_fail (IS_XFCE_VOLUME_BUTTON (button));
+  g_return_if_fail (GTK_IS_ICON_THEME (icon_theme));
+
+  /* Pre-load all icons */
+  for (i = 0; i < G_N_ELEMENTS (icons)-1; ++i)
+    {
+      if (GDK_IS_PIXBUF (button->pixbufs[i]))
+        g_object_unref (G_OBJECT (button->pixbufs[i]));
+
+      button->pixbufs[i] = gtk_icon_theme_load_icon (icon_theme,
+                                                     icons[i],
+                                                     button->icon_size,
+                                                     GTK_ICON_LOOKUP_USE_BUILTIN,
+                                                     NULL);
+    }
+
+  /* Update the state of the button */
+  xfce_volume_button_update (button);
+}
+
+
+
+static void
+xfce_volume_button_toggled (GtkToggleButton *toggle_button)
+{
+  XfceVolumeButton *button = XFCE_VOLUME_BUTTON (toggle_button);
+
+  if (gtk_toggle_button_get_active (toggle_button) &&
+      (button->dock == NULL || !gtk_widget_get_visible (GTK_WIDGET (button->dock))))
+    xfce_volume_button_popup_dock (button);
+}
+
+
+
+static gboolean
+xfce_volume_button_dock_button_press (XfceVolumeButton *button,
+                                      GdkEventButton   *event,
+                                      GtkWidget        *widget)
+{
+  /* Pop down on mouse button click */
+  if (event->type == GDK_BUTTON_PRESS)
+    {
+      xfce_volume_button_popdown_dock (button);
+
+      return TRUE;
+    }
+
+  return FALSE;
+}
+
+
+
+static gboolean
+xfce_volume_button_dock_key_release (XfceVolumeButton *button,
+                                     GdkEventKey      *event,
+                                     GtkWidget        *widget)
+{
+  /* Pop down on Escape */
+  if (event->keyval == GDK_Escape)
+    {
+      xfce_volume_button_popdown_dock (button);
+      return TRUE;
+    }
+
+  return TRUE;
+}
+
+
+
+static void
+xfce_volume_button_dock_grab_notify (XfceVolumeButton *button,
+                                     gboolean          was_grabbed,
+                                     GtkWidget        *widget)
+{
+  /* Pop down if button->dock has been shadowed by a grab on another widget */
+  if (!was_grabbed &&
+      gtk_widget_has_grab (button->dock) &&
+      !gtk_widget_is_ancestor (gtk_grab_get_current (), button->dock))
+    xfce_volume_button_popdown_dock (button);
+}
+
+
+
+static gboolean
+xfce_volume_button_dock_grab_broken (XfceVolumeButton *button,
+                                     gboolean          was_grabbed,
+                                     GtkWidget        *widget)
+{
+  /* Pop down if grab is broken but not when grabbing again */
+  if (gtk_widget_has_grab (button->dock) &&
+      !gtk_widget_is_ancestor (gtk_grab_get_current (), button->dock))
+    xfce_volume_button_popdown_dock (button);
+
+  return FALSE;
+}
+
+
+
 void
 xfce_volume_button_set_muted (XfceVolumeButton *button,
                               gboolean          is_muted)
@@ -646,34 +1028,6 @@ xfce_volume_button_set_volume (XfceVolumeButton *button,
 
 
 
-static void
-xfce_volume_button_update_icons (XfceVolumeButton *button,
-                                 GtkIconTheme     *icon_theme)
-{
-  guint i;
-
-  g_return_if_fail (IS_XFCE_VOLUME_BUTTON (button));
-  g_return_if_fail (GTK_IS_ICON_THEME (icon_theme));
-
-  /* Pre-load all icons */
-  for (i = 0; i < G_N_ELEMENTS (icons)-1; ++i)
-    {
-      if (GDK_IS_PIXBUF (button->pixbufs[i]))
-        g_object_unref (G_OBJECT (button->pixbufs[i]));
-
-      button->pixbufs[i] = gtk_icon_theme_load_icon (icon_theme,
-                                                     icons[i],
-                                                     button->icon_size,
-                                                     GTK_ICON_LOOKUP_USE_BUILTIN,
-                                                     NULL);
-    }
-
-  /* Update the state of the button */
-  xfce_volume_button_update (button);
-}
-
-
-
 void
 xfce_volume_button_set_icon_size (XfceVolumeButton *button,
                                   gint              size)
@@ -691,7 +1045,7 @@ xfce_volume_button_set_icon_size (XfceVolumeButton *button,
 
 void
 xfce_volume_button_set_track_label (XfceVolumeButton *button,
-                                    const gchar      *track_label)
+                              const gchar      *track_label)
 {
   GValue value = G_VALUE_INIT;
 
@@ -734,7 +1088,6 @@ xfce_volume_button_set_is_configured (XfceVolumeButton *button,
 
 
 
-
 gboolean
 xfce_volume_button_get_is_configured (XfceVolumeButton *button)
 {
@@ -747,3 +1100,34 @@ xfce_volume_button_get_is_configured (XfceVolumeButton *button)
 
   return g_value_get_boolean (&value);
 }
+
+
+
+void
+xfce_volume_button_set_screen_position (XfceVolumeButton   *button,
+                                        XfceScreenPosition  screen_position)
+{
+  GValue value = G_VALUE_INIT;
+
+  g_return_if_fail (IS_XFCE_VOLUME_BUTTON (button));
+
+  g_value_init (&value, XFCE_TYPE_SCREEN_POSITION);
+  g_value_set_enum (&value, screen_position);
+  g_object_set_property (G_OBJECT (button), "screen-position", &value);
+}
+
+
+
+XfceScreenPosition
+xfce_volume_button_get_screen_position (XfceVolumeButton *button)
+{
+  GValue value = G_VALUE_INIT;
+
+  g_return_val_if_fail (IS_XFCE_VOLUME_BUTTON (button), FALSE);
+
+  g_value_init (&value, XFCE_TYPE_SCREEN_POSITION);
+  g_object_get_property (G_OBJECT (button), "screen-position", &value);
+
+  return g_value_get_enum (&value);
+}
+

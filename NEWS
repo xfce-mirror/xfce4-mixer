@@ -28,6 +28,9 @@
 - Keep the sound card and controls in sync between the mixer and xfconf.
 - Populate the mixer with whitelisted controls in the absence of an existing
   configuration (bug #4945).
+- Add a popup with a scale for setting the volume to the panel plugin which is
+  opened on left click, allow running the uder-defined command previously bound
+  to left click from the panel plugin context menu instead.
 
 
 4.8.0

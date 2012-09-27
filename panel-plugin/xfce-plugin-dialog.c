@@ -195,7 +195,7 @@ xfce_plugin_dialog_create_contents (XfcePluginDialog *dialog)
   gtk_window_set_icon_name (GTK_WINDOW (dialog), "multimedia-volume-control");
   gtk_window_set_title (GTK_WINDOW (dialog), _("Audio Mixer Plugin"));
 
-  xfce_titled_dialog_set_subtitle (XFCE_TITLED_DIALOG (dialog), _("Configure the mixer track and left-click command"));
+  xfce_titled_dialog_set_subtitle (XFCE_TITLED_DIALOG (dialog), _("Configure the mixer track and command"));
   
   button = gtk_button_new_from_stock (GTK_STOCK_CLOSE);
   gtk_dialog_add_action_widget (GTK_DIALOG (dialog), button, GTK_RESPONSE_CLOSE);
@@ -241,7 +241,7 @@ xfce_plugin_dialog_create_contents (XfcePluginDialog *dialog)
   gtk_widget_show (dialog->track_combo);
 
   label = gtk_label_new (NULL);
-  title = g_strdup_printf ("<span weight='bold'>%s</span>", _("Left-click command"));
+  title = g_strdup_printf ("<span weight='bold'>%s</span>", _("Command"));
   gtk_label_set_markup (GTK_LABEL (label), title);
   gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
   gtk_box_pack_start (GTK_BOX (vbox), label, FALSE, FALSE, 0);

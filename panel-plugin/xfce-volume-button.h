@@ -24,6 +24,8 @@
 
 #include <gtk/gtk.h>
 
+#include <libxfce4panel/libxfce4panel.h>
+
 G_BEGIN_DECLS;
 
 typedef struct _XfceVolumeButtonClass XfceVolumeButtonClass;
@@ -38,22 +40,24 @@ typedef struct _XfceVolumeButton      XfceVolumeButton;
 
 GType     xfce_volume_button_get_type           (void) G_GNUC_CONST;
 
-GtkWidget *xfce_volume_button_new               (void);
-
-void       xfce_volume_button_set_muted         (XfceVolumeButton *button,
-                                                 gboolean          is_muted);
-void       xfce_volume_button_set_volume        (XfceVolumeButton *button,
-                                                 gdouble           volume);
-gboolean   xfce_volume_button_get_muted         (XfceVolumeButton *button);
-void       xfce_volume_button_update            (XfceVolumeButton *button);
-void       xfce_volume_button_set_icon_size     (XfceVolumeButton *button,
-                                                 gint              size);
-void       xfce_volume_button_set_track_label   (XfceVolumeButton *button,
-                                                 const gchar      *track_label);
-gchar     *xfce_volume_button_get_track_label   (XfceVolumeButton *button);
-void       xfce_volume_button_set_is_configured (XfceVolumeButton *button,
-                                                 gboolean          is_configured);
-gboolean   xfce_volume_button_get_is_configured (XfceVolumeButton *button);
+GtkWidget *        xfce_volume_button_new                 (void);
+void               xfce_volume_button_set_muted           (XfceVolumeButton   *button,
+                                                           gboolean            is_muted);
+void               xfce_volume_button_set_volume          (XfceVolumeButton   *button,
+                                                           gdouble             volume);
+gboolean           xfce_volume_button_get_muted           (XfceVolumeButton   *button);
+void               xfce_volume_button_update              (XfceVolumeButton   *button);
+void               xfce_volume_button_set_icon_size       (XfceVolumeButton   *button,
+                                                           gint                size);
+void               xfce_volume_button_set_track_label     (XfceVolumeButton   *button,
+                                                           const gchar        *track_label);
+gchar *            xfce_volume_button_get_track_label     (XfceVolumeButton   *button);
+void               xfce_volume_button_set_is_configured   (XfceVolumeButton   *button,
+                                                           gboolean            is_configured);
+gboolean           xfce_volume_button_get_is_configured   (XfceVolumeButton   *button);
+void               xfce_volume_button_set_screen_position (XfceVolumeButton   *button,
+                                                           XfceScreenPosition  screen_position);
+XfceScreenPosition xfce_volume_button_get_screen_position (XfceVolumeButton   *button);
 
 G_END_DECLS;
 

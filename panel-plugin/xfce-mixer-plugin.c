@@ -71,38 +71,43 @@ enum
 
 
 
-static void     xfce_mixer_plugin_construct                   (XfcePanelPlugin  *plugin);
-static void     xfce_mixer_plugin_set_property                (GObject          *object,
-                                                               guint             prop_id,
-                                                               const GValue     *value,
-                                                               GParamSpec       *pspec);
-static void     xfce_mixer_plugin_get_property                (GObject          *object,
-                                                               guint             prop_id,
-                                                               GValue           *value,
-                                                               GParamSpec       *pspec);
-static void     xfce_mixer_plugin_free_data                   (XfcePanelPlugin  *plugin);
-static void     xfce_mixer_plugin_configure_plugin            (XfcePanelPlugin  *plugin);
-static gboolean xfce_mixer_plugin_size_changed                (XfcePanelPlugin  *plugin,
-                                                               gint              size);
-static void     xfce_mixer_plugin_clicked                     (XfceMixerPlugin  *mixer_plugin);
-static void     xfce_mixer_plugin_volume_changed              (XfceMixerPlugin  *mixer_plugin,
-                                                               gdouble           volume);
-static void     xfce_mixer_plugin_mute_changed                (XfceMixerPlugin  *mixer_plugin,
-                                                               gboolean         muted);
-static void     xfce_mixer_plugin_mute_item_toggled           (XfceMixerPlugin  *mixer_plugin,
-                                                               GtkCheckMenuItem *mute_menu_item);
-static void     xfce_mixer_plugin_is_muted_property_changed   (XfceMixerPlugin  *mixer_plugin,
-                                                               GParamSpec       *pspec,
-                                                               GObject          *object);
-static void     xfce_mixer_plugin_update_track                (XfceMixerPlugin  *mixer_plugin);
-static void     xfce_mixer_plugin_bus_message                 (GstBus           *bus,
-                                                               GstMessage       *message,
-                                                               XfceMixerPlugin  *mixer_plugin);
+static void     xfce_mixer_plugin_construct                 (XfcePanelPlugin    *plugin);
+static void     xfce_mixer_plugin_set_property              (GObject            *object,
+                                                             guint               prop_id,
+                                                             const GValue       *value,
+                                                             GParamSpec         *pspec);
+static void     xfce_mixer_plugin_get_property              (GObject            *object,
+                                                             guint               prop_id,
+                                                             GValue             *value,
+                                                             GParamSpec         *pspec);
+static void     xfce_mixer_plugin_free_data                 (XfcePanelPlugin    *plugin);
+static void     xfce_mixer_plugin_configure_plugin          (XfcePanelPlugin    *plugin);
+static gboolean xfce_mixer_plugin_size_changed              (XfcePanelPlugin    *plugin,
+                                                             gint                size);
+static void     xfce_mixer_plugin_screen_position_changed   (XfcePanelPlugin    *plugin,
+                                                             XfceScreenPosition  screen_position);
+static void     xfce_mixer_plugin_button_toggled            (XfceMixerPlugin    *mixer_plugin,
+                                                             GtkToggleButton    *togglebutton);
+static void     xfce_mixer_plugin_volume_changed            (XfceMixerPlugin    *mixer_plugin,
+                                                             gdouble             volume);
+static void     xfce_mixer_plugin_mute_changed              (XfceMixerPlugin    *mixer_plugin,
+                                                             gboolean            muted);
+static void     xfce_mixer_plugin_mute_item_toggled         (XfceMixerPlugin    *mixer_plugin,
+                                                             GtkCheckMenuItem   *mute_menu_item);
+static void     xfce_mixer_plugin_command_item_activated    (XfceMixerPlugin    *mixer_plugin,
+                                                             GtkMenuItem        *menuitem);
+static void     xfce_mixer_plugin_is_muted_property_changed (XfceMixerPlugin    *mixer_plugin,
+                                                             GParamSpec         *pspec,
+                                                             GObject            *object);
+static void     xfce_mixer_plugin_update_track              (XfceMixerPlugin    *mixer_plugin);
+static void     xfce_mixer_plugin_bus_message               (GstBus             *bus,
+                                                             GstMessage         *message,
+                                                             XfceMixerPlugin    *mixer_plugin);
 #ifdef HAVE_KEYBINDER
-static void     xfce_mixer_plugin_volume_key_pressed          (const char      *keystring,
-                                                               void            *user_data);
-static void     xfce_mixer_plugin_mute_pressed                (const char      *keystring,
-                                                               void            *user_data);
+static void     xfce_mixer_plugin_volume_key_pressed        (const char         *keystring,
+                                                             void               *user_data);
+static void     xfce_mixer_plugin_mute_pressed              (const char         *keystring,
+                                                             void               *user_data);
 #endif
 
 
@@ -173,8 +178,8 @@ xfce_mixer_plugin_class_init (XfceMixerPluginClass *klass)
   plugin_class->construct = xfce_mixer_plugin_construct;
   plugin_class->free_data = xfce_mixer_plugin_free_data;
   plugin_class->size_changed = xfce_mixer_plugin_size_changed;
+  plugin_class->screen_position_changed = xfce_mixer_plugin_screen_position_changed;
   plugin_class->configure_plugin = xfce_mixer_plugin_configure_plugin;
-
 
   g_object_class_install_property (gobject_class,
                                    PROP_SOUND_CARD,
@@ -256,7 +261,7 @@ xfce_mixer_plugin_init (XfceMixerPlugin *mixer_plugin)
   mixer_plugin->button = xfce_volume_button_new ();
   g_signal_connect_swapped (G_OBJECT (mixer_plugin->button), "volume-changed", G_CALLBACK (xfce_mixer_plugin_volume_changed), mixer_plugin);
   g_signal_connect_swapped (G_OBJECT (mixer_plugin->button), "notify::is-muted", G_CALLBACK (xfce_mixer_plugin_is_muted_property_changed), mixer_plugin);
-  g_signal_connect_swapped (G_OBJECT (mixer_plugin->button), "clicked", G_CALLBACK (xfce_mixer_plugin_clicked), mixer_plugin);
+  g_signal_connect_swapped (G_OBJECT (mixer_plugin->button), "toggled", G_CALLBACK (xfce_mixer_plugin_button_toggled), mixer_plugin);
   gtk_container_add (GTK_CONTAINER (mixer_plugin->hvbox), mixer_plugin->button);
   gtk_widget_show (mixer_plugin->button);
 
@@ -270,6 +275,7 @@ static void
 xfce_mixer_plugin_construct (XfcePanelPlugin *plugin)
 {
   XfceMixerPlugin *mixer_plugin = XFCE_MIXER_PLUGIN (plugin);
+  GtkWidget       *command_menu_item;
 
   xfce_panel_plugin_menu_show_configure (plugin);
 
@@ -278,6 +284,12 @@ xfce_mixer_plugin_construct (XfcePanelPlugin *plugin)
   xfce_panel_plugin_menu_insert_item (plugin, GTK_MENU_ITEM (mixer_plugin->mute_menu_item));
   g_signal_connect_swapped (G_OBJECT (mixer_plugin->mute_menu_item), "toggled", G_CALLBACK (xfce_mixer_plugin_mute_item_toggled), mixer_plugin);
   gtk_widget_show (mixer_plugin->mute_menu_item);
+
+  /* Add menu item for running the user-defined command */
+  command_menu_item = gtk_menu_item_new_with_mnemonic (_("_Run command"));
+  xfce_panel_plugin_menu_insert_item (plugin, GTK_MENU_ITEM (command_menu_item));
+  g_signal_connect_swapped (G_OBJECT (command_menu_item), "activate", G_CALLBACK (xfce_mixer_plugin_command_item_activated), mixer_plugin);
+  gtk_widget_show (command_menu_item);
 
   /* Only occupy a single row in deskbar mode */
   xfce_panel_plugin_set_small (XFCE_PANEL_PLUGIN (mixer_plugin), TRUE);
@@ -565,49 +577,29 @@ xfce_mixer_plugin_size_changed (XfcePanelPlugin *plugin,
 
 
 static void
-xfce_mixer_plugin_clicked (XfceMixerPlugin *mixer_plugin)
+xfce_mixer_plugin_screen_position_changed (XfcePanelPlugin    *plugin,
+                                           XfceScreenPosition  screen_position)
 {
-  gchar *message;
-  gint   response;
+  XfceMixerPlugin *mixer_plugin = XFCE_MIXER_PLUGIN (plugin);
 
-  g_return_if_fail (mixer_plugin != NULL);
+  g_return_if_fail (IS_XFCE_MIXER_PLUGIN (mixer_plugin));
+  g_return_if_fail (GTK_IS_WIDGET (mixer_plugin->button));
 
-  if (G_UNLIKELY (mixer_plugin->command == NULL || strlen (mixer_plugin->command) == 0))
-    {
-      /* Run error message dialog */
-      response = xfce_message_dialog (NULL,
-                                      _("No left-click command defined"),
-                                      GTK_STOCK_DIALOG_ERROR,
-                                      NULL,
-                                      _("No left-click command defined yet. You can change this in the plugin properties."),
-                                      XFCE_BUTTON_TYPE_MIXED, _("Properties"), GTK_STOCK_PREFERENCES, GTK_RESPONSE_ACCEPT,
-                                      GTK_STOCK_CLOSE, GTK_RESPONSE_REJECT,
-                                      NULL);
+  xfce_volume_button_set_screen_position (XFCE_VOLUME_BUTTON (mixer_plugin->button), screen_position);
+}
 
-      /* Configure the plugin if requested by the user */
-      if (G_LIKELY (response == GTK_RESPONSE_ACCEPT))
-        xfce_mixer_plugin_configure_plugin (XFCE_PANEL_PLUGIN (mixer_plugin));
 
-      return;
-    }
 
-  /* Try to start the mixer command */
-  if (G_UNLIKELY (!g_spawn_command_line_async (mixer_plugin->command, NULL)))
-    {
-      /* Generate error message and insert the current command */
-      message = g_strdup_printf (_("Could not execute the command \"%s\". "
-                                   "Ensure that either the location of the command "
-                                   "is included in the PATH environment variable or "
-                                   "that you are providing the full path to the "
-                                   "command."), 
-                                 mixer_plugin->command);
+static void
+xfce_mixer_plugin_button_toggled (XfceMixerPlugin *mixer_plugin,
+                                  GtkToggleButton *togglebutton)
+{
+  gboolean active;
 
-      /* Display error */
-      xfce_dialog_show_error (NULL, NULL, "%s", message); 
+  g_object_get (G_OBJECT (togglebutton), "active", &active, NULL);
 
-      /* Free error message */
-      g_free (message);
-    }
+  /* Block autohide while the dock is shown */
+  xfce_panel_plugin_block_autohide (XFCE_PANEL_PLUGIN (mixer_plugin), active);
 }
 
 
@@ -691,6 +683,55 @@ xfce_mixer_plugin_mute_item_toggled (XfceMixerPlugin  *mixer_plugin,
   xfce_volume_button_set_muted (XFCE_VOLUME_BUTTON (mixer_plugin->button), muted);
 
   xfce_mixer_plugin_mute_changed (mixer_plugin, muted);
+}
+
+
+
+static void
+xfce_mixer_plugin_command_item_activated (XfceMixerPlugin *mixer_plugin,
+                                          GtkMenuItem     *menuitem)
+{
+  gchar *message;
+  gint   response;
+
+  g_return_if_fail (mixer_plugin != NULL);
+
+  if (G_UNLIKELY (mixer_plugin->command == NULL || strlen (mixer_plugin->command) == 0))
+    {
+      /* Run error message dialog */
+      response = xfce_message_dialog (NULL,
+                                      _("No command defined"),
+                                      GTK_STOCK_DIALOG_ERROR,
+                                      NULL,
+                                      _("No command defined yet. You can change this in the plugin properties."),
+                                      XFCE_BUTTON_TYPE_MIXED, _("Properties"), GTK_STOCK_PREFERENCES, GTK_RESPONSE_ACCEPT,
+                                      GTK_STOCK_CLOSE, GTK_RESPONSE_REJECT,
+                                      NULL);
+
+      /* Configure the plugin if requested by the user */
+      if (G_LIKELY (response == GTK_RESPONSE_ACCEPT))
+        xfce_mixer_plugin_configure_plugin (XFCE_PANEL_PLUGIN (mixer_plugin));
+
+      return;
+    }
+
+  /* Try to start the mixer command */
+  if (G_UNLIKELY (!g_spawn_command_line_async (mixer_plugin->command, NULL)))
+    {
+      /* Generate error message and insert the current command */
+      message = g_strdup_printf (_("Could not execute the command \"%s\". "
+                                   "Ensure that either the location of the command "
+                                   "is included in the PATH environment variable or "
+                                   "that you are providing the full path to the "
+                                   "command."), 
+                                 mixer_plugin->command);
+
+      /* Display error */
+      xfce_dialog_show_error (NULL, NULL, "%s", message); 
+
+      /* Free error message */
+      g_free (message);
+    }
 }
 
 
