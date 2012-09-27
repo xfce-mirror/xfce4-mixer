@@ -9,6 +9,7 @@ libmixer_la_SOURCES =							\
 	xfce-plugin-dialog.c						\
 	xfce-volume-button.h						\
 	xfce-volume-button.c						\
+	xfce-mixer-plugin.h						\
 	xfce-mixer-plugin.c
 
 libmixer_la_CFLAGS =							\
@@ -23,6 +24,7 @@ libmixer_la_CFLAGS =							\
 	$(LIBXFCE4UTIL_CFLAGS)						\
 	$(LIBXFCE4UI_CFLAGS)						\
 	$(LIBXFCE4PANEL_CFLAGS)						\
+	$(XFCONF_CFLAGS)						\
 	$(GST_PLUGINS_BASE_CFLAGS)
 
 libmixer_la_DEPENDENCIES =						\
@@ -42,6 +44,7 @@ libmixer_la_LIBADD =							\
 	$(LIBXFCE4UTIL_LIBS)						\
 	$(LIBXFCE4UI_LIBS)						\
 	$(LIBXFCE4PANEL_LIBS)						\
+	$(XFCONF_LIBS)							\
 	$(GST_PLUGINS_BASE_LIBS)					\
 	-lgstaudio-0.10							\
 	-lgstinterfaces-0.10

@@ -8,6 +8,7 @@
 - Use standard icons where possible.
 - Update the icons on theme change (bug #3498).
 - Support xfce4-panel 4.10 with its deskbar mode (bug #8350).
+- Use xfconf for the panel plugin configuration.
 
 
 4.8.0

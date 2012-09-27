@@ -1,6 +1,7 @@
 /* vi:set expandtab sw=2 sts=2: */
 /*-
  * Copyright (c) 2008 Jannis Pohlmann <jannis@xfce.org>
+ * Copyright (c) 2012 Guido Berhoerster <guido+xfce@berhoerster.name>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -291,3 +292,19 @@ _xfce_mixer_destroy_mixer (GstMixer *mixer)
   gst_element_set_state (GST_ELEMENT (mixer), GST_STATE_NULL);
   gst_object_unref (GST_OBJECT (mixer));
 }
+
+
+
+int
+xfce_mixer_utf8_cmp (const gchar *s1, const gchar *s2)
+{
+  if (s1 == NULL && s2 != NULL)
+    return 1;
+  else if (s1 != NULL && s2 == NULL)
+    return -1;
+  else if (s1 == NULL && s2 == NULL)
+    return 0;
+
+  return g_utf8_collate (s1, s2);
+}
+

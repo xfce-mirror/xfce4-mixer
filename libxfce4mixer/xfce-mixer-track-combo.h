@@ -1,6 +1,7 @@
 /* vi:set expandtab sw=2 sts=2: */
 /*-
  * Copyright (c) 2008 Jannis Pohlmann <jannis@xfce.org>
+ * Copyright (c) 2012 Guido Berhoerster <guido+xfce@berhoerster.name>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -46,6 +47,8 @@ GtkWidget     *xfce_mixer_track_combo_new              (GstElement          *car
 void           xfce_mixer_track_combo_set_soundcard    (XfceMixerTrackCombo *combo,
                                                         GstElement          *card);
 GstMixerTrack *xfce_mixer_track_combo_get_active_track (XfceMixerTrackCombo *combo);
+void           xfce_mixer_track_combo_set_active_track (XfceMixerTrackCombo *combo,
+                                                        GstMixerTrack       *track);
 
 G_END_DECLS;
 

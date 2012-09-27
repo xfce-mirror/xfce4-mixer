@@ -52,8 +52,6 @@ static void  xfce_mixer_card_combo_class_init        (XfceMixerCardComboClass *k
 static void  xfce_mixer_card_combo_init              (XfceMixerCardCombo      *combo);
 static void  xfce_mixer_card_combo_finalize          (GObject                 *object);
 static void  xfce_mixer_card_combo_changed           (XfceMixerCardCombo      *combo);
-static void _xfce_mixer_card_combo_set_active_card   (XfceMixerCardCombo      *combo,
-                                                      GstElement              *card);
 
 
 
@@ -177,7 +175,7 @@ xfce_mixer_card_combo_new (GstElement *card)
   
   combo = g_object_new (TYPE_XFCE_MIXER_CARD_COMBO, NULL);
 
-  _xfce_mixer_card_combo_set_active_card (XFCE_MIXER_CARD_COMBO (combo), card);
+  xfce_mixer_card_combo_set_active_card (XFCE_MIXER_CARD_COMBO (combo), card);
 
   return combo;
 }
@@ -215,8 +213,8 @@ xfce_mixer_card_combo_get_active_card (XfceMixerCardCombo *combo)
 
 
 
-static void
-_xfce_mixer_card_combo_set_active_card (XfceMixerCardCombo *combo,
+void
+xfce_mixer_card_combo_set_active_card (XfceMixerCardCombo *combo,
                                         GstElement         *card)
 {
   GstElement *current_card = NULL;
@@ -238,10 +236,8 @@ _xfce_mixer_card_combo_set_active_card (XfceMixerCardCombo *combo,
 
           valid_iter = gtk_tree_model_iter_next (GTK_TREE_MODEL (combo->list_store), &iter);
         }
+      gtk_combo_box_set_active_iter (GTK_COMBO_BOX (combo), &iter);
     }
-
-  if (G_LIKELY (card != NULL && current_card == card))
-    gtk_combo_box_set_active_iter (GTK_COMBO_BOX (combo), &iter);
   else
     gtk_combo_box_set_active (GTK_COMBO_BOX (combo), 0);
 }

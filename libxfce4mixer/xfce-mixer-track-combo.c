@@ -1,6 +1,7 @@
 /* vi:set expandtab sw=2 sts=2: */
 /*-
  * Copyright (c) 2008 Jannis Pohlmann <jannis@xfce.org>
+ * Copyright (c) 2012 Guido Berhoerster <guido+xfce@berhoerster.name>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -56,8 +57,6 @@ static void  xfce_mixer_track_combo_class_init (XfceMixerTrackComboClass *klass)
 static void  xfce_mixer_track_combo_init       (XfceMixerTrackCombo      *combo);
 static void  xfce_mixer_track_combo_finalize   (GObject                  *object);
 static void  xfce_mixer_track_combo_changed    (XfceMixerTrackCombo      *combo);
-static void _xfce_mixer_track_combo_set_track  (XfceMixerTrackCombo      *combo,
-                                                GstMixerTrack            *track);
 
 
 
@@ -142,7 +141,6 @@ xfce_mixer_track_combo_init (XfceMixerTrackCombo *combo)
   GtkCellRenderer *renderer;
 
   combo->card = NULL;
-  combo->track = NULL;
 
   combo->list_store = gtk_list_store_new (2, G_TYPE_STRING, GST_TYPE_MIXER_TRACK);
   gtk_combo_box_set_model (GTK_COMBO_BOX (combo), GTK_TREE_MODEL (combo->list_store));
@@ -173,14 +171,16 @@ GtkWidget*
 xfce_mixer_track_combo_new (GstElement    *card,
                             GstMixerTrack *track)
 {
-  GtkWidget *combo;
+  GtkWidget           *widget;
+  XfceMixerTrackCombo *combo;
 
-  combo = g_object_new (TYPE_XFCE_MIXER_TRACK_COMBO, NULL);
+  widget = g_object_new (TYPE_XFCE_MIXER_TRACK_COMBO, NULL);
+  combo = XFCE_MIXER_TRACK_COMBO (widget);
 
-  _xfce_mixer_track_combo_set_track (XFCE_MIXER_TRACK_COMBO (combo), track);
-  xfce_mixer_track_combo_set_soundcard (XFCE_MIXER_TRACK_COMBO (combo), card);
+  xfce_mixer_track_combo_set_soundcard (combo, card);
+  xfce_mixer_track_combo_set_active_track (combo, track);
 
-  return combo;
+  return widget;
 }
 
 
@@ -196,6 +196,7 @@ xfce_mixer_track_combo_set_soundcard (XfceMixerTrackCombo *combo,
   gchar             *label;
   gint               counter;
   gint               active_index = 0;
+  GstMixerTrack     *track;
 
   g_return_if_fail (IS_XFCE_MIXER_TRACK_COMBO (combo));
 
@@ -209,6 +210,9 @@ xfce_mixer_track_combo_set_soundcard (XfceMixerTrackCombo *combo,
       if (G_LIKELY (g_list_length (cards) > 0))
         combo->card = g_list_first (cards)->data;
     }
+
+  /* Try to re-use the current track */
+  track = xfce_mixer_track_combo_get_active_track (combo);
 
   /* Clear the list store data */
   gtk_list_store_clear (combo->list_store);
@@ -228,7 +232,7 @@ xfce_mixer_track_combo_set_soundcard (XfceMixerTrackCombo *combo,
 
           g_free (label);
 
-          if (G_UNLIKELY (combo->track != NULL && combo->track == GST_MIXER_TRACK (iter->data)))
+          if (G_UNLIKELY (track != NULL && track == GST_MIXER_TRACK (iter->data)))
             active_index = counter;
 
           ++counter;
@@ -236,16 +240,6 @@ xfce_mixer_track_combo_set_soundcard (XfceMixerTrackCombo *combo,
     }
 
   gtk_combo_box_set_active (GTK_COMBO_BOX (combo), active_index);
-}
-
-
-
-void
-_xfce_mixer_track_combo_set_track (XfceMixerTrackCombo *combo,
-                                   GstMixerTrack       *track)
-{
-  g_return_if_fail (IS_XFCE_MIXER_TRACK_COMBO (combo));
-  combo->track = track;
 }
 
 
@@ -279,4 +273,38 @@ xfce_mixer_track_combo_get_active_track (XfceMixerTrackCombo *combo)
     gtk_tree_model_get (GTK_TREE_MODEL (combo->list_store), &iter, TRACK_COLUMN, &track, -1);
 
   return track;
+}
+
+void
+xfce_mixer_track_combo_set_active_track (XfceMixerTrackCombo *combo,
+                                         GstMixerTrack       *track)
+{
+  GstMixerTrack *current_track = NULL;
+  GtkTreeIter    iter;
+  gboolean       valid_iter;
+
+  g_return_if_fail (IS_XFCE_MIXER_TRACK_COMBO (combo));
+
+  if (G_UNLIKELY (!GST_IS_MIXER_TRACK (track)))
+    {
+      gtk_combo_box_set_active (GTK_COMBO_BOX (combo), 0);
+      return;
+    }
+
+  valid_iter = gtk_tree_model_get_iter_first (GTK_TREE_MODEL (combo->list_store), &iter);
+
+  while (valid_iter)
+    {
+      gtk_tree_model_get (GTK_TREE_MODEL (combo->list_store), &iter, TRACK_COLUMN, &current_track, -1);
+
+      if (G_UNLIKELY (current_track == track))
+        break;
+
+      valid_iter = gtk_tree_model_iter_next (GTK_TREE_MODEL (combo->list_store), &iter);
+    }
+
+  if (G_LIKELY (current_track == track))
+    gtk_combo_box_set_active_iter (GTK_COMBO_BOX (combo), &iter);
+  else
+    gtk_combo_box_set_active (GTK_COMBO_BOX (combo), 0);
 }
