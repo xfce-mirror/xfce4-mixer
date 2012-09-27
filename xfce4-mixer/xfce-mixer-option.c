@@ -189,6 +189,9 @@ xfce_mixer_option_create_contents (XfceMixerOption *option)
     }
   
   gtk_box_pack_start (GTK_BOX (option), option->combo, FALSE, FALSE, 0);
+  /* Make read-only options insensitive */
+  if (GST_MIXER_TRACK_HAS_FLAG (option->track, GST_MIXER_TRACK_READONLY))
+    gtk_widget_set_sensitive (option->combo, FALSE);
   gtk_widget_show (option->combo);
 
   g_signal_connect (option->combo, "changed", G_CALLBACK (xfce_mixer_option_changed), option);

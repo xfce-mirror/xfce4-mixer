@@ -224,31 +224,56 @@ xfce_mixer_get_track (GstElement  *card,
 GstMixerTrack *
 xfce_mixer_get_default_track (GstElement *card)
 {
-  GstMixerTrack *track = NULL;
-  const GList   *iter;
-  GstMixerTrack *track_tmp;
-  const GList   *tracks;
+  GstMixerTrack      *track = NULL;
+  XfceMixerTrackType  track_type = G_TYPE_INVALID;
+  const GList        *iter;
+  GstMixerTrack      *track_tmp;
+  XfceMixerTrackType  track_type_tmp;
 
   g_return_val_if_fail (GST_IS_MIXER (card), NULL);
 
-  /* Try to get the master track */
+  /*
+   * Try to get the master track if it is a playback or capture track and not
+   * read-only
+   */
   for (iter = gst_mixer_list_tracks (GST_MIXER (card)); iter != NULL; iter = g_list_next (iter))
     {
       track_tmp = GST_MIXER_TRACK (iter->data);
+      track_type_tmp = xfce_mixer_track_type_new (track_tmp);
 
-      if (GST_MIXER_TRACK_HAS_FLAG (track_tmp, GST_MIXER_TRACK_MASTER))
+      if (GST_MIXER_TRACK_HAS_FLAG (track_tmp, GST_MIXER_TRACK_MASTER) &&
+          (track_type_tmp == XFCE_MIXER_TRACK_TYPE_PLAYBACK ||
+           track_type_tmp == XFCE_MIXER_TRACK_TYPE_CAPTURE) &&
+          !GST_MIXER_TRACK_HAS_FLAG (track_tmp, GST_MIXER_TRACK_READONLY))
         {
           track = track_tmp;
+          track_type = track_type_tmp;
           break;
         }
     }
 
-  /* If there is no master track, try to get the first track */
-  if (!GST_IS_MIXER_TRACK (track))
+  /*
+   * If there is no master track, try to get the first track which is a
+   * playback or capture track and not read-only
+   */
+  if (!GST_IS_MIXER_TRACK (track) ||
+      (track_type != XFCE_MIXER_TRACK_TYPE_PLAYBACK &&
+       track_type != XFCE_MIXER_TRACK_TYPE_CAPTURE) ||
+      GST_MIXER_TRACK_HAS_FLAG (track, GST_MIXER_TRACK_READONLY))
     {
-      tracks = gst_mixer_list_tracks (GST_MIXER (card));
-      if (g_list_length (tracks) > 0)
-        track = g_list_first (tracks)->data;
+      for (iter = gst_mixer_list_tracks (GST_MIXER (card)); iter != NULL; iter = g_list_next (iter))
+        {
+          track_tmp = GST_MIXER_TRACK (iter->data);
+          track_type = xfce_mixer_track_type_new (track_tmp);
+
+          if ((track_type == XFCE_MIXER_TRACK_TYPE_PLAYBACK ||
+               track_type == XFCE_MIXER_TRACK_TYPE_CAPTURE) &&
+              !GST_MIXER_TRACK_HAS_FLAG (track_tmp, GST_MIXER_TRACK_READONLY))
+            {
+              track = track_tmp;
+              break;
+            }
+        }
     }
 
   return track;

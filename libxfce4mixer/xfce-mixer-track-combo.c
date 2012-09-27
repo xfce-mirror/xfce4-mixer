@@ -195,6 +195,7 @@ xfce_mixer_track_combo_set_soundcard (XfceMixerTrackCombo *combo,
   gint               counter;
   gint               active_index = 0;
   GstMixerTrack     *track;
+  GstMixerTrack     *track_new;
 
   g_return_if_fail (IS_XFCE_MIXER_TRACK_COMBO (combo));
 
@@ -217,16 +218,21 @@ xfce_mixer_track_combo_set_soundcard (XfceMixerTrackCombo *combo,
 
   for (iter = gst_mixer_list_tracks (GST_MIXER (combo->card)), counter = 0; iter != NULL; iter = g_list_next (iter))
     {
-      type = xfce_mixer_track_type_new (iter->data);
+      track_new = GST_MIXER_TRACK (iter->data);
+      type = xfce_mixer_track_type_new (track_new);
 
-      if (type == XFCE_MIXER_TRACK_TYPE_PLAYBACK || type == XFCE_MIXER_TRACK_TYPE_CAPTURE)
+      /* Only include writable playback or capture tracks */
+      if ((type == XFCE_MIXER_TRACK_TYPE_PLAYBACK &&
+           !GST_MIXER_TRACK_HAS_FLAG (track_new, GST_MIXER_TRACK_READONLY)) ||
+          (type == XFCE_MIXER_TRACK_TYPE_CAPTURE &&
+           !GST_MIXER_TRACK_HAS_FLAG (track_new, GST_MIXER_TRACK_READONLY)))
         {
           gtk_list_store_append (combo->list_store, &tree_iter);
           gtk_list_store_set (combo->list_store, &tree_iter, 
-                              NAME_COLUMN, xfce_mixer_get_track_label (GST_MIXER_TRACK (iter->data)), 
+                              NAME_COLUMN, xfce_mixer_get_track_label (track_new),
                               TRACK_COLUMN, GST_MIXER_TRACK (iter->data), -1);
 
-          if (G_UNLIKELY (track != NULL && track == GST_MIXER_TRACK (iter->data)))
+          if (G_UNLIKELY (GST_IS_MIXER_TRACK (track) && track == track_new))
             active_index = counter;
 
           ++counter;

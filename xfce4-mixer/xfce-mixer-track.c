@@ -220,6 +220,9 @@ xfce_mixer_track_create_contents (XfceMixerTrack *track)
       gtk_range_set_inverted (GTK_RANGE (fader), TRUE);
       gtk_range_set_value (GTK_RANGE (fader), volumes[channel]);
       gtk_widget_set_tooltip_text (fader, tooltip_text);
+      /* Make read-only tracks insensitive */
+      if (GST_MIXER_TRACK_HAS_FLAG (track->gst_track, GST_MIXER_TRACK_READONLY))
+        gtk_widget_set_sensitive (fader, FALSE);
       g_signal_connect (fader, "value-changed", G_CALLBACK (xfce_mixer_track_fader_changed), track);
       gtk_table_attach (GTK_TABLE (track), fader, channel, channel + 1, 1, 2, GTK_SHRINK, GTK_FILL|GTK_EXPAND, 0, 0);
       gtk_widget_show (fader);
@@ -243,6 +246,10 @@ xfce_mixer_track_create_contents (XfceMixerTrack *track)
       image = gtk_image_new_from_icon_name ("audio-volume-high", XFCE_MIXER_ICON_SIZE); 
       gtk_button_set_image (GTK_BUTTON (track->mute_button), image);
       gtk_widget_set_tooltip_text (track->mute_button, tooltip_text);
+      /* Make button insensitive for tracks without mute or read-only tracks */
+      if (GST_MIXER_TRACK_HAS_FLAG (track->gst_track, GST_MIXER_TRACK_READONLY) ||
+          GST_MIXER_TRACK_HAS_FLAG (track->gst_track, GST_MIXER_TRACK_NO_MUTE))
+        gtk_widget_set_sensitive (track->mute_button, FALSE);
       g_signal_connect (track->mute_button, "toggled", G_CALLBACK (xfce_mixer_track_mute_toggled), track);
       gtk_box_pack_start (GTK_BOX (button_box), track->mute_button, FALSE, FALSE, 0);
       gtk_widget_show (track->mute_button);
@@ -255,10 +262,14 @@ xfce_mixer_track_create_contents (XfceMixerTrack *track)
       tooltip_text = g_strdup_printf (_("Lock channels for %s together"), track_label);
 
       track->lock_button = gtk_toggle_button_new ();
+      gtk_widget_set_size_request (GTK_WIDGET (track->lock_button), -1, XFCE_MIXER_ICON_SIZE);
       image = gtk_image_new_from_file (DATADIR "/pixmaps/xfce4-mixer/chain.png");
       gtk_button_set_image (GTK_BUTTON (track->lock_button), image);
       gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (track->lock_button), TRUE);
       gtk_widget_set_tooltip_text (track->lock_button, tooltip_text);
+      /* Make button insensitive for read-only tracks */
+      if (GST_MIXER_TRACK_HAS_FLAG (track->gst_track, GST_MIXER_TRACK_READONLY))
+        gtk_widget_set_sensitive (track->lock_button, FALSE);
       g_signal_connect (track->lock_button, "toggled", G_CALLBACK (xfce_mixer_track_lock_toggled), track);
       gtk_box_pack_start (GTK_BOX (button_box), track->lock_button, FALSE, FALSE, 0);
       gtk_widget_show (track->lock_button);
@@ -275,6 +286,10 @@ xfce_mixer_track_create_contents (XfceMixerTrack *track)
       image = gtk_image_new_from_icon_name ("audio-input-microphone-muted", XFCE_MIXER_ICON_SIZE);
       gtk_button_set_image (GTK_BUTTON (track->record_button), image);
       gtk_widget_set_tooltip_text (track->record_button, tooltip_text);
+      /* Make button insensitive for tracks without record or read-only tracks */
+      if (GST_MIXER_TRACK_HAS_FLAG (track->gst_track, GST_MIXER_TRACK_READONLY) ||
+          GST_MIXER_TRACK_HAS_FLAG (track->gst_track, GST_MIXER_TRACK_NO_RECORD))
+        gtk_widget_set_sensitive (track->record_button, FALSE);
       g_signal_connect (track->record_button, "toggled", G_CALLBACK (xfce_mixer_track_record_toggled), track);
       gtk_box_pack_start (GTK_BOX (button_box), track->record_button, FALSE, FALSE, 0);
       gtk_widget_show (track->record_button);

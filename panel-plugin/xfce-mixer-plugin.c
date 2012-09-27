@@ -347,12 +347,13 @@ xfce_mixer_plugin_set_property (GObject      *object,
                                 const GValue *value,
                                 GParamSpec   *pspec)
 {
-  XfceMixerPlugin *mixer_plugin = XFCE_MIXER_PLUGIN (object);
-  const gchar     *card_name;
-  GstElement      *card = NULL;
-  gchar           *track_label = NULL;
-  GstMixerTrack   *track = NULL;
-  gboolean         enable_keyboard_shortcuts;
+  XfceMixerPlugin    *mixer_plugin = XFCE_MIXER_PLUGIN (object);
+  const gchar        *card_name;
+  GstElement         *card = NULL;
+  gchar              *track_label = NULL;
+  GstMixerTrack      *track = NULL;
+  XfceMixerTrackType  track_type = G_TYPE_INVALID;
+  gboolean            enable_keyboard_shortcuts;
 
   switch(prop_id)
     {
@@ -408,8 +409,17 @@ xfce_mixer_plugin_set_property (GObject      *object,
             if (track_label != NULL)
               track = xfce_mixer_get_track (mixer_plugin->card, track_label);
 
-            /* If the given track label is invalid resort to the default */
-            if (!GST_IS_MIXER_TRACK (track))
+            if (GST_IS_MIXER_TRACK (track))
+              track_type = xfce_mixer_track_type_new (track);
+
+            /*
+             * If the given track is invalid or not a playback or capture track
+             * or read-only resort to the default
+             */
+            if (!GST_IS_MIXER_TRACK (track) ||
+                (track_type != XFCE_MIXER_TRACK_TYPE_PLAYBACK &&
+                 track_type != XFCE_MIXER_TRACK_TYPE_CAPTURE) ||
+                GST_MIXER_TRACK_HAS_FLAG (track, GST_MIXER_TRACK_READONLY))
               {
                 g_free (track_label);
                 track = xfce_mixer_get_default_track (mixer_plugin->card);
@@ -665,13 +675,22 @@ static void
 xfce_mixer_plugin_mute_changed (XfceMixerPlugin *mixer_plugin,
                                 gboolean         muted)
 {
+  XfceMixerTrackType track_type;
+
   g_return_if_fail (GST_IS_MIXER (mixer_plugin->card));
   g_return_if_fail (GST_IS_MIXER_TRACK (mixer_plugin->track));
 
+  track_type = xfce_mixer_track_type_new (mixer_plugin->track);
+
+  if ((track_type == XFCE_MIXER_TRACK_TYPE_PLAYBACK &&
+       GST_MIXER_TRACK_HAS_FLAG (mixer_plugin->track, GST_MIXER_TRACK_NO_MUTE)) ||
+      (track_type == XFCE_MIXER_TRACK_TYPE_CAPTURE &&
+       GST_MIXER_TRACK_HAS_FLAG (mixer_plugin->track, GST_MIXER_TRACK_NO_RECORD)))
+    return;
+
   mixer_plugin->ignore_bus_messages = TRUE;
 
-
-  if (G_LIKELY (xfce_mixer_track_type_new (mixer_plugin->track) == XFCE_MIXER_TRACK_TYPE_PLAYBACK))
+  if (G_LIKELY (track_type == XFCE_MIXER_TRACK_TYPE_PLAYBACK))
     {
       /* Apply mute change to the sound card */
       gst_mixer_set_mute (GST_MIXER (mixer_plugin->card), mixer_plugin->track, muted);
@@ -795,14 +814,32 @@ xfce_mixer_plugin_update_track (XfceMixerPlugin *mixer_plugin)
   else if (track_type == XFCE_MIXER_TRACK_TYPE_CAPTURE)
     muted = !GST_MIXER_TRACK_HAS_FLAG (mixer_plugin->track, GST_MIXER_TRACK_RECORD);
 
-  /* Update the volume button */
+  /* Update the volume button and menu */
   xfce_volume_button_set_is_configured (XFCE_VOLUME_BUTTON (mixer_plugin->button), TRUE);
-  xfce_volume_button_set_volume (XFCE_VOLUME_BUTTON (mixer_plugin->button), volume);
-  xfce_volume_button_set_muted (XFCE_VOLUME_BUTTON (mixer_plugin->button), muted);
   xfce_volume_button_set_track_label (XFCE_VOLUME_BUTTON (mixer_plugin->button), xfce_mixer_get_track_label (mixer_plugin->track));
+  xfce_volume_button_set_volume (XFCE_VOLUME_BUTTON (mixer_plugin->button), volume);
 
-  /* Update mute menu item */
-  gtk_check_menu_item_set_active (GTK_CHECK_MENU_ITEM (mixer_plugin->mute_menu_item), muted);
+  /*
+   * If the track does not support mute/record, disable the corresponding menu
+   * item and button functionality
+   */
+  if ((track_type == XFCE_MIXER_TRACK_TYPE_PLAYBACK &&
+       GST_MIXER_TRACK_HAS_FLAG (mixer_plugin->track, GST_MIXER_TRACK_NO_MUTE)) ||
+      (track_type == XFCE_MIXER_TRACK_TYPE_CAPTURE &&
+       GST_MIXER_TRACK_HAS_FLAG (mixer_plugin->track, GST_MIXER_TRACK_NO_RECORD)))
+    {
+      xfce_volume_button_set_no_mute (XFCE_VOLUME_BUTTON (mixer_plugin->button), TRUE);
+      xfce_volume_button_set_muted (XFCE_VOLUME_BUTTON (mixer_plugin->button), FALSE);
+      gtk_widget_set_sensitive (mixer_plugin->mute_menu_item, FALSE);
+      gtk_check_menu_item_set_active (GTK_CHECK_MENU_ITEM (mixer_plugin->mute_menu_item), FALSE);
+    }
+  else
+    {
+      xfce_volume_button_set_no_mute (XFCE_VOLUME_BUTTON (mixer_plugin->button), FALSE);
+      xfce_volume_button_set_muted (XFCE_VOLUME_BUTTON (mixer_plugin->button), muted);
+      gtk_widget_set_sensitive (mixer_plugin->mute_menu_item, TRUE);
+      gtk_check_menu_item_set_active (GTK_CHECK_MENU_ITEM (mixer_plugin->mute_menu_item), muted);
+    }
 
   /* Free volume array */
   g_free (volumes);

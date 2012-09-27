@@ -51,6 +51,7 @@ enum
   PROP_0,
   PROP_TRACK_LABEL,
   PROP_IS_CONFIGURED,
+  PROP_NO_MUTE,
   PROP_IS_MUTED,
   PROP_SCREEN_POSITION,
   N_PROPERTIES,
@@ -167,6 +168,9 @@ struct _XfceVolumeButton
   /* Whether the button is configured */
   gboolean             is_configured;
 
+  /* Whether mute can be used */
+  gboolean             no_mute;
+
   /* Mute state of the button */
   gboolean             is_muted;
 };
@@ -248,6 +252,15 @@ xfce_volume_button_class_init (XfceVolumeButtonClass *klass)
                                                          G_PARAM_READABLE | G_PARAM_WRITABLE));
 
   g_object_class_install_property (gobject_class,
+                                   PROP_NO_MUTE,
+                                   g_param_spec_boolean ("no-mute",
+                                                         "no-mute",
+                                                         "no-mute",
+                                                         TRUE,
+                                                         G_PARAM_READABLE | G_PARAM_WRITABLE));
+
+
+  g_object_class_install_property (gobject_class,
                                    PROP_IS_MUTED,
                                    g_param_spec_boolean ("is-muted",
                                                          "is-muted",
@@ -299,6 +312,9 @@ xfce_volume_button_init (XfceVolumeButton *button)
 
   /* Create adjustment for the button (from 0.0 to 1.0 in 5% steps) */
   button->adjustment = gtk_adjustment_new (0.0, 0.0, 1.0, 0.01, 0.05, 0.0);
+
+  /* By default mute can be used */
+  button->no_mute = FALSE;
 
   /* Set to muted by default since the initial adjustment value is 0 */
   button->is_muted = TRUE;
@@ -368,6 +384,7 @@ static void xfce_volume_button_set_property (GObject      *object,
 {
   XfceVolumeButton *button = XFCE_VOLUME_BUTTON (object);
   gboolean          is_configured;
+  gboolean          no_mute;
   gboolean          is_muted;
 
   switch (prop_id)
@@ -378,9 +395,19 @@ static void xfce_volume_button_set_property (GObject      *object,
         if (button->is_configured)
           xfce_volume_button_update (button);
         break;
+      case PROP_NO_MUTE:
+        no_mute = g_value_get_boolean (value);
+        if (button->is_configured && button->no_mute != no_mute)
+          {
+            button->no_mute = no_mute;
+            if (no_mute)
+              button->is_muted = FALSE;
+            xfce_volume_button_update (button);
+          }
+        break;
       case PROP_IS_MUTED:
         is_muted = g_value_get_boolean (value);
-        if (button->is_configured && button->is_muted != is_muted)
+        if (button->is_configured && !button->no_mute && button->is_muted != is_muted)
           {
             button->is_muted = is_muted;
             xfce_volume_button_update (button);
@@ -423,6 +450,9 @@ static void xfce_volume_button_get_property (GObject      *object,
       case PROP_TRACK_LABEL:
         g_value_set_string (value, button->track_label);
         break;
+      case PROP_NO_MUTE:
+        g_value_set_boolean (value, button->no_mute);
+        break;
       case PROP_IS_MUTED:
         g_value_set_boolean (value, button->is_muted);
         break;
@@ -464,9 +494,9 @@ xfce_volume_button_scale_changed_value (XfceVolumeButton *button,
   if (fabs (new_value - old_value) > VOLUME_EPSILON)
     {
       /* Mute when volume reaches 0%, unmute if volume is raised from 0% */
-      if (new_value < VOLUME_EPSILON && !button->is_muted)
+      if (new_value < VOLUME_EPSILON && !button->is_muted && !button->no_mute)
         xfce_volume_button_set_muted (button, TRUE);
-      else if (old_value < VOLUME_EPSILON && button->is_muted)
+      else if (old_value < VOLUME_EPSILON && button->is_muted && !button->no_mute)
         xfce_volume_button_set_muted (button, FALSE);
       else
         {
@@ -740,8 +770,8 @@ xfce_volume_button_button_press_event (GtkWidget      *widget,
     }
   else if (event->button == 2)
     {
-      /* Only toggle mute if button is in configured state */
-      if (button->is_configured)
+      /* Only toggle mute if button is in configured state and can be muted */
+      if (button->is_configured && !button->no_mute)
         {
           /* Determine the new mute state by negating the current state */
           muted = !button->is_muted;
@@ -794,9 +824,9 @@ xfce_volume_button_scroll_event (GtkWidget      *widget,
   if (fabs (new_value - old_value) > VOLUME_EPSILON)
     {
       /* Mute when volume reaches 0%, unmute if volume is raised from 0% */
-      if (new_value < VOLUME_EPSILON && !button->is_muted)
+      if (new_value < VOLUME_EPSILON && !button->is_muted && !button->no_mute)
         xfce_volume_button_set_muted (button, TRUE);
-      else if (old_value < VOLUME_EPSILON && button->is_muted)
+      else if (old_value < VOLUME_EPSILON && button->is_muted && !button->no_mute)
         xfce_volume_button_set_muted (button, FALSE);
       else
         {
@@ -859,7 +889,7 @@ xfce_volume_button_update (XfceVolumeButton *button)
   else
     {
       /* Set tooltip (e.g. 'Master: 50% (muted)') */
-      if (button->is_muted)
+      if (button->is_muted && !button->no_mute)
         tip_text = g_strdup_printf (_("%s: muted"), button->track_label);
       else
         tip_text = g_strdup_printf (_("%s: %i%%"), button->track_label, (gint) round (value * 100));
@@ -979,6 +1009,36 @@ xfce_volume_button_dock_grab_broken (XfceVolumeButton *button,
     xfce_volume_button_popdown_dock (button);
 
   return FALSE;
+}
+
+
+
+void
+xfce_volume_button_set_no_mute (XfceVolumeButton *button,
+                                gboolean          no_mute)
+{
+  GValue value = G_VALUE_INIT;
+
+  g_return_if_fail (IS_XFCE_VOLUME_BUTTON (button));
+
+  g_value_init (&value, G_TYPE_BOOLEAN);
+  g_value_set_boolean (&value, no_mute);
+  g_object_set_property (G_OBJECT (button), "no-mute", &value);
+}
+
+
+
+gboolean
+xfce_volume_button_get_no_mute (XfceVolumeButton *button)
+{
+  GValue value = G_VALUE_INIT;
+
+  g_return_val_if_fail (IS_XFCE_VOLUME_BUTTON (button), FALSE);
+
+  g_value_init (&value, G_TYPE_BOOLEAN);
+  g_object_get_property (G_OBJECT (button), "no-mute", &value);
+
+  return g_value_get_boolean (&value);
 }
 
 

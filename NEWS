@@ -41,6 +41,9 @@
 - Add runtime debugging mode to both the mixer and the panel plugin.
 - Add man page for xfce4-mixer.
 - Handle identically named tracks by making use of the track index property.
+- Handle tracks which are marked read-only by GStreamer or which have no mute
+  or record functionality by making the corresponding widgets insensitive.
+  Prevent read-only tracks from being selected in the panel-plugin.
 
 
 4.8.0

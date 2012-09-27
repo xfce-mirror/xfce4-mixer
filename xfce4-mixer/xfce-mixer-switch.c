@@ -170,6 +170,15 @@ xfce_mixer_switch_create_contents (XfceMixerSwitch *mixer_switch)
 
   xfce_mixer_switch_update (mixer_switch);
 
+  /* Make read-only switches insensitive */
+  if ((GST_MIXER_TRACK_HAS_FLAG (mixer_switch->track, GST_MIXER_TRACK_INPUT) &&
+       (GST_MIXER_TRACK_HAS_FLAG (mixer_switch->track, GST_MIXER_TRACK_NO_RECORD) ||
+        GST_MIXER_TRACK_HAS_FLAG (mixer_switch->track, GST_MIXER_TRACK_READONLY))) ||
+      (GST_MIXER_TRACK_HAS_FLAG (mixer_switch->track, GST_MIXER_TRACK_OUTPUT) &&
+       (GST_MIXER_TRACK_HAS_FLAG (mixer_switch->track, GST_MIXER_TRACK_NO_MUTE) ||
+        GST_MIXER_TRACK_HAS_FLAG (mixer_switch->track, GST_MIXER_TRACK_READONLY))))
+    gtk_widget_set_sensitive (GTK_WIDGET (mixer_switch->check_button), FALSE);
+
   g_signal_connect (mixer_switch->check_button, "toggled", G_CALLBACK (xfce_mixer_switch_toggled), mixer_switch);
 }
 

@@ -41,10 +41,13 @@ typedef struct _XfceVolumeButton      XfceVolumeButton;
 GType     xfce_volume_button_get_type           (void) G_GNUC_CONST;
 
 GtkWidget *        xfce_volume_button_new                 (void);
+void               xfce_volume_button_set_no_mute         (XfceVolumeButton   *button,
+                                                           gboolean            no_mute);
 void               xfce_volume_button_set_muted           (XfceVolumeButton   *button,
                                                            gboolean            is_muted);
 void               xfce_volume_button_set_volume          (XfceVolumeButton   *button,
                                                            gdouble             volume);
+gboolean           xfce_volume_button_get_no_mute         (XfceVolumeButton   *button);
 gboolean           xfce_volume_button_get_muted           (XfceVolumeButton   *button);
 void               xfce_volume_button_update              (XfceVolumeButton   *button);
 void               xfce_volume_button_set_icon_size       (XfceVolumeButton   *button,
