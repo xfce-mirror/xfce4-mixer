@@ -44,6 +44,8 @@
 - Handle tracks which are marked read-only by GStreamer or which have no mute
   or record functionality by making the corresponding widgets insensitive.
   Prevent read-only tracks from being selected in the panel-plugin.
+- Handle mixer changed messages which indicate that the tracks of a mixer have
+  changed.
 
 
 4.8.0

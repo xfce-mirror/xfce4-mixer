@@ -53,10 +53,14 @@ static guint combo_signals[LAST_SIGNAL];
 
 
 
-static void  xfce_mixer_track_combo_class_init (XfceMixerTrackComboClass *klass);
-static void  xfce_mixer_track_combo_init       (XfceMixerTrackCombo      *combo);
-static void  xfce_mixer_track_combo_finalize   (GObject                  *object);
-static void  xfce_mixer_track_combo_changed    (XfceMixerTrackCombo      *combo);
+static void  xfce_mixer_track_combo_class_init        (XfceMixerTrackComboClass *klass);
+static void  xfce_mixer_track_combo_init              (XfceMixerTrackCombo      *combo);
+static void  xfce_mixer_track_combo_finalize          (GObject                  *object);
+static void  xfce_mixer_track_combo_update_track_list (XfceMixerTrackCombo      *combo);
+static void  xfce_mixer_track_combo_bus_message       (GstBus                   *bus,
+                                                       GstMessage               *message,
+                                                       XfceMixerTrackCombo      *combo);
+static void  xfce_mixer_track_combo_changed           (XfceMixerTrackCombo      *combo);
 
 
 
@@ -73,6 +77,7 @@ struct _XfceMixerTrackCombo
 
   GstElement    *card;
   GstMixerTrack *track;
+  guint          signal_handler_id;
 };
 
 
@@ -140,6 +145,8 @@ xfce_mixer_track_combo_init (XfceMixerTrackCombo *combo)
 {
   GtkCellRenderer *renderer;
 
+  combo->signal_handler_id = xfce_mixer_bus_connect (G_CALLBACK (xfce_mixer_track_combo_bus_message), combo);
+
   combo->card = NULL;
 
   combo->list_store = gtk_list_store_new (2, G_TYPE_STRING, GST_TYPE_MIXER_TRACK);
@@ -158,6 +165,12 @@ static void
 xfce_mixer_track_combo_finalize (GObject *object)
 {
   XfceMixerTrackCombo *combo = XFCE_MIXER_TRACK_COMBO (object);
+
+  if (combo->signal_handler_id > 0)
+    {
+      xfce_mixer_bus_disconnect (combo->signal_handler_id);
+      combo->signal_handler_id = 0;
+    }
 
   gtk_list_store_clear (combo->list_store);
   g_object_unref (combo->list_store);
@@ -185,9 +198,8 @@ xfce_mixer_track_combo_new (GstElement    *card,
 
 
 
-void
-xfce_mixer_track_combo_set_soundcard (XfceMixerTrackCombo *combo,
-                                      GstElement          *card)
+static void
+xfce_mixer_track_combo_update_track_list (XfceMixerTrackCombo *combo)
 {
   XfceMixerTrackType type;
   GtkTreeIter        tree_iter;
@@ -197,18 +209,7 @@ xfce_mixer_track_combo_set_soundcard (XfceMixerTrackCombo *combo,
   GstMixerTrack     *track;
   GstMixerTrack     *track_new;
 
-  g_return_if_fail (IS_XFCE_MIXER_TRACK_COMBO (combo));
-
-  /* Remember card. If the card is invalid, use the first one available */
-  if (GST_IS_MIXER (card))
-    combo->card = card;
-  else
-    {
-      card = xfce_mixer_get_default_card ();
-
-      if (GST_IS_MIXER (card))
-        combo->card = card;
-    }
+  g_return_if_fail (GST_IS_MIXER (combo->card));
 
   /* Try to re-use the current track */
   track = xfce_mixer_track_combo_get_active_track (combo);
@@ -240,6 +241,30 @@ xfce_mixer_track_combo_set_soundcard (XfceMixerTrackCombo *combo,
     }
 
   gtk_combo_box_set_active (GTK_COMBO_BOX (combo), active_index);
+}
+
+
+
+void
+xfce_mixer_track_combo_set_soundcard (XfceMixerTrackCombo *combo,
+                                      GstElement          *card)
+{
+  g_return_if_fail (IS_XFCE_MIXER_TRACK_COMBO (combo));
+
+  /* Remember card. If the card is invalid, use the first one available */
+  if (GST_IS_MIXER (card))
+    combo->card = card;
+  else
+    {
+      card = xfce_mixer_get_default_card ();
+
+      if (GST_IS_MIXER (card))
+        combo->card = card;
+      else
+        return;
+    }
+
+  xfce_mixer_track_combo_update_track_list (combo);
 }
 
 
@@ -307,4 +332,19 @@ xfce_mixer_track_combo_set_active_track (XfceMixerTrackCombo *combo,
     gtk_combo_box_set_active_iter (GTK_COMBO_BOX (combo), &iter);
   else
     gtk_combo_box_set_active (GTK_COMBO_BOX (combo), 0);
+}
+
+
+
+static void
+xfce_mixer_track_combo_bus_message (GstBus              *bus,
+                                    GstMessage          *message,
+                                    XfceMixerTrackCombo *combo)
+{
+  if (!GST_IS_MIXER (combo->card) || GST_MESSAGE_SRC (message) != GST_OBJECT (combo->card))
+    return;
+
+  /* Rebuild track list if the tracks for this card have changed */
+  if (gst_mixer_message_get_type (message) == GST_MIXER_MESSAGE_MIXER_CHANGED)
+    xfce_mixer_track_combo_update_track_list (combo);
 }

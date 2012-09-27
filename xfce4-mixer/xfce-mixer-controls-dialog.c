@@ -53,6 +53,9 @@ static void   xfce_mixer_controls_dialog_update_preferences   (XfceMixerControls
 static void   xfce_mixer_controls_dialog_control_toggled      (GtkCellRendererToggle        *renderer,
                                                                gchar                        *path,
                                                                XfceMixerControlsDialog      *dialog);
+static void  xfce_mixer_controls_dialog_bus_message           (GstBus                       *bus,
+                                                               GstMessage                   *message,
+                                                               XfceMixerControlsDialog      *dialog);
 
 
 
@@ -68,6 +71,7 @@ struct _XfceMixerControlsDialog
   XfceMixerWindow      *parent;
   XfceMixerPreferences *preferences;
   GstElement           *card;
+  guint                 signal_handler_id;
 
   GtkWidget            *frame;
   GtkListStore         *store;
@@ -134,6 +138,8 @@ xfce_mixer_controls_dialog_init (XfceMixerControlsDialog *dialog)
 
   dialog->preferences = xfce_mixer_preferences_get ();
 
+  dialog->signal_handler_id = xfce_mixer_bus_connect (G_CALLBACK (xfce_mixer_controls_dialog_bus_message), dialog);
+
   dialog->card = NULL;
 
   dialog->frame = NULL;
@@ -163,6 +169,12 @@ static void
 xfce_mixer_controls_dialog_finalize (GObject *object)
 {
   XfceMixerControlsDialog *dialog = XFCE_MIXER_CONTROLS_DIALOG (object);
+
+  if (dialog->signal_handler_id > 0)
+    {
+      xfce_mixer_bus_disconnect (dialog->signal_handler_id);
+      dialog->signal_handler_id = 0;
+    }
 
   g_object_unref (G_OBJECT (dialog->preferences));
 
@@ -237,6 +249,17 @@ xfce_mixer_controls_dialog_create_contents (XfceMixerControlsDialog *dialog)
   gtk_tree_view_append_column (GTK_TREE_VIEW (view), column);
 
   xfce_mixer_controls_dialog_update_dialog (dialog);
+}
+
+
+
+static void
+xfce_mixer_controls_dialog_update_contents (XfceMixerControlsDialog *dialog)
+{
+  g_return_if_fail (IS_XFCE_MIXER_CONTROLS_DIALOG (dialog));
+
+  gtk_widget_destroy (dialog->frame);
+  xfce_mixer_controls_dialog_create_contents (dialog);
 }
 
 
@@ -350,7 +373,20 @@ xfce_mixer_controls_dialog_set_soundcard (XfceMixerControlsDialog *dialog,
   dialog->card = card;
 
   /* Recreate contents corresponding to the new card */
-  gtk_widget_destroy (dialog->frame);
-  xfce_mixer_controls_dialog_create_contents (dialog);
+  xfce_mixer_controls_dialog_update_contents (dialog);
 }
 
+
+
+static void
+xfce_mixer_controls_dialog_bus_message (GstBus                  *bus,
+                                        GstMessage              *message,
+                                        XfceMixerControlsDialog *dialog)
+{
+  if (!GST_IS_MIXER (dialog->card) || GST_MESSAGE_SRC (message) != GST_OBJECT (dialog->card))
+    return;
+
+  /* Rebuild track list if the tracks for this card have changed */
+  if (gst_mixer_message_get_type (message) == GST_MIXER_MESSAGE_MIXER_CHANGED)
+    xfce_mixer_controls_dialog_update_contents (dialog);
+}

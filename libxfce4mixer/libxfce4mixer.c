@@ -40,11 +40,16 @@
 
 
 
-static gboolean _xfce_mixer_filter_mixer     (GstMixer *mixer,
-                                              gpointer  user_data);
-static void     _xfce_mixer_add_track_labels (gpointer  data,
-                                              gpointer  user_data);
-static void     _xfce_mixer_destroy_mixer    (GstMixer *mixer);
+static gboolean _xfce_mixer_filter_mixer     (GstMixer   *mixer,
+                                              gpointer    user_data);
+static void     _xfce_mixer_add_track_labels (gpointer    data,
+                                              gpointer    user_data);
+static void     _xfce_mixer_init_mixer       (gpointer    data,
+                                              gpointer    user_data);
+static void     _xfce_mixer_destroy_mixer    (GstMixer   *mixer);
+static void     _xfce_mixer_bus_message      (GstBus     *bus,
+                                              GstMessage *message,
+                                              gpointer    user_data);
 
 
 
@@ -85,12 +90,16 @@ xfce_mixer_init (void)
       /* Get list of all available mixer devices */
       mixers = gst_audio_default_registry_mixer_filter (_xfce_mixer_filter_mixer, FALSE, &counter);
 
-      /* Add custom labels to all tracks of all mixers */
-      g_list_foreach (mixers, (GFunc) _xfce_mixer_add_track_labels, NULL);
-
       /* Create a GstBus for notifications */
       bus = gst_bus_new ();
       gst_bus_add_signal_watch (bus);
+
+      /*
+       * Add custom labels to all tracks of all mixers and create a GstBus for
+       * each mixer device and connect an internal signal handler to receive
+       * notifications about track list changes
+       */
+      g_list_foreach (mixers, (GFunc) _xfce_mixer_init_mixer, NULL);
     }
 }
 
@@ -188,7 +197,6 @@ xfce_mixer_select_card (GstElement *card)
 {
   g_return_if_fail (GST_IS_MIXER (card));
 
-  gst_element_set_bus (card, bus);
   selected_card = card;
 }
 
@@ -361,6 +369,7 @@ void
 xfce_mixer_bus_disconnect (guint signal_handler_id)
 {
   g_return_if_fail (refcount > 0);
+
   if (signal_handler_id != 0)
     g_signal_handler_disconnect (bus, signal_handler_id);
 }
@@ -478,10 +487,40 @@ _xfce_mixer_add_track_labels (gpointer data,
 
 
 static void
+_xfce_mixer_init_mixer (gpointer data,
+                        gpointer user_data)
+{
+  GstMixer *card = GST_MIXER (data);
+
+  /* Add custom labels to all tracks */
+  _xfce_mixer_add_track_labels (card, NULL);
+
+  /* Add bus to every card and connect to internal signal handler */
+  gst_element_set_bus (GST_ELEMENT (card), bus);
+  g_signal_connect (bus, "message::element", G_CALLBACK (_xfce_mixer_bus_message), NULL);
+}
+
+
+
+static void
 _xfce_mixer_destroy_mixer (GstMixer *mixer)
 {
+  g_signal_handlers_disconnect_by_func (bus, _xfce_mixer_bus_message, NULL);
+
   gst_element_set_state (GST_ELEMENT (mixer), GST_STATE_NULL);
   gst_object_unref (GST_OBJECT (mixer));
+}
+
+
+
+static void
+_xfce_mixer_bus_message (GstBus     *bus,
+                         GstMessage *message,
+                         gpointer    user_data)
+{
+  /* Add labels in case the tracks have changed */
+  if (gst_mixer_message_get_type (message) == GST_MIXER_MESSAGE_MIXER_CHANGED)
+    _xfce_mixer_add_track_labels (GST_MIXER (GST_MESSAGE_SRC (message)), NULL);
 }
 
 

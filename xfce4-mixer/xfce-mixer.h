@@ -1,6 +1,7 @@
 /* vi:set expandtab sw=2 sts=2: */
 /*-
  * Copyright (c) 2008 Jannis Pohlmann <jannis@xfce.org>
+ * Copyright (c) 2012 Guido Berhoerster <guido+xfce@berhoerster.name>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -38,7 +39,8 @@ typedef struct _XfceMixer      XfceMixer;
 
 GType      xfce_mixer_get_type (void) G_GNUC_CONST;
 
-GtkWidget *xfce_mixer_new      (GstElement *card);
+GtkWidget  *xfce_mixer_new             (GstElement *card);
+void        xfce_mixer_update_contents (XfceMixer  *mixer);
 
 G_END_DECLS;
 

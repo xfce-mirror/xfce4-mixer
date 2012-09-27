@@ -58,6 +58,7 @@ static void xfce_mixer_set_property    (GObject        *object,
                                         guint           prop_id,
                                         const GValue   *value,
                                         GParamSpec     *pspec);
+static void xfce_mixer_create_contents (XfceMixer      *mixer);
 static void xfce_mixer_bus_message     (GstBus         *bus,
                                         GstMessage     *message,
                                         XfceMixer      *mixer);
@@ -135,8 +136,7 @@ xfce_mixer_class_init (XfceMixerClass *klass)
                                                         "card",
                                                         "card",
                                                         GST_TYPE_ELEMENT,
-                                                        G_PARAM_CONSTRUCT_ONLY | 
-                                                        G_PARAM_READWRITE));
+                                                        G_PARAM_READABLE | G_PARAM_WRITABLE));
 }
 
 
@@ -144,6 +144,7 @@ xfce_mixer_class_init (XfceMixerClass *klass)
 static void
 xfce_mixer_instance_init (XfceMixer *mixer)
 {
+  mixer->card = NULL;
   mixer->widgets = g_hash_table_new_full (g_str_hash, g_str_equal, g_free, NULL);
   mixer->message_handler_id = 0;
 }
@@ -153,164 +154,12 @@ xfce_mixer_instance_init (XfceMixer *mixer)
 static void
 xfce_mixer_constructed (GObject *object)
 {
-  XfceMixer            *mixer = XFCE_MIXER (object);
-  XfceMixerPreferences *preferences;
-  XfceMixerTrackType    type;
-  GstMixerTrack        *track;
-  const GList          *iter;
-  const gchar          *titles[4] = { N_("Playback"), N_("Capture"), N_("Switches"), N_("Options") };
-  GtkWidget            *track_widget;
-  GtkWidget            *labels[4];
-  GtkWidget            *scrollwins[4];
-  GtkWidget            *views[4];
-  GtkWidget            *last_separator[4] = { NULL, NULL, NULL, NULL };
-  GtkWidget            *label1;
-  GtkWidget            *label2;
-  const gchar          *track_label;
-  guint                 num_children[4] = { 0, 0, 0, 0 };
-  gint                  i;
+  XfceMixer *mixer = XFCE_MIXER (object);
 
-  g_hash_table_remove_all (mixer->widgets);
-
-  preferences = xfce_mixer_preferences_get ();
-
-  /* Create widgets for all four tabs */
-  for (i = 0; i < 4; ++i)
-    {
-      labels[i] = gtk_label_new (_(titles[i]));
-      scrollwins[i] = gtk_scrolled_window_new (NULL, NULL);
-      gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (scrollwins[i]), GTK_SHADOW_IN);
-      gtk_container_set_border_width (GTK_CONTAINER (scrollwins[i]), 6);
-      gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrollwins[i]), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
-
-      if (i < 2) 
-        {
-          views[i] = gtk_table_new (1, 1, FALSE);
-          gtk_table_set_col_spacings (GTK_TABLE (views[i]), 12);
-          gtk_table_set_row_spacings (GTK_TABLE (views[i]), 6);
-        }
-      else
-        views[i] = gtk_vbox_new (FALSE, 6);
-
-      gtk_container_set_border_width (GTK_CONTAINER (views[i]), 6);
-      gtk_scrolled_window_add_with_viewport (GTK_SCROLLED_WINDOW (scrollwins[i]), views[i]);
-      gtk_viewport_set_shadow_type (GTK_VIEWPORT (gtk_bin_get_child (GTK_BIN (scrollwins[i]))), GTK_SHADOW_NONE);
-      gtk_widget_show (views[i]);
-      gtk_widget_show (scrollwins[i]);
-    }
-
-  /* Create controls for all mixer tracks */
-  for (iter = gst_mixer_list_tracks (GST_MIXER (mixer->card)); iter != NULL; iter = g_list_next (iter))
-    {
-      track = GST_MIXER_TRACK (iter->data);
-
-      track_label = xfce_mixer_get_track_label (track);
-
-      if (!xfce_mixer_preferences_get_control_visible (preferences, track_label))
-        continue;
-
-      /* Determine the type of the mixer track */
-      type = xfce_mixer_track_type_new (track);
-
-      switch (type) 
-        {
-        case XFCE_MIXER_TRACK_TYPE_PLAYBACK:
-          /* Create a regular volume control for this track */
-          track_widget = xfce_mixer_track_new (mixer->card, track);
-          gtk_table_attach (GTK_TABLE (views[0]), track_widget, 
-                            num_children[0], num_children[0] + 1, 0, 1, GTK_SHRINK, GTK_FILL|GTK_EXPAND, 0, 0);
-          gtk_widget_show (track_widget);
-          num_children[0]++;
-
-          /* Append a separator. The last one will be destroyed later */
-          last_separator[0] = gtk_vseparator_new ();
-          gtk_table_attach (GTK_TABLE (views[0]), last_separator[0], 
-                            num_children[0], num_children[0] + 1, 0, 1, GTK_SHRINK, GTK_FILL|GTK_EXPAND, 0, 0);
-          gtk_widget_show (last_separator[0]);
-          num_children[0]++;
-
-          /* Add the track to the hash table */
-          g_hash_table_insert (mixer->widgets, g_strdup (track_label), track_widget);
-          break;
-
-        case XFCE_MIXER_TRACK_TYPE_CAPTURE:
-          /* Create a regular volume control for this track */
-          track_widget = xfce_mixer_track_new (mixer->card, track);
-          gtk_table_attach (GTK_TABLE (views[1]), track_widget, 
-                            num_children[1], num_children[1] + 1, 0, 1, GTK_SHRINK, GTK_FILL|GTK_EXPAND, 0, 0);
-          gtk_widget_show (track_widget);
-          num_children[1]++;
-
-          /* Append a separator. The last one will be destroyed later */
-          last_separator[1] = gtk_vseparator_new ();
-          gtk_table_attach (GTK_TABLE (views[1]), last_separator[1], 
-                            num_children[1], num_children[1] + 1, 0, 1, GTK_SHRINK, GTK_FILL|GTK_EXPAND, 0, 0);
-          gtk_widget_show (last_separator[1]);
-          num_children[1]++;
-
-          /* Add the track to the hash table */
-          g_hash_table_insert (mixer->widgets, g_strdup (track_label), track_widget);
-          break;
-
-        case XFCE_MIXER_TRACK_TYPE_SWITCH:
-          track_widget = xfce_mixer_switch_new (mixer->card, track);
-          gtk_box_pack_start (GTK_BOX (views[2]), track_widget, FALSE, FALSE, 0);
-          gtk_widget_show (track_widget);
-          num_children[2]++;
-
-          /* Add the track to the hash table */
-          g_hash_table_insert (mixer->widgets, g_strdup (track_label), track_widget);
-          break;
-
-        case XFCE_MIXER_TRACK_TYPE_OPTIONS:
-          track_widget = xfce_mixer_option_new (mixer->card, track);
-          gtk_box_pack_start (GTK_BOX (views[3]), track_widget, FALSE, FALSE, 0);
-          gtk_widget_show (track_widget);
-          num_children[3]++;
-
-          /* Add the track to the hash table */
-          g_hash_table_insert (mixer->widgets, g_strdup (track_label), track_widget);
-          break;
-        }
-    }
-
-  /* Append tab or destroy all its widgets - depending on the contents of each tab */
-  for (i = 0; i < 4; ++i)
-    {
-      /* Destroy the last separator in the tab */
-      if (G_LIKELY (last_separator[i] != NULL))
-        gtk_widget_destroy (last_separator[i]);
-
-      /* Check if there are controls at all for this tab */
-      if (G_LIKELY (num_children[i] > 0))
-        {
-          /* If there are controls, create the notebook tab */
-          gtk_notebook_append_page (GTK_NOTEBOOK (mixer), scrollwins[i], labels[i]);
-        }
-      else
-        {
-          /* Otherwise, destroy all created widgets */
-          gtk_widget_destroy (labels[i]);
-          gtk_widget_destroy (scrollwins[i]);
-        }
-    }
-
-  if (G_UNLIKELY (gtk_notebook_get_n_pages (GTK_NOTEBOOK (mixer)) == 0))
-    {
-      label1 = gtk_label_new (_("No controls visible"));
-      gtk_widget_show (label1);
-
-      label2 = gtk_label_new (NULL);
-      gtk_label_set_markup (GTK_LABEL (label2), _("No controls are marked as visible. Please open the <span size='large'><b>Select Controls</b></span> dialog to select some."));
-      gtk_label_set_line_wrap (GTK_LABEL (label2), TRUE);
-      gtk_widget_show (label2);
-
-      gtk_notebook_append_page (GTK_NOTEBOOK (mixer), label2, label1);
-    }
+  /* Create the content */
+  xfce_mixer_create_contents (XFCE_MIXER (mixer));
 
   mixer->message_handler_id = xfce_mixer_bus_connect (G_CALLBACK (xfce_mixer_bus_message), mixer);
-
-  g_object_unref (preferences);
 }
 
 
@@ -362,7 +211,14 @@ xfce_mixer_set_property (GObject      *object,
   switch (prop_id)
     {
     case PROP_CARD:
+      if (mixer->message_handler_id != 0)
+        xfce_mixer_bus_disconnect (mixer->message_handler_id);
       mixer->card = g_value_dup_object (value);
+      xfce_mixer_update_contents (mixer);
+      if (GST_IS_MIXER (mixer->card))
+        mixer->message_handler_id = xfce_mixer_bus_connect (G_CALLBACK (xfce_mixer_bus_message), mixer);
+      else
+        mixer->message_handler_id = 0;
       break;
     default:
       G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -377,11 +233,199 @@ xfce_mixer_new (GstElement *card)
 {
   GObject *object = NULL;
 
-  g_return_val_if_fail (GST_IS_MIXER (card), NULL);
- 
   object = g_object_new (TYPE_XFCE_MIXER, "card", card, NULL);
 
   return GTK_WIDGET (object);
+}
+
+
+
+static void
+xfce_mixer_create_contents (XfceMixer *mixer)
+{
+  XfceMixerPreferences *preferences;
+  XfceMixerTrackType    type;
+  GstMixerTrack        *track;
+  const GList          *iter;
+  const gchar          *titles[4] = { N_("Playback"), N_("Capture"), N_("Switches"), N_("Options") };
+  GtkWidget            *track_widget;
+  GtkWidget            *labels[4];
+  GtkWidget            *scrollwins[4];
+  GtkWidget            *views[4];
+  GtkWidget            *last_separator[4] = { NULL, NULL, NULL, NULL };
+  GtkWidget            *label1;
+  GtkWidget            *label2;
+  const gchar          *track_label;
+  guint                 num_children[4] = { 0, 0, 0, 0 };
+  gboolean              no_controls_visible = TRUE;
+  gint                  i;
+
+  g_return_if_fail (IS_XFCE_MIXER (mixer));
+
+  preferences = xfce_mixer_preferences_get ();
+
+  /* Create widgets for all four tabs */
+  for (i = 0; i < 4; ++i)
+    {
+      labels[i] = gtk_label_new (_(titles[i]));
+      scrollwins[i] = gtk_scrolled_window_new (NULL, NULL);
+      gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (scrollwins[i]), GTK_SHADOW_IN);
+      gtk_container_set_border_width (GTK_CONTAINER (scrollwins[i]), 6);
+      gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrollwins[i]), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
+
+      if (i < 2) 
+        {
+          views[i] = gtk_table_new (1, 1, FALSE);
+          gtk_table_set_col_spacings (GTK_TABLE (views[i]), 12);
+          gtk_table_set_row_spacings (GTK_TABLE (views[i]), 6);
+        }
+      else
+        views[i] = gtk_vbox_new (FALSE, 6);
+
+      gtk_container_set_border_width (GTK_CONTAINER (views[i]), 6);
+      gtk_scrolled_window_add_with_viewport (GTK_SCROLLED_WINDOW (scrollwins[i]), views[i]);
+      gtk_viewport_set_shadow_type (GTK_VIEWPORT (gtk_bin_get_child (GTK_BIN (scrollwins[i]))), GTK_SHADOW_NONE);
+      gtk_widget_show (views[i]);
+      gtk_widget_show (scrollwins[i]);
+    }
+
+  /* Create controls for all mixer tracks */
+  if (GST_IS_MIXER (mixer->card))
+    {
+      for (iter = gst_mixer_list_tracks (GST_MIXER (mixer->card)); iter != NULL; iter = g_list_next (iter))
+        {
+          track = GST_MIXER_TRACK (iter->data);
+
+          track_label = xfce_mixer_get_track_label (track);
+
+          if (!xfce_mixer_preferences_get_control_visible (preferences, track_label))
+            continue;
+
+          /* Determine the type of the mixer track */
+          type = xfce_mixer_track_type_new (track);
+
+          switch (type) 
+            {
+            case XFCE_MIXER_TRACK_TYPE_PLAYBACK:
+              /* Create a regular volume control for this track */
+              track_widget = xfce_mixer_track_new (mixer->card, track);
+              gtk_table_attach (GTK_TABLE (views[0]), track_widget, 
+                                num_children[0], num_children[0] + 1, 0, 1, GTK_SHRINK, GTK_FILL|GTK_EXPAND, 0, 0);
+              gtk_widget_show (track_widget);
+              num_children[0]++;
+
+              /* Append a separator. The last one will be destroyed later */
+              last_separator[0] = gtk_vseparator_new ();
+              gtk_table_attach (GTK_TABLE (views[0]), last_separator[0], 
+                                num_children[0], num_children[0] + 1, 0, 1, GTK_SHRINK, GTK_FILL|GTK_EXPAND, 0, 0);
+              gtk_widget_show (last_separator[0]);
+              num_children[0]++;
+
+              /* Add the track to the hash table */
+              g_hash_table_insert (mixer->widgets, g_strdup (track_label), track_widget);
+              break;
+
+            case XFCE_MIXER_TRACK_TYPE_CAPTURE:
+              /* Create a regular volume control for this track */
+              track_widget = xfce_mixer_track_new (mixer->card, track);
+              gtk_table_attach (GTK_TABLE (views[1]), track_widget, 
+                                num_children[1], num_children[1] + 1, 0, 1, GTK_SHRINK, GTK_FILL|GTK_EXPAND, 0, 0);
+              gtk_widget_show (track_widget);
+              num_children[1]++;
+
+              /* Append a separator. The last one will be destroyed later */
+              last_separator[1] = gtk_vseparator_new ();
+              gtk_table_attach (GTK_TABLE (views[1]), last_separator[1], 
+                                num_children[1], num_children[1] + 1, 0, 1, GTK_SHRINK, GTK_FILL|GTK_EXPAND, 0, 0);
+              gtk_widget_show (last_separator[1]);
+              num_children[1]++;
+
+              /* Add the track to the hash table */
+              g_hash_table_insert (mixer->widgets, g_strdup (track_label), track_widget);
+              break;
+
+            case XFCE_MIXER_TRACK_TYPE_SWITCH:
+              track_widget = xfce_mixer_switch_new (mixer->card, track);
+              gtk_box_pack_start (GTK_BOX (views[2]), track_widget, FALSE, FALSE, 0);
+              gtk_widget_show (track_widget);
+              num_children[2]++;
+
+              /* Add the track to the hash table */
+              g_hash_table_insert (mixer->widgets, g_strdup (track_label), track_widget);
+              break;
+
+            case XFCE_MIXER_TRACK_TYPE_OPTIONS:
+              track_widget = xfce_mixer_option_new (mixer->card, track);
+              gtk_box_pack_start (GTK_BOX (views[3]), track_widget, FALSE, FALSE, 0);
+              gtk_widget_show (track_widget);
+              num_children[3]++;
+
+              /* Add the track to the hash table */
+              g_hash_table_insert (mixer->widgets, g_strdup (track_label), track_widget);
+              break;
+            }
+        }
+    }
+
+  /* Append tab or destroy all its widgets - depending on the contents of each tab */
+  for (i = 0; i < 4; ++i)
+    {
+      /* Destroy the last separator in the tab */
+      if (G_LIKELY (last_separator[i] != NULL))
+        gtk_widget_destroy (last_separator[i]);
+
+      gtk_notebook_append_page (GTK_NOTEBOOK (mixer), scrollwins[i], labels[i]);
+
+      /* Hide tabs with no visible controls */
+      if (num_children[i] > 0)
+        no_controls_visible = FALSE;
+      else
+        gtk_widget_hide (gtk_notebook_get_nth_page (GTK_NOTEBOOK (mixer), i));
+    }
+
+  /* Show informational message if no controls are visible */
+  if (G_UNLIKELY (no_controls_visible))
+    {
+      label1 = gtk_label_new (_("No controls visible"));
+      gtk_widget_show (label1);
+
+      label2 = gtk_label_new (NULL);
+      gtk_label_set_markup (GTK_LABEL (label2), _("No controls are marked as visible. Please open the <span size='large'><b>Select Controls</b></span> dialog to select some."));
+      gtk_label_set_line_wrap (GTK_LABEL (label2), TRUE);
+      gtk_widget_show (label2);
+
+      gtk_notebook_append_page (GTK_NOTEBOOK (mixer), label2, label1);
+    }
+
+  g_object_unref (preferences);
+}
+
+
+
+void
+xfce_mixer_update_contents (XfceMixer *mixer)
+{
+  gint current_tab;
+  gint i;
+
+  g_return_if_fail (IS_XFCE_MIXER (mixer));
+  g_return_if_fail (mixer->widgets != NULL);
+
+  g_hash_table_remove_all (mixer->widgets);
+
+  /* Remember active tab */
+  current_tab = gtk_notebook_get_current_page (GTK_NOTEBOOK (mixer));
+
+  /* Destroy all tabs */
+  for (i = gtk_notebook_get_n_pages (GTK_NOTEBOOK (mixer)); i >= 0; i--)
+    gtk_notebook_remove_page (GTK_NOTEBOOK (mixer), i);
+
+  /* Re-create contents */
+  xfce_mixer_create_contents (mixer);
+
+  /* Restore previously active tab if possible */
+  if (current_tab > 0 && current_tab < 4)
+    gtk_notebook_set_current_page (GTK_NOTEBOOK (mixer), current_tab);
 }
 
 
@@ -391,7 +435,6 @@ xfce_mixer_bus_message (GstBus     *bus,
                         GstMessage *message,
                         XfceMixer  *mixer)
 {
-  GstMixerMessageType type;
   GstMixerOptions    *options = NULL;
   GstMixerTrack      *track = NULL;
   GtkWidget          *widget;
@@ -407,50 +450,53 @@ xfce_mixer_bus_message (GstBus     *bus,
   if (G_UNLIKELY (GST_MESSAGE_SRC (message) != GST_OBJECT (mixer->card)))
     return;
 
-  type = gst_mixer_message_get_type (message);
-
-  if (type == GST_MIXER_MESSAGE_MUTE_TOGGLED)
+  switch (gst_mixer_message_get_type (message))
     {
-      gst_mixer_message_parse_mute_toggled (message, &track, &muted);
-      label = xfce_mixer_get_track_label (track);
-      xfce_mixer_debug ("Track '%s' was %s", label, muted ? "muted" : "unmuted");
-      widget = g_hash_table_lookup (mixer->widgets, label);
+      case GST_MIXER_MESSAGE_MUTE_TOGGLED:
+        gst_mixer_message_parse_mute_toggled (message, &track, &muted);
+        label = xfce_mixer_get_track_label (track);
+        xfce_mixer_debug ("Track '%s' was %s", label, muted ? "muted" : "unmuted");
+        widget = g_hash_table_lookup (mixer->widgets, label);
 
-      if (IS_XFCE_MIXER_TRACK (widget))
-        xfce_mixer_track_update_mute (XFCE_MIXER_TRACK (widget));
-      else if (IS_XFCE_MIXER_SWITCH (widget))
-        xfce_mixer_switch_update (XFCE_MIXER_SWITCH (widget));
-    }
-  else if (type == GST_MIXER_MESSAGE_RECORD_TOGGLED)
-    {
-      gst_mixer_message_parse_record_toggled (message, &track, &record);
-      label = xfce_mixer_get_track_label (track);
-      xfce_mixer_debug ("Recording on track '%s' was %s", label, record ? "turned on" : "turned off");
-      widget = g_hash_table_lookup (mixer->widgets, label);
+        if (IS_XFCE_MIXER_TRACK (widget))
+          xfce_mixer_track_update_mute (XFCE_MIXER_TRACK (widget));
+        else if (IS_XFCE_MIXER_SWITCH (widget))
+          xfce_mixer_switch_update (XFCE_MIXER_SWITCH (widget));
+        break;
+      case GST_MIXER_MESSAGE_RECORD_TOGGLED:
+        gst_mixer_message_parse_record_toggled (message, &track, &record);
+        label = xfce_mixer_get_track_label (track);
+        xfce_mixer_debug ("Recording on track '%s' was %s", label, record ? "turned on" : "turned off");
+        widget = g_hash_table_lookup (mixer->widgets, label);
 
-      if (IS_XFCE_MIXER_TRACK (widget))
-        xfce_mixer_track_update_record (XFCE_MIXER_TRACK (widget));
-      else if (IS_XFCE_MIXER_SWITCH (widget))
-        xfce_mixer_switch_update (XFCE_MIXER_SWITCH (widget));
-    }
-  else if (type == GST_MIXER_MESSAGE_VOLUME_CHANGED)
-    {
-      gst_mixer_message_parse_volume_changed (message, &track, &volumes, &num_channels);
-      label = xfce_mixer_get_track_label (track);
-      xfce_mixer_debug ("Volume on track '%s' changed to %i", label, volumes[0]);
-      widget = g_hash_table_lookup (mixer->widgets, label);
+        if (IS_XFCE_MIXER_TRACK (widget))
+          xfce_mixer_track_update_record (XFCE_MIXER_TRACK (widget));
+        else if (IS_XFCE_MIXER_SWITCH (widget))
+          xfce_mixer_switch_update (XFCE_MIXER_SWITCH (widget));
+        break;
+      case GST_MIXER_MESSAGE_VOLUME_CHANGED:
+        gst_mixer_message_parse_volume_changed (message, &track, &volumes, &num_channels);
+        label = xfce_mixer_get_track_label (track);
+        xfce_mixer_debug ("Volume on track '%s' changed to %i", label, volumes[0]);
+        widget = g_hash_table_lookup (mixer->widgets, label);
 
-      if (IS_XFCE_MIXER_TRACK (widget))
-        xfce_mixer_track_update_volume (XFCE_MIXER_TRACK (widget));
-    }
-  else if (type == GST_MIXER_MESSAGE_OPTION_CHANGED)
-    {
-      gst_mixer_message_parse_option_changed (message, &options, &option);
-      label = xfce_mixer_get_track_label (GST_MIXER_TRACK (options));
-      xfce_mixer_debug ("Option '%s' was set to '%s'", label, option);
-      widget = g_hash_table_lookup (mixer->widgets, label);
+        if (IS_XFCE_MIXER_TRACK (widget))
+          xfce_mixer_track_update_volume (XFCE_MIXER_TRACK (widget));
+        break;
+      case GST_MIXER_MESSAGE_OPTION_CHANGED:
+        gst_mixer_message_parse_option_changed (message, &options, &option);
+        label = xfce_mixer_get_track_label (GST_MIXER_TRACK (options));
+        xfce_mixer_debug ("Option '%s' was set to '%s'", label, option);
+        widget = g_hash_table_lookup (mixer->widgets, label);
 
-      if (IS_XFCE_MIXER_OPTION (widget))
-        xfce_mixer_option_update (XFCE_MIXER_OPTION (widget));
+        if (IS_XFCE_MIXER_OPTION (widget))
+          xfce_mixer_option_update (XFCE_MIXER_OPTION (widget));
+        break;
+      case GST_MIXER_MESSAGE_MIXER_CHANGED:
+        xfce_mixer_debug ("Mixer tracks have changed");
+        xfce_mixer_update_contents (mixer);
+        break;
+      default:
+        break;
     }
 }

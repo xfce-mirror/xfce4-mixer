@@ -168,8 +168,6 @@ xfce_mixer_window_init (XfceMixerWindow *window)
   gint           width;
   gint           height;
 
-  window->mixer = NULL;
-
   window->controls_dialog = NULL;
 
   window->preferences = xfce_mixer_preferences_get ();
@@ -242,6 +240,10 @@ xfce_mixer_window_init (XfceMixerWindow *window)
   gtk_container_add (GTK_CONTAINER (vbox), window->mixer_frame);
   gtk_widget_show (window->mixer_frame);
 
+  window->mixer = xfce_mixer_new (NULL);
+  gtk_container_add (GTK_CONTAINER (window->mixer_frame), window->mixer);
+  gtk_widget_show (window->mixer);
+
   bbox = gtk_dialog_get_action_area (GTK_DIALOG (window));
   gtk_button_box_set_layout (GTK_BUTTON_BOX (bbox), GTK_BUTTONBOX_EDGE);
   gtk_container_set_border_width (GTK_CONTAINER (bbox), 6);
@@ -266,7 +268,7 @@ xfce_mixer_window_init (XfceMixerWindow *window)
 
   g_signal_connect_swapped (G_OBJECT (window->preferences), "notify::controls", G_CALLBACK (xfce_mixer_window_controls_property_changed), window);
 
-  /* Re-generate mixer controls for the active sound card */
+  /* Update mixer controls for the active sound card */
   xfce_mixer_window_update_contents (window);
 }
 
@@ -314,7 +316,7 @@ xfce_mixer_window_soundcard_changed (XfceMixerCardCombo *combo,
   g_object_set (G_OBJECT (window->preferences), "sound-card", xfce_mixer_get_card_internal_name (card), NULL);
   g_signal_handlers_unblock_by_func (G_OBJECT (window->preferences), xfce_mixer_window_soundcard_property_changed, window);
 
-  /* Re-generate mixer controls for the active sound card */
+  /* Update mixer controls for the active sound card */
   xfce_mixer_window_update_contents (window);
 
   /* Update the controls dialog */
@@ -362,7 +364,7 @@ xfce_mixer_window_soundcard_property_changed (XfceMixerWindow *window,
       xfce_mixer_card_combo_set_active_card (XFCE_MIXER_CARD_COMBO (window->soundcard_combo), new_card);
       g_signal_handlers_unblock_by_func (G_OBJECT (window->soundcard_combo), xfce_mixer_window_soundcard_changed, window);
 
-      /* Re-generate mixer controls for the active sound card */
+      /* Update mixer controls for the active sound card */
       xfce_mixer_window_update_contents (window);
 
       /* Update the controls dialog */
@@ -393,7 +395,7 @@ xfce_mixer_window_controls_property_changed (XfceMixerWindow *window,
                                              GParamSpec      *pspec,
                                              GObject         *object)
 {
-  xfce_mixer_window_update_contents (window);
+  xfce_mixer_update_contents (XFCE_MIXER (window->mixer));
 
   /* Update the controls dialog */
   if (window->controls_dialog != NULL)
@@ -448,27 +450,28 @@ xfce_mixer_window_update_contents (XfceMixerWindow *window)
   g_return_if_fail (IS_XFCE_MIXER_WINDOW (window));
 
   card = xfce_mixer_card_combo_get_active_card (XFCE_MIXER_CARD_COMBO (window->soundcard_combo));
+  if (G_LIKELY (GST_IS_MIXER (card)))
+    {
+      title = g_strdup_printf ("%s - %s", _("Audio Mixer"), xfce_mixer_get_card_display_name (card));
+      gtk_window_set_title (GTK_WINDOW (window), title);
+      g_free (title);
 
-  if (G_UNLIKELY (!GST_IS_MIXER (card)))
-    return;
+      xfce_mixer_select_card (card);
 
-  title = g_strdup_printf ("%s - %s", _("Audio Mixer"), xfce_mixer_get_card_display_name (card));
-  gtk_window_set_title (GTK_WINDOW (window), title);
-  g_free (title);
+      /* Update the XfceMixer containing the controls */
+      g_object_set (window->mixer, "card", card, NULL);
 
-  /* Destroy the current mixer */
-  if (G_LIKELY (window->mixer != NULL))
-    gtk_widget_destroy (window->mixer);
+      /* Make the "Select Controls..." button sensitive */
+      gtk_widget_set_sensitive (window->select_controls_button, TRUE);
+    }
+  else
+    {
+      gtk_window_set_title (GTK_WINDOW (window), _("Audio Mixer"));
 
-  xfce_mixer_select_card (card);
+      /* Update the XfceMixer containing the controls */
+      g_object_set (window->mixer, "card", NULL, NULL);
 
-  /* Create a new XfceMixer for the active sound card */
-  window->mixer = xfce_mixer_new (card);
-
-  /* Add the XfceMixer to the window */
-  gtk_container_add (GTK_CONTAINER (window->mixer_frame), window->mixer);
-  gtk_widget_show (window->mixer);
-
-  /* Make the "Select Controls..." button sensitive */
-  gtk_widget_set_sensitive (window->select_controls_button, TRUE);
+      /* Make the "Select Controls..." button insensitive */
+      gtk_widget_set_sensitive (window->select_controls_button, FALSE);
+    }
 }

@@ -852,10 +852,10 @@ xfce_mixer_plugin_bus_message (GstBus          *bus,
                                GstMessage      *message,
                                XfceMixerPlugin *mixer_plugin)
 {
-  GstMixerTrack      *track = NULL;
-  gboolean            mute;
-  gboolean            record;
-  const gchar        *label;
+  GstMixerTrack *track = NULL;
+  gboolean      mute;
+  gboolean      record;
+  const gchar   *label;
 
   /* Don't do anything if GstBus messages are to be ignored */
   if (G_UNLIKELY (mixer_plugin->ignore_bus_messages))
@@ -904,6 +904,15 @@ xfce_mixer_plugin_bus_message (GstBus          *bus,
             gtk_check_menu_item_set_active (GTK_CHECK_MENU_ITEM (mixer_plugin->mute_menu_item), !record);
           }
 
+        break;
+      case GST_MIXER_MESSAGE_MIXER_CHANGED:
+        /*
+         * If the mixer tracks have changed, try to keep the current track by
+         * selecting a track based on the current track name; if there is no
+         * track with such name any more, the property setter will handle the
+         * situation in a sane way
+         */
+        g_object_set (mixer_plugin, "track", mixer_plugin->track_label, NULL);
         break;
       default:
         break;
