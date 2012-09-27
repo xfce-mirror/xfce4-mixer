@@ -26,6 +26,8 @@
   muting (bug #5314).
 - Set the main window to normal rather than dialog type (bug #7623).
 - Keep the sound card and controls in sync between the mixer and xfconf.
+- Populate the mixer with whitelisted controls in the absence of an existing
+  configuration (bug #4945).
 
 
 4.8.0

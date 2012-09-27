@@ -42,10 +42,25 @@ static void     _xfce_mixer_destroy_mixer (GstMixer *mixer);
 
 
 
-static guint       refcount = 0;
-static GList      *mixers = NULL;
-static GstBus     *bus = NULL;
-static GstElement *selected_card = NULL;
+static guint        refcount = 0;
+static GList       *mixers = NULL;
+static GstBus      *bus = NULL;
+static GstElement  *selected_card = NULL;
+static const gchar *tracks_whitelist[] =
+{
+  "cd",
+  "digital output",
+  "front",
+  "headphone",
+  "line",
+  "master",
+  "mic",
+  "pcm",
+  "recording",
+  "speaker",
+  "volume",
+  NULL
+};
 
 
 
@@ -231,6 +246,63 @@ xfce_mixer_get_default_track (GstElement *card)
     }
 
   return track;
+}
+
+
+
+GList *
+xfce_mixer_get_default_track_list (GstElement *card)
+{
+  gboolean       mixer_has_whitelist = FALSE;
+  const GList   *iter;
+  GList         *track_list = NULL;
+  GstMixerTrack *track;
+  gchar         *track_label;
+  gchar         *track_label_lower;
+  gint           i;
+
+  g_return_val_if_fail (GST_IS_MIXER (card), NULL);
+
+  if (gst_mixer_get_mixer_flags (GST_MIXER (card)) & GST_MIXER_FLAG_HAS_WHITELIST)
+    mixer_has_whitelist = TRUE;
+
+  for (iter = gst_mixer_list_tracks (GST_MIXER (card)); iter != NULL; iter = g_list_next (iter))
+    {
+      track = GST_MIXER_TRACK (iter->data);
+
+      /* Use the whitelist flag when available and fall back to a static whitelist */
+      if (mixer_has_whitelist)
+        {
+          if (GST_MIXER_TRACK_HAS_FLAG (track, GST_MIXER_TRACK_WHITELIST))
+            track_list = g_list_prepend (track_list, track);
+        }
+      else
+        {
+          track_label = NULL;
+
+          if (g_object_class_find_property (G_OBJECT_GET_CLASS (track), "untranslated-label"))
+            g_object_get (track, "untranslated-label", &track_label, NULL);
+
+          if (track_label == NULL)
+            g_object_get (track, "label", &track_label, NULL);
+
+          track_label_lower = g_utf8_strdown (track_label, -1);
+
+          for (i = 0; tracks_whitelist[i] != NULL; ++i)
+            {
+              if (strstr (track_label_lower, tracks_whitelist[i]) != NULL)
+                {
+                  track_list = g_list_prepend (track_list, track);
+                  break;
+                }
+            }
+
+          g_free (track_label_lower);
+          g_free (track_label);
+        }
+    }
+
+  return track_list;
 }
 
 
