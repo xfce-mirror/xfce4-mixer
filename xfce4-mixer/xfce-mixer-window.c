@@ -124,7 +124,6 @@ xfce_mixer_window_init (XfceMixerWindow *window)
   GtkWidget     *bbox;
   gchar         *card_name;
   GstElement    *card;
-  gchar         *title;
   guint          i;
   gint           width;
   gint           height;
@@ -183,16 +182,14 @@ xfce_mixer_window_init (XfceMixerWindow *window)
   gtk_box_pack_start (GTK_BOX (vbox), hbox, FALSE, TRUE, 0);
   gtk_widget_show (hbox);
 
-  label = gtk_label_new (NULL);
-  title = g_strdup_printf ("<span weight='bold' size='large'>%s</span>", _("Sound card:"));
-  gtk_label_set_markup (GTK_LABEL (label), title);
-  g_free (title);
+  label = gtk_label_new_with_mnemonic (_("Sound _card:"));
   gtk_box_pack_start (GTK_BOX (hbox), label, FALSE, FALSE, 0);
   gtk_widget_show (label);
 
   window->soundcard_combo = xfce_mixer_card_combo_new (card);
   g_signal_connect (G_OBJECT (window->soundcard_combo), "soundcard-changed", G_CALLBACK (xfce_mixer_window_soundcard_changed), window);
   gtk_container_add (GTK_CONTAINER (hbox), window->soundcard_combo);
+  gtk_label_set_mnemonic_widget (GTK_LABEL (label), window->soundcard_combo);
   gtk_widget_show (window->soundcard_combo);
 
   window->mixer_frame = gtk_frame_new (NULL);

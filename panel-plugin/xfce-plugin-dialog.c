@@ -142,11 +142,9 @@ xfce_plugin_dialog_new (XfcePanelPlugin *plugin)
 static void
 xfce_plugin_dialog_create_contents (XfcePluginDialog *dialog)
 {
-  GtkWidget     *alignment;
-  GtkWidget     *vbox;
+  GtkWidget     *table;
   GtkWidget     *button;
   GtkWidget     *label;
-  gchar         *title;
 
   gtk_window_set_icon_name (GTK_WINDOW (dialog), "multimedia-volume-control");
   gtk_window_set_title (GTK_WINDOW (dialog), _("Audio Mixer Plugin"));
@@ -157,43 +155,29 @@ xfce_plugin_dialog_create_contents (XfcePluginDialog *dialog)
   gtk_dialog_add_action_widget (GTK_DIALOG (dialog), button, GTK_RESPONSE_CLOSE);
   gtk_widget_show (button);
 
-  vbox = gtk_vbox_new (FALSE, 6);
-  gtk_container_set_border_width (GTK_CONTAINER (vbox), 6);
-  gtk_container_add (GTK_CONTAINER (GTK_DIALOG (dialog)->vbox), vbox);
-  gtk_widget_show (vbox);
+  table = gtk_table_new (2, 2, FALSE);
+  gtk_table_set_row_spacings (GTK_TABLE (table), 12);
+  gtk_table_set_col_spacings (GTK_TABLE (table), 12);
+  gtk_container_set_border_width (GTK_CONTAINER (table), 6);
+  gtk_container_add (GTK_CONTAINER (GTK_DIALOG (dialog)->vbox), table);
+  gtk_widget_show (table);
 
-  label = gtk_label_new (NULL);
-  title = g_strdup_printf ("<span weight='bold'>%s</span>", _("Sound card"));
-  gtk_label_set_markup (GTK_LABEL (label), title);
-  gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
-  gtk_box_pack_start (GTK_BOX (vbox), label, FALSE, FALSE, 0);
+  label = gtk_label_new_with_mnemonic (_("Sound _card:"));
+  gtk_table_attach (GTK_TABLE (table), label, 0, 1, 0, 1, GTK_SHRINK, GTK_SHRINK, 0, 0);
   gtk_widget_show (label);
-  g_free (title);
-
-  alignment = gtk_alignment_new (0.0, 0.0, 1, 1);
-  gtk_alignment_set_padding (GTK_ALIGNMENT (alignment), 0, 6, 12, 0);
-  gtk_box_pack_start (GTK_BOX (vbox), alignment, FALSE, TRUE, 0);
-  gtk_widget_show (alignment);
 
   dialog->card_combo = xfce_mixer_card_combo_new (NULL);
-  gtk_container_add (GTK_CONTAINER (alignment), dialog->card_combo);
+  gtk_label_set_mnemonic_widget (GTK_LABEL (label), dialog->card_combo);
+  gtk_table_attach (GTK_TABLE (table), dialog->card_combo, 1, 2, 0, 1, GTK_FILL|GTK_EXPAND, GTK_SHRINK, 0, 0);
   gtk_widget_show (dialog->card_combo);
 
-  label = gtk_label_new (NULL);
-  title = g_strdup_printf ("<span weight='bold'>%s</span>", _("Mixer track"));
-  gtk_label_set_markup (GTK_LABEL (label), title);
-  gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
-  gtk_box_pack_start (GTK_BOX (vbox), label, FALSE, FALSE, 0);
+  label = gtk_label_new_with_mnemonic (_("Mixer _track:"));
+  gtk_label_set_mnemonic_widget (GTK_LABEL (label), dialog->track_combo);
+  gtk_table_attach (GTK_TABLE (table), label, 0, 1, 1, 2, GTK_SHRINK, GTK_SHRINK, 0, 0);
   gtk_widget_show (label);
-  g_free (title);
-
-  alignment = gtk_alignment_new (0.0, 0.0, 1, 1);
-  gtk_alignment_set_padding (GTK_ALIGNMENT (alignment), 0, 6, 12, 0);
-  gtk_box_pack_start (GTK_BOX (vbox), alignment, FALSE, TRUE, 0);
-  gtk_widget_show (alignment);
 
   dialog->track_combo = xfce_mixer_track_combo_new (NULL, NULL);
-  gtk_container_add (GTK_CONTAINER (alignment), dialog->track_combo);
+  gtk_table_attach (GTK_TABLE (table), dialog->track_combo, 1, 2, 1, 2, GTK_FILL|GTK_EXPAND, GTK_SHRINK, 0, 0);
   gtk_widget_show (dialog->track_combo);
 
   /* Hack to initialize the widget state */

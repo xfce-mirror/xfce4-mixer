@@ -56,6 +56,12 @@
   left and right of them.
 - Default to unlocked state if the volume differs between the channels of a
   track.
+- Add mnemonics for all tabs and the soud card combob box of the mixer main
+  window.
+- Add labels with mnemonics for the soud card and track combo boxes of the
+  plugin configuration dialog.
+- Improve the wording of the message shown when no controls are visible and
+  visually follow the layout of an alert popup.
 
 
 4.8.0

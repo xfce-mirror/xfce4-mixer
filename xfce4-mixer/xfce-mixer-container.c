@@ -215,7 +215,7 @@ xfce_mixer_container_create_contents (XfceMixerContainer *mixer_container)
   XfceMixerTrackType    type;
   GstMixerTrack        *track;
   const GList          *iter;
-  const gchar          *titles[4] = { N_("Playback"), N_("Capture"), N_("Switches"), N_("Options") };
+  const gchar          *titles[4] = { N_("_Playback"), N_("C_apture"), N_("S_witches"), N_("_Options") };
   GtkWidget            *label_alignment;
   GtkWidget            *option_alignment;
   GtkWidget            *track_widget;
@@ -224,8 +224,11 @@ xfce_mixer_container_create_contents (XfceMixerContainer *mixer_container)
   GtkWidget            *scrollwins[4];
   GtkWidget            *views[4];
   GtkWidget            *last_separator[4] = { NULL, NULL, NULL, NULL };
+  GtkWidget            *alignment;
+  GtkWidget            *vbox;
   GtkWidget            *label1;
   GtkWidget            *label2;
+  GtkWidget            *label3;
   const gchar          *track_label;
   gchar                *option_track_label;
   guint                 num_children[4] = { 0, 0, 0, 0 };
@@ -239,7 +242,7 @@ xfce_mixer_container_create_contents (XfceMixerContainer *mixer_container)
   /* Create widgets for all four tabs */
   for (i = 0; i < 4; ++i)
     {
-      labels[i] = gtk_label_new (_(titles[i]));
+      labels[i] = gtk_label_new_with_mnemonic (_(titles[i]));
       scrollwins[i] = gtk_scrolled_window_new (NULL, NULL);
       gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (scrollwins[i]), GTK_SHADOW_IN);
       gtk_container_set_border_width (GTK_CONTAINER (scrollwins[i]), 6);
@@ -387,12 +390,30 @@ xfce_mixer_container_create_contents (XfceMixerContainer *mixer_container)
       label1 = gtk_label_new (_("No controls visible"));
       gtk_widget_show (label1);
 
+      alignment = gtk_alignment_new (0.5, 0.5, 0, 0);
+      gtk_widget_show (alignment);
+
+      vbox = gtk_vbox_new (6, FALSE);
+      gtk_container_add (GTK_CONTAINER (alignment), vbox);
+      gtk_widget_show (vbox);
+
       label2 = gtk_label_new (NULL);
-      gtk_label_set_markup (GTK_LABEL (label2), _("No controls are marked as visible. Please open the <span size='large'><b>Select Controls</b></span> dialog to select some."));
+      gtk_label_set_markup (GTK_LABEL (label2), _("<span weight=\"bold\" size=\"larger\">No controls visible</span>"));
+      gtk_label_set_max_width_chars (GTK_LABEL (label2), 80);
       gtk_label_set_line_wrap (GTK_LABEL (label2), TRUE);
+      gtk_misc_set_alignment (GTK_MISC (label2), 0.0, 0.5);
+      gtk_box_pack_start (GTK_BOX (vbox), label2, FALSE, TRUE, 0);
       gtk_widget_show (label2);
 
-      gtk_notebook_append_page (GTK_NOTEBOOK (mixer_container), label2, label1);
+      label3 = gtk_label_new (NULL);
+      gtk_label_set_markup (GTK_LABEL (label3), _("In order to toggle the visibility of mixer controls, open the <b>\"Select Controls\"</b> dialog."));
+      gtk_label_set_max_width_chars (GTK_LABEL (label3), 80);
+      gtk_label_set_line_wrap (GTK_LABEL (label3), TRUE);
+      gtk_misc_set_alignment (GTK_MISC (label3), 0.0, 0.5);
+      gtk_box_pack_start (GTK_BOX (vbox), label3, FALSE, TRUE, 0);
+      gtk_widget_show (label3);
+
+      gtk_notebook_append_page (GTK_NOTEBOOK (mixer_container), alignment, label1);
     }
 
   g_object_unref (preferences);
