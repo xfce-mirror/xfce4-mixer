@@ -82,10 +82,7 @@ xfce_mixer_debug_init (const gchar *log_domain,
     }
 #else
   if (!debug_mode)
-    {
-      g_log_set_handler (log_domain, G_LOG_LEVEL_DEBUG, xfce4_mixer_dummy_log_handler, NULL);
-      g_log_set_handler (G_LOG_DOMAIN, G_LOG_LEVEL_DEBUG, xfce4_mixer_dummy_log_handler, NULL);
-    }
+    g_log_set_handler (log_domain, G_LOG_LEVEL_DEBUG, xfce_mixer_dummy_log_handler, NULL);
 #endif /* GLIB_CHECK_VERSION (2,32,0) */
 }
 
