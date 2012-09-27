@@ -12,12 +12,14 @@ libmixer_la_SOURCES =							\
 	xfce-mixer-plugin.h						\
 	xfce-mixer-plugin.c
 
-libmixer_la_CFLAGS =							\
+libmixer_la_CPPFLAGS =							\
 	-I$(top_builddir)						\
 	-I$(top_srcdir)							\
 	-DDATADIR=\"$(datadir)\"					\
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"				\
-	-DG_LOG_DOMAIN=\"xfce4-mixer-plugin\"				\
+	-DG_LOG_DOMAIN=\"xfce4-mixer-plugin\"
+
+libmixer_la_CFLAGS =							\
 	$(PLATFORM_CFLAGS)						\
 	$(GLIB_CFLAGS)							\
 	$(GTK_CFLAGS)							\

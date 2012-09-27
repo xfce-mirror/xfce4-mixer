@@ -18,13 +18,15 @@ xfce4_mixer_SOURCES =							\
 	xfce-mixer-window.h						\
 	xfce-mixer-window.c
 
-xfce4_mixer_CFLAGS = 							\
+xfce4_mixer_CPPFLAGS = 							\
 	-I$(top_builddir)						\
 	-I$(top_srcdir)							\
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"				\
 	-DDATADIR=\"$(datadir)\"					\
 	-DMIXER_DATADIR=\"$(pkgdatadir)\"				\
-	-DG_LOG_DOMAIN=\"xfce4-mixer\"					\
+	-DG_LOG_DOMAIN=\"xfce4-mixer\"
+
+xfce4_mixer_CFLAGS = 							\
 	$(GLIB_CFLAGS)							\
 	$(GTK_CFLAGS)							\
 	$(UNIQUE_CFLAGS)						\
@@ -35,7 +37,7 @@ xfce4_mixer_CFLAGS = 							\
 
 xfce4_mixer_DEPENDENCIES = 						\
 	$(top_builddir)/libxfce4mixer/libxfce4mixer.la
-	
+
 xfce4_mixer_LDFLAGS = 							\
 	$(top_builddir)/libxfce4mixer/libxfce4mixer.la			\
 	$(GLIB_LIBS)							\

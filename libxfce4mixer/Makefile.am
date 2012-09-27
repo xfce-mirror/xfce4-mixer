@@ -19,13 +19,15 @@ libxfce4mixer_la_SOURCES =						\
 	xfce-mixer-debug.h						\
 	xfce-mixer-debug.c
 
-libxfce4mixer_la_CFLAGS = 						\
+libxfce4mixer_la_CPPFLAGS = 						\
 	-I$(top_builddir)						\
 	-I$(top_srcdir)							\
 	-DDATADIR=\"$(datadir)\"					\
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"				\
 	-DG_LOG_DOMAIN=\"libxfce4mixer\"				\
-	-DMIXER_DATADIR=\"$(pkgdatadir)\"				\
+	-DMIXER_DATADIR=\"$(pkgdatadir)\"
+
+libxfce4mixer_la_CFLAGS = 						\
 	$(PLATFORM_CFLAGS)						\
 	$(GLIB_CFLAGS)							\
 	$(GTK_FLAGS)							\
