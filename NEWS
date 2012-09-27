@@ -14,6 +14,8 @@
   bug #7125).
 - Clearly indicate in the plugin when there is no valid card and/or element
   and ignore mouse wheel and mute toggle events (bug #6625, bug #7630).
+- Avoid the deprecated GtkTooltips API and let XfceVolumeButton handle
+  tooltips.
 
 
 4.8.0

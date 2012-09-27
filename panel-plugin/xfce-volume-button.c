@@ -46,6 +46,7 @@
 enum
 {
   PROP_0,
+  PROP_TRACK_LABEL,
   PROP_IS_CONFIGURED,
   N_PROPERTIES,
 };
@@ -137,6 +138,9 @@ struct _XfceVolumeButton
   /* Array of preloaded icons */
   GdkPixbuf **pixbufs;
 
+  /* Track label used in tooltip */
+  gchar      *track_label;
+
   /* Whether the button is configured */
   gboolean    is_configured;
 
@@ -197,6 +201,14 @@ xfce_volume_button_class_init (XfceVolumeButtonClass *klass)
   klass->mute_toggled = xfce_volume_button_mute_toggled;
 
   g_object_class_install_property (gobject_class,
+                                   PROP_TRACK_LABEL,
+                                   g_param_spec_string ("track-label",
+                                                        "track-label",
+                                                        "track-label",
+                                                        "Unknown",
+                                                        G_PARAM_READABLE | G_PARAM_WRITABLE));
+
+  g_object_class_install_property (gobject_class,
                                    PROP_IS_CONFIGURED,
                                    g_param_spec_boolean ("is-configured",
                                                          "is-configured",
@@ -232,6 +244,8 @@ xfce_volume_button_class_init (XfceVolumeButtonClass *klass)
 static void
 xfce_volume_button_init (XfceVolumeButton *button)
 {
+  button->track_label = NULL;
+
   button->is_configured = FALSE;
 
   /* By default we expect the button not to be muted */
@@ -289,6 +303,12 @@ xfce_volume_button_finalize (GObject *object)
       g_object_unref (G_OBJECT (button->pixbufs[i]));
   g_free (button->pixbufs);
 
+  if (button->track_label != NULL)
+    {
+      g_free (button->track_label);
+      button->track_label = NULL;
+    }
+
   (*G_OBJECT_CLASS (xfce_volume_button_parent_class)->finalize) (object);
 }
 
@@ -304,6 +324,12 @@ static void xfce_volume_button_set_property (GObject      *object,
 
   switch (prop_id)
     {
+      case PROP_TRACK_LABEL:
+        g_free (button->track_label);
+        button->track_label = g_value_dup_string (value);
+        if (button->is_configured)
+          xfce_volume_button_update (button);
+        break;
       case PROP_IS_CONFIGURED:
         is_configured = g_value_get_boolean (value);
         if (button->is_configured != is_configured)
@@ -329,6 +355,9 @@ static void xfce_volume_button_get_property (GObject      *object,
 
   switch (prop_id)
     {
+      case PROP_TRACK_LABEL:
+        g_value_set_string (value, button->track_label);
+        break;
       case PROP_IS_CONFIGURED:
         g_value_set_boolean (value, button->is_configured);
         break;
@@ -497,6 +526,7 @@ xfce_volume_button_update (XfceVolumeButton *button)
   gdouble    value;
   gdouble    range;
   guint      i;
+  gchar     *tip_text;
 
   g_return_if_fail (IS_XFCE_VOLUME_BUTTON (button));
 
@@ -525,6 +555,17 @@ xfce_volume_button_update (XfceVolumeButton *button)
   /* Update the button icon */
   if (G_LIKELY (pixbuf != NULL))
     xfce_panel_image_set_from_pixbuf (XFCE_PANEL_IMAGE (button->image), pixbuf);
+
+  /* Update the tooltip */
+  if (!button->is_configured)
+    gtk_widget_set_tooltip_text (GTK_WIDGET (button), _("No valid device and/or element."));
+  else
+    {
+      /* Set tooltip (e.g. 'Master: 50%') */
+      tip_text = g_strdup_printf (_("%s: %i%%"), button->track_label, (gint) value);
+      gtk_widget_set_tooltip_text (GTK_WIDGET (button), tip_text);
+      g_free (tip_text);
+    }
 }
 
 
@@ -621,6 +662,36 @@ xfce_volume_button_mute_toggled (XfceVolumeButton *button,
 
 
 void
+xfce_volume_button_set_track_label (XfceVolumeButton *button,
+                                    const gchar      *track_label)
+{
+  GValue value = G_VALUE_INIT;
+
+  g_return_if_fail (IS_XFCE_VOLUME_BUTTON (button));
+
+  g_value_init (&value, G_TYPE_STRING);
+  g_value_set_string (&value, track_label);
+  g_object_set_property (G_OBJECT (button), "track-label", &value);
+}
+
+
+
+gchar*
+xfce_volume_button_get_track_label (XfceVolumeButton *button)
+{
+  GValue value = G_VALUE_INIT;
+
+  g_return_val_if_fail (IS_XFCE_VOLUME_BUTTON (button), NULL);
+
+  g_value_init (&value, G_TYPE_STRING);
+  g_object_get_property (G_OBJECT (button), "track-label", &value);
+
+  return g_value_dup_string (&value);
+}
+
+
+
+void
 xfce_volume_button_set_is_configured (XfceVolumeButton *button,
                                       gboolean          is_configured)
 {
@@ -632,6 +703,7 @@ xfce_volume_button_set_is_configured (XfceVolumeButton *button,
   g_value_set_boolean (&value, is_configured);
   g_object_set_property (G_OBJECT (button), "is-configured", &value);
 }
+
 
 
 

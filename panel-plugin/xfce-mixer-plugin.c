@@ -93,9 +93,6 @@ struct _XfceMixerPlugin
   /* Parent type */
   XfcePanelPlugin __parent__;
 
-  /* Tooltips structure */
-  GtkTooltips     *tooltips;
-
   /* Sound card being used */
   GstElement      *card;
   gchar           *card_name;
@@ -198,10 +195,6 @@ xfce_mixer_plugin_init (XfceMixerPlugin *mixer_plugin)
 
   /* Initialize the mixer library */
   xfce_mixer_init ();
-
-  /* Allocate a tooltips structure */
-  mixer_plugin->tooltips = gtk_tooltips_new ();
-  gtk_tooltips_set_delay (mixer_plugin->tooltips, 10);
 
   /* Create container for the plugin */
   mixer_plugin->hvbox = GTK_WIDGET (xfce_hvbox_new (GTK_ORIENTATION_HORIZONTAL, FALSE, 0));
@@ -523,7 +516,6 @@ static void
 xfce_mixer_plugin_volume_changed (XfceMixerPlugin  *mixer_plugin,
                                   gdouble           volume)
 {
-  gchar *tip_text;
   gint  *volumes;
   gint   volume_range;
   gint   new_volume;
@@ -536,11 +528,6 @@ xfce_mixer_plugin_volume_changed (XfceMixerPlugin  *mixer_plugin,
 #ifdef HAVE_GST_MIXER_NOTIFICATION
   mixer_plugin->ignore_bus_messages = TRUE;
 #endif
-
-  /* Set tooltip (e.g. 'Master: 50%') */
-  tip_text = g_strdup_printf (_("%s: %i%%"), mixer_plugin->track_label, (gint) (volume * 100));
-  gtk_tooltips_set_tip (mixer_plugin->tooltips, mixer_plugin->button, tip_text, "test");
-  g_free (tip_text);
 
   /* Allocate array for track volumes */
   volumes = g_new (gint, mixer_plugin->track->num_channels);
@@ -606,7 +593,6 @@ xfce_mixer_plugin_update_track (XfceMixerPlugin *mixer_plugin)
   gint               volume_range;
   gdouble            volume;
   gint              *volumes;
-  gchar             *tip_text;
 
   g_return_if_fail (IS_XFCE_MIXER_PLUGIN (mixer_plugin));
 
@@ -614,7 +600,6 @@ xfce_mixer_plugin_update_track (XfceMixerPlugin *mixer_plugin)
   if (!GST_IS_MIXER (mixer_plugin->card) || !GST_IS_MIXER_TRACK (mixer_plugin->track))
     {
       xfce_volume_button_set_is_configured (XFCE_VOLUME_BUTTON (mixer_plugin->button), FALSE);
-      gtk_tooltips_set_tip (mixer_plugin->tooltips, mixer_plugin->button, _("No valid device and/or element."), NULL);
       return;
     }
 
@@ -628,11 +613,6 @@ xfce_mixer_plugin_update_track (XfceMixerPlugin *mixer_plugin)
   /* Determine maximum value as double between 0.0 and 1.0 */
   volume = ((gdouble) xfce_mixer_get_max_volume (volumes, mixer_plugin->track->num_channels) - mixer_plugin->track->min_volume) / volume_range;
 
-  /* Set tooltip (e.g. 'Master: 50%') */
-  tip_text = g_strdup_printf (_("%s: %i%%"), mixer_plugin->track_label, (gint) (volume * 100));
-  gtk_tooltips_set_tip (mixer_plugin->tooltips, mixer_plugin->button, tip_text, "test");
-  g_free (tip_text);
-
   /* Determine track type */
   track_type = xfce_mixer_track_type_new (mixer_plugin->track);
 
@@ -645,6 +625,7 @@ xfce_mixer_plugin_update_track (XfceMixerPlugin *mixer_plugin)
   xfce_volume_button_set_is_configured (XFCE_VOLUME_BUTTON (mixer_plugin->button), TRUE);
   xfce_volume_button_set_volume (XFCE_VOLUME_BUTTON (mixer_plugin->button), volume);
   xfce_volume_button_set_muted (XFCE_VOLUME_BUTTON (mixer_plugin->button), muted);
+  xfce_volume_button_set_track_label (XFCE_VOLUME_BUTTON (mixer_plugin->button), mixer_plugin->track_label);
 
   /* Free volume array */
   g_free (volumes);

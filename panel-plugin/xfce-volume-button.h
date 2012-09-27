@@ -47,6 +47,9 @@ void       xfce_volume_button_set_volume        (XfceVolumeButton *button,
 void       xfce_volume_button_update            (XfceVolumeButton *button);
 void       xfce_volume_button_set_icon_size     (XfceVolumeButton *button,
                                                  gint              size);
+void       xfce_volume_button_set_track_label   (XfceVolumeButton *button,
+                                                 const gchar      *track_label);
+gchar     *xfce_volume_button_get_track_label   (XfceVolumeButton *button);
 void       xfce_volume_button_set_is_configured (XfceVolumeButton *button,
                                                  gboolean          is_configured);
 gboolean   xfce_volume_button_get_is_configured (XfceVolumeButton *button);
