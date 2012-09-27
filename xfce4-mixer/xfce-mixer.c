@@ -418,7 +418,7 @@ xfce_mixer_bus_message (GstBus     *bus,
     {
       gst_mixer_message_parse_mute_toggled (message, &track, &muted);
       g_object_get (track, "label", &label, NULL);
-      DBG ("Track '%s' was %s", label, muted ? "muted" : "unmuted");
+      xfce_mixer_debug ("Track '%s' was %s", label, muted ? "muted" : "unmuted");
       widget = g_hash_table_lookup (mixer->widgets, label);
       g_free (label);
 
@@ -431,7 +431,7 @@ xfce_mixer_bus_message (GstBus     *bus,
     {
       gst_mixer_message_parse_record_toggled (message, &track, &record);
       g_object_get (track, "label", &label, NULL);
-      DBG ("Recording on track '%s' was %s", label, record ? "turned on" : "turned off");
+      xfce_mixer_debug ("Recording on track '%s' was %s", label, record ? "turned on" : "turned off");
       widget = g_hash_table_lookup (mixer->widgets, label);
       g_free (label);
 
@@ -444,7 +444,7 @@ xfce_mixer_bus_message (GstBus     *bus,
     {
       gst_mixer_message_parse_volume_changed (message, &track, &volumes, &num_channels);
       g_object_get (track, "label", &label, NULL);
-      DBG ("Volume on track '%s' changed to %i", label, volumes[0]);
+      xfce_mixer_debug ("Volume on track '%s' changed to %i", label, volumes[0]);
       widget = g_hash_table_lookup (mixer->widgets, label);
       g_free (label);
 
@@ -455,7 +455,7 @@ xfce_mixer_bus_message (GstBus     *bus,
     {
       gst_mixer_message_parse_option_changed (message, &options, &option);
       g_object_get (GST_MIXER_TRACK (options), "label", &label, NULL);
-      DBG ("Option '%s' was set to '%s'", label, option);
+      xfce_mixer_debug ("Option '%s' was set to '%s'", label, option);
       widget = g_hash_table_lookup (mixer->widgets, label);
       g_free (label);
 

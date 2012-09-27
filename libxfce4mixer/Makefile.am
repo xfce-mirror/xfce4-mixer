@@ -15,7 +15,9 @@ libxfce4mixer_la_SOURCES =						\
 	xfce-mixer-track-type.h						\
 	xfce-mixer-track-type.c						\
 	xfce-mixer-preferences.h					\
-	xfce-mixer-preferences.c
+	xfce-mixer-preferences.c					\
+	xfce-mixer-debug.h						\
+	xfce-mixer-debug.c
 
 libxfce4mixer_la_CFLAGS = 						\
 	-I$(top_builddir)						\

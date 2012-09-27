@@ -24,6 +24,7 @@ xfce4_mixer_CFLAGS = 							\
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"				\
 	-DDATADIR=\"$(datadir)\"					\
 	-DMIXER_DATADIR=\"$(pkgdatadir)\"				\
+	-DG_LOG_DOMAIN=\"xfce4-mixer\"					\
 	$(GLIB_CFLAGS)							\
 	$(GTK_CFLAGS)							\
 	$(UNIQUE_CFLAGS)						\

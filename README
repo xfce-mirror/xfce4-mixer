@@ -5,6 +5,19 @@ This package contains a volume control application based on GStreamer
 0.10 written to conceptually fit into the Xfce desktop environment. It
 includes a plugin for the Xfce panel.
 
+
+Debugging
+---------
+
+Both the mixer application and the panel plugin have a builtin debugging mode
+which will print additional diagnostic output useful for bug reports. For
+xfce4-mixer it can be activated by specifying the --debug command line option,
+diagnostic messages will be printed to stderr. For the panel plugin, please
+follow the instructions at http://docs.xfce.org/xfce/xfce4-panel/debugging and
+set the PANEL_DEBUG environment variable to "mixer", the disgnostic output can
+then be found in the log file corresponding to the plugin.
+
+
 Known Problems with GStreamer
 -----------------------------
 
@@ -13,3 +26,4 @@ Known Problems with GStreamer
     Debian or Ubuntu system and you're using ALSA then installing 
     gstreamer0.10-alsa should fix it. On OpenBSD installing 
     gst-plugins-good might help.
+

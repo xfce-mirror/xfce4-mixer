@@ -38,6 +38,7 @@
   xfce4-mixer, make the panel plugin context menu entry for running the mixer
   more meaningful.
 - Add tooltips to scale widgets in the mixer.
+- Add runtime debugging mode to both the mixer and the panel plugin.
 
 
 4.8.0

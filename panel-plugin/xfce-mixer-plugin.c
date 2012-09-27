@@ -221,6 +221,9 @@ xfce_mixer_plugin_class_init (XfceMixerPluginClass *klass)
 static void
 xfce_mixer_plugin_init (XfceMixerPlugin *mixer_plugin)
 {
+  gboolean     debug_mode = FALSE;
+  const gchar *panel_debug_env;
+
   /* Initialize some of the plugin variables */
   mixer_plugin->card = NULL;
   mixer_plugin->track = NULL;
@@ -250,6 +253,17 @@ xfce_mixer_plugin_init (XfceMixerPlugin *mixer_plugin)
   /* Initialize libkeybinder */
   keybinder_init ();
 #endif
+
+  /* Enable debug level logging if PANEL_DEBUG contains G_LOG_DOMAIN */
+  panel_debug_env = g_getenv ("PANEL_DEBUG");
+  if (panel_debug_env != NULL && strstr (panel_debug_env, G_LOG_DOMAIN) != NULL)
+    debug_mode = TRUE;
+  xfce_mixer_debug_init (G_LOG_DOMAIN, debug_mode);
+
+  xfce_mixer_debug ("mixer plugin version " VERSION " starting up");
+
+  if (debug_mode)
+    xfce_mixer_dump_gst_data ();
 
   /* Create container for the plugin */
   mixer_plugin->hvbox = GTK_WIDGET (xfce_hvbox_new (GTK_ORIENTATION_HORIZONTAL, FALSE, 0));

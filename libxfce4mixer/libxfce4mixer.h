@@ -32,6 +32,7 @@
 #include "xfce-mixer-card-combo.h"
 #include "xfce-mixer-track-combo.h"
 #include "xfce-mixer-track-type.h"
+#include "xfce-mixer-debug.h"
 
 #define XFCE_MIXER_TYPE_VALUE_ARRAY (xfce_mixer_value_array_get_type ())
 

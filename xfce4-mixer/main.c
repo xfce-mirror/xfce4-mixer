@@ -75,9 +75,18 @@ int
 main (int    argc,
       char **argv)
 {
-  UniqueApp     *app;
-  GtkWidget     *window;
-  GError        *error = NULL;
+  UniqueApp          *app;
+  GtkWidget          *window;
+  GError             *error = NULL;
+  gboolean            debug_mode = FALSE;
+  gboolean            show_version = FALSE;
+  GOptionContext     *option_context;
+  GOptionEntry        option_entries[] =
+  {
+    { "debug", 'd', 0, G_OPTION_ARG_NONE, &debug_mode, N_("Enable debugging output"), NULL },
+    { "version", 'V', 0, G_OPTION_ARG_NONE, &show_version, N_("Show version and exit"), NULL },
+    { NULL, 0, 0, 0, NULL, NULL, NULL }
+  };
 
   /* Setup translation domain */
   xfce_textdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");
@@ -86,31 +95,44 @@ main (int    argc,
   if (G_LIKELY (!g_thread_supported ()))
     g_thread_init (NULL);
 
-  /* Set debug level */
-#ifdef G_ENABLE_DEBUG
-  g_log_set_always_fatal (G_LOG_LEVEL_CRITICAL | G_LOG_LEVEL_WARNING);
-#endif
-
   /* Set application name */
   g_set_application_name (_("Audio Mixer"));
 
-  /* Initialize GTK+ */
-  gtk_init (&argc, &argv);
+  /* Parse commandline options */
+  option_context = g_option_context_new ("- Adjust volume levels");
+  g_option_context_add_main_entries (option_context, option_entries, GETTEXT_PACKAGE);
+  g_option_context_add_group (option_context, gtk_get_option_group (FALSE));
+  g_option_context_add_group (option_context, gst_init_get_option_group ());
+  g_option_context_parse (option_context, &argc, &argv, &error);
+  g_option_context_free (option_context);
+  if (error != NULL)
+    {
+      g_printerr ("xfce4-mixer: %s\n", error->message);
+
+      return EXIT_FAILURE;
+    }
+
+  if (show_version)
+    {
+      g_print ("xfce4-mixer " VERSION "\n");
+
+      return EXIT_SUCCESS;
+    }
+
+  /* Initialize GTK+ fully */
+  gtk_init (NULL, NULL);
 
   /* Initialize Xfconf */
   if (G_UNLIKELY (!xfconf_init (&error)))
     {
       if (G_LIKELY (error != NULL))
         {
-          g_print (_("Failed to initialize xfconf: %s"), error->message);
+          g_printerr (_("xfce4-mixer: Failed to initialize xfconf: %s\n"), error->message);
           g_error_free (error);
         }
 
       return EXIT_FAILURE;
     }
-
-  /* Initialize GStreamer */
-  gst_init (&argc, &argv);
 
   /* Initialize the mixer library */
   xfce_mixer_init ();
@@ -129,6 +151,14 @@ main (int    argc,
 
       return EXIT_FAILURE;
     }
+
+  /* Initialize debugging code */
+  xfce_mixer_debug_init (G_LOG_DOMAIN, debug_mode);
+
+  xfce_mixer_debug ("xfce4-mixer version " VERSION " starting up");
+
+  if (debug_mode)
+    xfce_mixer_dump_gst_data ();
 
   /* Create unique application */
   app = unique_app_new ("org.xfce.xfce4-mixer", NULL);
