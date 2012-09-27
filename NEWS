@@ -46,6 +46,8 @@
   Prevent read-only tracks from being selected in the panel-plugin.
 - Handle mixer changed messages which indicate that the tracks of a mixer have
   changed.
+- Handle options list changed messages which indicate that the available
+  options of a track have changed.
 
 
 4.8.0
