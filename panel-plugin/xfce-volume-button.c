@@ -1,6 +1,7 @@
 /* vi:set expandtab sw=2 sts=2: */
 /*-
  * Copyright (c) 2008 Jannis Pohlmann <jannis@xfce.org>
+ * Copyright (c) 2012 Guido Berhoerster <guido+xfce@berhoerster.name>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -54,13 +55,10 @@ static guint button_signals[LAST_SIGNAL];
 
 /* Icons for different volume levels */
 static const char *icons[] = {
-  "xfce4-mixer-volume-muted",
-  "xfce4-mixer-volume-ultra-low",
-  "xfce4-mixer-volume-low",
-  "xfce4-mixer-volume-low-medium",
-  "xfce4-mixer-volume-medium",
-  "xfce4-mixer-volume-high",
-  "xfce4-mixer-volume-very-high",
+  "audio-volume-muted",
+  "audio-volume-low",
+  "audio-volume-medium",
+  "audio-volume-high",
   NULL
 };
 
@@ -83,6 +81,8 @@ static gboolean   xfce_volume_button_scrolled       (GtkWidget             *widg
                                                      XfceVolumeButton      *button);
 static void       xfce_volume_button_volume_changed (XfceVolumeButton      *button,
                                                      gdouble                volume);
+static void       xfce_volume_button_update_icons   (XfceVolumeButton      *button,
+                                                     GtkIconTheme          *icon_theme);
 static void       xfce_volume_button_mute_toggled   (XfceVolumeButton      *button,
                                                      gboolean               mute);
 
@@ -223,6 +223,7 @@ xfce_volume_button_init (XfceVolumeButton *button)
 #endif
   g_signal_connect (G_OBJECT (button), "button-press-event", G_CALLBACK (xfce_volume_button_button_pressed), button);
   g_signal_connect (G_OBJECT (button), "scroll-event", G_CALLBACK (xfce_volume_button_scrolled), button);
+  g_signal_connect_swapped (gtk_icon_theme_get_default (), "changed", G_CALLBACK (xfce_volume_button_update_icons), button);
 
   /* Update the state of the button */
   xfce_volume_button_update (button);
@@ -414,9 +415,9 @@ xfce_volume_button_update (XfceVolumeButton *button)
   /* Determine the difference between upper and lower bound (= volume range) */
   range = (upper - lower) / (G_N_ELEMENTS (icons) - 2);
 
-  if (G_UNLIKELY (button->is_muted))
+  if (G_UNLIKELY (button->is_muted || value < 0.005))
     {
-      /* By definition, use the first icon if the button is muted */
+      /* By definition, use the first icon if the button is muted or the volume is 0 */
       pixbuf = button->pixbufs[0];
     }
   else
@@ -475,17 +476,15 @@ xfce_volume_button_set_volume (XfceVolumeButton *button,
 }
 
 
-void
-xfce_volume_button_set_icon_size (XfceVolumeButton *button,
-                                  gint              size)
+
+static void
+xfce_volume_button_update_icons (XfceVolumeButton *button,
+                                 GtkIconTheme     *icon_theme)
 {
   guint i;
 
   g_return_if_fail (IS_XFCE_VOLUME_BUTTON (button));
-  g_return_if_fail (size >= 0);
-
-  /* Remember the icon size */
-  button->icon_size = size;
+  g_return_if_fail (GTK_IS_ICON_THEME (icon_theme));
 
   /* Pre-load all icons */
   for (i = 0; i < G_N_ELEMENTS (icons)-1; ++i)
@@ -493,12 +492,30 @@ xfce_volume_button_set_icon_size (XfceVolumeButton *button,
       if (GDK_IS_PIXBUF (button->pixbufs[i]))
         g_object_unref (G_OBJECT (button->pixbufs[i]));
 
-      button->pixbufs[i] = gtk_icon_theme_load_icon (gtk_icon_theme_get_default(),
+      button->pixbufs[i] = gtk_icon_theme_load_icon (icon_theme,
                                                      icons[i],
                                                      button->icon_size,
                                                      GTK_ICON_LOOKUP_USE_BUILTIN,
                                                      NULL);
     }
+
+  /* Update the state of the button */
+  xfce_volume_button_update (button);
+}
+
+
+
+void
+xfce_volume_button_set_icon_size (XfceVolumeButton *button,
+                                  gint              size)
+{
+  g_return_if_fail (IS_XFCE_VOLUME_BUTTON (button));
+  g_return_if_fail (size >= 0);
+
+  /* Remember the icon size */
+  button->icon_size = size;
+
+  xfce_volume_button_update_icons (button, gtk_icon_theme_get_default ());
 }
 
 

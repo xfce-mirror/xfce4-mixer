@@ -5,6 +5,8 @@
 - Do not try to destroy the mixer window twice after a delete-event
   (bug #8288).
 - Modernize build system and build panel plugin as a module.
+- Use standard icons where possible.
+- Update the icons on theme change (bug #3498).
 
 
 4.8.0
