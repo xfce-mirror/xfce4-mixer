@@ -58,7 +58,7 @@ main (int    argc,
 #endif
 
   /* Set application name */
-  g_set_application_name (_("Mixer"));
+  g_set_application_name (_("Audio Mixer"));
 
   /* Initialize GTK+ */
   gtk_init (&argc, &argv);

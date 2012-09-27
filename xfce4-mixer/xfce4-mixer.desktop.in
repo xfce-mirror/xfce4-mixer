@@ -1,7 +1,7 @@
 [Desktop Entry]
 Version=1.0
-_Name=Mixer
-_Comment=Audio mixer for the Xfce Desktop Environment
+_Name=Audio Mixer
+_Comment=Adjust volume levels
 Icon=multimedia-volume-control
 Exec=xfce4-mixer
 Type=Application

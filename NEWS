@@ -20,6 +20,7 @@
 - Mute a track when the volume is set to 0% and unmute when set to a higher
   value (bug #8291).
 - Add an item to the panel plugin context menu for muting (bug #7944).
+- Make name and description more meaningful (bug #5817).
 
 
 4.8.0

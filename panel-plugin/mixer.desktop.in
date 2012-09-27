@@ -1,7 +1,7 @@
 [Xfce Panel]
 Type=X-XFCE-PanelPlugin
-_Name=Mixer
-_Comment=Volume control for your sound card
+_Name=Audio Mixer
+_Comment=Adjust volume levels
 Icon=multimedia-volume-control
 X-XFCE-Internal=false
 X-XFCE-Module=mixer

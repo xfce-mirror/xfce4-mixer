@@ -164,7 +164,7 @@ xfce_mixer_window_init (XfceMixerWindow *window)
 
   /* Configure the main window */
   gtk_window_set_icon_name (GTK_WINDOW (window), "multimedia-volume-control");
-  gtk_window_set_title (GTK_WINDOW (window), _("Mixer"));
+  gtk_window_set_title (GTK_WINDOW (window), _("Audio Mixer"));
   gtk_window_set_default_size (GTK_WINDOW (window), width, height);
   gtk_window_set_position (GTK_WINDOW (window), GTK_WIN_POS_CENTER);
   gtk_dialog_set_has_separator (GTK_DIALOG (window), FALSE);
@@ -283,7 +283,7 @@ xfce_mixer_window_soundcard_changed (XfceMixerCardCombo *combo,
   g_return_if_fail (IS_XFCE_MIXER_WINDOW (window));
   g_return_if_fail (GST_IS_MIXER (card));
 
-  title = g_strdup_printf ("%s - %s", _("Mixer"), xfce_mixer_get_card_display_name (card));
+  title = g_strdup_printf ("%s - %s", _("Audio Mixer"), xfce_mixer_get_card_display_name (card));
   gtk_window_set_title (GTK_WINDOW (window), title);
   g_free (title);
 
