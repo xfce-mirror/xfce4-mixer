@@ -68,8 +68,9 @@ static gboolean xfce_mixer_plugin_size_changed                (XfcePanelPlugin  
 static void     xfce_mixer_plugin_clicked                     (XfceMixerPlugin  *mixer_plugin);
 static void     xfce_mixer_plugin_volume_changed              (XfceMixerPlugin  *mixer_plugin,
                                                                gdouble           volume);
-static void     xfce_mixer_plugin_mute_toggled                (XfceMixerPlugin  *mixer_plugin,
-                                                               gboolean          mute);
+static void     xfce_mixer_plugin_is_muted_property_changed   (XfceMixerPlugin  *mixer_plugin,
+                                                               GParamSpec       *pspec,
+                                                               GObject          *object);
 static void     xfce_mixer_plugin_update_track                (XfceMixerPlugin  *mixer_plugin);
 #ifdef HAVE_GST_MIXER_NOTIFICATION
 static void     xfce_mixer_plugin_bus_message                 (GstBus           *bus,
@@ -205,7 +206,7 @@ xfce_mixer_plugin_init (XfceMixerPlugin *mixer_plugin)
   /* Create volume button for the plugin */
   mixer_plugin->button = xfce_volume_button_new ();
   g_signal_connect_swapped (G_OBJECT (mixer_plugin->button), "volume-changed", G_CALLBACK (xfce_mixer_plugin_volume_changed), mixer_plugin);
-  g_signal_connect_swapped (G_OBJECT (mixer_plugin->button), "mute-toggled", G_CALLBACK (xfce_mixer_plugin_mute_toggled), mixer_plugin);
+  g_signal_connect_swapped (G_OBJECT (mixer_plugin->button), "notify::is-muted", G_CALLBACK (xfce_mixer_plugin_is_muted_property_changed), mixer_plugin);
   g_signal_connect_swapped (G_OBJECT (mixer_plugin->button), "clicked", G_CALLBACK (xfce_mixer_plugin_clicked), mixer_plugin);
   gtk_container_add (GTK_CONTAINER (mixer_plugin->hvbox), mixer_plugin->button);
   gtk_widget_show (mixer_plugin->button);
@@ -556,9 +557,12 @@ xfce_mixer_plugin_volume_changed (XfceMixerPlugin  *mixer_plugin,
 
 
 static void
-xfce_mixer_plugin_mute_toggled (XfceMixerPlugin *mixer_plugin,
-                                gboolean         mute)
+xfce_mixer_plugin_is_muted_property_changed (XfceMixerPlugin *mixer_plugin,
+                                             GParamSpec      *pspec,
+                                             GObject         *object)
 {
+  gboolean mute;
+
   g_return_if_fail (mixer_plugin != NULL);
   g_return_if_fail (GST_IS_MIXER (mixer_plugin->card));
   g_return_if_fail (GST_IS_MIXER_TRACK (mixer_plugin->track));
@@ -566,6 +570,8 @@ xfce_mixer_plugin_mute_toggled (XfceMixerPlugin *mixer_plugin,
 #ifdef HAVE_GST_MIXER_NOTIFICATION
   mixer_plugin->ignore_bus_messages = TRUE;
 #endif
+
+  g_object_get (object, "is-muted", &mute, NULL);
 
   if (G_LIKELY (xfce_mixer_track_type_new (mixer_plugin->track) == XFCE_MIXER_TRACK_TYPE_PLAYBACK))
     {

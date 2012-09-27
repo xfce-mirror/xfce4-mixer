@@ -48,6 +48,7 @@ enum
   PROP_0,
   PROP_TRACK_LABEL,
   PROP_IS_CONFIGURED,
+  PROP_IS_MUTED,
   N_PROPERTIES,
 };
 
@@ -57,7 +58,6 @@ enum
 enum
 {
   VOLUME_CHANGED,
-  MUTE_TOGGLED,
   LAST_SIGNAL,
 };
 
@@ -106,8 +106,6 @@ static void       xfce_volume_button_volume_changed (XfceVolumeButton      *butt
                                                      gdouble                volume);
 static void       xfce_volume_button_update_icons   (XfceVolumeButton      *button,
                                                      GtkIconTheme          *icon_theme);
-static void       xfce_volume_button_mute_toggled   (XfceVolumeButton      *button,
-                                                     gboolean               mute);
 
 
 
@@ -118,8 +116,6 @@ struct _XfceVolumeButtonClass
   /* Signals */
   void (*volume_changed) (XfceVolumeButton *button,
                           gdouble           volume);
-  void (*mute_toggled)   (XfceVolumeButton *button,
-                          gboolean          mute);
 };
 
 struct _XfceVolumeButton
@@ -198,7 +194,6 @@ xfce_volume_button_class_init (XfceVolumeButtonClass *klass)
   gobject_class->get_property = xfce_volume_button_get_property;
 
   klass->volume_changed = xfce_volume_button_volume_changed;
-  klass->mute_toggled = xfce_volume_button_mute_toggled;
 
   g_object_class_install_property (gobject_class,
                                    PROP_TRACK_LABEL,
@@ -216,6 +211,14 @@ xfce_volume_button_class_init (XfceVolumeButtonClass *klass)
                                                          FALSE,
                                                          G_PARAM_READABLE | G_PARAM_WRITABLE));
 
+  g_object_class_install_property (gobject_class,
+                                   PROP_IS_MUTED,
+                                   g_param_spec_boolean ("is-muted",
+                                                         "is-muted",
+                                                         "is-muted",
+                                                         FALSE,
+                                                         G_PARAM_READABLE | G_PARAM_WRITABLE));
+
   button_signals[VOLUME_CHANGED] = g_signal_new ("volume-changed",
                                                  G_TYPE_FROM_CLASS (klass),
                                                  G_SIGNAL_RUN_LAST | G_SIGNAL_ACTION,
@@ -226,17 +229,6 @@ xfce_volume_button_class_init (XfceVolumeButtonClass *klass)
                                                  G_TYPE_NONE, 
                                                  1, 
                                                  G_TYPE_DOUBLE);
-
-  button_signals[MUTE_TOGGLED] = g_signal_new ("mute-toggled",
-                                               G_TYPE_FROM_CLASS (klass),
-                                               G_SIGNAL_RUN_LAST | G_SIGNAL_ACTION,
-                                               G_STRUCT_OFFSET (XfceVolumeButtonClass, mute_toggled),
-                                               NULL, 
-                                               NULL,
-                                               g_cclosure_marshal_VOID__BOOLEAN,
-                                               G_TYPE_NONE, 
-                                               1, 
-                                               G_TYPE_BOOLEAN);
 }
 
 
@@ -321,6 +313,7 @@ static void xfce_volume_button_set_property (GObject      *object,
 {
   XfceVolumeButton *button = XFCE_VOLUME_BUTTON (object);
   gboolean          is_configured;
+  gboolean          is_muted;
 
   switch (prop_id)
     {
@@ -329,6 +322,14 @@ static void xfce_volume_button_set_property (GObject      *object,
         button->track_label = g_value_dup_string (value);
         if (button->is_configured)
           xfce_volume_button_update (button);
+        break;
+      case PROP_IS_MUTED:
+        is_muted = g_value_get_boolean (value);
+        if (button->is_configured && button->is_muted != is_muted)
+          {
+            button->is_muted = is_muted;
+            xfce_volume_button_update (button);
+          }
         break;
       case PROP_IS_CONFIGURED:
         is_configured = g_value_get_boolean (value);
@@ -357,6 +358,9 @@ static void xfce_volume_button_get_property (GObject      *object,
     {
       case PROP_TRACK_LABEL:
         g_value_set_string (value, button->track_label);
+        break;
+      case PROP_IS_MUTED:
+        g_value_set_boolean (value, button->is_muted);
         break;
       case PROP_IS_CONFIGURED:
         g_value_set_boolean (value, button->is_configured);
@@ -457,9 +461,6 @@ xfce_volume_button_button_pressed (GtkWidget        *widget,
 
           /* Toggle the button's mute state */
           xfce_volume_button_set_muted (button, mute);
-
-          /* Notify listeners of the mute change */
-          g_signal_emit_by_name (button, "mute-toggled", mute);
         }
 
       /* Middle mouse button was handled, do not propagate the event any further */
@@ -538,7 +539,7 @@ xfce_volume_button_update (XfceVolumeButton *button)
 
   if (G_UNLIKELY (!button->is_configured || button->is_muted || value < VOLUME_EPSILON))
     {
-      /* By definition, use the first icon if the button is muted or the volume is 0 */
+      /* By definition, use the first icon if the button is muted or the volume is 0% */
       pixbuf = button->pixbufs[0];
     }
   else
@@ -561,8 +562,11 @@ xfce_volume_button_update (XfceVolumeButton *button)
     gtk_widget_set_tooltip_text (GTK_WIDGET (button), _("No valid device and/or element."));
   else
     {
-      /* Set tooltip (e.g. 'Master: 50%') */
-      tip_text = g_strdup_printf (_("%s: %i%%"), button->track_label, (gint) value);
+      /* Set tooltip (e.g. 'Master: 50% (muted)') */
+      if (button->is_muted)
+        tip_text = g_strdup_printf (_("%s: muted"), button->track_label);
+      else
+        tip_text = g_strdup_printf (_("%s: %i%%"), button->track_label, (gint) (value * 100));
       gtk_widget_set_tooltip_text (GTK_WIDGET (button), tip_text);
       g_free (tip_text);
     }
@@ -581,15 +585,30 @@ xfce_volume_button_volume_changed (XfceVolumeButton *button,
 
 void
 xfce_volume_button_set_muted (XfceVolumeButton *button,
-                              gboolean          muted)
+                              gboolean          is_muted)
 {
+  GValue value = G_VALUE_INIT;
+
   g_return_if_fail (IS_XFCE_VOLUME_BUTTON (button));
 
-  /* Change mute value */
-  button->is_muted = muted;
+  g_value_init (&value, G_TYPE_BOOLEAN);
+  g_value_set_boolean (&value, is_muted);
+  g_object_set_property (G_OBJECT (button), "is-muted", &value);
+}
 
-  /* Update the state of the button */
-  xfce_volume_button_update (button);
+
+
+gboolean
+xfce_volume_button_get_muted (XfceVolumeButton *button)
+{
+  GValue value = G_VALUE_INIT;
+
+  g_return_val_if_fail (IS_XFCE_VOLUME_BUTTON (button), FALSE);
+
+  g_value_init (&value, G_TYPE_BOOLEAN);
+  g_object_get_property (G_OBJECT (button), "is-muted", &value);
+
+  return g_value_get_boolean (&value);
 }
 
 
@@ -648,15 +667,6 @@ xfce_volume_button_set_icon_size (XfceVolumeButton *button,
   button->icon_size = size;
 
   xfce_volume_button_update_icons (button, gtk_icon_theme_get_default ());
-}
-
-
-
-static void
-xfce_volume_button_mute_toggled (XfceVolumeButton *button,
-                                 gboolean          mute)
-{
-  /* Do nothing */
 }
 
 

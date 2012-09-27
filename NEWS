@@ -16,6 +16,7 @@
   and ignore mouse wheel and mute toggle events (bug #6625, bug #7630).
 - Avoid the deprecated GtkTooltips API and let XfceVolumeButton handle
   tooltips.
+- Indicate in the plugin tooltip whether the track is muted.
 
 
 4.8.0
