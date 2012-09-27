@@ -3,7 +3,7 @@ panel-plugin/xfce-plugin-dialog.c
 panel-plugin/xfce-volume-button.c
 panel-plugin/xfce-plugin-dialog.h
 panel-plugin/xfce-volume-button.h
-panel-plugin/xfce4-mixer-plugin.desktop.in.in
+panel-plugin/mixer.desktop.in
 libxfce4mixer/libxfce4mixer.c
 libxfce4mixer/xfce-mixer-card-combo.c
 libxfce4mixer/xfce-mixer-preferences.c
@@ -26,4 +26,4 @@ xfce4-mixer/xfce-mixer-option.h
 xfce4-mixer/xfce-mixer-switch.h
 xfce4-mixer/xfce-mixer-track.h
 xfce4-mixer/xfce-mixer-window.h
-xfce4-mixer/xfce4-mixer.desktop.in.in
+xfce4-mixer/xfce4-mixer.desktop.in

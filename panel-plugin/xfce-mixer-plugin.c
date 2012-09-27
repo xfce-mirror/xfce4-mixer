@@ -113,7 +113,7 @@ static void             xfce_mixer_plugin_set_command       (XfceMixerPlugin  *m
 
 
 /* Register the plugin */
-XFCE_PANEL_PLUGIN_REGISTER_EXTERNAL (xfce_mixer_plugin_construct);
+XFCE_PANEL_PLUGIN_REGISTER (xfce_mixer_plugin_construct);
 
 
 

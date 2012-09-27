@@ -3,5 +3,6 @@ Type=X-XFCE-PanelPlugin
 _Name=Mixer
 _Comment=Volume control for your sound card
 Icon=multimedia-volume-control
-X-XFCE-Exec=@libexecdir@/xfce4/panel-plugins/xfce4-mixer-plugin
+X-XFCE-Internal=false
+X-XFCE-Module=mixer
 X-XFCE-Unique=false

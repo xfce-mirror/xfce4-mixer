@@ -4,6 +4,7 @@
 - Fix a potential NULL pointer dereference.
 - Do not try to destroy the mixer window twice after a delete-event
   (bug #8288).
+- Modernize build system and build panel plugin as a module.
 
 
 4.8.0

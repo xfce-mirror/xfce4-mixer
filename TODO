@@ -1,9 +1,0 @@
-* Improve the naming of the volume stock icons.
-
-* Improve the plugin icons.
-
-* Panel plugin: Decide on how to react on tracks with
-  different channel volume levels (median, minimum, maximum value?)
-
-* Allow changing controls from the console, probably via something like:
-  --change-control=SOUNDCARD NAME:TRACK NAME:NEW VALUE

@@ -1,20 +1,17 @@
-# $Id$
-#
 # vi:set ts=8 sw=8 noet ai nocindent syntax=automake:
 
-plugindir = $(libexecdir)/xfce4/panel-plugins
+plugindir = $(libdir)/xfce4/panel/plugins
 
-plugin_PROGRAMS =							\
-	xfce4-mixer-plugin
+plugin_LTLIBRARIES = libmixer.la
 
-xfce4_mixer_plugin_SOURCES =						\
+libmixer_la_SOURCES =							\
 	xfce-plugin-dialog.h						\
 	xfce-plugin-dialog.c						\
 	xfce-volume-button.h						\
 	xfce-volume-button.c						\
 	xfce-mixer-plugin.c
 
-xfce4_mixer_plugin_CFLAGS =						\
+libmixer_la_CFLAGS =							\
 	-I$(top_builddir)						\
 	-I$(top_srcdir)							\
 	-DDATADIR=\"$(datadir)\"					\
@@ -28,12 +25,18 @@ xfce4_mixer_plugin_CFLAGS =						\
 	$(LIBXFCE4PANEL_CFLAGS)						\
 	$(GST_PLUGINS_BASE_CFLAGS)
 
-xfce4_mixer_plugin_DEPENDENCIES =					\
+libmixer_la_DEPENDENCIES =						\
 	$(top_builddir)/libxfce4mixer/libxfce4mixer.la
 
-xfce4_mixer_plugin_LDFLAGS =						\
+libmixer_la_LDFLAGS =							\
+	-avoid-version							\
+	-module								\
+	-no-undefined							\
+	-export-symbols-regex '^xfce_panel_module_(preinit|init|construct)' \
 	$(top_builddir)/libxfce4mixer/libxfce4mixer.la			\
-	$(PLATFORM_LDFLAGS)						\
+	$(PLATFORM_LDFLAGS)
+
+libmixer_la_LIBADD =							\
 	$(GLIB_LIBS)							\
 	$(GTK_LIBS)							\
 	$(LIBXFCE4UTIL_LIBS)						\
@@ -43,26 +46,15 @@ xfce4_mixer_plugin_LDFLAGS =						\
 	-lgstaudio-0.10							\
 	-lgstinterfaces-0.10
 
-desktopdir = 								\
-	$(datadir)/xfce4/panel-plugins
+desktopdir = $(datadir)/xfce4/panel/plugins
 
-desktop_in_in_files = 							\
-	xfce4-mixer-plugin.desktop.in.in
-
-desktop_in_files = 							\
-	$(desktop_in_in_files:.desktop.in.in=.desktop.in)
-
-%.desktop.in: %.desktop.in.in
-	sed -e "s,\@libexecdir\@,$(libexecdir),g" < $< > $@
+desktop_in_files = mixer.desktop.in
 
 desktop_DATA = 								\
 	$(desktop_in_files:.desktop.in=.desktop)
 
 @INTLTOOL_DESKTOP_RULE@
 
-EXTRA_DIST =								\
-	$(desktop_in_in_files)
+EXTRA_DIST = $(desktop_in_files)
 
-CLEANFILES =								\
-	$(desktop_in_files)						\
-	$(desktop_DATA)
+CLEANFILES = $(desktop_DATA)
