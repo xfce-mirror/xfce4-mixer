@@ -276,6 +276,7 @@ xfce_mixer_plugin_construct (XfcePanelPlugin *plugin)
 {
   XfceMixerPlugin *mixer_plugin = XFCE_MIXER_PLUGIN (plugin);
   GtkWidget       *command_menu_item;
+  GtkWidget       *command_image;
 
   xfce_panel_plugin_menu_show_configure (plugin);
 
@@ -286,7 +287,10 @@ xfce_mixer_plugin_construct (XfcePanelPlugin *plugin)
   gtk_widget_show (mixer_plugin->mute_menu_item);
 
   /* Add menu item for running the user-defined command */
-  command_menu_item = gtk_menu_item_new_with_mnemonic (_("_Run command"));
+  command_image = gtk_image_new_from_icon_name ("multimedia-volume-control", GTK_ICON_SIZE_MENU);
+  gtk_widget_show (command_image);
+  command_menu_item = gtk_image_menu_item_new_with_mnemonic (_("_Run Audio Mixer"));
+  gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (command_menu_item), command_image);
   xfce_panel_plugin_menu_insert_item (plugin, GTK_MENU_ITEM (command_menu_item));
   g_signal_connect_swapped (G_OBJECT (command_menu_item), "activate", G_CALLBACK (xfce_mixer_plugin_command_item_activated), mixer_plugin);
   gtk_widget_show (command_menu_item);
@@ -692,26 +696,12 @@ xfce_mixer_plugin_command_item_activated (XfceMixerPlugin *mixer_plugin,
                                           GtkMenuItem     *menuitem)
 {
   gchar *message;
-  gint   response;
 
   g_return_if_fail (mixer_plugin != NULL);
 
   if (G_UNLIKELY (mixer_plugin->command == NULL || strlen (mixer_plugin->command) == 0))
     {
-      /* Run error message dialog */
-      response = xfce_message_dialog (NULL,
-                                      _("No command defined"),
-                                      GTK_STOCK_DIALOG_ERROR,
-                                      NULL,
-                                      _("No command defined yet. You can change this in the plugin properties."),
-                                      XFCE_BUTTON_TYPE_MIXED, _("Properties"), GTK_STOCK_PREFERENCES, GTK_RESPONSE_ACCEPT,
-                                      GTK_STOCK_CLOSE, GTK_RESPONSE_REJECT,
-                                      NULL);
-
-      /* Configure the plugin if requested by the user */
-      if (G_LIKELY (response == GTK_RESPONSE_ACCEPT))
-        xfce_mixer_plugin_configure_plugin (XFCE_PANEL_PLUGIN (mixer_plugin));
-
+      xfce_dialog_show_error (NULL, NULL, _("No command defined"));
       return;
     }
 

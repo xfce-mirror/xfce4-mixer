@@ -34,6 +34,9 @@
 - Make xfce4-mixer a singleton application, executing xfce4-mixer while another
   instance is already running brings the running instance to the foreground
   (bug #5676).
+- Remove UI for configuring the mixer command from the panel plugin and assume
+  xfce4-mixer, make the panel plugin context menu entry for running the mixer
+  more meaningful.
 
 
 4.8.0
