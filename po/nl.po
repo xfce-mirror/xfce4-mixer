@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the xfce4-mixer package.
 # Stephan Arts, 2008.
 # Pjotr, 2011.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer\n"
@@ -12,20 +12,20 @@ msgstr ""
 "PO-Revision-Date: 2011-09-08 11:45+0200\n"
 "Last-Translator: Pjotr\n"
 "Language-Team: Dutch (Flemish)\n"
-"Language: nl (Dutch)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: nl (Dutch)\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. Add menu item for muting
 #: ../panel-plugin/xfce-mixer-plugin.c:306
 msgid "_Mute"
-msgstr ""
+msgstr "Dempen"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:314
 msgid "_Run Audio Mixer"
-msgstr ""
+msgstr "Draai volumeregelaar"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:581 ../xfce4-mixer/main.c:148
 msgid ""
@@ -37,9 +37,8 @@ msgstr ""
 "ontbreken. Het kan ook een rechtenprobleem zijn."
 
 #: ../panel-plugin/xfce-mixer-plugin.c:931
-#, fuzzy
 msgid "No command defined"
-msgstr "Er is geen linksklikopdracht gedefinieerd"
+msgstr "Er is geen opdracht gedefinieerd"
 
 #. Generate error message and insert the current command
 #: ../panel-plugin/xfce-mixer-plugin.c:939
@@ -54,35 +53,31 @@ msgstr ""
 "volledige pad naar de opdracht verstrekt."
 
 #: ../panel-plugin/xfce-plugin-dialog.c:150
-#, fuzzy
 msgid "Audio Mixer Plugin"
-msgstr "Volumeregelaarplugin"
+msgstr "Volumeregelaar-invoegtoepassing"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:152
-#, fuzzy
 msgid "Configure the sound card and mixer track"
 msgstr ""
 "Configureer geluidkaart(en) en beheers het volume van geselecteerde sporen"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:165
 #: ../xfce4-mixer/xfce-mixer-window.c:185
-#, fuzzy
 msgid "Sound _card:"
 msgstr "Geluidkaart:"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:174
-#, fuzzy
 msgid "Mixer _track:"
-msgstr "Volumeregelaarspoor"
+msgstr "Volumeregelaar:"
 
 #: ../panel-plugin/xfce-volume-button.c:854
 msgid "No valid device and/or element."
-msgstr ""
+msgstr "Geen geldig apparaat en/of element."
 
 #: ../panel-plugin/xfce-volume-button.c:859
 #, c-format
 msgid "%s: muted"
-msgstr ""
+msgstr "%s: gedempt"
 
 #: ../panel-plugin/xfce-volume-button.c:861
 #, c-format
@@ -95,14 +90,13 @@ msgstr "%s: %i%%"
 #: ../xfce4-mixer/xfce-mixer-window.c:413
 #: ../xfce4-mixer/xfce-mixer-window.c:427
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.h:1
-#, fuzzy
 msgid "Audio Mixer"
 msgstr "Volumeregelaar"
 
 #: ../panel-plugin/mixer.desktop.in.h:2
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.h:2
 msgid "Adjust volume levels"
-msgstr ""
+msgstr "Stel volumeniveaus bij"
 
 #: ../libxfce4mixer/libxfce4mixer.c:422
 #, c-format
@@ -111,34 +105,30 @@ msgstr "Onbekende volumeregeling %d"
 
 #: ../xfce4-mixer/main.c:86
 msgid "Enable debugging output"
-msgstr ""
+msgstr "Schakel foutopsporingsuitvoer in"
 
 #: ../xfce4-mixer/main.c:87
 msgid "Show version and exit"
-msgstr ""
+msgstr "Toon versie en sluit af"
 
 #: ../xfce4-mixer/main.c:130
-#, fuzzy, c-format
+#, c-format
 msgid "xfce4-mixer: Failed to initialize xfconf: %s\n"
-msgstr "Kon xfconf niet initialiseren: %s"
+msgstr "xfce4-mixer: kon xfconf niet initialiseren: %s\n"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
-#, fuzzy
 msgid "_Playback"
 msgstr "Afspelen"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
-#, fuzzy
 msgid "C_apture"
 msgstr "Opnemen"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
-#, fuzzy
 msgid "S_witches"
 msgstr "Schakelaars"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
-#, fuzzy
 msgid "_Options"
 msgstr "Opties"
 
@@ -148,13 +138,13 @@ msgstr "Geen zichtbare bedieningsknoppen"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:401
 msgid "<span weight=\"bold\" size=\"larger\">No controls visible</span>"
-msgstr ""
+msgstr "<span weight=\"bold\" size=\"larger\">Geen bedieningsknoppen zichtbaar</span>"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:409
 msgid ""
 "In order to toggle the visibility of mixer controls, open the <b>\"Select "
 "Controls\"</b> dialog."
-msgstr ""
+msgstr "Om de zichtbaarheid van de volumebedieningsknoppen te beïnvloeden, opent u de <b>'Kies bedieningsknoppen'</b>-dialoog."
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:118
 msgid "Select Controls"
@@ -167,23 +157,23 @@ msgstr "Kiezen welke bedieningsknoppen er zichtbaar moeten zijn "
 #: ../xfce4-mixer/xfce-mixer-track.c:257
 #, c-format
 msgid "Volume of channel %d on %s"
-msgstr ""
+msgstr "Volume van kanaal %d op %s"
 
 #. Lock button
 #: ../xfce4-mixer/xfce-mixer-track.c:293
 #, c-format
 msgid "Lock channels for %s together"
-msgstr ""
+msgstr "Vergrendel kanalen voor %s gezamenlijk"
 
 #: ../xfce4-mixer/xfce-mixer-track.c:340
 #, c-format
 msgid "Mute/unmute %s"
-msgstr ""
+msgstr "%s dempen/ontdempen"
 
 #: ../xfce4-mixer/xfce-mixer-track.c:360
 #, c-format
 msgid "Enable/disable audible input from %s in output"
-msgstr ""
+msgstr "Schakel hoorbare invoer in of uit van %s in uitvoer"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:91
 msgid "_Quit"
