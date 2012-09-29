@@ -7,188 +7,250 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-appfinder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-08-13 22:12+0000\n"
+"POT-Creation-Date: 2012-09-29 13:30+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Vinh Nguyen <kureikain@gmail.com>\n"
 "Language-Team: Vietnamese <kureikain@gmail.com>\n"
+"Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#. Add menu item for muting
+#: ../panel-plugin/xfce-mixer-plugin.c:306
+msgid "_Mute"
+msgstr ""
 
-#. Set tooltip (e.g. 'Master: 50%')
-#: ../panel-plugin/xfce-mixer-plugin.c:271
-#: ../panel-plugin/xfce-mixer-plugin.c:548
-#, c-format
-msgid "%s: %i%%"
-msgstr "%s: %i%%"
+#: ../panel-plugin/xfce-mixer-plugin.c:314
+msgid "_Run Audio Mixer"
+msgstr ""
 
-#: ../panel-plugin/xfce-mixer-plugin.c:346
-msgid "No left-click command defined"
+#: ../panel-plugin/xfce-mixer-plugin.c:581 ../xfce4-mixer/main.c:148
+msgid ""
+"GStreamer was unable to detect any sound devices. Some sound system specific "
+"GStreamer packages may be missing. It may also be a permissions problem."
+msgstr ""
+"GStream đã không thể tìm được bất kì thiết bị âm thanh nào. Có thể thiếu một "
+"vài gói GStream cho các hệ thống âm thanh cụ thể nào đó. Điều này cũng có "
+"thể do một vấn đề về quyền."
+
+#: ../panel-plugin/xfce-mixer-plugin.c:931
+#, fuzzy
+msgid "No command defined"
 msgstr "Chưa định nghĩa lệnh cho nhấn chuột trái"
 
-#: ../panel-plugin/xfce-mixer-plugin.c:349
-msgid ""
-"No left-click command defined yet. You can change this in the plugin "
-"properties."
-msgstr ""
-"Chưa định nghĩa lệnh cho nhấn chuột trái. Bạn có thể thay đổi điều này trong thuộc tính "
-"của plugin."
-
-#: ../panel-plugin/xfce-mixer-plugin.c:350
-msgid "Properties"
-msgstr "Thuộc tính"
-
 #. Generate error message and insert the current command
-#: ../panel-plugin/xfce-mixer-plugin.c:365
+#: ../panel-plugin/xfce-mixer-plugin.c:939
 #, c-format
 msgid ""
 "Could not execute the command \"%s\". Ensure that either the location of the "
 "command is included in the PATH environment variable or that you are "
 "providing the full path to the command."
 msgstr ""
-"Không thể thực thi lệnh \"%s\". Hãy chắc rằng hoặc đường dẫn lệnh đã được thiết lập trong biến môi trường PATH hoặc là bạn "
-"đang cung cấp đường dẫn đầy đủ đến lệnh."
+"Không thể thực thi lệnh \"%s\". Hãy chắc rằng hoặc đường dẫn lệnh đã được "
+"thiết lập trong biến môi trường PATH hoặc là bạn đang cung cấp đường dẫn đầy "
+"đủ đến lệnh."
 
-#: ../panel-plugin/xfce-mixer-plugin.c:398 ../xfce4-mixer/main.c:89
-msgid ""
-"GStreamer was unable to detect any sound devices. Some sound system specific "
-"GStreamer packages may be missing. It may also be a permissions problem."
-msgstr ""
-"GStream đã không thể tìm được bất kì thiết bị âm thanh nào. Có thể thiếu một vài gói "
-"GStream cho các hệ thống âm thanh cụ thể nào đó. Điều này cũng có thể do một vấn đề về quyền."
-
-#: ../panel-plugin/xfce-plugin-dialog.c:234
-msgid "Mixer Plugin"
+#: ../panel-plugin/xfce-plugin-dialog.c:150
+#, fuzzy
+msgid "Audio Mixer Plugin"
 msgstr "Plugin tùy chỉnh âm thanh"
 
-#: ../panel-plugin/xfce-plugin-dialog.c:236
-msgid "Configure the mixer track and left-click command"
-msgstr "Cấu hình thiết bị âm thanh và lệnh bấm chuột trái"
+#: ../panel-plugin/xfce-plugin-dialog.c:152
+#, fuzzy
+msgid "Configure the sound card and mixer track"
+msgstr "Cấu hình card âm thanh và điều khiển mức độ của các thiết bị đã chọn"
 
-#: ../panel-plugin/xfce-plugin-dialog.c:248
-msgid "Sound card"
-msgstr "Card âm thành"
+#: ../panel-plugin/xfce-plugin-dialog.c:165
+#: ../xfce4-mixer/xfce-mixer-window.c:185
+#, fuzzy
+msgid "Sound _card:"
+msgstr "Card âm thanh:"
 
-#: ../panel-plugin/xfce-plugin-dialog.c:266
-msgid "Mixer track"
+#: ../panel-plugin/xfce-plugin-dialog.c:174
+#, fuzzy
+msgid "Mixer _track:"
 msgstr "Tùy chỉnh thiết bị"
 
-#: ../panel-plugin/xfce-plugin-dialog.c:284
-msgid "Left-click command"
-msgstr "Lệnh bấm chuột trái"
+#: ../panel-plugin/xfce-volume-button.c:854
+msgid "No valid device and/or element."
+msgstr ""
 
-#: ../panel-plugin/xfce-plugin-dialog.c:322
-msgid "Select command"
-msgstr "Chọn lệnh"
+#: ../panel-plugin/xfce-volume-button.c:859
+#, c-format
+msgid "%s: muted"
+msgstr ""
 
-#: ../panel-plugin/xfce-plugin-dialog.c:330
-msgid "All Files"
-msgstr "Tất cả tập tin"
-
-#: ../panel-plugin/xfce-plugin-dialog.c:335
-msgid "Executable Files"
-msgstr "Các tập tin thực thi được"
-
-#: ../panel-plugin/xfce-plugin-dialog.c:350
-msgid "Perl Scripts"
-msgstr "Các kịch bản Perl"
-
-#: ../panel-plugin/xfce-plugin-dialog.c:356
-msgid "Python Scripts"
-msgstr "Các kịch bản Python"
-
-#: ../panel-plugin/xfce-plugin-dialog.c:362
-msgid "Ruby Scripts"
-msgstr "Các kịch bản Ruby"
-
-#: ../panel-plugin/xfce-plugin-dialog.c:368
-msgid "Shell Scripts"
-msgstr "Các kịch bản hệ vỏ"
+#: ../panel-plugin/xfce-volume-button.c:861
+#, c-format
+msgid "%s: %i%%"
+msgstr "%s: %i%%"
 
 #. Set application name
-#: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:1
-#: ../xfce4-mixer/main.c:60 ../xfce4-mixer/xfce-mixer-window.c:165
-#: ../xfce4-mixer/xfce-mixer-window.c:183
-#: ../xfce4-mixer/xfce-mixer-window.c:284
-#: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
-msgid "Mixer"
+#: ../panel-plugin/mixer.desktop.in.h:1 ../xfce4-mixer/main.c:99
+#: ../xfce4-mixer/xfce-mixer-window.c:150
+#: ../xfce4-mixer/xfce-mixer-window.c:413
+#: ../xfce4-mixer/xfce-mixer-window.c:427
+#: ../xfce4-mixer/xfce4-mixer.desktop.in.h:1
+#, fuzzy
+msgid "Audio Mixer"
 msgstr "Mixer"
 
-#: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:2
-msgid "Volume control for your sound card"
-msgstr "Điều khiển mức độ cho card âm thanh của bạn"
+#: ../panel-plugin/mixer.desktop.in.h:2
+#: ../xfce4-mixer/xfce4-mixer.desktop.in.h:2
+msgid "Adjust volume levels"
+msgstr ""
 
-#: ../libxfce4mixer/libxfce4mixer.c:243
+#: ../libxfce4mixer/libxfce4mixer.c:422
 #, c-format
 msgid "Unknown Volume Control %d"
 msgstr "Không Biết Điều Khiển Mức Độ %d"
 
-#: ../xfce4-mixer/main.c:70
-#, c-format
-msgid "Failed to initialize xfconf: %s"
+#: ../xfce4-mixer/main.c:86
+msgid "Enable debugging output"
+msgstr ""
+
+#: ../xfce4-mixer/main.c:87
+msgid "Show version and exit"
+msgstr ""
+
+#: ../xfce4-mixer/main.c:130
+#, fuzzy, c-format
+msgid "xfce4-mixer: Failed to initialize xfconf: %s\n"
 msgstr "Thất bại khi khởi chạy xfconf: %s"
 
-#: ../xfce4-mixer/xfce-mixer.c:164
-msgid "Playback"
+#: ../xfce4-mixer/xfce-mixer-container.c:218
+#, fuzzy
+msgid "_Playback"
 msgstr "Phát âm thanh"
 
-#: ../xfce4-mixer/xfce-mixer.c:164
-msgid "Capture"
+#: ../xfce4-mixer/xfce-mixer-container.c:218
+#, fuzzy
+msgid "C_apture"
 msgstr "Ghi âm"
 
-#: ../xfce4-mixer/xfce-mixer.c:164
-msgid "Switches"
+#: ../xfce4-mixer/xfce-mixer-container.c:218
+#, fuzzy
+msgid "S_witches"
 msgstr "Khóa chuyển"
 
-#: ../xfce4-mixer/xfce-mixer.c:164
-msgid "Options"
+#: ../xfce4-mixer/xfce-mixer-container.c:218
+#, fuzzy
+msgid "_Options"
 msgstr "Tùy chọn"
 
-#: ../xfce4-mixer/xfce-mixer.c:298
+#: ../xfce4-mixer/xfce-mixer-container.c:390
 msgid "No controls visible"
 msgstr "Khôgn có điều khiển nào"
 
-#: ../xfce4-mixer/xfce-mixer.c:302
-msgid ""
-"No controls are marked as visible. Please open the <span "
-"size='large'><b>Select Controls</b></span> dialog to select some."
+#: ../xfce4-mixer/xfce-mixer-container.c:401
+msgid "<span weight=\"bold\" size=\"larger\">No controls visible</span>"
 msgstr ""
-"Không có điều khiển nào đã được đánh dấu để hiển thị. Hãy mở hộp thoại <span  "
-"size='large'><b>Lựa chọn điều khiển</b></span> để chọn vài cái."
 
-#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:135
+#: ../xfce4-mixer/xfce-mixer-container.c:409
+msgid ""
+"In order to toggle the visibility of mixer controls, open the <b>\"Select "
+"Controls\"</b> dialog."
+msgstr ""
+
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:118
 msgid "Select Controls"
 msgstr "Lựa chọn điều khiển"
 
-#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:137
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:120
 msgid "Select which controls should be visible"
 msgstr "Lựa chọn những điều khiển sẽ được hiển thị"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:84
+#: ../xfce4-mixer/xfce-mixer-track.c:257
+#, c-format
+msgid "Volume of channel %d on %s"
+msgstr ""
+
+#. Lock button
+#: ../xfce4-mixer/xfce-mixer-track.c:293
+#, c-format
+msgid "Lock channels for %s together"
+msgstr ""
+
+#: ../xfce4-mixer/xfce-mixer-track.c:340
+#, c-format
+msgid "Mute/unmute %s"
+msgstr ""
+
+#: ../xfce4-mixer/xfce-mixer-track.c:360
+#, c-format
+msgid "Enable/disable audible input from %s in output"
+msgstr ""
+
+#: ../xfce4-mixer/xfce-mixer-window.c:91
 msgid "_Quit"
 msgstr "_Thoát"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:84
+#: ../xfce4-mixer/xfce-mixer-window.c:91
 msgid "Exit the mixer"
 msgstr "Thoát trình tùy chỉnh"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:86
+#: ../xfce4-mixer/xfce-mixer-window.c:93
 msgid "_Select Controls..."
 msgstr "_Lựa chọn các điều khiển..."
 
-#: ../xfce4-mixer/xfce-mixer-window.c:86
+#: ../xfce4-mixer/xfce-mixer-window.c:93
 msgid "Select which controls are displayed"
 msgstr "Lựa chọn điều khiển để hiển thị"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:184
+#: ../xfce4-mixer/xfce-mixer-window.c:154
 msgid "Configure sound card(s) and control the volume of selected tracks"
 msgstr "Cấu hình card âm thanh và điều khiển mức độ của các thiết bị đã chọn"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:199
-msgid "Sound card:"
-msgstr "Card âm thanh:"
+#~ msgid ""
+#~ "No left-click command defined yet. You can change this in the plugin "
+#~ "properties."
+#~ msgstr ""
+#~ "Chưa định nghĩa lệnh cho nhấn chuột trái. Bạn có thể thay đổi điều này "
+#~ "trong thuộc tính của plugin."
 
-#: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:1
-msgid "Audio mixer for the Xfce Desktop Environment"
-msgstr "Trình tùy chỉnh âm thanh cho Xfce"
+#~ msgid "Properties"
+#~ msgstr "Thuộc tính"
+
+#~ msgid "Configure the mixer track and left-click command"
+#~ msgstr "Cấu hình thiết bị âm thanh và lệnh bấm chuột trái"
+
+#~ msgid "Sound card"
+#~ msgstr "Card âm thành"
+
+#~ msgid "Left-click command"
+#~ msgstr "Lệnh bấm chuột trái"
+
+#~ msgid "Select command"
+#~ msgstr "Chọn lệnh"
+
+#~ msgid "All Files"
+#~ msgstr "Tất cả tập tin"
+
+#~ msgid "Executable Files"
+#~ msgstr "Các tập tin thực thi được"
+
+#~ msgid "Perl Scripts"
+#~ msgstr "Các kịch bản Perl"
+
+#~ msgid "Python Scripts"
+#~ msgstr "Các kịch bản Python"
+
+#~ msgid "Ruby Scripts"
+#~ msgstr "Các kịch bản Ruby"
+
+#~ msgid "Shell Scripts"
+#~ msgstr "Các kịch bản hệ vỏ"
+
+#~ msgid "Volume control for your sound card"
+#~ msgstr "Điều khiển mức độ cho card âm thanh của bạn"
+
+#~ msgid ""
+#~ "No controls are marked as visible. Please open the <span "
+#~ "size='large'><b>Select Controls</b></span> dialog to select some."
+#~ msgstr ""
+#~ "Không có điều khiển nào đã được đánh dấu để hiển thị. Hãy mở hộp thoại "
+#~ "<span  size='large'><b>Lựa chọn điều khiển</b></span> để chọn vài cái."
+
+#~ msgid "Audio mixer for the Xfce Desktop Environment"
+#~ msgstr "Trình tùy chỉnh âm thanh cho Xfce"

@@ -6,11 +6,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer.master\n"
-"Report-Msgid-Bugs-To: xfce-i18n <xfce-i18n@xfce.org>\n"
-"POT-Creation-Date: 2009-01-11 00:59+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 13:30+0000\n"
 "PO-Revision-Date: 2012-02-29 04:17+0900\n"
 "Last-Translator: Seong-ho, Cho <darkcircle.0426@gmail.com>\n"
 "Language-Team: xfce-i18n <xfce-i18n@xfce.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,165 +20,239 @@ msgstr ""
 "X-Poedit-Country: KOREA, REPUBLIC OF\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#. Set tooltip (e.g. 'Master: 50%')
-#: ../panel-plugin/xfce-mixer-plugin.c:271
-#: ../panel-plugin/xfce-mixer-plugin.c:548
+#. Add menu item for muting
+#: ../panel-plugin/xfce-mixer-plugin.c:306
+msgid "_Mute"
+msgstr ""
+
+#: ../panel-plugin/xfce-mixer-plugin.c:314
+msgid "_Run Audio Mixer"
+msgstr ""
+
+#: ../panel-plugin/xfce-mixer-plugin.c:581 ../xfce4-mixer/main.c:148
+msgid ""
+"GStreamer was unable to detect any sound devices. Some sound system specific "
+"GStreamer packages may be missing. It may also be a permissions problem."
+msgstr ""
+"GStreamer가 사운드 장치를 감지할 수 없습니다. 사운드 시스템 지향 GStreamer가 "
+"빠졌을 수 있습니다. 권한 문제일 수도 있습니다."
+
+#: ../panel-plugin/xfce-mixer-plugin.c:931
+#, fuzzy
+msgid "No command defined"
+msgstr "왼쪽 누름 명령을 정의하지 않았습니다"
+
+#. Generate error message and insert the current command
+#: ../panel-plugin/xfce-mixer-plugin.c:939
+#, c-format
+msgid ""
+"Could not execute the command \"%s\". Ensure that either the location of the "
+"command is included in the PATH environment variable or that you are "
+"providing the full path to the command."
+msgstr ""
+"\"%s\" 명령을 실행할 수 없습니다. PATH 환경 변수가 명령의 위치를 포함하였는"
+"지 또는 명령에 완전한 경로를 주었는지 확인해보시기 바랍니다."
+
+#: ../panel-plugin/xfce-plugin-dialog.c:150
+#, fuzzy
+msgid "Audio Mixer Plugin"
+msgstr "믹서 플러그인"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:152
+#, fuzzy
+msgid "Configure the sound card and mixer track"
+msgstr "사운드 카드를 설정하고 선택한 트랙에 대한 음량을 조절합니다"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:165
+#: ../xfce4-mixer/xfce-mixer-window.c:185
+#, fuzzy
+msgid "Sound _card:"
+msgstr "사운드 카드:"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:174
+#, fuzzy
+msgid "Mixer _track:"
+msgstr "믹서 트랙"
+
+#: ../panel-plugin/xfce-volume-button.c:854
+msgid "No valid device and/or element."
+msgstr ""
+
+#: ../panel-plugin/xfce-volume-button.c:859
+#, c-format
+msgid "%s: muted"
+msgstr ""
+
+#: ../panel-plugin/xfce-volume-button.c:861
 #, c-format
 msgid "%s: %i%%"
 msgstr "%s: %i%%"
 
-#: ../panel-plugin/xfce-mixer-plugin.c:346
-msgid "No left-click command defined"
-msgstr "왼쪽 누름 명령을 정의하지 않았습니다"
-
-#: ../panel-plugin/xfce-mixer-plugin.c:349
-msgid "No left-click command defined yet. You can change this in the plugin properties."
-msgstr "아직 왼쪽 누름 명령을 정의하지 않았습니다. 플러그인 속성에서 바꿀 수 있습니다."
-
-#: ../panel-plugin/xfce-mixer-plugin.c:350
-msgid "Properties"
-msgstr "속성"
-
-#. Generate error message and insert the current command
-#: ../panel-plugin/xfce-mixer-plugin.c:365
-#, c-format
-msgid "Could not execute the command \"%s\". Ensure that either the location of the command is included in the PATH environment variable or that you are providing the full path to the command."
-msgstr "\"%s\" 명령을 실행할 수 없습니다. PATH 환경 변수가 명령의 위치를 포함하였는지 또는 명령에 완전한 경로를 주었는지 확인해보시기 바랍니다."
-
-#: ../panel-plugin/xfce-mixer-plugin.c:398
-#: ../xfce4-mixer/main.c:89
-msgid "GStreamer was unable to detect any sound devices. Some sound system specific GStreamer packages may be missing. It may also be a permissions problem."
-msgstr "GStreamer가 사운드 장치를 감지할 수 없습니다. 사운드 시스템 지향 GStreamer가 빠졌을 수 있습니다. 권한 문제일 수도 있습니다."
-
-#: ../panel-plugin/xfce-plugin-dialog.c:234
-msgid "Mixer Plugin"
-msgstr "믹서 플러그인"
-
-#: ../panel-plugin/xfce-plugin-dialog.c:236
-msgid "Configure the mixer track and left-click command"
-msgstr "믹서 트랙과 왼쪽 누름 명령을 설정합니다"
-
-#: ../panel-plugin/xfce-plugin-dialog.c:248
-msgid "Sound card"
-msgstr "사운드 카드"
-
-#: ../panel-plugin/xfce-plugin-dialog.c:266
-msgid "Mixer track"
-msgstr "믹서 트랙"
-
-#: ../panel-plugin/xfce-plugin-dialog.c:284
-msgid "Left-click command"
-msgstr "왼쪽 누름 명령"
-
-#: ../panel-plugin/xfce-plugin-dialog.c:322
-msgid "Select command"
-msgstr "명령 선택"
-
-#: ../panel-plugin/xfce-plugin-dialog.c:330
-msgid "All Files"
-msgstr "모든 파일"
-
-#: ../panel-plugin/xfce-plugin-dialog.c:335
-msgid "Executable Files"
-msgstr "실행 파일"
-
-#: ../panel-plugin/xfce-plugin-dialog.c:350
-msgid "Perl Scripts"
-msgstr "펄 스크립트"
-
-#: ../panel-plugin/xfce-plugin-dialog.c:356
-msgid "Python Scripts"
-msgstr "파이선 스크립트"
-
-#: ../panel-plugin/xfce-plugin-dialog.c:362
-msgid "Ruby Scripts"
-msgstr "루비 스크립트"
-
-#: ../panel-plugin/xfce-plugin-dialog.c:368
-msgid "Shell Scripts"
-msgstr "쉘 스크립트"
-
 #. Set application name
-#: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:1
-#: ../xfce4-mixer/main.c:60
-#: ../xfce4-mixer/xfce-mixer-window.c:165
-#: ../xfce4-mixer/xfce-mixer-window.c:183
-#: ../xfce4-mixer/xfce-mixer-window.c:284
-#: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
-msgid "Mixer"
+#: ../panel-plugin/mixer.desktop.in.h:1 ../xfce4-mixer/main.c:99
+#: ../xfce4-mixer/xfce-mixer-window.c:150
+#: ../xfce4-mixer/xfce-mixer-window.c:413
+#: ../xfce4-mixer/xfce-mixer-window.c:427
+#: ../xfce4-mixer/xfce4-mixer.desktop.in.h:1
+#, fuzzy
+msgid "Audio Mixer"
 msgstr "믹서"
 
-#: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:2
-msgid "Volume control for your sound card"
-msgstr "사운드 카드 음량 조절기"
+#: ../panel-plugin/mixer.desktop.in.h:2
+#: ../xfce4-mixer/xfce4-mixer.desktop.in.h:2
+msgid "Adjust volume levels"
+msgstr ""
 
-#: ../libxfce4mixer/libxfce4mixer.c:243
+#: ../libxfce4mixer/libxfce4mixer.c:422
 #, c-format
 msgid "Unknown Volume Control %d"
 msgstr "알 수 없는 음량 조절기 %d"
 
-#: ../xfce4-mixer/main.c:70
-#, c-format
-msgid "Failed to initialize xfconf: %s"
+#: ../xfce4-mixer/main.c:86
+msgid "Enable debugging output"
+msgstr ""
+
+#: ../xfce4-mixer/main.c:87
+msgid "Show version and exit"
+msgstr ""
+
+#: ../xfce4-mixer/main.c:130
+#, fuzzy, c-format
+msgid "xfce4-mixer: Failed to initialize xfconf: %s\n"
 msgstr "xfconf를 초기화 하는데 실패했습니다: %s"
 
-#: ../xfce4-mixer/xfce-mixer.c:164
-msgid "Playback"
+#: ../xfce4-mixer/xfce-mixer-container.c:218
+#, fuzzy
+msgid "_Playback"
 msgstr "재생"
 
-#: ../xfce4-mixer/xfce-mixer.c:164
-msgid "Capture"
+#: ../xfce4-mixer/xfce-mixer-container.c:218
+#, fuzzy
+msgid "C_apture"
 msgstr "캡처"
 
-#: ../xfce4-mixer/xfce-mixer.c:164
-msgid "Switches"
+#: ../xfce4-mixer/xfce-mixer-container.c:218
+#, fuzzy
+msgid "S_witches"
 msgstr "스위치"
 
-#: ../xfce4-mixer/xfce-mixer.c:164
-msgid "Options"
+#: ../xfce4-mixer/xfce-mixer-container.c:218
+#, fuzzy
+msgid "_Options"
 msgstr "옵션"
 
-#: ../xfce4-mixer/xfce-mixer.c:298
+#: ../xfce4-mixer/xfce-mixer-container.c:390
 msgid "No controls visible"
 msgstr "보일 조절기 없음"
 
-#: ../xfce4-mixer/xfce-mixer.c:302
-msgid "No controls are marked as visible. Please open the <span size='large'><b>Select Controls</b></span> dialog to select some."
-msgstr "보이도록 표시한 조절기가 없습니다. 선택하려면 <span size='large'><b>조절기 선택</b></span> 대화상자를 열어주시기 바랍니다."
+#: ../xfce4-mixer/xfce-mixer-container.c:401
+msgid "<span weight=\"bold\" size=\"larger\">No controls visible</span>"
+msgstr ""
 
-#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:135
+#: ../xfce4-mixer/xfce-mixer-container.c:409
+msgid ""
+"In order to toggle the visibility of mixer controls, open the <b>\"Select "
+"Controls\"</b> dialog."
+msgstr ""
+
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:118
 msgid "Select Controls"
 msgstr "조절기 선택"
 
-#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:137
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:120
 msgid "Select which controls should be visible"
 msgstr "보일 조절기를 선택합니다"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:84
+#: ../xfce4-mixer/xfce-mixer-track.c:257
+#, c-format
+msgid "Volume of channel %d on %s"
+msgstr ""
+
+#. Lock button
+#: ../xfce4-mixer/xfce-mixer-track.c:293
+#, c-format
+msgid "Lock channels for %s together"
+msgstr ""
+
+#: ../xfce4-mixer/xfce-mixer-track.c:340
+#, c-format
+msgid "Mute/unmute %s"
+msgstr ""
+
+#: ../xfce4-mixer/xfce-mixer-track.c:360
+#, c-format
+msgid "Enable/disable audible input from %s in output"
+msgstr ""
+
+#: ../xfce4-mixer/xfce-mixer-window.c:91
 msgid "_Quit"
 msgstr "나가기(_Q)"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:84
+#: ../xfce4-mixer/xfce-mixer-window.c:91
 msgid "Exit the mixer"
 msgstr "믹서 끝내기"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:86
+#: ../xfce4-mixer/xfce-mixer-window.c:93
 msgid "_Select Controls..."
 msgstr "조절기 선택(_S)..."
 
-#: ../xfce4-mixer/xfce-mixer-window.c:86
+#: ../xfce4-mixer/xfce-mixer-window.c:93
 msgid "Select which controls are displayed"
 msgstr "표시할 조절기를 선택합니다"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:184
+#: ../xfce4-mixer/xfce-mixer-window.c:154
 msgid "Configure sound card(s) and control the volume of selected tracks"
 msgstr "사운드 카드를 설정하고 선택한 트랙에 대한 음량을 조절합니다"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:199
-msgid "Sound card:"
-msgstr "사운드 카드:"
+#~ msgid ""
+#~ "No left-click command defined yet. You can change this in the plugin "
+#~ "properties."
+#~ msgstr ""
+#~ "아직 왼쪽 누름 명령을 정의하지 않았습니다. 플러그인 속성에서 바꿀 수 있습"
+#~ "니다."
 
-#: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:1
-msgid "Audio mixer for the Xfce Desktop Environment"
-msgstr "Xfce 데스크톱 환경의 오디오 믹서"
+#~ msgid "Properties"
+#~ msgstr "속성"
 
+#~ msgid "Configure the mixer track and left-click command"
+#~ msgstr "믹서 트랙과 왼쪽 누름 명령을 설정합니다"
+
+#~ msgid "Sound card"
+#~ msgstr "사운드 카드"
+
+#~ msgid "Left-click command"
+#~ msgstr "왼쪽 누름 명령"
+
+#~ msgid "Select command"
+#~ msgstr "명령 선택"
+
+#~ msgid "All Files"
+#~ msgstr "모든 파일"
+
+#~ msgid "Executable Files"
+#~ msgstr "실행 파일"
+
+#~ msgid "Perl Scripts"
+#~ msgstr "펄 스크립트"
+
+#~ msgid "Python Scripts"
+#~ msgstr "파이선 스크립트"
+
+#~ msgid "Ruby Scripts"
+#~ msgstr "루비 스크립트"
+
+#~ msgid "Shell Scripts"
+#~ msgstr "쉘 스크립트"
+
+#~ msgid "Volume control for your sound card"
+#~ msgstr "사운드 카드 음량 조절기"
+
+#~ msgid ""
+#~ "No controls are marked as visible. Please open the <span "
+#~ "size='large'><b>Select Controls</b></span> dialog to select some."
+#~ msgstr ""
+#~ "보이도록 표시한 조절기가 없습니다. 선택하려면 <span size='large'><b>조절"
+#~ "기 선택</b></span> 대화상자를 열어주시기 바랍니다."
+
+#~ msgid "Audio mixer for the Xfce Desktop Environment"
+#~ msgstr "Xfce 데스크톱 환경의 오디오 믹서"

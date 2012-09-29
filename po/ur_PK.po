@@ -7,10 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-01-11 00:59+0100\n"
+"POT-Creation-Date: 2012-09-29 13:30+0000\n"
 "PO-Revision-Date: 2009-05-14 02:27+0500\n"
 "Last-Translator: Muhammad Ali Makki <makki.ma@gmail.com>\n"
 "Language-Team: Urdu <makki.ma@gmail.com>\n"
+"Language: ur\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,301 +20,441 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 "Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#. Set tooltip (e.g. 'Master: 50%')
-#: ../panel-plugin/xfce-mixer-plugin.c:271
-#: ../panel-plugin/xfce-mixer-plugin.c:548
+#. Add menu item for muting
+#: ../panel-plugin/xfce-mixer-plugin.c:306
+msgid "_Mute"
+msgstr ""
+
+#: ../panel-plugin/xfce-mixer-plugin.c:314
+msgid "_Run Audio Mixer"
+msgstr ""
+
+#: ../panel-plugin/xfce-mixer-plugin.c:581 ../xfce4-mixer/main.c:148
+msgid ""
+"GStreamer was unable to detect any sound devices. Some sound system specific "
+"GStreamer packages may be missing. It may also be a permissions problem."
+msgstr ""
+"جی سٹریمر کوئی صوتی ڈیوائسیں تلاش نہیں کر پایا. کچھ صوتی نظام خاص طور سے "
+"GStreamer پیکج ممکنہ طور پر مفقود ہوسکتا ہے. اس کے علاوہ یہ اجازوں (پرمیشنز) "
+"کا مسئلہ بھی ہوسکتا ہے."
+
+#: ../panel-plugin/xfce-mixer-plugin.c:931
+#, fuzzy
+msgid "No command defined"
+msgstr "کوئی بائیں-کلک کمانڈ متعین نہیں"
+
+#. Generate error message and insert the current command
+#: ../panel-plugin/xfce-mixer-plugin.c:939
+#, c-format
+msgid ""
+"Could not execute the command \"%s\". Ensure that either the location of the "
+"command is included in the PATH environment variable or that you are "
+"providing the full path to the command."
+msgstr ""
+"کمانڈ \"%s\" نہیں چلائی جاسکتی. اس امر کا یقین کر لیں کہ کیا کمانڈ کا مقام "
+"پاتھ ماحول متغیر میں شامل ہے یا یہ کہ آپ کمانڈ کو پورا پاتھ دے رہے ہیں."
+
+#: ../panel-plugin/xfce-plugin-dialog.c:150
+#, fuzzy
+msgid "Audio Mixer Plugin"
+msgstr "مکسر پلگ ان"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:152
+#, fuzzy
+msgid "Configure the sound card and mixer track"
+msgstr "صوتی کارڈ مرتب کریں اور منتخب ٹریک کا والیم کنٹرول کریں"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:165
+#: ../xfce4-mixer/xfce-mixer-window.c:185
+#, fuzzy
+msgid "Sound _card:"
+msgstr "آواز کارڈ:"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:174
+#, fuzzy
+msgid "Mixer _track:"
+msgstr "مکسر ٹریک"
+
+#: ../panel-plugin/xfce-volume-button.c:854
+msgid "No valid device and/or element."
+msgstr ""
+
+#: ../panel-plugin/xfce-volume-button.c:859
+#, c-format
+msgid "%s: muted"
+msgstr ""
+
+#: ../panel-plugin/xfce-volume-button.c:861
 #, c-format
 msgid "%s: %i%%"
 msgstr "%s: %i%%"
 
-#: ../panel-plugin/xfce-mixer-plugin.c:346
-msgid "No left-click command defined"
-msgstr "کوئی بائیں-کلک کمانڈ متعین نہیں"
-
-#: ../panel-plugin/xfce-mixer-plugin.c:349
-msgid "No left-click command defined yet. You can change this in the plugin properties."
-msgstr "ابھی تک کوئی دائیں-کلک کمانڈ متعین نہیں کی گئی. آپ اسے پلگ ان کی خصوصیات میں تبدیل کر سکتے ہیں."
-
-#: ../panel-plugin/xfce-mixer-plugin.c:350
-msgid "Properties"
-msgstr "خصوصیات"
-
-#. Generate error message and insert the current command
-#: ../panel-plugin/xfce-mixer-plugin.c:365
-#, c-format
-msgid "Could not execute the command \"%s\". Ensure that either the location of the command is included in the PATH environment variable or that you are providing the full path to the command."
-msgstr "کمانڈ \"%s\" نہیں چلائی جاسکتی. اس امر کا یقین کر لیں کہ کیا کمانڈ کا مقام پاتھ ماحول متغیر میں شامل ہے یا یہ کہ آپ کمانڈ کو پورا پاتھ دے رہے ہیں."
-
-#: ../panel-plugin/xfce-mixer-plugin.c:398
-#: ../xfce4-mixer/main.c:89
-msgid "GStreamer was unable to detect any sound devices. Some sound system specific GStreamer packages may be missing. It may also be a permissions problem."
-msgstr "جی سٹریمر کوئی صوتی ڈیوائسیں تلاش نہیں کر پایا. کچھ صوتی نظام خاص طور سے GStreamer پیکج ممکنہ طور پر مفقود ہوسکتا ہے. اس کے علاوہ یہ اجازوں (پرمیشنز) کا مسئلہ بھی ہوسکتا ہے."
-
-#: ../panel-plugin/xfce-plugin-dialog.c:234
-msgid "Mixer Plugin"
-msgstr "مکسر پلگ ان"
-
-#: ../panel-plugin/xfce-plugin-dialog.c:236
-msgid "Configure the mixer track and left-click command"
-msgstr "مکسر ٹریک اور دائیں-کلک کمانڈ مرتب کریں"
-
-#: ../panel-plugin/xfce-plugin-dialog.c:248
-msgid "Sound card"
-msgstr "آواز کارڈ"
-
-#: ../panel-plugin/xfce-plugin-dialog.c:266
-msgid "Mixer track"
-msgstr "مکسر ٹریک"
-
-#: ../panel-plugin/xfce-plugin-dialog.c:284
-msgid "Left-click command"
-msgstr "بائیں-کلک کمانڈ"
-
-#: ../panel-plugin/xfce-plugin-dialog.c:322
-msgid "Select command"
-msgstr "کمانڈ منتخب کریں"
-
-#: ../panel-plugin/xfce-plugin-dialog.c:330
-msgid "All Files"
-msgstr "تمام فائلیں"
-
-#: ../panel-plugin/xfce-plugin-dialog.c:335
-msgid "Executable Files"
-msgstr "اطلاقی فائلیں"
-
-#: ../panel-plugin/xfce-plugin-dialog.c:350
-msgid "Perl Scripts"
-msgstr "پرل سکرپٹ"
-
-#: ../panel-plugin/xfce-plugin-dialog.c:356
-msgid "Python Scripts"
-msgstr "پائتھن سکرپت"
-
-#: ../panel-plugin/xfce-plugin-dialog.c:362
-msgid "Ruby Scripts"
-msgstr "روبی سکرپٹ"
-
-#: ../panel-plugin/xfce-plugin-dialog.c:368
-msgid "Shell Scripts"
-msgstr "شیل سکرپٹ"
-
 #. Set application name
-#: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:1
-#: ../xfce4-mixer/main.c:60
-#: ../xfce4-mixer/xfce-mixer-window.c:165
-#: ../xfce4-mixer/xfce-mixer-window.c:183
-#: ../xfce4-mixer/xfce-mixer-window.c:284
-#: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
-msgid "Mixer"
+#: ../panel-plugin/mixer.desktop.in.h:1 ../xfce4-mixer/main.c:99
+#: ../xfce4-mixer/xfce-mixer-window.c:150
+#: ../xfce4-mixer/xfce-mixer-window.c:413
+#: ../xfce4-mixer/xfce-mixer-window.c:427
+#: ../xfce4-mixer/xfce4-mixer.desktop.in.h:1
+#, fuzzy
+msgid "Audio Mixer"
 msgstr "مکسر"
 
-#: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:2
-msgid "Volume control for your sound card"
-msgstr "آپ کے آواز کارڈ کے لیے والیم کنٹرول"
+#: ../panel-plugin/mixer.desktop.in.h:2
+#: ../xfce4-mixer/xfce4-mixer.desktop.in.h:2
+msgid "Adjust volume levels"
+msgstr ""
 
-#: ../libxfce4mixer/libxfce4mixer.c:243
+#: ../libxfce4mixer/libxfce4mixer.c:422
 #, c-format
 msgid "Unknown Volume Control %d"
 msgstr "نا معلوم والیم کنٹرول %d"
 
-#: ../xfce4-mixer/main.c:70
-#, c-format
-msgid "Failed to initialize xfconf: %s"
+#: ../xfce4-mixer/main.c:86
+msgid "Enable debugging output"
+msgstr ""
+
+#: ../xfce4-mixer/main.c:87
+msgid "Show version and exit"
+msgstr ""
+
+#: ../xfce4-mixer/main.c:130
+#, fuzzy, c-format
+msgid "xfce4-mixer: Failed to initialize xfconf: %s\n"
 msgstr "xfconf کو چلانے میں ناکامی: %s"
 
-#: ../xfce4-mixer/xfce-mixer.c:164
-msgid "Playback"
+#: ../xfce4-mixer/xfce-mixer-container.c:218
+#, fuzzy
+msgid "_Playback"
 msgstr "پلےبیک"
 
-#: ../xfce4-mixer/xfce-mixer.c:164
-msgid "Capture"
+#: ../xfce4-mixer/xfce-mixer-container.c:218
+#, fuzzy
+msgid "C_apture"
 msgstr "کیپچر"
 
-#: ../xfce4-mixer/xfce-mixer.c:164
-msgid "Switches"
+#: ../xfce4-mixer/xfce-mixer-container.c:218
+#, fuzzy
+msgid "S_witches"
 msgstr "سوچز"
 
-#: ../xfce4-mixer/xfce-mixer.c:164
-msgid "Options"
+#: ../xfce4-mixer/xfce-mixer-container.c:218
+#, fuzzy
+msgid "_Options"
 msgstr "اختیارات"
 
-#: ../xfce4-mixer/xfce-mixer.c:298
+#: ../xfce4-mixer/xfce-mixer-container.c:390
 msgid "No controls visible"
 msgstr "کوئی ظاہری کنٹرول نہیں"
 
-#: ../xfce4-mixer/xfce-mixer.c:302
-msgid "No controls are marked as visible. Please open the <span size='large'><b>Select Controls</b></span> dialog to select some."
-msgstr "کوئی کنٹرول بطور ظاہر نشان زدہ نہیں. براہ مہربانی <span size='large'><b>کنٹرول منتخب کریں</b></span> ڈائیلاگ کھولیں اور ایک منتخب کریں."
+#: ../xfce4-mixer/xfce-mixer-container.c:401
+msgid "<span weight=\"bold\" size=\"larger\">No controls visible</span>"
+msgstr ""
 
-#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:135
+#: ../xfce4-mixer/xfce-mixer-container.c:409
+msgid ""
+"In order to toggle the visibility of mixer controls, open the <b>\"Select "
+"Controls\"</b> dialog."
+msgstr ""
+
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:118
 msgid "Select Controls"
 msgstr "کنٹرول منتخب کریں"
 
-#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:137
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:120
 msgid "Select which controls should be visible"
 msgstr "منتخب کریں کہ کون سا کنٹرول ظاہر ہونا چاہیے"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:84
+#: ../xfce4-mixer/xfce-mixer-track.c:257
+#, c-format
+msgid "Volume of channel %d on %s"
+msgstr ""
+
+#. Lock button
+#: ../xfce4-mixer/xfce-mixer-track.c:293
+#, c-format
+msgid "Lock channels for %s together"
+msgstr ""
+
+#: ../xfce4-mixer/xfce-mixer-track.c:340
+#, c-format
+msgid "Mute/unmute %s"
+msgstr ""
+
+#: ../xfce4-mixer/xfce-mixer-track.c:360
+#, c-format
+msgid "Enable/disable audible input from %s in output"
+msgstr ""
+
+#: ../xfce4-mixer/xfce-mixer-window.c:91
 msgid "_Quit"
 msgstr "_برخاست"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:84
+#: ../xfce4-mixer/xfce-mixer-window.c:91
 msgid "Exit the mixer"
 msgstr "مکسر بند کریں"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:86
+#: ../xfce4-mixer/xfce-mixer-window.c:93
 msgid "_Select Controls..."
 msgstr "_کنٹرول منتخب کریں..."
 
-#: ../xfce4-mixer/xfce-mixer-window.c:86
+#: ../xfce4-mixer/xfce-mixer-window.c:93
 msgid "Select which controls are displayed"
 msgstr "منتخب کریں کہ کون سا کنٹرول نظر آنا چاہیے"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:184
+#: ../xfce4-mixer/xfce-mixer-window.c:154
 msgid "Configure sound card(s) and control the volume of selected tracks"
 msgstr "صوتی کارڈ مرتب کریں اور منتخب ٹریک کا والیم کنٹرول کریں"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:199
-msgid "Sound card:"
-msgstr "آواز کارڈ:"
+#~ msgid ""
+#~ "No left-click command defined yet. You can change this in the plugin "
+#~ "properties."
+#~ msgstr ""
+#~ "ابھی تک کوئی دائیں-کلک کمانڈ متعین نہیں کی گئی. آپ اسے پلگ ان کی خصوصیات "
+#~ "میں تبدیل کر سکتے ہیں."
 
-#: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:1
-msgid "Audio mixer for the Xfce Desktop Environment"
-msgstr "صوتی مکسر برائے ایکسفس ڈیسک ٹاپ ماحول"
+#~ msgid "Properties"
+#~ msgstr "خصوصیات"
+
+#~ msgid "Configure the mixer track and left-click command"
+#~ msgstr "مکسر ٹریک اور دائیں-کلک کمانڈ مرتب کریں"
+
+#~ msgid "Sound card"
+#~ msgstr "آواز کارڈ"
+
+#~ msgid "Left-click command"
+#~ msgstr "بائیں-کلک کمانڈ"
+
+#~ msgid "Select command"
+#~ msgstr "کمانڈ منتخب کریں"
+
+#~ msgid "All Files"
+#~ msgstr "تمام فائلیں"
+
+#~ msgid "Executable Files"
+#~ msgstr "اطلاقی فائلیں"
+
+#~ msgid "Perl Scripts"
+#~ msgstr "پرل سکرپٹ"
+
+#~ msgid "Python Scripts"
+#~ msgstr "پائتھن سکرپت"
+
+#~ msgid "Ruby Scripts"
+#~ msgstr "روبی سکرپٹ"
+
+#~ msgid "Shell Scripts"
+#~ msgstr "شیل سکرپٹ"
+
+#~ msgid "Volume control for your sound card"
+#~ msgstr "آپ کے آواز کارڈ کے لیے والیم کنٹرول"
+
+#~ msgid ""
+#~ "No controls are marked as visible. Please open the <span "
+#~ "size='large'><b>Select Controls</b></span> dialog to select some."
+#~ msgstr ""
+#~ "کوئی کنٹرول بطور ظاہر نشان زدہ نہیں. براہ مہربانی <span "
+#~ "size='large'><b>کنٹرول منتخب کریں</b></span> ڈائیلاگ کھولیں اور ایک منتخب "
+#~ "کریں."
+
+#~ msgid "Audio mixer for the Xfce Desktop Environment"
+#~ msgstr "صوتی مکسر برائے ایکسفس ڈیسک ٹاپ ماحول"
 
 #~ msgid "Vol"
 #~ msgstr "والیم"
+
 #~ msgid "Pcm"
 #~ msgstr "Pcm"
+
 #~ msgid "Spkr"
 #~ msgstr "Spkr"
+
 #~ msgid "Line"
 #~ msgstr "لائن"
+
 #~ msgid "Mic"
 #~ msgstr "Mic"
+
 #~ msgid "CD"
 #~ msgstr "CD"
+
 #~ msgid "Bass"
 #~ msgstr "Bass"
+
 #~ msgid "Trebl"
 #~ msgstr "Trebl"
+
 #~ msgid "Synth"
 #~ msgstr "Synth"
+
 #~ msgid "Pcm2"
 #~ msgstr "Pcm2"
+
 #~ msgid "Rec"
 #~ msgstr "Rec"
+
 #~ msgid "IGain"
 #~ msgstr "IGain"
+
 #~ msgid "OGain"
 #~ msgstr "OGain"
+
 #~ msgid "Line1"
 #~ msgstr "لائن1"
+
 #~ msgid "Line2"
 #~ msgstr "لائن2"
+
 #~ msgid "Line3"
 #~ msgstr "لائن3"
+
 #~ msgid "Digital1"
 #~ msgstr "رقمی1"
+
 #~ msgid "Digital2"
 #~ msgstr "رقمی2"
+
 #~ msgid "Digital3"
 #~ msgstr "رقمی3"
+
 #~ msgid "PhoneIn"
 #~ msgstr "فون ان"
+
 #~ msgid "PhoneOut"
 #~ msgstr "فون آؤٹ"
+
 #~ msgid "Video"
 #~ msgstr "وڈیو"
+
 #~ msgid "Radio"
 #~ msgstr "ریڈیو"
+
 #~ msgid "Monitor"
 #~ msgstr "مانیٹر"
+
 #~ msgid "RecSelect"
 #~ msgstr "RecSelect"
+
 #~ msgid "A3.AnalogIn"
 #~ msgstr "A3.AnalogIn"
+
 #~ msgid "A3.AnalogOut"
 #~ msgstr "A3.AnalogOut"
+
 #~ msgid "A3.AnalogOut2"
 #~ msgstr "A3.AnalogOut2"
+
 #~ msgid "A3.CameraMic"
 #~ msgstr "A3.CameraMic"
+
 #~ msgid "A3.Microphone"
 #~ msgstr "A3.Microphone"
+
 #~ msgid "A3.LineIn"
 #~ msgstr "A3.LineIn"
+
 #~ msgid "A3.DAC1In"
 #~ msgstr "A3.DAC1In"
+
 #~ msgid "A3.DAC2In"
 #~ msgstr "A3.DAC2In"
+
 #~ msgid "A3.Speaker"
 #~ msgstr "A3.Speaker"
+
 #~ msgid "A3.LineOut2"
 #~ msgstr "A3.LineOut2"
+
 #~ msgid ""
 #~ "alsa: error: master control not found. I even tried to guess wildly, but "
 #~ "to no avail.\n"
 #~ msgstr ""
 #~ "السا: غلطی: ماسٹر کنٹرول تلاش نہیں کیا جاسکا. میں نے قیاس کرنے کی بھی بہت "
 #~ "کوشش کی مگر کوئی فائدہ نہیں ہوا.\n"
+
 #~ msgid ""
 #~ "alsa: info: developer information follows: (send E-Mail to Developer with "
 #~ "that)\n"
 #~ msgstr ""
 #~ "السا: معلومات: ڈیولپر کی معلومات یہ ہے: (ڈیولپر کو اس سے ای میل بھیجیں)\n"
+
 #~ msgid "hint hint"
 #~ msgstr "اشارہ اشارہ"
+
 #~ msgid "alsa: info: end of developer information\n"
 #~ msgstr "السا: معلومات: ڈیولپر معلومات کا اختتام\n"
+
 #~ msgid "alsa: Mixer %s open error: %s\n"
 #~ msgstr "السا: مکسر %s کھلی غلطی: %s\n"
+
 #~ msgid "alsa: Mixer attach %s error: %s\n"
 #~ msgstr "السا: مکسر اٹیچ %s غلطی: %s\n"
+
 #~ msgid "alsa: Mixer register error: %s\n"
 #~ msgstr "السا: مکسر رجسٹر غلطی: %s\n"
+
 #~ msgid "alsa: Mixer load error: %s: %s\n"
 #~ msgstr "السا: مکسر لوڈ غلطی: %s: %s\n"
+
 #~ msgid "alsa: Unable to find simple control '%s',%i\n"
 #~ msgstr "السا: سادہ کنٹرول تلاش نہیں کیا جاسکا '%s',%i \n"
+
 #~ msgid "oss: No master volume"
 #~ msgstr "oss: کوئی ماسٹر والیم نہیں"
+
 #~ msgid "Run in Terminal"
 #~ msgstr "ٹرمنل میں چلائیں"
+
 #~ msgid "Use Startup Notification"
 #~ msgstr "ابتدائیہ انتباہات استعمال کریں"
+
 #~ msgid "Could not run \"%s\""
 #~ msgstr "\"%s\" کو نہیں چلایا جاسکتا"
+
 #~ msgid "Xfce Panel"
 #~ msgstr "ایکسفس پینل"
+
 #~ msgid "Volume: %d%%"
 #~ msgstr "والیم: %d%%"
+
 #~ msgid "Could not save configuration"
 #~ msgstr "ترتیبات محفوظ نہیں ہوسکتیں"
+
 #~ msgid "Device:"
 #~ msgstr "ڈیوائس:"
+
 #~ msgid "Wannabe Master:"
 #~ msgstr "Wannabe ماسٹر:"
+
 #~ msgid "When clicked"
 #~ msgstr "جب کلک کیا جائے"
+
 #~ msgid "Device"
 #~ msgstr "ڈیوائس"
+
 #~ msgid "None"
 #~ msgstr "کچھ نہیں"
+
 #~ msgid "Button Label|Sound"
 #~ msgstr "آواز"
+
 #~ msgid "/_File"
 #~ msgstr "/_فائل"
+
 #~ msgid "/File/_Exit"
 #~ msgstr "/فائل/_برخاست"
+
 #~ msgid "/_View"
 #~ msgstr "/_منظر"
+
 #~ msgid "/View/_Manage"
 #~ msgstr "/منظر/_ادارت"
+
 #~ msgid "/_Help"
 #~ msgstr "/_ہدایات"
+
 #~ msgid "/Help/_Info"
 #~ msgstr "/ہدایات/_معلومات"
+
 #~ msgid ""
 #~ "This is xfce4-mixer, a volume control program.\n"
 #~ "It is released under the GPL-2 License which you find in the source "
@@ -323,50 +464,72 @@ msgstr "صوتی مکسر برائے ایکسفس ڈیسک ٹاپ ماحول"
 #~ "یہ xfce4-mixer ہے جو ایک والیم کنٹرول پروگرام ہے.\n"
 #~ "یہ GPL-2 لائسنس کے تحت جاری کیا گیا ہے جو مصدر ڈائریکٹری میں موجود ہے.\n"
 #~ "اردو ترجمہ از محمد علی مکی."
+
 #~ msgid "Control"
 #~ msgstr "کنٹرول"
+
 #~ msgid "Type"
 #~ msgstr "قسم"
+
 #~ msgid "Up"
 #~ msgstr "اوپر"
+
 #~ msgid "Down"
 #~ msgstr "نیچے"
+
 #~ msgid "Move Entry Up"
 #~ msgstr "انٹری اوپر منتقل کریں"
+
 #~ msgid "Move Entry Down"
 #~ msgstr "انٹری نیچے منتقل کریں"
+
 #~ msgid "Profile Name:"
 #~ msgstr "پروفائل کا نام:"
+
 #~ msgid "<unknown>"
 #~ msgstr "<نا معلوم>"
+
 #~ msgid "<slider>"
 #~ msgstr "<سلائڈر>"
+
 #~ msgid "<onoff>"
 #~ msgstr "<آن آف>"
+
 #~ msgid "<select>"
 #~ msgstr "<منتخب کریں>"
+
 #~ msgid "Create new profile"
 #~ msgstr "نئی پروفائل بنائیں"
+
 #~ msgid "Delete this profile"
 #~ msgstr "یہ پروفائل حذف کریں"
+
 #~ msgid "Profile"
 #~ msgstr "پروفائل"
+
 #~ msgid "Really delete those %d profiles?"
 #~ msgstr "واقعی یہ %d پروفائلیں حذف کردی جائیں؟"
+
 #~ msgid "Really delete profile \"%s\"?"
 #~ msgstr "کیا واقعی پروفائل \"%s\" حذف کردی جائے؟"
+
 #~ msgid "%s - New"
 #~ msgstr "%s - نیا"
+
 #~ msgid "A profile needs a name"
 #~ msgstr "پروفائل کو نام درکار ہے"
+
 #~ msgid "A profile with that name already exists"
 #~ msgstr "اس نام کی پروفائل پہلے ہی موجود ہے"
+
 #~ msgid "profile%d"
 #~ msgstr "پروفائل%d"
+
 #~ msgid "Hide Switches"
 #~ msgstr "سوچز چھپائیں"
+
 #~ msgid "Change the Volume"
 #~ msgstr "والیم تبدیل کریں"
+
 #~ msgid "Xfce 4 Mixer Settings"
 #~ msgstr "ایکسفس 4 مکسر ترتیبات"
-

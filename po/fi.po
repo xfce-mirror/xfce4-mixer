@@ -8,39 +8,40 @@ msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer 4.4.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-01-11 00:59+0100\n"
+"POT-Creation-Date: 2012-09-29 13:30+0000\n"
 "PO-Revision-Date: 2008-12-13 16:48+0200\n"
 "Last-Translator: Jari Rahkonen <jari.rahkonen@pp1.inet.fi>\n"
 "Language-Team: Finnish <translation-team-fi@lists.sourceforge.net>\n"
+"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#. Set tooltip (e.g. 'Master: 50%')
-#: ../panel-plugin/xfce-mixer-plugin.c:271
-#: ../panel-plugin/xfce-mixer-plugin.c:548
-#, c-format
-msgid "%s: %i%%"
-msgstr "%s: %i%%"
+#. Add menu item for muting
+#: ../panel-plugin/xfce-mixer-plugin.c:306
+msgid "_Mute"
+msgstr ""
 
-#: ../panel-plugin/xfce-mixer-plugin.c:346
-msgid "No left-click command defined"
+#: ../panel-plugin/xfce-mixer-plugin.c:314
+msgid "_Run Audio Mixer"
+msgstr ""
+
+#: ../panel-plugin/xfce-mixer-plugin.c:581 ../xfce4-mixer/main.c:148
+msgid ""
+"GStreamer was unable to detect any sound devices. Some sound system specific "
+"GStreamer packages may be missing. It may also be a permissions problem."
+msgstr ""
+"GStreamer ei löydä äänilaitteita. Voi olla, että sinulta puuttuu "
+"äänijärjestelmääsi liittyviä GStreamerin liitännäisiä. Tämä voi johtua myös "
+"käyttöoikeusongelmasta."
+
+#: ../panel-plugin/xfce-mixer-plugin.c:931
+#, fuzzy
+msgid "No command defined"
 msgstr "Vasemman napsautuksen komentoa ei määritetty"
 
-#: ../panel-plugin/xfce-mixer-plugin.c:349
-msgid ""
-"No left-click command defined yet. You can change this in the plugin "
-"properties."
-msgstr ""
-"Vasemmalle hiiren painikkeelle ei ole määritetty komentoa. Voit määrittää "
-"sen liitännäisen ominaisuuksista."
-
-#: ../panel-plugin/xfce-mixer-plugin.c:350
-msgid "Properties"
-msgstr "Ominaisuudet"
-
 #. Generate error message and insert the current command
-#: ../panel-plugin/xfce-mixer-plugin.c:365
+#: ../panel-plugin/xfce-mixer-plugin.c:939
 #, c-format
 msgid ""
 "Could not execute the command \"%s\". Ensure that either the location of the "
@@ -50,147 +51,208 @@ msgstr ""
 "Komennon \"%s\" suorittaminen epäonnistui. Varmista, että komennon sijainti "
 "löytyy PATH-ympäristömuuttujasta tai että syötit komennon polkuineen."
 
-#: ../panel-plugin/xfce-mixer-plugin.c:398 ../xfce4-mixer/main.c:89
-msgid ""
-"GStreamer was unable to detect any sound devices. Some sound system specific "
-"GStreamer packages may be missing. It may also be a permissions problem."
-msgstr ""
-"GStreamer ei löydä äänilaitteita. Voi olla, että sinulta puuttuu "
-"äänijärjestelmääsi liittyviä GStreamerin liitännäisiä. Tämä voi johtua myös "
-"käyttöoikeusongelmasta."
-
-#: ../panel-plugin/xfce-plugin-dialog.c:234
-msgid "Mixer Plugin"
+#: ../panel-plugin/xfce-plugin-dialog.c:150
+#, fuzzy
+msgid "Audio Mixer Plugin"
 msgstr "Äänenvoimakkuusliitännäinen"
 
-#: ../panel-plugin/xfce-plugin-dialog.c:236
-msgid "Configure the mixer track and left-click command"
-msgstr "Aseta säädettävä kanava ja napsauttaessa suoritettava komento"
+#: ../panel-plugin/xfce-plugin-dialog.c:152
+#, fuzzy
+msgid "Configure the sound card and mixer track"
+msgstr ""
+"Säädä äänilaitte(id)en asetuksia ja valitsemiesi kanavien äänenvoimakkuutta"
 
-#: ../panel-plugin/xfce-plugin-dialog.c:248
-msgid "Sound card"
+#: ../panel-plugin/xfce-plugin-dialog.c:165
+#: ../xfce4-mixer/xfce-mixer-window.c:185
+#, fuzzy
+msgid "Sound _card:"
 msgstr "Äänikortti"
 
-#: ../panel-plugin/xfce-plugin-dialog.c:266
-msgid "Mixer track"
+#: ../panel-plugin/xfce-plugin-dialog.c:174
+#, fuzzy
+msgid "Mixer _track:"
 msgstr "Äänikanava"
 
-#: ../panel-plugin/xfce-plugin-dialog.c:284
-msgid "Left-click command"
-msgstr "Vasen napsautus"
+#: ../panel-plugin/xfce-volume-button.c:854
+msgid "No valid device and/or element."
+msgstr ""
 
-#: ../panel-plugin/xfce-plugin-dialog.c:322
-msgid "Select command"
-msgstr "Valitse komento"
+#: ../panel-plugin/xfce-volume-button.c:859
+#, c-format
+msgid "%s: muted"
+msgstr ""
 
-#: ../panel-plugin/xfce-plugin-dialog.c:330
-msgid "All Files"
-msgstr "Kaikki tiedostot"
-
-#: ../panel-plugin/xfce-plugin-dialog.c:335
-msgid "Executable Files"
-msgstr "Suoritettavat tiedostot"
-
-#: ../panel-plugin/xfce-plugin-dialog.c:350
-msgid "Perl Scripts"
-msgstr "Perl-komentosarjat"
-
-#: ../panel-plugin/xfce-plugin-dialog.c:356
-msgid "Python Scripts"
-msgstr "Python-komentosarjat"
-
-#: ../panel-plugin/xfce-plugin-dialog.c:362
-msgid "Ruby Scripts"
-msgstr "Ruby-komentosarjat"
-
-#: ../panel-plugin/xfce-plugin-dialog.c:368
-msgid "Shell Scripts"
-msgstr "Päätekomentosarjat"
+#: ../panel-plugin/xfce-volume-button.c:861
+#, c-format
+msgid "%s: %i%%"
+msgstr "%s: %i%%"
 
 #. Set application name
-#: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:1
-#: ../xfce4-mixer/main.c:60 ../xfce4-mixer/xfce-mixer-window.c:165
-#: ../xfce4-mixer/xfce-mixer-window.c:183
-#: ../xfce4-mixer/xfce-mixer-window.c:284
-#: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
-msgid "Mixer"
+#: ../panel-plugin/mixer.desktop.in.h:1 ../xfce4-mixer/main.c:99
+#: ../xfce4-mixer/xfce-mixer-window.c:150
+#: ../xfce4-mixer/xfce-mixer-window.c:413
+#: ../xfce4-mixer/xfce-mixer-window.c:427
+#: ../xfce4-mixer/xfce4-mixer.desktop.in.h:1
+#, fuzzy
+msgid "Audio Mixer"
 msgstr "Äänenvoimakkuus"
 
-#: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:2
-msgid "Volume control for your sound card"
-msgstr "Äänikorttisi äänenvoimakkuuksien säätö"
+#: ../panel-plugin/mixer.desktop.in.h:2
+#: ../xfce4-mixer/xfce4-mixer.desktop.in.h:2
+msgid "Adjust volume levels"
+msgstr ""
 
-#: ../libxfce4mixer/libxfce4mixer.c:243
+#: ../libxfce4mixer/libxfce4mixer.c:422
 #, c-format
 msgid "Unknown Volume Control %d"
 msgstr "Tuntematon äänen säädin %d"
 
-#: ../xfce4-mixer/main.c:70
-#, c-format
-msgid "Failed to initialize xfconf: %s"
+#: ../xfce4-mixer/main.c:86
+msgid "Enable debugging output"
+msgstr ""
+
+#: ../xfce4-mixer/main.c:87
+msgid "Show version and exit"
+msgstr ""
+
+#: ../xfce4-mixer/main.c:130
+#, fuzzy, c-format
+msgid "xfce4-mixer: Failed to initialize xfconf: %s\n"
 msgstr "xfconfin alustus epäonnistui: %s"
 
-#: ../xfce4-mixer/xfce-mixer.c:164
-msgid "Playback"
+#: ../xfce4-mixer/xfce-mixer-container.c:218
+#, fuzzy
+msgid "_Playback"
 msgstr "Toisto"
 
-#: ../xfce4-mixer/xfce-mixer.c:164
-msgid "Capture"
+#: ../xfce4-mixer/xfce-mixer-container.c:218
+#, fuzzy
+msgid "C_apture"
 msgstr "Kaappaus"
 
-#: ../xfce4-mixer/xfce-mixer.c:164
-msgid "Switches"
+#: ../xfce4-mixer/xfce-mixer-container.c:218
+#, fuzzy
+msgid "S_witches"
 msgstr "Kytkimet"
 
-#: ../xfce4-mixer/xfce-mixer.c:164
-msgid "Options"
+#: ../xfce4-mixer/xfce-mixer-container.c:218
+#, fuzzy
+msgid "_Options"
 msgstr "Asetukset"
 
-#: ../xfce4-mixer/xfce-mixer.c:298
+#: ../xfce4-mixer/xfce-mixer-container.c:390
 msgid "No controls visible"
 msgstr "Ei säätimiä näkyvillä"
 
-#: ../xfce4-mixer/xfce-mixer.c:302
-msgid ""
-"No controls are marked as visible. Please open the <span "
-"size='large'><b>Select Controls</b></span> dialog to select some."
+#: ../xfce4-mixer/xfce-mixer-container.c:401
+msgid "<span weight=\"bold\" size=\"larger\">No controls visible</span>"
 msgstr ""
-"Yhtään säädintä ei ole asetettu näkyväksi. Ole hyvä ja valitse näkyvät "
-"säätimet <span size='large'><b>Valitse säätimet</b></span> -dialogista."
 
-#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:135
+#: ../xfce4-mixer/xfce-mixer-container.c:409
+msgid ""
+"In order to toggle the visibility of mixer controls, open the <b>\"Select "
+"Controls\"</b> dialog."
+msgstr ""
+
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:118
 msgid "Select Controls"
 msgstr "Valitse säätimet"
 
-#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:137
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:120
 msgid "Select which controls should be visible"
 msgstr "Valitse näytettävät säätimet"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:84
+#: ../xfce4-mixer/xfce-mixer-track.c:257
+#, c-format
+msgid "Volume of channel %d on %s"
+msgstr ""
+
+#. Lock button
+#: ../xfce4-mixer/xfce-mixer-track.c:293
+#, c-format
+msgid "Lock channels for %s together"
+msgstr ""
+
+#: ../xfce4-mixer/xfce-mixer-track.c:340
+#, c-format
+msgid "Mute/unmute %s"
+msgstr ""
+
+#: ../xfce4-mixer/xfce-mixer-track.c:360
+#, c-format
+msgid "Enable/disable audible input from %s in output"
+msgstr ""
+
+#: ../xfce4-mixer/xfce-mixer-window.c:91
 msgid "_Quit"
 msgstr "_Poistu"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:84
+#: ../xfce4-mixer/xfce-mixer-window.c:91
 msgid "Exit the mixer"
 msgstr "Lopeta äänen säätö"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:86
+#: ../xfce4-mixer/xfce-mixer-window.c:93
 msgid "_Select Controls..."
 msgstr "_Valitse säätimet..."
 
-#: ../xfce4-mixer/xfce-mixer-window.c:86
+#: ../xfce4-mixer/xfce-mixer-window.c:93
 msgid "Select which controls are displayed"
 msgstr "Valitse näytettävät säätimet"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:184
+#: ../xfce4-mixer/xfce-mixer-window.c:154
 msgid "Configure sound card(s) and control the volume of selected tracks"
 msgstr ""
 "Säädä äänilaitte(id)en asetuksia ja valitsemiesi kanavien äänenvoimakkuutta"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:199
-msgid "Sound card:"
-msgstr "Äänikortti"
+#~ msgid ""
+#~ "No left-click command defined yet. You can change this in the plugin "
+#~ "properties."
+#~ msgstr ""
+#~ "Vasemmalle hiiren painikkeelle ei ole määritetty komentoa. Voit määrittää "
+#~ "sen liitännäisen ominaisuuksista."
 
-#: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:1
-msgid "Audio mixer for the Xfce Desktop Environment"
-msgstr "Äänenvoimakkuuden säätöohjelma Xfce-työpöytäympäristöön"
+#~ msgid "Properties"
+#~ msgstr "Ominaisuudet"
+
+#~ msgid "Configure the mixer track and left-click command"
+#~ msgstr "Aseta säädettävä kanava ja napsauttaessa suoritettava komento"
+
+#~ msgid "Sound card"
+#~ msgstr "Äänikortti"
+
+#~ msgid "Left-click command"
+#~ msgstr "Vasen napsautus"
+
+#~ msgid "Select command"
+#~ msgstr "Valitse komento"
+
+#~ msgid "All Files"
+#~ msgstr "Kaikki tiedostot"
+
+#~ msgid "Executable Files"
+#~ msgstr "Suoritettavat tiedostot"
+
+#~ msgid "Perl Scripts"
+#~ msgstr "Perl-komentosarjat"
+
+#~ msgid "Python Scripts"
+#~ msgstr "Python-komentosarjat"
+
+#~ msgid "Ruby Scripts"
+#~ msgstr "Ruby-komentosarjat"
+
+#~ msgid "Shell Scripts"
+#~ msgstr "Päätekomentosarjat"
+
+#~ msgid "Volume control for your sound card"
+#~ msgstr "Äänikorttisi äänenvoimakkuuksien säätö"
+
+#~ msgid ""
+#~ "No controls are marked as visible. Please open the <span "
+#~ "size='large'><b>Select Controls</b></span> dialog to select some."
+#~ msgstr ""
+#~ "Yhtään säädintä ei ole asetettu näkyväksi. Ole hyvä ja valitse näkyvät "
+#~ "säätimet <span size='large'><b>Valitse säätimet</b></span> -dialogista."
+
+#~ msgid "Audio mixer for the Xfce Desktop Environment"
+#~ msgstr "Äänenvoimakkuuden säätöohjelma Xfce-työpöytäympäristöön"

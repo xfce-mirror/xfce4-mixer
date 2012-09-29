@@ -1,183 +1,261 @@
 # translation of si.po to Sinhalese
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Rashan Anushka <rashan.uoc@gmail.com>, 2008.
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-01-11 00:59+0100\n"
+"POT-Creation-Date: 2012-09-29 13:30+0000\n"
 "PO-Revision-Date: 2008-10-06 17:44+0530\n"
 "Last-Translator: Rashan Anushka <rashan.uoc@gmail.com>\n"
 "Language-Team: Sinhalese <en@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
 
-#. Set tooltip (e.g. 'Master: 50%')
-#: ../panel-plugin/xfce-mixer-plugin.c:271
-#: ../panel-plugin/xfce-mixer-plugin.c:548
+#. Add menu item for muting
+#: ../panel-plugin/xfce-mixer-plugin.c:306
+msgid "_Mute"
+msgstr ""
+
+#: ../panel-plugin/xfce-mixer-plugin.c:314
+msgid "_Run Audio Mixer"
+msgstr ""
+
+#: ../panel-plugin/xfce-mixer-plugin.c:581 ../xfce4-mixer/main.c:148
+msgid ""
+"GStreamer was unable to detect any sound devices. Some sound system specific "
+"GStreamer packages may be missing. It may also be a permissions problem."
+msgstr ""
+"GStreamer හට ඔබගේ පද්ධතියේ කිසිදු ශබ්ද කාඩ් පතක් හදුනා ගත නොහැකි විය. ඔබගේ ශබ්දය හා "
+"සම්බන්ධ GStreamer ඇසුරුම් අස්ථානගතවී තිබිය හැක. තවද මෙය අවසර හා සම්බන්ධ ගැටළුවක් විය හැක."
+
+#: ../panel-plugin/xfce-mixer-plugin.c:931
+#, fuzzy
+msgid "No command defined"
+msgstr "වමත් ක්ලික් විධානය අර්ථදක්වා නැත"
+
+#. Generate error message and insert the current command
+#: ../panel-plugin/xfce-mixer-plugin.c:939
+#, c-format
+msgid ""
+"Could not execute the command \"%s\". Ensure that either the location of the "
+"command is included in the PATH environment variable or that you are "
+"providing the full path to the command."
+msgstr ""
+
+#: ../panel-plugin/xfce-plugin-dialog.c:150
+#, fuzzy
+msgid "Audio Mixer Plugin"
+msgstr "මිශ්‍රක පේනු මෘදුකාංගය"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:152
+#, fuzzy
+msgid "Configure the sound card and mixer track"
+msgstr "තෝරන ලද පථයන්හි ශබ්දය පාලනය කිරීම සහ ශබ්ද කාඩ්පත් සුසර කිරීම"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:165
+#: ../xfce4-mixer/xfce-mixer-window.c:185
+#, fuzzy
+msgid "Sound _card:"
+msgstr "ශබ්ද කාඩ්පත්:"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:174
+#, fuzzy
+msgid "Mixer _track:"
+msgstr "මිශ්‍රක පථය"
+
+#: ../panel-plugin/xfce-volume-button.c:854
+msgid "No valid device and/or element."
+msgstr ""
+
+#: ../panel-plugin/xfce-volume-button.c:859
+#, c-format
+msgid "%s: muted"
+msgstr ""
+
+#: ../panel-plugin/xfce-volume-button.c:861
 #, c-format
 msgid "%s: %i%%"
 msgstr "%s: %i%%"
 
-#: ../panel-plugin/xfce-mixer-plugin.c:346
-msgid "No left-click command defined"
-msgstr "වමත් ක්ලික් විධානය අර්ථදක්වා නැත"
-
-#: ../panel-plugin/xfce-mixer-plugin.c:349
-msgid "No left-click command defined yet. You can change this in the plugin properties."
-msgstr "තවම වමත් ක්ලික් විධානය අර්ථදක්වා නැත. ඔබට මෙය පේනු මෘදුකාංග වත්කම්හිල වෙනස් කළ හැක."
-
-#: ../panel-plugin/xfce-mixer-plugin.c:350
-msgid "Properties"
-msgstr "වත්කම්"
-
-#. Generate error message and insert the current command
-#: ../panel-plugin/xfce-mixer-plugin.c:365
-#, c-format
-msgid "Could not execute the command \"%s\". Ensure that either the location of the command is included in the PATH environment variable or that you are providing the full path to the command."
-msgstr ""
-
-#: ../panel-plugin/xfce-mixer-plugin.c:398 ../xfce4-mixer/main.c:89
-msgid "GStreamer was unable to detect any sound devices. Some sound system specific GStreamer packages may be missing. It may also be a permissions problem."
-msgstr "GStreamer හට ඔබගේ පද්ධතියේ කිසිදු ශබ්ද කාඩ් පතක් හදුනා ගත නොහැකි විය. ඔබගේ ශබ්දය හා සම්බන්ධ GStreamer ඇසුරුම් අස්ථානගතවී තිබිය හැක. තවද මෙය අවසර හා සම්බන්ධ ගැටළුවක් විය හැක."
-
-#: ../panel-plugin/xfce-plugin-dialog.c:234
-msgid "Mixer Plugin"
-msgstr "මිශ්‍රක පේනු මෘදුකාංගය"
-
-#: ../panel-plugin/xfce-plugin-dialog.c:236
-msgid "Configure the mixer track and left-click command"
-msgstr "මිශ්‍රණ පථය සහ වම්-ක්ලික් විධානය සැකසීම"
-
-#: ../panel-plugin/xfce-plugin-dialog.c:248
-msgid "Sound card"
-msgstr "ශබ්ද කාඩ්පත"
-
-#: ../panel-plugin/xfce-plugin-dialog.c:266
-msgid "Mixer track"
-msgstr "මිශ්‍රක පථය"
-
-#: ../panel-plugin/xfce-plugin-dialog.c:284
-msgid "Left-click command"
-msgstr "වමත් ක්ලික් විධානය"
-
-#: ../panel-plugin/xfce-plugin-dialog.c:322
-msgid "Select command"
-msgstr "තේරීමේක විධානය"
-
-#: ../panel-plugin/xfce-plugin-dialog.c:330
-msgid "All Files"
-msgstr "සියළුම ගොනු"
-
-#: ../panel-plugin/xfce-plugin-dialog.c:335
-msgid "Executable Files"
-msgstr "ක්‍රියාත්මක කළ හැකි ගොනු"
-
-#: ../panel-plugin/xfce-plugin-dialog.c:350
-msgid "Perl Scripts"
-msgstr "පර්ල් විධානාවලි"
-
-#: ../panel-plugin/xfce-plugin-dialog.c:356
-msgid "Python Scripts"
-msgstr "පයිතන් විධානාවලි"
-
-#: ../panel-plugin/xfce-plugin-dialog.c:362
-msgid "Ruby Scripts"
-msgstr "රූබි විධානාවලි"
-
-#: ../panel-plugin/xfce-plugin-dialog.c:368
-msgid "Shell Scripts"
-msgstr "කවච විධානාවලි"
-
 #. Set application name
-#: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:1
-#: ../xfce4-mixer/main.c:60 ../xfce4-mixer/xfce-mixer-window.c:165
-#: ../xfce4-mixer/xfce-mixer-window.c:183
-#: ../xfce4-mixer/xfce-mixer-window.c:284
-#: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:2
-msgid "Mixer"
+#: ../panel-plugin/mixer.desktop.in.h:1 ../xfce4-mixer/main.c:99
+#: ../xfce4-mixer/xfce-mixer-window.c:150
+#: ../xfce4-mixer/xfce-mixer-window.c:413
+#: ../xfce4-mixer/xfce-mixer-window.c:427
+#: ../xfce4-mixer/xfce4-mixer.desktop.in.h:1
+#, fuzzy
+msgid "Audio Mixer"
 msgstr "මිශ්‍රකය"
 
-#: ../panel-plugin/xfce4-mixer-plugin.desktop.in.in.h:2
-msgid "Volume control for your sound card"
-msgstr "ඔබගේ ශබ්ද කාඩ් පතේ හඬ පාලකය"
+#: ../panel-plugin/mixer.desktop.in.h:2
+#: ../xfce4-mixer/xfce4-mixer.desktop.in.h:2
+msgid "Adjust volume levels"
+msgstr ""
 
-#: ../libxfce4mixer/libxfce4mixer.c:243
+#: ../libxfce4mixer/libxfce4mixer.c:422
 #, c-format
 msgid "Unknown Volume Control %d"
 msgstr "නොදන්නා ශබ්ද පාලකයකි %d"
 
-#: ../xfce4-mixer/main.c:70
-#, c-format
-msgid "Failed to initialize xfconf: %s"
+#: ../xfce4-mixer/main.c:86
+msgid "Enable debugging output"
+msgstr ""
+
+#: ../xfce4-mixer/main.c:87
+msgid "Show version and exit"
+msgstr ""
+
+#: ../xfce4-mixer/main.c:130
+#, fuzzy, c-format
+msgid "xfce4-mixer: Failed to initialize xfconf: %s\n"
 msgstr "xfconf ආරම්භ කිරීම අසමත් විය: %s"
 
-#: ../xfce4-mixer/xfce-mixer.c:164
-msgid "Playback"
+#: ../xfce4-mixer/xfce-mixer-container.c:218
+#, fuzzy
+msgid "_Playback"
 msgstr "ප්‍රතිවාදනය"
 
-#: ../xfce4-mixer/xfce-mixer.c:164
-msgid "Capture"
+#: ../xfce4-mixer/xfce-mixer-container.c:218
+#, fuzzy
+msgid "C_apture"
 msgstr "ග්‍රහනය"
 
-#: ../xfce4-mixer/xfce-mixer.c:164
-msgid "Switches"
+#: ../xfce4-mixer/xfce-mixer-container.c:218
+#, fuzzy
+msgid "S_witches"
 msgstr "ස්වීචයන්"
 
-#: ../xfce4-mixer/xfce-mixer.c:164
-msgid "Options"
+#: ../xfce4-mixer/xfce-mixer-container.c:218
+#, fuzzy
+msgid "_Options"
 msgstr "ු/විකල්ප"
 
-#: ../xfce4-mixer/xfce-mixer.c:298
+#: ../xfce4-mixer/xfce-mixer-container.c:390
 msgid "No controls visible"
 msgstr "කිසිදු පාලකයක් නොපෙනේ"
 
-#: ../xfce4-mixer/xfce-mixer.c:302
-msgid "No controls are marked as visible. Please open the <span size='large'><b>Select Controls</b></span> dialog to select some."
-msgstr "කිසිදු පාලකයක් දෘශ්‍ය ලෙස ලකුනු කර නැත. කරුණාකර <span size='large'> <b>පාලකයන් තෝරන්න</b></span> කවුළුව විවෘත කර කිහිපයක් තෝරන්න."
+#: ../xfce4-mixer/xfce-mixer-container.c:401
+msgid "<span weight=\"bold\" size=\"larger\">No controls visible</span>"
+msgstr ""
 
-#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:135
+#: ../xfce4-mixer/xfce-mixer-container.c:409
+msgid ""
+"In order to toggle the visibility of mixer controls, open the <b>\"Select "
+"Controls\"</b> dialog."
+msgstr ""
+
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:118
 msgid "Select Controls"
 msgstr "පාවත් පාලකයන් තෝරන්න"
 
-#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:137
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:120
 msgid "Select which controls should be visible"
 msgstr " දිස්විය යුතු පාලකය තෝරන්න"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:84
+#: ../xfce4-mixer/xfce-mixer-track.c:257
+#, c-format
+msgid "Volume of channel %d on %s"
+msgstr ""
+
+#. Lock button
+#: ../xfce4-mixer/xfce-mixer-track.c:293
+#, c-format
+msgid "Lock channels for %s together"
+msgstr ""
+
+#: ../xfce4-mixer/xfce-mixer-track.c:340
+#, c-format
+msgid "Mute/unmute %s"
+msgstr ""
+
+#: ../xfce4-mixer/xfce-mixer-track.c:360
+#, c-format
+msgid "Enable/disable audible input from %s in output"
+msgstr ""
+
+#: ../xfce4-mixer/xfce-mixer-window.c:91
 msgid "_Quit"
 msgstr "පිටවන්න(_Q)"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:84
+#: ../xfce4-mixer/xfce-mixer-window.c:91
 msgid "Exit the mixer"
 msgstr "මිශ්‍රකයෙන් පිටවන්න"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:86
+#: ../xfce4-mixer/xfce-mixer-window.c:93
 msgid "_Select Controls..."
 msgstr "පාලකයන් තෝරන්න(_S)..."
 
-#: ../xfce4-mixer/xfce-mixer-window.c:86
+#: ../xfce4-mixer/xfce-mixer-window.c:93
 msgid "Select which controls are displayed"
 msgstr "කිනම් පාලකයක් දිස්විය යුතුදැයි තෝරන්න"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:184
+#: ../xfce4-mixer/xfce-mixer-window.c:154
 msgid "Configure sound card(s) and control the volume of selected tracks"
 msgstr "තෝරන ලද පථයන්හි ශබ්දය පාලනය කිරීම සහ ශබ්ද කාඩ්පත් සුසර කිරීම"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:199
-msgid "Sound card:"
-msgstr "ශබ්ද කාඩ්පත්:"
+#~ msgid ""
+#~ "No left-click command defined yet. You can change this in the plugin "
+#~ "properties."
+#~ msgstr ""
+#~ "තවම වමත් ක්ලික් විධානය අර්ථදක්වා නැත. ඔබට මෙය පේනු මෘදුකාංග වත්කම්හිල වෙනස් කළ හැක."
 
-#: ../xfce4-mixer/xfce4-mixer.desktop.in.in.h:1
-msgid "Audio mixer for the Xfce Desktop Environment"
-msgstr "Xfce වැඩතල පරිපරය සඳහා ශබ්ද මිශ්‍රකයක්"
+#~ msgid "Properties"
+#~ msgstr "වත්කම්"
 
-#~ msgid "Could not execute the command %s. Perhaps you need to adjust the PATH variable."
-#~ msgstr "%s විධානය ක්‍රියාත්මක කළ නොහැක. ඇතැම් විට ඔබට PATH විචල්‍යය සීරුමාරු කිරීමට අවශ්‍ය විය හැක."
+#~ msgid "Configure the mixer track and left-click command"
+#~ msgstr "මිශ්‍රණ පථය සහ වම්-ක්ලික් විධානය සැකසීම"
+
+#~ msgid "Sound card"
+#~ msgstr "ශබ්ද කාඩ්පත"
+
+#~ msgid "Left-click command"
+#~ msgstr "වමත් ක්ලික් විධානය"
+
+#~ msgid "Select command"
+#~ msgstr "තේරීමේක විධානය"
+
+#~ msgid "All Files"
+#~ msgstr "සියළුම ගොනු"
+
+#~ msgid "Executable Files"
+#~ msgstr "ක්‍රියාත්මක කළ හැකි ගොනු"
+
+#~ msgid "Perl Scripts"
+#~ msgstr "පර්ල් විධානාවලි"
+
+#~ msgid "Python Scripts"
+#~ msgstr "පයිතන් විධානාවලි"
+
+#~ msgid "Ruby Scripts"
+#~ msgstr "රූබි විධානාවලි"
+
+#~ msgid "Shell Scripts"
+#~ msgstr "කවච විධානාවලි"
+
+#~ msgid "Volume control for your sound card"
+#~ msgstr "ඔබගේ ශබ්ද කාඩ් පතේ හඬ පාලකය"
+
+#~ msgid ""
+#~ "No controls are marked as visible. Please open the <span "
+#~ "size='large'><b>Select Controls</b></span> dialog to select some."
+#~ msgstr ""
+#~ "කිසිදු පාලකයක් දෘශ්‍ය ලෙස ලකුනු කර නැත. කරුණාකර <span size='large'> <b>පාලකයන් "
+#~ "තෝරන්න</b></span> කවුළුව විවෘත කර කිහිපයක් තෝරන්න."
+
+#~ msgid "Audio mixer for the Xfce Desktop Environment"
+#~ msgstr "Xfce වැඩතල පරිපරය සඳහා ශබ්ද මිශ්‍රකයක්"
+
+#~ msgid ""
+#~ "Could not execute the command %s. Perhaps you need to adjust the PATH "
+#~ "variable."
+#~ msgstr ""
+#~ "%s විධානය ක්‍රියාත්මක කළ නොහැක. ඇතැම් විට ඔබට PATH විචල්‍යය සීරුමාරු කිරීමට අවශ්‍ය විය හැක."
 
 #~ msgid "Please select which mixer track should be used by the plugin"
 #~ msgstr "කරුණාකර පේනු මෘදුකාංගය මඟින් භාවිතා කළ යුතු මිශ්‍රක පථය තෝරන්න"
