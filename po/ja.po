@@ -2,12 +2,13 @@
 # Copyright (C) 2008 Jannis Pohlmann <jannis@xfce.org>.
 # This file is distributed under the same license as the xfce package.
 # Nobuhiro Iwamatsu <iwamatsu@nigauri.org>, 2008.
+# Masato Hashimoto <cabezon.hashimoto@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-29 13:30+0000\n"
-"PO-Revision-Date: 2008-12-11 16:54+0900\n"
+"POT-Creation-Date: 2012-09-30 12:31+0900\n"
+"PO-Revision-Date: 2012-09-28 20:46+0900\n"
 "Last-Translator: Masato Hashimoto <cabezon.hashimoto@gmail.com>\n"
 "Language-Team: xfce-i18n@xfce.org <LL@li.org>\n"
 "Language: \n"
@@ -20,11 +21,11 @@ msgstr ""
 #. Add menu item for muting
 #: ../panel-plugin/xfce-mixer-plugin.c:306
 msgid "_Mute"
-msgstr ""
+msgstr "ミュート(_M)"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:314
 msgid "_Run Audio Mixer"
-msgstr ""
+msgstr "オーディオミキサーを起動(_R)"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:581 ../xfce4-mixer/main.c:148
 msgid ""
@@ -36,9 +37,8 @@ msgstr ""
 "題の可能性もあります。"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:931
-#, fuzzy
 msgid "No command defined"
-msgstr "左クリック時のコマンドが設定されていません"
+msgstr "コマンドが設定されていません"
 
 #. Generate error message and insert the current command
 #: ../panel-plugin/xfce-mixer-plugin.c:939
@@ -53,34 +53,30 @@ msgstr ""
 "ださい。"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:150
-#, fuzzy
 msgid "Audio Mixer Plugin"
-msgstr "ミキサープラグイン"
+msgstr "オーディオミキサープラグイン"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:152
-#, fuzzy
 msgid "Configure the sound card and mixer track"
-msgstr "サウンドカードを設定し、選択されたトラックのボリュームを調整します"
+msgstr "サウンドカードとミキサートラックを設定します"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:165
 #: ../xfce4-mixer/xfce-mixer-window.c:185
-#, fuzzy
 msgid "Sound _card:"
-msgstr "サウンドカード:"
+msgstr "サウンドカード(_C):"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:174
-#, fuzzy
 msgid "Mixer _track:"
-msgstr "ミキサートラック"
+msgstr "ミキサートラック(_T):"
 
 #: ../panel-plugin/xfce-volume-button.c:854
 msgid "No valid device and/or element."
-msgstr ""
+msgstr "正常なデバイスおよび/またはエレメントがありません。"
 
 #: ../panel-plugin/xfce-volume-button.c:859
 #, c-format
 msgid "%s: muted"
-msgstr ""
+msgstr "%s: ミュート"
 
 #: ../panel-plugin/xfce-volume-button.c:861
 #, c-format
@@ -93,14 +89,13 @@ msgstr "%s: %i%%"
 #: ../xfce4-mixer/xfce-mixer-window.c:413
 #: ../xfce4-mixer/xfce-mixer-window.c:427
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.h:1
-#, fuzzy
 msgid "Audio Mixer"
-msgstr "ミキサー"
+msgstr "オーディオミキサー"
 
 #: ../panel-plugin/mixer.desktop.in.h:2
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.h:2
 msgid "Adjust volume levels"
-msgstr ""
+msgstr "音量レベルを調整します"
 
 #: ../libxfce4mixer/libxfce4mixer.c:422
 #, c-format
@@ -109,36 +104,32 @@ msgstr "不明なボリュームコントロール %d"
 
 #: ../xfce4-mixer/main.c:86
 msgid "Enable debugging output"
-msgstr ""
+msgstr "デバッグ出力を有効にする"
 
 #: ../xfce4-mixer/main.c:87
 msgid "Show version and exit"
-msgstr ""
+msgstr "バージョン情報を表示して終了する"
 
 #: ../xfce4-mixer/main.c:130
-#, fuzzy, c-format
+#, c-format
 msgid "xfce4-mixer: Failed to initialize xfconf: %s\n"
-msgstr "xfconf の初期化に失敗しました: %s"
+msgstr "xfce4-mixer: Xfconf の初期化に失敗しました: %s\n"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
-#, fuzzy
 msgid "_Playback"
-msgstr "再生"
+msgstr "再生(_P)"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
-#, fuzzy
 msgid "C_apture"
-msgstr "録音"
+msgstr "録音(_A)"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
-#, fuzzy
 msgid "S_witches"
-msgstr "スイッチ"
+msgstr "スイッチ(_W)"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
-#, fuzzy
 msgid "_Options"
-msgstr "オプション"
+msgstr "オプション(_O)"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:390
 msgid "No controls visible"
@@ -147,12 +138,16 @@ msgstr "表示できるコントロールがありません"
 #: ../xfce4-mixer/xfce-mixer-container.c:401
 msgid "<span weight=\"bold\" size=\"larger\">No controls visible</span>"
 msgstr ""
+"<span weight=\"bold\" size=\"larger\">表示できるコントロールがありません</"
+"span>"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:409
 msgid ""
 "In order to toggle the visibility of mixer controls, open the <b>\"Select "
 "Controls\"</b> dialog."
 msgstr ""
+"ミキサーコントロールの表示/非表示を切り替えるには、<b>\"コントロールの選択"
+"\"</b> ダイアログを開いてください。"
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:118
 msgid "Select Controls"
@@ -165,23 +160,23 @@ msgstr "表示するコントロールを選択してください"
 #: ../xfce4-mixer/xfce-mixer-track.c:257
 #, c-format
 msgid "Volume of channel %d on %s"
-msgstr ""
+msgstr "%2$s チャネル %1$d のボリューム"
 
 #. Lock button
 #: ../xfce4-mixer/xfce-mixer-track.c:293
 #, c-format
 msgid "Lock channels for %s together"
-msgstr ""
+msgstr "%s の各チャネルを同期します"
 
 #: ../xfce4-mixer/xfce-mixer-track.c:340
 #, c-format
 msgid "Mute/unmute %s"
-msgstr ""
+msgstr "%s ミュートのオン/オフ"
 
 #: ../xfce4-mixer/xfce-mixer-track.c:360
 #, c-format
 msgid "Enable/disable audible input from %s in output"
-msgstr ""
+msgstr "出力 %s からの音声入力の有効/無効を切り替えます"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:91
 msgid "_Quit"
