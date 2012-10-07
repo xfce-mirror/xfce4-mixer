@@ -1,7 +1,7 @@
 # Ukrainian translation of xfce4-mixer.
 # Copyright (C) 2008 Dmitry Nikitin
 # This file is distributed under the same license as the xfce4-mixer package.
-#
+# 
 # Dmitry Nikitin <luckas_fb@mail.ru>, 2008.
 msgid ""
 msgstr ""
@@ -11,22 +11,21 @@ msgstr ""
 "PO-Revision-Date: 2009-01-26 12:17+0200\n"
 "Last-Translator: Dmitry Nikitin <luckas_fb@mail.ru>\n"
 "Language-Team: Ukrainian <xfce4-dev@xfce.org>\n"
-"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: uk\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: KBabel 1.11.4\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #. Add menu item for muting
 #: ../panel-plugin/xfce-mixer-plugin.c:306
 msgid "_Mute"
-msgstr ""
+msgstr "_Заглушка"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:314
 msgid "_Run Audio Mixer"
-msgstr ""
+msgstr "_Запустити Аудіо мікшер"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:581 ../xfce4-mixer/main.c:148
 msgid ""
@@ -37,9 +36,8 @@ msgstr ""
 "можливо відсутні пакунки для GStreamer. Можливо проблеми прав доступу."
 
 #: ../panel-plugin/xfce-mixer-plugin.c:931
-#, fuzzy
 msgid "No command defined"
-msgstr "Не визначено команду при клацанні лівою кнопкою миші"
+msgstr "Не визначено команду"
 
 #. Generate error message and insert the current command
 #: ../panel-plugin/xfce-mixer-plugin.c:939
@@ -54,12 +52,10 @@ msgstr ""
 "команди."
 
 #: ../panel-plugin/xfce-plugin-dialog.c:150
-#, fuzzy
 msgid "Audio Mixer Plugin"
-msgstr "Плагін мікшера"
+msgstr "Додаток Аудіо мікшера"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:152
-#, fuzzy
 msgid "Configure the sound card and mixer track"
 msgstr ""
 "Налаштуйте Вашу звукову карту(и) і елементи управління гучністю вибраних "
@@ -67,23 +63,21 @@ msgstr ""
 
 #: ../panel-plugin/xfce-plugin-dialog.c:165
 #: ../xfce4-mixer/xfce-mixer-window.c:185
-#, fuzzy
 msgid "Sound _card:"
-msgstr "Звукова карта:"
+msgstr "Звукова _карта:"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:174
-#, fuzzy
 msgid "Mixer _track:"
-msgstr "Трек мікшера"
+msgstr "Трек _мікшера"
 
 #: ../panel-plugin/xfce-volume-button.c:854
 msgid "No valid device and/or element."
-msgstr ""
+msgstr "Немає відповідного пристрою або/чи елемента."
 
 #: ../panel-plugin/xfce-volume-button.c:859
 #, c-format
 msgid "%s: muted"
-msgstr ""
+msgstr "%s: заглушено"
 
 #: ../panel-plugin/xfce-volume-button.c:861
 #, c-format
@@ -96,14 +90,13 @@ msgstr "%s: %i%%"
 #: ../xfce4-mixer/xfce-mixer-window.c:413
 #: ../xfce4-mixer/xfce-mixer-window.c:427
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.h:1
-#, fuzzy
 msgid "Audio Mixer"
-msgstr "Регулювання гучності"
+msgstr "Аудіо мікшер"
 
 #: ../panel-plugin/mixer.desktop.in.h:2
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.h:2
 msgid "Adjust volume levels"
-msgstr ""
+msgstr "Налаштувати рівні звуку"
 
 #: ../libxfce4mixer/libxfce4mixer.c:422
 #, c-format
@@ -112,36 +105,32 @@ msgstr "Невідомий канал гучності %d"
 
 #: ../xfce4-mixer/main.c:86
 msgid "Enable debugging output"
-msgstr ""
+msgstr "Включити журнал наладки"
 
 #: ../xfce4-mixer/main.c:87
 msgid "Show version and exit"
-msgstr ""
+msgstr "Показати версію і вийти"
 
 #: ../xfce4-mixer/main.c:130
-#, fuzzy, c-format
+#, c-format
 msgid "xfce4-mixer: Failed to initialize xfconf: %s\n"
-msgstr "Невдача при ініціалізації xfconf: %s"
+msgstr "xfce4-mixer: Помилка ініціалізації xfconf: %s\n"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
-#, fuzzy
 msgid "_Playback"
-msgstr "Програвання"
+msgstr "_Програвання"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
-#, fuzzy
 msgid "C_apture"
-msgstr "Запис"
+msgstr "_Запис"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
-#, fuzzy
 msgid "S_witches"
-msgstr "Перемикачі"
+msgstr "П_еремикачі"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
-#, fuzzy
 msgid "_Options"
-msgstr "Параметри"
+msgstr "Па_раметри"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:390
 msgid "No controls visible"
@@ -149,13 +138,13 @@ msgstr "Немає видимих елементів управління"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:401
 msgid "<span weight=\"bold\" size=\"larger\">No controls visible</span>"
-msgstr ""
+msgstr "<span weight=\"bold\" size=\"larger\">Немає елементів контролю</span>"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:409
 msgid ""
 "In order to toggle the visibility of mixer controls, open the <b>\"Select "
 "Controls\"</b> dialog."
-msgstr ""
+msgstr "Щоб побачити елементи контролю мікшера, відкрийте діалог <b>\"Вибрати елементи контролю\"</b>."
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:118
 msgid "Select Controls"
@@ -168,23 +157,23 @@ msgstr "Виберіть елементи управління, які буду�
 #: ../xfce4-mixer/xfce-mixer-track.c:257
 #, c-format
 msgid "Volume of channel %d on %s"
-msgstr ""
+msgstr "Рівень звуку каналу %d на %s"
 
 #. Lock button
 #: ../xfce4-mixer/xfce-mixer-track.c:293
 #, c-format
 msgid "Lock channels for %s together"
-msgstr ""
+msgstr "Прив’язати разом канали для %s"
 
 #: ../xfce4-mixer/xfce-mixer-track.c:340
 #, c-format
 msgid "Mute/unmute %s"
-msgstr ""
+msgstr "Заглушити/відкрити %s"
 
 #: ../xfce4-mixer/xfce-mixer-track.c:360
 #, c-format
 msgid "Enable/disable audible input from %s in output"
-msgstr ""
+msgstr "Включити/відключити звуковий ввід з %s у вивід"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:91
 msgid "_Quit"
