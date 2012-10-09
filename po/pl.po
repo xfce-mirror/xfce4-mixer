@@ -23,7 +23,7 @@ msgstr "Wycisz"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:314
 msgid "_Run Audio Mixer"
-msgstr "Uruchom mikser audio"
+msgstr "_Uruchom mikser dźwięku"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:581 ../xfce4-mixer/main.c:148
 msgid ""
@@ -35,7 +35,6 @@ msgstr ""
 "lub istnieje problem z prawami dostępu."
 
 #: ../panel-plugin/xfce-mixer-plugin.c:931
-#, fuzzy
 msgid "No command defined"
 msgstr "Nie zdefiniowano polecenia lewego klawisza myszy"
 
@@ -52,20 +51,17 @@ msgstr ""
 "systemowej PATH."
 
 #: ../panel-plugin/xfce-plugin-dialog.c:150
-#, fuzzy
 msgid "Audio Mixer Plugin"
-msgstr "Mikser dźwięku"
+msgstr "Aplet miksera dźwięku"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:152
-#, fuzzy
 msgid "Configure the sound card and mixer track"
 msgstr "Konfiguruje karty dźwiękowe i ich głośność"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:165
 #: ../xfce4-mixer/xfce-mixer-window.c:185
-#, fuzzy
 msgid "Sound _card:"
-msgstr "Karta dźwiękowa:"
+msgstr "_Karta dźwiękowa:"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:174
 #, fuzzy
@@ -74,10 +70,10 @@ msgstr "Kanał"
 
 #: ../panel-plugin/xfce-volume-button.c:854
 msgid "No valid device and/or element."
-msgstr ""
+msgstr "Brak prawidłowego urządzenia i/lub elementu."
 
 #: ../panel-plugin/xfce-volume-button.c:859
-#, c-format, fuzzy
+#, c-format
 msgid "%s: muted"
 msgstr "%s: wyciszone"
 
@@ -92,7 +88,6 @@ msgstr "%s: %i%%"
 #: ../xfce4-mixer/xfce-mixer-window.c:413
 #: ../xfce4-mixer/xfce-mixer-window.c:427
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.h:1
-#, fuzzy
 msgid "Audio Mixer"
 msgstr "Mikser dźwięku"
 
@@ -107,38 +102,33 @@ msgid "Unknown Volume Control %d"
 msgstr "Nieznana kontrola głośności %d"
 
 #: ../xfce4-mixer/main.c:86
-#, fuzzy
 msgid "Enable debugging output"
-msgstr "Włącz tryb debugowania wyjścia"
+msgstr "Wypisuje komunikaty diagnozowania błędów"
 
 #: ../xfce4-mixer/main.c:87
 msgid "Show version and exit"
-msgstr "Pokaż wersję i wyjdź"
+msgstr "Wypisuje informacje o wersji i kończy"
 
 #: ../xfce4-mixer/main.c:130
-#, fuzzy, c-format
+#, c-format
 msgid "xfce4-mixer: Failed to initialize xfconf: %s\n"
-msgstr "Nie udało się zainicjować xfconf: %s"
+msgstr "xfce4-mixer: nie udało się zainicjować xfconf: %s\n"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
-#, fuzzy
 msgid "_Playback"
-msgstr "Odtwarzanie"
+msgstr "_Odtwarzanie"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
-#, fuzzy
 msgid "C_apture"
-msgstr "Przechwytywanie"
+msgstr "_Przechwytywanie"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
-#, fuzzy
 msgid "S_witches"
-msgstr "Przełączniki"
+msgstr "P_rzełączniki"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
-#, fuzzy
 msgid "_Options"
-msgstr "Opcje"
+msgstr "Op_cje"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:390
 msgid "No controls visible"
@@ -146,7 +136,7 @@ msgstr "Brak widocznych elementów sterujących"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:401
 msgid "<span weight=\"bold\" size=\"larger\">No controls visible</span>"
-msgstr ""
+msgstr "<span weight=\"bold\" size=\"larger\">Brak widocznych elementów sterujących</span>"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:409
 msgid ""
@@ -163,9 +153,9 @@ msgid "Select which controls should be visible"
 msgstr "Wybiera widoczne elementy sterujące"
 
 #: ../xfce4-mixer/xfce-mixer-track.c:257
-#, c-format, fuzzy
+#, c-format
 msgid "Volume of channel %d on %s"
-msgstr "Głośność na kanale %d na %s"
+msgstr "Głośność kanału %d na %s"
 
 #. Lock button
 #: ../xfce4-mixer/xfce-mixer-track.c:293
@@ -197,7 +187,7 @@ msgstr "_Wybierz elementy sterujące..."
 
 #: ../xfce4-mixer/xfce-mixer-window.c:93
 msgid "Select which controls are displayed"
-msgstr "Proszę wybrać kontrolki, które mają być widoczne"
+msgstr "Proszę wybrać elementy sterujące, które mają być widoczne"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:154
 msgid "Configure sound card(s) and control the volume of selected tracks"
