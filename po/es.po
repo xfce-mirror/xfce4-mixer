@@ -114,7 +114,7 @@ msgstr "Mostrar versión y salir"
 #: ../xfce4-mixer/main.c:130
 #, c-format
 msgid "xfce4-mixer: Failed to initialize xfconf: %s\n"
-msgstr "xfce4-mixer: Fallo al inicializar xfconf: %s"
+msgstr "xfce4-mixer: Fallo al inicializar xfconf: %s\n"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
 msgid "_Playback"
