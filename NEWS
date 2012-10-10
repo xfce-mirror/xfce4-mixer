@@ -1,3 +1,10 @@
+4.10.0
+======
+- Do not use G_VALUE_INIT which is only available in glib >= 2.30
+- Translation updates: Dutch (Flemish), Japanese, Croatian, Portuguese, Spanish
+  (Castilian), German, Indonesian, Ukrainian, Polish, Chinese (Taiwan)
+
+
 4.9.0
 =====
 - Handle a negative minimal volume correctly.
