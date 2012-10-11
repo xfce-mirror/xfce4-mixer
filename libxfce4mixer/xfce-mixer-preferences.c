@@ -134,8 +134,8 @@ xfce_mixer_preferences_init (XfceMixerPreferences *preferences)
 {
   preferences->channel = xfconf_channel_get ("xfce4-mixer");
 
-  preferences->window_width = 1;
-  preferences->window_height = 1;
+  preferences->window_width = 640;
+  preferences->window_height = 400;
 
   preferences->sound_card = NULL;
 
