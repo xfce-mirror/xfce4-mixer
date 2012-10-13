@@ -138,13 +138,14 @@ msgstr "Ningún control visible"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:401
 msgid "<span weight=\"bold\" size=\"larger\">No controls visible</span>"
-msgstr ""
+msgstr "<span weight=\"bold\" size=\"larger\">No hay controles visibles</span>"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:409
+#, fuzzy
 msgid ""
 "In order to toggle the visibility of mixer controls, open the <b>\"Select "
 "Controls\"</b> dialog."
-msgstr ""
+msgstr "En orden para cambiar la visibilidad del panel de mezclado, abra el diálogo para <b>\"Seleccionar controles\"</b>."
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:118
 msgid "Select Controls"
@@ -166,7 +167,7 @@ msgid "Lock channels for %s together"
 msgstr " Bloquear canales %s juntos"
 
 #: ../xfce4-mixer/xfce-mixer-track.c:340
-#, c-format, fuzzy
+#, c-format
 msgid "Mute/unmute %s"
 msgstr "Silenciar/Desilenciar: %s"
 
