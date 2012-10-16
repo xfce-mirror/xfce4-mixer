@@ -118,7 +118,7 @@ msgstr "Показать версию и выйти"
 #: ../xfce4-mixer/main.c:130
 #, c-format
 msgid "xfce4-mixer: Failed to initialize xfconf: %s\n"
-msgstr "xfce4-mixer: невозможно соединиться с менеджером настроек xfconf: %s "
+msgstr "xfce4-mixer: невозможно соединиться с менеджером настроек xfconf: %s\n"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
 msgid "_Playback"
