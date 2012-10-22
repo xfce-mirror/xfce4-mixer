@@ -141,11 +141,10 @@ msgid "<span weight=\"bold\" size=\"larger\">No controls visible</span>"
 msgstr "<span weight=\"bold\" size=\"larger\">No hay controles visibles</span>"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:409
-#, fuzzy
 msgid ""
 "In order to toggle the visibility of mixer controls, open the <b>\"Select "
 "Controls\"</b> dialog."
-msgstr "En orden para cambiar la visibilidad del panel de mezclado, abra el diálogo para <b>\"Seleccionar controles\"</b>."
+msgstr "En orden para cambiar la visibilidad del panel del mezclador, abra el diálogo para <b>\"Seleccionar controles\"</b>."
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:118
 msgid "Select Controls"
