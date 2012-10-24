@@ -1,15 +1,15 @@
-# Uyghur translation for the xfce-mixer package
-# Copyright (C) 2008 Jannis Pohlmann <jannis@xfce.org>.
-# This file is distributed under the same license as the xfce package.
-# Gheyret T.Kenji <gheyret@gmail.com>, 2010.
+# Uyghur translation for xfce4-mixer.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Gheyret Kenji <gheyret@gmail.com>, YEAR.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-29 13:30+0000\n"
-"PO-Revision-Date: 2008-12-11 16:54+0900\n"
-"Last-Translator: Gheyret T.Kenji <gheyret@gmail.com>\n"
+"PO-Revision-Date: 2011-11-09 16:10+0900\n"
+"Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -185,56 +185,3 @@ msgstr "كۆرسىتىلىدىغان تىزگىنلىگۈچنى تاللايدۇ
 #: ../xfce4-mixer/xfce-mixer-window.c:154
 msgid "Configure sound card(s) and control the volume of selected tracks"
 msgstr "ئۈن كارتىسىنى تەڭشەيدۇ ۋە تاللانغان يولنىڭ ئاۋازى كونترول قىلىدۇ"
-
-#~ msgid ""
-#~ "No left-click command defined yet. You can change this in the plugin "
-#~ "properties."
-#~ msgstr ""
-#~ "سول-چەك بۇيرۇقىنى بېكىتىلمەپتۇ. بۇنى قىستۇرمىنىڭ خاسلىقىدا ئۆزگەرتىشكە "
-#~ "بولىدۇ."
-
-#~ msgid "Properties"
-#~ msgstr "خاسلىق"
-
-#~ msgid "Configure the mixer track and left-click command"
-#~ msgstr "mixer track ۋە سول-چەك بۇيرۇقىنى تەڭشەش"
-
-#~ msgid "Sound card"
-#~ msgstr "ئۈن كارتىسى"
-
-#~ msgid "Left-click command"
-#~ msgstr "سول-چەك بۇيرۇقى"
-
-#~ msgid "Select command"
-#~ msgstr "بۇيرۇق تاللا"
-
-#~ msgid "All Files"
-#~ msgstr "ھەممە ھۆججەت"
-
-#~ msgid "Executable Files"
-#~ msgstr "پروگرامما(ئىجرا بولىدىغان ھۆججەت)"
-
-#~ msgid "Perl Scripts"
-#~ msgstr "Perl پروگراممىسى"
-
-#~ msgid "Python Scripts"
-#~ msgstr "Python پروگراممىسى"
-
-#~ msgid "Ruby Scripts"
-#~ msgstr "Ruby پروگراممىسى"
-
-#~ msgid "Shell Scripts"
-#~ msgstr "Shell پروگراممىسى"
-
-#~ msgid "Volume control for your sound card"
-#~ msgstr "ئۈن كارتىسىنىڭ ئاۋاز باشقۇرغۇچى"
-
-#~ msgid ""
-#~ "No controls are marked as visible. Please open the <span "
-#~ "size='large'><b>Select Controls</b></span> dialog to select some."
-#~ msgstr ""
-#~ "control نىڭ ھېچقايسىسى كۆرۈنمەيدىكەن. <span size='large'><b>Control "
-#~ "تاللاش</b> كۆزنىكىنى ئېچىپ</span> بىرەرىنى تاللاڭ."
-
-#~ msgid "Audio mixer for the Xfce Desktop Environment"
-#~ msgstr "Xfce ئۈستەلئۈستىدىكى  ئۈن mixer ئى"
