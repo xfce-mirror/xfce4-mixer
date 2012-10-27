@@ -303,7 +303,7 @@ xfce_mixer_plugin_construct (XfcePanelPlugin *plugin)
   xfce_panel_plugin_menu_show_configure (plugin);
 
   /* Add menu item for muting */
-  mixer_plugin->mute_menu_item = gtk_check_menu_item_new_with_mnemonic (_("_Mute"));
+  mixer_plugin->mute_menu_item = gtk_check_menu_item_new_with_mnemonic (_("Mu_te"));
   xfce_panel_plugin_menu_insert_item (plugin, GTK_MENU_ITEM (mixer_plugin->mute_menu_item));
   g_signal_connect_swapped (G_OBJECT (mixer_plugin->mute_menu_item), "toggled", G_CALLBACK (xfce_mixer_plugin_mute_item_toggled), mixer_plugin);
   gtk_widget_show (mixer_plugin->mute_menu_item);
@@ -311,7 +311,7 @@ xfce_mixer_plugin_construct (XfcePanelPlugin *plugin)
   /* Add menu item for running the user-defined command */
   command_image = gtk_image_new_from_icon_name ("multimedia-volume-control", GTK_ICON_SIZE_MENU);
   gtk_widget_show (command_image);
-  command_menu_item = gtk_image_menu_item_new_with_mnemonic (_("_Run Audio Mixer"));
+  command_menu_item = gtk_image_menu_item_new_with_mnemonic (_("Run Audio Mi_xer"));
   gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (command_menu_item), command_image);
   xfce_panel_plugin_menu_insert_item (plugin, GTK_MENU_ITEM (command_menu_item));
   g_signal_connect_swapped (G_OBJECT (command_menu_item), "activate", G_CALLBACK (xfce_mixer_plugin_command_item_activated), mixer_plugin);
