@@ -19,11 +19,11 @@ msgstr ""
 
 #. Add menu item for muting
 #: ../panel-plugin/xfce-mixer-plugin.c:306
-msgid "_Mute"
+msgid "Mu_te"
 msgstr "_Bisu"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:314
-msgid "_Run Audio Mixer"
+msgid "Run Audio Mi_xer"
 msgstr "_Jalankan Audio Mixer"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:581 ../xfce4-mixer/main.c:148
