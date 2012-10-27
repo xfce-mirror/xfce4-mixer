@@ -20,11 +20,11 @@ msgstr ""
 #. Add menu item for muting
 #: ../panel-plugin/xfce-mixer-plugin.c:306
 msgid "Mu_te"
-msgstr ""
+msgstr "靜音(_M)"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:314
 msgid "Run Audio Mi_xer"
-msgstr ""
+msgstr "執行混音器(_R)"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:581 ../xfce4-mixer/main.c:148
 msgid ""
@@ -35,9 +35,8 @@ msgstr ""
 "又或者是許可權的問題。"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:931
-#, fuzzy
 msgid "No command defined"
-msgstr "未定義左點擊指令"
+msgstr "未定義指令"
 
 #. Generate error message and insert the current command
 #: ../panel-plugin/xfce-mixer-plugin.c:939
@@ -51,25 +50,21 @@ msgstr ""
 "的完整路徑。"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:150
-#, fuzzy
 msgid "Audio Mixer Plugin"
-msgstr "混音器插件"
+msgstr "混音器外掛"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:152
-#, fuzzy
 msgid "Configure the sound card and mixer track"
-msgstr "設定音效卡並控制選取軌道的音量"
+msgstr "設定音效卡與混音器軌道"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:165
 #: ../xfce4-mixer/xfce-mixer-window.c:185
-#, fuzzy
 msgid "Sound _card:"
-msgstr "音效卡："
+msgstr "音效卡(_C)："
 
 #: ../panel-plugin/xfce-plugin-dialog.c:174
-#, fuzzy
 msgid "Mixer _track:"
-msgstr "混音器軌道"
+msgstr "混音器軌道(_T)"
 
 #: ../panel-plugin/xfce-volume-button.c:854
 msgid "No valid device and/or element."
@@ -78,7 +73,7 @@ msgstr ""
 #: ../panel-plugin/xfce-volume-button.c:859
 #, c-format
 msgid "%s: muted"
-msgstr ""
+msgstr "%s：靜音"
 
 #: ../panel-plugin/xfce-volume-button.c:861
 #, c-format
@@ -91,14 +86,13 @@ msgstr "%s：%i%%"
 #: ../xfce4-mixer/xfce-mixer-window.c:413
 #: ../xfce4-mixer/xfce-mixer-window.c:427
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.h:1
-#, fuzzy
 msgid "Audio Mixer"
 msgstr "混音器"
 
 #: ../panel-plugin/mixer.desktop.in.h:2
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.h:2
 msgid "Adjust volume levels"
-msgstr ""
+msgstr "調整音量等級"
 
 #: ../libxfce4mixer/libxfce4mixer.c:422
 #, c-format
@@ -107,36 +101,32 @@ msgstr "未知音量控制 %d"
 
 #: ../xfce4-mixer/main.c:86
 msgid "Enable debugging output"
-msgstr ""
+msgstr "啟用除錯輸出"
 
 #: ../xfce4-mixer/main.c:87
 msgid "Show version and exit"
 msgstr "顯示版本並離開"
 
 #: ../xfce4-mixer/main.c:130
-#, fuzzy, c-format
+#, c-format
 msgid "xfce4-mixer: Failed to initialize xfconf: %s\n"
-msgstr "無法初始化 xfconf：%s"
+msgstr "xfce4-mixer：無法初始化 xfconf：%s\n"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
-#, fuzzy
 msgid "_Playback"
-msgstr "播放控制"
+msgstr "播放(_P)"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
-#, fuzzy
 msgid "C_apture"
-msgstr "捕捉"
+msgstr "擷取(_A)"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
-#, fuzzy
 msgid "S_witches"
-msgstr "開關"
+msgstr "開關(_W)"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
-#, fuzzy
 msgid "_Options"
-msgstr "選項"
+msgstr "選項(_O)"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:390
 msgid "No controls visible"
@@ -144,13 +134,13 @@ msgstr "無可見控制項"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:401
 msgid "<span weight=\"bold\" size=\"larger\">No controls visible</span>"
-msgstr ""
+msgstr "<span weight=\"bold\" size=\"larger\">無可見的控制項</span>"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:409
 msgid ""
 "In order to toggle the visibility of mixer controls, open the <b>\"Select "
 "Controls\"</b> dialog."
-msgstr ""
+msgstr "要切換顯示的混音器控制項，請開啟<b>「選擇控制項」</b>。"
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:118
 msgid "Select Controls"
@@ -163,7 +153,7 @@ msgstr "選取應該可見哪些控制項"
 #: ../xfce4-mixer/xfce-mixer-track.c:257
 #, c-format
 msgid "Volume of channel %d on %s"
-msgstr ""
+msgstr "裝置 %s 第 %d 聲道的音量"
 
 #. Lock button
 #: ../xfce4-mixer/xfce-mixer-track.c:293
@@ -174,7 +164,7 @@ msgstr ""
 #: ../xfce4-mixer/xfce-mixer-track.c:340
 #, c-format
 msgid "Mute/unmute %s"
-msgstr ""
+msgstr "靜音/取消靜音 %s"
 
 #: ../xfce4-mixer/xfce-mixer-track.c:360
 #, c-format

@@ -1,15 +1,15 @@
-# Uyghur translation for the xfce-mixer package
-# Copyright (C) 2008 Jannis Pohlmann <jannis@xfce.org>.
-# This file is distributed under the same license as the xfce package.
-# Gheyret T.Kenji <gheyret@gmail.com>, 2010.
+# Uyghur translation for xfce4-mixer.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Gheyret Kenji <gheyret@gmail.com>, YEAR.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-29 13:30+0000\n"
-"PO-Revision-Date: 2008-12-11 16:54+0900\n"
-"Last-Translator: Gheyret T.Kenji <gheyret@gmail.com>\n"
+"PO-Revision-Date: 2011-11-09 16:10+0900\n"
+"Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -19,25 +19,21 @@ msgstr ""
 #. Add menu item for muting
 #: ../panel-plugin/xfce-mixer-plugin.c:306
 msgid "Mu_te"
-msgstr ""
+msgstr "ئۈنسىزلە(_M)"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:314
 msgid "Run Audio Mi_xer"
-msgstr ""
+msgstr "ئۈن كىرىشتۈرگۈنى ئىجرا قىل(_R)"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:581 ../xfce4-mixer/main.c:148
 msgid ""
 "GStreamer was unable to detect any sound devices. Some sound system specific "
 "GStreamer packages may be missing. It may also be a permissions problem."
-msgstr ""
-"GStreamer ھېچقانداق ئۈن ئۈسكۈنىسىنى تاپالمىدى. ئۈن سىستېمىسىغا مۇناسىۋەتلىك "
-"بولغان GStreamer نىڭ بىر قىسىم  بولاقلىرى يوقتەك قىلىدۇ. يەنە بىرى بەلكىم "
-"ھوقۇقىڭىز يەتمىگەن بولۇشىمۇ مۇمكىن."
+msgstr "GStreamer ھېچقانداق ئۈن ئۈسكۈنىسىنى تاپالمىدى. ئۈن سىستېمىسىغا مۇناسىۋەتلىك بولغان GStreamer نىڭ بىر قىسىم  بولاقلىرى يوقتەك قىلىدۇ. يەنە بىرى بەلكىم ھوقۇقىڭىز يەتمىگەن بولۇشىمۇ مۇمكىن."
 
 #: ../panel-plugin/xfce-mixer-plugin.c:931
-#, fuzzy
 msgid "No command defined"
-msgstr "سول-چەك بۇيرۇقى بېكىتىلمىگەن"
+msgstr "بۇيرۇق بېكىتىلمىگەن"
 
 #. Generate error message and insert the current command
 #: ../panel-plugin/xfce-mixer-plugin.c:939
@@ -46,40 +42,33 @@ msgid ""
 "Could not execute the command \"%s\". Ensure that either the location of the "
 "command is included in the PATH environment variable or that you are "
 "providing the full path to the command."
-msgstr ""
-"بۇيرۇق \"%s\" نى ئىجرا قىلغىلى بولمىدى. بۇيرۇقنىڭ يولى PATH دېگەن مۇھىت "
-"ئۆزگەرگۈچىنىڭ ئىچىدىمۇ ئەمەسمۇ، ياكى بۇيرۇقنى تولۇق يولى بىلەن يازدىڭىزمۇ "
-"يامىدىڭىزمۇ تەكشۈرۈڭ"
+msgstr "بۇيرۇق «%s» نى ئىجرا قىلغىلى بولمىدى. بۇيرۇقنىڭ يولى PATH دېگەن مۇھىت ئۆزگەرگۈچىنىڭ ئىچىدىمۇ ئەمەسمۇ، ياكى بۇيرۇقنى تولۇق يولى بىلەن يازدىڭىزمۇ يامىدىڭىزمۇ تەكشۈرۈڭ"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:150
-#, fuzzy
 msgid "Audio Mixer Plugin"
-msgstr "Mixer قىستۇرمىسى"
+msgstr "ئۈن كىرىشتۈرگۈ قىستۇرمىسى"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:152
-#, fuzzy
 msgid "Configure the sound card and mixer track"
-msgstr "ئۈن كارتىسىنى تەڭشەيدۇ ۋە تاللانغان track نىڭ ئاۋازى كونترول قىلىدۇ"
+msgstr "ئۈن كارتىسى ۋە كىرىشتۈرگۈنى سەپلەش"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:165
 #: ../xfce4-mixer/xfce-mixer-window.c:185
-#, fuzzy
 msgid "Sound _card:"
-msgstr "ئۈن كارتىسى"
+msgstr "ئۈن كارتىسى(_C):"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:174
-#, fuzzy
 msgid "Mixer _track:"
-msgstr "mixer رېلىسى"
+msgstr "كىرىشتۈرگۈ(_R):"
 
 #: ../panel-plugin/xfce-volume-button.c:854
 msgid "No valid device and/or element."
-msgstr ""
+msgstr "ئىناۋەتلىك ئۈسكۈنە ۋە/ياكى ئېلېمېنت يوق."
 
 #: ../panel-plugin/xfce-volume-button.c:859
 #, c-format
 msgid "%s: muted"
-msgstr ""
+msgstr "%s: ئۈنسىز"
 
 #: ../panel-plugin/xfce-volume-button.c:861
 #, c-format
@@ -92,14 +81,13 @@ msgstr "%s: %i%%"
 #: ../xfce4-mixer/xfce-mixer-window.c:413
 #: ../xfce4-mixer/xfce-mixer-window.c:427
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.h:1
-#, fuzzy
 msgid "Audio Mixer"
-msgstr "Mixer"
+msgstr "ئۈن كىرىشتۈرگۈ"
 
 #: ../panel-plugin/mixer.desktop.in.h:2
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.h:2
 msgid "Adjust volume levels"
-msgstr ""
+msgstr "ئاۋاز دەرىجىسىنى تەڭشەش"
 
 #: ../libxfce4mixer/libxfce4mixer.c:422
 #, c-format
@@ -108,79 +96,75 @@ msgstr "ئاۋاز باشقۇرغۇچ %d نامەلۇم"
 
 #: ../xfce4-mixer/main.c:86
 msgid "Enable debugging output"
-msgstr ""
+msgstr "سازلاش ئۇچۇرلىرىنى ئىناۋەتلىك قىلىدۇ"
 
 #: ../xfce4-mixer/main.c:87
 msgid "Show version and exit"
-msgstr ""
+msgstr "نەشر ئۇچۇرىنى كۆرسىتىپ ئاخىرلاشتۇرىدۇ"
 
 #: ../xfce4-mixer/main.c:130
-#, fuzzy, c-format
+#, c-format
 msgid "xfce4-mixer: Failed to initialize xfconf: %s\n"
-msgstr "xfconf نى دەسلەپلەشتۈرۈش مەغلۇپ بولدى: %s"
+msgstr "xfce4-mixer: xfconf نى دەسلەپلەشتۈرۈش مەغلۇپ بولدى: %s\n"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
-#, fuzzy
 msgid "_Playback"
-msgstr "قويۇش"
+msgstr "قوي(_P)"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
-#, fuzzy
 msgid "C_apture"
-msgstr "تۇت"
+msgstr "تۇت(_A)"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
-#, fuzzy
 msgid "S_witches"
-msgstr "ئۈزچاتلار"
+msgstr "ئۈزچاتلار(_W)"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
-#, fuzzy
 msgid "_Options"
-msgstr "تاللانما"
+msgstr "تاللانمىلار(_O)"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:390
 msgid "No controls visible"
-msgstr "control نىڭ ھېچقايسىسى كۆرۈنمەيدۇ"
+msgstr "تىزگىنلىگۈچلەر(controls) نىڭ ھېچقايسىسى كۆرۈنمەيدۇ"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:401
 msgid "<span weight=\"bold\" size=\"larger\">No controls visible</span>"
-msgstr ""
+msgstr "<span weight=\"bold\" size=\"larger\">تىزگىنلىگۈچلەر(controls) نىڭ ھېچقايسىسى كۆرۈنمەيدۇ</span>"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:409
 msgid ""
 "In order to toggle the visibility of mixer controls, open the <b>\"Select "
 "Controls\"</b> dialog."
-msgstr ""
+msgstr "كىرىشتۈرگۈنىڭ تىزگىنلىگۈچلىرىنى كۆرسىتىش-كۆرسەتمەسلىكنى ئالماشتۇرۇش ئۈچۈن، <b>«تىزگىنلىگۈچ تاللا»</b> سۆزلەشكۈسىنى ئېچىڭ."
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:118
 msgid "Select Controls"
-msgstr "Control تاللاش"
+msgstr "تىزگىنلىگۈچ تاللاش"
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:120
 msgid "Select which controls should be visible"
-msgstr "كۆرۈنىدىغان control نى تاللا"
+msgstr "كۆرۈنىدىغان تىزگىنلىگۈچنى تاللا"
 
 #: ../xfce4-mixer/xfce-mixer-track.c:257
 #, c-format
 msgid "Volume of channel %d on %s"
-msgstr ""
+msgstr "%2$s دىكى قانال %1$d نىڭ ئاۋاز چوڭلۇقى"
 
 #. Lock button
 #: ../xfce4-mixer/xfce-mixer-track.c:293
 #, c-format
 msgid "Lock channels for %s together"
-msgstr ""
+msgstr "%s نىڭدىكى قاناللارنى بىرلىكتە قۇلۇپلايدۇ"
 
 #: ../xfce4-mixer/xfce-mixer-track.c:340
 #, c-format
 msgid "Mute/unmute %s"
-msgstr ""
+msgstr "%s نى ئۈنسىزلە/زۇۋاننى ئاچ"
 
 #: ../xfce4-mixer/xfce-mixer-track.c:360
 #, c-format
 msgid "Enable/disable audible input from %s in output"
-msgstr ""
+msgstr "چىقىش %s دىن كىرگۈزۈلگەن ئاۋازنى ئىناۋەتلىك/ئىناۋەتسىز قىلىدۇ"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:91
 msgid "_Quit"
@@ -188,69 +172,16 @@ msgstr "ئاخىرلاشتۇر(_Q)"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:91
 msgid "Exit the mixer"
-msgstr "mixer دىن چىق"
+msgstr "كىرىشتۈرگۈدىن چىقىدۇ"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:93
 msgid "_Select Controls..."
-msgstr "Control تاللا(_S)..."
+msgstr "تىزگىنلىگۈچ تاللا(_S)..."
 
 #: ../xfce4-mixer/xfce-mixer-window.c:93
 msgid "Select which controls are displayed"
-msgstr "كۆرسىتىلىدىغان control نى تاللايدۇ"
+msgstr "كۆرسىتىلىدىغان تىزگىنلىگۈچنى تاللايدۇ"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:154
 msgid "Configure sound card(s) and control the volume of selected tracks"
-msgstr "ئۈن كارتىسىنى تەڭشەيدۇ ۋە تاللانغان track نىڭ ئاۋازى كونترول قىلىدۇ"
-
-#~ msgid ""
-#~ "No left-click command defined yet. You can change this in the plugin "
-#~ "properties."
-#~ msgstr ""
-#~ "سول-چەك بۇيرۇقىنى بېكىتىلمەپتۇ. بۇنى قىستۇرمىنىڭ خاسلىقىدا ئۆزگەرتىشكە "
-#~ "بولىدۇ."
-
-#~ msgid "Properties"
-#~ msgstr "خاسلىق"
-
-#~ msgid "Configure the mixer track and left-click command"
-#~ msgstr "mixer track ۋە سول-چەك بۇيرۇقىنى تەڭشەش"
-
-#~ msgid "Sound card"
-#~ msgstr "ئۈن كارتىسى"
-
-#~ msgid "Left-click command"
-#~ msgstr "سول-چەك بۇيرۇقى"
-
-#~ msgid "Select command"
-#~ msgstr "بۇيرۇق تاللا"
-
-#~ msgid "All Files"
-#~ msgstr "ھەممە ھۆججەت"
-
-#~ msgid "Executable Files"
-#~ msgstr "پروگرامما(ئىجرا بولىدىغان ھۆججەت)"
-
-#~ msgid "Perl Scripts"
-#~ msgstr "Perl پروگراممىسى"
-
-#~ msgid "Python Scripts"
-#~ msgstr "Python پروگراممىسى"
-
-#~ msgid "Ruby Scripts"
-#~ msgstr "Ruby پروگراممىسى"
-
-#~ msgid "Shell Scripts"
-#~ msgstr "Shell پروگراممىسى"
-
-#~ msgid "Volume control for your sound card"
-#~ msgstr "ئۈن كارتىسىنىڭ ئاۋاز باشقۇرغۇچى"
-
-#~ msgid ""
-#~ "No controls are marked as visible. Please open the <span "
-#~ "size='large'><b>Select Controls</b></span> dialog to select some."
-#~ msgstr ""
-#~ "control نىڭ ھېچقايسىسى كۆرۈنمەيدىكەن. <span size='large'><b>Control "
-#~ "تاللاش</b> كۆزنىكىنى ئېچىپ</span> بىرەرىنى تاللاڭ."
-
-#~ msgid "Audio mixer for the Xfce Desktop Environment"
-#~ msgstr "Xfce ئۈستەلئۈستىدىكى  ئۈن mixer ئى"
+msgstr "ئۈن كارتىسىنى تەڭشەيدۇ ۋە تاللانغان يولنىڭ ئاۋازى كونترول قىلىدۇ"
