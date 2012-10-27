@@ -63,6 +63,8 @@ enum
 
 
 
+#define XFCE_MIXER_PLUGIN_DEFAULT_COMMAND   "xfce4-mixer"
+
 #ifdef HAVE_KEYBINDER
 #define XFCE_MIXER_PLUGIN_RAISE_VOLUME_KEY  "XF86AudioRaiseVolume"
 #define XFCE_MIXER_PLUGIN_LOWER_VOLUME_KEY  "XF86AudioLowerVolume"
