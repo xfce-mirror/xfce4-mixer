@@ -460,20 +460,20 @@ _xfce_mixer_add_track_labels (gpointer data,
   GstMixerTrack *track;
   gchar         *label;
   gchar         *xfce_mixer_label;
-  guint          index;
+  guint          track_index;
 
   for (iter = gst_mixer_list_tracks (mixer); iter != NULL; iter = g_list_next (iter))
     {
       track = GST_MIXER_TRACK (iter->data);
 
-      g_object_get (track, "label", &label, "index", &index, NULL);
+      g_object_get (track, "label", &label, "index", &track_index, NULL);
 
       /*
        * Build display label including the index if there are mutiple tracks of
        * the same name
        */
-      if (index > 0)
-        xfce_mixer_label = g_strdup_printf ("%s (%d)", label, index);
+      if (track_index > 0)
+        xfce_mixer_label = g_strdup_printf ("%s (%d)", label, track_index);
       else
         xfce_mixer_label = g_strdup (label);
 
