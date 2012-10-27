@@ -1,9 +1,39 @@
 xfce4-mixer Information
 =======================
 
-This package contains a volume control application based on GStreamer
-0.10 written to conceptually fit into the Xfce desktop environment. It
-includes a plugin for the Xfce panel.
+This package contains a volume control application based on GStreamer written
+to conceptually fit into the Xfce desktop environment. It includes a plugin for
+the Xfce panel.
+
+
+Keyboard Shortcuts
+------------------
+
+The panel plugin optionally supports global keyboard shortcuts for raising and
+lowering the volume, as well as muting the selected track if compiled against
+libkeybinder. The plugin will then handle the XF86AudioRaiseVolume,
+XF86AudioLowerVolume, and XF86AudioMute keyboard symbols.
+
+
+Xfconf Configuration
+--------------------
+
+The mixer application supports the following properties in the xfce4-mixer
+channel:
+
+/window-width               width of the main window (integer)
+/window-height              height of the main window width (integer)
+/sound-card                 selected sound card (string)
+/sound-cards/*              visible controls of a particular sound card (array
+                            of strings)
+
+The panel plugin supports the following properties:
+
+sound-card                  selected sound card (string)
+track                       selected track (sting)
+command                     command which can be run from the plugin menu
+                            (string)
+enable-keyboard-shortcuts   enables or disables keyboard shortcuts (boolean)
 
 
 Debugging
@@ -22,8 +52,7 @@ Known Problems with GStreamer
 -----------------------------
 
   * No sound card detected: if this happens you're probably missing a
-    GStreamer plugin for your sound system. If you get this message on a
-    Debian or Ubuntu system and you're using ALSA then installing 
-    gstreamer0.10-alsa should fix it. On OpenBSD installing 
-    gst-plugins-good might help.
+    GStreamer plugin for your sound system. If you get this message on a Debian
+    or Ubuntu system and you're using ALSA then installing gstreamer0.10-alsa
+    should fix it. On OpenBSD installing gst-plugins-good might help.
 
