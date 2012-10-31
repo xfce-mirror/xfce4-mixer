@@ -64,9 +64,8 @@ msgid "Sound _card:"
 msgstr "_Karta dźwiękowa:"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:174
-#, fuzzy
 msgid "Mixer _track:"
-msgstr "Kanał"
+msgstr "Mikser_ścieżka"
 
 #: ../panel-plugin/xfce-volume-button.c:854
 msgid "No valid device and/or element."
@@ -136,13 +135,15 @@ msgstr "Brak widocznych elementów sterujących"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:401
 msgid "<span weight=\"bold\" size=\"larger\">No controls visible</span>"
-msgstr "<span weight=\"bold\" size=\"larger\">Brak widocznych elementów sterujących</span>"
+msgstr ""
+"<span weight=\"bold\" size=\"larger\">Brak widocznych elementów sterujących</"
+"span>"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:409
 msgid ""
 "In order to toggle the visibility of mixer controls, open the <b>\"Select "
 "Controls\"</b> dialog."
-msgstr ""
+msgstr "Aby zmienić widoczność kontrolerów miksera, należy otworzyć okno <b>\"Wybór Kontrolerów\"</b>."
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:118
 msgid "Select Controls"
@@ -159,19 +160,19 @@ msgstr "Głośność kanału %d na %s"
 
 #. Lock button
 #: ../xfce4-mixer/xfce-mixer-track.c:293
-#, c-format, fuzzy
+#, c-format
 msgid "Lock channels for %s together"
-msgstr "Zablokuj oba kanały dla %s "
+msgstr "Blokuje kanały dla %s równocześnie"
 
 #: ../xfce4-mixer/xfce-mixer-track.c:340
-#, c-format, fuzzy
+#, c-format
 msgid "Mute/unmute %s"
-msgstr "Wycisz/przywróć %s"
+msgstr "Wyciszenie/brak wyciszenia %s"
 
 #: ../xfce4-mixer/xfce-mixer-track.c:360
-#, c-format, fuzzy
+#, c-format
 msgid "Enable/disable audible input from %s in output"
-msgstr "Aktywuj/dezaktywuj dźwięk wejściowy z %s na wyjściu"
+msgstr "Włącza/wyłącza słyszalne wejście z %s na wyjściu"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:91
 msgid "_Quit"
