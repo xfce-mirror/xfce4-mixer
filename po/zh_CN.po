@@ -99,7 +99,7 @@ msgstr "调整音量"
 #: ../libxfce4mixer/libxfce4mixer.c:422
 #, c-format
 msgid "Unknown Volume Control %d"
-msgstr "未知音量控制器 %d"
+msgstr "未知音量控制 %d"
 
 #: ../xfce4-mixer/main.c:86
 msgid "Enable debugging output"
@@ -116,7 +116,7 @@ msgstr "混音器:无法初始化 xfconf: %s\n"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
 msgid "_Playback"
-msgstr "回放(_P)"
+msgstr "播放(_P)"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
 msgid "C_apture"
@@ -132,17 +132,17 @@ msgstr "选项(_O)"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:390
 msgid "No controls visible"
-msgstr "没有可见的控制器"
+msgstr "没有可见的控制项"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:401
 msgid "<span weight=\"bold\" size=\"larger\">No controls visible</span>"
-msgstr "<span weight=\"bold\" size=\"larger\">无可见控制</span>"
+msgstr "<span weight=\"bold\" size=\"larger\">无可见控制器</span>"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:409
 msgid ""
 "In order to toggle the visibility of mixer controls, open the <b>\"Select "
 "Controls\"</b> dialog."
-msgstr ""
+msgstr "要切换显示的混音器控制，请打开 <b>\"选择控制器\"</b>对话框。"
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:118
 msgid "Select Controls"
@@ -155,7 +155,7 @@ msgstr "选择哪些控制器应该可见"
 #: ../xfce4-mixer/xfce-mixer-track.c:257
 #, c-format
 msgid "Volume of channel %d on %s"
-msgstr ""
+msgstr "%s 第 %d 声道音量"
 
 #. Lock button
 #: ../xfce4-mixer/xfce-mixer-track.c:293
@@ -166,7 +166,7 @@ msgstr ""
 #: ../xfce4-mixer/xfce-mixer-track.c:340
 #, c-format
 msgid "Mute/unmute %s"
-msgstr ""
+msgstr "静音/取消静音 %s"
 
 #: ../xfce4-mixer/xfce-mixer-track.c:360
 #, c-format
