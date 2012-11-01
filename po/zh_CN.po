@@ -26,7 +26,7 @@ msgstr "静音(_T)"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:314
 msgid "Run Audio Mi_xer"
-msgstr "运行音频混音器(_X)"
+msgstr "运行混音器(_X)"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:581 ../xfce4-mixer/main.c:148
 msgid ""
@@ -53,7 +53,7 @@ msgstr ""
 
 #: ../panel-plugin/xfce-plugin-dialog.c:150
 msgid "Audio Mixer Plugin"
-msgstr "音频混音器插件"
+msgstr "混音器插件"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:152
 msgid "Configure the sound card and mixer track"
@@ -89,7 +89,7 @@ msgstr "%s：%i%%"
 #: ../xfce4-mixer/xfce-mixer-window.c:427
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.h:1
 msgid "Audio Mixer"
-msgstr "音频混音器"
+msgstr "混音器"
 
 #: ../panel-plugin/mixer.desktop.in.h:2
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.h:2
@@ -112,7 +112,7 @@ msgstr "显示版本信息并退出"
 #: ../xfce4-mixer/main.c:130
 #, c-format
 msgid "xfce4-mixer: Failed to initialize xfconf: %s\n"
-msgstr "音频混音器:无法初始化 xfconf: %s\n"
+msgstr "混音器:无法初始化 xfconf: %s\n"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
 msgid "_Playback"
