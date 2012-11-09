@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the xfce4-mixer package.
 # Saleh Alhathal <hathalsal@hotmail.com>, 2004.
 # mohammad <malham1@gmail.com>, 2012.
+# محمد الحرقان <malham1@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-29 13:30+0000\n"
-"PO-Revision-Date: 2012-05-21 00:42+0300\n"
-"Last-Translator: mohammad <malham1@gmail.com>\n"
+"PO-Revision-Date: 2012-11-09 16:37+0300\n"
+"Last-Translator: محمد الحرقان <malham1@gmail.com>\n"
 "Language-Team: http://www.vertaal.com.ar/files/factory/ar/list/\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
@@ -25,11 +26,11 @@ msgstr ""
 #. Add menu item for muting
 #: ../panel-plugin/xfce-mixer-plugin.c:306
 msgid "Mu_te"
-msgstr ""
+msgstr "اص_مت"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:314
 msgid "Run Audio Mi_xer"
-msgstr ""
+msgstr "تشغيل مازج الصوت"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:581 ../xfce4-mixer/main.c:148
 msgid ""
@@ -40,9 +41,8 @@ msgstr ""
 "GStreamer مفقودة. أو قد يكون مشكلة في الأذونات."
 
 #: ../panel-plugin/xfce-mixer-plugin.c:931
-#, fuzzy
 msgid "No command defined"
-msgstr "لم تعرف أوامر الزر الايسر"
+msgstr "لم تعرف أوامر"
 
 #. Generate error message and insert the current command
 #: ../panel-plugin/xfce-mixer-plugin.c:939
@@ -52,38 +52,34 @@ msgid ""
 "command is included in the PATH environment variable or that you are "
 "providing the full path to the command."
 msgstr ""
-"لا يمكن تنفيذ الأمر\"%s\". تأكد من تضمينها في مسار القيادة لمتغير البيئة "
-"وأنك وفرت المسار الكامل إلى الأمر."
+"لا يمكن تنفيذ الأمر\"%s\". تأكد من تضمينها في مسار القيادة لمتغير البيئة وأنك "
+"وفرت المسار الكامل إلى الأمر."
 
 #: ../panel-plugin/xfce-plugin-dialog.c:150
-#, fuzzy
 msgid "Audio Mixer Plugin"
-msgstr "ملحق المازج"
+msgstr "ملحق مازج الصوت"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:152
-#, fuzzy
 msgid "Configure the sound card and mixer track"
-msgstr "تكوين بطاقة الصوت(s) والتحكم بحجم مسارات المحددة"
+msgstr "إعداد بطاقة الصوت والتحكم بحجم المسارات المحددة"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:165
 #: ../xfce4-mixer/xfce-mixer-window.c:185
-#, fuzzy
 msgid "Sound _card:"
 msgstr "كرت صوت:"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:174
-#, fuzzy
 msgid "Mixer _track:"
-msgstr "مازج المقطع"
+msgstr "مازج المقاطع:"
 
 #: ../panel-plugin/xfce-volume-button.c:854
 msgid "No valid device and/or element."
-msgstr ""
+msgstr "لا يوجد جهاز صالح و/أو عنصر."
 
 #: ../panel-plugin/xfce-volume-button.c:859
 #, c-format
 msgid "%s: muted"
-msgstr ""
+msgstr "%s: صامت"
 
 #: ../panel-plugin/xfce-volume-button.c:861
 #, c-format
@@ -96,66 +92,62 @@ msgstr "%s: %i%%"
 #: ../xfce4-mixer/xfce-mixer-window.c:413
 #: ../xfce4-mixer/xfce-mixer-window.c:427
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.h:1
-#, fuzzy
 msgid "Audio Mixer"
-msgstr "مازج"
+msgstr "مازج الصوت"
 
 #: ../panel-plugin/mixer.desktop.in.h:2
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.h:2
 msgid "Adjust volume levels"
-msgstr ""
+msgstr "ضبط مستوى الصوت"
 
 #: ../libxfce4mixer/libxfce4mixer.c:422
 #, c-format
 msgid "Unknown Volume Control %d"
-msgstr "متحكم حجم مجهول %d"
+msgstr "متحكم حجم الصوت مجهول %d"
 
 #: ../xfce4-mixer/main.c:86
 msgid "Enable debugging output"
-msgstr ""
+msgstr "فعّل تتبع الأخطاء"
 
 #: ../xfce4-mixer/main.c:87
 msgid "Show version and exit"
-msgstr ""
+msgstr "عرض الإصدار ثم الخروج"
 
 #: ../xfce4-mixer/main.c:130
-#, fuzzy, c-format
+#, c-format
 msgid "xfce4-mixer: Failed to initialize xfconf: %s\n"
-msgstr "فشل التهيئة xfconf: %s"
+msgstr "xfce4-mixer: فشلت تهيئةe xfconf: %s\n"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
-#, fuzzy
 msgid "_Playback"
-msgstr "تشغيل"
+msgstr "_قراءة"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
-#, fuzzy
 msgid "C_apture"
 msgstr "لاقط"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
-#, fuzzy
 msgid "S_witches"
 msgstr "محولات"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
-#, fuzzy
 msgid "_Options"
-msgstr "الخيارات"
+msgstr "_خيارات"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:390
 msgid "No controls visible"
-msgstr "لا متحكمات مرئية"
+msgstr "لا توجد عناصر تحكم مرئية"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:401
 msgid "<span weight=\"bold\" size=\"larger\">No controls visible</span>"
-msgstr ""
+msgstr "<span weight=\"bold\" size=\"larger\">لا يتوفرتحكم مرئي</span>"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:409
 msgid ""
 "In order to toggle the visibility of mixer controls, open the <b>\"Select "
 "Controls\"</b> dialog."
 msgstr ""
+"افتح مربع الحوار <b>\"تحديد عناصر التحكم\"</b> لتبديل رؤية عناصر تحكم المازج."
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:118
 msgid "Select Controls"
@@ -168,23 +160,23 @@ msgstr "تحديد الضوابط المرئية"
 #: ../xfce4-mixer/xfce-mixer-track.c:257
 #, c-format
 msgid "Volume of channel %d on %s"
-msgstr ""
+msgstr "صوت القناة %d على %s"
 
 #. Lock button
 #: ../xfce4-mixer/xfce-mixer-track.c:293
 #, c-format
 msgid "Lock channels for %s together"
-msgstr ""
+msgstr "أقفل القنوات %s معا"
 
 #: ../xfce4-mixer/xfce-mixer-track.c:340
 #, c-format
 msgid "Mute/unmute %s"
-msgstr ""
+msgstr "اكتم/شغّل %s"
 
 #: ../xfce4-mixer/xfce-mixer-track.c:360
 #, c-format
 msgid "Enable/disable audible input from %s in output"
-msgstr ""
+msgstr "تمكين/تعطيل إدخال الصوت من %s في الإخراج"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:91
 msgid "_Quit"
@@ -192,7 +184,7 @@ msgstr "_اخرج"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:91
 msgid "Exit the mixer"
-msgstr "الخروج من المازج"
+msgstr "الخروج من الخالط"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:93
 msgid "_Select Controls..."
@@ -200,11 +192,11 @@ msgstr "_اختر المتحكمات..."
 
 #: ../xfce4-mixer/xfce-mixer-window.c:93
 msgid "Select which controls are displayed"
-msgstr "إختر أي متحكم سيتم عرضه"
+msgstr "إختر المتحكم اللذي سيتم عرضه"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:154
 msgid "Configure sound card(s) and control the volume of selected tracks"
-msgstr "تكوين بطاقة الصوت(s) والتحكم بحجم مسارات المحددة"
+msgstr "إعداد بطاقة الصوت(s) والتحكم بحجم المسارات المحددة"
 
 #~ msgid ""
 #~ "No left-click command defined yet. You can change this in the plugin "
