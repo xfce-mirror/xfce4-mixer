@@ -104,7 +104,7 @@ msgstr ""
 
 #: ../xfce4-mixer/main.c:87
 msgid "Show version and exit"
-msgstr ""
+msgstr "Pokaži verziju i izađi"
 
 #: ../xfce4-mixer/main.c:130
 #, c-format
