@@ -159,7 +159,7 @@ msgstr "裝置 %s 第 %d 聲道的音量"
 #: ../xfce4-mixer/xfce-mixer-track.c:293
 #, c-format
 msgid "Lock channels for %s together"
-msgstr ""
+msgstr "將 %s 的聲道鎖定在一起"
 
 #: ../xfce4-mixer/xfce-mixer-track.c:340
 #, c-format
