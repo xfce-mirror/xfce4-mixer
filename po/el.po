@@ -2,7 +2,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Jeff Bailes <thepizzaking@gmail.com>
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer\n"
@@ -11,10 +11,10 @@ msgstr ""
 "PO-Revision-Date: 2010-06-20 18:43+0200\n"
 "Last-Translator: Spiros Georgaras <sng@hellug.gr>\n"
 "Language-Team: el\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
 "X-Poedit-Bookmarks: 4,-1,-1,-1,-1,-1,-1,-1,-1,-1\n"
 
 #. Add menu item for muting
@@ -78,9 +78,9 @@ msgid "No valid device and/or element."
 msgstr ""
 
 #: ../panel-plugin/xfce-volume-button.c:859
-#, c-format
+#, c-format, fuzzy
 msgid "%s: muted"
-msgstr ""
+msgstr "%s: κλείσιμο ήχου"
 
 #: ../panel-plugin/xfce-volume-button.c:861
 #, c-format
@@ -112,8 +112,9 @@ msgid "Enable debugging output"
 msgstr ""
 
 #: ../xfce4-mixer/main.c:87
+#, fuzzy
 msgid "Show version and exit"
-msgstr ""
+msgstr "Εμφάνιση έκδοσης και έξοδος"
 
 #: ../xfce4-mixer/main.c:130
 #, fuzzy, c-format
@@ -146,7 +147,7 @@ msgstr "Κανένα ρυθμιστικό ορατό"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:401
 msgid "<span weight=\"bold\" size=\"larger\">No controls visible</span>"
-msgstr ""
+msgstr "<span weight=\"bold\" size=\"larger\">Δεν υπάρχουν ελεγχοι</span>"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:409
 msgid ""
@@ -163,25 +164,25 @@ msgid "Select which controls should be visible"
 msgstr "Επιλέξτε τα ρυθμιστικά που θα είναι ορατά"
 
 #: ../xfce4-mixer/xfce-mixer-track.c:257
-#, c-format
+#, c-format, fuzzy
 msgid "Volume of channel %d on %s"
-msgstr ""
+msgstr "Εντάση του καναλίου  %d στο  %s"
 
 #. Lock button
 #: ../xfce4-mixer/xfce-mixer-track.c:293
-#, c-format
+#, c-format, fuzzy
 msgid "Lock channels for %s together"
-msgstr ""
+msgstr "Κλείδωμα  καναλιών για %s μαζί"
 
 #: ../xfce4-mixer/xfce-mixer-track.c:340
-#, c-format
+#, c-format, fuzzy
 msgid "Mute/unmute %s"
-msgstr ""
+msgstr "Ήχος/Σίγαση %s"
 
 #: ../xfce4-mixer/xfce-mixer-track.c:360
-#, c-format
+#, c-format, fuzzy
 msgid "Enable/disable audible input from %s in output"
-msgstr ""
+msgstr "να επιτραπεί /να μη επιτραπεί  η ακουστική είσοδος  από %s τον έξδοο"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:91
 msgid "_Quit"
