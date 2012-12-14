@@ -20,11 +20,11 @@ msgstr ""
 #. Add menu item for muting
 #: ../panel-plugin/xfce-mixer-plugin.c:306
 msgid "Mu_te"
-msgstr "靜音(_M)"
+msgstr "靜音(_T)"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:314
 msgid "Run Audio Mi_xer"
-msgstr "執行混音器(_R)"
+msgstr "執行混音器(_X)"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:581 ../xfce4-mixer/main.c:148
 msgid ""
@@ -55,7 +55,7 @@ msgstr "混音器外掛"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:152
 msgid "Configure the sound card and mixer track"
-msgstr "設定音效卡與混音器軌道"
+msgstr "設定音效卡與混音器聲軌"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:165
 #: ../xfce4-mixer/xfce-mixer-window.c:185
@@ -64,11 +64,11 @@ msgstr "音效卡(_C)："
 
 #: ../panel-plugin/xfce-plugin-dialog.c:174
 msgid "Mixer _track:"
-msgstr "混音器軌道(_T)"
+msgstr "混音器聲軌(_T)："
 
 #: ../panel-plugin/xfce-volume-button.c:854
 msgid "No valid device and/or element."
-msgstr ""
+msgstr "無有效裝置及/或元素。"
 
 #: ../panel-plugin/xfce-volume-button.c:859
 #, c-format
@@ -92,7 +92,7 @@ msgstr "混音器"
 #: ../panel-plugin/mixer.desktop.in.h:2
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.h:2
 msgid "Adjust volume levels"
-msgstr "調整音量等級"
+msgstr "調整音量"
 
 #: ../libxfce4mixer/libxfce4mixer.c:422
 #, c-format
@@ -105,12 +105,12 @@ msgstr "啟用除錯輸出"
 
 #: ../xfce4-mixer/main.c:87
 msgid "Show version and exit"
-msgstr "顯示版本並離開"
+msgstr "顯示版本並結束"
 
 #: ../xfce4-mixer/main.c:130
 #, c-format
 msgid "xfce4-mixer: Failed to initialize xfconf: %s\n"
-msgstr "xfce4-mixer：無法初始化 xfconf：%s\n"
+msgstr "xfce4-mixer：未能初始化 xfconf：%s\n"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
 msgid "_Playback"
@@ -140,7 +140,7 @@ msgstr "<span weight=\"bold\" size=\"larger\">無可見的控制項</span>"
 msgid ""
 "In order to toggle the visibility of mixer controls, open the <b>\"Select "
 "Controls\"</b> dialog."
-msgstr "要切換顯示的混音器控制項，請開啟<b>「選擇控制項」</b>。"
+msgstr "要切換顯示的混音器控制項，請開啟<b>「選取控制項」</b>。"
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:118
 msgid "Select Controls"
@@ -153,7 +153,7 @@ msgstr "選取應該可見哪些控制項"
 #: ../xfce4-mixer/xfce-mixer-track.c:257
 #, c-format
 msgid "Volume of channel %d on %s"
-msgstr "裝置 %s 第 %d 聲道的音量"
+msgstr "%s 裝置第 %d 聲道的音量"
 
 #. Lock button
 #: ../xfce4-mixer/xfce-mixer-track.c:293
@@ -169,15 +169,15 @@ msgstr "靜音/取消靜音 %s"
 #: ../xfce4-mixer/xfce-mixer-track.c:360
 #, c-format
 msgid "Enable/disable audible input from %s in output"
-msgstr ""
+msgstr "在輸出啟用/停用來見 %s 的可聞輸入"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:91
 msgid "_Quit"
-msgstr "退出(_Q)"
+msgstr "結束(_Q)"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:91
 msgid "Exit the mixer"
-msgstr "離開混音器"
+msgstr "結束混音器"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:93
 msgid "_Select Controls..."
@@ -189,7 +189,7 @@ msgstr "選取要顯示哪些控制項"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:154
 msgid "Configure sound card(s) and control the volume of selected tracks"
-msgstr "設定音效卡並控制選取軌道的音量"
+msgstr "設定音效卡並控制所選聲軌的音量"
 
 #~ msgid ""
 #~ "No left-click command defined yet. You can change this in the plugin "
