@@ -363,7 +363,9 @@ xfce_mixer_plugin_set_property (GObject      *object,
   gchar              *track_label = NULL;
   GstMixerTrack      *track = NULL;
   XfceMixerTrackType  track_type = G_TYPE_INVALID;
+#ifdef HAVE_KEYBINDER
   gboolean            enable_keyboard_shortcuts;
+#endif
 
   switch(prop_id)
     {
