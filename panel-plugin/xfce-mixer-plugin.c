@@ -1076,13 +1076,13 @@ xfce_mixer_plugin_volume_key_pressed (const char *keystring,
   xfce_mixer_plugin_set_volume (mixer_plugin, new_volume);
   xfce_mixer_plugin_update_volume (mixer_plugin, new_volume);
 
-  /* Mute when volume reaches 0%, unmute if volume is raised from 0% */
-  if (old_volume > 0 && new_volume == 0)
+  /* Mute when volume reaches the minimum, unmute if volume is raised from the minimum */
+  if (old_volume > mixer_plugin->track->min_volume && new_volume == mixer_plugin->track->min_volume)
     {
       xfce_mixer_plugin_set_muted (mixer_plugin, TRUE);
       xfce_mixer_plugin_update_muted (mixer_plugin, TRUE);
     }
-  else if (old_volume == 0 && new_volume > 0)
+  else if (old_volume == mixer_plugin->track->min_volume && new_volume > mixer_plugin->track->min_volume)
     {
       xfce_mixer_plugin_set_muted (mixer_plugin, FALSE);
       xfce_mixer_plugin_update_muted (mixer_plugin, FALSE);
