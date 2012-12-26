@@ -459,16 +459,8 @@ xfce_volume_button_scale_changed_value (XfceVolumeButton *button,
 
   if (fabs (new_value - old_value) > VOLUME_EPSILON)
     {
-      /* Mute when volume reaches 0%, unmute if volume is raised from 0% */
-      if (new_value < VOLUME_EPSILON && !button->is_muted && !button->no_mute)
-        xfce_volume_button_set_muted (button, TRUE);
-      else if (old_value < VOLUME_EPSILON && button->is_muted && !button->no_mute)
-        xfce_volume_button_set_muted (button, FALSE);
-      else
-        {
-          /* Update the state of the button */
-          xfce_volume_button_update (button);
-        }
+      /* Update the state of the button */
+      xfce_volume_button_update (button);
 
       /* Notify listeners of the new volume */
       g_signal_emit_by_name (button, "volume-changed", new_value);
@@ -789,16 +781,8 @@ xfce_volume_button_scroll_event (GtkWidget      *widget,
   new_value = gtk_adjustment_get_value (GTK_ADJUSTMENT (button->adjustment));
   if (fabs (new_value - old_value) > VOLUME_EPSILON)
     {
-      /* Mute when volume reaches 0%, unmute if volume is raised from 0% */
-      if (new_value < VOLUME_EPSILON && !button->is_muted && !button->no_mute)
-        xfce_volume_button_set_muted (button, TRUE);
-      else if (old_value < VOLUME_EPSILON && button->is_muted && !button->no_mute)
-        xfce_volume_button_set_muted (button, FALSE);
-      else
-        {
-          /* Update the state of the button */
-          xfce_volume_button_update (button);
-        }
+      /* Update the state of the button */
+      xfce_volume_button_update (button);
 
       /* Notify listeners of the new volume */
       g_signal_emit_by_name (button, "volume-changed", new_value);

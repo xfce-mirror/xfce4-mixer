@@ -864,18 +864,32 @@ static void
 xfce_mixer_plugin_button_volume_changed (XfceMixerPlugin  *mixer_plugin,
                                          gdouble           button_volume)
 {
-  gint   volume;
+  gint   old_volume;
+  gint   new_volume;
 
   g_return_if_fail (mixer_plugin != NULL);
   g_return_if_fail (GST_IS_MIXER (mixer_plugin->card));
   g_return_if_fail (GST_IS_MIXER_TRACK (mixer_plugin->track));
 
+  old_volume = xfce_mixer_plugin_get_volume (mixer_plugin);
   /* Convert relative to absolute volume */
-  volume = (gint) round (mixer_plugin->track->min_volume + (button_volume * (mixer_plugin->track->max_volume - mixer_plugin->track->min_volume)));
+  new_volume = (gint) round (mixer_plugin->track->min_volume + (button_volume * (mixer_plugin->track->max_volume - mixer_plugin->track->min_volume)));
 
-  xfce_mixer_debug ("button emitted 'volume-changed', new volume is %d (%d%%)", volume, (gint) round (button_volume * 100));
+  xfce_mixer_debug ("button emitted 'volume-changed', new volume is %d (%d%%)", new_volume, (gint) round (button_volume * 100));
 
-  xfce_mixer_plugin_set_volume (mixer_plugin, volume);
+  xfce_mixer_plugin_set_volume (mixer_plugin, new_volume);
+
+  /* Mute when volume reaches the minimum, unmute if volume is raised from the minimum */
+  if (old_volume > mixer_plugin->track->min_volume && new_volume == mixer_plugin->track->min_volume)
+    {
+      xfce_mixer_plugin_set_muted (mixer_plugin, TRUE);
+      xfce_mixer_plugin_update_muted (mixer_plugin, TRUE);
+    }
+  else if (old_volume == mixer_plugin->track->min_volume && new_volume > mixer_plugin->track->min_volume)
+    {
+      xfce_mixer_plugin_set_muted (mixer_plugin, FALSE);
+      xfce_mixer_plugin_update_muted (mixer_plugin, FALSE);
+    }
 }
 
 
