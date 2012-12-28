@@ -2,13 +2,13 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Baurzhan Muftakhidinov <baurthefirst@gmail.com>, 2009.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: trunk\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-29 13:30+0000\n"
-"PO-Revision-Date: 2009-08-16 13:04+0600\n"
+"PO-Revision-Date: 2012-12-28 10:55+0600\n"
 "Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>\n"
 "Language-Team: Kazakh <kk_KZ@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -26,14 +26,10 @@ msgstr "Дыб_ысты басу"
 msgid "Run Audio Mi_xer"
 msgstr "Аудио м_иксерін жөнелту"
 
-#: ../panel-plugin/xfce-mixer-plugin.c:581 ../xfce4-mixer/main.c:148
-msgid ""
-"GStreamer was unable to detect any sound devices. Some sound system specific "
-"GStreamer packages may be missing. It may also be a permissions problem."
-msgstr ""
-"GStreamer бірде-бір дыбыстық картаны таба алмаған. Дыбыстық жүйеге тән "
-"кейбір GStreamer дестелері жоқ болып тұрған мүмкін. Сонымен қатар, бұл "
-"рұқсат мәселесі болуы мүмкін."
+#: ../panel-plugin/xfce-mixer-plugin.c:581
+#: ../xfce4-mixer/main.c:148
+msgid "GStreamer was unable to detect any sound devices. Some sound system specific GStreamer packages may be missing. It may also be a permissions problem."
+msgstr "GStreamer бірде-бір дыбыстық картаны таба алмаған. Дыбыстық жүйеге тән кейбір GStreamer дестелері жоқ болып тұрған мүмкін. Сонымен қатар, бұл рұқсат мәселесі болуы мүмкін."
 
 #: ../panel-plugin/xfce-mixer-plugin.c:931
 msgid "No command defined"
@@ -42,14 +38,8 @@ msgstr "Команда орнатылмаған"
 #. Generate error message and insert the current command
 #: ../panel-plugin/xfce-mixer-plugin.c:939
 #, c-format
-msgid ""
-"Could not execute the command \"%s\". Ensure that either the location of the "
-"command is included in the PATH environment variable or that you are "
-"providing the full path to the command."
-msgstr ""
-"\"%s\" командасын орындау мүмкін емес. Осы команданың орналақан орны "
-"қоршамыңыздың PATH айнымалысында бар екеніне не осы командаға толық жолды "
-"көрсеткеніңізге көз жеткізіңіз."
+msgid "Could not execute the command \"%s\". Ensure that either the location of the command is included in the PATH environment variable or that you are providing the full path to the command."
+msgstr "\"%s\" командасын орындау мүмкін емес. Осы команданың орналақан орны қоршамыңыздың PATH айнымалысында бар екеніне не осы командаға толық жолды көрсеткеніңізге көз жеткізіңіз."
 
 #: ../panel-plugin/xfce-plugin-dialog.c:150
 msgid "Audio Mixer Plugin"
@@ -83,7 +73,8 @@ msgid "%s: %i%%"
 msgstr "%s: %i%%"
 
 #. Set application name
-#: ../panel-plugin/mixer.desktop.in.h:1 ../xfce4-mixer/main.c:99
+#: ../panel-plugin/mixer.desktop.in.h:1
+#: ../xfce4-mixer/main.c:99
 #: ../xfce4-mixer/xfce-mixer-window.c:150
 #: ../xfce4-mixer/xfce-mixer-window.c:413
 #: ../xfce4-mixer/xfce-mixer-window.c:427
@@ -112,7 +103,7 @@ msgstr "Нұсқа ақпаратын көрсету мен шығу"
 #: ../xfce4-mixer/main.c:130
 #, c-format
 msgid "xfce4-mixer: Failed to initialize xfconf: %s\n"
-msgstr "xfce4-mixer: Xfconf іске қосу қатесі: %s"
+msgstr "xfce4-mixer: Xfconf іске қосу қатесі: %s\n"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
 msgid "_Playback"
@@ -132,36 +123,34 @@ msgstr "_Опциялар"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:390
 msgid "No controls visible"
-msgstr "Көрінетін каналдар жоқ"
+msgstr "Көрінетін арналар жоқ"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:401
 msgid "<span weight=\"bold\" size=\"larger\">No controls visible</span>"
-msgstr ""
+msgstr "<span weight=\"bold\" size=\"larger\">Көрінетін басқару элементтері жоқ</span>"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:409
-msgid ""
-"In order to toggle the visibility of mixer controls, open the <b>\"Select "
-"Controls\"</b> dialog."
-msgstr ""
+msgid "In order to toggle the visibility of mixer controls, open the <b>\"Select Controls\"</b> dialog."
+msgstr "Миксердің басқарушы элементтерін көрсету/жасыру үшін,<b>\"Арналарды таңдау\"</b> терезесін ашыңыз."
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:118
 msgid "Select Controls"
-msgstr "Каналдарды таңдау"
+msgstr "Арналарды таңдау"
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:120
 msgid "Select which controls should be visible"
-msgstr "Көрінетін каналдарды таңдаңыз"
+msgstr "Көрінетін арналарды таңдаңыз"
 
 #: ../xfce4-mixer/xfce-mixer-track.c:257
 #, c-format
 msgid "Volume of channel %d on %s"
-msgstr ""
+msgstr "%d арнасының дыбыс деңгейі, %s ішінде"
 
 #. Lock button
 #: ../xfce4-mixer/xfce-mixer-track.c:293
 #, c-format
 msgid "Lock channels for %s together"
-msgstr ""
+msgstr "%s арналарын өзара байланыстыру"
 
 #: ../xfce4-mixer/xfce-mixer-track.c:340
 #, c-format
@@ -183,11 +172,11 @@ msgstr "Миксерден шығу"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:93
 msgid "_Select Controls..."
-msgstr "_Каналдарды таңдау..."
+msgstr "_Арналарды таңдау..."
 
 #: ../xfce4-mixer/xfce-mixer-window.c:93
 msgid "Select which controls are displayed"
-msgstr "Көрсетілетін каналдарды таңдаңыз"
+msgstr "Көрсетілетін арналарды таңдаңыз"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:154
 msgid "Configure sound card(s) and control the volume of selected tracks"
