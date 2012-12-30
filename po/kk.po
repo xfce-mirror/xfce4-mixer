@@ -2,7 +2,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Baurzhan Muftakhidinov <baurthefirst@gmail.com>, 2009.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: trunk\n"
@@ -26,8 +26,7 @@ msgstr "Дыб_ысты басу"
 msgid "Run Audio Mi_xer"
 msgstr "Аудио м_иксерін жөнелту"
 
-#: ../panel-plugin/xfce-mixer-plugin.c:581
-#: ../xfce4-mixer/main.c:148
+#: ../panel-plugin/xfce-mixer-plugin.c:581 ../xfce4-mixer/main.c:148
 msgid "GStreamer was unable to detect any sound devices. Some sound system specific GStreamer packages may be missing. It may also be a permissions problem."
 msgstr "GStreamer бірде-бір дыбыстық картаны таба алмаған. Дыбыстық жүйеге тән кейбір GStreamer дестелері жоқ болып тұрған мүмкін. Сонымен қатар, бұл рұқсат мәселесі болуы мүмкін."
 
@@ -73,8 +72,7 @@ msgid "%s: %i%%"
 msgstr "%s: %i%%"
 
 #. Set application name
-#: ../panel-plugin/mixer.desktop.in.h:1
-#: ../xfce4-mixer/main.c:99
+#: ../panel-plugin/mixer.desktop.in.h:1 ../xfce4-mixer/main.c:99
 #: ../xfce4-mixer/xfce-mixer-window.c:150
 #: ../xfce4-mixer/xfce-mixer-window.c:413
 #: ../xfce4-mixer/xfce-mixer-window.c:427
@@ -160,7 +158,7 @@ msgstr "%s дыбысын басу/іске қосу"
 #: ../xfce4-mixer/xfce-mixer-track.c:360
 #, c-format
 msgid "Enable/disable audible input from %s in output"
-msgstr ""
+msgstr "Шығыста %s кірісін сөндіру/іске қосу"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:91
 msgid "_Quit"
