@@ -141,15 +141,15 @@ msgid "Select which controls should be visible"
 msgstr "Sélectionner les contrôles à afficher"
 
 #: ../xfce4-mixer/xfce-mixer-track.c:257
-#, fuzzy, c-format
+#, c-format
 msgid "Volume of channel %d on %s"
-msgstr "Volume de la chaînes %d sur %s"
+msgstr "Volume du canal %d en %s"
 
 #. Lock button
 #: ../xfce4-mixer/xfce-mixer-track.c:293
-#, fuzzy, c-format
+#, c-format
 msgid "Lock channels for %s together"
-msgstr "Verrouiller des chaînes de l'ensemble %s"
+msgstr "Verrouiller des chaines %s ensemble"
 
 #: ../xfce4-mixer/xfce-mixer-track.c:340
 #, c-format
@@ -157,9 +157,9 @@ msgid "Mute/unmute %s"
 msgstr "Activer / désactiver %s"
 
 #: ../xfce4-mixer/xfce-mixer-track.c:360
-#, fuzzy, c-format
+#, c-format
 msgid "Enable/disable audible input from %s in output"
-msgstr "Activer / désactiver l'entrée audible de %s en sortie"
+msgstr "Activer / désactiver   le son de l'entrée %s en sortie"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:91
 msgid "_Quit"
