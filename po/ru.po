@@ -59,7 +59,6 @@ msgid "Audio Mixer Plugin"
 msgstr "Плагин регулировки громкости"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:152
-#, fuzzy
 msgid "Configure the sound card and mixer track"
 msgstr ""
 "Настройте ваши звуковые карты и управляйте громкостью выбранного канала "
@@ -98,7 +97,6 @@ msgstr "Регулятор громкости "
 
 #: ../panel-plugin/mixer.desktop.in.h:2
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.h:2
-#, fuzzy
 msgid "Adjust volume levels"
 msgstr "Регулирует уровень звука"
 
@@ -175,9 +173,9 @@ msgid "Mute/unmute %s"
 msgstr "Включить/выключить звук %s"
 
 #: ../xfce4-mixer/xfce-mixer-track.c:360
-#, c-format
+#, c-format, fuzzy
 msgid "Enable/disable audible input from %s in output"
-msgstr ""
+msgstr "Включает/выключает слышимый вход из %s выхода"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:91
 msgid "_Quit"
