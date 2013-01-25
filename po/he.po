@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: xfce4-mixer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-29 13:30+0000\n"
-"PO-Revision-Date: 2013-01-26 00:09+0300\n"
+"PO-Revision-Date: 2013-01-26 00:12+0300\n"
 "Last-Translator: koby vurgaft <slipperygate@gmail.com>\n"
 "Language-Team: גזר\n"
 "Language: he\n"
@@ -127,7 +127,7 @@ msgstr "מערבל-xfce4: כשל באתחול xfconf: ‫%s"
 #: ../xfce4-mixer/xfce-mixer-container.c:218
 #, fuzzy
 msgid "_Playback"
-msgstr "השמעה"
+msgstr "_השמעה"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
 #, fuzzy
