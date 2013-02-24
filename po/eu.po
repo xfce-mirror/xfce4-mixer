@@ -165,7 +165,7 @@ msgstr "%d kanalaren blomena %s-ean"
 #: ../xfce4-mixer/xfce-mixer-track.c:293
 #, c-format
 msgid "Lock channels for %s together"
-msgstr ""
+msgstr "%s-ren kateak batera lotu"
 
 #: ../xfce4-mixer/xfce-mixer-track.c:340
 #, c-format
