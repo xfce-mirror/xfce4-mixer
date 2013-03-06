@@ -130,7 +130,7 @@ msgstr "<span weight=\"bold\" size=\"larger\"> Нема видљивих кон�
 
 #: ../xfce4-mixer/xfce-mixer-container.c:409
 msgid "In order to toggle the visibility of mixer controls, open the <b>\"Select Controls\"</b> dialog."
-msgstr "Да би мењали стање видљивости контрола мешача, отворите <b> „Одаберите управљаче“</b> дијалог."
+msgstr "Да би мењали стање видљивости контрола мешача, отворите прозор <b> „Одаберите управљаче“</b>."
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:118
 msgid "Select Controls"
