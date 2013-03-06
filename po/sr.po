@@ -2,7 +2,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Саша Петровић <salepetronije@gmail.com>, 2012.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: master\n"
@@ -11,10 +11,10 @@ msgstr ""
 "PO-Revision-Date: 2012-10-28 16:47+0100\n"
 "Last-Translator: salepetronije <salepetronije@gmail.com>\n"
 "Language-Team: српски <xfce-i18n@xfce.org>\n"
-"Language: sr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: sr\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Gtranslator 2.91.5\n"
 
@@ -27,8 +27,7 @@ msgstr "Утишај"
 msgid "Run Audio Mi_xer"
 msgstr "Покрени мешач звука"
 
-#: ../panel-plugin/xfce-mixer-plugin.c:581
-#: ../xfce4-mixer/main.c:148
+#: ../panel-plugin/xfce-mixer-plugin.c:581 ../xfce4-mixer/main.c:148
 msgid "GStreamer was unable to detect any sound devices. Some sound system specific GStreamer packages may be missing. It may also be a permissions problem."
 msgstr "Гстример није могао познати ни један звучни уређај. Могуће је да неки посебни пакети звучног система Гстримера недостају. Такође, могуће је да је проблем у дозволама."
 
@@ -74,8 +73,7 @@ msgid "%s: %i%%"
 msgstr "%s: %i%%"
 
 #. Set application name
-#: ../panel-plugin/mixer.desktop.in.h:1
-#: ../xfce4-mixer/main.c:99
+#: ../panel-plugin/mixer.desktop.in.h:1 ../xfce4-mixer/main.c:99
 #: ../xfce4-mixer/xfce-mixer-window.c:150
 #: ../xfce4-mixer/xfce-mixer-window.c:413
 #: ../xfce4-mixer/xfce-mixer-window.c:427
@@ -91,7 +89,7 @@ msgstr "Прилагоди јачинe звука"
 #: ../libxfce4mixer/libxfce4mixer.c:422
 #, c-format
 msgid "Unknown Volume Control %d"
-msgstr "Непозната контрола управљања звуком %d"
+msgstr "Непознат управљач управљања звуком %d"
 
 #: ../xfce4-mixer/main.c:86
 msgid "Enable debugging output"
@@ -124,7 +122,7 @@ msgstr "_Могућности"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:390
 msgid "No controls visible"
-msgstr "Нема видљивих контрола"
+msgstr "Нема видљивих управљача"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:401
 msgid "<span weight=\"bold\" size=\"larger\">No controls visible</span>"
@@ -132,15 +130,15 @@ msgstr "<span weight=\"bold\" size=\"larger\"> Нема видљивих кон�
 
 #: ../xfce4-mixer/xfce-mixer-container.c:409
 msgid "In order to toggle the visibility of mixer controls, open the <b>\"Select Controls\"</b> dialog."
-msgstr "Да би мењали стање видљивости контрола мешача, отворите <b> „Одаберите контроле“</b> дијалог."
+msgstr "Да би мењали стање видљивости контрола мешача, отворите <b> „Одаберите управљаче“</b> дијалог."
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:118
 msgid "Select Controls"
-msgstr "Изаберите контроле"
+msgstr "Изаберите управљаче"
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:120
 msgid "Select which controls should be visible"
-msgstr "Изаберите које контроле требају бити видљиве "
+msgstr "Изаберите који управљачи требају бити видљиви"
 
 #: ../xfce4-mixer/xfce-mixer-track.c:257
 #, c-format
@@ -173,11 +171,11 @@ msgstr "Напусти мешач"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:93
 msgid "_Select Controls..."
-msgstr "_Изаберите контроле..."
+msgstr "_Изаберите управљаче..."
 
 #: ../xfce4-mixer/xfce-mixer-window.c:93
 msgid "Select which controls are displayed"
-msgstr "Изаберите које контроле ће бити приказане"
+msgstr "Изаберите који управљачи ће бити приказани"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:154
 msgid "Configure sound card(s) and control the volume of selected tracks"
