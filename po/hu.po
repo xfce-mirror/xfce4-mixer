@@ -15,13 +15,13 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: \n"
-"X-Generator: KBabel 1.11.4\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: KBabel 1.11.4\n"
 
 #. Add menu item for muting
 #: ../panel-plugin/xfce-mixer-plugin.c:306
 msgid "Mu_te"
-msgstr ""
+msgstr "_Némítás"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:314
 msgid "Run Audio Mi_xer"
@@ -105,7 +105,7 @@ msgstr "Ismeretlen hangerőszabályzó %d"
 
 #: ../xfce4-mixer/main.c:86
 msgid "Enable debugging output"
-msgstr ""
+msgstr "Hibakeresés kimenet engedélyezése"
 
 #: ../xfce4-mixer/main.c:87
 msgid "Show version and exit"
@@ -173,7 +173,7 @@ msgstr "Némítás/némítás visszavonása %s"
 #: ../xfce4-mixer/xfce-mixer-track.c:360
 #, c-format
 msgid "Enable/disable audible input from %s in output"
-msgstr ""
+msgstr "Hallható bemenet engedélyezése/tiltása a kimenetben innen: %s"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:91
 msgid "_Quit"
