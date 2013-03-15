@@ -64,7 +64,7 @@ msgstr ""
 #: ../panel-plugin/xfce-plugin-dialog.c:165
 #: ../xfce4-mixer/xfce-mixer-window.c:185
 msgid "Sound _card:"
-msgstr "Hang_kártya:"
+msgstr "Hangká_rtya:"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:174
 msgid "Mixer _track:"
