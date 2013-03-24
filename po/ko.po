@@ -1,7 +1,7 @@
 # Korean translation for the xfce4-mixer package.
 # Copyright (C) 2003-2012 Benedikt Meurer et al.
 # This file is distributed under the same license as the xfce4-mixer package.
-# Seong-ho Cho <darkcircle.0426@gmail.com>, 2012.
+# Seong-ho Cho <darkcircle.0426@gmail.com>, 2012, 2013.
 #
 msgid ""
 msgstr ""
@@ -22,11 +22,11 @@ msgstr ""
 
 #. Add menu item for muting
 #: ../panel-plugin/xfce-mixer-plugin.c:306
-msgid "Mu_te"
+msgid "_Mute"
 msgstr "음소거(_M)"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:314
-msgid "Run Audio Mi_xer"
+msgid "_Run Audio Mixer"
 msgstr "오디오 음량조절기 실행(_R)"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:581
@@ -42,7 +42,7 @@ msgstr "정의한 명령이 없습니다"
 #: ../panel-plugin/xfce-mixer-plugin.c:939
 #, c-format
 msgid "Could not execute the command \"%s\". Ensure that either the location of the command is included in the PATH environment variable or that you are providing the full path to the command."
-msgstr "\"%s\" 명령을 실행할 수 없습니다. PATH 환경 변수가 명령의 위치를 포함하였는지 또는 명령에 완전한 경로를 주었는지 확인해보시기 바랍니다."
+msgstr "\"%s\" 명령을 실행할 수 없습니다. PATH 환경 변수가 명령의 위치를 포함하였는지 또는 명령에 완전한 경로를 주었는지 확인해보십시오."
 
 #: ../panel-plugin/xfce-plugin-dialog.c:150
 msgid "Audio Mixer Plugin"
@@ -167,11 +167,11 @@ msgstr "출력부의 %s(으)로부터 음성 입력 활성화/비활성화"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:91
 msgid "_Quit"
-msgstr "나가기(_Q)"
+msgstr "끝내기(_Q)"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:91
 msgid "Exit the mixer"
-msgstr "믹서 끝내기"
+msgstr "믹서 프로그램에서 나갑니다"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:93
 msgid "_Select Controls..."
@@ -185,55 +185,3 @@ msgstr "표시할 컨트롤을 선택합니다"
 msgid "Configure sound card(s) and control the volume of selected tracks"
 msgstr "사운드 카드를 설정하고 선택한 트랙에 대한 음량을 조절합니다"
 
-#~ msgid ""
-#~ "No left-click command defined yet. You can change this in the plugin "
-#~ "properties."
-#~ msgstr ""
-#~ "아직 왼쪽 누름 명령을 정의하지 않았습니다. 플러그인 속성에서 바꿀 수 있습"
-#~ "니다."
-
-#~ msgid "Properties"
-#~ msgstr "속성"
-
-#~ msgid "Configure the mixer track and left-click command"
-#~ msgstr "믹서 트랙과 왼쪽 누름 명령을 설정합니다"
-
-#~ msgid "Sound card"
-#~ msgstr "사운드 카드"
-
-#~ msgid "Left-click command"
-#~ msgstr "왼쪽 누름 명령"
-
-#~ msgid "Select command"
-#~ msgstr "명령 선택"
-
-#~ msgid "All Files"
-#~ msgstr "모든 파일"
-
-#~ msgid "Executable Files"
-#~ msgstr "실행 파일"
-
-#~ msgid "Perl Scripts"
-#~ msgstr "펄 스크립트"
-
-#~ msgid "Python Scripts"
-#~ msgstr "파이선 스크립트"
-
-#~ msgid "Ruby Scripts"
-#~ msgstr "루비 스크립트"
-
-#~ msgid "Shell Scripts"
-#~ msgstr "쉘 스크립트"
-
-#~ msgid "Volume control for your sound card"
-#~ msgstr "사운드 카드 음량 조절기"
-
-#~ msgid ""
-#~ "No controls are marked as visible. Please open the <span "
-#~ "size='large'><b>Select Controls</b></span> dialog to select some."
-#~ msgstr ""
-#~ "보이도록 표시한 조절기가 없습니다. 선택하려면 <span size='large'><b>조절"
-#~ "기 선택</b></span> 대화상자를 열어주시기 바랍니다."
-
-#~ msgid "Audio mixer for the Xfce Desktop Environment"
-#~ msgstr "Xfce 데스크톱 환경의 오디오 믹서"
