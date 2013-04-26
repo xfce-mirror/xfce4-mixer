@@ -2,7 +2,7 @@
 # Copyright (C) The Xfce development team.
 # This file is distributed under the same license as the xfce4-mixer package.
 # Stephan Arts, 2008.
-# Pjotr, 2011.
+# Pjotr pjotrvertaalt@gmail.com , 2011 - 2013.
 # 
 msgid ""
 msgstr ""
@@ -10,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-29 13:30+0000\n"
 "PO-Revision-Date: 2011-09-08 11:45+0200\n"
-"Last-Translator: Pjotr\n"
+"Last-Translator: Pjotr pjotrvertaalt@gmail.com\n"
 "Language-Team: Dutch (Flemish)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -48,7 +48,7 @@ msgid ""
 "command is included in the PATH environment variable or that you are "
 "providing the full path to the command."
 msgstr ""
-"Kon de opdracht \"%s\" niet uitvoeren. Zorg ervoor dat ofwel de locatie van "
+"Kon de opdracht '%s' niet uitvoeren. Zorg ervoor dat ofwel de locatie van "
 "de opdracht is opgenomen in de PATH-omgevingsvariabele of dat u het "
 "volledige pad naar de opdracht verstrekt."
 
@@ -59,7 +59,7 @@ msgstr "Volumeregelaar-invoegtoepassing"
 #: ../panel-plugin/xfce-plugin-dialog.c:152
 msgid "Configure the sound card and mixer track"
 msgstr ""
-"Configureer geluidkaart(en) en beheers het volume van geselecteerde sporen"
+"Configureer geluidkaart en mengpaneel"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:165
 #: ../xfce4-mixer/xfce-mixer-window.c:185
@@ -68,7 +68,7 @@ msgstr "Geluidkaart:"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:174
 msgid "Mixer _track:"
-msgstr "Volumeregelaar:"
+msgstr "Mengpaneel:"
 
 #: ../panel-plugin/xfce-volume-button.c:854
 msgid "No valid device and/or element."
@@ -144,7 +144,9 @@ msgstr "<span weight=\"bold\" size=\"larger\">Geen bedieningsknoppen zichtbaar</
 msgid ""
 "In order to toggle the visibility of mixer controls, open the <b>\"Select "
 "Controls\"</b> dialog."
-msgstr "Om de zichtbaarheid van de volumebedieningsknoppen te beïnvloeden, opent u de <b>'Kies bedieningsknoppen'</b>-dialoog."
+msgstr ""
+"Om de zichtbaarheid van de volumebedieningsknoppen te beïnvloeden, "
+"opent u de <b>'Kies bedieningsknoppen'</b>-dialoog."
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:118
 msgid "Select Controls"
@@ -152,7 +154,7 @@ msgstr "Bedieningsknoppen kiezen"
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:120
 msgid "Select which controls should be visible"
-msgstr "Kiezen welke bedieningsknoppen er zichtbaar moeten zijn "
+msgstr "Kies welke bedieningsknoppen er zichtbaar moeten zijn "
 
 #: ../xfce4-mixer/xfce-mixer-track.c:257
 #, c-format
@@ -189,7 +191,7 @@ msgstr "_Bedieningsknoppen kiezen..."
 
 #: ../xfce4-mixer/xfce-mixer-window.c:93
 msgid "Select which controls are displayed"
-msgstr "Kiezen welke bedieningsknoppen er worden weergegeven"
+msgstr "Kies welke bedieningsknoppen er worden weergegeven"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:154
 msgid "Configure sound card(s) and control the volume of selected tracks"
@@ -200,14 +202,14 @@ msgstr ""
 #~ "No left-click command defined yet. You can change this in the plugin "
 #~ "properties."
 #~ msgstr ""
-#~ "Nog geen linksklik-opdracht gedefinieerd. U kunt dit in de plugin-"
+#~ "Nog geen linksklik-opdracht gedefinieerd. U kunt dit in de invoegtoepassing- "
 #~ "eigenschappen veranderen."
 
 #~ msgid "Properties"
 #~ msgstr "Eigenschappen"
 
 #~ msgid "Configure the mixer track and left-click command"
-#~ msgstr "Het volumeregelaarspoor en de linksklikopdracht configureren"
+#~ msgstr "Het mengpaneel en de linksklikopdracht configureren"
 
 #~ msgid "Sound card"
 #~ msgstr "Geluidkaart"
