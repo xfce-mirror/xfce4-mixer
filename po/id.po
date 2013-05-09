@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the xfce package.
 # Andhika Padmawan <andhika.padmawan@gmail.com>, 2008.
 # Guido Berhoerster <guido+xfce.org@berhoerster.name>, 2012.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: xfce4-mixer\n"
@@ -12,10 +12,10 @@ msgstr ""
 "PO-Revision-Date: 2012-10-03 21:22+0200\n"
 "Last-Translator: Guido Berhoerster <guido+xfce.org@berhoerster.name>\n"
 "Language-Team: \n"
-"Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: id\n"
 
 #. Add menu item for muting
 #: ../panel-plugin/xfce-mixer-plugin.c:306
@@ -102,7 +102,7 @@ msgstr "Kendali Volume %d Tak Dikenal"
 
 #: ../xfce4-mixer/main.c:86
 msgid "Enable debugging output"
-msgstr ""
+msgstr "Aktifkan keluaran debug"
 
 #: ../xfce4-mixer/main.c:87
 msgid "Show version and exit"
@@ -142,8 +142,8 @@ msgid ""
 "In order to toggle the visibility of mixer controls, open the <b>\"Select "
 "Controls\"</b> dialog."
 msgstr ""
-"Untuk perlihatkan atau sembunyikan kendali-kendali mixer buka dialog "
-"<b>\"Pilih Kendali-kendali\"</b>."
+"Untuk perlihatkan atau sembunyikan kendali-kendali mixer buka dialog <b>"
+"\"Pilih Kendali-kendali\"</b>."
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:118
 msgid "Select Controls"
