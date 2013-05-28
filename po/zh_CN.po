@@ -3,7 +3,7 @@
 # This file is distributed under the same license as
 # the xfce4-mixer package.
 # Chris K. Zhang <plutino@gmail.com>, 2009
-# Chipong Luo <chipong.luo@yahoo.com>, 2011, 2012.
+# Chipong Luo <chipong.luo@yahoo.com>, 2011, 2012, 2013.
 # 
 msgid ""
 msgstr ""
@@ -70,7 +70,7 @@ msgstr "混音器音轨(_T)"
 
 #: ../panel-plugin/xfce-volume-button.c:854
 msgid "No valid device and/or element."
-msgstr ""
+msgstr "无有效的设备和/或元件。"
 
 #: ../panel-plugin/xfce-volume-button.c:859
 #, c-format
@@ -161,7 +161,7 @@ msgstr "%s 第 %d 声道音量"
 #: ../xfce4-mixer/xfce-mixer-track.c:293
 #, c-format
 msgid "Lock channels for %s together"
-msgstr ""
+msgstr "与 %s 一道锁定频道"
 
 #: ../xfce4-mixer/xfce-mixer-track.c:340
 #, c-format
@@ -171,7 +171,7 @@ msgstr "静音/取消静音 %s"
 #: ../xfce4-mixer/xfce-mixer-track.c:360
 #, c-format
 msgid "Enable/disable audible input from %s in output"
-msgstr ""
+msgstr "从输出中的 %s 启用/禁用音频输入"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:91
 msgid "_Quit"
