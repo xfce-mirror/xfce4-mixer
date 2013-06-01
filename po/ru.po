@@ -173,9 +173,9 @@ msgid "Mute/unmute %s"
 msgstr "Включить/выключить звук %s"
 
 #: ../xfce4-mixer/xfce-mixer-track.c:360
-#, c-format, fuzzy
+#, c-format
 msgid "Enable/disable audible input from %s in output"
-msgstr "Включает/выключает слышимый вход из %s выхода"
+msgstr "Включает/выключает прослушивание входа из %s выхода"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:91
 msgid "_Quit"
