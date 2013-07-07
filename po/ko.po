@@ -1,37 +1,37 @@
-# Korean translation for the xfce4-mixer package.
-# Copyright (C) 2003-2012 Benedikt Meurer et al.
-# This file is distributed under the same license as the xfce4-mixer package.
-# Seong-ho Cho <darkcircle.0426@gmail.com>, 2012, 2013.
-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Darkcircle <darkcircle.0426@gmail.com>, 2013
+# Darkcircle <darkcircle.0426@gmail.com>, 2012-2013
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-mixer.master\n"
-"Report-Msgid-Bugs-To: xfce-i18n <xfce-i18n@xfce.org>\n"
+"Project-Id-Version: Xfce Apps\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-29 13:30+0000\n"
-"PO-Revision-Date: 2012-10-16 18:29+0900\n"
-"Last-Translator: Seong-ho Cho <darkcircle.0426@gmail.com>\n"
-"Language-Team: xfce-i18n <xfce-i18n@xfce.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2013-07-07 10:36+0000\n"
+"Last-Translator: Darkcircle <darkcircle.0426@gmail.com>\n"
+"Language-Team: Korean (http://www.transifex.com/projects/p/xfce/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ko\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Poedit-Language: Korean\n"
-"X-Poedit-Country: KOREA, REPUBLIC OF\n"
-"X-Poedit-SourceCharset: utf-8\n"
 
 #. Add menu item for muting
 #: ../panel-plugin/xfce-mixer-plugin.c:306
-msgid "_Mute"
-msgstr "음소거(_M)"
+msgid "Mu_te"
+msgstr "음소거(_T)"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:314
-msgid "_Run Audio Mixer"
-msgstr "오디오 음량조절기 실행(_R)"
+msgid "Run Audio Mi_xer"
+msgstr "오디오 음량 조절기 실행(_X)"
 
-#: ../panel-plugin/xfce-mixer-plugin.c:581
-#: ../xfce4-mixer/main.c:148
-msgid "GStreamer was unable to detect any sound devices. Some sound system specific GStreamer packages may be missing. It may also be a permissions problem."
+#: ../panel-plugin/xfce-mixer-plugin.c:581 ../xfce4-mixer/main.c:148
+msgid ""
+"GStreamer was unable to detect any sound devices. Some sound system specific"
+" GStreamer packages may be missing. It may also be a permissions problem."
 msgstr "GStreamer가 사운드 장치를 감지할 수 없습니다. 사운드 시스템 지향 GStreamer가 빠졌을 수 있습니다. 권한 문제일 수도 있습니다."
 
 #: ../panel-plugin/xfce-mixer-plugin.c:931
@@ -41,7 +41,10 @@ msgstr "정의한 명령이 없습니다"
 #. Generate error message and insert the current command
 #: ../panel-plugin/xfce-mixer-plugin.c:939
 #, c-format
-msgid "Could not execute the command \"%s\". Ensure that either the location of the command is included in the PATH environment variable or that you are providing the full path to the command."
+msgid ""
+"Could not execute the command \"%s\". Ensure that either the location of the"
+" command is included in the PATH environment variable or that you are "
+"providing the full path to the command."
 msgstr "\"%s\" 명령을 실행할 수 없습니다. PATH 환경 변수가 명령의 위치를 포함하였는지 또는 명령에 완전한 경로를 주었는지 확인해보십시오."
 
 #: ../panel-plugin/xfce-plugin-dialog.c:150
@@ -76,8 +79,7 @@ msgid "%s: %i%%"
 msgstr "%s: %i%%"
 
 #. Set application name
-#: ../panel-plugin/mixer.desktop.in.h:1
-#: ../xfce4-mixer/main.c:99
+#: ../panel-plugin/mixer.desktop.in.h:1 ../xfce4-mixer/main.c:99
 #: ../xfce4-mixer/xfce-mixer-window.c:150
 #: ../xfce4-mixer/xfce-mixer-window.c:413
 #: ../xfce4-mixer/xfce-mixer-window.c:427
@@ -133,7 +135,9 @@ msgid "<span weight=\"bold\" size=\"larger\">No controls visible</span>"
 msgstr "<span weight=\"bold\" size=\"larger\">보이는 컨트롤이 없습니다</span>"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:409
-msgid "In order to toggle the visibility of mixer controls, open the <b>\"Select Controls\"</b> dialog."
+msgid ""
+"In order to toggle the visibility of mixer controls, open the <b>\"Select "
+"Controls\"</b> dialog."
 msgstr "음량 조절기 컨트롤의 보임 여부를 전환하려면 <b>\"컨트롤 선택\"</b> 대화상자를 여십시오."
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:118
@@ -184,4 +188,3 @@ msgstr "표시할 컨트롤을 선택합니다"
 #: ../xfce4-mixer/xfce-mixer-window.c:154
 msgid "Configure sound card(s) and control the volume of selected tracks"
 msgstr "사운드 카드를 설정하고 선택한 트랙에 대한 음량을 조절합니다"
-
