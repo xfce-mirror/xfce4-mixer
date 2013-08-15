@@ -10,12 +10,12 @@
  *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, 
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301, USA.
  */
 
@@ -71,7 +71,7 @@ message_received (UniqueApp         *app,
 
 
 
-int 
+int
 main (int    argc,
       char **argv)
 {
@@ -91,9 +91,11 @@ main (int    argc,
   /* Setup translation domain */
   xfce_textdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR, "UTF-8");
 
+#if !GLIB_CHECK_VERSION(2, 32, 0)
   /* Initialize the threading system */
   if (G_LIKELY (!g_thread_supported ()))
     g_thread_init (NULL);
+#endif
 
   /* Set application name */
   g_set_application_name (_("Audio Mixer"));
