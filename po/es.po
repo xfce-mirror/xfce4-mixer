@@ -1,20 +1,21 @@
-# Spanish/ES translation for the xfce-mixer package
-# Copyright (C) 2008 Jannis Pohlmann <jannis@xfce.org>.
-# This file is distributed under the same license as the xfce package.
-# Abel Martín <abel.martin.ruiz@gmail.com>, 2008-2009.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 # 
+# Translators:
+# César Enrique García <cquike@gmail.com>, 2013
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce 4-mixer\n"
+"Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-29 13:30+0000\n"
-"PO-Revision-Date: 2009-03-19 16:51+0100\n"
-"Last-Translator: Abel Martín <abel.martin.ruiz@gmail.com>\n"
-"Language-Team: Spanish/ES <xfce-i18n@xfce.org>\n"
+"PO-Revision-Date: 2013-11-06 22:21+0000\n"
+"Last-Translator: César Enrique García <cquike@gmail.com>\n"
+"Language-Team: Spanish (http://www.transifex.com/projects/p/xfce/language/es/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: \n"
+"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. Add menu item for muting
@@ -24,16 +25,13 @@ msgstr "_Silencio"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:314
 msgid "Run Audio Mi_xer"
-msgstr "_Correr mezclador de audio"
+msgstr "_Ejecutar mezclador de audio"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:581 ../xfce4-mixer/main.c:148
 msgid ""
-"GStreamer was unable to detect any sound devices. Some sound system specific "
-"GStreamer packages may be missing. It may also be a permissions problem."
-msgstr ""
-"GStreamer no pudo detectar ningún dispositivo de sonido. Puede que falten "
-"algunos paquetes específicos del sistema de sonido GStreamer. También puede "
-"tratarse de un problema de permisos."
+"GStreamer was unable to detect any sound devices. Some sound system specific"
+" GStreamer packages may be missing. It may also be a permissions problem."
+msgstr "GStreamer no pudo detectar ningún dispositivo de sonido. Puede que falten algunos paquetes específicos del sistema de sonido GStreamer. También puede tratarse de un problema de permisos."
 
 #: ../panel-plugin/xfce-mixer-plugin.c:931
 msgid "No command defined"
@@ -43,13 +41,10 @@ msgstr "Comando no definido"
 #: ../panel-plugin/xfce-mixer-plugin.c:939
 #, c-format
 msgid ""
-"Could not execute the command \"%s\". Ensure that either the location of the "
-"command is included in the PATH environment variable or that you are "
+"Could not execute the command \"%s\". Ensure that either the location of the"
+" command is included in the PATH environment variable or that you are "
 "providing the full path to the command."
-msgstr ""
-"No se pudo ejecutar el comando \"%s\". Compruebe que la localización del "
-"comando está incluida en la variable de entorno PATH o que está dando la "
-"ruta absoluta del comando."
+msgstr "No se pudo ejecutar el comando \"%s\". Compruebe que la localización del comando está incluida en la variable de entorno PATH o que está dando la ruta absoluta del comando."
 
 #: ../panel-plugin/xfce-plugin-dialog.c:150
 msgid "Audio Mixer Plugin"
@@ -57,9 +52,7 @@ msgstr "Complemento del mezclador"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:152
 msgid "Configure the sound card and mixer track"
-msgstr ""
-"Configure la(s) tarjeta(s) de sonido y el control de volumen de las pistas "
-"seleccionadas"
+msgstr "Configure la(s) tarjeta(s) de sonido y el control de volumen de las pistas seleccionadas"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:165
 #: ../xfce4-mixer/xfce-mixer-window.c:185
@@ -193,89 +186,4 @@ msgstr "Seleccione qué controles se mostrarán"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:154
 msgid "Configure sound card(s) and control the volume of selected tracks"
-msgstr ""
-"Configure la(s) tarjeta(s) de sonido y el control de volumen de las pistas "
-"seleccionadas"
-
-#~ msgid ""
-#~ "No left-click command defined yet. You can change this in the plugin "
-#~ "properties."
-#~ msgstr ""
-#~ "Todavía no se ha definido ningún comando para el clic izquierdo. Puede "
-#~ "cambiar esto en la propiedades de complementos."
-
-#~ msgid "Properties"
-#~ msgstr "Propiedades"
-
-#~ msgid "Configure the mixer track and left-click command"
-#~ msgstr "Configurar la pista del mezclador y el comando de clic izquierdo"
-
-#~ msgid "Sound card"
-#~ msgstr "Tarjeta de sonido"
-
-#~ msgid "Left-click command"
-#~ msgstr "Comando de clic izquierdo"
-
-#~ msgid "Select command"
-#~ msgstr "Seleccionar comando"
-
-#~ msgid "All Files"
-#~ msgstr "Todos los archivos"
-
-#~ msgid "Executable Files"
-#~ msgstr "Archivos ejecutables"
-
-#~ msgid "Perl Scripts"
-#~ msgstr "Scripts de Perl"
-
-#~ msgid "Python Scripts"
-#~ msgstr "Scripts de Python"
-
-#~ msgid "Ruby Scripts"
-#~ msgstr "Scripts de Ruby"
-
-#~ msgid "Shell Scripts"
-#~ msgstr "Scripts de shell"
-
-#~ msgid "Volume control for your sound card"
-#~ msgstr "Control de volumen para la tarjeta de sonido"
-
-#~ msgid ""
-#~ "No controls are marked as visible. Please open the <span "
-#~ "size='large'><b>Select Controls</b></span> dialog to select some."
-#~ msgstr ""
-#~ "Ningún control está marcado como visible. Por favor, abra el diálogo "
-#~ "<span size='large'><b>Selección de controles</b></span> para seleccionar "
-#~ "algunos."
-
-#~ msgid "Audio mixer for the Xfce Desktop Environment"
-#~ msgstr "Mezclador de audio para el entorno de escritorio Xfce"
-
-#~ msgid ""
-#~ "Could not execute the command %s. Perhaps you need to adjust the PATH "
-#~ "variable."
-#~ msgstr ""
-#~ "No se pudo ejecutar el comando %s. Quizás necesite ajustar la variable "
-#~ "PATH."
-
-#~ msgid "Please select which mixer track should be used by the plugin"
-#~ msgstr ""
-#~ "Por favor, seleccione qué pista del mezclador debería ser utilizado por "
-#~ "el complemento"
-
-#~ msgid "Please select which controls you want to be visible"
-#~ msgstr "Por favor, seleccione qué controles quiere que sean visibles"
-
-#~ msgid "A comfortable audio mixer for your sound card."
-#~ msgstr "Un confortable mixer audio pour votre carte son"
-
-#~ msgid "Xfce Mixer"
-#~ msgstr "Mixer Xfce"
-
-#~ msgid ""
-#~ "No sound cards could be found. You may have to install additional "
-#~ "gstreamer packages for ALSA or OSS support."
-#~ msgstr ""
-#~ "Aucune carte son n'a pu être trouvé. Vous avez peut-être besoin "
-#~ "d'installer des paquets gstreamer supplémentaires pour le support de ALSA "
-#~ "ou OSS."
+msgstr "Configure la(s) tarjeta(s) de sonido y el control de volumen de las pistas seleccionadas"
