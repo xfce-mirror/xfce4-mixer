@@ -1,0 +1,189 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Cedric31 <cvalmary@yahoo.fr>, 2013
+msgid ""
+msgstr ""
+"Project-Id-Version: Xfce Apps\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-29 13:30+0000\n"
+"PO-Revision-Date: 2013-12-05 06:57+0000\n"
+"Last-Translator: Cedric31 <cvalmary@yahoo.fr>\n"
+"Language-Team: Occitan (post 1500) (http://www.transifex.com/projects/p/xfce/language/oc/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: oc\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#. Add menu item for muting
+#: ../panel-plugin/xfce-mixer-plugin.c:306
+msgid "Mu_te"
+msgstr "Sordina"
+
+#: ../panel-plugin/xfce-mixer-plugin.c:314
+msgid "Run Audio Mi_xer"
+msgstr "Executar lo mesclador àudio"
+
+#: ../panel-plugin/xfce-mixer-plugin.c:581 ../xfce4-mixer/main.c:148
+msgid ""
+"GStreamer was unable to detect any sound devices. Some sound system specific"
+" GStreamer packages may be missing. It may also be a permissions problem."
+msgstr "GStreamer es incapable de detectar de periferics sonòrs. D'unes paquets GStreamer especifics del sistèma sonòr pòdon èsser mancants. Benlèu tanben que s'agís d'un problèma de permissions."
+
+#: ../panel-plugin/xfce-mixer-plugin.c:931
+msgid "No command defined"
+msgstr "Pas de comanda definida"
+
+#. Generate error message and insert the current command
+#: ../panel-plugin/xfce-mixer-plugin.c:939
+#, c-format
+msgid ""
+"Could not execute the command \"%s\". Ensure that either the location of the"
+" command is included in the PATH environment variable or that you are "
+"providing the full path to the command."
+msgstr "Impossible d'executar la comanda « %s ». Verificatz que lo camin cap a la comanda es inclús dins la variabla d'environament PATH o que provesissètz lo camin complet cap a la comanda."
+
+#: ../panel-plugin/xfce-plugin-dialog.c:150
+msgid "Audio Mixer Plugin"
+msgstr "Empeuton mesclador àudio"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:152
+msgid "Configure the sound card and mixer track"
+msgstr "Configurar la carta son e contrarotlador de volum"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:165
+#: ../xfce4-mixer/xfce-mixer-window.c:185
+msgid "Sound _card:"
+msgstr "Carte son :"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:174
+msgid "Mixer _track:"
+msgstr "Contrarotlador de volum :"
+
+#: ../panel-plugin/xfce-volume-button.c:854
+msgid "No valid device and/or element."
+msgstr "Pas de periferic e / o d'element valid."
+
+#: ../panel-plugin/xfce-volume-button.c:859
+#, c-format
+msgid "%s: muted"
+msgstr "%s : en sordina"
+
+#: ../panel-plugin/xfce-volume-button.c:861
+#, c-format
+msgid "%s: %i%%"
+msgstr "%s : %i%%"
+
+#. Set application name
+#: ../panel-plugin/mixer.desktop.in.h:1 ../xfce4-mixer/main.c:99
+#: ../xfce4-mixer/xfce-mixer-window.c:150
+#: ../xfce4-mixer/xfce-mixer-window.c:413
+#: ../xfce4-mixer/xfce-mixer-window.c:427
+#: ../xfce4-mixer/xfce4-mixer.desktop.in.h:1
+msgid "Audio Mixer"
+msgstr "Mesclador àudio"
+
+#: ../panel-plugin/mixer.desktop.in.h:2
+#: ../xfce4-mixer/xfce4-mixer.desktop.in.h:2
+msgid "Adjust volume levels"
+msgstr "Reglar los nivèls del volum"
+
+#: ../libxfce4mixer/libxfce4mixer.c:422
+#, c-format
+msgid "Unknown Volume Control %d"
+msgstr "Contraròtle del volum desconegut %d"
+
+#: ../xfce4-mixer/main.c:86
+msgid "Enable debugging output"
+msgstr "Activar la sortida del desbugatge"
+
+#: ../xfce4-mixer/main.c:87
+msgid "Show version and exit"
+msgstr "Afichar la version e quitar"
+
+#: ../xfce4-mixer/main.c:130
+#, c-format
+msgid "xfce4-mixer: Failed to initialize xfconf: %s\n"
+msgstr "xfce4-mixer : Fracàs à l'inicializacion de xfconf : %s\n"
+
+#: ../xfce4-mixer/xfce-mixer-container.c:218
+msgid "_Playback"
+msgstr "Lectura"
+
+#: ../xfce4-mixer/xfce-mixer-container.c:218
+msgid "C_apture"
+msgstr "C_apturas"
+
+#: ../xfce4-mixer/xfce-mixer-container.c:218
+msgid "S_witches"
+msgstr "Interruptors"
+
+#: ../xfce4-mixer/xfce-mixer-container.c:218
+msgid "_Options"
+msgstr "_Opcions"
+
+#: ../xfce4-mixer/xfce-mixer-container.c:390
+msgid "No controls visible"
+msgstr "Pas de contraròtle visible"
+
+#: ../xfce4-mixer/xfce-mixer-container.c:401
+msgid "<span weight=\"bold\" size=\"larger\">No controls visible</span>"
+msgstr "<span weight=\"bold\" size=\"larger\">Pas de contraròtle visible</span>"
+
+#: ../xfce4-mixer/xfce-mixer-container.c:409
+msgid ""
+"In order to toggle the visibility of mixer controls, open the <b>\"Select "
+"Controls\"</b> dialog."
+msgstr "Per rendre visible los contraròtles del mixatge, dobrissètz la fenèstra <b>« Contraròtles Seleccionats »</ b> ."
+
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:118
+msgid "Select Controls"
+msgstr "Seleccionar de contraròtles"
+
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:120
+msgid "Select which controls should be visible"
+msgstr "Seleccionatz los contraròtles que devon èsser visibles"
+
+#: ../xfce4-mixer/xfce-mixer-track.c:257
+#, c-format
+msgid "Volume of channel %d on %s"
+msgstr "Volum del canal %d sus %s"
+
+#. Lock button
+#: ../xfce4-mixer/xfce-mixer-track.c:293
+#, c-format
+msgid "Lock channels for %s together"
+msgstr "Varrolhar de canals %s ensemble"
+
+#: ../xfce4-mixer/xfce-mixer-track.c:340
+#, c-format
+msgid "Mute/unmute %s"
+msgstr "Activar / desactivar %s"
+
+#: ../xfce4-mixer/xfce-mixer-track.c:360
+#, c-format
+msgid "Enable/disable audible input from %s in output"
+msgstr "Activar / desactivar lo son de l'entrada %s en sortida"
+
+#: ../xfce4-mixer/xfce-mixer-window.c:91
+msgid "_Quit"
+msgstr "_Quitar"
+
+#: ../xfce4-mixer/xfce-mixer-window.c:91
+msgid "Exit the mixer"
+msgstr "Quitar lo mesclador"
+
+#: ../xfce4-mixer/xfce-mixer-window.c:93
+msgid "_Select Controls..."
+msgstr "Seleccionar de _Contraròtles ..."
+
+#: ../xfce4-mixer/xfce-mixer-window.c:93
+msgid "Select which controls are displayed"
+msgstr "Seleccionar los contraròtles d'afichar"
+
+#: ../xfce4-mixer/xfce-mixer-window.c:154
+msgid "Configure sound card(s) and control the volume of selected tracks"
+msgstr "Configurar la carta(s) son e lo contrarotlador lo volum de las pistas seleccionadas"
