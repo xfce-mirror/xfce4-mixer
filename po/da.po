@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Aputsiaĸ Niels Janussen <aj@isit.gl>, 2013
 # cedeel <chris@cedeel.com>, 2013
 # Ole Guldberg <olegb@omgwtf.dk>, 2008
 # Per Kongstad <p_kongstad@op.pl>, 2009
@@ -11,8 +12,8 @@ msgstr ""
 "Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-29 13:30+0000\n"
-"PO-Revision-Date: 2013-11-20 18:05+0000\n"
-"Last-Translator: cedeel <chris@cedeel.com>\n"
+"PO-Revision-Date: 2013-12-10 03:04+0000\n"
+"Last-Translator: Aputsiaĸ Niels Janussen <aj@isit.gl>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/xfce/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,7 +24,7 @@ msgstr ""
 #. Add menu item for muting
 #: ../panel-plugin/xfce-mixer-plugin.c:306
 msgid "Mu_te"
-msgstr ""
+msgstr "L_ydløs"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:314
 msgid "Run Audio Mi_xer"
@@ -50,11 +51,11 @@ msgstr "Kunne ikke køre kommandoen \"%s\". Kontrollér at enten placeringen af 
 
 #: ../panel-plugin/xfce-plugin-dialog.c:150
 msgid "Audio Mixer Plugin"
-msgstr ""
+msgstr "Lydmikser-udvidelsesmodul"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:152
 msgid "Configure the sound card and mixer track"
-msgstr ""
+msgstr "Konfigurér lydkortet og mikserspor"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:165
 #: ../xfce4-mixer/xfce-mixer-window.c:185
@@ -72,7 +73,7 @@ msgstr "Ingen gyldig enhed og/eller element."
 #: ../panel-plugin/xfce-volume-button.c:859
 #, c-format
 msgid "%s: muted"
-msgstr ""
+msgstr "%s: lydløs"
 
 #: ../panel-plugin/xfce-volume-button.c:861
 #, c-format
@@ -139,7 +140,7 @@ msgstr "<span weight=\"bold\" size=\"larger\">Ingen synlige kontroller</span>"
 msgid ""
 "In order to toggle the visibility of mixer controls, open the <b>\"Select "
 "Controls\"</b> dialog."
-msgstr ""
+msgstr "For at slå synlighed for mikserkontrollerne til og fra, så åbn vinduet <b>\"Vælg kontroller\"</b>."
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:118
 msgid "Select Controls"
@@ -152,23 +153,23 @@ msgstr "Vælg hvilke kontroller der skal være synlige"
 #: ../xfce4-mixer/xfce-mixer-track.c:257
 #, c-format
 msgid "Volume of channel %d on %s"
-msgstr ""
+msgstr "Lydstyrke for kanalen %d på %s"
 
 #. Lock button
 #: ../xfce4-mixer/xfce-mixer-track.c:293
 #, c-format
 msgid "Lock channels for %s together"
-msgstr ""
+msgstr "Lås kanalerne sammen for %s  "
 
 #: ../xfce4-mixer/xfce-mixer-track.c:340
 #, c-format
 msgid "Mute/unmute %s"
-msgstr ""
+msgstr "Lydløs/lyd til for %s"
 
 #: ../xfce4-mixer/xfce-mixer-track.c:360
 #, c-format
 msgid "Enable/disable audible input from %s in output"
-msgstr ""
+msgstr "Slå lydinput til/fra fra %s i output"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:91
 msgid "_Quit"
