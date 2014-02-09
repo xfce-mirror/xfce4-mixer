@@ -1,85 +1,76 @@
-# Swedish translation for xfce4-mixer.
-# Copyright (C) 2008, 2009 Free Software Foundation, Inc.
-# This file is distributed under the same license as the xfce4-mixer package.
-# Daniel Nylander <po@danielnylander.se>, 2008, 2009.
-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Daniel Nylander <po@danielnylander.se>, 2008-2009
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-mixer\n"
+"Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-29 13:30+0000\n"
-"PO-Revision-Date: 2009-02-09 00:10+0100\n"
-"Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
-"Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
-"Language: sv\n"
+"PO-Revision-Date: 2014-02-09 10:41+0000\n"
+"Last-Translator: PavelNicklasson <pavelnicklasson@bahnhof.se>\n"
+"Language-Team: Swedish (http://www.transifex.com/projects/p/xfce/language/sv/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Language: sv\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. Add menu item for muting
 #: ../panel-plugin/xfce-mixer-plugin.c:306
 msgid "Mu_te"
-msgstr ""
+msgstr "Ty_st"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:314
 msgid "Run Audio Mi_xer"
-msgstr ""
+msgstr "Kör ljudmi_xer"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:581 ../xfce4-mixer/main.c:148
 msgid ""
-"GStreamer was unable to detect any sound devices. Some sound system specific "
-"GStreamer packages may be missing. It may also be a permissions problem."
-msgstr ""
-"GStreamer kunde inte hitta några ljudenheter. Vissa ljudsystemsspecifika "
-"GStreamer-paket kanske saknas. Det kan också vara ett behörighetsproblem."
+"GStreamer was unable to detect any sound devices. Some sound system specific"
+" GStreamer packages may be missing. It may also be a permissions problem."
+msgstr "GStreamer kunde inte hitta några ljudenheter. Vissa ljudsystemsspecifika GStreamer-paket kanske saknas. Det kan också vara ett behörighetsproblem."
 
 #: ../panel-plugin/xfce-mixer-plugin.c:931
-#, fuzzy
 msgid "No command defined"
-msgstr "Inget vänsterklickskommando definierat"
+msgstr "Inget kommando definerat"
 
 #. Generate error message and insert the current command
 #: ../panel-plugin/xfce-mixer-plugin.c:939
 #, c-format
 msgid ""
-"Could not execute the command \"%s\". Ensure that either the location of the "
-"command is included in the PATH environment variable or that you are "
+"Could not execute the command \"%s\". Ensure that either the location of the"
+" command is included in the PATH environment variable or that you are "
 "providing the full path to the command."
-msgstr ""
-"Kunde inte köra kommandot \"%s\". Försäkra dig om att antingen platsen för "
-"kommandot finns inkluderad i miljövariabeln PATH eller att den fullständiga "
-"sökvägen till kommandot används."
+msgstr "Kunde inte köra kommandot \"%s\". Försäkra dig om att antingen platsen för kommandot finns inkluderad i miljövariabeln PATH eller att den fullständiga sökvägen till kommandot används."
 
 #: ../panel-plugin/xfce-plugin-dialog.c:150
-#, fuzzy
 msgid "Audio Mixer Plugin"
-msgstr "Insticksmodul för mixer"
+msgstr "Insticksprogram för ljudmixer"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:152
-#, fuzzy
 msgid "Configure the sound card and mixer track"
-msgstr "Konfigurera ljudkort och kontrollera volymen för valda spår"
+msgstr "Ställ in ljudkort och mixerspår"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:165
 #: ../xfce4-mixer/xfce-mixer-window.c:185
-#, fuzzy
 msgid "Sound _card:"
-msgstr "Ljudkort:"
+msgstr "Ljud_kort:"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:174
-#, fuzzy
 msgid "Mixer _track:"
-msgstr "Mixerspår"
+msgstr "Mixer_spår"
 
 #: ../panel-plugin/xfce-volume-button.c:854
 msgid "No valid device and/or element."
-msgstr ""
+msgstr "Ingen giltig enhet eller del."
 
 #: ../panel-plugin/xfce-volume-button.c:859
 #, c-format
 msgid "%s: muted"
-msgstr ""
+msgstr "%s: tystad"
 
 #: ../panel-plugin/xfce-volume-button.c:861
 #, c-format
@@ -92,14 +83,13 @@ msgstr "%s: %i%%"
 #: ../xfce4-mixer/xfce-mixer-window.c:413
 #: ../xfce4-mixer/xfce-mixer-window.c:427
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.h:1
-#, fuzzy
 msgid "Audio Mixer"
-msgstr "Mixer"
+msgstr "Ljudmixer"
 
 #: ../panel-plugin/mixer.desktop.in.h:2
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.h:2
 msgid "Adjust volume levels"
-msgstr ""
+msgstr "Justera ljudvolymer"
 
 #: ../libxfce4mixer/libxfce4mixer.c:422
 #, c-format
@@ -108,36 +98,32 @@ msgstr "Okänd volymkontroll %d"
 
 #: ../xfce4-mixer/main.c:86
 msgid "Enable debugging output"
-msgstr ""
+msgstr "Aktivera felsökningsutmatning"
 
 #: ../xfce4-mixer/main.c:87
 msgid "Show version and exit"
-msgstr ""
+msgstr "Visa version och avsluta"
 
 #: ../xfce4-mixer/main.c:130
-#, fuzzy, c-format
+#, c-format
 msgid "xfce4-mixer: Failed to initialize xfconf: %s\n"
-msgstr "Misslyckades med att initiera xfconf: %s"
+msgstr "xfce4-mixer: Misslyckades starta xfconf: %s\n"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
-#, fuzzy
 msgid "_Playback"
-msgstr "Uppspelning"
+msgstr "S_pela upp"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
-#, fuzzy
 msgid "C_apture"
-msgstr "Fångst"
+msgstr "F_ånga"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
-#, fuzzy
 msgid "S_witches"
-msgstr "Växlar"
+msgstr "V_äxlar"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
-#, fuzzy
 msgid "_Options"
-msgstr "Alternativ"
+msgstr "_Alternativ"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:390
 msgid "No controls visible"
@@ -145,13 +131,13 @@ msgstr "Inga kontroller synliga"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:401
 msgid "<span weight=\"bold\" size=\"larger\">No controls visible</span>"
-msgstr ""
+msgstr "<span weight=\"bold\" size=\"larger\">Inga synliga kontroller</span>"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:409
 msgid ""
 "In order to toggle the visibility of mixer controls, open the <b>\"Select "
 "Controls\"</b> dialog."
-msgstr ""
+msgstr "För att växla synlighet för mixerkontroller, öppna dialogfönstret <b>\"Välj Kontroller\"</b>."
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:118
 msgid "Select Controls"
@@ -164,23 +150,23 @@ msgstr "Välj vilka kontroller som ska vara synliga"
 #: ../xfce4-mixer/xfce-mixer-track.c:257
 #, c-format
 msgid "Volume of channel %d on %s"
-msgstr ""
+msgstr "Volym för kanal %d på %s"
 
 #. Lock button
 #: ../xfce4-mixer/xfce-mixer-track.c:293
 #, c-format
 msgid "Lock channels for %s together"
-msgstr ""
+msgstr "Lås samman kanaler för %s"
 
 #: ../xfce4-mixer/xfce-mixer-track.c:340
 #, c-format
 msgid "Mute/unmute %s"
-msgstr ""
+msgstr "Tyst/sätt på %s"
 
 #: ../xfce4-mixer/xfce-mixer-track.c:360
 #, c-format
 msgid "Enable/disable audible input from %s in output"
-msgstr ""
+msgstr "Aktivera/avaktivera ljudingång från %s i utmatning"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:91
 msgid "_Quit"
@@ -201,56 +187,3 @@ msgstr "Välj vilka kontroller som ska visas"
 #: ../xfce4-mixer/xfce-mixer-window.c:154
 msgid "Configure sound card(s) and control the volume of selected tracks"
 msgstr "Konfigurera ljudkort och kontrollera volymen för valda spår"
-
-#~ msgid ""
-#~ "No left-click command defined yet. You can change this in the plugin "
-#~ "properties."
-#~ msgstr ""
-#~ "Inget vänsterklickskommando har definierats än. Du kan ändra detta i "
-#~ "egenskaperna för insticksmodulen."
-
-#~ msgid "Properties"
-#~ msgstr "Egenskaper"
-
-#~ msgid "Configure the mixer track and left-click command"
-#~ msgstr "Konfigurera mixerspåret och vänsterklickskommando"
-
-#~ msgid "Sound card"
-#~ msgstr "Ljudkort"
-
-#~ msgid "Left-click command"
-#~ msgstr "Vänsterklickskommando"
-
-#~ msgid "Select command"
-#~ msgstr "Välj kommando"
-
-#~ msgid "All Files"
-#~ msgstr "Alla filer"
-
-#~ msgid "Executable Files"
-#~ msgstr "Körbara filer"
-
-#~ msgid "Perl Scripts"
-#~ msgstr "Perl-skript"
-
-#~ msgid "Python Scripts"
-#~ msgstr "Python-skript"
-
-#~ msgid "Ruby Scripts"
-#~ msgstr "Ruby-skript"
-
-#~ msgid "Shell Scripts"
-#~ msgstr "Skalskript"
-
-#~ msgid "Volume control for your sound card"
-#~ msgstr "Volymkontroll för ditt ljudkort"
-
-#~ msgid ""
-#~ "No controls are marked as visible. Please open the <span "
-#~ "size='large'><b>Select Controls</b></span> dialog to select some."
-#~ msgstr ""
-#~ "Inga kontroller är markerade som synliga. Öppna dialogrutan <span "
-#~ "size='large'><b>Välj kontroller</b></span> för att välja några."
-
-#~ msgid "Audio mixer for the Xfce Desktop Environment"
-#~ msgstr "Ljudmixer för skrivbordsmiljön Xfce"
