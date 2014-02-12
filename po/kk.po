@@ -1,21 +1,22 @@
-# xfce4-mixer to kazakh.
+# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# Baurzhan Muftakhidinov <baurthefirst@gmail.com>, 2009.
 # 
+# Translators:
+# Baurzhan Muftakhidinov <baurthefirst@gmail.com>, 2009
 msgid ""
 msgstr ""
-"Project-Id-Version: trunk\n"
+"Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-29 13:30+0000\n"
-"PO-Revision-Date: 2012-12-28 10:55+0600\n"
+"PO-Revision-Date: 2014-02-12 15:09+0000\n"
 "Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>\n"
-"Language-Team: Kazakh <kk_KZ@googlegroups.com>\n"
+"Language-Team: Kazakh (http://www.transifex.com/projects/p/xfce/language/kk/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: kk\n"
-"Plural-Forms: nplurals=1; plural=0\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #. Add menu item for muting
 #: ../panel-plugin/xfce-mixer-plugin.c:306
@@ -27,7 +28,9 @@ msgid "Run Audio Mi_xer"
 msgstr "Аудио м_иксерін жөнелту"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:581 ../xfce4-mixer/main.c:148
-msgid "GStreamer was unable to detect any sound devices. Some sound system specific GStreamer packages may be missing. It may also be a permissions problem."
+msgid ""
+"GStreamer was unable to detect any sound devices. Some sound system specific"
+" GStreamer packages may be missing. It may also be a permissions problem."
 msgstr "GStreamer бірде-бір дыбыстық картаны таба алмаған. Дыбыстық жүйеге тән кейбір GStreamer дестелері жоқ болып тұрған мүмкін. Сонымен қатар, бұл рұқсат мәселесі болуы мүмкін."
 
 #: ../panel-plugin/xfce-mixer-plugin.c:931
@@ -37,8 +40,11 @@ msgstr "Команда орнатылмаған"
 #. Generate error message and insert the current command
 #: ../panel-plugin/xfce-mixer-plugin.c:939
 #, c-format
-msgid "Could not execute the command \"%s\". Ensure that either the location of the command is included in the PATH environment variable or that you are providing the full path to the command."
-msgstr "\"%s\" командасын орындау мүмкін емес. Осы команданың орналақан орны қоршамыңыздың PATH айнымалысында бар екеніне не осы командаға толық жолды көрсеткеніңізге көз жеткізіңіз."
+msgid ""
+"Could not execute the command \"%s\". Ensure that either the location of the"
+" command is included in the PATH environment variable or that you are "
+"providing the full path to the command."
+msgstr "\"%s\" командасын орындау мүмкін емес. Осы команданың орналасқан орны қоршамыңыздың PATH айнымалысында бар екеніне не осы командаға толық жолды көрсеткеніңізге көз жеткізіңіз."
 
 #: ../panel-plugin/xfce-plugin-dialog.c:150
 msgid "Audio Mixer Plugin"
@@ -128,7 +134,9 @@ msgid "<span weight=\"bold\" size=\"larger\">No controls visible</span>"
 msgstr "<span weight=\"bold\" size=\"larger\">Көрінетін басқару элементтері жоқ</span>"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:409
-msgid "In order to toggle the visibility of mixer controls, open the <b>\"Select Controls\"</b> dialog."
+msgid ""
+"In order to toggle the visibility of mixer controls, open the <b>\"Select "
+"Controls\"</b> dialog."
 msgstr "Миксердің басқарушы элементтерін көрсету/жасыру үшін,<b>\"Арналарды таңдау\"</b> терезесін ашыңыз."
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:118
@@ -179,57 +187,3 @@ msgstr "Көрсетілетін арналарды таңдаңыз"
 #: ../xfce4-mixer/xfce-mixer-window.c:154
 msgid "Configure sound card(s) and control the volume of selected tracks"
 msgstr "Дыбыстық карта(лар)ды баптау мен дауыс деңгейін орнату"
-
-#~ msgid ""
-#~ "No left-click command defined yet. You can change this in the plugin "
-#~ "properties."
-#~ msgstr ""
-#~ "Сол жақ шерту командасы әді орнатылмаған. Сіз оны осы плагиннің "
-#~ "қасиеттерінде өзгерте аласыз."
-
-#~ msgid "Properties"
-#~ msgstr "Қасиеттері"
-
-#~ msgid "Configure the mixer track and left-click command"
-#~ msgstr "Миксер каналын мен сол жақ шерту командасын  баптау"
-
-#~ msgid "Sound card"
-#~ msgstr "Дыбыстық карта"
-
-#~ msgid "Left-click command"
-#~ msgstr "Сол жақ шерту командасы"
-
-#~ msgid "Select command"
-#~ msgstr "Команда таңдаңыз"
-
-#~ msgid "All Files"
-#~ msgstr "Барлық файлдар"
-
-#~ msgid "Executable Files"
-#~ msgstr "Орындалатын файлдар"
-
-#~ msgid "Perl Scripts"
-#~ msgstr "Perl скриптері"
-
-#~ msgid "Python Scripts"
-#~ msgstr "Python скриптері"
-
-#~ msgid "Ruby Scripts"
-#~ msgstr "Ruby скриптері"
-
-#~ msgid "Shell Scripts"
-#~ msgstr "Shell скриптері"
-
-#~ msgid "Volume control for your sound card"
-#~ msgstr "Дыбыстық картаңыз үшін дыбыс деңгейін орнату"
-
-#~ msgid ""
-#~ "No controls are marked as visible. Please open the <span "
-#~ "size='large'><b>Select Controls</b></span> dialog to select some."
-#~ msgstr ""
-#~ "Бірде-бір канал көрінетін деп белгіленбеген. <span "
-#~ "size='large'><b>Каналдарды таңдау</b></span> сұхбат терезесін ашып, керек "
-#~ "каналдарды таңдаңыз."
-
-#~ msgid "Audio mixer for the Xfce Desktop Environment"
-#~ msgstr "Xfce жұмыс үстел ортасы үшін аудио миксер"
