@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-29 13:30+0000\n"
-"PO-Revision-Date: 2014-03-15 04:37+0000\n"
+"PO-Revision-Date: 2014-03-15 06:16+0000\n"
 "Last-Translator: abuyop <abuyop@gmail.com>\n"
 "Language-Team: Malay (http://www.transifex.com/projects/p/xfce/language/ms/)\n"
 "MIME-Version: 1.0\n"
@@ -107,7 +107,7 @@ msgstr "Tunjuk versi kemudian keluar"
 #: ../xfce4-mixer/main.c:130
 #, c-format
 msgid "xfce4-mixer: Failed to initialize xfconf: %s\n"
-msgstr ""
+msgstr "xfce4-mixer: Gagal mengawalkan xfconf: %s\n"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
 msgid "_Playback"
@@ -131,59 +131,59 @@ msgstr "Tiada kawalan tampak"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:401
 msgid "<span weight=\"bold\" size=\"larger\">No controls visible</span>"
-msgstr ""
+msgstr "<span weight=\"bold\" size=\"larger\">Tiada kawalan tampak</span>"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:409
 msgid ""
 "In order to toggle the visibility of mixer controls, open the <b>\"Select "
 "Controls\"</b> dialog."
-msgstr ""
+msgstr "Untuk menogol ketampakan kawalan pengadun, buka dialog <b>\"Pilih Kawalan\"</b>."
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:118
 msgid "Select Controls"
-msgstr ""
+msgstr "Pilih Kawalan"
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:120
 msgid "Select which controls should be visible"
-msgstr ""
+msgstr "Pilih kawalan yang seharusnya tampak"
 
 #: ../xfce4-mixer/xfce-mixer-track.c:257
 #, c-format
 msgid "Volume of channel %d on %s"
-msgstr ""
+msgstr "Vokum saluran %d pada %s"
 
 #. Lock button
 #: ../xfce4-mixer/xfce-mixer-track.c:293
 #, c-format
 msgid "Lock channels for %s together"
-msgstr ""
+msgstr "Kunci saluran bagi %s bersama-sama"
 
 #: ../xfce4-mixer/xfce-mixer-track.c:340
 #, c-format
 msgid "Mute/unmute %s"
-msgstr ""
+msgstr "Senyap/suarakan %s"
 
 #: ../xfce4-mixer/xfce-mixer-track.c:360
 #, c-format
 msgid "Enable/disable audible input from %s in output"
-msgstr ""
+msgstr "Benar/lumpuhkan input boleh dengar dari %s di dalam output"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:91
 msgid "_Quit"
-msgstr ""
+msgstr "K_eluar"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:91
 msgid "Exit the mixer"
-msgstr ""
+msgstr "Keluar dari pengadun"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:93
 msgid "_Select Controls..."
-msgstr ""
+msgstr "_Pilih Kawalan..."
 
 #: ../xfce4-mixer/xfce-mixer-window.c:93
 msgid "Select which controls are displayed"
-msgstr ""
+msgstr "Pilih kawalan yang manakah dipaparkan"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:154
 msgid "Configure sound card(s) and control the volume of selected tracks"
-msgstr ""
+msgstr "Konfigur kad bunyi(s) dan kawalan volum bagi trek terpilih"
