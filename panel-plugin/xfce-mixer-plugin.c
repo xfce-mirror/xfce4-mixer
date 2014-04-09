@@ -608,6 +608,7 @@ xfce_mixer_plugin_size_changed (XfcePanelPlugin *plugin,
                                 gint             size)
 {
   XfceMixerPlugin *mixer_plugin = XFCE_MIXER_PLUGIN (plugin);
+  gint             icon_size;
 
   g_return_val_if_fail (mixer_plugin != NULL, FALSE);
 
@@ -615,11 +616,12 @@ xfce_mixer_plugin_size_changed (XfcePanelPlugin *plugin,
   size /= xfce_panel_plugin_get_nrows (XFCE_PANEL_PLUGIN (mixer_plugin));
 
   /* Determine size for the volume button icons */
-  size -= 2 + 2 * MAX (mixer_plugin->button->style->xthickness, mixer_plugin->button->style->ythickness);
+  icon_size = size - 2 - 2 * MAX (mixer_plugin->button->style->xthickness, mixer_plugin->button->style->ythickness);
 
   /* Set volume button icon size and update the volume button */
-  xfce_volume_button_set_icon_size (XFCE_VOLUME_BUTTON (mixer_plugin->button), size);
+  xfce_volume_button_set_icon_size (XFCE_VOLUME_BUTTON (mixer_plugin->button), icon_size);
   xfce_volume_button_update (XFCE_VOLUME_BUTTON (mixer_plugin->button));
+  gtk_widget_set_size_request (mixer_plugin->button, size, size);
 
   return TRUE;
 }
