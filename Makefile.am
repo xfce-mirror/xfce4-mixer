@@ -50,7 +50,6 @@ EXTRA_DIST =								\
 	AUTHORS								\
 	ChangeLog							\
 	COPYING								\
-	INSTALL								\
 	NEWS								\
 	README								\
 	intltool-extract.in						\
