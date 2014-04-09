@@ -1,3 +1,18 @@
+4.11.0
+======
+- Updated translations.
+- Fixed button sizing in some themes.
+- g_thread_init is deprecated.
+- Refactor the handling of minimum volumes
+- Do not assume a minimum volume of 0 in the keyboard shortcut handling
+- Correct debugging instructions
+- Avoid unused variable warning when buildwing without keybinder (bug #9544)
+- Move the XFCE_MIXER_PLUGIN_DEFAULT_COMMAND macro to where it is used
+- Extend documentation in README
+- Rename variable which may shadow index(3) (bug #9374)
+- Fix mnemonics in the plugin menu that conflict with those of default menu items (bug #9339)
+
+
 4.10.0
 ======
 - Do not use G_VALUE_INIT which is only available in glib >= 2.30
