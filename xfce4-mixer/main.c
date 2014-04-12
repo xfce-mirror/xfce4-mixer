@@ -30,7 +30,10 @@
 #include <gst/gst.h>
 
 #include <gtk/gtk.h>
+
+#ifdef HAVE_UNIQUE
 #include <unique/unique.h>
+#endif
 
 #include <libxfce4util/libxfce4util.h>
 #include <libxfce4ui/libxfce4ui.h>
@@ -42,6 +45,7 @@
 
 
 
+#ifdef HAVE_UNIQUE
 static UniqueResponse
 message_received (UniqueApp         *app,
                   UniqueCommand      command,
@@ -68,6 +72,7 @@ message_received (UniqueApp         *app,
 
   return response;
 }
+#endif
 
 
 
@@ -75,7 +80,9 @@ int
 main (int    argc,
       char **argv)
 {
+#ifdef HAVE_UNIQUE
   UniqueApp          *app;
+#endif
   GtkWidget          *window;
   GError             *error = NULL;
   gboolean            debug_mode = FALSE;
@@ -162,6 +169,7 @@ main (int    argc,
   if (debug_mode)
     xfce_mixer_dump_gst_data ();
 
+#ifdef HAVE_UNIQUE
   /* Create unique application */
   app = unique_app_new ("org.xfce.xfce4-mixer", NULL);
   if (unique_app_is_running (app))
@@ -192,6 +200,19 @@ main (int    argc,
       /* Destroy the window */
       gtk_widget_destroy (window);
     }
+#else
+  /* Create the mixer window */
+  window = xfce_mixer_window_new ();
+
+  /* Display the mixer window */
+  gtk_widget_show (window);
+
+  /* Enter the GTK+ main loop */
+  gtk_main ();
+
+  /* Destroy the window */
+  gtk_widget_destroy (window);
+#endif
 
   /* Shutdown the mixer library */
   xfce_mixer_shutdown ();
