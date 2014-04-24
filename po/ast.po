@@ -9,9 +9,9 @@ msgstr ""
 "Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-29 13:30+0000\n"
-"PO-Revision-Date: 2014-04-14 16:21+0000\n"
+"PO-Revision-Date: 2014-04-24 10:09+0000\n"
 "Last-Translator: Tornes Llume <l.lumex03.tornes@gmail.com>\n"
-"Language-Team: Asturian (http://www.transifex.com/projects/p/xfce/language/ast/)\n"
+"Language-Team: Asturian (http://www.transifex.com/projects/p/xfce-apps/language/ast/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -21,7 +21,7 @@ msgstr ""
 #. Add menu item for muting
 #: ../panel-plugin/xfce-mixer-plugin.c:306
 msgid "Mu_te"
-msgstr ""
+msgstr "Sile_nciar"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:314
 msgid "Run Audio Mi_xer"
@@ -31,7 +31,7 @@ msgstr ""
 msgid ""
 "GStreamer was unable to detect any sound devices. Some sound system specific"
 " GStreamer packages may be missing. It may also be a permissions problem."
-msgstr "GStreamer nun pudo deteutar dengún preséu de soníu. Pue que falten dalgunos paquetes específicos del sistema de soníu GStreamer. Tamién pue tratase d'un problema de permisos."
+msgstr "GStreamer nun pudo deteutar dengún preséu de soníu. Pue que falten dalgunos paquetes específicos del sistema de soníu GStreamer. Tamién pue ser d'un problema de permisos."
 
 #: ../panel-plugin/xfce-mixer-plugin.c:931
 msgid "No command defined"
@@ -44,11 +44,11 @@ msgid ""
 "Could not execute the command \"%s\". Ensure that either the location of the"
 " command is included in the PATH environment variable or that you are "
 "providing the full path to the command."
-msgstr "Nun pudo executase'l comandu \"%s\". Compruebe que la llocalización del comandu ta incluyía na variable d'entornu PATH o que ta dando la ruta absoluta del comandu."
+msgstr "Nun pudo executase'l comandu \"%s\". Asegúrate que l'allugamientu del comandu ta incluyíu na variable d'entornu PATH o que tas apurriendo'l camín absolutu al comandu."
 
 #: ../panel-plugin/xfce-plugin-dialog.c:150
 msgid "Audio Mixer Plugin"
-msgstr ""
+msgstr "Complementu dAudio Mixer"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:152
 msgid "Configure the sound card and mixer track"
@@ -70,7 +70,7 @@ msgstr "Ensin un preséu y/o elementu válidu."
 #: ../panel-plugin/xfce-volume-button.c:859
 #, c-format
 msgid "%s: muted"
-msgstr ""
+msgstr "%s: silenciáu"
 
 #: ../panel-plugin/xfce-volume-button.c:861
 #, c-format
@@ -102,12 +102,12 @@ msgstr "Habilitar salida de depuración"
 
 #: ../xfce4-mixer/main.c:87
 msgid "Show version and exit"
-msgstr "Amosar versión y colar"
+msgstr "Amuesa la versión y cola"
 
 #: ../xfce4-mixer/main.c:130
 #, c-format
 msgid "xfce4-mixer: Failed to initialize xfconf: %s\n"
-msgstr ""
+msgstr "xfce4-mixer: Fallu al aniciar xfconf: %s\n"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
 msgid "_Playback"
@@ -131,7 +131,7 @@ msgstr "Dengún control visible"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:401
 msgid "<span weight=\"bold\" size=\"larger\">No controls visible</span>"
-msgstr ""
+msgstr "<span weight=\"bold\" size=\"larger\">Dengún control visible</span>"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:409
 msgid ""
@@ -141,16 +141,16 @@ msgstr ""
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:118
 msgid "Select Controls"
-msgstr "Seleición de controles"
+msgstr "Esbilla de controles"
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:120
 msgid "Select which controls should be visible"
-msgstr "Esbille qué controles sedrán visibles"
+msgstr "Esbilla qué controles deberíen ser visibles"
 
 #: ../xfce4-mixer/xfce-mixer-track.c:257
 #, c-format
 msgid "Volume of channel %d on %s"
-msgstr ""
+msgstr "Volume de la canal %d en %s"
 
 #. Lock button
 #: ../xfce4-mixer/xfce-mixer-track.c:293
@@ -178,12 +178,12 @@ msgstr "Colar del entemecedor"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:93
 msgid "_Select Controls..."
-msgstr "_Seleicionar controles..."
+msgstr "_Esbillar controles..."
 
 #: ../xfce4-mixer/xfce-mixer-window.c:93
 msgid "Select which controls are displayed"
-msgstr "Esbille qué controles s'amosarán"
+msgstr "Esbilla qué controles s'amosarán"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:154
 msgid "Configure sound card(s) and control the volume of selected tracks"
-msgstr "Configure la(es) tarxeta(es) de soníu y el control de volume de les pistes esbillaes"
+msgstr "Configura la(es) tarxeta(es) de soníu y el control de volume de les pistes esbillaes"
