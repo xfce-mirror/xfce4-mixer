@@ -4,12 +4,13 @@
 # 
 # Translators:
 # Tornes Llume <l.lumex03.tornes@gmail.com>, 2014
+# Tornes Llume <l.lumex03.tornes@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-29 13:30+0000\n"
-"PO-Revision-Date: 2014-04-24 10:09+0000\n"
+"PO-Revision-Date: 2014-05-26 12:29+0000\n"
 "Last-Translator: Tornes Llume <l.lumex03.tornes@gmail.com>\n"
 "Language-Team: Asturian (http://www.transifex.com/projects/p/xfce-apps/language/ast/)\n"
 "MIME-Version: 1.0\n"
@@ -25,7 +26,7 @@ msgstr "Sile_nciar"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:314
 msgid "Run Audio Mi_xer"
-msgstr ""
+msgstr "Executar Entemecedor d'audiu"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:581 ../xfce4-mixer/main.c:148
 msgid ""
@@ -48,7 +49,7 @@ msgstr "Nun pudo executase'l comandu \"%s\". Asegúrate que l'allugamientu del c
 
 #: ../panel-plugin/xfce-plugin-dialog.c:150
 msgid "Audio Mixer Plugin"
-msgstr "Complementu dAudio Mixer"
+msgstr "Complementu del entemecedor d'audiu"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:152
 msgid "Configure the sound card and mixer track"
@@ -61,7 +62,7 @@ msgstr "Tar_xeta de soníu:"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:174
 msgid "Mixer _track:"
-msgstr ""
+msgstr "Pista del entemecedor:"
 
 #: ../panel-plugin/xfce-volume-button.c:854
 msgid "No valid device and/or element."
@@ -84,7 +85,7 @@ msgstr "%s : %i%%"
 #: ../xfce4-mixer/xfce-mixer-window.c:427
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.h:1
 msgid "Audio Mixer"
-msgstr ""
+msgstr "Entemecedor d'audiu"
 
 #: ../panel-plugin/mixer.desktop.in.h:2
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.h:2
@@ -156,7 +157,7 @@ msgstr "Volume de la canal %d en %s"
 #: ../xfce4-mixer/xfce-mixer-track.c:293
 #, c-format
 msgid "Lock channels for %s together"
-msgstr ""
+msgstr "Bloquiar canales pa %s xuntos"
 
 #: ../xfce4-mixer/xfce-mixer-track.c:340
 #, c-format
@@ -166,7 +167,7 @@ msgstr ""
 #: ../xfce4-mixer/xfce-mixer-track.c:360
 #, c-format
 msgid "Enable/disable audible input from %s in output"
-msgstr ""
+msgstr "Habilitar/deshabilitar entrada audible dende %s na salida"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:91
 msgid "_Quit"
