@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-29 13:30+0000\n"
-"PO-Revision-Date: 2014-05-26 12:29+0000\n"
+"PO-Revision-Date: 2014-05-30 11:14+0000\n"
 "Last-Translator: Tornes Llume <l.lumex03.tornes@gmail.com>\n"
 "Language-Team: Asturian (http://www.transifex.com/projects/p/xfce-apps/language/ast/)\n"
 "MIME-Version: 1.0\n"
@@ -53,7 +53,7 @@ msgstr "Complementu del entemecedor d'audiu"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:152
 msgid "Configure the sound card and mixer track"
-msgstr ""
+msgstr "Configura la tarxeta soníu y l'entemecedor de pistes"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:165
 #: ../xfce4-mixer/xfce-mixer-window.c:185
@@ -112,7 +112,7 @@ msgstr "xfce4-mixer: Fallu al aniciar xfconf: %s\n"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
 msgid "_Playback"
-msgstr ""
+msgstr "_Reproducción"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
 msgid "C_apture"
@@ -138,7 +138,7 @@ msgstr "<span weight=\"bold\" size=\"larger\">Dengún control visible</span>"
 msgid ""
 "In order to toggle the visibility of mixer controls, open the <b>\"Select "
 "Controls\"</b> dialog."
-msgstr ""
+msgstr "Pa cambear la visibilidá de los controles del entemecedor, abri'l diálogu <b>\"Esbillar controles\"</b>."
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:118
 msgid "Select Controls"
@@ -162,7 +162,7 @@ msgstr "Bloquiar canales pa %s xuntos"
 #: ../xfce4-mixer/xfce-mixer-track.c:340
 #, c-format
 msgid "Mute/unmute %s"
-msgstr ""
+msgstr "Silenciar/non silenciar %s"
 
 #: ../xfce4-mixer/xfce-mixer-track.c:360
 #, c-format
@@ -187,4 +187,4 @@ msgstr "Esbilla qué controles s'amosarán"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:154
 msgid "Configure sound card(s) and control the volume of selected tracks"
-msgstr "Configura la(es) tarxeta(es) de soníu y el control de volume de les pistes esbillaes"
+msgstr "Configura la(es) tarxeta(es) de soníu y controla'l volume de les pistes esbillaes"
