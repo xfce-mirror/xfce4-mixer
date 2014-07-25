@@ -34,7 +34,7 @@ void xfce_mixer_debug_real        (const gchar    *log_domain,
                                    const gchar    *file,
                                    const gchar    *func,
                                    gint            line,
-                                   const gchar    *format, ...);
+                                   const gchar    *format, ...) G_GNUC_PRINTF(5, 6);
 void xfce_mixer_dump_gst_data     (void);
 
 
