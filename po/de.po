@@ -1,30 +1,31 @@
-# German translation of the xfce4-mixer package.
-# Copyright (C) 2008 Jannis Pohlmann <jannis@xfce.org>.
-# This file is distributed under the same license as the xfce4-mixer package.
-# Lots of people missing here... Moritz, ...
-# Jannis Pohlmann <jannis@xfce.org>, 2008.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Enrico Tröger <enrico@xfce.org>, 2009
 # Fabian Nowak <timystery@arcor.de>, 2008
-# Enrico Tröger <enrico@xfce.org>, 2009.
-# Guido Berhoerster <guido+xfce.org@berhoerster.name>, 2012.
-#
+# Guido Berhoerster <guido+xfce.org@berhoerster.name>, 2012
+# Jannis Pohlmann <jannis@xfce.org>, 2008
+# Tobias Bannert, 2014
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-mixer 4.10.0\n"
+"Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-29 13:30+0000\n"
-"PO-Revision-Date: 2012-10-03 07:28+0200\n"
-"Last-Translator: Guido Berhoerster <guido+xfce.org@berhoerster.name>\n"
-"Language-Team: German <xfce-i18n-de@xfce.org>\n"
-"Language: de\n"
+"PO-Revision-Date: 2014-08-26 12:49+0000\n"
+"Last-Translator: Tobias Bannert\n"
+"Language-Team: German (http://www.transifex.com/projects/p/xfce-apps/language/de/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. Add menu item for muting
 #: ../panel-plugin/xfce-mixer-plugin.c:306
 msgid "Mu_te"
-msgstr "_Stummschalten"
+msgstr "_Stumm schalten"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:314
 msgid "Run Audio Mi_xer"
@@ -32,44 +33,39 @@ msgstr "_Mixer öffnen"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:581 ../xfce4-mixer/main.c:148
 msgid ""
-"GStreamer was unable to detect any sound devices. Some sound system specific "
-"GStreamer packages may be missing. It may also be a permissions problem."
-msgstr ""
-"GStreamer konnte keine Soundkarten finden. Möglicherweise sind Pakete für "
-"das verwendete Soundsystem noch nicht installiert. Ebenso könnte es ein "
-"Problem mit den Benutzerrechten sein."
+"GStreamer was unable to detect any sound devices. Some sound system specific"
+" GStreamer packages may be missing. It may also be a permissions problem."
+msgstr "GStreamer konnte keine Klanggeräte finden. Möglicherweise sind Pakete, für das verwendete Klangsystem, noch nicht installiert. Ebenso könnte es ein Problem mit den Benutzerrechten sein."
 
 #: ../panel-plugin/xfce-mixer-plugin.c:931
 msgid "No command defined"
-msgstr "Kein Befehl definiert"
+msgstr "Kein Befehl festgelegt"
 
 #. Generate error message and insert the current command
 #: ../panel-plugin/xfce-mixer-plugin.c:939
 #, c-format
 msgid ""
-"Could not execute the command \"%s\". Ensure that either the location of the "
-"command is included in the PATH environment variable or that you are "
+"Could not execute the command \"%s\". Ensure that either the location of the"
+" command is included in the PATH environment variable or that you are "
 "providing the full path to the command."
-msgstr ""
-"Konnte den Befehl »%s« nicht ausführen. Stellen Sie sicher, dass der Befehl "
-"existiert und der angegebene Pfad korrekt ist."
+msgstr "Befehl »%s« konnte nicht ausgeführt werden. Stellen Sie bitte sicher, dass der Befehl vorhanden ist und der angegebene Pfad richtig ist."
 
 #: ../panel-plugin/xfce-plugin-dialog.c:150
 msgid "Audio Mixer Plugin"
-msgstr "Lautstärkeregler-Plugin"
+msgstr "Lautstärkereglererweiterung"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:152
 msgid "Configure the sound card and mixer track"
-msgstr "Konfigurieren Sie die Soundkarte und das Element"
+msgstr "Die Klangkarte und die Klangspuren konfigurieren"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:165
 #: ../xfce4-mixer/xfce-mixer-window.c:185
 msgid "Sound _card:"
-msgstr "_Soundkarte:"
+msgstr "_Klangkarte:"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:174
 msgid "Mixer _track:"
-msgstr "Element:"
+msgstr "Klangspur:"
 
 #: ../panel-plugin/xfce-volume-button.c:854
 msgid "No valid device and/or element."
@@ -115,7 +111,7 @@ msgstr "Version anzeigen und Programm beenden"
 #: ../xfce4-mixer/main.c:130
 #, c-format
 msgid "xfce4-mixer: Failed to initialize xfconf: %s\n"
-msgstr "xfce4-mixer: Konnte xfconf nicht initialisieren: %s\n"
+msgstr "xfce4-mixer: xfconf konnte nicht initialisiert werden: %s\n"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
 msgid "_Playback"
@@ -135,27 +131,25 @@ msgstr "_Optionen"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:390
 msgid "No controls visible"
-msgstr "Keine Bedienelemente sichtbar"
+msgstr "Keine Regler sichtbar"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:401
 msgid "<span weight=\"bold\" size=\"larger\">No controls visible</span>"
-msgstr "<span weight=\"bold\" size=\"larger\">Keine Bedienelemente sichtbar</span>"
+msgstr "<span weight=\"bold\" size=\"larger\">Keine Regler sichtbar</span>"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:409
 msgid ""
 "In order to toggle the visibility of mixer controls, open the <b>\"Select "
 "Controls\"</b> dialog."
-msgstr ""
-"Um bestimmte Elementen anzuzeigen oder zu verbergen, öffnen Sie den Dialog "
-"<b>»Elemente auswählen«</b>."
+msgstr "Um die Sichtbarkeit der Regler zu ändern, bitte den <b>»Regler auswählen«</b>-Dialog öffnen."
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:118
 msgid "Select Controls"
-msgstr "Elemente auswählen"
+msgstr "Regler auswählen"
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:120
 msgid "Select which controls should be visible"
-msgstr "Wählen Sie Elemente aus, die angezeigt werden sollen"
+msgstr "Regler auswählen, die angezeigt werden sollen"
 
 #: ../xfce4-mixer/xfce-mixer-track.c:257
 #, c-format
@@ -188,14 +182,12 @@ msgstr "Lautstärkeregler verlassen"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:93
 msgid "_Select Controls..."
-msgstr "Elemente au_swählen..."
+msgstr "Regler _auswählen …"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:93
 msgid "Select which controls are displayed"
-msgstr "Auswählen, welche Bedienelemente angezeigt werden"
+msgstr "Auswahl der anzuzeigenden Regler"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:154
 msgid "Configure sound card(s) and control the volume of selected tracks"
-msgstr ""
-"Konfigurieren Sie Ihre Soundkarte(n) und regeln Sie die Lautstärke "
-"ausgewählter Elemente"
+msgstr "Klangkarte(n) konfigurieren und die Lautstärke ausgewählter Spuren steuern"
