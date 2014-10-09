@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# schizo <eveskovic@gmail.com>, 2014
+# Edin Veskovic <edin.veskovic@openmailbox.org>, 2014
 # Ivica  Kolić <ikoli@yahoo.com>, 2013-2014
 # Ivica  Kolić <ikoli@yahoo.com>, 2011
 msgid ""
@@ -11,9 +11,9 @@ msgstr ""
 "Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-29 13:30+0000\n"
-"PO-Revision-Date: 2014-02-24 09:00+0000\n"
-"Last-Translator: schizo <eveskovic@gmail.com>\n"
-"Language-Team: Croatian (http://www.transifex.com/projects/p/xfce/language/hr/)\n"
+"PO-Revision-Date: 2014-10-09 05:27+0000\n"
+"Last-Translator: Ivica  Kolić <ikoli@yahoo.com>\n"
+"Language-Team: Croatian (http://www.transifex.com/projects/p/xfce-apps/language/hr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -27,13 +27,13 @@ msgstr "Be_zvučno"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:314
 msgid "Run Audio Mi_xer"
-msgstr "Pokreni mi_kser zvuka"
+msgstr "Pokreni mikser zvu_ka"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:581 ../xfce4-mixer/main.c:148
 msgid ""
 "GStreamer was unable to detect any sound devices. Some sound system specific"
 " GStreamer packages may be missing. It may also be a permissions problem."
-msgstr "GStreamer nije uspio otkriti nijedan uređaj za zvuk. Možda nedostaju neki specifični GStreamer paketi. Isto tako može biti problem dopuštenja."
+msgstr "GStreamer nije uspio otkriti nijedan uređaj za zvuk. Možda nedostaju neki specifični GStreamer paketi. Isto tako može biti problem dozvola."
 
 #: ../panel-plugin/xfce-mixer-plugin.c:931
 msgid "No command defined"
@@ -50,7 +50,7 @@ msgstr "Ne mogu izvršiti \"%s\" naredbu. Osiguraj da je lokacija naredba ukljku
 
 #: ../panel-plugin/xfce-plugin-dialog.c:150
 msgid "Audio Mixer Plugin"
-msgstr "Mikser zvuka dodatak"
+msgstr "Priključak miksera zvuka"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:152
 msgid "Configure the sound card and mixer track"
@@ -63,7 +63,7 @@ msgstr "Zvučna _kartica:"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:174
 msgid "Mixer _track:"
-msgstr "_Zapis miksera:"
+msgstr "Zapis _miksera:"
 
 #: ../panel-plugin/xfce-volume-button.c:854
 msgid "No valid device and/or element."
@@ -72,7 +72,7 @@ msgstr "Nema valjanog uređaja i/ili elementa."
 #: ../panel-plugin/xfce-volume-button.c:859
 #, c-format
 msgid "%s: muted"
-msgstr "%s: Bez zvuka"
+msgstr "%s: bez zvuka"
 
 #: ../panel-plugin/xfce-volume-button.c:861
 #, c-format
@@ -117,7 +117,7 @@ msgstr "_Izvođenje"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
 msgid "C_apture"
-msgstr "Uhv_ati"
+msgstr "U_hvati"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
 msgid "S_witches"
@@ -163,7 +163,7 @@ msgstr "Zaključaj kanale za %s zajedno"
 #: ../xfce4-mixer/xfce-mixer-track.c:340
 #, c-format
 msgid "Mute/unmute %s"
-msgstr "Upali/ugasi zvuk %s"
+msgstr "Isključi/uključi zvuk %s"
 
 #: ../xfce4-mixer/xfce-mixer-track.c:360
 #, c-format
