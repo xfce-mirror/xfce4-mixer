@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Tornes Llume <l.lumex03.tornes@gmail.com>, 2014
-# Tornes Llume <l.lumex03.tornes@gmail.com>, 2014
+# Ḷḷumex03 <tornes@opmbx.org>, 2014
+# Ḷḷumex03 <tornes@opmbx.org>, 2014
+# Ḷḷumex03 <tornes@opmbx.org>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-29 13:30+0000\n"
-"PO-Revision-Date: 2014-05-30 11:14+0000\n"
-"Last-Translator: Tornes Llume <l.lumex03.tornes@gmail.com>\n"
+"PO-Revision-Date: 2014-12-13 02:21+0000\n"
+"Last-Translator: Ḷḷumex03 <tornes@opmbx.org>\n"
 "Language-Team: Asturian (http://www.transifex.com/projects/p/xfce-apps/language/ast/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -32,7 +33,7 @@ msgstr "Executar Entemecedor d'audiu"
 msgid ""
 "GStreamer was unable to detect any sound devices. Some sound system specific"
 " GStreamer packages may be missing. It may also be a permissions problem."
-msgstr "GStreamer nun pudo deteutar dengún preséu de soníu. Pue que falten dalgunos paquetes específicos del sistema de soníu GStreamer. Tamién pue ser d'un problema de permisos."
+msgstr "GStreamer nun pudo deteutar dengún preséu de soníu. Pue que falten dalgunos paquetes específicos del sistema de soníu GStreamer. Tamién pue ser un problema de permisos."
 
 #: ../panel-plugin/xfce-mixer-plugin.c:931
 msgid "No command defined"
@@ -45,7 +46,7 @@ msgid ""
 "Could not execute the command \"%s\". Ensure that either the location of the"
 " command is included in the PATH environment variable or that you are "
 "providing the full path to the command."
-msgstr "Nun pudo executase'l comandu \"%s\". Asegúrate que l'allugamientu del comandu ta incluyíu na variable d'entornu PATH o que tas apurriendo'l camín absolutu al comandu."
+msgstr "Nun pudo executase'l comandu \"%s\". Asegúrate que l'allugamientu del comandu ta incluyíu na variable d'entornu PATH o que tas apurriendo'l camín completu al comandu."
 
 #: ../panel-plugin/xfce-plugin-dialog.c:150
 msgid "Audio Mixer Plugin"
@@ -62,7 +63,7 @@ msgstr "Tar_xeta de soníu:"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:174
 msgid "Mixer _track:"
-msgstr "Pista del entemecedor:"
+msgstr "Pista del en_temecedor:"
 
 #: ../panel-plugin/xfce-volume-button.c:854
 msgid "No valid device and/or element."
@@ -90,7 +91,7 @@ msgstr "Entemecedor d'audiu"
 #: ../panel-plugin/mixer.desktop.in.h:2
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.h:2
 msgid "Adjust volume levels"
-msgstr "Axustar niveles de volume"
+msgstr "Axusta los niveles de volume"
 
 #: ../libxfce4mixer/libxfce4mixer.c:422
 #, c-format
@@ -120,7 +121,7 @@ msgstr "C_apturar"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
 msgid "S_witches"
-msgstr "Interruptores"
+msgstr "Inter_ruptores"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
 msgid "_Options"
@@ -128,11 +129,11 @@ msgstr "_Opciones"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:390
 msgid "No controls visible"
-msgstr "Dengún control visible"
+msgstr "Ensin controles visibles"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:401
 msgid "<span weight=\"bold\" size=\"larger\">No controls visible</span>"
-msgstr "<span weight=\"bold\" size=\"larger\">Dengún control visible</span>"
+msgstr "<span weight=\"bold\" size=\"larger\">Ensin controles visibles</span>"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:409
 msgid ""
@@ -183,7 +184,7 @@ msgstr "_Esbillar controles..."
 
 #: ../xfce4-mixer/xfce-mixer-window.c:93
 msgid "Select which controls are displayed"
-msgstr "Esbilla qué controles s'amosarán"
+msgstr "Esbilla que controles s'amosarán"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:154
 msgid "Configure sound card(s) and control the volume of selected tracks"
