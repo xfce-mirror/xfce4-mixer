@@ -25,7 +25,7 @@ libxfce4mixer_la_CPPFLAGS = 						\
 	-DDATADIR=\"$(datadir)\"					\
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"				\
 	-DG_LOG_DOMAIN=\"libxfce4mixer\"				\
-	-DMIXER_DATADIR=\"$(pkgdatadir)\"
+	-DMIXER_DATADIR=\"$(datadir)/xfce4/mixer\"
 
 libxfce4mixer_la_CFLAGS = 						\
 	$(PLATFORM_CFLAGS)						\

@@ -23,7 +23,7 @@ xfce4_mixer_CPPFLAGS = 							\
 	-I$(top_srcdir)							\
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"				\
 	-DDATADIR=\"$(datadir)\"					\
-	-DMIXER_DATADIR=\"$(pkgdatadir)\"				\
+	-DMIXER_DATADIR=\"$(datadir)/xfce4/mixer\"		\
 	-DG_LOG_DOMAIN=\"xfce4-mixer\"
 
 xfce4_mixer_CFLAGS = 							\

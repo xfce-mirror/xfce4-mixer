@@ -1,4 +1,4 @@
-iconsdir = $(pkgdatadir)/icons/hicolor/16x16/status
+iconsdir = $(datadir)/xfce4/mixer/icons/hicolor/16x16/status
 icons_DATA = audio-input-microphone-muted.png
 
 EXTRA_DIST = $(icons_DATA)
