@@ -1,24 +1,23 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# Milen Milev <fanfolet@gmail.com>, 2011.
-#
+# 
+# Translators:
+# Lyubomir Vasilev, 2015
+# Милен Милев <fanfolet@gmail.com>, 2011
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-mixer.master\n"
+"Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-29 13:30+0000\n"
-"PO-Revision-Date: 2013-01-13 21:44+0200\n"
-"Last-Translator: Cybercop <cybercop_montana@abv.bg>\n"
-"Language-Team: Bulgarian <>\n"
-"Language: bg\n"
+"PO-Revision-Date: 2015-02-23 11:10+0000\n"
+"Last-Translator: Lyubomir Vasilev\n"
+"Language-Team: Bulgarian (http://www.transifex.com/projects/p/xfce-apps/language/bg/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Bulgarian\n"
-"X-Poedit-Country: BULGARIA\n"
-"X-Poedit-SourceCharset: utf-8\n"
+"Language: bg\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. Add menu item for muting
 #: ../panel-plugin/xfce-mixer-plugin.c:306
@@ -29,9 +28,10 @@ msgstr "Заглушаване"
 msgid "Run Audio Mi_xer"
 msgstr "Стартиране на звуковия миксер"
 
-#: ../panel-plugin/xfce-mixer-plugin.c:581
-#: ../xfce4-mixer/main.c:148
-msgid "GStreamer was unable to detect any sound devices. Some sound system specific GStreamer packages may be missing. It may also be a permissions problem."
+#: ../panel-plugin/xfce-mixer-plugin.c:581 ../xfce4-mixer/main.c:148
+msgid ""
+"GStreamer was unable to detect any sound devices. Some sound system specific"
+" GStreamer packages may be missing. It may also be a permissions problem."
 msgstr "GStreamer не засича звукова карта. Може да липсват специфични GStreamer пакети. Възможно е да е и проблем с правата."
 
 #: ../panel-plugin/xfce-mixer-plugin.c:931
@@ -41,8 +41,11 @@ msgstr "Не е зададена команда"
 #. Generate error message and insert the current command
 #: ../panel-plugin/xfce-mixer-plugin.c:939
 #, c-format
-msgid "Could not execute the command \"%s\". Ensure that either the location of the command is included in the PATH environment variable or that you are providing the full path to the command."
-msgstr "Не може да се изпълни командата \"%s\". Уверете се, че командата и адресът ѝ са правилни."
+msgid ""
+"Could not execute the command \"%s\". Ensure that either the location of the"
+" command is included in the PATH environment variable or that you are "
+"providing the full path to the command."
+msgstr "Не може да се изпълни командата „%s“. Уверете се, че командата и адресът ѝ са правилни."
 
 #: ../panel-plugin/xfce-plugin-dialog.c:150
 msgid "Audio Mixer Plugin"
@@ -76,8 +79,7 @@ msgid "%s: %i%%"
 msgstr "%s: %i%%"
 
 #. Set application name
-#: ../panel-plugin/mixer.desktop.in.h:1
-#: ../xfce4-mixer/main.c:99
+#: ../panel-plugin/mixer.desktop.in.h:1 ../xfce4-mixer/main.c:99
 #: ../xfce4-mixer/xfce-mixer-window.c:150
 #: ../xfce4-mixer/xfce-mixer-window.c:413
 #: ../xfce4-mixer/xfce-mixer-window.c:427
@@ -130,19 +132,21 @@ msgstr "Няма видими контроли"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:401
 msgid "<span weight=\"bold\" size=\"larger\">No controls visible</span>"
-msgstr "<span weight=\"bold\" size=\"larger\">Няма видими контролери</span>"
+msgstr "<span weight=\"bold\" size=\"larger\">Няма видими елементи</span>"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:409
-msgid "In order to toggle the visibility of mixer controls, open the <b>\"Select Controls\"</b> dialog."
-msgstr "За да превключите видимостта на звуковият миксер, отворете <b>\"Избор на контролери\"</b> диалога"
+msgid ""
+"In order to toggle the visibility of mixer controls, open the <b>\"Select "
+"Controls\"</b> dialog."
+msgstr "За да превключите видимостта на звуковият миксер, отворете прозореца <b>„Избор на елементи“</b>"
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:118
 msgid "Select Controls"
-msgstr "Избор на контролери"
+msgstr "Избор на елементи"
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:120
 msgid "Select which controls should be visible"
-msgstr "Избери кои контролери да са видими"
+msgstr "Изберете кои елементи да са видими"
 
 #: ../xfce4-mixer/xfce-mixer-track.c:257
 #, c-format
@@ -184,54 +188,3 @@ msgstr "Избери кои контроли да се показват"
 #: ../xfce4-mixer/xfce-mixer-window.c:154
 msgid "Configure sound card(s) and control the volume of selected tracks"
 msgstr "Настройване на звуковата карта и усилването на звука за избраните канали"
-
-#~ msgid ""
-#~ "No left-click command defined yet. You can change this in the plugin "
-#~ "properties."
-#~ msgstr "Все още не е зададена команда за изпълнение при ляв клик."
-
-#~ msgid "Properties"
-#~ msgstr "Настройки"
-
-#~ msgid "Configure the mixer track and left-click command"
-#~ msgstr "Настройки на миксера и команда при ляв клик"
-
-#~ msgid "Sound card"
-#~ msgstr "Звукова карта"
-
-#~ msgid "Left-click command"
-#~ msgstr "Команда при ляв клик"
-
-#~ msgid "Select command"
-#~ msgstr "Избери команда"
-
-#~ msgid "All Files"
-#~ msgstr "Всички файлове"
-
-#~ msgid "Executable Files"
-#~ msgstr "Изпълними файлове"
-
-#~ msgid "Perl Scripts"
-#~ msgstr "Perl скриптове"
-
-#~ msgid "Python Scripts"
-#~ msgstr "Python скриптове"
-
-#~ msgid "Ruby Scripts"
-#~ msgstr "Ruby скриптове"
-
-#~ msgid "Shell Scripts"
-#~ msgstr "Shell скриптове"
-
-#~ msgid "Volume control for your sound card"
-#~ msgstr "Усилване на звука за Вашата звукова карта"
-
-#~ msgid ""
-#~ "No controls are marked as visible. Please open the <span "
-#~ "size='large'><b>Select Controls</b></span> dialog to select some."
-#~ msgstr ""
-#~ "Не са избрани контроли. Моля, отворете <span size='large'><b>Select "
-#~ "Controls</b></span> диалога за да изберете някакви."
-
-#~ msgid "Audio mixer for the Xfce Desktop Environment"
-#~ msgstr "Звуков миксер за Xfce десктоп среда"
