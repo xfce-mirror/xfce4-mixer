@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-29 13:30+0000\n"
-"PO-Revision-Date: 2015-02-23 01:02+0000\n"
+"PO-Revision-Date: 2015-02-24 17:22+0000\n"
 "Last-Translator: Manolo Díaz <diaz.manolo@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/xfce-apps/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -48,7 +48,7 @@ msgid ""
 "Could not execute the command \"%s\". Ensure that either the location of the"
 " command is included in the PATH environment variable or that you are "
 "providing the full path to the command."
-msgstr "No se pudo ejecutar la orden \"%s\". Compruebe que la ubicación del ejecutable está incluida en la variable de entorno «PATH» o que proporciona su ruta completa."
+msgstr "No se pudo ejecutar la orden «%s». Compruebe que la ubicación del ejecutable está incluida en la variable de entorno «PATH» o que proporciona su ruta completa."
 
 #: ../panel-plugin/xfce-plugin-dialog.c:150
 msgid "Audio Mixer Plugin"
@@ -102,7 +102,7 @@ msgstr "Control de volumen %d desconocido"
 
 #: ../xfce4-mixer/main.c:86
 msgid "Enable debugging output"
-msgstr "Habilitar el modo de depuración"
+msgstr "Activar el modo de depuración"
 
 #: ../xfce4-mixer/main.c:87
 msgid "Show version and exit"
@@ -154,13 +154,13 @@ msgstr "Seleccione qué controles serán visibles"
 #: ../xfce4-mixer/xfce-mixer-track.c:257
 #, c-format
 msgid "Volume of channel %d on %s"
-msgstr "Volumen del canal %d de %s"
+msgstr "Volumen del canal %d de(l, la) %s"
 
 #. Lock button
 #: ../xfce4-mixer/xfce-mixer-track.c:293
 #, c-format
 msgid "Lock channels for %s together"
-msgstr "Mantener los canales de %s nivelados"
+msgstr "Mantener los canales de(l, la) %s nivelados"
 
 #: ../xfce4-mixer/xfce-mixer-track.c:340
 #, c-format
@@ -170,7 +170,7 @@ msgstr "%s silenciado/audible"
 #: ../xfce4-mixer/xfce-mixer-track.c:360
 #, c-format
 msgid "Enable/disable audible input from %s in output"
-msgstr "Incluir o no %s en la mezcla de audio"
+msgstr "Incluir o no el audio de(l, la) %s en la salida"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:91
 msgid "_Quit"
