@@ -1,85 +1,78 @@
-# Slovak translations for i package.
-# Copyright (C) 2009 THE i'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the i package.
-# Automatically generated, 2009.
-#
-# Robert Hartl <hartl.robert@gmail.com>, 2009.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Automatically generated, 2009
+# Robert Hartl <hartl.robert@gmail.com>, 2009
+# Slavko <linux@slavino.sk>, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: i 18n.xfce.org\n"
+"Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-29 13:30+0000\n"
-"PO-Revision-Date: 2009-05-28 17:41+0100\n"
-"Last-Translator: Robert Hartl <hartl.robert@gmail.com>\n"
-"Language-Team: slovak <sk-i18n@lists.linux.sk>\n"
-"Language: \n"
+"PO-Revision-Date: 2015-02-26 14:54+0000\n"
+"Last-Translator: Slavko <linux@slavino.sk>\n"
+"Language-Team: Slovak (http://www.transifex.com/projects/p/xfce-apps/language/sk/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: sk\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #. Add menu item for muting
 #: ../panel-plugin/xfce-mixer-plugin.c:306
 msgid "Mu_te"
-msgstr ""
+msgstr "S_tlmiť"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:314
 msgid "Run Audio Mi_xer"
-msgstr ""
+msgstr "Spustiť _Zmiešavač"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:581 ../xfce4-mixer/main.c:148
 msgid ""
-"GStreamer was unable to detect any sound devices. Some sound system specific "
-"GStreamer packages may be missing. It may also be a permissions problem."
-msgstr ""
-"GStreamer nenašiel žiadne zvukové zariadenia. Pravdepodobne nie sú "
-"nainštalované niektoré balíčky GStreamer alebo nemáte príslušné oprávnenie."
+"GStreamer was unable to detect any sound devices. Some sound system specific"
+" GStreamer packages may be missing. It may also be a permissions problem."
+msgstr "GStreamer nenašiel žiadne zvukové zariadenia. Pravdepodobne nie sú nainštalované niektoré balíčky GStreamer alebo nemáte príslušné oprávnenie."
 
 #: ../panel-plugin/xfce-mixer-plugin.c:931
-#, fuzzy
 msgid "No command defined"
-msgstr "Nebol definovaný príkaz pre kliknutie ľavým tlačidlom myši"
+msgstr "Nie je definovaný príkaz"
 
 #. Generate error message and insert the current command
 #: ../panel-plugin/xfce-mixer-plugin.c:939
 #, c-format
 msgid ""
-"Could not execute the command \"%s\". Ensure that either the location of the "
-"command is included in the PATH environment variable or that you are "
+"Could not execute the command \"%s\". Ensure that either the location of the"
+" command is included in the PATH environment variable or that you are "
 "providing the full path to the command."
-msgstr ""
-"Nie je možné spustiť príkaz \"%s\". Presvečte sa, či je umiestnenie príkazu "
-"obsiahnuté v premennom prostredí PATH alebo poskytujete celú cestu k príkazu"
+msgstr "Nie je možné spustiť príkaz \"%s\". Presvečte sa, či je umiestnenie príkazu obsiahnuté v premennom prostredí PATH alebo poskytujete celú cestu k príkazu"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:150
-#, fuzzy
 msgid "Audio Mixer Plugin"
 msgstr "Zásuvný modul Zmiešavač"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:152
-#, fuzzy
 msgid "Configure the sound card and mixer track"
-msgstr "Nastavenie zvukové karty a ovládanie hlasitostí vybraných stôp"
+msgstr "Nastavuje zvukovú kartu a stopy mixéra"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:165
 #: ../xfce4-mixer/xfce-mixer-window.c:185
-#, fuzzy
 msgid "Sound _card:"
-msgstr "Zvuková karta"
+msgstr "Zvukové _karty:"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:174
-#, fuzzy
 msgid "Mixer _track:"
-msgstr "Zmiešavač stôp"
+msgstr "Stopy _mixéra:"
 
 #: ../panel-plugin/xfce-volume-button.c:854
 msgid "No valid device and/or element."
-msgstr ""
+msgstr "Žiadne platné zariadenie a/alebo prvok."
 
 #: ../panel-plugin/xfce-volume-button.c:859
 #, c-format
 msgid "%s: muted"
-msgstr ""
+msgstr "%s: stíšené"
 
 #: ../panel-plugin/xfce-volume-button.c:861
 #, c-format
@@ -92,14 +85,13 @@ msgstr "%s: %i%%"
 #: ../xfce4-mixer/xfce-mixer-window.c:413
 #: ../xfce4-mixer/xfce-mixer-window.c:427
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.h:1
-#, fuzzy
 msgid "Audio Mixer"
 msgstr "Zmiešavač"
 
 #: ../panel-plugin/mixer.desktop.in.h:2
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.h:2
 msgid "Adjust volume levels"
-msgstr ""
+msgstr "Prispôsobiť hlasitosti"
 
 #: ../libxfce4mixer/libxfce4mixer.c:422
 #, c-format
@@ -108,36 +100,32 @@ msgstr "Neznámy ovládací prvok %d"
 
 #: ../xfce4-mixer/main.c:86
 msgid "Enable debugging output"
-msgstr ""
+msgstr "Zapnúť ladiaci výstup"
 
 #: ../xfce4-mixer/main.c:87
 msgid "Show version and exit"
-msgstr ""
+msgstr "Zobraziť verziu s skončiť"
 
 #: ../xfce4-mixer/main.c:130
-#, fuzzy, c-format
+#, c-format
 msgid "xfce4-mixer: Failed to initialize xfconf: %s\n"
-msgstr "Zlyhala inicializácia xfconf: %s"
+msgstr "xfce4-mixer: Zlyhala inicializácia xfconf: %s\n"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
-#, fuzzy
 msgid "_Playback"
-msgstr "Prehrávanie"
+msgstr "_Prehrávanie"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
-#, fuzzy
 msgid "C_apture"
-msgstr "Záznam"
+msgstr "Zázn_am"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
-#, fuzzy
 msgid "S_witches"
-msgstr "Prepínače"
+msgstr "P_repínače"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
-#, fuzzy
 msgid "_Options"
-msgstr "Voľby"
+msgstr "V_oľby"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:390
 msgid "No controls visible"
@@ -145,17 +133,17 @@ msgstr "Žiadne ovládacie prvky nie sú viditeľné"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:401
 msgid "<span weight=\"bold\" size=\"larger\">No controls visible</span>"
-msgstr ""
+msgstr "<span weight=\"bold\" size=\"larger\">Žiadne viditeľné prvky</span>"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:409
 msgid ""
 "In order to toggle the visibility of mixer controls, open the <b>\"Select "
 "Controls\"</b> dialog."
-msgstr ""
+msgstr "Na prepnutie viditeľnosti ovládacích prvkov zmiešavača, otvorte dialóg <b>\"Výber prvkov\"</b>."
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:118
 msgid "Select Controls"
-msgstr "Vybrať ovládacie prvky\t"
+msgstr "Výber prvkov"
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:120
 msgid "Select which controls should be visible"
@@ -164,23 +152,23 @@ msgstr "Vyberte prvky, ktoré majú byť zobrazené"
 #: ../xfce4-mixer/xfce-mixer-track.c:257
 #, c-format
 msgid "Volume of channel %d on %s"
-msgstr ""
+msgstr "Hlasitosť kanála %d na %s"
 
 #. Lock button
 #: ../xfce4-mixer/xfce-mixer-track.c:293
 #, c-format
 msgid "Lock channels for %s together"
-msgstr ""
+msgstr "Zamknúť kanály %s spolu"
 
 #: ../xfce4-mixer/xfce-mixer-track.c:340
 #, c-format
 msgid "Mute/unmute %s"
-msgstr ""
+msgstr "Stíšiť/obnoviť %s"
 
 #: ../xfce4-mixer/xfce-mixer-track.c:360
 #, c-format
 msgid "Enable/disable audible input from %s in output"
-msgstr ""
+msgstr "Vo výstupe zapne/vypne zvukový vstup z %s"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:91
 msgid "_Quit"
@@ -192,7 +180,7 @@ msgstr "Ukončiť zmiešavač"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:93
 msgid "_Select Controls..."
-msgstr "_Vybrať ovládacie prvky\t"
+msgstr "_Výber ovládacích prvkov..."
 
 #: ../xfce4-mixer/xfce-mixer-window.c:93
 msgid "Select which controls are displayed"
@@ -201,57 +189,3 @@ msgstr "Vyberte prvky, ktoré majú byť zobrazené"
 #: ../xfce4-mixer/xfce-mixer-window.c:154
 msgid "Configure sound card(s) and control the volume of selected tracks"
 msgstr "Nastavenie zvukové karty a ovládanie hlasitostí vybraných stôp"
-
-#~ msgid ""
-#~ "No left-click command defined yet. You can change this in the plugin "
-#~ "properties."
-#~ msgstr ""
-#~ "Nebol definovaný príkaz pre kliknutie ľavým tlačidlom myši. Nastavíte ho "
-#~ "vo vlastnostiach tohto zásuvného modulu."
-
-#~ msgid "Properties"
-#~ msgstr "Vlastnosti"
-
-#~ msgid "Configure the mixer track and left-click command"
-#~ msgstr "Konfigurovať stopu zmiešavača a príkazu ľavého tlačidla myši"
-
-#~ msgid "Sound card"
-#~ msgstr "Zvuková karta"
-
-#~ msgid "Left-click command"
-#~ msgstr "Príkazy pri kliknutí ľavým tlačidlom myši"
-
-#~ msgid "Select command"
-#~ msgstr "Vybrať príkaz"
-
-#~ msgid "All Files"
-#~ msgstr "Všetky súbory"
-
-#~ msgid "Executable Files"
-#~ msgstr "Spustitelné súbory"
-
-#~ msgid "Perl Scripts"
-#~ msgstr "Skripty jazyka Perl"
-
-#~ msgid "Python Scripts"
-#~ msgstr "Skripty jazyka Python"
-
-#~ msgid "Ruby Scripts"
-#~ msgstr "Skripty jazyka Ruby"
-
-#~ msgid "Shell Scripts"
-#~ msgstr "Shellové skripty"
-
-#~ msgid "Volume control for your sound card"
-#~ msgstr "Ovládanie hlasitosti vašej zvukovej karty"
-
-#~ msgid ""
-#~ "No controls are marked as visible. Please open the <span "
-#~ "size='large'><b>Select Controls</b></span> dialog to select some."
-#~ msgstr ""
-#~ "Žiadne ovládacie prvky nie sú označené ako viditeľné. Pre výber týchto "
-#~ "prvkov otvorte dialógové okno <span size='large'><b>Vybrať ovládacie "
-#~ "prvky</b></span>."
-
-#~ msgid "Audio mixer for the Xfce Desktop Environment"
-#~ msgstr "Zmiešavač zvuku pre pracovné prostredie Xfce"
