@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-29 13:30+0000\n"
-"PO-Revision-Date: 2015-03-16 18:24+0000\n"
+"PO-Revision-Date: 2015-04-23 10:28+0000\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian (http://www.transifex.com/projects/p/xfce-apps/language/lt/)\n"
 "MIME-Version: 1.0\n"
@@ -36,7 +36,7 @@ msgstr "GStreamer neaptiko jokių garso plokščių. Gali būti jog trūksta ka�
 
 #: ../panel-plugin/xfce-mixer-plugin.c:931
 msgid "No command defined"
-msgstr ""
+msgstr "Nėra apibrėžtos komandos"
 
 #. Generate error message and insert the current command
 #: ../panel-plugin/xfce-mixer-plugin.c:939
