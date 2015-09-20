@@ -1,91 +1,77 @@
-# Galician translation of xfce4-mixer
-# Copyright (C) 2008-2009 Leandro Regueiro
-# This file is distributed under the same license as the xfce package.
-#
-# Leandro Regueiro <leandro.regueiro@gmail.com>, 2008, 2009.
-#
-# Proxecto Trasno - Adaptación do software libre á lingua galega:  Se desexas
-# colaborar connosco, podes atopar máis información en <http://trasno.net>
-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Leandro Regueiro <leandro.regueiro@gmail.com>, 2008-2009
+# Xosé <xosecalvo@gmail.com>, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-mixer 4.4.2\n"
+"Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-29 13:30+0000\n"
-"PO-Revision-Date: 2010-11-02 18:12+0100\n"
-"Last-Translator: Leandro Regueiro <leandro.regueiro@gmail.com>\n"
-"Language-Team: Galician <proxecto@trasno.net>\n"
-"Language: gl\n"
+"PO-Revision-Date: 2015-09-20 19:37+0000\n"
+"Last-Translator: Xosé <xosecalvo@gmail.com>\n"
+"Language-Team: Galician (http://www.transifex.com/xfce/xfce-apps/language/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"Language: gl\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. Add menu item for muting
 #: ../panel-plugin/xfce-mixer-plugin.c:306
 msgid "Mu_te"
-msgstr ""
+msgstr "_Silencio"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:314
 msgid "Run Audio Mi_xer"
-msgstr ""
+msgstr "Executar o mesturador de son"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:581 ../xfce4-mixer/main.c:148
 msgid ""
-"GStreamer was unable to detect any sound devices. Some sound system specific "
-"GStreamer packages may be missing. It may also be a permissions problem."
-msgstr ""
-"GStreamer non foi capaz de detectar ningún dispositivo de son. Pode que "
-"falten algúns paquetes de GStreamer específicos para o sistema de son. Tamén "
-"podería ser un problema de permisos."
+"GStreamer was unable to detect any sound devices. Some sound system specific"
+" GStreamer packages may be missing. It may also be a permissions problem."
+msgstr "GStreamer non foi capaz de detectar ningún dispositivo de son. Pode que falten algúns paquetes de GStreamer específicos para o sistema de son. Tamén podería ser un problema de permisos."
 
 #: ../panel-plugin/xfce-mixer-plugin.c:931
-#, fuzzy
 msgid "No command defined"
-msgstr "Non se definiu ningunha orde para o clic do botón esquerdo"
+msgstr "Non hai ningunha orde definida"
 
 #. Generate error message and insert the current command
 #: ../panel-plugin/xfce-mixer-plugin.c:939
 #, c-format
 msgid ""
-"Could not execute the command \"%s\". Ensure that either the location of the "
-"command is included in the PATH environment variable or that you are "
+"Could not execute the command \"%s\". Ensure that either the location of the"
+" command is included in the PATH environment variable or that you are "
 "providing the full path to the command."
-msgstr ""
-"Non foi posible executar a orde \"%s\". Asegúrese de que a localización da "
-"orde está incluída na variable de contorno PATH ou de que está "
-"proporcionando a ruta completa á orde."
+msgstr "Non foi posíbel executar a orde «%s». Asegúrese de que a localización da orde está incluída na variable de contorno PATH ou de que está proporcionando a ruta completa á orde."
 
 #: ../panel-plugin/xfce-plugin-dialog.c:150
-#, fuzzy
 msgid "Audio Mixer Plugin"
-msgstr "Engadido de mesturador"
+msgstr "Engadido de mesturador de son"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:152
-#, fuzzy
 msgid "Configure the sound card and mixer track"
-msgstr ""
-"Configura as tarxetas de son e controla o volume das pistas seleccionadas"
+msgstr "Configurar a placa de son e a pista de mesturador"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:165
 #: ../xfce4-mixer/xfce-mixer-window.c:185
-#, fuzzy
 msgid "Sound _card:"
-msgstr "Tarxeta de son:"
+msgstr "_Placa de son:"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:174
-#, fuzzy
 msgid "Mixer _track:"
-msgstr "Mesturador de pistas"
+msgstr "_Pista de mesturador:"
 
 #: ../panel-plugin/xfce-volume-button.c:854
 msgid "No valid device and/or element."
-msgstr ""
+msgstr "Non hai ningún dispositivo e/ou elemento correctos."
 
 #: ../panel-plugin/xfce-volume-button.c:859
 #, c-format
 msgid "%s: muted"
-msgstr ""
+msgstr "%s: en silencio"
 
 #: ../panel-plugin/xfce-volume-button.c:861
 #, c-format
@@ -98,14 +84,13 @@ msgstr "%s: %i%%"
 #: ../xfce4-mixer/xfce-mixer-window.c:413
 #: ../xfce4-mixer/xfce-mixer-window.c:427
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.h:1
-#, fuzzy
 msgid "Audio Mixer"
-msgstr "Mesturador"
+msgstr "Mesturador de son"
 
 #: ../panel-plugin/mixer.desktop.in.h:2
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.h:2
 msgid "Adjust volume levels"
-msgstr ""
+msgstr "Axustar os niveis de volume"
 
 #: ../libxfce4mixer/libxfce4mixer.c:422
 #, c-format
@@ -114,36 +99,32 @@ msgstr "Control de volume descoñecido %d"
 
 #: ../xfce4-mixer/main.c:86
 msgid "Enable debugging output"
-msgstr ""
+msgstr "Activar a saída de depuración"
 
 #: ../xfce4-mixer/main.c:87
 msgid "Show version and exit"
-msgstr ""
+msgstr "Mostrar a versión e saír"
 
 #: ../xfce4-mixer/main.c:130
-#, fuzzy, c-format
+#, c-format
 msgid "xfce4-mixer: Failed to initialize xfconf: %s\n"
-msgstr "Fallo ó iniciar xfconf: %s"
+msgstr "xfce4-mixer: Produciuse un erro ao inicializar xfconf: %s\n"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
-#, fuzzy
 msgid "_Playback"
-msgstr "Reprodución"
+msgstr "Re_produción"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
-#, fuzzy
 msgid "C_apture"
-msgstr "Captura"
+msgstr "C_aptura"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
-#, fuzzy
 msgid "S_witches"
-msgstr "Mandos"
+msgstr ""
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
-#, fuzzy
 msgid "_Options"
-msgstr "Opcións"
+msgstr "_Opcións"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:390
 msgid "No controls visible"
@@ -151,13 +132,13 @@ msgstr "Non mostra ningún control"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:401
 msgid "<span weight=\"bold\" size=\"larger\">No controls visible</span>"
-msgstr ""
+msgstr "<span weight=\"bold\" size=\"larger\">Non mostra ningún control</span>"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:409
 msgid ""
 "In order to toggle the visibility of mixer controls, open the <b>\"Select "
 "Controls\"</b> dialog."
-msgstr ""
+msgstr "Para alternar a visibilidade dos controles do mesturador abra o diálogo <b>«Seleccionar controis»</b>."
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:118
 msgid "Select Controls"
@@ -170,7 +151,7 @@ msgstr "Seleccione que controis se mostran"
 #: ../xfce4-mixer/xfce-mixer-track.c:257
 #, c-format
 msgid "Volume of channel %d on %s"
-msgstr ""
+msgstr "Volume da canle %d en %s"
 
 #. Lock button
 #: ../xfce4-mixer/xfce-mixer-track.c:293
@@ -186,7 +167,7 @@ msgstr ""
 #: ../xfce4-mixer/xfce-mixer-track.c:360
 #, c-format
 msgid "Enable/disable audible input from %s in output"
-msgstr ""
+msgstr "Activar/Desactivar a entrada audíbel de %s na saída"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:91
 msgid "_Quit"
@@ -206,71 +187,4 @@ msgstr "Seleccione que controis se mostran"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:154
 msgid "Configure sound card(s) and control the volume of selected tracks"
-msgstr ""
-"Configura as tarxetas de son e controla o volume das pistas seleccionadas"
-
-#~ msgid ""
-#~ "No left-click command defined yet. You can change this in the plugin "
-#~ "properties."
-#~ msgstr ""
-#~ "Aínda non se definiu ningunha orde para o clic do botón esquerdo. Pode "
-#~ "cambiar isto nas propiedades do engadido."
-
-#~ msgid "Properties"
-#~ msgstr "Propiedades"
-
-#~ msgid "Configure the mixer track and left-click command"
-#~ msgstr "Configurar a pista do mesturador e a orde do clic co botón esquerdo"
-
-#~ msgid "Sound card"
-#~ msgstr "Tarxeta de son"
-
-#~ msgid "Left-click command"
-#~ msgstr "Orde do clic do botón esquerdo"
-
-#~ msgid "Select command"
-#~ msgstr "Seleccione unha orde"
-
-#~ msgid "All Files"
-#~ msgstr "Tódolos ficheiros"
-
-#~ msgid "Executable Files"
-#~ msgstr "Ficheiros executables"
-
-#~ msgid "Perl Scripts"
-#~ msgstr "Scripts en Perl"
-
-#~ msgid "Python Scripts"
-#~ msgstr "Scripts en Python"
-
-#~ msgid "Ruby Scripts"
-#~ msgstr "Scripts en Ruby"
-
-#~ msgid "Shell Scripts"
-#~ msgstr "Scripts de Shell"
-
-#~ msgid "Volume control for your sound card"
-#~ msgstr "Control de volume para a tarxeta de son"
-
-#~ msgid ""
-#~ "No controls are marked as visible. Please open the <span "
-#~ "size='large'><b>Select Controls</b></span> dialog to select some."
-#~ msgstr ""
-#~ "Non hai ningún control marcado coma visible. Abra o diálogo <span "
-#~ "size='large'><b>Seleccionar controis</b></span> para seleccionar algúns."
-
-#~ msgid "Audio mixer for the Xfce Desktop Environment"
-#~ msgstr "Mesturador de audio do ambiente de escritorio Xfce"
-
-#~ msgid ""
-#~ "Could not execute the command %s. Perhaps you need to adjust the PATH "
-#~ "variable."
-#~ msgstr ""
-#~ "Non se puido executar o comando %s. Quizais teña que axustar a variable "
-#~ "PATH."
-
-#~ msgid "Please select which controls you want to be visible"
-#~ msgstr "Seleccione que controis desexa que estean visibles"
-
-#~ msgid "Could not find xfce4-mixer in PATH."
-#~ msgstr "Non se puido atopar xfce4-mixer no PATH."
+msgstr "Configurar as placas de son e controlar o volume das pistas seleccionadas"
