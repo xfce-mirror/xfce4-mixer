@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-29 13:30+0000\n"
-"PO-Revision-Date: 2016-03-01 13:49+0000\n"
+"PO-Revision-Date: 2016-03-06 19:42+0000\n"
 "Last-Translator: Elishai Eliyahu <e1907@mm.st>\n"
 "Language-Team: Hebrew (http://www.transifex.com/xfce/xfce-apps/language/he/)\n"
 "MIME-Version: 1.0\n"
@@ -33,7 +33,7 @@ msgstr "הרץ מ_ערבל שמע"
 msgid ""
 "GStreamer was unable to detect any sound devices. Some sound system specific"
 " GStreamer packages may be missing. It may also be a permissions problem."
-msgstr "GStreamer לא היה מסוגל לאתר שום התקני שמע. אולי מערכות צליל מסוימות האופייניות לחבילות GStreamer חסרות. יכול להיות כי זו גם בעיה של הרשאות."
+msgstr "GStreamer לא היה מסוגל לגלות שום התקני שמע. אולי מערכות צליל מסוימות האופייניות לחבילות GStreamer חסרות. יכול להיות כי זו גם בעיה של הרשאות."
 
 #: ../panel-plugin/xfce-mixer-plugin.c:931
 msgid "No command defined"
@@ -168,7 +168,7 @@ msgstr "השתק/בטל השתק %s"
 #: ../xfce4-mixer/xfce-mixer-track.c:360
 #, c-format
 msgid "Enable/disable audible input from %s in output"
-msgstr "אפשר/נטרל פלט שמיע מתוך %s בפלט"
+msgstr "אפשר/נטרל קלט שמיע מ %s בפלט"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:91
 msgid "_Quit"
@@ -176,7 +176,7 @@ msgstr "י_ציאה"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:91
 msgid "Exit the mixer"
-msgstr "צא מהמערבל"
+msgstr "צא מהמיקסר"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:93
 msgid "_Select Controls..."
@@ -184,7 +184,7 @@ msgstr "_בחר פקדים..."
 
 #: ../xfce4-mixer/xfce-mixer-window.c:93
 msgid "Select which controls are displayed"
-msgstr "בחר אילו פקדים נראים"
+msgstr "בחר אילו בקרים מוצגים"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:154
 msgid "Configure sound card(s) and control the volume of selected tracks"
