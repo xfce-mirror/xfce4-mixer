@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-29 13:30+0000\n"
-"PO-Revision-Date: 2016-05-01 08:12+0000\n"
+"PO-Revision-Date: 2016-05-01 15:47+0000\n"
 "Last-Translator: Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/xfce/xfce-apps/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -66,7 +66,7 @@ msgstr "Pista del mesclador:"
 
 #: ../panel-plugin/xfce-volume-button.c:854
 msgid "No valid device and/or element."
-msgstr "El dispositiu i/o element no és vàlid,"
+msgstr "El dispositiu i/o l'element no són vàlids."
 
 #: ../panel-plugin/xfce-volume-button.c:859
 #, c-format
@@ -120,7 +120,7 @@ msgstr "_Captura"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
 msgid "S_witches"
-msgstr "Com_muntadors "
+msgstr "Com_mutadors "
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
 msgid "_Options"
@@ -132,13 +132,13 @@ msgstr "Cap control visible"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:401
 msgid "<span weight=\"bold\" size=\"larger\">No controls visible</span>"
-msgstr "<span weight=\"bold\" size=\"larger\">Sense contros visibles</span>"
+msgstr "<span weight=\"bold\" size=\"larger\">Sense controls visibles</span>"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:409
 msgid ""
 "In order to toggle the visibility of mixer controls, open the <b>\"Select "
 "Controls\"</b> dialog."
-msgstr "Per canviar la visibilitat dels controls del mescador, obriu el diàleg <b>«Selecció de controls»</b"
+msgstr "Per canviar la visibilitat dels controls del mesclador, obriu el diàleg <b>«Selecció dels controls»</b>."
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:118
 msgid "Select Controls"
