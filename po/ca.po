@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-29 13:30+0000\n"
-"PO-Revision-Date: 2016-04-30 10:08+0000\n"
+"PO-Revision-Date: 2016-04-30 22:37+0000\n"
 "Last-Translator: Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/xfce/xfce-apps/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -167,7 +167,7 @@ msgstr "Silencia/dóna veu a %s"
 #: ../xfce4-mixer/xfce-mixer-track.c:360
 #, c-format
 msgid "Enable/disable audible input from %s in output"
-msgstr "Habilita/deshabilita la entrada d'àudio de %s a la sortida"
+msgstr "Habilita/inhabilita l'entrada d'àudio de %s a la sortida"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:91
 msgid "_Quit"
