@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-29 13:30+0000\n"
-"PO-Revision-Date: 2016-05-01 20:15+0000\n"
+"PO-Revision-Date: 2016-05-02 20:53+0000\n"
 "Last-Translator: Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/xfce/xfce-apps/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -32,7 +32,7 @@ msgstr "Executa el mesclador d'_àudio"
 msgid ""
 "GStreamer was unable to detect any sound devices. Some sound system specific"
 " GStreamer packages may be missing. It may also be a permissions problem."
-msgstr "«GStreamer» no ha pogut detectar cap targeta de so. Pot ser que falti algun paquet específic del sistema de so de «GStreamer». També pot ser un problema de permisos."
+msgstr "GStreamer no ha pogut detectar cap targeta de so. Pot ser que falti algun paquet específic del sistema de so de GStreamer. També pot ser un problema de permisos."
 
 #: ../panel-plugin/xfce-mixer-plugin.c:931
 msgid "No command defined"
@@ -45,7 +45,7 @@ msgid ""
 "Could not execute the command \"%s\". Ensure that either the location of the"
 " command is included in the PATH environment variable or that you are "
 "providing the full path to the command."
-msgstr "No es pot executar l'ordre «%s». Comproveu que la ubicació de l'ordre estigui inclosa en la variable d'entorn «PATH» o que hàgiu posat tot el camí a l'ordre."
+msgstr "No es pot executar l'ordre «%s». Comproveu que la ubicació de l'ordre estigui inclosa en la variable d'entorn PATH o que hàgiu posat tot el camí a l'ordre."
 
 #: ../panel-plugin/xfce-plugin-dialog.c:150
 msgid "Audio Mixer Plugin"
@@ -53,12 +53,12 @@ msgstr "Connector del mesclador d'àudio "
 
 #: ../panel-plugin/xfce-plugin-dialog.c:152
 msgid "Configure the sound card and mixer track"
-msgstr "Configura la vostra tarja de so i el mesclador"
+msgstr "Configura la vostra targeta de so i el mesclador"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:165
 #: ../xfce4-mixer/xfce-mixer-window.c:185
 msgid "Sound _card:"
-msgstr "Tar_ja de so:"
+msgstr "Tar_geta de so:"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:174
 msgid "Mixer _track:"
@@ -187,4 +187,4 @@ msgstr "Seleccioneu quins controls es mostren"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:154
 msgid "Configure sound card(s) and control the volume of selected tracks"
-msgstr "Configureu la vostra targeta(es) de so i controleu el volum de les sortides seleccionades"
+msgstr "Configureu les vostres targetes de so i controleu el volum de les pistes seleccionades"
