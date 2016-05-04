@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-29 13:30+0000\n"
-"PO-Revision-Date: 2016-05-02 20:53+0000\n"
+"PO-Revision-Date: 2016-05-04 13:35+0000\n"
 "Last-Translator: Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/xfce/xfce-apps/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -53,7 +53,7 @@ msgstr "Connector del mesclador d'àudio "
 
 #: ../panel-plugin/xfce-plugin-dialog.c:152
 msgid "Configure the sound card and mixer track"
-msgstr "Configura la vostra targeta de so i el mesclador"
+msgstr "Configureu la vostra targeta de so i la pista del mesclador"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:165
 #: ../xfce4-mixer/xfce-mixer-window.c:185
@@ -142,7 +142,7 @@ msgstr "Per canviar la visibilitat dels controls del mesclador, obriu el diàleg
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:118
 msgid "Select Controls"
-msgstr "Selecció de controls"
+msgstr "Selecció dels controls"
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:120
 msgid "Select which controls should be visible"
