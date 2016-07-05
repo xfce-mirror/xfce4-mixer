@@ -119,7 +119,9 @@ xfce_mixer_controls_dialog_init (XfceMixerControlsDialog *dialog)
 
   xfce_titled_dialog_set_subtitle (XFCE_TITLED_DIALOG (dialog), _("Select which controls should be visible"));
 
-  button = gtk_button_new_from_stock (GTK_STOCK_CLOSE);
+  button = gtk_button_new_with_mnemonic (_("_Close"));
+  gtk_button_set_image (GTK_BUTTON (button),
+                        gtk_image_new_from_icon_name ("window-close", GTK_ICON_SIZE_BUTTON));
   gtk_dialog_add_action_widget (GTK_DIALOG (dialog), button, GTK_RESPONSE_CLOSE);
   gtk_widget_show (button);
 }
@@ -191,14 +193,15 @@ xfce_mixer_controls_dialog_create_contents (XfceMixerControlsDialog *dialog)
   dialog->store = gtk_list_store_new (2, G_TYPE_BOOLEAN, G_TYPE_STRING);
 
   dialog->frame = gtk_frame_new (NULL);
-  gtk_container_set_border_width (GTK_CONTAINER (dialog->frame), 6);
+  g_object_set (G_OBJECT (dialog->frame), "margin-top", 6, "margin-bottom", 6, NULL);
   gtk_frame_set_shadow_type (GTK_FRAME (dialog->frame), GTK_SHADOW_NONE);
-  gtk_container_add (GTK_CONTAINER (GTK_DIALOG (dialog)->vbox), dialog->frame);
+  gtk_container_add (GTK_CONTAINER (gtk_dialog_get_content_area (GTK_DIALOG (dialog))), dialog->frame);
   gtk_widget_show (dialog->frame);
 
   scrollwin = gtk_scrolled_window_new (NULL, NULL);
   gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrollwin), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
   gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (scrollwin), GTK_SHADOW_IN);
+  g_object_set (G_OBJECT (scrollwin), "halign", GTK_ALIGN_FILL, "hexpand", TRUE, "valign", GTK_ALIGN_FILL, "vexpand", TRUE, NULL);
   gtk_container_add (GTK_CONTAINER (dialog->frame), scrollwin);
   gtk_widget_show (scrollwin);
 

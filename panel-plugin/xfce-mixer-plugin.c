@@ -276,7 +276,7 @@ xfce_mixer_plugin_init (XfceMixerPlugin *mixer_plugin)
     xfce_mixer_dump_gst_data ();
 
   /* Create container for the plugin */
-  mixer_plugin->hvbox = GTK_WIDGET (xfce_hvbox_new (GTK_ORIENTATION_HORIZONTAL, FALSE, 0));
+  mixer_plugin->hvbox = GTK_WIDGET (gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0));
   xfce_panel_plugin_add_action_widget (XFCE_PANEL_PLUGIN (mixer_plugin), mixer_plugin->hvbox);
   gtk_container_add (GTK_CONTAINER (mixer_plugin), mixer_plugin->hvbox);
   gtk_widget_show (mixer_plugin->hvbox);
@@ -300,7 +300,6 @@ xfce_mixer_plugin_construct (XfcePanelPlugin *plugin)
 {
   XfceMixerPlugin *mixer_plugin = XFCE_MIXER_PLUGIN (plugin);
   GtkWidget       *command_menu_item;
-  GtkWidget       *command_image;
 
   xfce_panel_plugin_menu_show_configure (plugin);
 
@@ -311,10 +310,7 @@ xfce_mixer_plugin_construct (XfcePanelPlugin *plugin)
   gtk_widget_show (mixer_plugin->mute_menu_item);
 
   /* Add menu item for running the user-defined command */
-  command_image = gtk_image_new_from_icon_name ("multimedia-volume-control", GTK_ICON_SIZE_MENU);
-  gtk_widget_show (command_image);
-  command_menu_item = gtk_image_menu_item_new_with_mnemonic (_("Run Audio Mi_xer"));
-  gtk_image_menu_item_set_image (GTK_IMAGE_MENU_ITEM (command_menu_item), command_image);
+  command_menu_item = gtk_menu_item_new_with_mnemonic (_("Run Audio Mi_xer"));
   xfce_panel_plugin_menu_insert_item (plugin, GTK_MENU_ITEM (command_menu_item));
   g_signal_connect_swapped (G_OBJECT (command_menu_item), "activate", G_CALLBACK (xfce_mixer_plugin_command_item_activated), mixer_plugin);
   gtk_widget_show (command_menu_item);
@@ -608,6 +604,9 @@ xfce_mixer_plugin_size_changed (XfcePanelPlugin *plugin,
                                 gint             size)
 {
   XfceMixerPlugin *mixer_plugin = XFCE_MIXER_PLUGIN (plugin);
+  GtkBorder        button_padding;
+  gint             xthickness;
+  gint             ythickness;
   gint             icon_size;
 
   g_return_val_if_fail (mixer_plugin != NULL, FALSE);
@@ -616,7 +615,11 @@ xfce_mixer_plugin_size_changed (XfcePanelPlugin *plugin,
   size /= xfce_panel_plugin_get_nrows (XFCE_PANEL_PLUGIN (mixer_plugin));
 
   /* Determine size for the volume button icons */
-  icon_size = size - 2 - 2 * MAX (mixer_plugin->button->style->xthickness, mixer_plugin->button->style->ythickness);
+  gtk_style_context_get_padding (gtk_widget_get_style_context (GTK_WIDGET (mixer_plugin->button)), GTK_STATE_FLAG_NORMAL,
+                                 &button_padding);
+  xthickness = button_padding.left + button_padding.right;
+  ythickness = button_padding.top + button_padding.bottom;
+  icon_size = size - 2 - MAX (xthickness, ythickness);
 
   /* Set volume button icon size and update the volume button */
   xfce_volume_button_set_icon_size (XFCE_VOLUME_BUTTON (mixer_plugin->button), icon_size);

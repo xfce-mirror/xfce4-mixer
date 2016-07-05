@@ -150,7 +150,6 @@ xfce_mixer_window_init (XfceMixerWindow *window)
   gtk_window_set_title (GTK_WINDOW (window), _("Audio Mixer"));
   gtk_window_set_default_size (GTK_WINDOW (window), width, height);
   gtk_window_set_position (GTK_WINDOW (window), GTK_WIN_POS_CENTER);
-  gtk_dialog_set_has_separator (GTK_DIALOG (window), FALSE);
   xfce_titled_dialog_set_subtitle (XFCE_TITLED_DIALOG (window), _("Configure sound card(s) and control the volume of selected tracks"));
 
   g_signal_connect (window, "delete-event", G_CALLBACK (xfce_mixer_window_closed), window);
@@ -177,7 +176,7 @@ xfce_mixer_window_init (XfceMixerWindow *window)
   vbox = gtk_dialog_get_content_area (GTK_DIALOG (window));
   gtk_widget_show (vbox);
 
-  hbox = gtk_hbox_new (FALSE, 12);
+  hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 12);
   gtk_container_set_border_width (GTK_CONTAINER (hbox), 6);
   gtk_box_pack_start (GTK_BOX (vbox), hbox, FALSE, TRUE, 0);
   gtk_widget_show (hbox);
@@ -188,14 +187,14 @@ xfce_mixer_window_init (XfceMixerWindow *window)
 
   window->soundcard_combo = xfce_mixer_card_combo_new (card);
   g_signal_connect (G_OBJECT (window->soundcard_combo), "soundcard-changed", G_CALLBACK (xfce_mixer_window_soundcard_changed), window);
-  gtk_container_add (GTK_CONTAINER (hbox), window->soundcard_combo);
+  gtk_box_pack_start (GTK_BOX (hbox), window->soundcard_combo, TRUE, TRUE, 0);
   gtk_label_set_mnemonic_widget (GTK_LABEL (label), window->soundcard_combo);
   gtk_widget_show (window->soundcard_combo);
 
   window->mixer_frame = gtk_frame_new (NULL);
   gtk_frame_set_shadow_type (GTK_FRAME (window->mixer_frame), GTK_SHADOW_NONE);
   gtk_container_set_border_width (GTK_CONTAINER (window->mixer_frame), 6);
-  gtk_container_add (GTK_CONTAINER (vbox), window->mixer_frame);
+  gtk_box_pack_start (GTK_BOX (vbox), window->mixer_frame, TRUE, TRUE, 0);
   gtk_widget_show (window->mixer_frame);
 
   window->mixer_container = xfce_mixer_container_new (NULL);

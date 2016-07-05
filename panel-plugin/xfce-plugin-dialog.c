@@ -142,7 +142,7 @@ xfce_plugin_dialog_new (XfcePanelPlugin *plugin)
 static void
 xfce_plugin_dialog_create_contents (XfcePluginDialog *dialog)
 {
-  GtkWidget     *table;
+  GtkWidget     *grid;
   GtkWidget     *button;
   GtkWidget     *label;
 
@@ -151,33 +151,35 @@ xfce_plugin_dialog_create_contents (XfcePluginDialog *dialog)
 
   xfce_titled_dialog_set_subtitle (XFCE_TITLED_DIALOG (dialog), _("Configure the sound card and mixer track"));
   
-  button = gtk_button_new_from_stock (GTK_STOCK_CLOSE);
+  button = gtk_button_new_with_mnemonic (_("_Close"));
+  gtk_button_set_image (GTK_BUTTON (button),
+                        gtk_image_new_from_icon_name ("window-close", GTK_ICON_SIZE_BUTTON));
   gtk_dialog_add_action_widget (GTK_DIALOG (dialog), button, GTK_RESPONSE_CLOSE);
   gtk_widget_show (button);
 
-  table = gtk_table_new (2, 2, FALSE);
-  gtk_table_set_row_spacings (GTK_TABLE (table), 12);
-  gtk_table_set_col_spacings (GTK_TABLE (table), 12);
-  gtk_container_set_border_width (GTK_CONTAINER (table), 6);
-  gtk_container_add (GTK_CONTAINER (GTK_DIALOG (dialog)->vbox), table);
-  gtk_widget_show (table);
+  grid = gtk_grid_new ();
+  g_object_set (G_OBJECT (grid), "row-spacing", 6, "column-spacing", 12, "margin-top", 6, "margin-bottom", 6, NULL);
+  gtk_container_add (GTK_CONTAINER (gtk_dialog_get_content_area (GTK_DIALOG (dialog))), grid);
+  gtk_widget_show (grid);
 
   label = gtk_label_new_with_mnemonic (_("Sound _card:"));
-  gtk_table_attach (GTK_TABLE (table), label, 0, 1, 0, 1, GTK_SHRINK, GTK_SHRINK, 0, 0);
+  gtk_grid_attach (GTK_GRID (grid), label, 0, 0, 1, 1);
   gtk_widget_show (label);
 
   dialog->card_combo = xfce_mixer_card_combo_new (NULL);
   gtk_label_set_mnemonic_widget (GTK_LABEL (label), dialog->card_combo);
-  gtk_table_attach (GTK_TABLE (table), dialog->card_combo, 1, 2, 0, 1, GTK_FILL|GTK_EXPAND, GTK_SHRINK, 0, 0);
+  g_object_set (G_OBJECT (dialog->card_combo), "halign", GTK_ALIGN_FILL, "hexpand", TRUE, NULL);
+  gtk_grid_attach (GTK_GRID (grid), dialog->card_combo, 1, 0, 1, 1);
   gtk_widget_show (dialog->card_combo);
 
   label = gtk_label_new_with_mnemonic (_("Mixer _track:"));
   gtk_label_set_mnemonic_widget (GTK_LABEL (label), dialog->track_combo);
-  gtk_table_attach (GTK_TABLE (table), label, 0, 1, 1, 2, GTK_SHRINK, GTK_SHRINK, 0, 0);
+  gtk_grid_attach (GTK_GRID (grid), label, 0, 1, 1, 1);
   gtk_widget_show (label);
 
   dialog->track_combo = xfce_mixer_track_combo_new (NULL, NULL);
-  gtk_table_attach (GTK_TABLE (table), dialog->track_combo, 1, 2, 1, 2, GTK_FILL|GTK_EXPAND, GTK_SHRINK, 0, 0);
+  g_object_set (G_OBJECT (dialog->track_combo), "halign", GTK_ALIGN_FILL, "hexpand", TRUE, NULL);
+  gtk_grid_attach (GTK_GRID (grid), dialog->track_combo, 1, 1, 1, 1);
   gtk_widget_show (dialog->track_combo);
 
   /* Hack to initialize the widget state */

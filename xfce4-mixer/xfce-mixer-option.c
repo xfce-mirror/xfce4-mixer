@@ -189,15 +189,15 @@ static void
 xfce_mixer_option_changed (GtkComboBox     *combo,
                            XfceMixerOption *option)
 {
-  gchar *active_option;
+  GtkTreeIter  iter;
+  gchar       *active_option;
 
   if (G_UNLIKELY (option->ignore_signals))
     return;
 
-  active_option = gtk_combo_box_get_active_text (combo);
-
-  if (G_LIKELY (active_option != NULL))
+  if (G_LIKELY (gtk_combo_box_get_active_iter (combo, &iter)))
     {
+      gtk_tree_model_get (GTK_TREE_MODEL (option->list_store), &iter, OPTION_COLUMN, &active_option, -1);
       gst_mixer_set_option (GST_MIXER (option->card), GST_MIXER_OPTIONS (option->track), 
                             active_option);
       g_free (active_option);

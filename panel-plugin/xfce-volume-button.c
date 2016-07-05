@@ -152,7 +152,7 @@ struct _XfceVolumeButton
   GtkWidget           *vbox;
 
   /* Adjustment for the volume range and current value */
-  GtkObject           *adjustment;
+  GtkAdjustment       *adjustment;
 
   /* Icon size currently used */
   gint                 icon_size;
@@ -292,7 +292,7 @@ xfce_volume_button_init (XfceVolumeButton *button)
 
   /* Make the button look flat and make it never grab the focus */
   gtk_button_set_relief (GTK_BUTTON (button), GTK_RELIEF_NONE);
-  gtk_button_set_focus_on_click (GTK_BUTTON (button), FALSE);
+  gtk_widget_set_focus_on_click (GTK_WIDGET (button), FALSE);
   gtk_widget_set_can_default (GTK_WIDGET (button), FALSE);
   gtk_widget_set_can_focus (GTK_WIDGET (button), FALSE);
 
@@ -499,13 +499,13 @@ xfce_volume_button_create_dock_contents (XfceVolumeButton *button)
    * not matter here since only one of the boxes it holds will be visibe at any
    * time depending on the panel orientation
    */
-  box = gtk_vbox_new (TRUE, 6);
+  box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
   gtk_container_set_border_width (GTK_CONTAINER (box), 2);
   gtk_container_add (GTK_CONTAINER (frame), box);
   gtk_widget_show (box);
 
   /* Container for the widgets shown in vertical mode */
-  button->hbox = gtk_hbox_new(FALSE, 6);
+  button->hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
   gtk_box_pack_start (GTK_BOX (box), button->hbox, TRUE, TRUE, 0);
 
   /* Show the position of lowest and highest volume through icons */
@@ -513,7 +513,7 @@ xfce_volume_button_create_dock_contents (XfceVolumeButton *button)
   gtk_box_pack_start (GTK_BOX (button->hbox), image, TRUE, TRUE, 0);
   gtk_widget_show (image);
 
-  scale = gtk_hscale_new (GTK_ADJUSTMENT (button->adjustment));
+  scale = gtk_scale_new (GTK_ORIENTATION_HORIZONTAL, GTK_ADJUSTMENT (button->adjustment));
   gtk_scale_set_draw_value (GTK_SCALE (scale), FALSE);
   gtk_box_pack_start (GTK_BOX (button->hbox), scale, TRUE, TRUE, 0);
   gtk_widget_set_size_request (scale, SCALE_SIZE, -1);
@@ -525,10 +525,10 @@ xfce_volume_button_create_dock_contents (XfceVolumeButton *button)
   gtk_widget_show (image);
 
   /* Container for the widgets shown in horizontal mode */
-  button->vbox = gtk_vbox_new(FALSE, 6);
+  button->vbox = gtk_box_new(GTK_ORIENTATION_VERTICAL, 6);
   gtk_box_pack_start (GTK_BOX (box), button->vbox, TRUE, TRUE, 0);
 
-  scale = gtk_vscale_new (GTK_ADJUSTMENT (button->adjustment));
+  scale = gtk_scale_new (GTK_ORIENTATION_VERTICAL, GTK_ADJUSTMENT (button->adjustment));
   gtk_scale_set_draw_value (GTK_SCALE (scale), FALSE);
   gtk_range_set_inverted (GTK_RANGE (scale), TRUE);
   gtk_box_pack_start (GTK_BOX (button->vbox), scale, TRUE, TRUE, 0);
@@ -549,6 +549,72 @@ xfce_volume_button_create_dock_contents (XfceVolumeButton *button)
 
 
 
+static gboolean
+xfce_volume_button_grab_input (XfceVolumeButton *button)
+{
+  GtkWidget        *dock = button->dock;
+  GdkWindow        *window = gtk_widget_get_window (dock);
+  GdkDisplay       *display = gtk_widget_get_display (dock);
+#if GTK_CHECK_VERSION(3, 20, 0)
+  GdkSeat          *seat = gdk_display_get_default_seat (display);
+#else
+  GdkDeviceManager *device_manager = gdk_display_get_device_manager (display);
+  GdkDevice        *pointer = gdk_device_manager_get_client_pointer (device_manager);
+  GdkDevice        *keyboard = gdk_device_get_associated_device (pointer);
+#endif
+
+  gtk_grab_add (dock);
+
+#if GTK_CHECK_VERSION(3, 20, 0)
+  if (gdk_seat_grab (seat, window, GDK_SEAT_CAPABILITY_ALL, TRUE, NULL, NULL, NULL, NULL) != GDK_GRAB_SUCCESS)
+    goto fail_remove_grab;
+#else
+  if (gdk_device_grab (pointer, window, GDK_OWNERSHIP_WINDOW, TRUE, GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK |
+      GDK_POINTER_MOTION_MASK | GDK_SCROLL_MASK, NULL, GDK_CURRENT_TIME) != GDK_GRAB_SUCCESS)
+    goto fail_remove_grab;
+
+  if (gdk_device_grab (keyboard, window, GDK_OWNERSHIP_WINDOW, TRUE, GDK_KEY_PRESS | GDK_KEY_RELEASE, NULL,
+      GDK_CURRENT_TIME) != GDK_GRAB_SUCCESS)
+    {
+      gdk_device_ungrab (pointer, GDK_CURRENT_TIME);
+      goto fail_remove_grab;
+    }
+#endif
+
+  return TRUE;
+
+fail_remove_grab:
+  gtk_grab_remove (dock);
+  return FALSE;
+}
+
+
+
+static void
+xfce_volume_button_ungrab_input (XfceVolumeButton *button)
+{
+  GtkWidget        *dock = button->dock;
+  GdkDisplay       *display = gtk_widget_get_display (dock);
+#if GTK_CHECK_VERSION(3, 20, 0)
+  GdkSeat          *seat = gdk_display_get_default_seat (display);
+#else
+  GdkDeviceManager *device_manager = gdk_display_get_device_manager (display);
+  GdkDevice        *pointer = gdk_device_manager_get_client_pointer (device_manager);
+  GdkDevice        *keyboard = gdk_device_get_associated_device (pointer);
+#endif
+
+#if GTK_CHECK_VERSION(3, 20, 0)
+  gdk_seat_ungrab (seat);
+#else
+  gdk_device_ungrab (pointer, GDK_CURRENT_TIME);
+  gdk_device_ungrab (keyboard, GDK_CURRENT_TIME);
+#endif
+
+  gtk_grab_remove (dock);
+}
+
+
+
 static void
 xfce_volume_button_popup_dock (XfceVolumeButton *button)
 {
@@ -564,7 +630,7 @@ xfce_volume_button_popup_dock (XfceVolumeButton *button)
   gint             x;
   gint             y;
   GtkPositionType  position;
-  GdkDisplay      *display;
+  GtkAllocation    button_allocation;
 
   /* Lazily create dock contents */
   if (button->dock == NULL)
@@ -591,12 +657,13 @@ xfce_volume_button_popup_dock (XfceVolumeButton *button)
     }
 
   /* Get size request of the dock */
-  gtk_widget_size_request (GTK_WIDGET (button->dock), &dock_requisition);
+  gtk_widget_get_preferred_size (GTK_WIDGET (button->dock), NULL, &dock_requisition);
 
   /* Determine the absolute coordinates of the button widget */
   gdk_window_get_origin (gtk_widget_get_window (GTK_WIDGET (button)), &x, &y);
-  x += button_widget->allocation.x;
-  y += button_widget->allocation.y;
+  gtk_widget_get_allocation (button_widget, &button_allocation);
+  x += button_allocation.x;
+  y += button_allocation.y;
 
   /* Determine the geometry of the monitor containing the window containing the button */
   screen = gtk_widget_get_screen (button_widget);
@@ -631,22 +698,22 @@ xfce_volume_button_popup_dock (XfceVolumeButton *button)
   switch (position)
     {
       case GTK_POS_TOP:
-        x += (button_widget->allocation.width / 2) - (dock_requisition.width / 2);
+        x += (button_allocation.width / 2) - (dock_requisition.width / 2);
         y -= dock_requisition.height;
         break;
       case GTK_POS_RIGHT:
-        x += button_widget->allocation.width;
-        y += (button_widget->allocation.height / 2) - (dock_requisition.height / 2);
+        x += button_allocation.width;
+        y += (button_allocation.height / 2) - (dock_requisition.height / 2);
         break;
       case GTK_POS_LEFT:
         x -= dock_requisition.width;
-        y += (button_widget->allocation.height / 2) - (dock_requisition.height / 2);
+        y += (button_allocation.height / 2) - (dock_requisition.height / 2);
         break;
       case GTK_POS_BOTTOM:
       default:
         /* default to GTK_POS_BOTTOM */
-        x += (button_widget->allocation.width / 2) - (dock_requisition.width / 2);
-        y += button_widget->allocation.height;
+        x += (button_allocation.width / 2) - (dock_requisition.width / 2);
+        y += button_allocation.height;
         break;
     }
 
@@ -666,25 +733,12 @@ xfce_volume_button_popup_dock (XfceVolumeButton *button)
   gtk_widget_show (button->dock);
 
   /* Grab keyboard and mouse, focus on the slider */
-  gtk_grab_add (button->dock);
-
-  if (gdk_pointer_grab (gtk_widget_get_window (button->dock), TRUE,
-      GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK | GDK_POINTER_MOTION_MASK | GDK_SCROLL_MASK,
-      NULL, NULL, GDK_CURRENT_TIME) != GDK_GRAB_SUCCESS)
+  if (!xfce_volume_button_grab_input (button))
     {
-      gtk_grab_remove (button->dock);
       gtk_widget_hide (button->dock);
       return;
     }
 
-  if (gdk_keyboard_grab (gtk_widget_get_window (button->dock), TRUE, GDK_CURRENT_TIME) != GDK_GRAB_SUCCESS)
-    {
-      display = gtk_widget_get_display (button->dock);
-      gdk_display_pointer_ungrab (display, GDK_CURRENT_TIME);
-      gtk_grab_remove (button->dock);
-      gtk_widget_hide (button->dock);
-      return;
-    }
   gtk_widget_grab_focus (button->dock);
 
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button), TRUE);
@@ -695,14 +749,9 @@ xfce_volume_button_popup_dock (XfceVolumeButton *button)
 static void
 xfce_volume_button_popdown_dock (XfceVolumeButton *button)
 {
-  GdkDisplay     *display;
-
   if (button->dock != NULL && gtk_widget_get_visible (button->dock))
     {
-      display = gtk_widget_get_display (GTK_WIDGET (button->dock));
-      gdk_display_keyboard_ungrab (display, GDK_CURRENT_TIME);
-      gdk_display_pointer_ungrab (display, GDK_CURRENT_TIME);
-      gtk_grab_remove (button->dock);
+      xfce_volume_button_ungrab_input (button);
 
       gtk_widget_hide (button->dock);
       gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (button), FALSE);
@@ -775,6 +824,9 @@ xfce_volume_button_scroll_event (GtkWidget      *widget,
       case GDK_SCROLL_LEFT:
         /* Decrease one step when scrolling down/left */
         gtk_adjustment_set_value (GTK_ADJUSTMENT (button->adjustment), old_value - increment);
+        break;
+
+      case GDK_SCROLL_SMOOTH:
         break;
     }
 
@@ -923,7 +975,7 @@ xfce_volume_button_dock_key_release (XfceVolumeButton *button,
                                      GtkWidget        *widget)
 {
   /* Pop down on Escape */
-  if (event->keyval == GDK_Escape)
+  if (event->keyval == GDK_KEY_Escape)
     {
       xfce_volume_button_popdown_dock (button);
       return TRUE;
