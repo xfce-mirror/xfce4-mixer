@@ -38,7 +38,7 @@ typedef struct _XfceMixerWindow      XfceMixerWindow;
 
 GType       xfce_mixer_window_get_type        (void) G_GNUC_CONST;
 
-GtkWidget  *xfce_mixer_window_new             (void);
+GtkWidget  *xfce_mixer_window_new             (GApplication    *app);
 GstElement *xfce_mixer_window_get_active_card (XfceMixerWindow *window);
 
 G_END_DECLS

@@ -108,8 +108,6 @@ dnl *** Check for optional packages ***
 dnl ***********************************
 XDT_CHECK_OPTIONAL_PACKAGE([KEYBINDER], [keybinder-3.0], [0.3], [keybinder],
                            [keybinder Support])
-XDT_CHECK_OPTIONAL_PACKAGE([UNIQUE], [unique-3.0], [3.0], [unique],
-                           [unique Support])
 
 dnl ***********************************
 dnl *** Check for debugging support ***
@@ -152,7 +150,6 @@ dnl ***************************
 echo
 echo "Build Configuration:"
 echo
-echo " * unique Support:                       ${UNIQUE_FOUND:-no}"
 echo " * keybinder Support:                    ${KEYBINDER_FOUND:-no}"
 echo " * Debug Support:                        $enable_debug"
 echo
