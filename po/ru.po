@@ -1,24 +1,26 @@
-# Russian translations for xfce4-mixer package.
-# Copyright (C) 2003-2009 The Xfce development team.
-# This file is distributed under the same license as the xfce4-mixer package.
-# Poul Ionkin <wizzard@nmg.lv>, 2003.
-# Anthony Ivanoff <a-i@bk.ru>, 2004, 2005.
-# Andrey Fedoseev <andrey.fedoseev@gmail.com>, 2006-2008.
-# Denis Koryavov <dkoryavov@yandex.ru>, 2009.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 # 
+# Translators:
+# Anthony Ivanoff <a-i@bk.ru>, 2004-2005
+# Denis Koryavov <dkoryavov@yandex.ru>, 2009
+# Igor <f2404@yandex.ru>, 2016
+# Poul Ionkin <wizzard@nmg.lv>, 2003
+# Sergey Alyoshin <alyoshin.s@gmail.com>, 2013
 msgid ""
 msgstr ""
-"Project-Id-Version: xfce4-mixer\n"
+"Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-29 13:30+0000\n"
-"PO-Revision-Date: 2009-05-09 15:54+0400\n"
-"Last-Translator: Denis Koryavov <dkoryavov@yandex.ru>\n"
-"Language-Team: Russian\n"
+"PO-Revision-Date: 2016-07-08 15:12+0000\n"
+"Last-Translator: Igor <f2404@yandex.ru>\n"
+"Language-Team: Russian (http://www.transifex.com/xfce/xfce-apps/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: \n"
-"X-Generator: KBabel 1.11.4\n"
+"Language: ru\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 
 #. Add menu item for muting
 #: ../panel-plugin/xfce-mixer-plugin.c:306
@@ -31,12 +33,9 @@ msgstr "_Запустить микшер"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:581 ../xfce4-mixer/main.c:148
 msgid ""
-"GStreamer was unable to detect any sound devices. Some sound system specific "
-"GStreamer packages may be missing. It may also be a permissions problem."
-msgstr ""
-"Не найдено ни одного звукового устройства поддерживаемого звуковой "
-"подсистемой GStreamer. Возможно, у вас отсутствуют необходимые для GStreamer "
-"пакеты или неверно настроены права на доступ к звуковому устройству. "
+"GStreamer was unable to detect any sound devices. Some sound system specific"
+" GStreamer packages may be missing. It may also be a permissions problem."
+msgstr "Не найдено ни одного звукового устройства поддерживаемого звуковой подсистемой GStreamer. Возможно, у вас отсутствуют необходимые для GStreamer пакеты или неверно настроены права на доступ к звуковому устройству. "
 
 #: ../panel-plugin/xfce-mixer-plugin.c:931
 msgid "No command defined"
@@ -46,13 +45,10 @@ msgstr "Команда не задана"
 #: ../panel-plugin/xfce-mixer-plugin.c:939
 #, c-format
 msgid ""
-"Could not execute the command \"%s\". Ensure that either the location of the "
-"command is included in the PATH environment variable or that you are "
+"Could not execute the command \"%s\". Ensure that either the location of the"
+" command is included in the PATH environment variable or that you are "
 "providing the full path to the command."
-msgstr ""
-"Невозможно выполнить команду  \"%s\". Удостоверьтесь, что команда включена в "
-"системную переменную PATH для вашего пользователя или, что вы указали полный "
-"путь к команде. "
+msgstr "Невозможно выполнить команду  \"%s\". Удостоверьтесь, что команда включена в системную переменную PATH для вашего пользователя или, что вы указали полный путь к команде. "
 
 #: ../panel-plugin/xfce-plugin-dialog.c:150
 msgid "Audio Mixer Plugin"
@@ -60,8 +56,7 @@ msgstr "Плагин регулировки громкости"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:152
 msgid "Configure the sound card and mixer track"
-msgstr ""
-"Настройте ваши звуковые карты и управляйте громкостью выбранного канала "
+msgstr "Настройте ваши звуковые карты и управляйте громкостью выбранного канала "
 
 #: ../panel-plugin/xfce-plugin-dialog.c:165
 #: ../xfce4-mixer/xfce-mixer-window.c:185
@@ -98,7 +93,7 @@ msgstr "Регулятор громкости "
 #: ../panel-plugin/mixer.desktop.in.h:2
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.h:2
 msgid "Adjust volume levels"
-msgstr "Регулирует уровень звука"
+msgstr "Настроить уровень звука"
 
 #: ../libxfce4mixer/libxfce4mixer.c:422
 #, c-format
@@ -146,7 +141,7 @@ msgstr "<span weight=\"bold\" size=\"larger\">Нет видимых регуля
 msgid ""
 "In order to toggle the visibility of mixer controls, open the <b>\"Select "
 "Controls\"</b> dialog."
-msgstr ""
+msgstr "Для изменения отображения элементов управления, откройте диалог <b>«Выбрать\nканалы»/b>"
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:118
 msgid "Select Controls"
@@ -195,58 +190,4 @@ msgstr "Выберите отображаемые каналы "
 
 #: ../xfce4-mixer/xfce-mixer-window.c:154
 msgid "Configure sound card(s) and control the volume of selected tracks"
-msgstr ""
-"Настройте ваши звуковые карты и управляйте громкостью выбранного канала "
-
-#~ msgid ""
-#~ "No left-click command defined yet. You can change this in the plugin "
-#~ "properties."
-#~ msgstr ""
-#~ "Команда для левой кнопки мыши еще не указана. Вы можете указать ее в "
-#~ "свойствах микшера."
-
-#~ msgid "Properties"
-#~ msgstr "Параметры "
-
-#~ msgid "Configure the mixer track and left-click command"
-#~ msgstr "Укажите канал микшера и команду для левой кнопки мыши "
-
-#~ msgid "Sound card"
-#~ msgstr "Звуковая карта "
-
-#~ msgid "Left-click command"
-#~ msgstr "Команда для левой кнопки мыши "
-
-#~ msgid "Select command"
-#~ msgstr "Управляемые каналы"
-
-#~ msgid "All Files"
-#~ msgstr "Все файлы "
-
-#~ msgid "Executable Files"
-#~ msgstr "Запускаемые файлы "
-
-#~ msgid "Perl Scripts"
-#~ msgstr "Скрипты на языке Perl "
-
-#~ msgid "Python Scripts"
-#~ msgstr "Скрипты на языке Python "
-
-#~ msgid "Ruby Scripts"
-#~ msgstr "Скрипты на языке Ruby "
-
-#~ msgid "Shell Scripts"
-#~ msgstr "Скрипты командной оболочки "
-
-#~ msgid "Volume control for your sound card"
-#~ msgstr "Удобный регулятор громкости для вашей звуковой карты "
-
-#~ msgid ""
-#~ "No controls are marked as visible. Please open the <span "
-#~ "size='large'><b>Select Controls</b></span> dialog to select some."
-#~ msgstr ""
-#~ "Не выбрано ни одного управляемого канала. Вы можете выбрать каналы с "
-#~ "помощью диалога <span size='large'><b>Выбора каналов</b></span>."
-
-#~ msgid "Audio mixer for the Xfce Desktop Environment"
-#~ msgstr "Регулятор громкости для рабочего окружения Xfce "
+msgstr "Настройте звуковые карты и управляйте громкостью выбранного канала "
