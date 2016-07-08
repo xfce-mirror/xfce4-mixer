@@ -40,22 +40,26 @@
 
 static void     xfce_mixer_window_dispose                     (GObject              *object);
 static void     xfce_mixer_window_finalize                    (GObject              *object);
+static void     xfce_mixer_window_size_allocate               (GtkWidget            *widget,
+                                                               GtkAllocation        *allocation);
+static gboolean xfce_mixer_window_state_event                 (GtkWidget            *widget,
+                                                               GdkEventWindowState  *event);
+static void     xfce_mixer_window_destroy                     (GtkWidget            *widget);
 static void     xfce_mixer_window_soundcard_changed           (XfceMixerCardCombo   *combo,
                                                                GstElement           *card,
                                                                XfceMixerWindow      *window);
 static void     xfce_mixer_window_soundcard_property_changed  (XfceMixerWindow      *window,
                                                                GParamSpec           *pspec,
                                                                GObject              *object);
-static void     xfce_mixer_window_action_select_controls      (GtkAction            *action,
-                                                               XfceMixerWindow      *window);
+static void     xfce_mixer_window_action_select_controls      (GSimpleAction        *action,
+                                                               GVariant             *parameter,
+                                                               gpointer              user_data);
 static void     xfce_mixer_window_controls_property_changed   (XfceMixerWindow *window,
                                                                GParamSpec      *pspec,
                                                                GObject         *object);
-static void     xfce_mixer_window_close                       (GtkAction            *action,
-                                                               XfceMixerWindow      *window);
-static gboolean xfce_mixer_window_closed                      (GtkWidget            *window,
-                                                               GdkEvent             *event,
-                                                               XfceMixerWindow      *mixer_window);
+static void     xfce_mixer_window_close                       (GSimpleAction        *action,
+                                                               GVariant             *parameter,
+                                                               gpointer              user_data);
 static void     xfce_mixer_window_update_contents             (XfceMixerWindow      *window);
 
 
@@ -71,7 +75,11 @@ struct _XfceMixerWindow
 
   XfceMixerPreferences *preferences;
 
-  GtkActionGroup       *action_group;
+  /* Current window state */
+  gint                  current_width;
+  gint                  current_height;
+  gboolean              is_maximized;
+  gboolean              is_fullscreen;
 
   GtkWidget            *soundcard_combo;
 
@@ -86,12 +94,10 @@ struct _XfceMixerWindow
 
 
 
-static const GtkActionEntry action_entries[] = 
+static const GActionEntry action_entries[] =
 {
-  { "quit", GTK_STOCK_QUIT, N_ ("_Quit"), "<Control>q", N_ ("Exit the mixer"), 
-    G_CALLBACK (xfce_mixer_window_close) },
-  { "select-controls", NULL, N_ ("_Select Controls..."), "<Control>s", N_ ("Select which controls are displayed"), 
-    G_CALLBACK (xfce_mixer_window_action_select_controls) },
+  { "quit", &xfce_mixer_window_close, NULL, NULL, NULL },
+  { "select-controls", &xfce_mixer_window_action_select_controls, NULL, NULL, NULL },
 };
 
 
@@ -103,11 +109,17 @@ G_DEFINE_TYPE (XfceMixerWindow, xfce_mixer_window, XFCE_TYPE_TITLED_DIALOG)
 static void
 xfce_mixer_window_class_init (XfceMixerWindowClass *klass)
 {
-  GObjectClass *gobject_class;
+  GObjectClass   *gobject_class;
+  GtkWidgetClass *gtk_widget_class;
 
   gobject_class = G_OBJECT_CLASS (klass);
   gobject_class->dispose = xfce_mixer_window_dispose;
   gobject_class->finalize = xfce_mixer_window_finalize;
+
+  gtk_widget_class = GTK_WIDGET_CLASS (klass);
+  gtk_widget_class->size_allocate = xfce_mixer_window_size_allocate;
+  gtk_widget_class->window_state_event = xfce_mixer_window_state_event;
+  gtk_widget_class->destroy = xfce_mixer_window_destroy;
 }
 
 
@@ -115,8 +127,7 @@ xfce_mixer_window_class_init (XfceMixerWindowClass *klass)
 static void
 xfce_mixer_window_init (XfceMixerWindow *window)
 {
-  GtkAccelGroup *accel_group;
-  GtkAction     *action;
+  GApplication  *app = g_application_get_default ();
   GtkWidget     *label;
   GtkWidget     *button;
   GtkWidget     *vbox;
@@ -124,15 +135,18 @@ xfce_mixer_window_init (XfceMixerWindow *window)
   GtkWidget     *bbox;
   gchar         *card_name;
   GstElement    *card;
-  guint          i;
-  gint           width;
-  gint           height;
+  const gchar   *select_controls_accels[] = { "<Control>s", NULL };
+  const gchar   *quit_accels[] = { "<Control>q", NULL };
 
   window->controls_dialog = NULL;
 
   window->preferences = xfce_mixer_preferences_get ();
 
-  g_object_get (window->preferences, "window-width", &width, "window-height", &height, "sound-card", &card_name, NULL);
+  window->is_maximized = FALSE;
+  window->is_fullscreen = FALSE;
+
+  g_object_get (window->preferences, "window-width", &window->current_width, "window-height", &window->current_height,
+                "sound-card", &card_name, NULL);
   if (card_name != NULL)
     card = xfce_mixer_get_card (card_name);
   else
@@ -148,36 +162,21 @@ xfce_mixer_window_init (XfceMixerWindow *window)
   gtk_window_set_type_hint (GTK_WINDOW (window), GDK_WINDOW_TYPE_HINT_NORMAL);
   gtk_window_set_icon_name (GTK_WINDOW (window), "multimedia-volume-control");
   gtk_window_set_title (GTK_WINDOW (window), _("Audio Mixer"));
-  gtk_window_set_default_size (GTK_WINDOW (window), width, height);
+  gtk_window_set_default_size (GTK_WINDOW (window), window->current_width, window->current_height);
   gtk_window_set_position (GTK_WINDOW (window), GTK_WIN_POS_CENTER);
-  gtk_dialog_set_has_separator (GTK_DIALOG (window), FALSE);
   xfce_titled_dialog_set_subtitle (XFCE_TITLED_DIALOG (window), _("Configure sound card(s) and control the volume of selected tracks"));
 
-  g_signal_connect (window, "delete-event", G_CALLBACK (xfce_mixer_window_closed), window);
-
-  /* Quit mixer when the main window is closed */
-  g_signal_connect (G_OBJECT (window), "delete-event", G_CALLBACK (gtk_main_quit), NULL);
-
-  /* Create window action group */
-  window->action_group = gtk_action_group_new ("XfceMixerWindow");
-  gtk_action_group_set_translation_domain (window->action_group, GETTEXT_PACKAGE);
-  gtk_action_group_add_actions (window->action_group, action_entries, G_N_ELEMENTS (action_entries), GTK_WIDGET (window));
+  /* Install actions */
+  g_action_map_add_action_entries (G_ACTION_MAP (app), action_entries, G_N_ELEMENTS (action_entries), window);
 
   /* Install action accelerators for the mixer window */
-  accel_group = gtk_accel_group_new ();
-  for (i = 0; i < G_N_ELEMENTS (action_entries); ++i)
-    {
-      action = gtk_action_group_get_action (window->action_group, action_entries[i].name);
-      gtk_action_set_accel_group (action, accel_group);
-      gtk_action_connect_accelerator (action);
-      gtk_action_set_sensitive (action, TRUE);
-    }
-  gtk_window_add_accel_group (GTK_WINDOW (window), accel_group);
+  gtk_application_set_accels_for_action (GTK_APPLICATION (app), "app.select-controls", select_controls_accels);
+  gtk_application_set_accels_for_action (GTK_APPLICATION (app), "app.quit", quit_accels);
 
   vbox = gtk_dialog_get_content_area (GTK_DIALOG (window));
   gtk_widget_show (vbox);
 
-  hbox = gtk_hbox_new (FALSE, 12);
+  hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 12);
   gtk_container_set_border_width (GTK_CONTAINER (hbox), 6);
   gtk_box_pack_start (GTK_BOX (vbox), hbox, FALSE, TRUE, 0);
   gtk_widget_show (hbox);
@@ -188,37 +187,40 @@ xfce_mixer_window_init (XfceMixerWindow *window)
 
   window->soundcard_combo = xfce_mixer_card_combo_new (card);
   g_signal_connect (G_OBJECT (window->soundcard_combo), "soundcard-changed", G_CALLBACK (xfce_mixer_window_soundcard_changed), window);
-  gtk_container_add (GTK_CONTAINER (hbox), window->soundcard_combo);
+  gtk_box_pack_start (GTK_BOX (hbox), window->soundcard_combo, TRUE, TRUE, 0);
   gtk_label_set_mnemonic_widget (GTK_LABEL (label), window->soundcard_combo);
   gtk_widget_show (window->soundcard_combo);
 
   window->mixer_frame = gtk_frame_new (NULL);
   gtk_frame_set_shadow_type (GTK_FRAME (window->mixer_frame), GTK_SHADOW_NONE);
   gtk_container_set_border_width (GTK_CONTAINER (window->mixer_frame), 6);
-  gtk_container_add (GTK_CONTAINER (vbox), window->mixer_frame);
+  gtk_box_pack_start (GTK_BOX (vbox), window->mixer_frame, TRUE, TRUE, 0);
   gtk_widget_show (window->mixer_frame);
 
   window->mixer_container = xfce_mixer_container_new (NULL);
   gtk_container_add (GTK_CONTAINER (window->mixer_frame), window->mixer_container);
   gtk_widget_show (window->mixer_container);
 
+G_GNUC_BEGIN_IGNORE_DEPRECATIONS
+  /* Single place still using deprecated API. GTK+ uses it internally as well, so why should we suffer?
+     Suffice it to say, new API is quite limited. */
   bbox = gtk_dialog_get_action_area (GTK_DIALOG (window));
+G_GNUC_END_IGNORE_DEPRECATIONS
   gtk_button_box_set_layout (GTK_BUTTON_BOX (bbox), GTK_BUTTONBOX_EDGE);
   gtk_container_set_border_width (GTK_CONTAINER (bbox), 6);
 
-  window->select_controls_button = gtk_button_new ();
-  gtk_activatable_set_related_action (GTK_ACTIVATABLE (window->select_controls_button),
-                                      gtk_action_group_get_action (window->action_group, "select-controls"));
+  window->select_controls_button = gtk_button_new_with_mnemonic (_("_Select Controls..."));
   gtk_button_set_image (GTK_BUTTON (window->select_controls_button), 
                         gtk_image_new_from_icon_name ("preferences-desktop", GTK_ICON_SIZE_BUTTON));
+  gtk_actionable_set_action_name (GTK_ACTIONABLE (window->select_controls_button), "app.select-controls");
   gtk_widget_set_sensitive (window->select_controls_button, FALSE);
   gtk_box_pack_start (GTK_BOX (bbox), window->select_controls_button, FALSE, TRUE, 0);
   gtk_widget_show (window->select_controls_button);
 
-  button = gtk_button_new ();
-  gtk_activatable_set_related_action (GTK_ACTIVATABLE (button),
-                                      gtk_action_group_get_action (window->action_group, "quit"));
-  gtk_button_set_image (GTK_BUTTON (button), gtk_image_new_from_stock (GTK_STOCK_QUIT, GTK_ICON_SIZE_BUTTON));
+  button = gtk_button_new_with_mnemonic (_("_Quit"));
+  gtk_button_set_image (GTK_BUTTON (button),
+                        gtk_image_new_from_icon_name ("exit", GTK_ICON_SIZE_BUTTON));
+  gtk_actionable_set_action_name (GTK_ACTIONABLE (button), "app.quit");
   gtk_box_pack_start (GTK_BOX (bbox), button, FALSE, TRUE, 0);
   gtk_widget_show (button);
 
@@ -252,10 +254,55 @@ xfce_mixer_window_finalize (GObject *object)
 
 
 
-GtkWidget*
-xfce_mixer_window_new (void)
+static void
+xfce_mixer_window_size_allocate (GtkWidget     *widget,
+                                 GtkAllocation *allocation)
 {
-  return g_object_new (TYPE_XFCE_MIXER_WINDOW, NULL);
+  XfceMixerWindow *window = XFCE_MIXER_WINDOW (widget);
+
+  (*GTK_WIDGET_CLASS (xfce_mixer_window_parent_class)->size_allocate) (widget, allocation);
+
+  if (!window->is_maximized && !window->is_fullscreen)
+    gtk_window_get_size (GTK_WINDOW (window), &window->current_width, &window->current_height);
+}
+
+
+
+static gboolean
+xfce_mixer_window_state_event (GtkWidget           *widget,
+                               GdkEventWindowState *event)
+{
+  XfceMixerWindow *window = XFCE_MIXER_WINDOW (widget);
+  gboolean         result = GDK_EVENT_PROPAGATE;
+
+  if (GTK_WIDGET_CLASS (xfce_mixer_window_parent_class)->window_state_event != NULL)
+    result = (*GTK_WIDGET_CLASS (xfce_mixer_window_parent_class)->window_state_event) (widget, event);
+
+  window->is_maximized = (event->new_window_state & GDK_WINDOW_STATE_MAXIMIZED) != 0;
+  window->is_fullscreen = (event->new_window_state & GDK_WINDOW_STATE_FULLSCREEN) != 0;
+
+  return result;
+}
+
+
+
+static void
+xfce_mixer_window_destroy (GtkWidget *widget)
+{
+  XfceMixerWindow *window = XFCE_MIXER_WINDOW (widget);
+
+  g_object_set (G_OBJECT (window->preferences), "window-width", window->current_width,
+                "window-height", window->current_height, NULL);
+
+  (*GTK_WIDGET_CLASS (xfce_mixer_window_parent_class)->destroy) (widget);
+}
+
+
+
+GtkWidget*
+xfce_mixer_window_new (GApplication *app)
+{
+  return g_object_new (TYPE_XFCE_MIXER_WINDOW, "application", app, NULL);
 }
 
 
@@ -334,9 +381,12 @@ xfce_mixer_window_soundcard_property_changed (XfceMixerWindow *window,
 
 
 static void
-xfce_mixer_window_action_select_controls (GtkAction       *action,
-                                          XfceMixerWindow *window)
+xfce_mixer_window_action_select_controls (GSimpleAction *action,
+                                          GVariant      *parameter,
+                                          gpointer       user_data)
 {
+  XfceMixerWindow *window = XFCE_MIXER_WINDOW (user_data);
+
   g_return_if_fail (window->controls_dialog == NULL);
 
   window->controls_dialog = xfce_mixer_controls_dialog_new (window);
@@ -363,29 +413,15 @@ xfce_mixer_window_controls_property_changed (XfceMixerWindow *window,
 
 
 static void
-xfce_mixer_window_close (GtkAction       *action,
-                         XfceMixerWindow *window)
+xfce_mixer_window_close (GSimpleAction *action,
+                         GVariant      *parameter,
+                         gpointer       user_data)
 {
-  /* This is a nasty hack to save the settings before the application quits */
-  xfce_mixer_window_closed (GTK_WIDGET (window), NULL, window);
-}
+  XfceMixerWindow *window = XFCE_MIXER_WINDOW (user_data);
 
+  gtk_widget_destroy (GTK_WIDGET (window));
 
-
-static gboolean 
-xfce_mixer_window_closed (GtkWidget       *window,
-                          GdkEvent        *event,
-                          XfceMixerWindow *mixer_window)
-{
-  gint width;
-  gint height;
-
-  gtk_window_get_size (GTK_WINDOW (mixer_window), &width, &height);
-  g_object_set (G_OBJECT (mixer_window->preferences), "window-width", width, "window-height", height, NULL);
-
-  gtk_main_quit ();
-
-  return TRUE;
+  g_application_quit (g_application_get_default ());
 }
 
 

@@ -93,23 +93,21 @@ AC_CHECK_LIB([m],[round])
 dnl ***********************************
 dnl *** Check for required packages ***
 dnl ***********************************
-XDT_CHECK_PACKAGE([GLIB], [glib-2.0], [2.24.0])
-XDT_CHECK_PACKAGE([GTHREAD], [gthread-2.0], [2.24.0])
+XDT_CHECK_PACKAGE([GLIB], [glib-2.0], [2.42.0])
+XDT_CHECK_PACKAGE([GTHREAD], [gthread-2.0], [2.42.0])
 XDT_CHECK_PACKAGE([DBUS_GLIB], [dbus-glib-1], [0.84])
 XDT_CHECK_PACKAGE([GST_PLUGINS_BASE], [gstreamer-plugins-base-0.10], [0.10.25])
-XDT_CHECK_PACKAGE([GTK], [gtk+-2.0], [2.20.0])
-XDT_CHECK_PACKAGE([LIBXFCE4UTIL], [libxfce4util-1.0], [4.10.0])
-XDT_CHECK_PACKAGE([LIBXFCE4UI], [libxfce4ui-1], [4.10.0])
-XDT_CHECK_PACKAGE([LIBXFCE4PANEL], [libxfce4panel-1.0], [4.10.0])
-XDT_CHECK_PACKAGE([XFCONF], [libxfconf-0], [4.10.0])
+XDT_CHECK_PACKAGE([GTK], [gtk+-3.0], [3.14.0])
+XDT_CHECK_PACKAGE([LIBXFCE4UTIL], [libxfce4util-1.0], [4.12.0])
+XDT_CHECK_PACKAGE([LIBXFCE4UI], [libxfce4ui-2], [4.12.0])
+XDT_CHECK_PACKAGE([LIBXFCE4PANEL], [libxfce4panel-2.0], [4.12.0])
+XDT_CHECK_PACKAGE([XFCONF], [libxfconf-0], [4.12.0])
 
 dnl ***********************************
 dnl *** Check for optional packages ***
 dnl ***********************************
-XDT_CHECK_OPTIONAL_PACKAGE([KEYBINDER], [keybinder], [0.2.2], [keybinder],
+XDT_CHECK_OPTIONAL_PACKAGE([KEYBINDER], [keybinder-3.0], [0.3], [keybinder],
                            [keybinder Support])
-XDT_CHECK_OPTIONAL_PACKAGE([UNIQUE], [unique-1.0], [1.1], [unique],
-                           [unique Support])
 
 dnl ***********************************
 dnl *** Check for debugging support ***
@@ -152,7 +150,6 @@ dnl ***************************
 echo
 echo "Build Configuration:"
 echo
-echo " * unique Support:                       ${UNIQUE_FOUND:-no}"
 echo " * keybinder Support:                    ${KEYBINDER_FOUND:-no}"
 echo " * Debug Support:                        $enable_debug"
 echo

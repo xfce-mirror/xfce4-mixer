@@ -6,3 +6,4 @@ Icon=multimedia-volume-control
 X-XFCE-Internal=false
 X-XFCE-Module=mixer
 X-XFCE-Unique=true
+X-XFCE-API=2.0

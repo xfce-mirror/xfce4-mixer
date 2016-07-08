@@ -5,6 +5,8 @@ bin_PROGRAMS =								\
 
 xfce4_mixer_SOURCES =							\
 	main.c								\
+	xfce-mixer-application.c					\
+	xfce-mixer-application.h					\
 	xfce-mixer-track.c						\
 	xfce-mixer-track.h						\
 	xfce-mixer-switch.c						\
@@ -29,7 +31,6 @@ xfce4_mixer_CPPFLAGS = 							\
 xfce4_mixer_CFLAGS = 							\
 	$(GLIB_CFLAGS)							\
 	$(GTK_CFLAGS)							\
-	$(UNIQUE_CFLAGS)						\
 	$(LIBXFCE4UTIL_CFLAGS)						\
 	$(LIBXFCE4UI_CFLAGS)						\
 	$(XFCONF_CFLAGS)						\
@@ -43,7 +44,6 @@ xfce4_mixer_LDFLAGS = 							\
 	$(GLIB_LIBS)							\
 	$(GTHREAD_LIBS)							\
 	$(GTK_LIBS)							\
-	$(UNIQUE_LIBS)							\
 	$(LIBXFCE4UTIL_LIBS)						\
 	$(LIBXFCE4UI_LIBS)						\
 	$(XFCONF_LIBS)							\
