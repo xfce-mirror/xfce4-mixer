@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-07-09 00:30+0200\n"
-"PO-Revision-Date: 2016-07-11 14:05+0000\n"
+"PO-Revision-Date: 2016-07-13 16:28+0000\n"
 "Last-Translator: Igor <f2404@yandex.ru>\n"
 "Language-Team: Russian (http://www.transifex.com/xfce/xfce-apps/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -36,7 +36,7 @@ msgstr "_Запустить микшер"
 msgid ""
 "GStreamer was unable to detect any sound devices. Some sound system specific"
 " GStreamer packages may be missing. It may also be a permissions problem."
-msgstr "Не найдено ни одного звукового устройства поддерживаемого звуковой подсистемой GStreamer. Возможно, у вас отсутствуют необходимые для GStreamer пакеты или неверно настроены права на доступ к звуковому устройству. "
+msgstr "Не найдено ни одного звукового устройства, поддерживаемого звуковой подсистемой GStreamer. Возможно, у вас отсутствуют необходимые для GStreamer пакеты или неверно настроены права на доступ к звуковому устройству. "
 
 #: ../panel-plugin/xfce-mixer-plugin.c:954
 msgid "No command defined"
@@ -49,7 +49,7 @@ msgid ""
 "Could not execute the command \"%s\". Ensure that either the location of the"
 " command is included in the PATH environment variable or that you are "
 "providing the full path to the command."
-msgstr "Невозможно выполнить команду  \"%s\". Удостоверьтесь, что команда включена в системную переменную PATH для вашего пользователя или, что вы указали полный путь к команде. "
+msgstr "Невозможно выполнить команду \"%s\". Удостоверьтесь, что команда включена в системную переменную PATH для вашего пользователя, или что вы указали полный путь к команде. "
 
 #: ../panel-plugin/xfce-plugin-dialog.c:150
 msgid "Audio Mixer Plugin"
@@ -71,7 +71,7 @@ msgstr "Звуковая _карта:"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:175
 msgid "Mixer _track:"
-msgstr "Канал микшера:"
+msgstr "Канал _микшера:"
 
 #: ../panel-plugin/xfce-volume-button.c:890
 msgid "No valid device and/or element."
@@ -134,11 +134,11 @@ msgstr "<span weight=\"bold\" size=\"larger\">Нет видимых регуля
 msgid ""
 "In order to toggle the visibility of mixer controls, open the <b>\"Select "
 "Controls\"</b> dialog."
-msgstr "Для изменения отображения элементов управления, откройте диалог <b>«Выбрать\nканалы»/b>"
+msgstr "Для изменения отображения элементов управления откройте диалог <b>«Выбрать каналы»/b>."
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:118
 msgid "Select Controls"
-msgstr "Управляемые каналы "
+msgstr "Выбрать каналы "
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:120
 msgid "Select which controls should be visible"
@@ -153,7 +153,7 @@ msgstr "Громкость канала %d на %s"
 #: ../xfce4-mixer/xfce-mixer-track.c:281
 #, c-format
 msgid "Lock channels for %s together"
-msgstr "Объединяет каналы для %s"
+msgstr "Объединить каналы для %s"
 
 #: ../xfce4-mixer/xfce-mixer-track.c:325
 #, c-format
