@@ -1,57 +1,53 @@
-# Portuguese translations for xfce4-mixer package.
-# Copyright (C) 2008 THE xfce4-mixer'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the xfce4-mixer package.
-# Og Maciel <ogmaciel@gnome.org>, 2007-2008.
-# Fábio Nogueira <deb-user-ba@ubuntu.com>, 2008.
-# Sérgio Cipolla <secipolla@gmail.com>, 2011.
-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# André Miranda <andre42m@gmail.com>, 2016
+# Fábio Nogueira <deb-user-ba@ubuntu.com>, 2008
+# secipolla <secipolla@gmail.com>, 2011
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-29 13:30+0000\n"
-"PO-Revision-Date: 2012-10-15 04:28-0300\n"
-"Last-Translator: Rafael Ferreira <rafael.f.f1@gmail.com>\n"
-"Language-Team: Brazilian Portuguese <ldp-br@bazar2.conectiva.com.br>\n"
-"Language: pt_BR\n"
+"POT-Creation-Date: 2016-07-09 00:30+0200\n"
+"PO-Revision-Date: 2016-07-26 03:30+0000\n"
+"Last-Translator: André Miranda <andre42m@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) (http://www.transifex.com/xfce/xfce-apps/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #. Add menu item for muting
-#: ../panel-plugin/xfce-mixer-plugin.c:306
+#: ../panel-plugin/xfce-mixer-plugin.c:307
 msgid "Mu_te"
 msgstr "_Mudo"
 
-#: ../panel-plugin/xfce-mixer-plugin.c:314
+#. Add menu item for running the user-defined command
+#: ../panel-plugin/xfce-mixer-plugin.c:313
 msgid "Run Audio Mi_xer"
 msgstr "_Executar o mixer de áudio"
 
-#: ../panel-plugin/xfce-mixer-plugin.c:581 ../xfce4-mixer/main.c:148
+#: ../panel-plugin/xfce-mixer-plugin.c:581
 msgid ""
-"GStreamer was unable to detect any sound devices. Some sound system specific "
-"GStreamer packages may be missing. It may also be a permissions problem."
-msgstr ""
-"O Gstreamer não detectou nenhum dispositivo de áudio. Pode ser que esteja "
-"faltando algum pacote do Gstreamer específico do sistema de som. Isso pode "
-"ser também algum problema de permissão."
+"GStreamer was unable to detect any sound devices. Some sound system specific"
+" GStreamer packages may be missing. It may also be a permissions problem."
+msgstr "O Gstreamer não detectou nenhum dispositivo de áudio. Pode ser que esteja faltando algum pacote do Gstreamer específico do sistema de som. Isso pode ser também algum problema de permissão."
 
-#: ../panel-plugin/xfce-mixer-plugin.c:931
+#: ../panel-plugin/xfce-mixer-plugin.c:954
 msgid "No command defined"
 msgstr "Nenhum comando definido"
 
 #. Generate error message and insert the current command
-#: ../panel-plugin/xfce-mixer-plugin.c:939
+#: ../panel-plugin/xfce-mixer-plugin.c:962
 #, c-format
 msgid ""
-"Could not execute the command \"%s\". Ensure that either the location of the "
-"command is included in the PATH environment variable or that you are "
+"Could not execute the command \"%s\". Ensure that either the location of the"
+" command is included in the PATH environment variable or that you are "
 "providing the full path to the command."
-msgstr ""
-"Não foi possível executar o comando \"%s\". Certifique-se que a localização "
-"do comando está incluída na variavel de ambiente PATH ou que você está "
-"usando o caminho completo do comando."
+msgstr "Não foi possível executar o comando \"%s\". Certifique-se que a localização do comando está incluída na variavel de ambiente PATH ou que você está usando o caminho completo do comando."
 
 #: ../panel-plugin/xfce-plugin-dialog.c:150
 msgid "Audio Mixer Plugin"
@@ -61,34 +57,39 @@ msgstr "Plug-in mixer de áudio"
 msgid "Configure the sound card and mixer track"
 msgstr "Configura a placa de áudio e faixas do mixer"
 
+#: ../panel-plugin/xfce-plugin-dialog.c:154
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:122
+msgid "_Close"
+msgstr "_Fechar"
+
 #: ../panel-plugin/xfce-plugin-dialog.c:165
-#: ../xfce4-mixer/xfce-mixer-window.c:185
+#: ../xfce4-mixer/xfce-mixer-window.c:184
 msgid "Sound _card:"
 msgstr "Pla_ca de som:"
 
-#: ../panel-plugin/xfce-plugin-dialog.c:174
+#: ../panel-plugin/xfce-plugin-dialog.c:175
 msgid "Mixer _track:"
 msgstr "_Faixa do mixer:"
 
-#: ../panel-plugin/xfce-volume-button.c:854
+#: ../panel-plugin/xfce-volume-button.c:890
 msgid "No valid device and/or element."
 msgstr "Nenhum dispositivo e/ou elemento válido."
 
-#: ../panel-plugin/xfce-volume-button.c:859
+#: ../panel-plugin/xfce-volume-button.c:895
 #, c-format
 msgid "%s: muted"
 msgstr "%s: mudo"
 
-#: ../panel-plugin/xfce-volume-button.c:861
+#: ../panel-plugin/xfce-volume-button.c:897
 #, c-format
 msgid "%s: %i%%"
 msgstr "%s: %i%%"
 
 #. Set application name
-#: ../panel-plugin/mixer.desktop.in.h:1 ../xfce4-mixer/main.c:99
-#: ../xfce4-mixer/xfce-mixer-window.c:150
-#: ../xfce4-mixer/xfce-mixer-window.c:413
-#: ../xfce4-mixer/xfce-mixer-window.c:427
+#: ../panel-plugin/mixer.desktop.in.h:1 ../xfce4-mixer/main.c:45
+#: ../xfce4-mixer/xfce-mixer-window.c:164
+#: ../xfce4-mixer/xfce-mixer-window.c:449
+#: ../xfce4-mixer/xfce-mixer-window.c:463
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.h:1
 msgid "Audio Mixer"
 msgstr "Mixer de áudio"
@@ -102,19 +103,6 @@ msgstr "Ajusta os níveis de volume"
 #, c-format
 msgid "Unknown Volume Control %d"
 msgstr "Controle de volume desconhecido %d"
-
-#: ../xfce4-mixer/main.c:86
-msgid "Enable debugging output"
-msgstr "Habilita mensagens de depuração"
-
-#: ../xfce4-mixer/main.c:87
-msgid "Show version and exit"
-msgstr "Mostra versão e sai"
-
-#: ../xfce4-mixer/main.c:130
-#, c-format
-msgid "xfce4-mixer: Failed to initialize xfconf: %s\n"
-msgstr "xfce4-mixer: Falha ao inicializar o xfconf: %s\n"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
 msgid "_Playback"
@@ -132,21 +120,19 @@ msgstr "A_lternadores"
 msgid "_Options"
 msgstr "_Opções"
 
-#: ../xfce4-mixer/xfce-mixer-container.c:390
+#: ../xfce4-mixer/xfce-mixer-container.c:368
 msgid "No controls visible"
 msgstr "Nenhum controle visível"
 
-#: ../xfce4-mixer/xfce-mixer-container.c:401
+#: ../xfce4-mixer/xfce-mixer-container.c:377
 msgid "<span weight=\"bold\" size=\"larger\">No controls visible</span>"
 msgstr "<span weight=\"bold\" size=\"larger\">Nenhum console visível</span>"
 
-#: ../xfce4-mixer/xfce-mixer-container.c:409
+#: ../xfce4-mixer/xfce-mixer-container.c:383
 msgid ""
 "In order to toggle the visibility of mixer controls, open the <b>\"Select "
 "Controls\"</b> dialog."
-msgstr ""
-"Para alterar a visibilidade de controles do mixer, abra o diálogo <b>"
-"\"Selecionar controles\"</b>."
+msgstr "Para alterar a visibilidade de controles do mixer, abra o diálogo <b>\"Selecionar controles\"</b>."
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:118
 msgid "Select Controls"
@@ -156,127 +142,35 @@ msgstr "Selecionar controles"
 msgid "Select which controls should be visible"
 msgstr "Seleciona quais controles são mostrados"
 
-#: ../xfce4-mixer/xfce-mixer-track.c:257
+#: ../xfce4-mixer/xfce-mixer-track.c:245
 #, c-format
 msgid "Volume of channel %d on %s"
 msgstr "Volume do canal %d em %s"
 
 #. Lock button
-#: ../xfce4-mixer/xfce-mixer-track.c:293
+#: ../xfce4-mixer/xfce-mixer-track.c:281
 #, c-format
 msgid "Lock channels for %s together"
 msgstr "Travar canais de %s juntos"
 
-#: ../xfce4-mixer/xfce-mixer-track.c:340
+#: ../xfce4-mixer/xfce-mixer-track.c:325
 #, c-format
 msgid "Mute/unmute %s"
 msgstr "Ativar/desativar mudo %s"
 
-#: ../xfce4-mixer/xfce-mixer-track.c:360
+#: ../xfce4-mixer/xfce-mixer-track.c:345
 #, c-format
 msgid "Enable/disable audible input from %s in output"
 msgstr "Ativar/desativar entrada audível de %s na saída"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:91
-msgid "_Quit"
-msgstr "Sai_r"
+#: ../xfce4-mixer/xfce-mixer-window.c:167
+msgid "Configure sound card(s) and control the volume of selected tracks"
+msgstr "Configura sua(s) placa(s) de áudio e controla o volume das faixas selecionadas"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:91
-msgid "Exit the mixer"
-msgstr "Sair do mixer"
-
-#: ../xfce4-mixer/xfce-mixer-window.c:93
+#: ../xfce4-mixer/xfce-mixer-window.c:212
 msgid "_Select Controls..."
 msgstr "_Selecionar controles..."
 
-#: ../xfce4-mixer/xfce-mixer-window.c:93
-msgid "Select which controls are displayed"
-msgstr "Seleciona quais controles são mostrados"
-
-#: ../xfce4-mixer/xfce-mixer-window.c:154
-msgid "Configure sound card(s) and control the volume of selected tracks"
-msgstr ""
-"Configura sua(s) placa(s) de áudio e controla o volume das faixas "
-"selecionadas"
-
-#~ msgid ""
-#~ "No left-click command defined yet. You can change this in the plugin "
-#~ "properties."
-#~ msgstr ""
-#~ "Ainda não foi definido nenhum comando para o clique-esquerdo. Você pode "
-#~ "alterar isso nas propriedades do plug-in."
-
-#~ msgid "Properties"
-#~ msgstr "Propriedades"
-
-#~ msgid "Configure the mixer track and left-click command"
-#~ msgstr "Configura a faixa do mixer e o comando do clique-esquerdo"
-
-#~ msgid "Sound card"
-#~ msgstr "Placa de áudio"
-
-#~ msgid "Left-click command"
-#~ msgstr "Comando para o clique-esquerdo"
-
-#~ msgid "Select command"
-#~ msgstr "Selecionar comando"
-
-#~ msgid "All Files"
-#~ msgstr "Todos os arquivos"
-
-#~ msgid "Executable Files"
-#~ msgstr "Arquivos executáveis"
-
-#~ msgid "Perl Scripts"
-#~ msgstr "Scripts em Perl"
-
-#~ msgid "Python Scripts"
-#~ msgstr "Script em Python"
-
-#~ msgid "Ruby Scripts"
-#~ msgstr "Scripts em Ruby"
-
-#~ msgid "Shell Scripts"
-#~ msgstr "Scripts em Shell"
-
-#~ msgid "Volume control for your sound card"
-#~ msgstr "Um controle de volume para a sua placa de áudio"
-
-#~ msgid ""
-#~ "No controls are marked as visible. Please open the <span "
-#~ "size='large'><b>Select Controls</b></span> dialog to select some."
-#~ msgstr ""
-#~ "Nenhum controle está marcado como visível. Por favor abra o diálogo <span "
-#~ "size=\"large\"><b>Selecionar controles</b></span> para selecionar alguns."
-
-#~ msgid "Audio mixer for the Xfce Desktop Environment"
-#~ msgstr "Mixer de áudio para o ambiente de trabalho Xfce"
-
-#~ msgid ""
-#~ "Could not execute the command %s. Perhaps you need to adjust the PATH "
-#~ "variable."
-#~ msgstr ""
-#~ "Não foi possível executar o comando %s. Talvez você precise ajustar a "
-#~ "variável PATH."
-
-#~ msgid "Please select which mixer track should be used by the plugin"
-#~ msgstr "Por favor escolha qual faixa do mixer deve ser usada pelo plug-in"
-
-#~ msgid "Please select which controls you want to be visible"
-#~ msgstr "Por favor selecione quais controles você deseja manter visíveis"
-
-#~ msgid "A comfortable audio mixer for your sound card."
-#~ msgstr "Um mixer de áudio confortável para a sua placa de áudio."
-
-#~ msgid "Xfce Mixer"
-#~ msgstr "Mixer do Xfce"
-
-#~ msgid "Could not find xfce4-mixer in PATH."
-#~ msgstr "Não foi possível encontrar o xfce4-mixer no CAMINHO."
-
-#~ msgid ""
-#~ "No sound cards could be found. You may have to install additional "
-#~ "gstreamer packages for ALSA or OSS support."
-#~ msgstr ""
-#~ "Nenhuma placa de áudio foi encontrada. Talvez você tenha de instalar "
-#~ "pacotes do gstreamer adicionais para suporte de ALSA ou OSS."
+#: ../xfce4-mixer/xfce-mixer-window.c:220
+msgid "_Quit"
+msgstr "Sai_r"
