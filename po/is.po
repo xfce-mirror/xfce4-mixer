@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Sveinn í Felli <sv1@fellsnet.is>, 2011,2013-2014
+# Sveinn í Felli <sv1@fellsnet.is>, 2011,2013-2014,2016
 # Sveinn í Felli <sv1@fellsnet.is>, 2011,2013
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-29 13:30+0000\n"
-"PO-Revision-Date: 2016-02-10 08:05+0000\n"
+"POT-Creation-Date: 2016-07-09 00:30+0200\n"
+"PO-Revision-Date: 2016-11-26 09:52+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic (http://www.transifex.com/xfce/xfce-apps/language/is/)\n"
 "MIME-Version: 1.0\n"
@@ -20,26 +20,27 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n % 10 != 1 || n % 100 == 11);\n"
 
 #. Add menu item for muting
-#: ../panel-plugin/xfce-mixer-plugin.c:306
+#: ../panel-plugin/xfce-mixer-plugin.c:307
 msgid "Mu_te"
 msgstr "Þa_gga"
 
-#: ../panel-plugin/xfce-mixer-plugin.c:314
+#. Add menu item for running the user-defined command
+#: ../panel-plugin/xfce-mixer-plugin.c:313
 msgid "Run Audio Mi_xer"
 msgstr "_Keyra hljóðblandara"
 
-#: ../panel-plugin/xfce-mixer-plugin.c:581 ../xfce4-mixer/main.c:148
+#: ../panel-plugin/xfce-mixer-plugin.c:581
 msgid ""
 "GStreamer was unable to detect any sound devices. Some sound system specific"
 " GStreamer packages may be missing. It may also be a permissions problem."
 msgstr "GStreamer fann engin hljóðtæki. Suma GStreamer kerfishljóðpakka gæti vantað. Þetta gæti líka verið vandamál með aðgangsheimildir."
 
-#: ../panel-plugin/xfce-mixer-plugin.c:931
+#: ../panel-plugin/xfce-mixer-plugin.c:954
 msgid "No command defined"
 msgstr "Engin skipun skilgreind"
 
 #. Generate error message and insert the current command
-#: ../panel-plugin/xfce-mixer-plugin.c:939
+#: ../panel-plugin/xfce-mixer-plugin.c:962
 #, c-format
 msgid ""
 "Could not execute the command \"%s\". Ensure that either the location of the"
@@ -55,34 +56,39 @@ msgstr "Hljóðblöndunarviðbót"
 msgid "Configure the sound card and mixer track"
 msgstr "Stilla hljóðkort og hljóðblöndunarrás"
 
+#: ../panel-plugin/xfce-plugin-dialog.c:154
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:122
+msgid "_Close"
+msgstr "_Loka"
+
 #: ../panel-plugin/xfce-plugin-dialog.c:165
-#: ../xfce4-mixer/xfce-mixer-window.c:185
+#: ../xfce4-mixer/xfce-mixer-window.c:184
 msgid "Sound _card:"
 msgstr "Hljóð_kort:"
 
-#: ../panel-plugin/xfce-plugin-dialog.c:174
+#: ../panel-plugin/xfce-plugin-dialog.c:175
 msgid "Mixer _track:"
 msgstr "Hljóð_blöndunarrás:"
 
-#: ../panel-plugin/xfce-volume-button.c:854
+#: ../panel-plugin/xfce-volume-button.c:890
 msgid "No valid device and/or element."
 msgstr "Ekkert gilt tæki og/eða eining."
 
-#: ../panel-plugin/xfce-volume-button.c:859
+#: ../panel-plugin/xfce-volume-button.c:895
 #, c-format
 msgid "%s: muted"
 msgstr "%s: þaggað niður"
 
-#: ../panel-plugin/xfce-volume-button.c:861
+#: ../panel-plugin/xfce-volume-button.c:897
 #, c-format
 msgid "%s: %i%%"
 msgstr "%s: %i%%"
 
 #. Set application name
-#: ../panel-plugin/mixer.desktop.in.h:1 ../xfce4-mixer/main.c:99
-#: ../xfce4-mixer/xfce-mixer-window.c:150
-#: ../xfce4-mixer/xfce-mixer-window.c:413
-#: ../xfce4-mixer/xfce-mixer-window.c:427
+#: ../panel-plugin/mixer.desktop.in.h:1 ../xfce4-mixer/main.c:45
+#: ../xfce4-mixer/xfce-mixer-window.c:164
+#: ../xfce4-mixer/xfce-mixer-window.c:449
+#: ../xfce4-mixer/xfce-mixer-window.c:463
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.h:1
 msgid "Audio Mixer"
 msgstr "Hljóðblandari"
@@ -96,19 +102,6 @@ msgstr "Stilla hljóðstyrk"
 #, c-format
 msgid "Unknown Volume Control %d"
 msgstr "Óþekkt hljóðstyrksstýring %d"
-
-#: ../xfce4-mixer/main.c:86
-msgid "Enable debugging output"
-msgstr "Virkja aflúsunarúttak"
-
-#: ../xfce4-mixer/main.c:87
-msgid "Show version and exit"
-msgstr "Sýna upplýsingar um þessa útgáfu og hætta"
-
-#: ../xfce4-mixer/main.c:130
-#, c-format
-msgid "xfce4-mixer: Failed to initialize xfconf: %s\n"
-msgstr "xfce4-mixer: Mistókst að frumstilla xfconf: %s\n"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
 msgid "_Playback"
@@ -126,15 +119,15 @@ msgstr "_Rofar"
 msgid "_Options"
 msgstr "_Valkostir"
 
-#: ../xfce4-mixer/xfce-mixer-container.c:390
+#: ../xfce4-mixer/xfce-mixer-container.c:368
 msgid "No controls visible"
 msgstr "Engin stjórntæki sýnieg"
 
-#: ../xfce4-mixer/xfce-mixer-container.c:401
+#: ../xfce4-mixer/xfce-mixer-container.c:377
 msgid "<span weight=\"bold\" size=\"larger\">No controls visible</span>"
 msgstr "<span weight=\"bold\" size=\"larger\"Engin stjórntæki sýnieg</span>"
 
-#: ../xfce4-mixer/xfce-mixer-container.c:409
+#: ../xfce4-mixer/xfce-mixer-container.c:383
 msgid ""
 "In order to toggle the visibility of mixer controls, open the <b>\"Select "
 "Controls\"</b> dialog."
@@ -148,43 +141,35 @@ msgstr "Veldu stjórntæki"
 msgid "Select which controls should be visible"
 msgstr "Veldu hvaða stjórntæki ættu að vera sýnieg"
 
-#: ../xfce4-mixer/xfce-mixer-track.c:257
+#: ../xfce4-mixer/xfce-mixer-track.c:245
 #, c-format
 msgid "Volume of channel %d on %s"
 msgstr "Hljóðstyrkur %d hljóðrásar á %s"
 
 #. Lock button
-#: ../xfce4-mixer/xfce-mixer-track.c:293
+#: ../xfce4-mixer/xfce-mixer-track.c:281
 #, c-format
 msgid "Lock channels for %s together"
 msgstr "Læsa saman rásum fyrir %s"
 
-#: ../xfce4-mixer/xfce-mixer-track.c:340
+#: ../xfce4-mixer/xfce-mixer-track.c:325
 #, c-format
 msgid "Mute/unmute %s"
 msgstr "Þagga/Kveikja á %s"
 
-#: ../xfce4-mixer/xfce-mixer-track.c:360
+#: ../xfce4-mixer/xfce-mixer-track.c:345
 #, c-format
 msgid "Enable/disable audible input from %s in output"
 msgstr "Virkja/afvirkja hljóðinntak frá %s í hljóðúttaki"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:91
-msgid "_Quit"
-msgstr "_Hætta"
+#: ../xfce4-mixer/xfce-mixer-window.c:167
+msgid "Configure sound card(s) and control the volume of selected tracks"
+msgstr "Stilltu hljóðkort og hljóðstyrk valinna hljóðrása"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:91
-msgid "Exit the mixer"
-msgstr "Hætta í hljóðblandaranum"
-
-#: ../xfce4-mixer/xfce-mixer-window.c:93
+#: ../xfce4-mixer/xfce-mixer-window.c:212
 msgid "_Select Controls..."
 msgstr "_Veldu stjórntæki"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:93
-msgid "Select which controls are displayed"
-msgstr "Veldu hvaða stjórntæki eru birt"
-
-#: ../xfce4-mixer/xfce-mixer-window.c:154
-msgid "Configure sound card(s) and control the volume of selected tracks"
-msgstr "Stilltu hljóðkort og hljóðstyrk valinna hljóðrása"
+#: ../xfce4-mixer/xfce-mixer-window.c:220
+msgid "_Quit"
+msgstr "_Hætta"
