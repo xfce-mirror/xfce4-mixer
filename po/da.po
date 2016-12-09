@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-07-09 00:30+0200\n"
-"PO-Revision-Date: 2016-12-08 05:32+0000\n"
+"PO-Revision-Date: 2016-12-09 04:44+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/xfce/xfce-apps/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -153,7 +153,7 @@ msgstr "Lydstyrke for kanalen %d på %s"
 #: ../xfce4-mixer/xfce-mixer-track.c:281
 #, c-format
 msgid "Lock channels for %s together"
-msgstr "Lås kanalerne sammen for %s  "
+msgstr "Lås kanalerne sammen for %s"
 
 #: ../xfce4-mixer/xfce-mixer-track.c:325
 #, c-format
