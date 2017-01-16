@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-07-09 00:30+0200\n"
-"PO-Revision-Date: 2017-01-14 11:23+0000\n"
+"PO-Revision-Date: 2017-01-16 11:22+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/xfce/xfce-apps/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -158,7 +158,7 @@ msgstr "Lås kanalerne sammen for %s"
 #: ../xfce4-mixer/xfce-mixer-track.c:325
 #, c-format
 msgid "Mute/unmute %s"
-msgstr "Lydløs/lyd til for %s"
+msgstr "Lydløs/slå lyden til for %s"
 
 #: ../xfce4-mixer/xfce-mixer-track.c:345
 #, c-format
