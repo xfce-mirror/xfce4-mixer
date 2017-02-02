@@ -4,7 +4,7 @@
 # 
 # Translators:
 # Allan Nordhøy <epost@anotheragency.no>, 2014
-# Allan Nordhøy <epost@anotheragency.no>, 2016
+# Allan Nordhøy <epost@anotheragency.no>, 2016-2017
 # Terje Uriansrud <terje@uriansrud.net>, 2009
 # Terje Uriansrud <ter@operamail.com>, 2008
 msgid ""
@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-07-09 00:30+0200\n"
-"PO-Revision-Date: 2016-12-12 12:00+0000\n"
+"PO-Revision-Date: 2017-02-02 03:09+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål (http://www.transifex.com/xfce/xfce-apps/language/nb/)\n"
 "MIME-Version: 1.0\n"
@@ -29,13 +29,13 @@ msgstr "De_mp"
 #. Add menu item for running the user-defined command
 #: ../panel-plugin/xfce-mixer-plugin.c:313
 msgid "Run Audio Mi_xer"
-msgstr "Kjør Lyd Mi_kser"
+msgstr "Kjør lydmi_kser"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:581
 msgid ""
 "GStreamer was unable to detect any sound devices. Some sound system specific"
 " GStreamer packages may be missing. It may also be a permissions problem."
-msgstr "GStreamer fant ingen lydenheter på systemet ditt. Du mangler muligens lydsystem-spesifikke GStreamer pakker. Det kan også være feil i rettigheter."
+msgstr "GStreamer fant ingen lydenheter på systemet ditt. Du mangler muligens lydsystem-spesifikke GStreamer-pakker. Det kan også være feil med rettighetene."
 
 #: ../panel-plugin/xfce-mixer-plugin.c:954
 msgid "No command defined"
@@ -170,7 +170,7 @@ msgstr "Konfigurer lydkort og sett volumet for valgte spor."
 
 #: ../xfce4-mixer/xfce-mixer-window.c:212
 msgid "_Select Controls..."
-msgstr "_Velg kontroller..."
+msgstr "_Velg kontroller…"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:220
 msgid "_Quit"
