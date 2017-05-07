@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-07-09 00:30+0200\n"
-"PO-Revision-Date: 2017-02-02 03:09+0000\n"
+"PO-Revision-Date: 2017-05-07 10:04+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål (http://www.transifex.com/xfce/xfce-apps/language/nb/)\n"
 "MIME-Version: 1.0\n"
@@ -98,12 +98,12 @@ msgstr "Lydmikser"
 #: ../panel-plugin/mixer.desktop.in.h:2
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.h:2
 msgid "Adjust volume levels"
-msgstr "Juster volumnivå"
+msgstr "Juster lydstyrkenivå"
 
 #: ../libxfce4mixer/libxfce4mixer.c:422
 #, c-format
 msgid "Unknown Volume Control %d"
-msgstr "Ukjent volumkontroll %d"
+msgstr "Ukjent lydstyrkekontroll %d"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
 msgid "_Playback"
@@ -146,7 +146,7 @@ msgstr "Velg hvilke kontroller som skal vises"
 #: ../xfce4-mixer/xfce-mixer-track.c:245
 #, c-format
 msgid "Volume of channel %d on %s"
-msgstr "Volum for kanal %d på %s"
+msgstr "Lydstyrke for kanal %d på %s"
 
 #. Lock button
 #: ../xfce4-mixer/xfce-mixer-track.c:281
@@ -166,7 +166,7 @@ msgstr "Skru på/av hørbar inndata fra %s i utdata"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:167
 msgid "Configure sound card(s) and control the volume of selected tracks"
-msgstr "Konfigurer lydkort og sett volumet for valgte spor."
+msgstr "Sett opp lydkort og sett lydstyrken for valgte spor"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:212
 msgid "_Select Controls..."
