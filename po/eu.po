@@ -1,58 +1,52 @@
-# translation of es.po to Euskara
-# Spanish/ES translation for the xfce-mixer package
-# Copyright (C) 2008 Jannis Pohlmann <jannis@xfce.org>.
-# This file is distributed under the same license as the xfce package.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 # 
-# Abel Martín <abel.martin.ruiz@gmail.com>, 2008.
-# Piarres Beobide <pi@beobide.net>, 2008.
+# Translators:
+# Abel Martín <abel.martin.ruiz@gmail.com>, 2008
+# Piarres Beobide <pi@beobide.net>, 2008,2017
 msgid ""
 msgstr ""
-"Project-Id-Version: es\n"
+"Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-29 13:30+0000\n"
-"PO-Revision-Date: 2008-11-27 00:30+0100\n"
+"POT-Creation-Date: 2016-07-09 00:30+0200\n"
+"PO-Revision-Date: 2017-09-06 11:01+0000\n"
 "Last-Translator: Piarres Beobide <pi@beobide.net>\n"
-"Language-Team: Euskara <debian-l10n-basque@lists.debian.org>\n"
+"Language-Team: Basque (http://www.transifex.com/xfce/xfce-apps/language/eu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: \n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: KBabel 1.11.4\n"
+"Language: eu\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. Add menu item for muting
-#: ../panel-plugin/xfce-mixer-plugin.c:306
+#: ../panel-plugin/xfce-mixer-plugin.c:307
 msgid "Mu_te"
 msgstr "Mu_tu"
 
-#: ../panel-plugin/xfce-mixer-plugin.c:314
+#. Add menu item for running the user-defined command
+#: ../panel-plugin/xfce-mixer-plugin.c:313
 msgid "Run Audio Mi_xer"
 msgstr "Audio na_haslea abiarazi"
 
-#: ../panel-plugin/xfce-mixer-plugin.c:581 ../xfce4-mixer/main.c:148
+#: ../panel-plugin/xfce-mixer-plugin.c:581
 msgid ""
-"GStreamer was unable to detect any sound devices. Some sound system specific "
-"GStreamer packages may be missing. It may also be a permissions problem."
-msgstr ""
-"GStramer ez da  soinu txartelik aurkitzeko gia. Zenait soinu sistemak  "
-"Gstreamer pakete zehatzen bat behar dute. Hau baimen arazo bat ere izan "
-"daiteke."
+"GStreamer was unable to detect any sound devices. Some sound system specific"
+" GStreamer packages may be missing. It may also be a permissions problem."
+msgstr "GStramer ez da  soinu txartelik aurkitzeko gia. Zenait soinu sistemak  Gstreamer pakete zehatzen bat behar dute. Hau baimen arazo bat ere izan daiteke."
 
-#: ../panel-plugin/xfce-mixer-plugin.c:931
+#: ../panel-plugin/xfce-mixer-plugin.c:954
 msgid "No command defined"
 msgstr "Ez dago komando ezarririk"
 
 #. Generate error message and insert the current command
-#: ../panel-plugin/xfce-mixer-plugin.c:939
+#: ../panel-plugin/xfce-mixer-plugin.c:962
 #, c-format
 msgid ""
-"Could not execute the command \"%s\". Ensure that either the location of the "
-"command is included in the PATH environment variable or that you are "
+"Could not execute the command \"%s\". Ensure that either the location of the"
+" command is included in the PATH environment variable or that you are "
 "providing the full path to the command."
-msgstr ""
-"Ezin da \"%s\" komandoa exekutatu. Ziurtatu zaitez komandoaren kokalekuak "
-"ingurune bidean konfiguraturik dagoela edo komandoaren bide osoa ezartzen "
-"duzula."
+msgstr "Ezin da \"%s\" komandoa exekutatu. Ziurtatu zaitez komandoaren kokalekuak ingurune bidean konfiguraturik dagoela edo komandoaren bide osoa ezartzen duzula."
 
 #: ../panel-plugin/xfce-plugin-dialog.c:150
 msgid "Audio Mixer Plugin"
@@ -60,37 +54,41 @@ msgstr "Nahastaile plugina"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:152
 msgid "Configure the sound card and mixer track"
-msgstr ""
-"Konfiguratu soinu txartela(k) eta kontrolatu hautatutako pisten bolumena"
+msgstr "Konfiguratu soinu txartela(k) eta kontrolatu hautatutako pisten bolumena"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:154
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:122
+msgid "_Close"
+msgstr "It_xi"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:165
-#: ../xfce4-mixer/xfce-mixer-window.c:185
+#: ../xfce4-mixer/xfce-mixer-window.c:184
 msgid "Sound _card:"
 msgstr "Soinu t_xartela:"
 
-#: ../panel-plugin/xfce-plugin-dialog.c:174
+#: ../panel-plugin/xfce-plugin-dialog.c:175
 msgid "Mixer _track:"
 msgstr "Nahastaile _pista:"
 
-#: ../panel-plugin/xfce-volume-button.c:854
+#: ../panel-plugin/xfce-volume-button.c:890
 msgid "No valid device and/or element."
 msgstr "Gailu edo/eta elementu baliogabea"
 
-#: ../panel-plugin/xfce-volume-button.c:859
+#: ../panel-plugin/xfce-volume-button.c:895
 #, c-format
 msgid "%s: muted"
 msgstr "%s: mutua"
 
-#: ../panel-plugin/xfce-volume-button.c:861
+#: ../panel-plugin/xfce-volume-button.c:897
 #, c-format
 msgid "%s: %i%%"
 msgstr "%s: %%%i"
 
 #. Set application name
-#: ../panel-plugin/mixer.desktop.in.h:1 ../xfce4-mixer/main.c:99
-#: ../xfce4-mixer/xfce-mixer-window.c:150
-#: ../xfce4-mixer/xfce-mixer-window.c:413
-#: ../xfce4-mixer/xfce-mixer-window.c:427
+#: ../panel-plugin/mixer.desktop.in.h:1 ../xfce4-mixer/main.c:45
+#: ../xfce4-mixer/xfce-mixer-window.c:164
+#: ../xfce4-mixer/xfce-mixer-window.c:449
+#: ../xfce4-mixer/xfce-mixer-window.c:463
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.h:1
 msgid "Audio Mixer"
 msgstr "Audio nahastailea"
@@ -104,19 +102,6 @@ msgstr "Ezarri bolumen teklak"
 #, c-format
 msgid "Unknown Volume Control %d"
 msgstr "%d bolumen-kontrol ezezaguna"
-
-#: ../xfce4-mixer/main.c:86
-msgid "Enable debugging output"
-msgstr "Gaitu arazpen irteera"
-
-#: ../xfce4-mixer/main.c:87
-msgid "Show version and exit"
-msgstr "Ikusi bertsioa eta irten"
-
-#: ../xfce4-mixer/main.c:130
-#, c-format
-msgid "xfce4-mixer: Failed to initialize xfconf: %s\n"
-msgstr "xfce4-mixer: Huts xfconf exekutatzean: %s\n"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:218
 msgid "_Playback"
@@ -134,15 +119,15 @@ msgstr "Ko_mmutadoreak"
 msgid "_Options"
 msgstr "Au_kerak"
 
-#: ../xfce4-mixer/xfce-mixer-container.c:390
+#: ../xfce4-mixer/xfce-mixer-container.c:368
 msgid "No controls visible"
 msgstr "Ez kontrolik ikusgai"
 
-#: ../xfce4-mixer/xfce-mixer-container.c:401
+#: ../xfce4-mixer/xfce-mixer-container.c:377
 msgid "<span weight=\"bold\" size=\"larger\">No controls visible</span>"
 msgstr "<span weight=\"bold\" size=\"larger\">Ez dago kontol ikusgarririk</span>"
 
-#: ../xfce4-mixer/xfce-mixer-container.c:409
+#: ../xfce4-mixer/xfce-mixer-container.c:383
 msgid ""
 "In order to toggle the visibility of mixer controls, open the <b>\"Select "
 "Controls\"</b> dialog."
@@ -156,110 +141,35 @@ msgstr "Hautatu kontrolak"
 msgid "Select which controls should be visible"
 msgstr "Hautatu zein kontrol bistaraziko diren"
 
-#: ../xfce4-mixer/xfce-mixer-track.c:257
+#: ../xfce4-mixer/xfce-mixer-track.c:245
 #, c-format
 msgid "Volume of channel %d on %s"
 msgstr "%d kanalaren blomena %s-ean"
 
 #. Lock button
-#: ../xfce4-mixer/xfce-mixer-track.c:293
+#: ../xfce4-mixer/xfce-mixer-track.c:281
 #, c-format
 msgid "Lock channels for %s together"
 msgstr "%s-ren kateak batera lotu"
 
-#: ../xfce4-mixer/xfce-mixer-track.c:340
+#: ../xfce4-mixer/xfce-mixer-track.c:325
 #, c-format
 msgid "Mute/unmute %s"
 msgstr "Mututu/Ez-mututu %s"
 
-#: ../xfce4-mixer/xfce-mixer-track.c:360
+#: ../xfce4-mixer/xfce-mixer-track.c:345
 #, c-format
 msgid "Enable/disable audible input from %s in output"
 msgstr "Gaitu/desgaitu  %s audio sarrera irteeran"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:91
-msgid "_Quit"
-msgstr "Irte_n"
+#: ../xfce4-mixer/xfce-mixer-window.c:167
+msgid "Configure sound card(s) and control the volume of selected tracks"
+msgstr "Konfiguratu soinu txartela(k) eta kontrolatu hautatutako pisten bolumena"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:91
-msgid "Exit the mixer"
-msgstr "Nahasletik irten"
-
-#: ../xfce4-mixer/xfce-mixer-window.c:93
+#: ../xfce4-mixer/xfce-mixer-window.c:212
 msgid "_Select Controls..."
 msgstr "_Hautatu kontrolak..."
 
-#: ../xfce4-mixer/xfce-mixer-window.c:93
-msgid "Select which controls are displayed"
-msgstr "Hautatu zein kontrol bistaraziko diren"
-
-#: ../xfce4-mixer/xfce-mixer-window.c:154
-msgid "Configure sound card(s) and control the volume of selected tracks"
-msgstr ""
-"Konfiguratu soinu txartela(k) eta kontrolatu hautatutako pisten bolumena"
-
-#~ msgid ""
-#~ "No left-click command defined yet. You can change this in the plugin "
-#~ "properties."
-#~ msgstr ""
-#~ "Ez dago ezker-klik komando ezarririk oraindik. Hau plugin propietatean "
-#~ "aldatu dezakezu."
-
-#~ msgid "Properties"
-#~ msgstr "Propietateak"
-
-#~ msgid "Configure the mixer track and left-click command"
-#~ msgstr "Konfiguratu nahasle pista eta ezker-klik komandoa"
-
-#~ msgid "Sound card"
-#~ msgstr "Soinu txartela"
-
-#~ msgid "Left-click command"
-#~ msgstr "Ezker-klik komandoa"
-
-#~ msgid "Select command"
-#~ msgstr "Hautatu komandoa"
-
-#~ msgid "All Files"
-#~ msgstr "Fitxategi denak"
-
-#~ msgid "Executable Files"
-#~ msgstr "Fitxategi exekutagarriak"
-
-#~ msgid "Perl Scripts"
-#~ msgstr "Perl skript-ak"
-
-#~ msgid "Python Scripts"
-#~ msgstr "Python skript-ak"
-
-#~ msgid "Ruby Scripts"
-#~ msgstr "Ruby skript-ak"
-
-#~ msgid "Shell Scripts"
-#~ msgstr "Shell skript-ak"
-
-#~ msgid "Volume control for your sound card"
-#~ msgstr "Zure soinu txartelaren bolumen kontrola"
-
-#~ msgid ""
-#~ "No controls are marked as visible. Please open the <span "
-#~ "size='large'><b>Select Controls</b></span> dialog to select some."
-#~ msgstr ""
-#~ "Ez dago kontrolik ikusgarri bezala markaturik. Mesedez ireki <span "
-#~ "size='large'><b>Hautatu kontrolak</b></span> elkarrizketa eta batenbat "
-#~ "hautatu."
-
-#~ msgid "Audio mixer for the Xfce Desktop Environment"
-#~ msgstr "Xfce idazmahai ingurunearen audio nahasgailua"
-
-#~ msgid ""
-#~ "Could not execute the command %s. Perhaps you need to adjust the PATH "
-#~ "variable."
-#~ msgstr ""
-#~ "Ezinda %s komandoa exekutatu. Agian PATH aldagaia doitu beharko duzu."
-
-#~ msgid "Please select which mixer track should be used by the plugin"
-#~ msgstr "Mesedez hautatu zein nahasle pista erabili behar duen pluginak"
-
-#~ msgid "Please select which controls you want to be visible"
-#~ msgstr "Mesedez hautatu zein kontrol izango diren ikusgarri"
+#: ../xfce4-mixer/xfce-mixer-window.c:220
+msgid "_Quit"
+msgstr "Irte_n"
