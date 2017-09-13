@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Aputsiak Niels Janussen <aj@isit.gl>, 2013
+# Aputsiak Niels Janussen (Skjalden) <aj@isit.gl>, 2013
 # Chris Darnell <chris@cedeel.com>, 2013
 # Ole Guldberg <olegb@omgwtf.dk>, 2008
 # Per Kongstad <p_kongstad@op.pl>, 2009
@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-07-09 00:30+0200\n"
-"PO-Revision-Date: 2017-01-16 11:22+0000\n"
+"PO-Revision-Date: 2017-09-13 16:33+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/xfce/xfce-apps/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -134,7 +134,7 @@ msgstr "<span weight=\"bold\" size=\"larger\">Ingen synlige kontroller</span>"
 msgid ""
 "In order to toggle the visibility of mixer controls, open the <b>\"Select "
 "Controls\"</b> dialog."
-msgstr "For at slå synlighed for mikserkontrollerne til og fra, så åbn vinduet <b>\"Vælg kontroller\"</b>."
+msgstr "For at slå synlighed for mikserkontrollerne til og fra, så åbn dialogen <b>\"Vælg kontroller\"</b>."
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:118
 msgid "Select Controls"
