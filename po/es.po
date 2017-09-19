@@ -5,7 +5,7 @@
 # Translators:
 # Adolfo Jayme-Barrientos, 2014
 # Adolfo Jayme Barrientos, 2014
-# Adolfo Jayme-Barrientos, 2014
+# Adolfo Jayme Barrientos, 2014
 # César Enrique García <cquike@gmail.com>, 2013
 # César Enrique García <cquike@gmail.com>, 2013
 # César Enrique García <cquike@gmail.com>, 2013
@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-07-09 00:30+0200\n"
-"PO-Revision-Date: 2016-07-09 12:44+0000\n"
+"PO-Revision-Date: 2017-09-19 18:05+0000\n"
 "Last-Translator: Manolo Díaz <diaz.manolo@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/xfce/xfce-apps/language/es/)\n"
 "MIME-Version: 1.0\n"
