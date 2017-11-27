@@ -4,8 +4,9 @@
 # 
 # Translators:
 # Aputsiak Niels Janussen (Skjalden) <aj@isit.gl>, 2013
+# Aputsiak Niels Janussen (Skjalden) <aj@isit.gl>, 2013
 # Chris Darnell <chris@cedeel.com>, 2013
-# Ole Guldberg <olegb@omgwtf.dk>, 2008
+# olegb <olegb@omgwtf.dk>, 2008
 # Per Kongstad <p_kongstad@op.pl>, 2009
 # scootergrisen, 2016-2017
 msgid ""
@@ -13,7 +14,7 @@ msgstr ""
 "Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-07-09 00:30+0200\n"
-"PO-Revision-Date: 2017-09-30 19:10+0000\n"
+"PO-Revision-Date: 2017-11-27 21:33+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/xfce/xfce-apps/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -57,7 +58,7 @@ msgstr "Lydmikser-plugin"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:152
 msgid "Configure the sound card and mixer track"
-msgstr "Konfigurér lydkortet og mikserspor"
+msgstr "Konfigurer lydkortet og mikserspor"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:154
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:122
