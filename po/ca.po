@@ -4,14 +4,14 @@
 # 
 # Translators:
 # Carles Muñoz Gorriz <carlesmu@internautas.org>, 2012
-# Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2016
+# Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2016-2017
 # Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-07-09 00:30+0200\n"
-"PO-Revision-Date: 2017-09-19 18:05+0000\n"
+"PO-Revision-Date: 2017-12-13 21:41+0000\n"
 "Last-Translator: Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/xfce/xfce-apps/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -97,7 +97,7 @@ msgstr "Mesclador d'àudio"
 #: ../panel-plugin/mixer.desktop.in.h:2
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.h:2
 msgid "Adjust volume levels"
-msgstr "Ajusta els nivells de volum"
+msgstr "Ajusteu els nivells de volum"
 
 #: ../libxfce4mixer/libxfce4mixer.c:422
 #, c-format
