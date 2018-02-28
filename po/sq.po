@@ -1,0 +1,173 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: Xfce Apps\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-07-09 00:30+0200\n"
+"PO-Revision-Date: 2018-02-28 16:59+0000\n"
+"Last-Translator: Besnik <besnik@programeshqip.org>\n"
+"Language-Team: Albanian (http://www.transifex.com/xfce/xfce-apps/language/sq/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: sq\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. Add menu item for muting
+#: ../panel-plugin/xfce-mixer-plugin.c:307
+msgid "Mu_te"
+msgstr "_Heshtoje"
+
+#. Add menu item for running the user-defined command
+#: ../panel-plugin/xfce-mixer-plugin.c:313
+msgid "Run Audio Mi_xer"
+msgstr "Xhironi Për_zierës Audio"
+
+#: ../panel-plugin/xfce-mixer-plugin.c:581
+msgid ""
+"GStreamer was unable to detect any sound devices. Some sound system specific"
+" GStreamer packages may be missing. It may also be a permissions problem."
+msgstr "GStreamer s’qe në gjendje të pikasë ndonjë pajisje zëri. Mundet të mungojnë disa paketa specifike GStreamer për sisteme tingujsh. Mund të jetë edhe ndonjë problem me lejet."
+
+#: ../panel-plugin/xfce-mixer-plugin.c:954
+msgid "No command defined"
+msgstr "S’ka urdhër të përcaktuar"
+
+#. Generate error message and insert the current command
+#: ../panel-plugin/xfce-mixer-plugin.c:962
+#, c-format
+msgid ""
+"Could not execute the command \"%s\". Ensure that either the location of the"
+" command is included in the PATH environment variable or that you are "
+"providing the full path to the command."
+msgstr "S’u përmbush dot urdhri \"%s\". Sigurohuni që ose vendndodhja e urdhrit përfshihet te ndryshorja PATH e mjedisit, ose se po jepni te urdhri shtegun e plotës."
+
+#: ../panel-plugin/xfce-plugin-dialog.c:150
+msgid "Audio Mixer Plugin"
+msgstr "Shtojcë Përzierësi Audio"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:152
+msgid "Configure the sound card and mixer track"
+msgstr "Formësoni kartën e zërit dhe pistë përzierësi"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:154
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:122
+msgid "_Close"
+msgstr "_Mbylle"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:165
+#: ../xfce4-mixer/xfce-mixer-window.c:184
+msgid "Sound _card:"
+msgstr "_Kartë zëri:"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:175
+msgid "Mixer _track:"
+msgstr "_Pistë përzierësi:"
+
+#: ../panel-plugin/xfce-volume-button.c:890
+msgid "No valid device and/or element."
+msgstr "Pajisje dhe/ose element jo i vlefshëm."
+
+#: ../panel-plugin/xfce-volume-button.c:895
+#, c-format
+msgid "%s: muted"
+msgstr "%s: heshtuar"
+
+#: ../panel-plugin/xfce-volume-button.c:897
+#, c-format
+msgid "%s: %i%%"
+msgstr "%s: %i%%"
+
+#. Set application name
+#: ../panel-plugin/mixer.desktop.in.h:1 ../xfce4-mixer/main.c:45
+#: ../xfce4-mixer/xfce-mixer-window.c:164
+#: ../xfce4-mixer/xfce-mixer-window.c:449
+#: ../xfce4-mixer/xfce-mixer-window.c:463
+#: ../xfce4-mixer/xfce4-mixer.desktop.in.h:1
+msgid "Audio Mixer"
+msgstr "Përzierës Audio"
+
+#: ../panel-plugin/mixer.desktop.in.h:2
+#: ../xfce4-mixer/xfce4-mixer.desktop.in.h:2
+msgid "Adjust volume levels"
+msgstr "Rregulloni shkallë volumi"
+
+#: ../libxfce4mixer/libxfce4mixer.c:422
+#, c-format
+msgid "Unknown Volume Control %d"
+msgstr "Kontroll i Panjohur Volumi %d"
+
+#: ../xfce4-mixer/xfce-mixer-container.c:218
+msgid "_Playback"
+msgstr "_Luajtje"
+
+#: ../xfce4-mixer/xfce-mixer-container.c:218
+msgid "C_apture"
+msgstr "_Incizim"
+
+#: ../xfce4-mixer/xfce-mixer-container.c:218
+msgid "S_witches"
+msgstr "_Çelësa"
+
+#: ../xfce4-mixer/xfce-mixer-container.c:218
+msgid "_Options"
+msgstr "_Mundësi"
+
+#: ../xfce4-mixer/xfce-mixer-container.c:368
+msgid "No controls visible"
+msgstr "Pa kontrolle të dukshëm"
+
+#: ../xfce4-mixer/xfce-mixer-container.c:377
+msgid "<span weight=\"bold\" size=\"larger\">No controls visible</span>"
+msgstr "<span weight=\"bold\" size=\"larger\">S’ka kontrolle të dukshëm</span>"
+
+#: ../xfce4-mixer/xfce-mixer-container.c:383
+msgid ""
+"In order to toggle the visibility of mixer controls, open the <b>\"Select "
+"Controls\"</b> dialog."
+msgstr "Që të caktoni dukshmërinë e kontrolleve të përzierësit, hapni dialogun <b>\"Përzgjidhni Kontrolle\"</b>."
+
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:118
+msgid "Select Controls"
+msgstr "Përzgjidhni Kontrolle"
+
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:120
+msgid "Select which controls should be visible"
+msgstr "Përzgjidhni cilët kontrolle duhet të jenë të dukshëm"
+
+#: ../xfce4-mixer/xfce-mixer-track.c:245
+#, c-format
+msgid "Volume of channel %d on %s"
+msgstr "Volum i kanalit %d në %s"
+
+#. Lock button
+#: ../xfce4-mixer/xfce-mixer-track.c:281
+#, c-format
+msgid "Lock channels for %s together"
+msgstr "Kyçi tok kanalet për %s"
+
+#: ../xfce4-mixer/xfce-mixer-track.c:325
+#, c-format
+msgid "Mute/unmute %s"
+msgstr "Heshtoje/çheshtoje %s"
+
+#: ../xfce4-mixer/xfce-mixer-track.c:345
+#, c-format
+msgid "Enable/disable audible input from %s in output"
+msgstr "Aktivizoni/çaktivizoni sinjal të dëgjueshëm në hyrje nga %s për në dalje"
+
+#: ../xfce4-mixer/xfce-mixer-window.c:167
+msgid "Configure sound card(s) and control the volume of selected tracks"
+msgstr "Formësoni kartë(a) zër dhe kontrolloni volumin e pjesëve të përzgjedhura"
+
+#: ../xfce4-mixer/xfce-mixer-window.c:212
+msgid "_Select Controls..."
+msgstr "_Përzgjidhni Kontrolle…"
+
+#: ../xfce4-mixer/xfce-mixer-window.c:220
+msgid "_Quit"
+msgstr "_Dil"
