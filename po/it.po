@@ -4,12 +4,13 @@
 # 
 # Translators:
 # Cristian Marchi <cri.penta@gmail.com>, 2009,2016
+# Emanuele Petriglia <inbox@emanuelepetriglia.me>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-07-09 00:30+0200\n"
-"PO-Revision-Date: 2018-06-16 16:27+0000\n"
+"PO-Revision-Date: 2018-07-10 08:05+0000\n"
 "Last-Translator: Emanuele Petriglia <inbox@emanuelepetriglia.me>\n"
 "Language-Team: Italian (http://www.transifex.com/xfce/xfce-apps/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -32,7 +33,7 @@ msgstr "_Avvia Mixer Audio"
 msgid ""
 "GStreamer was unable to detect any sound devices. Some sound system specific"
 " GStreamer packages may be missing. It may also be a permissions problem."
-msgstr "GStreamer non è riuscito a individuare un dispositivo audio. Potrebbero mancare dei pacchetti di GStreamer specifici per il sistema audio. Potrebbe anche trattarsi di un problema con i permessi."
+msgstr "GStreamer non è riuscito a individuare alcun dispositivo audio. Potrebbero mancare dei pacchetti di GStreamer specifici per il sistema audio. Potrebbe anche trattarsi di un problema con i permessi."
 
 #: ../panel-plugin/xfce-mixer-plugin.c:954
 msgid "No command defined"
@@ -49,7 +50,7 @@ msgstr "Impossibile eseguire il comando \"%s\". Assicurarsi che la posizione del
 
 #: ../panel-plugin/xfce-plugin-dialog.c:150
 msgid "Audio Mixer Plugin"
-msgstr "Plugin del Mixer Audio"
+msgstr "Componente aggiuntivo del Mixer Audio"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:152
 msgid "Configure the sound card and mixer track"
@@ -167,7 +168,7 @@ msgstr "Permette di configurare la (o le) schede audio e di controllare il volum
 
 #: ../xfce4-mixer/xfce-mixer-window.c:212
 msgid "_Select Controls..."
-msgstr "_Selezione dei controlli..."
+msgstr "_Selezione dei controlli…"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:220
 msgid "_Quit"
