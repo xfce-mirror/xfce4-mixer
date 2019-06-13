@@ -1,0 +1,174 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Hayk Andreasyan <hayk.andreasyan@realschool.am>, 2019
+msgid ""
+msgstr ""
+"Project-Id-Version: Xfce Apps\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-07-09 00:30+0200\n"
+"PO-Revision-Date: 2019-06-13 10:32+0000\n"
+"Last-Translator: Hayk Andreasyan <hayk.andreasyan@realschool.am>\n"
+"Language-Team: Armenian (Armenia) (http://www.transifex.com/xfce/xfce-apps/language/hy_AM/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: hy_AM\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. Add menu item for muting
+#: ../panel-plugin/xfce-mixer-plugin.c:307
+msgid "Mu_te"
+msgstr "Լռե_ցնել"
+
+#. Add menu item for running the user-defined command
+#: ../panel-plugin/xfce-mixer-plugin.c:313
+msgid "Run Audio Mi_xer"
+msgstr "Գործարկել ձայնի կառա_վարիչը"
+
+#: ../panel-plugin/xfce-mixer-plugin.c:581
+msgid ""
+"GStreamer was unable to detect any sound devices. Some sound system specific"
+" GStreamer packages may be missing. It may also be a permissions problem."
+msgstr "GStreamer֊ը չի յայտնաբերել ձայնային ոչ մի սարք։ GStreamer֊ի որոշ ձայնային փաթեթներ բացակայում են։ Կարող է լինել նաեւ արտաւոնութիւնների խնդիր։"
+
+#: ../panel-plugin/xfce-mixer-plugin.c:954
+msgid "No command defined"
+msgstr "Սահմանուած հրաման չկայ"
+
+#. Generate error message and insert the current command
+#: ../panel-plugin/xfce-mixer-plugin.c:962
+#, c-format
+msgid ""
+"Could not execute the command \"%s\". Ensure that either the location of the"
+" command is included in the PATH environment variable or that you are "
+"providing the full path to the command."
+msgstr "Չյաջողուեց գործարկել%s հրամանը։ Համոզուէք, որ հրամանի տեղադրութիւնը ներառուած է PATH փոփոխականի միջավայրում կամ, որ սահմանում էք հրամանի ամբողջական ուղին։"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:150
+msgid "Audio Mixer Plugin"
+msgstr "Ձայնային կառավարչի ներդրաւն"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:152
+msgid "Configure the sound card and mixer track"
+msgstr "Կազմաձեւել ձայնային քարտը եւ շաւիղների կառավարիչը"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:154
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:122
+msgid "_Close"
+msgstr "_Փակել"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:165
+#: ../xfce4-mixer/xfce-mixer-window.c:184
+msgid "Sound _card:"
+msgstr "Ձայնային _քարտ․"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:175
+msgid "Mixer _track:"
+msgstr "Շաւիղների _կառավարիչ․"
+
+#: ../panel-plugin/xfce-volume-button.c:890
+msgid "No valid device and/or element."
+msgstr "Անվաւեր սարք եւ/կամ տարր։"
+
+#: ../panel-plugin/xfce-volume-button.c:895
+#, c-format
+msgid "%s: muted"
+msgstr "%s․ լռեցուած է"
+
+#: ../panel-plugin/xfce-volume-button.c:897
+#, c-format
+msgid "%s: %i%%"
+msgstr "%s․%i%%"
+
+#. Set application name
+#: ../panel-plugin/mixer.desktop.in.h:1 ../xfce4-mixer/main.c:45
+#: ../xfce4-mixer/xfce-mixer-window.c:164
+#: ../xfce4-mixer/xfce-mixer-window.c:449
+#: ../xfce4-mixer/xfce-mixer-window.c:463
+#: ../xfce4-mixer/xfce4-mixer.desktop.in.h:1
+msgid "Audio Mixer"
+msgstr "Ձայնի կառավարիչ"
+
+#: ../panel-plugin/mixer.desktop.in.h:2
+#: ../xfce4-mixer/xfce4-mixer.desktop.in.h:2
+msgid "Adjust volume levels"
+msgstr "Կարգաւորել համակարգի ձայնը"
+
+#: ../libxfce4mixer/libxfce4mixer.c:422
+#, c-format
+msgid "Unknown Volume Control %d"
+msgstr "Ձայնի անյայտ %d կառավարիչ"
+
+#: ../xfce4-mixer/xfce-mixer-container.c:218
+msgid "_Playback"
+msgstr "_Նուագարկում"
+
+#: ../xfce4-mixer/xfce-mixer-container.c:218
+msgid "C_apture"
+msgstr "Կ_որզում"
+
+#: ../xfce4-mixer/xfce-mixer-container.c:218
+msgid "S_witches"
+msgstr "Փ_ոխադրիչներ"
+
+#: ../xfce4-mixer/xfce-mixer-container.c:218
+msgid "_Options"
+msgstr "_Ընտրանք"
+
+#: ../xfce4-mixer/xfce-mixer-container.c:368
+msgid "No controls visible"
+msgstr "Տեսանելի կառավարումներ չկան"
+
+#: ../xfce4-mixer/xfce-mixer-container.c:377
+msgid "<span weight=\"bold\" size=\"larger\">No controls visible</span>"
+msgstr "<span weight=\"bold\" size=\"larger\">Տեսանելի կառավարումներ չկան</span>"
+
+#: ../xfce4-mixer/xfce-mixer-container.c:383
+msgid ""
+"In order to toggle the visibility of mixer controls, open the <b>\"Select "
+"Controls\"</b> dialog."
+msgstr "Փոխելոը համար կառավարչի կարգաւորումները, բացէք <b>Ընտրել կառավարում</b> պատուհանը։"
+
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:118
+msgid "Select Controls"
+msgstr "Ընտրել կառավարում"
+
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:120
+msgid "Select which controls should be visible"
+msgstr "Ընտրէք ցուցադրելի կառավարումները"
+
+#: ../xfce4-mixer/xfce-mixer-track.c:245
+#, c-format
+msgid "Volume of channel %d on %s"
+msgstr "%dալիքի ձայնը %s֊ում"
+
+#. Lock button
+#: ../xfce4-mixer/xfce-mixer-track.c:281
+#, c-format
+msgid "Lock channels for %s together"
+msgstr "Միացնելի իրար %s֊ի ալիքները"
+
+#: ../xfce4-mixer/xfce-mixer-track.c:325
+#, c-format
+msgid "Mute/unmute %s"
+msgstr "Լռեցնել/միացնել %s֊ը"
+
+#: ../xfce4-mixer/xfce-mixer-track.c:345
+#, c-format
+msgid "Enable/disable audible input from %s in output"
+msgstr "Միացնել/անջատել %s֊ի ձայնային ներածումը՝ արտածելիս"
+
+#: ../xfce4-mixer/xfce-mixer-window.c:167
+msgid "Configure sound card(s) and control the volume of selected tracks"
+msgstr "Կազմաձեւել ձայնային քարտը(երը) եւ կառավարէք նշուած շաւիղների ձայնը։"
+
+#: ../xfce4-mixer/xfce-mixer-window.c:212
+msgid "_Select Controls..."
+msgstr ""
+
+#: ../xfce4-mixer/xfce-mixer-window.c:220
+msgid "_Quit"
+msgstr "_Դուրս գալ"
