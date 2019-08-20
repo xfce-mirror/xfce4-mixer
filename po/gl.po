@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-07-09 00:30+0200\n"
-"PO-Revision-Date: 2019-08-10 09:54+0000\n"
+"PO-Revision-Date: 2019-08-20 20:15+0000\n"
 "Last-Translator: Daniel Muñiz Fontoira <dani@damufo.com>\n"
 "Language-Team: Galician (http://www.transifex.com/xfce/xfce-apps/language/gl/)\n"
 "MIME-Version: 1.0\n"
@@ -34,7 +34,7 @@ msgstr "Executar o mesturador de son"
 msgid ""
 "GStreamer was unable to detect any sound devices. Some sound system specific"
 " GStreamer packages may be missing. It may also be a permissions problem."
-msgstr "GStreamer non foi capaz de detectar ningún dispositivo de son. Pode que falten algúns paquetes de GStreamer específicos para o sistema de son. Tamén podería ser un problema de permisos."
+msgstr "GStreamer non foi quen de detectar ningún dispositivo de son. Pode que falten algúns paquetes de GStreamer específicos para o sistema de son. Tamén podería ser un problema de permisos."
 
 #: ../panel-plugin/xfce-mixer-plugin.c:954
 msgid "No command defined"
@@ -122,11 +122,11 @@ msgstr "_Opcións"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:368
 msgid "No controls visible"
-msgstr "Non mostra ningún control"
+msgstr "Non amosa ningún control"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:377
 msgid "<span weight=\"bold\" size=\"larger\">No controls visible</span>"
-msgstr "<span weight=\"bold\" size=\"larger\">Non mostra ningún control</span>"
+msgstr "<span weight=\"bold\" size=\"larger\">Non amosa ningún control</span>"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:383
 msgid ""
@@ -140,7 +140,7 @@ msgstr "Seleccionar controis"
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:120
 msgid "Select which controls should be visible"
-msgstr "Seleccione que controis se mostran"
+msgstr "Seleccione que controis se amosan"
 
 #: ../xfce4-mixer/xfce-mixer-track.c:245
 #, c-format
