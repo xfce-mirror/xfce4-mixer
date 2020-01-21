@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# José Vieira <jvieira33@sapo.pt>, 2020
 # Nuno Miguel <nunomgue@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-07-09 00:30+0200\n"
-"PO-Revision-Date: 2018-09-14 00:15+0000\n"
+"PO-Revision-Date: 2020-01-21 16:19+0000\n"
 "Last-Translator: José Vieira <jvieira33@sapo.pt>\n"
 "Language-Team: Portuguese (http://www.transifex.com/xfce/xfce-apps/language/pt/)\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +27,7 @@ msgstr "_Silenciar"
 #. Add menu item for running the user-defined command
 #: ../panel-plugin/xfce-mixer-plugin.c:313
 msgid "Run Audio Mi_xer"
-msgstr "Executa_r gestor de som"
+msgstr "Executar mi_xturador de som"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:581
 msgid ""
