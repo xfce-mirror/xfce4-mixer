@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-07-09 00:30+0200\n"
-"PO-Revision-Date: 2018-02-28 16:59+0000\n"
+"PO-Revision-Date: 2020-01-27 20:54+0000\n"
 "Last-Translator: Besnik <besnik@programeshqip.org>\n"
 "Language-Team: Albanian (http://www.transifex.com/xfce/xfce-apps/language/sq/)\n"
 "MIME-Version: 1.0\n"
@@ -162,7 +162,7 @@ msgstr "Aktivizoni/çaktivizoni sinjal të dëgjueshëm në hyrje nga %s për n�
 
 #: ../xfce4-mixer/xfce-mixer-window.c:167
 msgid "Configure sound card(s) and control the volume of selected tracks"
-msgstr "Formësoni kartë(a) zër dhe kontrolloni volumin e pjesëve të përzgjedhura"
+msgstr "Formësoni kartë(a) zëri dhe kontrolloni volumin e pjesëve të përzgjedhura"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:212
 msgid "_Select Controls..."
