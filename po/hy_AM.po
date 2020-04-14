@@ -167,7 +167,7 @@ msgstr "Կազմաձեւել ձայնային քարտը(երը) եւ կառավ
 
 #: ../xfce4-mixer/xfce-mixer-window.c:212
 msgid "_Select Controls..."
-msgstr ""
+msgstr "_Ընտրել կառավարում․․․"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:220
 msgid "_Quit"
