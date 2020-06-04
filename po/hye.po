@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Arman Harutyunyan <arman.harut468@gmail.com>, 2020
 # Hayk Andreasyan <hayk.andreasyan@realschool.am>, 2019
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-05-22 12:36+0200\n"
-"PO-Revision-Date: 2020-05-25 06:59+0000\n"
-"Last-Translator: Real School <localization@ehayq.am>\n"
+"PO-Revision-Date: 2020-06-04 11:38+0000\n"
+"Last-Translator: Arman Harutyunyan <arman.harut468@gmail.com>\n"
 "Language-Team: Eastern Armenian (http://www.transifex.com/xfce/xfce-apps/language/hye/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,7 +22,7 @@ msgstr ""
 #. Add menu item for muting
 #: ../panel-plugin/xfce-mixer-plugin.c:307
 msgid "Mu_te"
-msgstr "Լռե_ցնել"
+msgstr "Լռեց_նել"
 
 #. Add menu item for running the user-defined command
 #: ../panel-plugin/xfce-mixer-plugin.c:313
@@ -130,7 +131,7 @@ msgstr "<span weight=\"bold\" size=\"larger\">Տեսանելի կառավարո�
 msgid ""
 "In order to toggle the visibility of mixer controls, open the <b>\"Select "
 "Controls\"</b> dialog."
-msgstr "Փոխելոը համար կառավարչի կարգաւորումները, բացէք <b>Ընտրել կառավարում</b> պատուհանը։"
+msgstr "Փոխելու համար կառավարչի կարգաւորումները, բացէք <b>Ընտրել կառավարում</b> պատուհանը։"
 
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:118
 msgid "Select Controls"
