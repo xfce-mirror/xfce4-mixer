@@ -24,11 +24,22 @@
 typedef struct
 {
   GList *tracklist;
+  gchar *name;
+  gchar *card_name;
 
 } GstMixerPrivate;
 
+enum
+{
+  PROP_0,
+  PROP_NAME,
+  PROP_CARD_NAME,
+  LAST_PROP
+};
+
+
 G_DEFINE_ABSTRACT_TYPE_WITH_PRIVATE (GstMixer, gst_mixer, GST_TYPE_ELEMENT);
-#define GET_PRIV(o) gst_mixer_get_instance_private(o)
+#define GET_PRIV(o) gst_mixer_get_instance_private(GST_MIXER(o))
 
 
 static void gst_mixer_recording_changed (GstMixerTrack *track,
@@ -105,6 +116,8 @@ gst_mixer_init (GstMixer *mixer)
   priv = GET_PRIV (mixer);
 
   priv->tracklist = NULL;
+  priv->name      = NULL;
+  priv->card_name = NULL;
 
 }
 
@@ -118,7 +131,57 @@ gst_mixer_finalize (GObject *self)
 
   g_list_free_full (priv->tracklist, g_object_unref);
 
+  g_free (priv->name);
+
+  g_free (priv->card_name);
+
   G_OBJECT_CLASS (gst_mixer_parent_class)->finalize (self);
+}
+
+
+static void
+gst_mixer_get_property (GObject *object,
+                        guint prop_id,
+                        GValue *value,
+                        GParamSpec *pspec)
+{
+  GstMixerPrivate *priv = GET_PRIV(object);
+
+  switch (prop_id)
+  {
+    case PROP_NAME:
+      g_value_set_string (value, priv->name);
+      break;
+    case PROP_CARD_NAME:
+      g_value_set_string (value, priv->card_name);
+      break;
+    default:
+      G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
+      break;
+  }
+}
+
+
+static void
+gst_mixer_set_property (GObject *object,
+                        guint prop_id,
+                        const GValue *value,
+                        GParamSpec *pspec)
+{
+  GstMixerPrivate *priv = GET_PRIV(object);
+
+  switch (prop_id)
+  {
+    case PROP_NAME:
+      priv->name = g_value_dup_string (value);
+      break;
+    case PROP_CARD_NAME:
+      priv->card_name = g_value_dup_string (value);
+      break;
+    default:
+      G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
+      break;
+  }
 }
 
 
@@ -127,6 +190,10 @@ gst_mixer_class_init (GstMixerClass *klass)
 {
   GObjectClass *object_class = G_OBJECT_CLASS (klass);
   GstMixerClass *mixer_class = GST_MIXER_CLASS (klass);
+  GParamSpec *properties[LAST_PROP] = { NULL, 0 };
+
+  object_class->set_property = gst_mixer_set_property;
+  object_class->get_property = gst_mixer_get_property;
 
   mixer_class->get_volume  = gst_mixer_get_volume;
   mixer_class->set_volume  = gst_mixer_set_volume;
@@ -135,15 +202,38 @@ gst_mixer_class_init (GstMixerClass *klass)
   mixer_class->set_option  = gst_mixer_set_option;
   mixer_class->get_option  = gst_mixer_get_option;
 
+  properties[PROP_NAME] =
+    g_param_spec_string ("name",
+                         NULL,
+                         NULL,
+                         NULL,
+                         G_PARAM_READWRITE|
+                         G_PARAM_CONSTRUCT_ONLY);
+
+  properties[PROP_CARD_NAME] =
+    g_param_spec_string ("card-name",
+                         NULL,
+                         NULL,
+                         NULL,
+                         G_PARAM_READWRITE|
+                         G_PARAM_CONSTRUCT_ONLY);
+
+  g_object_class_install_properties (object_class,
+                                     LAST_PROP,
+                                     properties);
+
   object_class->finalize = (void (*) (GObject *object)) gst_mixer_finalize;
 }
 
 
 const gchar *gst_mixer_get_card_name (GstMixer *mixer)
 {
+  GstMixerPrivate *priv;
   g_return_val_if_fail (GST_IS_MIXER(mixer), NULL);
 
-  return GST_MIXER_GET_CLASS(mixer)->get_card_name(mixer);
+  priv = GET_PRIV(mixer);
+
+  return priv->card_name;
 }
 
 

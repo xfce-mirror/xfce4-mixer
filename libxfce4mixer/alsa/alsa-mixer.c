@@ -32,8 +32,6 @@ struct _GstMixerAlsa
   GstMixer parent;
 
   void *handle; /* snd_mixer_t */
-  gchar *name;
-  gchar *card_name;
   GSource *src;
 
 };
@@ -55,10 +53,6 @@ gst_mixer_alsa_finalize (GObject *self)
     snd_mixer_close (mixer->handle);
   }
 
-  g_free (mixer->name);
-
-  g_free (mixer->card_name);
-
   G_OBJECT_CLASS (gst_mixer_alsa_parent_class)->finalize (self);
 }
 
@@ -67,9 +61,6 @@ static void
 gst_mixer_alsa_init (GstMixerAlsa *mixer)
 {
   mixer->src = NULL;
-  mixer->name = NULL;
-  mixer->card_name = NULL;
-
 }
 
 
@@ -77,13 +68,6 @@ static GstMixerFlags
 gst_mixer_alsa_get_mixer_flags (GstMixer *mixer)
 {
   return GST_MIXER_FLAG_AUTO_NOTIFICATIONS;
-}
-
-
-static const gchar *
-gst_mixer_alsa_get_card_name (GstMixer *mixer)
-{
-  return GST_MIXER_ALSA(mixer)->card_name;
 }
 
 
@@ -167,7 +151,6 @@ gst_mixer_alsa_class_init (GstMixerAlsaClass *klass)
                                          "Takashi Iwai <tiwai@suse.de>");
 
   mixer_class->get_mixer_flags = gst_mixer_alsa_get_mixer_flags;
-  mixer_class->get_card_name = gst_mixer_alsa_get_card_name;
   mixer_class->set_volume  = gst_mixer_alsa_set_volume;
   mixer_class->get_volume  = gst_mixer_alsa_get_volume;
   mixer_class->set_record  = gst_mixer_alsa_set_record;
@@ -389,39 +372,43 @@ static int
 gst_mixer_alsa_new (const char *name, GstMixer **mixer_ret)
 {
   GstMixerAlsa *mixer;
+  gchar *card_name;
+  void *handle; /* snd_mixer_t */
+  snd_ctl_card_info_t *info;
 
   snd_hctl_t *hctl;
   int err;
 
-  mixer = (GstMixerAlsa *) g_object_new (GST_MIXER_TYPE_ALSA, NULL);
-  mixer->name = g_strdup (name);
-
-  err = snd_mixer_open ((snd_mixer_t **) &mixer->handle, 0);
+  err = snd_mixer_open ((snd_mixer_t **) &handle, 0);
   if (err < 0)
     goto error;
 
-  err = snd_mixer_attach (mixer->handle, name);
+  err = snd_mixer_attach (handle, name);
   if (err < 0)
     goto error;
 
-  err = snd_mixer_selem_register (mixer->handle, NULL, NULL);
+  err = snd_mixer_selem_register (handle, NULL, NULL);
   if (err < 0)
     goto error;
 
-  err = snd_mixer_load (mixer->handle);
+  err = snd_mixer_load (handle);
   if (err < 0)
     goto error;
 
-  snd_mixer_get_hctl (mixer->handle, name, &hctl);
-  {
-    snd_ctl_card_info_t *info;
+  snd_mixer_get_hctl (handle, name, &hctl);
 
-    snd_ctl_card_info_alloca (&info);
-    snd_ctl_card_info (snd_hctl_ctl (hctl), info);
-    mixer->card_name = g_strdup_printf ("%s (Alsa mixer)",
-                                        snd_ctl_card_info_get_name (info));
-  }
+  snd_ctl_card_info_alloca (&info);
+  snd_ctl_card_info (snd_hctl_ctl (hctl), info);
+  card_name = g_strdup_printf ("%s (Alsa mixer)",
+                               snd_ctl_card_info_get_name (info));
 
+  mixer = (GstMixerAlsa *) g_object_new (GST_MIXER_TYPE_ALSA,
+                                         "name", name,
+                                         "card-name", card_name,
+                                         NULL);
+  g_free(card_name);
+
+  mixer->handle = handle;
   snd_mixer_set_callback_private (mixer->handle, mixer);
   snd_mixer_set_callback (mixer->handle, gst_mixer_alsa_callback);
 
@@ -433,7 +420,6 @@ gst_mixer_alsa_new (const char *name, GstMixer **mixer_ret)
   return 0;
 
 error:
-  gst_object_unref (mixer);
   return err;
 }
 

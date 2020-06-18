@@ -38,10 +38,6 @@ struct _GstMixerPulse
 
   pa_threaded_mainloop     *mainloop;
   pa_context               *context;
-
-  GList *tracklist;
-  gchar *card_name;
-
 };
 
 G_DEFINE_TYPE (GstMixerPulse, gst_mixer_pulse, GST_TYPE_MIXER)
@@ -50,10 +46,6 @@ static void
 gst_mixer_pulse_finalize (GObject *self)
 {
   GstMixerPulse *mixer = GST_MIXER_PULSE (self);
-
-  g_list_free_full (mixer->tracklist, g_object_unref);
-
-  g_free (mixer->card_name);
 
   pa_threaded_mainloop_free (mixer->mainloop);
 
@@ -64,9 +56,6 @@ gst_mixer_pulse_finalize (GObject *self)
 static void
 gst_mixer_pulse_init (GstMixerPulse *mixer)
 {
-  mixer->card_name = NULL;
-  mixer->tracklist = NULL;
-
   mixer->mainloop = pa_threaded_mainloop_new();
   g_assert (mixer->mainloop);
 
@@ -83,20 +72,6 @@ static GstMixerFlags
 gst_mixer_pulse_get_mixer_flags (GstMixer *mixer)
 {
   return GST_MIXER_FLAG_AUTO_NOTIFICATIONS;
-}
-
-
-static const gchar *
-gst_mixer_pulse_get_card_name (GstMixer *mixer)
-{
-  return GST_MIXER_PULSE(mixer)->card_name;
-}
-
-
-static GList *
-gst_mixer_pulse_list_tracks (GstMixer *mixer)
-{
-  return GST_MIXER_PULSE(mixer)->tracklist;
 }
 
 
@@ -149,8 +124,6 @@ gst_mixer_pulse_class_init (GstMixerPulseClass *klass)
                                          "Ali Abdallah <ali.abdallah@suse.com>");
 
   mixer_class->get_mixer_flags = gst_mixer_pulse_get_mixer_flags;
-  mixer_class->get_card_name = gst_mixer_pulse_get_card_name;
-  mixer_class->list_tracks = gst_mixer_pulse_list_tracks;
   mixer_class->set_volume  = gst_mixer_pulse_set_volume;
   mixer_class->get_volume  = gst_mixer_pulse_get_volume;
   mixer_class->set_record  = gst_mixer_pulse_set_record;
@@ -231,7 +204,8 @@ gst_mixer_pulse_get_sink_cb (pa_context           *context,
                         "min-volume", PA_VOLUME_MUTED,
                         "max-volume", PA_VOLUME_MAX,
                         NULL);
-  pulse->tracklist = g_list_append (pulse->tracklist, track);
+
+  gst_mixer_add_track (GST_MIXER(pulse), GST_MIXER_TRACK(track));
 
   pa_threaded_mainloop_signal(pulse->mainloop, 0);
 }
@@ -266,7 +240,7 @@ gst_mixer_pulse_get_source_cb (pa_context             *context,
                         "max-volume", PA_VOLUME_MAX,
                         NULL);
 
-  pulse->tracklist = g_list_append (pulse->tracklist, track);
+  gst_mixer_add_track (GST_MIXER(pulse), GST_MIXER_TRACK(track));
 
   pa_threaded_mainloop_signal(pulse->mainloop, 0);
 }
@@ -279,8 +253,10 @@ gst_mixer_pulse_new (GstMixer **mixer_ret)
   pa_operation *o;
   int err;
 
-  pulse = g_object_new (GST_MIXER_TYPE_PULSE, NULL);
-  pulse->card_name = g_strdup (_("Pulse Audio Volume Control"));
+  pulse = g_object_new (GST_MIXER_TYPE_PULSE,
+                        "name", "pulse",
+                        "card-name", g_strdup (_("Pulse Audio Volume Control")),
+                        NULL);
 
   pa_threaded_mainloop_start(pulse->mainloop);
   pa_threaded_mainloop_lock(pulse->mainloop);

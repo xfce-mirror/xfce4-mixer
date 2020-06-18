@@ -51,9 +51,6 @@ struct _GstMixerOss
 {
   GstMixer parent;
 
-  gchar *name;
-  gchar *card_name;
-
   int devfd;
   int card_id;
 };
@@ -63,12 +60,6 @@ G_DEFINE_TYPE (GstMixerOss, gst_mixer_oss, GST_TYPE_MIXER)
 static void
 gst_mixer_oss_finalize (GObject *self)
 {
-  GstMixerOss *mixer = GST_MIXER_OSS (self);
-
-  g_free (mixer->name);
-
-  g_free (mixer->card_name);
-
   G_OBJECT_CLASS (gst_mixer_oss_parent_class)->finalize (self);
 }
 
@@ -76,8 +67,6 @@ gst_mixer_oss_finalize (GObject *self)
 static void
 gst_mixer_oss_init (GstMixerOss *mixer)
 {
-  mixer->name = NULL;
-  mixer->card_name = NULL;
 }
 
 
@@ -85,13 +74,6 @@ static GstMixerFlags
 gst_mixer_oss_get_mixer_flags (GstMixer *mixer)
 {
   return GST_MIXER_FLAG_AUTO_NOTIFICATIONS;
-}
-
-
-static const gchar *
-gst_mixer_oss_get_card_name (GstMixer *mixer)
-{
-  return GST_MIXER_OSS(mixer)->card_name;
 }
 
 
@@ -205,7 +187,6 @@ gst_mixer_oss_class_init (GstMixerOssClass *klass)
                                          "Ali Abdallah <ali.abdallah@suse.com>");
 
   mixer_class->get_mixer_flags = gst_mixer_oss_get_mixer_flags;
-  mixer_class->get_card_name = gst_mixer_oss_get_card_name;
   mixer_class->set_volume  = gst_mixer_oss_set_volume;
   mixer_class->get_volume  = gst_mixer_oss_get_volume;
   mixer_class->set_record  = gst_mixer_oss_set_record;
@@ -320,23 +301,26 @@ gst_mixer_oss_new (gint devfd, gint card_id)
   GstMixerOss *mixer;
   oss_card_info inf;
 
-  mixer = g_object_new (GST_MIXER_TYPE_OSS, NULL);
-  mixer->devfd = devfd;
-  mixer->card_id = card_id;
-
   inf.card = card_id;
 
   if (ioctl(devfd, SNDCTL_CARDINFO, &inf) == -1)
   {
     perror ("SNDCTL_CARDINFO");
-    mixer->card_name = g_strdup_printf ("OSS Mixer Card %i", card_id);
-    mixer->name = g_strdup_printf ("card%i", card_id);
+    mixer = g_object_new (GST_MIXER_TYPE_OSS,
+                          "name", g_strdup_printf ("card%i", card_id),
+                          "card-name", g_strdup_printf ("OSS Mixer Card %i", card_id),
+                          NULL);
   }
   else
   {
-    mixer->card_name = g_strdup (inf.longname);
-    mixer->name = g_strdup (inf.shortname);
+    mixer = g_object_new (GST_MIXER_TYPE_OSS,
+                          "name", g_strdup (inf.shortname),
+                          "card-name", g_strdup (inf.longname),
+                          NULL);
   }
+
+  mixer->devfd = devfd;
+  mixer->card_id = card_id;
 
   gst_mixer_oss_create_track_list (mixer);
 

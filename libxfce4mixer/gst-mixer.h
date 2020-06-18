@@ -57,7 +57,6 @@ struct _GstMixerClass
 {
   GstElementClass parent_class;
 
-  const gchar*         (*get_card_name)   (GstMixer *mixer);
   GstMixerFlags        (*get_mixer_flags) (GstMixer *mixer);
   void                 (*get_volume)      (GstMixer *mixer,
                                            GstMixerTrack *track,
@@ -81,6 +80,8 @@ struct _GstMixerClass
 
 const gchar     *gst_mixer_get_card_name      (GstMixer *mixer);
 GList           *gst_mixer_list_tracks        (GstMixer *mixer);
+
+/* Overwritable methods */
 GstMixerFlags    gst_mixer_get_mixer_flags    (GstMixer *mixer);
 void             gst_mixer_get_volume         (GstMixer *mixer,
                                                 GstMixerTrack *track,
