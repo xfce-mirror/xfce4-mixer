@@ -26,7 +26,6 @@
 #include <gtk/gtk.h>
 
 #include <gst/gst.h>
-#include <gst/interfaces/mixer.h>
 
 #include <libxfce4ui/libxfce4ui.h>
 #include <libxfce4panel/libxfce4panel.h>

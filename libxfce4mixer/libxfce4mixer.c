@@ -31,17 +31,23 @@
 
 #include <dbus/dbus-glib.h>
 
-#include <gst/audio/mixerutils.h>
-#include <gst/interfaces/mixer.h>
 
 #include <libxfce4util/libxfce4util.h>
 
 #include "libxfce4mixer.h"
 
+#ifdef HAVE_ALSA
+#include "alsa-mixer.h"
+#endif
 
+#ifdef HAVE_OSS
+#include "oss-mixer.h"
+#endif
 
-static gboolean _xfce_mixer_filter_mixer     (GstMixer   *mixer,
-                                              gpointer    user_data);
+#ifdef HAVE_PULSE
+#include "pulse-mixer.h"
+#endif
+
 static void     _xfce_mixer_add_track_labels (gpointer    data,
                                               gpointer    user_data);
 static void     _xfce_mixer_init_mixer       (gpointer    data,
@@ -79,7 +85,6 @@ void
 xfce_mixer_init (void)
 {
   GtkIconTheme *icon_theme;
-  gint          counter = 0;
 
   if (G_LIKELY (refcount++ == 0))
     {
@@ -87,8 +92,17 @@ xfce_mixer_init (void)
       icon_theme = gtk_icon_theme_get_default ();
       gtk_icon_theme_append_search_path (icon_theme, MIXER_DATADIR G_DIR_SEPARATOR_S "icons");
 
-      /* Get list of all available mixer devices */
-      mixers = gst_audio_default_registry_mixer_filter (_xfce_mixer_filter_mixer, FALSE, &counter);
+#ifdef HAVE_ALSA
+      mixers = gst_mixer_alsa_probe (mixers);
+#endif
+
+#ifdef HAVE_OSS
+      mixers = gst_mixer_oss_probe (mixers);
+#endif
+
+#ifdef HAVE_PULSE
+      mixers = gst_mixer_pulse_probe (mixers);
+#endif
 
       /* Create a GstBus for notifications */
       bus = gst_bus_new ();
@@ -394,41 +408,16 @@ xfce_mixer_get_max_volume (gint *volumes,
   return max;
 }
 
-
-
-static gboolean 
-_xfce_mixer_filter_mixer (GstMixer *mixer,
-                          gpointer  user_data)
+static void
+set_mixer_name (GstMixer *mixer, const gchar *name)
 {
-  GstElementFactory *factory;
-  const gchar       *long_name;
-  gchar             *device_name = NULL;
-  gchar             *internal_name;
-  gchar             *name;
-  gchar             *p;
   gint               length;
-  gint              *counter = user_data;
-
-  /* Get long name of the mixer element */
-  factory = gst_element_get_factory (GST_ELEMENT (mixer));
-  long_name = gst_element_factory_get_longname (factory);
-
-  /* Get the device name of the mixer element */
-  if (g_object_class_find_property (G_OBJECT_GET_CLASS (G_OBJECT (mixer)), "device-name"))
-    g_object_get (mixer, "device-name", &device_name, NULL);
-  
-  /* Fall back to default name if neccessary */
-  if (G_UNLIKELY (device_name == NULL))
-    device_name = g_strdup_printf (_("Unknown Volume Control %d"), (*counter)++);
-
-  /* Build display name */
-  name = g_strdup_printf ("%s (%s)", device_name, long_name);
-
-  /* Free device name */
-  g_free (device_name);
+  const gchar       *p;
+  gchar             *internal_name;
 
   /* Set name to be used by xfce4-mixer */
-  g_object_set_data_full (G_OBJECT (mixer), "xfce-mixer-name", name, (GDestroyNotify) g_free);
+  g_object_set_data_full (G_OBJECT (mixer), "xfce-mixer-name",
+                          g_strdup (name), (GDestroyNotify) g_free);
 
   /* Count alpha-numeric characters in the name */
   for (length = 0, p = name; *p != '\0'; ++p)
@@ -442,13 +431,9 @@ _xfce_mixer_filter_mixer (GstMixer *mixer,
       internal_name[length++] = *p;
   internal_name[length] = '\0';
 
-  /* Remember name for use by xfce4-mixer */
+  /* Set name to be used by xfce4-mixer */
   g_object_set_data_full (G_OBJECT (mixer), "xfce-mixer-internal-name", internal_name, (GDestroyNotify) g_free);
-
-  /* Keep the mixer (we want all devices to be visible) */
-  return TRUE;
 }
-
 
 
 static void
@@ -495,6 +480,7 @@ _xfce_mixer_init_mixer (gpointer data,
   /* Add custom labels to all tracks */
   _xfce_mixer_add_track_labels (card, NULL);
 
+  set_mixer_name (card, gst_mixer_get_card_name (card));
   /* Add bus to every card and connect to internal signal handler */
   gst_element_set_bus (GST_ELEMENT (card), bus);
   g_signal_connect (bus, "message::element", G_CALLBACK (_xfce_mixer_bus_message), NULL);

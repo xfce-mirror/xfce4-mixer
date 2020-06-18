@@ -28,7 +28,6 @@
 #include <gtk/gtk.h>
 
 #include <gst/gst.h>
-#include <gst/interfaces/mixer.h>
 
 #include "libxfce4mixer.h"
 #include "xfce-mixer-track-type.h"
