@@ -220,7 +220,7 @@ gst_mixer_track_class_init (GstMixerTrackClass *klass)
     g_param_spec_int ("flags",
                        NULL,
                        NULL,
-                       0, 100, GST_MIXER_TRACK_INVALID,
+                       0, 100, GST_MIXER_TRACK_NONE,
                        G_PARAM_READWRITE|
                        G_PARAM_CONSTRUCT_ONLY);
 
@@ -282,7 +282,7 @@ const gchar *gst_mixer_track_get_name (GstMixerTrack *track)
 
 GstMixerTrackFlags gst_mixer_track_get_flags (GstMixerTrack *track)
 {
-  g_return_val_if_fail(GST_IS_MIXER_TRACK(track), GST_MIXER_TRACK_INVALID);
+  g_return_val_if_fail(GST_IS_MIXER_TRACK(track), GST_MIXER_TRACK_NONE);
 
   return track->flags;
 }

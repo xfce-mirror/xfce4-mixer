@@ -19,6 +19,7 @@
 #define GST_MIXER_PULSE_TRACK_H
 
 #include <gst/gst.h>
+#include <pulse/pulseaudio.h>
 
 #include "gst-mixer-track.h"
 
@@ -32,9 +33,6 @@ typedef struct _GstMixerPulseTrackClass GstMixerPulseTrackClass;
 struct _GstMixerPulseTrack
 {
   GstMixerTrack parent;
-
-  GstMixerPulseTrack *shared_mute;
-
 };
 
 struct _GstMixerPulseTrackClass
@@ -45,14 +43,4 @@ struct _GstMixerPulseTrackClass
 GType                gst_mixer_pulse_track_get_type          (void);
 GstMixerPulseTrack  *gst_mixer_pulse_track_new               (gpointer info,
                                                               GstMixerTrackFlags flags);
-void                 gst_mixer_pulse_track_set_volumes       (GstMixerPulseTrack *track,
-                                                              gint *volumes);
-gint                *gst_mixer_pulse_track_get_volumes       (GstMixerPulseTrack *track);
-void                 gst_mixer_pulse_track_set_master        (GstMixerPulseTrack *track);
-void                 gst_mixer_pulse_track_set_shared_mute   (GstMixerPulseTrack *track,
-                                                              GstMixerPulseTrack *share);
-void                 gst_mixer_pulse_track_set_record        (GstMixerPulseTrack *track,
-                                                              gboolean record);
-void                 gst_mixer_pulse_track_set_mute          (GstMixerPulseTrack *track,
-                                                              gboolean mute);
 #endif /* GST_MIXER_PULSE_TRACK_H */

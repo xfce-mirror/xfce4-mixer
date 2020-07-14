@@ -54,49 +54,9 @@ GstMixerPulseTrack *gst_mixer_pulse_track_new (gpointer info, GstMixerTrackFlags
 {
   GstMixerPulseTrack *track = NULL;
 
+  track = g_object_new (GST_MIXER_TYPE_PULSE_TRACK, NULL);
+
   return track;
 }
 
-
-void gst_mixer_pulse_track_set_volumes (GstMixerPulseTrack *track,
-                                        gint *volumes)
-{
-}
-
-
-gint *gst_mixer_pulse_track_get_volumes (GstMixerPulseTrack *track)
-{
-  g_return_val_if_fail (GST_MIXER_IS_PULSE_TRACK (track), NULL);
-
-  return GST_MIXER_TRACK(track)->volumes;
-}
-
-
-void gst_mixer_pulse_track_set_master (GstMixerPulseTrack *track)
-{
-  g_return_if_fail (GST_MIXER_IS_PULSE_TRACK (track));
-
-  GST_MIXER_TRACK(track)->flags |= GST_MIXER_TRACK_MASTER;
-}
-
-
-void gst_mixer_pulse_track_set_shared_mute (GstMixerPulseTrack *track,
-                                            GstMixerPulseTrack *shared)
-{
-  g_return_if_fail (GST_MIXER_IS_PULSE_TRACK (track));
-  g_return_if_fail (GST_MIXER_IS_PULSE_TRACK (shared));
-
-  track->shared_mute = shared;
-}
-
-void gst_mixer_pulse_track_set_record (GstMixerPulseTrack *pulse_track,
-                                       gboolean record)
-{
-}
-
-
-void gst_mixer_pulse_track_set_mute (GstMixerPulseTrack *pulse_track,
-                                     gboolean mute)
-{
-}
 

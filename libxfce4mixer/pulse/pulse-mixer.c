@@ -20,7 +20,6 @@
 #include "config.h"
 #endif
 
-#include <pulse/pulseaudio.h>
 #include <pulse/glib-mainloop.h>
 
 #include <libxfce4ui/libxfce4ui.h>
@@ -75,15 +74,115 @@ gst_mixer_pulse_get_mixer_flags (GstMixer *mixer)
 }
 
 
+static void gst_mixer_pulse_set_sink_volume (pa_context *context,
+                                             const pa_sink_info *info,
+                                             int eol,
+                                             void *userdata)
+{
+  gint *volumes;
+  pa_operation *o;
+  pa_cvolume vol;
+  int i;
+
+
+  if (info == NULL) return;
+
+
+  volumes = (gint*)userdata;
+
+  vol.channels = info->channel_map.channels;
+
+  for (i = 0; i < info->channel_map.channels; i++)
+  {
+    vol.values[i] = (pa_volume_t) volumes[i];
+  }
+
+  o = pa_context_set_sink_volume_by_index(context,
+                                          info->index,
+                                          &vol, NULL, NULL);
+
+  if (!o)
+    g_warning ("Failed to set volume on track '%s' => '%s'",
+               info->name,
+               pa_strerror(pa_context_errno(context)));
+  else
+    pa_operation_unref (o);
+
+}
+
+
+static void gst_mixer_pulse_set_source_volume (pa_context *context,
+                                               const pa_source_info *info,
+                                               int eol,
+                                               void *userdata)
+{
+  gint *volumes;
+  pa_operation *o;
+  pa_cvolume vol;
+  int i;
+
+  if (info == NULL) return;
+
+  volumes = (gint*)userdata;
+
+  vol.channels = info->channel_map.channels;
+
+  for (i = 0; i < info->channel_map.channels; i++)
+  {
+    vol.values[i] = (pa_volume_t) volumes[i];
+  }
+
+
+  o = pa_context_set_source_volume_by_index(context,
+                                            info->index,
+                                            &vol, NULL, NULL);
+
+  if (!o)
+    g_warning ("Failed to set volume on track '%s' => '%s'",
+               info->name,
+               pa_strerror(pa_context_errno(context)));
+  else
+    pa_operation_unref (o);
+
+}
+
+
 static void gst_mixer_pulse_set_volume (GstMixer *mixer, GstMixerTrack *track, gint *volumes)
 {
+  GstMixerPulse *pulse = GST_MIXER_PULSE (mixer);
+  int i;
+
+  for (i = 0; i < NUM_CHANNELS(track); i++)
+    track->volumes[i] = volumes[i];
+
+  if (IS_OUTPUT(track))
+  {
+    pa_context_get_sink_info_by_name (pulse->context,
+                                      track->untranslated_label,
+                                      gst_mixer_pulse_set_sink_volume,
+                                      track->volumes);
+  }
+  else
+  {
+    pa_context_get_source_info_by_name (pulse->context,
+                                        track->untranslated_label,
+                                        gst_mixer_pulse_set_source_volume,
+                                        track->volumes);
+  }
 }
 
 
 static void
 gst_mixer_pulse_get_volume (GstMixer *mixer, GstMixerTrack *track, gint *volumes)
 {
+  int i;
+
+  for (i = 0; i < NUM_CHANNELS(track); i++)
+  {
+    volumes[i] = track->volumes[i];
+  }
 }
+
 
 
 static void
@@ -135,26 +234,6 @@ gst_mixer_pulse_class_init (GstMixerPulseClass *klass)
 }
 
 
-static void gst_mixer_pulse_volume_changed_cb (GstMixerPulseTrack *track,
-                                               GstMixerPulse *mixer)
-{
-}
-
-
-static void gst_mixer_pulse_mute_changed_cb (GstMixerPulseTrack *track,
-                                             gboolean mute,
-                                             GstMixerPulse *mixer)
-{
-}
-
-
-static void gst_mixer_pulse_recording_changed_cb (GstMixerPulseTrack *track,
-                                                  gboolean recording,
-                                                  GstMixerPulse *mixer)
-{
-}
-
-
 static void
 gst_mixer_pulse_state_cb (pa_context    *context,
                           GstMixerPulse *pulse)
@@ -178,34 +257,40 @@ gst_mixer_pulse_state_cb (pa_context    *context,
 
 static void
 gst_mixer_pulse_get_sink_cb (pa_context           *context,
-                             const pa_sink_info   *i,
+                             const pa_sink_info   *info,
                              int                   eol,
                              GstMixerPulse        *pulse)
 {
   GstMixerPulseTrack *track;
-  int j;
+  int i;
 
-  if (i == NULL) return;
-  if (eol > 0) return;
-
-  for (j = 0; j < i->n_ports; j++)
+  if (info == NULL || eol > 0)
   {
-    printf("Port %s\n", i->ports[j]->name);
+    pa_threaded_mainloop_signal(pulse->mainloop, 0);
+    return;
   }
 
   track = g_object_new (GST_MIXER_TYPE_PULSE_TRACK,
-                        "label", i->description,
-                        "untranslated-label", i->description,
-                        "index", i->index,
-                        "flags", GST_MIXER_TRACK_OUTPUT | GST_MIXER_TRACK_MASTER,
-                        "num-channels", i->channel_map.channels,
+                        "label", info->description,
+                        "untranslated-label", info->name,
+                        "index", info->index,
+                        "flags", GST_MIXER_TRACK_OUTPUT,
+                        /*(info->index == 0) ? GST_MIXER_TRACK_MASTER : GST_MIXER_TRACK_NONE,*/
+                        "num-channels", info->channel_map.channels,
                         "has-volume", TRUE,
-                        "has-switch", FALSE,
+                        "has-switch", TRUE,
                         "min-volume", PA_VOLUME_MUTED,
-                        "max-volume", PA_VOLUME_MAX,
+                        "max-volume", PA_VOLUME_NORM,
                         NULL);
 
   gst_mixer_add_track (GST_MIXER(pulse), GST_MIXER_TRACK(track));
+
+  GST_MIXER_TRACK(track)->volumes = g_new (gint, info->channel_map.channels);
+
+  for (i = 0; i < info->channel_map.channels; i++)
+  {
+    GST_MIXER_TRACK(track)->volumes[i] = info->volume.values[i];
+  }
 
   pa_threaded_mainloop_signal(pulse->mainloop, 0);
 }
@@ -213,34 +298,40 @@ gst_mixer_pulse_get_sink_cb (pa_context           *context,
 
 static void
 gst_mixer_pulse_get_source_cb (pa_context             *context,
-                               const pa_source_info   *i,
+                               const pa_source_info   *info,
                                int                     eol,
                                GstMixerPulse          *pulse)
 {
   GstMixerPulseTrack *track;
-  int j;
+  int i;
 
-  if (i == NULL) return;
-  if (eol > 0) return;
-
-  for (j = 0; j < i->n_ports; j++)
+  if (info == NULL || eol > 0 || info->monitor_of_sink != PA_INVALID_INDEX)
   {
-    printf("Port %s\n", i->ports[j]->name);
+    pa_threaded_mainloop_signal(pulse->mainloop, 0);
+    return;
   }
+  printf("Port %s\n", info->ports[0]->name);
 
   track = g_object_new (GST_MIXER_TYPE_PULSE_TRACK,
-                        "label", i->description,
-                        "untranslated-label", i->description,
-                        "index", i->index,
-                        "flags", GST_MIXER_TRACK_INPUT | GST_MIXER_TRACK_RECORD,
-                        "num-channels", i->channel_map.channels,
+                        "label", info->description,
+                        "untranslated-label", info->name,
+                        "index", info->index,
+                        "flags", GST_MIXER_TRACK_INPUT,
+                        "num-channels", info->channel_map.channels,
                         "has-volume", TRUE,
-                        "has-switch", FALSE,
+                        "has-switch", TRUE,
                         "min-volume", PA_VOLUME_MUTED,
-                        "max-volume", PA_VOLUME_MAX,
+                        "max-volume", PA_VOLUME_NORM,
                         NULL);
 
   gst_mixer_add_track (GST_MIXER(pulse), GST_MIXER_TRACK(track));
+
+  GST_MIXER_TRACK(track)->volumes = g_new (gint, info->channel_map.channels);
+
+  for (i = 0; i < info->channel_map.channels; i++)
+  {
+    GST_MIXER_TRACK(track)->volumes[i] = info->volume.values[i];
+  }
 
   pa_threaded_mainloop_signal(pulse->mainloop, 0);
 }
@@ -294,10 +385,11 @@ gst_mixer_pulse_new (GstMixer **mixer_ret)
   pa_operation_unref(o);
 
   *mixer_ret = (GstMixer*)pulse;
+  pa_threaded_mainloop_unlock (pulse->mainloop);
   return 0;
 
 error:
-  pa_threaded_mainloop_unlock(pulse->mainloop);
+  pa_threaded_mainloop_unlock (pulse->mainloop);
   g_object_unref (pulse);
   return err;
 }
