@@ -184,16 +184,57 @@ gst_mixer_pulse_get_volume (GstMixer *mixer, GstMixerTrack *track, gint *volumes
 }
 
 
+static void gst_mixer_pulse_track_record_changed_cb (pa_context *context,
+                                                     int success,
+                                                     void *userdata)
+{
+  GstMixerTrack *track;
+
+  track = GST_MIXER_TRACK(userdata);
+
+  if (success)
+    gst_mixer_track_update_recording (track, !(track->flags & GST_MIXER_TRACK_RECORD));
+
+}
+
+
+static void gst_mixer_pulse_track_mute_changed_cb (pa_context *context,
+                                                   int success,
+                                                   void *userdata)
+{
+  GstMixerTrack *track;
+
+  track = GST_MIXER_TRACK(userdata);
+
+  if (success)
+    gst_mixer_track_update_mute (track, !(track->flags & GST_MIXER_TRACK_MUTE));
+
+}
+
 
 static void
 gst_mixer_pulse_set_record (GstMixer * mixer, GstMixerTrack *track, gboolean record)
 {
+  GstMixerPulse *pulse = GST_MIXER_PULSE (mixer);
+
+  pa_context_set_source_mute_by_name (pulse->context,
+                                      track->untranslated_label,
+                                      record,
+                                      gst_mixer_pulse_track_record_changed_cb,
+                                      track);
 }
 
 
 static void
 gst_mixer_pulse_set_mute (GstMixer *mixer, GstMixerTrack *track, gboolean mute)
 {
+  GstMixerPulse *pulse = GST_MIXER_PULSE (mixer);
+
+  pa_context_set_sink_mute_by_name (pulse->context,
+                                    track->untranslated_label,
+                                    mute,
+                                    gst_mixer_pulse_track_mute_changed_cb,
+                                    track);
 }
 
 
