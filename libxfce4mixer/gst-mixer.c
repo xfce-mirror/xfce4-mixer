@@ -271,11 +271,27 @@ void gst_mixer_set_volume (GstMixer *mixer,
                            GstMixerTrack *track,
                            gint *volumes)
 {
+  gboolean muted = TRUE;
+  int i;
+
   g_return_if_fail(GST_IS_MIXER(mixer));
   g_return_if_fail(GST_IS_MIXER_TRACK(track));
 
   GST_MIXER_GET_CLASS(mixer)->set_volume(mixer, track, volumes);
-  gst_mixer_mute_changed (track, FALSE, mixer);
+
+  for (i = 0; i < NUM_CHANNELS(track); i++)
+  {
+    if (track->volumes[i] != track->min_volume)
+    {
+      muted = FALSE;
+      break;
+    }
+  }
+
+  if (IS_OUTPUT(track) && (muted != (gboolean)IS_MUTE(track)))
+    gst_mixer_track_update_mute (track, muted);
+  else if (IS_INPUT(track) && (muted != (gboolean)IS_RECORD(track)))
+    gst_mixer_track_update_recording (track, muted);
 }
 
 
@@ -283,21 +299,11 @@ void gst_mixer_set_mute (GstMixer *mixer,
                          GstMixerTrack *track,
                          gboolean mute)
 {
-  GstMixerTrackFlags old_flag = track->flags & GST_MIXER_TRACK_MUTE;
-
   g_return_if_fail(GST_IS_MIXER(mixer));
   g_return_if_fail(GST_IS_MIXER_TRACK(track));
 
-  if (mute)
-    track->flags |= GST_MIXER_TRACK_MUTE;
-  else
-    track->flags &= ~GST_MIXER_TRACK_MUTE;
-
-  if ((track->flags & GST_MIXER_TRACK_MUTE) != old_flag)
-  {
+  if (IS_INPUT(track))
     GST_MIXER_GET_CLASS(mixer)->set_mute(mixer, track, mute);
-    gst_mixer_mute_changed (track, mute, mixer);
-  }
 }
 
 
@@ -308,7 +314,8 @@ void gst_mixer_set_record (GstMixer *mixer,
   g_return_if_fail(GST_IS_MIXER(mixer));
   g_return_if_fail(GST_IS_MIXER_TRACK(track));
 
-  GST_MIXER_GET_CLASS(mixer)->set_record(mixer, track, record);
+  if (IS_OUTPUT(track))
+    GST_MIXER_GET_CLASS(mixer)->set_record(mixer, track, record);
 }
 
 
