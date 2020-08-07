@@ -302,7 +302,7 @@ void gst_mixer_set_mute (GstMixer *mixer,
   g_return_if_fail(GST_IS_MIXER(mixer));
   g_return_if_fail(GST_IS_MIXER_TRACK(track));
 
-  if (IS_INPUT(track))
+  if (IS_OUTPUT(track))
     GST_MIXER_GET_CLASS(mixer)->set_mute(mixer, track, mute);
 }
 
@@ -314,7 +314,7 @@ void gst_mixer_set_record (GstMixer *mixer,
   g_return_if_fail(GST_IS_MIXER(mixer));
   g_return_if_fail(GST_IS_MIXER_TRACK(track));
 
-  if (IS_OUTPUT(track))
+  if (IS_INPUT(track))
     GST_MIXER_GET_CLASS(mixer)->set_record(mixer, track, record);
 }
 
