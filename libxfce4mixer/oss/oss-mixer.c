@@ -98,12 +98,6 @@ static void gst_mixer_oss_set_volume (GstMixer *mixer, GstMixerTrack *track, gin
   {
     track->volumes[0] = l;
     track->volumes[1] = r;
-
-    if (track->flags & GST_MIXER_TRACK_MUTE)
-    {
-      track->flags &= ~GST_MIXER_TRACK_MUTE;
-      g_signal_emit_by_name (track, "mute-changed", 0, FALSE);
-    }
     g_signal_emit_by_name (track, "volume-changed", 0);
   }
   else
