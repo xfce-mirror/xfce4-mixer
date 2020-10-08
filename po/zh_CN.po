@@ -6,13 +6,14 @@
 # Chipong Luo <chipong.luo@yahoo.com>, 2013
 # Chipong Luo <chipong.luo@yahoo.com>, 2013
 # Mingcong Bai <jeffbai@aosc.xyz>, 2016
+# YuHeng Chou <wojiushixxx@126.com>, 2020
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-09 00:30+0200\n"
-"PO-Revision-Date: 2017-09-19 18:05+0000\n"
-"Last-Translator: Mingcong Bai <jeffbai@aosc.xyz>\n"
+"POT-Creation-Date: 2020-05-22 12:36+0200\n"
+"PO-Revision-Date: 2020-10-08 08:14+0000\n"
+"Last-Translator: YuHeng Chou <wojiushixxx@126.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/xfce/xfce-apps/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -78,12 +79,12 @@ msgstr "无有效的设备和/或元素。"
 #: ../panel-plugin/xfce-volume-button.c:895
 #, c-format
 msgid "%s: muted"
-msgstr "%s：已静音"
+msgstr "%s:已静音"
 
 #: ../panel-plugin/xfce-volume-button.c:897
 #, c-format
 msgid "%s: %i%%"
-msgstr "%s：%i%%"
+msgstr "%s:%i%%"
 
 #. Set application name
 #: ../panel-plugin/mixer.desktop.in.h:1 ../xfce4-mixer/main.c:45
@@ -126,7 +127,7 @@ msgstr "没有可见的控制项"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:377
 msgid "<span weight=\"bold\" size=\"larger\">No controls visible</span>"
-msgstr "<span weight=\"bold\" size=\"larger\">无可见控制器</span>"
+msgstr "<span weight=\"bold\" size=\"larger\">无可见控制项</span>"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:383
 msgid ""
