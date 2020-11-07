@@ -299,6 +299,9 @@ xfce_volume_button_init (XfceVolumeButton *button)
   /* Connect signal for theme changes */
   g_signal_connect_swapped (gtk_icon_theme_get_default (), "changed", G_CALLBACK (xfce_volume_button_update_icons), button);
 
+  /* Intercept scroll events */
+  gtk_widget_add_events (GTK_WIDGET (button), GDK_SCROLL_MASK);
+
   /* Update the state of the button */
   xfce_volume_button_update (button);
 }
