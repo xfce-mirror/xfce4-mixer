@@ -1,4 +1,6 @@
 *.o
+*.lo
+*.la
 ltmain.sh
 mkinstalldirs
 depcomp
@@ -8,9 +10,11 @@ Makefile.in.in
 configure.in
 libtool
 configure
+configure.ca
 Makefile
 Makefile.in
-xfce4-mixer.desktop
+*.desktop
+xfce4-mixer/xfce4-mixer
 intltool-*
 config.*
 stamp-it
