@@ -55,6 +55,16 @@ libxfce4mixer_la_SOURCES +=						\
 	pulse/pulse-options.h
 endif
 
+if SNDIO_BACKEND
+libxfce4mixer_la_SOURCES +=						\
+	sndio/sndio-mixer.c						\
+	sndio/sndio-mixer.h						\
+	sndio/sndio-track.c						\
+	sndio/sndio-track.h						\
+	sndio/sndio-options.c						\
+	sndio/sndio-options.h
+endif
+
 libxfce4mixer_la_CPPFLAGS = 						\
 	-I$(top_builddir)						\
 	-I$(top_srcdir)							\
@@ -90,6 +100,10 @@ libxfce4mixer_la_CFLAGS +=                                              \
         -Ioss
 endif
 
+if SNDIO_BACKEND
+libxfce4mixer_la_CFLAGS +=                                              \
+        -Isndio
+endif
 libxfce4mixer_la_LDFLAGS =						\
 	-no-undefined
 
@@ -111,5 +125,10 @@ endif
 if PULSE_BACKEND
 libxfce4mixer_la_LIBADD +=						\
         $(PULSE_LIBS)
+endif
+
+if SNDIO_BACKEND
+libxfce4mixer_la_LIBADD +=						\
+	-lsndio
 endif
 
