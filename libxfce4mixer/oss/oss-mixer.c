@@ -284,7 +284,7 @@ static void gst_mixer_oss_create_track_list (GstMixerOss *mixer)
       GST_MIXER_TRACK(track)->volumes[1] = (vol >> 8 ) & 0x7f;
     }
 
-    gst_mixer_add_track (GST_MIXER(mixer), GST_MIXER_TRACK(track));
+    gst_mixer_new_track (GST_MIXER(mixer), GST_MIXER_TRACK(track));
   }
 }
 

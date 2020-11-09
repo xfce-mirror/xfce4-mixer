@@ -75,6 +75,12 @@ struct _GstMixerClass
                                            gchar *value);
   const gchar*         (*get_option)      (GstMixer *mixer,
                                            GstMixerOptions *opts);
+  /* signals */
+  void                 (*track_added)     (GstMixer      *mixer,
+                                           GstMixerTrack *track);
+
+  void                 (*track_removed)   (GstMixer      *mixer,
+                                           GstMixerTrack *track);
 };
 
 
@@ -102,8 +108,14 @@ const gchar*     gst_mixer_get_option         (GstMixer *mixer,
                                                 GstMixerOptions *opts);
 
 /* Private methods */
-void gst_mixer_add_track                       (GstMixer *mixer,
+void gst_mixer_new_track                       (GstMixer *mixer,
                                                 GstMixerTrack *track);
+
+void gst_mixer_track_added                     (GstMixer *mixer,
+                                                GstMixerTrack *track);
+
+void gst_mixer_remove_track                    (GstMixer *mixer,
+                                                guint     index);
 
 void gst_mixer_message_parse_mute_toggled      (GstMessage *message,
                                                 GstMixerTrack **track,

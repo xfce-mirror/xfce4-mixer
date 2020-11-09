@@ -38,6 +38,15 @@ enum
 };
 
 
+enum
+{
+  TRACK_ADDED,
+  TRACK_REMOVED,
+  LAST_SIGNAL
+};
+
+static guint signals [LAST_SIGNAL] = { 0 };
+
 G_DEFINE_ABSTRACT_TYPE_WITH_PRIVATE (GstMixer, gst_mixer, GST_TYPE_ELEMENT);
 #define GET_PRIV(o) gst_mixer_get_instance_private(GST_MIXER(o))
 
@@ -222,6 +231,24 @@ gst_mixer_class_init (GstMixerClass *klass)
                                      LAST_PROP,
                                      properties);
 
+  signals [TRACK_ADDED] =
+    g_signal_new ("track-added",
+                  GST_TYPE_MIXER,
+                  G_SIGNAL_RUN_LAST,
+                  G_STRUCT_OFFSET(GstMixerClass, track_added),
+                  NULL, NULL,
+                  g_cclosure_marshal_VOID__OBJECT,
+                  G_TYPE_NONE, 1, G_TYPE_OBJECT);
+
+  signals [TRACK_REMOVED] =
+    g_signal_new ("track-removed",
+                  GST_TYPE_MIXER,
+                  G_SIGNAL_RUN_LAST,
+                  G_STRUCT_OFFSET(GstMixerClass, track_removed),
+                  NULL, NULL,
+                  g_cclosure_marshal_VOID__OBJECT,
+                  G_TYPE_NONE, 1, G_TYPE_OBJECT);
+
   object_class->finalize = (void (*) (GObject *object)) gst_mixer_finalize;
 }
 
@@ -265,6 +292,8 @@ void gst_mixer_get_volume (GstMixer *mixer,
 
   GST_MIXER_GET_CLASS(mixer)->get_volume(mixer, track, volumes);
 }
+
+
 
 
 void gst_mixer_set_volume (GstMixer *mixer,
@@ -377,12 +406,12 @@ static void message_parse_track (const GstStructure *s, GstMixerTrack **track)
 }
 
 
-
-
-void gst_mixer_add_track (GstMixer *mixer,
+void gst_mixer_new_track (GstMixer *mixer,
                           GstMixerTrack *track)
 {
   GstMixerPrivate *priv;
+  GList *l;
+  gboolean skip = FALSE;
 
   g_return_if_fail (GST_IS_MIXER(mixer));
   g_return_if_fail (GST_IS_MIXER_TRACK(track));
@@ -411,7 +440,87 @@ void gst_mixer_add_track (GstMixer *mixer,
                       mixer);
   }
 
-  priv->tracklist = g_list_append (priv->tracklist, track);
+  /*g_signal_emit (mixer, signals[TRACK_ADDED], 0, track);*/
+
+  for (l = priv->tracklist; l; l = l->next)
+  {
+    GstMixerTrack *track1;
+
+    track1 = (GstMixerTrack*)l->data;
+    if (track1->index == track->index)
+      skip = TRUE;
+  }
+
+  if (skip == FALSE)
+    priv->tracklist = g_list_append (priv->tracklist, track);
+}
+
+
+/* Add a newly discovered track */
+void gst_mixer_track_added (GstMixer *mixer,
+                            GstMixerTrack *track)
+{
+  GstMixerPrivate *priv;
+  GstStructure *s;
+  GstMessage *m;
+  GList *l;
+
+  g_return_if_fail (GST_IS_MIXER(mixer));
+  g_return_if_fail (GST_IS_MIXER_TRACK(track));
+
+  priv = GET_PRIV(mixer);
+
+  for (l = priv->tracklist; l; l = l->next)
+  {
+    GstMixerTrack *track1;
+
+    track1 = (GstMixerTrack*)l->data;
+    if (track1->index == track->index)
+    {
+      g_object_unref (track);
+      return;
+    }
+  }
+
+  gst_mixer_new_track (mixer, track);
+
+  s = gst_structure_new (GST_MIXER_MESSAGE_NAME,
+                         "type", G_TYPE_STRING, "mixer-changed",
+                         NULL);
+  m = gst_message_new_element (GST_OBJECT (mixer), s);
+  gst_element_post_message (GST_ELEMENT (mixer), m);
+}
+
+
+void gst_mixer_remove_track (GstMixer *mixer,
+                             guint     index)
+{
+  GstStructure *s;
+  GstMessage *m;
+  GList *l;
+
+  GstMixerPrivate *priv;
+
+  g_return_if_fail (GST_IS_MIXER(mixer));
+
+  priv = GET_PRIV(mixer);
+
+  for (l = priv->tracklist; l; l = l->next)
+  {
+    GstMixerTrack *track;
+
+    track = (GstMixerTrack*)l->data;
+    if (track->index == index)
+    {
+      priv->tracklist = g_list_remove_link (priv->tracklist, l);
+    }
+  }
+
+  s = gst_structure_new (GST_MIXER_MESSAGE_NAME,
+                         "type", G_TYPE_STRING, "mixer-changed",
+                         NULL);
+  m = gst_message_new_element (GST_OBJECT (mixer), s);
+  gst_element_post_message (GST_ELEMENT (mixer), m);
 }
 
 

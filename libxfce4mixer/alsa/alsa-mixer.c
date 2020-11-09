@@ -293,7 +293,7 @@ static void gst_mixer_alsa_create_track_list (GstMixerAlsa *mixer)
                                              has_switch,
                                              FALSE);
 
-      gst_mixer_add_track (GST_MIXER(mixer),
+      gst_mixer_new_track (GST_MIXER(mixer),
                            GST_MIXER_TRACK(play_track));
     }
 
@@ -311,7 +311,7 @@ static void gst_mixer_alsa_create_track_list (GstMixerAlsa *mixer)
                                              has_volume,
                                              has_switch,
                                              play_track != NULL);
-      gst_mixer_add_track (GST_MIXER(mixer),
+      gst_mixer_new_track (GST_MIXER(mixer),
                            GST_MIXER_TRACK(cap_track));
     }
 
@@ -323,7 +323,7 @@ static void gst_mixer_alsa_create_track_list (GstMixerAlsa *mixer)
 
     if (snd_mixer_selem_is_enumerated (element))
     {
-      gst_mixer_add_track (GST_MIXER(mixer),
+      gst_mixer_new_track (GST_MIXER(mixer),
                            GST_MIXER_TRACK(gst_mixer_alsa_options_new (element, index)));
     }
 
