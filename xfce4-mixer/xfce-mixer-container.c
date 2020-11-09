@@ -261,9 +261,10 @@ xfce_mixer_container_create_contents (XfceMixerContainer *mixer_container)
 
           track_label = xfce_mixer_get_track_label (track);
 
+#if 0
           if (!xfce_mixer_preferences_get_control_visible (preferences, track_label))
             continue;
-
+#endif
           /* Determine the type of the mixer track */
           type = xfce_mixer_track_type_new (track);
 
