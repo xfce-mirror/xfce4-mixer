@@ -48,6 +48,10 @@
 #include "pulse-mixer.h"
 #endif
 
+#ifdef HAVE_SNDIO
+#include "sndio-mixer.h"
+#endif
+
 static void     _xfce_mixer_add_track_labels (gpointer    data,
                                               gpointer    user_data);
 static void     _xfce_mixer_init_mixer       (gpointer    data,
@@ -102,6 +106,10 @@ xfce_mixer_init (void)
 
 #ifdef HAVE_PULSE
       mixers = gst_mixer_pulse_probe (mixers);
+#endif
+
+#ifdef HAVE_SNDIO
+      mixers = gst_mixer_sndio_probe (mixers);
 #endif
 
       /* Create a GstBus for notifications */
