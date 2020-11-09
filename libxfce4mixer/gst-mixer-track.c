@@ -220,7 +220,7 @@ gst_mixer_track_class_init (GstMixerTrackClass *klass)
     g_param_spec_int ("flags",
                        NULL,
                        NULL,
-                       0, 100, GST_MIXER_TRACK_NONE,
+                       0, 1000, GST_MIXER_TRACK_NONE,
                        G_PARAM_READWRITE|
                        G_PARAM_CONSTRUCT_ONLY);
 
