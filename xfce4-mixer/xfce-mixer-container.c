@@ -243,9 +243,9 @@ xfce_mixer_container_create_contents (XfceMixerContainer *mixer_container)
       gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (scrollwins[i]), GTK_SHADOW_IN);
       gtk_container_set_border_width (GTK_CONTAINER (scrollwins[i]), 6);
       gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrollwins[i]), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
-
-      views[i] = gtk_grid_new ();
-      g_object_set (G_OBJECT (views[i]), "row-spacing", 6, "column-spacing", 12, "border-width", 6, NULL);
+      gtk_scrolled_window_set_overlay_scrolling(GTK_SCROLLED_WINDOW (scrollwins[i]), FALSE);
+      views[i] = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
+      g_object_set (G_OBJECT (views[i]), "border-width", 6, NULL);
       gtk_container_add (GTK_CONTAINER (scrollwins[i]), views[i]);
       gtk_viewport_set_shadow_type (GTK_VIEWPORT (gtk_bin_get_child (GTK_BIN (scrollwins[i]))), GTK_SHADOW_NONE);
       gtk_widget_show (views[i]);
@@ -273,17 +273,20 @@ xfce_mixer_container_create_contents (XfceMixerContainer *mixer_container)
             case XFCE_MIXER_TRACK_TYPE_PLAYBACK:
               /* Create a regular volume control for this track */
               track_label_widget = gtk_label_new (track_label);
-              gtk_grid_attach (GTK_GRID (views[0]), track_label_widget, num_children[0], 0, 1, 1);
+              gtk_box_pack_start(GTK_BOX(views[0]), track_label_widget, FALSE, FALSE, 1);
+              /*gtk_grid_attach (GTK_GRID (views[0]), track_label_widget, 0, num_children[0], 1, 1);*/
               gtk_widget_show (track_label_widget);
+              g_object_set (G_OBJECT (track_label_widget), "halign", GTK_ALIGN_START, NULL);
               track_widget = xfce_mixer_track_new (mixer_container->card, track);
-              g_object_set (G_OBJECT (track_widget), "valign", GTK_ALIGN_FILL, "vexpand", TRUE, NULL);
-              gtk_grid_attach (GTK_GRID (views[0]), track_widget, num_children[0], 1, 1, 1);
+              num_children[0]++;
+              gtk_box_pack_start(GTK_BOX(views[0]), track_widget, FALSE, TRUE, 1);
+              g_object_set (G_OBJECT (track_widget), "halign", GTK_ALIGN_FILL, "vexpand", FALSE, NULL);
               gtk_widget_show (track_widget);
               num_children[0]++;
 
               /* Append a separator. The last one will be destroyed later */
-              last_separator[0] = gtk_separator_new (GTK_ORIENTATION_VERTICAL);
-              gtk_grid_attach (GTK_GRID (views[0]), last_separator[0], num_children[0], 0, 1, 2);
+              last_separator[0] = gtk_separator_new (GTK_ORIENTATION_HORIZONTAL);
+              gtk_box_pack_start(GTK_BOX(views[0]), last_separator[0], FALSE, FALSE, 1);
               gtk_widget_show (last_separator[0]);
               num_children[0]++;
 
@@ -294,17 +297,19 @@ xfce_mixer_container_create_contents (XfceMixerContainer *mixer_container)
             case XFCE_MIXER_TRACK_TYPE_CAPTURE:
               /* Create a regular volume control for this track */
               track_label_widget = gtk_label_new (track_label);
-              gtk_grid_attach (GTK_GRID (views[1]), track_label_widget, num_children[1], 0, 1, 1);
+              gtk_box_pack_start(GTK_BOX(views[1]), track_label_widget, FALSE, FALSE, 1);
               gtk_widget_show (track_label_widget);
+              g_object_set (G_OBJECT (track_label_widget), "halign", GTK_ALIGN_START, NULL);
+              num_children[1]++;
               track_widget = xfce_mixer_track_new (mixer_container->card, track);
-              g_object_set (G_OBJECT (track_widget), "valign", GTK_ALIGN_FILL, "vexpand", TRUE, NULL);
-              gtk_grid_attach (GTK_GRID (views[1]), track_widget, num_children[1], 1, 1, 1);
+              g_object_set (G_OBJECT (track_widget), "halign", GTK_ALIGN_FILL, "vexpand", FALSE, NULL);
+              gtk_box_pack_start(GTK_BOX(views[1]), track_widget, FALSE, TRUE, 1);
               gtk_widget_show (track_widget);
               num_children[1]++;
 
               /* Append a separator. The last one will be destroyed later */
-              last_separator[1] = gtk_separator_new (GTK_ORIENTATION_VERTICAL);
-              gtk_grid_attach (GTK_GRID (views[1]), last_separator[1], num_children[1], 0, 1, 2);
+              last_separator[1] = gtk_separator_new (GTK_ORIENTATION_HORIZONTAL);
+              gtk_box_pack_start(GTK_BOX(views[1]), last_separator[1], FALSE, FALSE, 1);
               gtk_widget_show (last_separator[1]);
               num_children[1]++;
 
