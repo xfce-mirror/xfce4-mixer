@@ -484,6 +484,7 @@ void gst_mixer_remove_track (GstMixer *mixer,
   GstStructure *s;
   GstMessage *m;
   GList *l;
+  gboolean removed = FALSE;
 
   GstMixerPrivate *priv;
 
@@ -499,14 +500,19 @@ void gst_mixer_remove_track (GstMixer *mixer,
     if (track->index == index)
     {
       priv->tracklist = g_list_remove_link (priv->tracklist, l);
+      removed = TRUE;
+      break;
     }
   }
 
-  s = gst_structure_new (GST_MIXER_MESSAGE_NAME,
-                         "type", G_TYPE_STRING, "mixer-changed",
-                         NULL);
-  m = gst_message_new_element (GST_OBJECT (mixer), s);
-  gst_element_post_message (GST_ELEMENT (mixer), m);
+  if (removed)
+  {
+    s = gst_structure_new (GST_MIXER_MESSAGE_NAME,
+                           "type", G_TYPE_STRING, "mixer-changed",
+                           NULL);
+    m = gst_message_new_element (GST_OBJECT (mixer), s);
+    gst_element_post_message (GST_ELEMENT (mixer), m);
+  }
 }
 
 
