@@ -344,7 +344,7 @@ gst_mixer_pulse_get_sink_input_cb (pa_context               *context,
   gchar *full_name;
   int i;
 
-  if (info == NULL || eol > 0)
+  if (info == NULL || eol > 0 || info->client == PA_INVALID_INDEX)
   {
     pa_threaded_mainloop_signal(pulse->mainloop, 0);
     return;
