@@ -410,8 +410,6 @@ void gst_mixer_new_track (GstMixer *mixer,
                           GstMixerTrack *track)
 {
   GstMixerPrivate *priv;
-  GList *l;
-  gboolean skip = FALSE;
 
   g_return_if_fail (GST_IS_MIXER(mixer));
   g_return_if_fail (GST_IS_MIXER_TRACK(track));
@@ -440,19 +438,7 @@ void gst_mixer_new_track (GstMixer *mixer,
                       mixer);
   }
 
-  /*g_signal_emit (mixer, signals[TRACK_ADDED], 0, track);*/
-
-  for (l = priv->tracklist; l; l = l->next)
-  {
-    GstMixerTrack *track1;
-
-    track1 = (GstMixerTrack*)l->data;
-    if (track1->index == track->index)
-      skip = TRUE;
-  }
-
-  if (skip == FALSE)
-    priv->tracklist = g_list_append (priv->tracklist, track);
+  priv->tracklist = g_list_append (priv->tracklist, track);
 }
 
 
