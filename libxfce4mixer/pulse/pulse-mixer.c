@@ -361,8 +361,7 @@ gst_mixer_pulse_get_sink_input_cb (pa_context               *context,
                         "label", full_name,
                         "untranslated-label", info->name,
                         "index", info->index,
-                        "flags", GST_MIXER_TRACK_OUTPUT |
-                        GST_MIXER_TRACK_NO_MUTE | GST_MIXER_TRACK_SOFTWARE,
+                        "flags", GST_MIXER_TRACK_OUTPUT | GST_MIXER_TRACK_SOFTWARE,
                         "num-channels", info->channel_map.channels,
                         "has-volume", TRUE,
                         "has-switch", TRUE,
@@ -405,8 +404,9 @@ gst_mixer_pulse_event_cb (pa_context                   *context,
         g_debug ("Removing track index %d\n", index);
         gst_mixer_remove_track (mixer, index);
       }
-      else
+      else if ((t & PA_SUBSCRIPTION_EVENT_TYPE_MASK) == PA_SUBSCRIPTION_EVENT_NEW)
       {
+        g_debug ("New track index %d\n", index);
         o =
           pa_context_get_sink_input_info(pulse->context,
                                          index,
