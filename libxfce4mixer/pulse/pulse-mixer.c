@@ -344,7 +344,7 @@ gst_mixer_pulse_get_sink_input_cb (pa_context               *context,
   gchar *full_name;
   int i;
 
-  if (info == NULL || eol > 0)
+  if (info == NULL || eol > 0 || info->client == PA_INVALID_INDEX)
   {
     pa_threaded_mainloop_signal(pulse->mainloop, 0);
     return;
@@ -361,8 +361,7 @@ gst_mixer_pulse_get_sink_input_cb (pa_context               *context,
                         "label", full_name,
                         "untranslated-label", info->name,
                         "index", info->index,
-                        "flags", GST_MIXER_TRACK_OUTPUT |
-                        GST_MIXER_TRACK_NO_MUTE | GST_MIXER_TRACK_SOFTWARE,
+                        "flags", GST_MIXER_TRACK_OUTPUT | GST_MIXER_TRACK_SOFTWARE,
                         "num-channels", info->channel_map.channels,
                         "has-volume", TRUE,
                         "has-switch", TRUE,
@@ -405,8 +404,9 @@ gst_mixer_pulse_event_cb (pa_context                   *context,
         g_debug ("Removing track index %d\n", index);
         gst_mixer_remove_track (mixer, index);
       }
-      else
+      else if ((t & PA_SUBSCRIPTION_EVENT_TYPE_MASK) == PA_SUBSCRIPTION_EVENT_NEW)
       {
+        g_debug ("New track index %d\n", index);
         o =
           pa_context_get_sink_input_info(pulse->context,
                                          index,
@@ -470,6 +470,7 @@ gst_mixer_pulse_get_sink_cb (pa_context           *context,
                              GstMixerPulse        *pulse)
 {
   GstMixerPulseTrack *track;
+  gchar *name;
   int i;
 
   if (info == NULL || eol > 0)
@@ -478,10 +479,15 @@ gst_mixer_pulse_get_sink_cb (pa_context           *context,
     return;
   }
 
+  if (info->card != PA_INVALID_INDEX)
+    name = g_strdup_printf("%s (%s:%d)", info->description, _("Card"), info->card);
+  else
+    name = g_strdup(info->description);
+
   track = g_object_new (GST_MIXER_TYPE_PULSE_TRACK,
-                        "label", info->description,
+                        "label", name,
                         "untranslated-label", info->name,
-                        "index", info->index,
+                        "index", 0,
                         "flags", GST_MIXER_TRACK_OUTPUT,
                         /*(info->index == 0) ? GST_MIXER_TRACK_MASTER : GST_MIXER_TRACK_NONE,*/
                         "num-channels", info->channel_map.channels,
@@ -491,6 +497,7 @@ gst_mixer_pulse_get_sink_cb (pa_context           *context,
                         "max-volume", PA_VOLUME_NORM,
                         NULL);
 
+  g_free(name);
   gst_mixer_new_track (GST_MIXER(pulse), GST_MIXER_TRACK(track));
 
   GST_MIXER_TRACK(track)->volumes = g_new (gint, info->channel_map.channels);
@@ -511,6 +518,7 @@ gst_mixer_pulse_get_source_cb (pa_context             *context,
                                GstMixerPulse          *pulse)
 {
   GstMixerPulseTrack *track;
+  gchar *name;
   int i;
 
   if (info == NULL || eol > 0 || info->monitor_of_sink != PA_INVALID_INDEX)
@@ -519,10 +527,15 @@ gst_mixer_pulse_get_source_cb (pa_context             *context,
     return;
   }
 
+  if (info->card != PA_INVALID_INDEX)
+    name = g_strdup_printf("%s (%s:%d)", info->description, _("Card"), info->card);
+  else
+    name = g_strdup(info->description);
+
   track = g_object_new (GST_MIXER_TYPE_PULSE_TRACK,
-                        "label", info->description,
+                        "label", name,
                         "untranslated-label", info->name,
-                        "index", info->index,
+                        "index", 0,
                         "flags", GST_MIXER_TRACK_INPUT,
                         "num-channels", info->channel_map.channels,
                         "has-volume", TRUE,
@@ -531,6 +544,7 @@ gst_mixer_pulse_get_source_cb (pa_context             *context,
                         "max-volume", PA_VOLUME_NORM,
                         NULL);
 
+  g_free(name);
   gst_mixer_new_track (GST_MIXER(pulse), GST_MIXER_TRACK(track));
 
   GST_MIXER_TRACK(track)->volumes = g_new (gint, info->channel_map.channels);

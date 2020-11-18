@@ -410,8 +410,6 @@ void gst_mixer_new_track (GstMixer *mixer,
                           GstMixerTrack *track)
 {
   GstMixerPrivate *priv;
-  GList *l;
-  gboolean skip = FALSE;
 
   g_return_if_fail (GST_IS_MIXER(mixer));
   g_return_if_fail (GST_IS_MIXER_TRACK(track));
@@ -440,19 +438,7 @@ void gst_mixer_new_track (GstMixer *mixer,
                       mixer);
   }
 
-  /*g_signal_emit (mixer, signals[TRACK_ADDED], 0, track);*/
-
-  for (l = priv->tracklist; l; l = l->next)
-  {
-    GstMixerTrack *track1;
-
-    track1 = (GstMixerTrack*)l->data;
-    if (track1->index == track->index)
-      skip = TRUE;
-  }
-
-  if (skip == FALSE)
-    priv->tracklist = g_list_append (priv->tracklist, track);
+  priv->tracklist = g_list_append (priv->tracklist, track);
 }
 
 
@@ -498,6 +484,7 @@ void gst_mixer_remove_track (GstMixer *mixer,
   GstStructure *s;
   GstMessage *m;
   GList *l;
+  gboolean removed = FALSE;
 
   GstMixerPrivate *priv;
 
@@ -513,14 +500,19 @@ void gst_mixer_remove_track (GstMixer *mixer,
     if (track->index == index)
     {
       priv->tracklist = g_list_remove_link (priv->tracklist, l);
+      removed = TRUE;
+      break;
     }
   }
 
-  s = gst_structure_new (GST_MIXER_MESSAGE_NAME,
-                         "type", G_TYPE_STRING, "mixer-changed",
-                         NULL);
-  m = gst_message_new_element (GST_OBJECT (mixer), s);
-  gst_element_post_message (GST_ELEMENT (mixer), m);
+  if (removed)
+  {
+    s = gst_structure_new (GST_MIXER_MESSAGE_NAME,
+                           "type", G_TYPE_STRING, "mixer-changed",
+                           NULL);
+    m = gst_message_new_element (GST_OBJECT (mixer), s);
+    gst_element_post_message (GST_ELEMENT (mixer), m);
+  }
 }
 
 
