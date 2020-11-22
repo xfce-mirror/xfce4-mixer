@@ -39,11 +39,11 @@ G_DEFINE_TYPE (GstMixerSndio, gst_mixer_sndio, GST_TYPE_MIXER)
 
 /* sndio callbacks */
 void
-onctl(void *arg, unsigned addr, unsigned val)
+onval(void *arg, unsigned addr, unsigned val)
 {
   GstMixerSndio *mixer = GST_MIXER_SNDIO (arg);
   mixer = NULL;
-  g_warning("onctl called: addr=%d, val=%d", addr, val);
+  g_print("onval called: addr=%d, val=%d\n", addr, val);
 }
 
 /* callback called when a description changes - e.g when a new track is added/removed */
@@ -56,7 +56,7 @@ ondesc(void *arg, struct sioctl_desc *d, int curval)
     g_warning("got the full set of track descriptions");
     return;
   }
-  g_warning("ondesc called: %s/%s.%s=%d (max=%d)", d->group, d->node0.name, d->func, curval, d->maxval);
+  g_print("ondesc: addr=%d, %s/%s.%s[%d]=%d (max=%d)\n", d->addr, d->group, d->node0.name, d->func, d->node0.unit, curval, d->maxval);
 /* create a gst_track_sndio by distinct desc (desc is appname, input, output..)
 group is null or app
 func is level or mute
