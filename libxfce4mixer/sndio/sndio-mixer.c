@@ -21,6 +21,9 @@
 #endif
 
 #include <sndio.h>
+#include <poll.h>
+/* needed for g_unix_fd_source_new () */
+#include <glib-unix.h>
 
 #include <libxfce4ui/libxfce4ui.h>
 
@@ -33,6 +36,8 @@ struct _GstMixerSndio
 {
   GstMixer parent;
   struct sioctl_hdl *hdl;
+  struct pollfd pfd;
+  GSource *src;
 };
 
 G_DEFINE_TYPE (GstMixerSndio, gst_mixer_sndio, GST_TYPE_MIXER)
@@ -171,24 +176,53 @@ gst_mixer_sndio_class_init (GstMixerSndioClass *klass)
   object_class->finalize = (void (*) (GObject *object)) gst_mixer_sndio_finalize;
 }
 
+static gboolean gst_mixer_sndio_src_callback (gint fd, GIOCondition condition, gpointer user_data)
+{
+  int rc, revents;
+  GstMixerSndio *sndio = (GstMixerSndio *)user_data;
+  g_print("gst_mixer_sndio_src_callback called with condition %d on fd %d!\n", condition, fd);
+  rc = poll(&(sndio->pfd), 1, 0);
+  if (rc == 0) {
+    g_critical("timeout? cant happen");
+    return G_SOURCE_REMOVE;
+  } else if (rc == -1) {
+    g_critical("poll() error: %s", g_strerror(errno));
+    return G_SOURCE_REMOVE;
+  } else {
+    revents = sioctl_revents(sndio->hdl, &(sndio->pfd));
+    g_print("sioctl_revents returned %d, pfd.revents=%d\n", revents, sndio->pfd.revents);
+  }
+  return G_SOURCE_CONTINUE;
+}
+
 GstMixer*
 gst_mixer_sndio_new (struct sioctl_hdl *hdl)
 {
   GstMixerSndio *sndio;
   char *devname = SIO_DEVANY;
+  int rc;
 
   sndio = g_object_new (GST_MIXER_TYPE_SNDIO,
                         "name", "sndio",
                         "card-name", g_strdup (_("Sndio Volume Control")),
                         NULL);
-   sndio->hdl = hdl;
-   if (!sioctl_ondesc(hdl, ondesc, sndio)) {
-     g_critical("%s: can't get device description", devname);
-     return NULL;
-   }
+  sndio->hdl = hdl;
+  if (!sioctl_ondesc(hdl, ondesc, sndio)) {
+    g_critical("%s: can't get device description", devname);
+    return NULL;
+  }
 
-   sioctl_onval(hdl, onctl, sndio);
-   return GST_MIXER(sndio);
+  sioctl_onval(sndio->hdl, onval, sndio);
+  rc = sioctl_pollfd(sndio->hdl, &(sndio->pfd), POLLIN);
+  if (rc != 1) {
+    g_critical("[sndio] sioctl_pollfd failed: %d", rc);
+    return NULL;
+  }
+
+  sndio->src = g_unix_fd_source_new (sndio->pfd.fd, G_IO_IN);
+  g_source_set_callback (sndio->src, G_SOURCE_FUNC(gst_mixer_sndio_src_callback), sndio, NULL);
+  g_source_attach (sndio->src, g_main_context_default ());
+  return GST_MIXER(sndio);
 }
 
 GList *gst_mixer_sndio_probe (GList *card_list)
