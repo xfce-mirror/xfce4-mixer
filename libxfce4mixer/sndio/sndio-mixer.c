@@ -281,7 +281,6 @@ static gboolean gst_mixer_sndio_src_callback (gint fd, GIOCondition condition, g
 {
   int rc, revents;
   GstMixerSndio *sndio = (GstMixerSndio *)user_data;
-  g_print("gst_mixer_sndio_src_callback called with condition %d on fd %d!\n", condition, fd);
   rc = poll(&(sndio->pfd), 1, 0);
   if (rc == 0) {
     g_critical("timeout? cant happen");
@@ -291,7 +290,6 @@ static gboolean gst_mixer_sndio_src_callback (gint fd, GIOCondition condition, g
     return G_SOURCE_REMOVE;
   } else {
     revents = sioctl_revents(sndio->hdl, &(sndio->pfd));
-    g_print("sioctl_revents returned %d, pfd.revents=%d\n", revents, sndio->pfd.revents);
   }
   return G_SOURCE_CONTINUE;
 }
@@ -345,4 +343,3 @@ GList *gst_mixer_sndio_probe (GList *card_list)
   card_list = g_list_append (card_list, mixer);
   return card_list;
 }
-
