@@ -183,12 +183,20 @@ gst_mixer_sndio_get_mixer_flags (GstMixer *mixer)
 
 static void gst_mixer_sndio_set_volume (GstMixer *mixer, GstMixerTrack *track, gint *volumes)
 {
-  GstMixerSndio *sndio = GST_MIXER_SNDIO (mixer);
-  sndio = NULL;
   int i;
+  GstMixerSndio *sndio = GST_MIXER_SNDIO (mixer);
+  if (NUM_CHANNELS(track) == 2)
+    g_debug("gst_mixer_sndio_set_volume called on track %s with vol[]=(%d,%d)", track->label, volumes[0], volumes[1]);
+  else
+    g_debug("gst_mixer_sndio_set_volume called on track %s with vol[0]=%d", track->label, volumes[0]);
 
-  for (i = 0; i < NUM_CHANNELS(track); i++)
+  /* call sioctl_setval for each volume addr */
+  for (i = 0; i < NUM_CHANNELS(track); i++) {
+    sioctl_setval(sndio->hdl, GST_MIXER_SNDIO_TRACK(track)->vol_addr[i], volumes[i]);
     track->volumes[i] = volumes[i];
+  }
+
+  g_signal_emit_by_name (track, "volume-changed", 0);
 }
 
 
