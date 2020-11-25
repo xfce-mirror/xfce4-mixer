@@ -48,7 +48,7 @@ gst_mixer_sndio_track_class_init (GstMixerSndioTrackClass *klass)
 }
 
 
-GstMixerSndioTrack *gst_mixer_sndio_track_new (gpointer info, GstMixerTrackFlags flags)
+GstMixerSndioTrack *gst_mixer_sndio_track_new ()
 {
   GstMixerSndioTrack *track = NULL;
 

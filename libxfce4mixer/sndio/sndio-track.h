@@ -40,6 +40,5 @@ struct _GstMixerSndioTrackClass
 };
 
 GType                gst_mixer_sndio_track_get_type          (void);
-GstMixerSndioTrack  *gst_mixer_sndio_track_new               (gpointer info,
-                                                              GstMixerTrackFlags flags);
+GstMixerSndioTrack  *gst_mixer_sndio_track_new               (void);
 #endif /* GST_MIXER_SNDIO_TRACK_H */
