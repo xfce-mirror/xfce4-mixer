@@ -38,6 +38,8 @@ struct _GstMixerSndio
   struct sioctl_hdl *hdl;
   struct pollfd pfd;
   GSource *src;
+  GHashTable *tracks;
+  GHashTable *tracks_by_addr;
 };
 
 G_DEFINE_TYPE (GstMixerSndio, gst_mixer_sndio, GST_TYPE_MIXER)
@@ -86,6 +88,8 @@ gst_mixer_sndio_finalize (GObject *self)
   GstMixerSndio *mixer = GST_MIXER_SNDIO (self);
   mixer = NULL;
 
+  g_hash_table_unref (mixer->tracks_by_addr);
+  g_hash_table_unref (mixer->tracks);
   G_OBJECT_CLASS (gst_mixer_sndio_parent_class)->finalize (self);
 }
 
@@ -93,6 +97,8 @@ gst_mixer_sndio_finalize (GObject *self)
 static void
 gst_mixer_sndio_init (GstMixerSndio *mixer)
 {
+  mixer->tracks_by_addr = g_hash_table_new (g_direct_hash, g_direct_equal);
+  mixer->tracks = g_hash_table_new (g_str_hash, g_str_equal);
 }
 
 
