@@ -32,6 +32,10 @@ typedef struct _GstMixerSndioTrackClass GstMixerSndioTrackClass;
 struct _GstMixerSndioTrack
 {
   GstMixerTrack parent;
+
+  /* list of sndio addrs for volume & mute chans */
+  guint *vol_addr;
+  guint *mute_addr;
 };
 
 struct _GstMixerSndioTrackClass
