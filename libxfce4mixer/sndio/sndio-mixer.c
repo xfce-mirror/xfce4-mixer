@@ -201,13 +201,20 @@ gst_mixer_sndio_get_volume (GstMixer *mixer, GstMixerTrack *track, gint *volumes
   {
     volumes[i] = track->volumes[i];
   }
+  g_debug("gst_mixer_sndio_get_volume called on track %s filled vol[]=(%d,%d)", track->label, volumes[0], volumes[1]);
 }
 
 static void
 gst_mixer_sndio_set_record (GstMixer * mixer, GstMixerTrack *track, gboolean record)
 {
   GstMixerSndio *sndio = GST_MIXER_SNDIO (mixer);
-  sndio = NULL;
+  g_debug("gst_mixer_sndio_set_record called on track %s with record=%d", track->label, record);
+  if (IS_INPUT(track)) {
+    /* call sioctl_setval for the first mute addr */
+    sioctl_setval(sndio->hdl, GST_MIXER_SNDIO_TRACK(track)->mute_addr[0], record);
+    gst_mixer_track_update_recording (track, record);
+  } else
+    g_critical ("%s isnt an input track, cant set recording status to %d", track->label, record);
 }
 
 
