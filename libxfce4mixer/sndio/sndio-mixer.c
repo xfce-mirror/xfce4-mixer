@@ -64,6 +64,7 @@ onval(void *arg, unsigned addr, unsigned val)
       if (track->vol_addr[i] == addr) {
         g_debug("%d is a level control for chan %d, updating value with %d", addr, i, val);
         GST_MIXER_TRACK(track)->volumes[i] = val;
+        g_signal_emit_by_name (track, "volume-changed", 0);
       } else if (track->mute_addr[i] == addr) {
         if (IS_INPUT(track)) {
           g_debug("%d is a mute control for an input track, updating recording flag with %d", addr, val);
