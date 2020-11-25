@@ -57,29 +57,77 @@ onval(void *arg, unsigned addr, unsigned val)
 void
 ondesc(void *arg, struct sioctl_desc *d, int curval)
 {
+  
+  GstMixerSndioTrack *track;
+  int chan, nchan;
+  GstMixerTrackFlags flags = 0;
   GstMixerSndio *mixer = GST_MIXER_SNDIO (arg);
-  mixer = NULL;
   if (d == NULL) {
-    g_warning("got the full set of track descriptions");
+    g_debug("got the full set of track descriptions");
     return;
   }
-  g_print("ondesc: addr=%d, %s/%s.%s[%d]=%d (max=%d)\n", d->addr, d->group, d->node0.name, d->func, d->node0.unit, curval, d->maxval);
-/* create a gst_track_sndio by distinct desc (desc is appname, input, output..)
-group is null or app
-func is level or mute
+  g_debug("ondesc callback called: addr=%d, %s/%s.%s[%d]=%d (max=%d)", d->addr, d->group, d->node0.name, d->func, d->node0.unit, curval, d->maxval);
+  if (d->node0.unit == -1 ) {
+    nchan = 1;
+    chan = 0;
+  } else {
+    nchan = 2;
+    chan = d->node0.unit;
+  }
 
-ignore server.device for now
+  /* skip server.device for now */
+  if (!g_strcmp0 (d->func, "device"))
+    return;
 
-input.level=0.486
-input.mute=0
-output.level=1.000
-output.mute=0
-server.device=0
-app/mplayer0.level=1.000
+  track = g_hash_table_lookup(mixer->tracks, d->node0.name);
+  if (!track) {
+    track = gst_mixer_sndio_track_new ();
 
--> 3 tracks, input has GST_MIXER_TRACK_INPUT flag, all others have GST_MIXER_TRACK_OUTPUT flag
-input and output have a real mute control, appname doesnt (eg set volume to 0)
-*/
+    if (! g_strcmp0(d->node0.name, "input"))
+      flags |= GST_MIXER_TRACK_INPUT;
+    else
+      flags |= GST_MIXER_TRACK_OUTPUT;
+
+    if (! g_strcmp0(d->node0.name, "output"))
+      flags |= GST_MIXER_TRACK_MASTER;
+
+    GST_MIXER_TRACK(track)->index = 0;
+    GST_MIXER_TRACK(track)->min_volume = 0;
+    GST_MIXER_TRACK(track)->max_volume = d->maxval;
+    GST_MIXER_TRACK(track)->has_volume = TRUE;
+    GST_MIXER_TRACK(track)->has_switch = FALSE;
+    GST_MIXER_TRACK(track)->label = g_strdup(d->node0.name);
+    GST_MIXER_TRACK(track)->untranslated_label = g_strdup (d->node0.name);
+    GST_MIXER_TRACK(track)->flags = flags;
+    GST_MIXER_TRACK(track)->num_channels = nchan;
+    GST_MIXER_TRACK(track)->volumes = g_new (gint, nchan);
+    track->vol_addr = g_new (gint, nchan);
+    track->mute_addr = g_new (gint, nchan);
+    g_debug("Inserting new track in hashtable for %s", d->node0.name);
+    g_hash_table_insert (mixer->tracks, g_strdup(d->node0.name), track);
+
+    gst_mixer_new_track (GST_MIXER(mixer),
+      GST_MIXER_TRACK(track));
+  }
+
+  /* now we have a valid track, update volume/mute/recording status */
+  if (!g_strcmp0 (d->func, "level")) {
+    GST_MIXER_TRACK(track)->volumes[chan] = curval;
+    track->vol_addr[chan] = d->addr;
+  }
+  if (!g_strcmp0 (d->func, "mute")) {
+    GST_MIXER_TRACK(track)->has_switch = TRUE;
+    track->mute_addr[chan] = d->addr;
+    if (IS_INPUT(track)) {
+      gst_mixer_track_update_recording(GST_MIXER_TRACK(track), curval);
+    } else if (IS_OUTPUT(track)) {
+      gst_mixer_track_update_mute(GST_MIXER_TRACK(track), curval);
+    }
+  }
+
+  /* insert track in tracks_by_addr hash if its not already there */
+  if (! g_hash_table_contains(mixer->tracks_by_addr, GINT_TO_POINTER(d->addr)))
+    g_hash_table_insert(mixer->tracks_by_addr, GINT_TO_POINTER(d->addr), track);
 }
 
 static void
