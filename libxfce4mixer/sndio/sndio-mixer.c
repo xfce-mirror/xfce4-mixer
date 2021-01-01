@@ -290,6 +290,10 @@ static gboolean gst_mixer_sndio_src_callback (gint fd, GIOCondition condition, g
     return G_SOURCE_REMOVE;
   } else {
     revents = sioctl_revents(sndio->hdl, &(sndio->pfd));
+    if (revents & POLLHUP) {
+      g_warning("disconnected ?");
+      return G_SOURCE_REMOVE;
+    }
   }
   return G_SOURCE_CONTINUE;
 }
