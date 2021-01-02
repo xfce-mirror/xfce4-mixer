@@ -42,6 +42,9 @@ struct _GstMixerSndio
   GHashTable *tracks_by_addr;
 };
 
+static gboolean gst_mixer_sndio_src_callback (gint, GIOCondition, gpointer);
+static gboolean gst_mixer_sndio_reconnect(gpointer);
+
 G_DEFINE_TYPE (GstMixerSndio, gst_mixer_sndio, GST_TYPE_MIXER)
 
 /* sndio callbacks */
