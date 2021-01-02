@@ -94,7 +94,7 @@ ondesc(void *arg, struct sioctl_desc *d, int curval)
     g_debug("got the full set of track descriptions");
     return;
   }
-  g_debug("ondesc callback called: addr=%d, %s/%s.%s[%d]=%d (max=%d)", d->addr, d->group, d->node0.name, d->func, d->node0.unit, curval, d->maxval);
+  g_debug("ondesc callback called: addr=%d, type=%d, %s/%s.%s[%d]=%d (max=%d)", d->addr, d->type, d->group, d->node0.name, d->func, d->node0.unit, curval, d->maxval);
   if (d->node0.unit == -1 ) {
     nchan = 1;
     chan = 0;
