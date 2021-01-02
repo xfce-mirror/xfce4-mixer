@@ -119,6 +119,12 @@ ondesc(void *arg, struct sioctl_desc *d, int curval)
     if (! g_strcmp0(d->node0.name, "output"))
       flags |= GST_MIXER_TRACK_MASTER;
 
+    /* app tracks dont have a mute control but that just makes the mute button
+     * insensitive in the UI
+    if (! g_strcmp0(d->group, "app"))
+      flags |= GST_MIXER_TRACK_NO_MUTE;
+     */
+
     GST_MIXER_TRACK(track)->index = 0;
     GST_MIXER_TRACK(track)->min_volume = 0;
     GST_MIXER_TRACK(track)->max_volume = d->maxval;
