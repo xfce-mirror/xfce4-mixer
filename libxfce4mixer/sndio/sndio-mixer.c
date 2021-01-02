@@ -280,6 +280,47 @@ gst_mixer_sndio_class_init (GstMixerSndioClass *klass)
   object_class->finalize = (void (*) (GObject *object)) gst_mixer_sndio_finalize;
 }
 
+gboolean gst_mixer_sndio_connect (GstMixerSndio *sndio)
+{
+  struct sioctl_hdl *hdl;
+  char *devname = SIO_DEVANY;
+  int rc;
+  hdl = sioctl_open(devname, SIOCTL_READ | SIOCTL_WRITE, 0);
+  if (hdl == NULL) {
+    g_critical ("Failed to open device '%s'", devname);
+    return FALSE;
+  }
+  sndio->hdl = hdl;
+  if (!sioctl_ondesc(hdl, ondesc, sndio)) {
+    g_critical("%s: can't get device description", devname);
+    return FALSE;
+  }
+
+  sioctl_onval(sndio->hdl, onval, sndio);
+  rc = sioctl_pollfd(sndio->hdl, &(sndio->pfd), POLLIN);
+  if (rc != 1) {
+    g_critical("[sndio] sioctl_pollfd failed: %d", rc);
+    return FALSE;
+  }
+
+  sndio->src = g_unix_fd_source_new (sndio->pfd.fd, G_IO_IN);
+  g_source_set_callback (sndio->src, G_SOURCE_FUNC(gst_mixer_sndio_src_callback), sndio, NULL);
+  g_source_attach (sndio->src, g_main_context_default ());
+  g_debug("[sndio] attached g_source with id %d", g_source_get_id(sndio->src));
+  return TRUE;
+}
+
+gboolean gst_mixer_sndio_reconnect(gpointer user_data)
+{
+  GstMixerSndio *sndio = (GstMixerSndio *)user_data;
+
+  g_debug("[sndio] tearing down old resources");
+  sioctl_close(sndio->hdl);
+  g_debug("[sndio] trying to reconnect to server");
+  gst_mixer_sndio_connect(sndio);
+  return G_SOURCE_REMOVE;
+}
+
 static gboolean gst_mixer_sndio_src_callback (gint fd, GIOCondition condition, gpointer user_data)
 {
   int rc, revents;
@@ -294,7 +335,8 @@ static gboolean gst_mixer_sndio_src_callback (gint fd, GIOCondition condition, g
   } else {
     revents = sioctl_revents(sndio->hdl, &(sndio->pfd));
     if (revents & POLLHUP) {
-      g_warning("disconnected ?");
+      g_warning("disconnected ? queuing reconnect in 1s");
+      g_timeout_add_seconds(1, G_SOURCE_FUNC(gst_mixer_sndio_reconnect), sndio);
       return G_SOURCE_REMOVE;
     }
   }
@@ -302,47 +344,26 @@ static gboolean gst_mixer_sndio_src_callback (gint fd, GIOCondition condition, g
 }
 
 GstMixer*
-gst_mixer_sndio_new (struct sioctl_hdl *hdl)
+gst_mixer_sndio_new ()
 {
   GstMixerSndio *sndio;
-  char *devname = SIO_DEVANY;
-  int rc;
+  gboolean rc;
 
   sndio = g_object_new (GST_MIXER_TYPE_SNDIO,
                         "name", "sndio",
                         "card-name", g_strdup (_("Sndio Volume Control")),
                         NULL);
-  sndio->hdl = hdl;
-  if (!sioctl_ondesc(hdl, ondesc, sndio)) {
-    g_critical("%s: can't get device description", devname);
+  rc = gst_mixer_sndio_connect(sndio);
+  if (rc == FALSE) {
     return NULL;
   }
-
-  sioctl_onval(sndio->hdl, onval, sndio);
-  rc = sioctl_pollfd(sndio->hdl, &(sndio->pfd), POLLIN);
-  if (rc != 1) {
-    g_critical("[sndio] sioctl_pollfd failed: %d", rc);
-    return NULL;
-  }
-
-  sndio->src = g_unix_fd_source_new (sndio->pfd.fd, G_IO_IN);
-  g_source_set_callback (sndio->src, G_SOURCE_FUNC(gst_mixer_sndio_src_callback), sndio, NULL);
-  g_source_attach (sndio->src, g_main_context_default ());
   return GST_MIXER(sndio);
 }
 
 GList *gst_mixer_sndio_probe (GList *card_list)
 {
   GstMixer *mixer = NULL;
-  struct sioctl_hdl *hdl;
-  char *devname = SIO_DEVANY;
-  hdl = sioctl_open(devname, SIOCTL_READ | SIOCTL_WRITE, 0);
-  if (hdl == NULL) {
-    g_critical ("Failed to open device '%s'", devname);
-    return NULL;
-  }
-
-  mixer = gst_mixer_sndio_new(hdl);
+  mixer = gst_mixer_sndio_new();
 
   if (mixer == NULL)
     return NULL;
