@@ -137,6 +137,7 @@ ondesc(void *arg, struct sioctl_desc *d, int curval)
     GST_MIXER_TRACK(track)->volumes = g_new (gint, nchan);
     track->vol_addr = g_new (gint, nchan);
     track->mute_addr = g_new (gint, nchan);
+    track->saved_volumes = g_new (gint, nchan);
     g_debug("Inserting new track in hashtable for %s", d->node0.name);
     g_hash_table_insert (mixer->tracks, g_strdup(d->node0.name), track);
 

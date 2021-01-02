@@ -36,6 +36,8 @@ struct _GstMixerSndioTrack
   /* list of sndio addrs for volume & mute chans */
   guint *vol_addr;
   guint *mute_addr;
+  /* saved volumes for app tracks that dont have a separate mute control */
+  gint *saved_volumes;
 };
 
 struct _GstMixerSndioTrackClass
