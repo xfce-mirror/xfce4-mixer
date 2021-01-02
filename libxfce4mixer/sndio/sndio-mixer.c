@@ -219,7 +219,10 @@ gst_mixer_sndio_get_volume (GstMixer *mixer, GstMixerTrack *track, gint *volumes
   {
     volumes[i] = track->volumes[i];
   }
-  g_debug("gst_mixer_sndio_get_volume called on track %s filled vol[]=(%d,%d)", track->label, volumes[0], volumes[1]);
+  if (NUM_CHANNELS(track) == 2)
+    g_debug("gst_mixer_sndio_get_volume called on track %s filled vol[]=(%d,%d)", track->label, volumes[0], volumes[1]);
+  else
+    g_debug("gst_mixer_sndio_get_volume called on track %s filled vol[0]=%d", track->label, volumes[0]);
 }
 
 static void
