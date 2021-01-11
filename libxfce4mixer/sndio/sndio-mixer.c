@@ -169,8 +169,6 @@ static void
 gst_mixer_sndio_finalize (GObject *self)
 {
   GstMixerSndio *mixer = GST_MIXER_SNDIO (self);
-  mixer = NULL;
-
   g_hash_table_unref (mixer->tracks_by_addr);
   g_hash_table_unref (mixer->tracks);
   G_OBJECT_CLASS (gst_mixer_sndio_parent_class)->finalize (self);
