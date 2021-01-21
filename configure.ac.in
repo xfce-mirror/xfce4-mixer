@@ -163,6 +163,13 @@ dnl **************************
 XDT_CHECK_OPTIONAL_PACKAGE([ALSA], [alsa], [0.9], [alsa], [Alsa backend support], [yes])
 AM_CONDITIONAL([ALSA_BACKEND], [test x"$ALSA_FOUND" = x"yes"])
 
+dnl ***************************
+dnl *** SNDIO sound backend ***
+dnl ***************************
+AC_CHECK_HEADERS([sndio.h])
+AC_CHECK_LIB(sndio, sio_open, SNDIO_LIBS="-lsndio")
+AM_CONDITIONAL([SNDIO_BACKEND], [test x"$ac_cv_header_sndio_h" = x"yes"])
+AS_IF([test "x$ac_cv_header_sndio_h" = x"yes"], [AC_DEFINE([HAVE_SNDIO], [1], [Build with SNDIO support])])
 
 dnl ***********************************
 dnl *** Check for debugging support ***
@@ -215,4 +222,5 @@ echo
 echo " * OSS sound backend:                    ${oss_sound}"
 echo " * ALSA sound backend:                   ${ALSA_FOUND:-no}"
 echo " * Pulse module backend:                 ${PULSE_FOUND:-no}"
+echo " * Sndio module backend:                 ${ac_cv_header_sndio_h}"
 echo
