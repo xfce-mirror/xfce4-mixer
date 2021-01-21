@@ -180,7 +180,8 @@ GstMixerAlsaTrack *gst_mixer_alsa_track_new (snd_mixer_elem_t *element,
     label = g_strdup_printf ("%s%s %d", name,
                              append_capture ? " Capture" : "",
                              index);
-  printf("name %s has_volume %d has_switch %d nch %d min %d max %d\n",
+
+  g_debug("name %s has_volume %d has_switch %d nch %d min %ld max %ld\n",
          label, has_volume, has_switch, num_channels,min, max);
 
   track = g_object_new (GST_MIXER_TYPE_ALSA_TRACK,
