@@ -382,7 +382,7 @@ xfce_mixer_plugin_set_property (GObject      *object,
           {
             xfce_mixer_debug ("could not set sound-card to '%s', trying the default card instead", card_name);
             card = xfce_mixer_get_default_card ();
-            if GST_IS_MIXER (card)
+            if (GST_IS_MIXER (card))
               card_name = xfce_mixer_get_card_internal_name (card);
             else
               card_name = NULL;

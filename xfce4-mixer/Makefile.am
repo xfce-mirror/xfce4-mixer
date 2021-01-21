@@ -25,7 +25,7 @@ xfce4_mixer_CPPFLAGS = 							\
 	-I$(top_srcdir)							\
 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"				\
 	-DDATADIR=\"$(datadir)\"					\
-	-DMIXER_DATADIR=\"$(datadir)/xfce4/mixer\"		\
+	-DMIXER_DATADIR=\"$(datadir)/xfce4/mixer\"			\
 	-DG_LOG_DOMAIN=\"xfce4-mixer\"
 
 xfce4_mixer_CFLAGS = 							\
@@ -34,7 +34,7 @@ xfce4_mixer_CFLAGS = 							\
 	$(LIBXFCE4UTIL_CFLAGS)						\
 	$(LIBXFCE4UI_CFLAGS)						\
 	$(XFCONF_CFLAGS)						\
-	$(GST_PLUGINS_BASE_CFLAGS)
+	$(GST_CFLAGS)
 
 xfce4_mixer_DEPENDENCIES = 						\
 	$(top_builddir)/libxfce4mixer/libxfce4mixer.la
@@ -47,9 +47,7 @@ xfce4_mixer_LDFLAGS = 							\
 	$(LIBXFCE4UTIL_LIBS)						\
 	$(LIBXFCE4UI_LIBS)						\
 	$(XFCONF_LIBS)							\
-	$(GST_PLUGINS_BASE_LIBS)					\
-	-lgstaudio-0.10							\
-	-lgstinterfaces-0.10
+	$(GST_LIBS)
 
 dist_man_MANS = xfce4-mixer.1
 

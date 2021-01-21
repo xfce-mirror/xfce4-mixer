@@ -26,6 +26,7 @@
 #include <glib-object.h>
 
 #include "xfce-mixer-track-type.h"
+#include "gst-mixer-options.h"
 
 
 
@@ -36,7 +37,7 @@ xfce_mixer_track_type_get_type (void)
 
   if (G_UNLIKELY (type == G_TYPE_INVALID))
     {
-      static const GEnumValue values[] = 
+      static const GEnumValue values[] =
         {
           { XFCE_MIXER_TRACK_TYPE_PLAYBACK, "XFCE_MIXER_TRACK_TYPE_PLAYBACK", "playback" },
           { XFCE_MIXER_TRACK_TYPE_CAPTURE, "XFCE_MIXER_TRACK_TYPE_CAPTURE", "capture" },
@@ -64,7 +65,7 @@ xfce_mixer_track_type_new (GstMixerTrack *track)
     type = XFCE_MIXER_TRACK_TYPE_OPTIONS;
   else
     {
-      if (G_UNLIKELY (track->num_channels == 0))
+      if (G_UNLIKELY (gst_mixer_track_get_num_channels (track)) == 0 )
         type = XFCE_MIXER_TRACK_TYPE_SWITCH;
       else
         {

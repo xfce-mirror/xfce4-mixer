@@ -28,7 +28,6 @@
 #endif
 
 #include <gst/gst.h>
-#include <gst/interfaces/mixer.h>
 
 #include <libxfce4util/libxfce4util.h>
 #include <libxfce4ui/libxfce4ui.h>
@@ -138,7 +137,7 @@ xfce_mixer_track_new (GstElement    *card,
   g_return_val_if_fail (GST_IS_MIXER (card), NULL);
   g_return_val_if_fail (GST_IS_MIXER_TRACK (gst_track), NULL);
   
-  track = g_object_new (TYPE_XFCE_MIXER_TRACK, "orientation", GTK_ORIENTATION_VERTICAL, NULL);
+  track = g_object_new (TYPE_XFCE_MIXER_TRACK, "orientation", GTK_ORIENTATION_HORIZONTAL, NULL);
   track->card = card;
   track->gst_track = gst_track;
 
@@ -156,15 +155,14 @@ xfce_mixer_track_lock_button_line_draw (GtkWidget  *widget,
 {
   GtkPositionType    position = GPOINTER_TO_INT (user_data);
   GtkAllocation      allocation;
+  GtkTextDirection   dir;
   GtkStyleContext   *style_context = gtk_widget_get_style_context (widget);
   GdkPoint           points[3];
   double             line_width = 2.0;
   GdkRGBA            fg_color;
 
   gtk_widget_get_allocation (widget, &allocation);
-  if (gtk_widget_get_direction (widget) == GTK_TEXT_DIR_RTL)
-    position = (position == GTK_POS_LEFT) ? GTK_POS_RIGHT : GTK_POS_LEFT;
-
+  dir = gtk_widget_get_direction(widget);
   /*
    * Draw an L-shaped line from the right/left center to the top middle of the
    * allocation
@@ -172,23 +170,23 @@ xfce_mixer_track_lock_button_line_draw (GtkWidget  *widget,
   gtk_style_context_get_color (style_context, GTK_STATE_FLAG_NORMAL, &fg_color);
   gdk_cairo_set_source_rgba (cr, &fg_color);
   cairo_set_line_width(cr, line_width);
-  if (position == GTK_POS_RIGHT)
+  if (position == GTK_POS_BOTTOM)
     {
-      points[0].x = 0;
-      points[0].y = (gint) round ((allocation.height - line_width) / 2.0);
-      points[1].x = (gint) round ((allocation.width - line_width) / 2.0);
-      points[1].y = points[0].y;
-      points[2].x = points[1].x;
-      points[2].y = 0;
+      points[0].x = (gint) round ((allocation.width - line_width) / 2.0);
+      points[0].y = 0;
+      points[1].x = points[0].x;
+      points[1].y = (gint) round ((allocation.height - line_width) / 2.0);
+      points[2].x = dir == GTK_TEXT_DIR_LTR ? 0 : allocation.width;
+      points[2].y = points[1].y;
     }
   else
     {
-      points[0].x = allocation.width;
-      points[0].y = (gint) round ((allocation.height - line_width) / 2.0);
-      points[1].x = (gint) round ((allocation.width + line_width) / 2.0);
-      points[1].y = points[0].y;
-      points[2].x = points[1].x;
-      points[2].y = 0;
+      points[0].x = (gint) round ((allocation.width - line_width) / 2.0);
+      points[0].y = allocation.height;
+      points[1].x = points[0].x;
+      points[1].y = (gint) round ((allocation.height - line_width) / 2.0);
+      points[2].x = dir == GTK_TEXT_DIR_LTR ? 0 : allocation.width;
+      points[2].y = points[1].y;
     }
   cairo_move_to (cr, points[0].x, points[0].y);
   cairo_line_to (cr, points[1].x, points[1].y);
@@ -209,8 +207,8 @@ xfce_mixer_track_create_contents (XfceMixerTrack *track)
   const gchar     *track_label;
   gchar           *tooltip_text;
   gdouble          step;
-  GtkWidget       *faders_vbox;
   GtkWidget       *faders_hbox;
+  GtkWidget       *faders_vbox;
   GtkWidget       *lock_button_hbox;
   GtkWidget       *fader;
   GtkWidget       *lock_button_line1;
@@ -230,29 +228,29 @@ xfce_mixer_track_create_contents (XfceMixerTrack *track)
   gtk_box_set_spacing (GTK_BOX (track), 6);
 
   /* Center and do not expand faders and lock button */
-  faders_vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
-  g_object_set (G_OBJECT (faders_vbox), "halign", GTK_ALIGN_CENTER, "valign", GTK_ALIGN_FILL, "vexpand", TRUE, NULL);
-  gtk_box_pack_start (GTK_BOX (track), faders_vbox, TRUE, TRUE, 0);
-  gtk_widget_show (faders_vbox);
-
   faders_hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
-  gtk_box_pack_start (GTK_BOX (faders_vbox), faders_hbox, TRUE, TRUE, 0);
+  g_object_set (G_OBJECT (faders_hbox), "valign", GTK_ALIGN_CENTER, "halign", GTK_ALIGN_FILL, "hexpand", TRUE, NULL);
+  gtk_box_pack_start (GTK_BOX (track), faders_hbox, TRUE, TRUE, 0);
   gtk_widget_show (faders_hbox);
+
+  faders_vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
+  gtk_box_pack_start (GTK_BOX (faders_hbox), faders_vbox, TRUE, TRUE, 0);
+  gtk_widget_show (faders_vbox);
 
   /* Create a fader for each channel */
   for (channel = 0; channel < track->gst_track->num_channels; ++channel)
     {
       tooltip_text = g_strdup_printf (_("Volume of channel %d on %s"), channel, track_label);
 
-      fader = gtk_scale_new_with_range (GTK_ORIENTATION_VERTICAL, track->gst_track->min_volume, track->gst_track->max_volume, step);
+      fader = gtk_scale_new_with_range (GTK_ORIENTATION_HORIZONTAL, track->gst_track->min_volume, track->gst_track->max_volume, step);
       gtk_scale_set_draw_value (GTK_SCALE (fader), FALSE);
-      gtk_range_set_inverted (GTK_RANGE (fader), TRUE);
+      gtk_range_set_inverted (GTK_RANGE (fader), FALSE);
       gtk_range_set_value (GTK_RANGE (fader), volumes[channel]);
       gtk_widget_set_tooltip_text (fader, tooltip_text);
       /* Make read-only tracks insensitive */
       if (GST_MIXER_TRACK_HAS_FLAG (track->gst_track, GST_MIXER_TRACK_READONLY))
         gtk_widget_set_sensitive (fader, FALSE);
-      gtk_box_pack_start (GTK_BOX (faders_hbox), fader, TRUE, TRUE, 0);
+      gtk_box_pack_start (GTK_BOX (faders_vbox), fader, TRUE, TRUE, 0);
       g_signal_connect (fader, "value-changed", G_CALLBACK (xfce_mixer_track_fader_changed), track);
       gtk_widget_show (fader);
 
@@ -266,15 +264,16 @@ xfce_mixer_track_create_contents (XfceMixerTrack *track)
     }
 
   /* Create lock button with lines */
-  lock_button_hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
-  gtk_box_pack_start (GTK_BOX (faders_vbox), lock_button_hbox, FALSE, FALSE, 0);
+  lock_button_hbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
+  gtk_box_pack_start (GTK_BOX (faders_hbox), lock_button_hbox, FALSE, FALSE, 0);
   gtk_widget_show (lock_button_hbox);
 
-  /* Left L-shaped line */
+  /* Top L-shaped line */
+
   lock_button_line1 =  gtk_drawing_area_new ();
   gtk_widget_set_size_request (lock_button_line1, 12, 8);
   gtk_box_pack_start (GTK_BOX (lock_button_hbox), lock_button_line1, TRUE, TRUE, 0);
-  g_signal_connect (G_OBJECT (lock_button_line1), "draw", G_CALLBACK (xfce_mixer_track_lock_button_line_draw), GINT_TO_POINTER (GTK_POS_LEFT));
+  g_signal_connect (G_OBJECT (lock_button_line1), "draw", G_CALLBACK (xfce_mixer_track_lock_button_line_draw), GINT_TO_POINTER (GTK_POS_TOP));
   gtk_widget_show (lock_button_line1);
 
   /* Lock button */
@@ -293,11 +292,11 @@ xfce_mixer_track_create_contents (XfceMixerTrack *track)
   gtk_widget_show (track->lock_button);
   g_free (tooltip_text);
 
-  /* Right L-shaped line */
+  /* Bottom L-shaped line */
   lock_button_line2 =  gtk_drawing_area_new ();
   gtk_widget_set_size_request (lock_button_line2, 12, 8);
   gtk_box_pack_start (GTK_BOX (lock_button_hbox), lock_button_line2, TRUE, TRUE, 0);
-  g_signal_connect (G_OBJECT (lock_button_line2), "draw", G_CALLBACK (xfce_mixer_track_lock_button_line_draw), GINT_TO_POINTER (GTK_POS_RIGHT));
+  g_signal_connect (G_OBJECT (lock_button_line2), "draw", G_CALLBACK (xfce_mixer_track_lock_button_line_draw), GINT_TO_POINTER (GTK_POS_BOTTOM));
   gtk_widget_show (lock_button_line2);
 
   /*
@@ -310,12 +309,12 @@ xfce_mixer_track_create_contents (XfceMixerTrack *track)
       gtk_widget_destroy (lock_button_hbox);
       lock_button_hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 0);
       gtk_widget_set_size_request (lock_button_hbox, lock_button_hbox_requisition.width, lock_button_hbox_requisition.height);
-      gtk_box_pack_start (GTK_BOX (faders_vbox), lock_button_hbox, FALSE, FALSE, 0);
+      gtk_box_pack_start (GTK_BOX (faders_hbox), lock_button_hbox, FALSE, FALSE, 0);
       gtk_widget_show (lock_button_hbox);
     }
 
   buttons_hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 12);
-  g_object_set (G_OBJECT (buttons_hbox), "halign", GTK_ALIGN_CENTER, "valign", GTK_ALIGN_END, NULL);
+  g_object_set (G_OBJECT (buttons_hbox), "valign", GTK_ALIGN_CENTER, "halign", GTK_ALIGN_END, NULL);
   gtk_box_pack_start (GTK_BOX (track), buttons_hbox, FALSE, FALSE, 0);
   gtk_widget_show (buttons_hbox);
 
@@ -554,6 +553,20 @@ xfce_mixer_track_record_toggled (GtkToggleButton *button,
 }
 
 
+static void xfce_mixer_track_output_changed_cb (GtkComboBox *widget,
+                                                gpointer     user_data)
+{
+  XfceMixerTrack *track;
+  const gchar *tid;
+
+  track = XFCE_MIXER_TRACK(user_data);
+  tid = gtk_combo_box_get_active_id(widget);
+
+  gst_mixer_move_track (GST_MIXER(track->card),
+                        track->gst_track,
+                        atoi(tid));
+}
+
 
 void 
 xfce_mixer_track_update_mute (XfceMixerTrack *track)
@@ -608,3 +621,12 @@ xfce_mixer_track_update_volume (XfceMixerTrack *track)
 
   g_free (volumes);
 }
+
+
+void xfce_mixer_track_connect (XfceMixerTrack *track,
+                               GtkWidget      *combo)
+{
+  g_signal_connect(G_OBJECT(combo), "changed",
+                   G_CALLBACK(xfce_mixer_track_output_changed_cb), track);
+}
+

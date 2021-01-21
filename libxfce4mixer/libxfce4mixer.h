@@ -24,19 +24,17 @@
 
 #include <glib.h>
 
-#include <dbus/dbus-glib.h>
-
-#include <gst/interfaces/mixer.h>
-
+#include "gst-mixer.h"
+#include "gst-mixer-track.h"
+#include "gst-mixer-options.h"
 #include "xfce-mixer-preferences.h"
 #include "xfce-mixer-card-combo.h"
 #include "xfce-mixer-track-combo.h"
 #include "xfce-mixer-track-type.h"
 #include "xfce-mixer-debug.h"
 
-#define XFCE_MIXER_TYPE_VALUE_ARRAY (xfce_mixer_value_array_get_type ())
-
 G_BEGIN_DECLS
+
 
 void           xfce_mixer_init                   (void);
 void           xfce_mixer_shutdown               (void);

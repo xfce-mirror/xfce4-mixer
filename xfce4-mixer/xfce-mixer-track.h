@@ -43,6 +43,8 @@ GtkWidget *xfce_mixer_track_new           (GstElement     *card,
 void       xfce_mixer_track_update_mute   (XfceMixerTrack *track);
 void       xfce_mixer_track_update_record (XfceMixerTrack *track);
 void       xfce_mixer_track_update_volume (XfceMixerTrack *track);
+void       xfce_mixer_track_connect       (XfceMixerTrack *track,
+                                           GtkWidget      *combo);
 
 G_END_DECLS
 

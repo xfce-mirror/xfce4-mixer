@@ -25,7 +25,6 @@
 #include <gtk/gtk.h>
 
 #include <gst/gst.h>
-#include <gst/interfaces/mixer.h>
 
 G_BEGIN_DECLS
 

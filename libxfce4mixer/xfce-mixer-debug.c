@@ -214,21 +214,27 @@ xfce_mixer_dump_gst_data (void)
                 g_string_append_printf (result, "\t\t\tvalue: \"%s\"\n", (gchar *) options_iter->data);
               g_string_append_printf (result, "\t\t\tcurrent value: \"%s\"\n", gst_mixer_get_option (GST_MIXER (card), GST_MIXER_OPTIONS (track)));
             }
-          else if (track->num_channels == 0)
-            g_string_append (result, "\t\t\ttype: switch\n");
           else
             {
-              g_string_append (result, "\t\t\ttype: volume\n");
-              g_string_append_printf (result, "\t\t\tchannels: %d\n", track->num_channels);
-              g_string_append_printf (result, "\t\t\tmin-volume: %d\n", min_volume);
-              g_string_append_printf (result, "\t\t\tmax-volume: %d\n", max_volume);
+              gint num_channels;
 
-              volumes = g_new0 (gint, track->num_channels);
-              gst_mixer_get_volume (GST_MIXER (card), track, volumes);
-              for (i = 0; i < track->num_channels; ++i)
-                g_string_append_printf (result, "\t\t\tvolume channel[%d]: %d\n", i, volumes[i]);
+              num_channels = gst_mixer_track_get_num_channels(track);
+              if (num_channels == 0)
+                  g_string_append (result, "\t\t\ttype: switch\n");
+              else
+                {
+                  g_string_append (result, "\t\t\ttype: volume\n");
+                  g_string_append_printf (result, "\t\t\tchannels: %d\n", num_channels);
+                  g_string_append_printf (result, "\t\t\tmin-volume: %d\n", min_volume);
+                  g_string_append_printf (result, "\t\t\tmax-volume: %d\n", max_volume);
 
-              g_free (volumes);
+                  volumes = g_new0 (gint, num_channels);
+                  gst_mixer_get_volume (GST_MIXER (card), track, volumes);
+                  for (i = 0; i < num_channels; ++i)
+                    g_string_append_printf (result, "\t\t\tvolume channel[%d]: %d\n", i, volumes[i]);
+
+                  g_free (volumes);
+                }
             }
 
           if (track == default_track)
