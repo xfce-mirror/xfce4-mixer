@@ -386,7 +386,7 @@ xfce_mixer_container_create_contents (XfceMixerContainer *mixer_container)
                   }
                 }
                 /* Only show if we have more than 2 inputs */
-                /*if (pos > 1)*/
+                if (pos > 1)
                 {
                   gtk_widget_show(card_track);
                   /* Connect to changed signal */
