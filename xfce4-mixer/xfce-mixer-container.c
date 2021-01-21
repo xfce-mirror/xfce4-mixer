@@ -73,7 +73,7 @@ struct _XfceMixerContainer
 
   GstElement  *card;
 
-  GHashTable  *widgets;
+  GList       *widgets;
 
   gulong       message_handler_id;
 };
@@ -110,7 +110,7 @@ static void
 xfce_mixer_container_init (XfceMixerContainer *mixer_container)
 {
   mixer_container->card = NULL;
-  mixer_container->widgets = g_hash_table_new_full (g_str_hash, g_str_equal, g_free, NULL);
+  mixer_container->widgets = NULL;
   mixer_container->message_handler_id = 0;
 }
 
@@ -139,7 +139,7 @@ xfce_mixer_container_finalize (GObject *object)
   xfce_mixer_bus_disconnect (mixer_container->message_handler_id);
 
   g_object_unref (mixer_container->card);
-  g_hash_table_unref (mixer_container->widgets);
+  /*g_hash_table_unref (mixer_container->widgets);*/
 
   (*G_OBJECT_CLASS (xfce_mixer_container_parent_class)->finalize) (object);
 }
@@ -263,8 +263,7 @@ xfce_mixer_container_create_contents (XfceMixerContainer *mixer_container)
         {
           track = GST_MIXER_TRACK (iter->data);
 
-          track_label = xfce_mixer_get_track_label (track);
-
+          track_label = gst_mixer_track_get_name (track);
 #if 0
           if (!xfce_mixer_preferences_get_control_visible (preferences, track_label))
             continue;
@@ -339,7 +338,8 @@ xfce_mixer_container_create_contents (XfceMixerContainer *mixer_container)
               num_children[0]++;
 
               /* Add the track to the hash table */
-              g_hash_table_insert (mixer_container->widgets, g_strdup (track_label), track_widget);
+              g_object_set_data (G_OBJECT(track), "track-widget", track_widget);
+              mixer_container->widgets = g_list_append (mixer_container->widgets, track_widget);
               break;
 
             case XFCE_MIXER_TRACK_TYPE_CAPTURE:
@@ -362,7 +362,8 @@ xfce_mixer_container_create_contents (XfceMixerContainer *mixer_container)
               num_children[1]++;
 
               /* Add the track to the hash table */
-              g_hash_table_insert (mixer_container->widgets, g_strdup (track_label), track_widget);
+              g_object_set_data (G_OBJECT(track), "track-widget", track_widget);
+              mixer_container->widgets = g_list_append (mixer_container->widgets, track_widget);
               break;
 
             case XFCE_MIXER_TRACK_TYPE_SWITCH:
@@ -374,7 +375,8 @@ xfce_mixer_container_create_contents (XfceMixerContainer *mixer_container)
               num_children[2]++;
 
               /* Add the track to the hash table */
-              g_hash_table_insert (mixer_container->widgets, g_strdup (track_label), track_widget);
+              g_object_set_data (G_OBJECT(track), "track-widget", track_widget);
+              mixer_container->widgets = g_list_append (mixer_container->widgets, track_widget);
               break;
 
             case XFCE_MIXER_TRACK_TYPE_OPTIONS:
@@ -393,7 +395,8 @@ xfce_mixer_container_create_contents (XfceMixerContainer *mixer_container)
               num_children[3]++;
 
               /* Add the track to the hash table */
-              g_hash_table_insert (mixer_container->widgets, g_strdup (track_label), track_widget);
+              g_object_set_data (G_OBJECT(track), "track-widget", track_widget);
+              mixer_container->widgets = g_list_append (mixer_container->widgets, track_widget);
               break;
             }
         }
@@ -453,9 +456,9 @@ xfce_mixer_container_update_contents (XfceMixerContainer *mixer_container)
   gint i;
 
   g_return_if_fail (IS_XFCE_MIXER_CONTAINER (mixer_container));
-  g_return_if_fail (mixer_container->widgets != NULL);
 
-  g_hash_table_remove_all (mixer_container->widgets);
+  g_list_free(mixer_container->widgets);
+  mixer_container->widgets = NULL;
 
   /* Remember active tab */
   current_tab = gtk_notebook_get_current_page (GTK_NOTEBOOK (mixer_container));
@@ -500,7 +503,7 @@ xfce_mixer_container_bus_message (GstBus             *bus,
         gst_mixer_message_parse_mute_toggled (message, &track, &muted);
         label = xfce_mixer_get_track_label (track);
         xfce_mixer_debug ("Track '%s' was %s", label, muted ? "muted" : "unmuted");
-        widget = g_hash_table_lookup (mixer_container->widgets, label);
+        widget = g_object_get_data(G_OBJECT(track), "track-widget");
 
         if (IS_XFCE_MIXER_TRACK (widget))
           xfce_mixer_track_update_mute (XFCE_MIXER_TRACK (widget));
@@ -511,7 +514,7 @@ xfce_mixer_container_bus_message (GstBus             *bus,
         gst_mixer_message_parse_record_toggled (message, &track, &record);
         label = xfce_mixer_get_track_label (track);
         xfce_mixer_debug ("Recording on track '%s' was %s", label, record ? "turned on" : "turned off");
-        widget = g_hash_table_lookup (mixer_container->widgets, label);
+        widget = g_object_get_data(G_OBJECT(track), "track-widget");
 
         if (IS_XFCE_MIXER_TRACK (widget))
           xfce_mixer_track_update_record (XFCE_MIXER_TRACK (widget));
@@ -522,7 +525,7 @@ xfce_mixer_container_bus_message (GstBus             *bus,
         gst_mixer_message_parse_volume_changed (message, &track, &volumes, &num_channels);
         label = xfce_mixer_get_track_label (track);
         xfce_mixer_debug ("Volume on track '%s' changed to %i", label, volumes[0]);
-        widget = g_hash_table_lookup (mixer_container->widgets, label);
+        widget = g_object_get_data(G_OBJECT(track), "track-widget");
 
         if (IS_XFCE_MIXER_TRACK (widget))
           xfce_mixer_track_update_volume (XFCE_MIXER_TRACK (widget));
@@ -531,7 +534,7 @@ xfce_mixer_container_bus_message (GstBus             *bus,
         gst_mixer_message_parse_option_changed (message, &options, &option);
         label = xfce_mixer_get_track_label (GST_MIXER_TRACK (options));
         xfce_mixer_debug ("Option '%s' was set to '%s'", label, option);
-        widget = g_hash_table_lookup (mixer_container->widgets, label);
+        widget = g_object_get_data(G_OBJECT(track), "track-widget");
 
         if (IS_XFCE_MIXER_OPTION (widget))
           xfce_mixer_option_update (XFCE_MIXER_OPTION (widget));

@@ -48,14 +48,9 @@
 #include "pulse-mixer.h"
 #endif
 
-static void     _xfce_mixer_add_track_labels (gpointer    data,
-                                              gpointer    user_data);
 static void     _xfce_mixer_init_mixer       (gpointer    data,
                                               gpointer    user_data);
 static void     _xfce_mixer_destroy_mixer    (GstMixer   *mixer);
-static void     _xfce_mixer_bus_message      (GstBus     *bus,
-                                              GstMessage *message,
-                                              gpointer    user_data);
 
 
 
@@ -364,7 +359,7 @@ const gchar *
 xfce_mixer_get_track_label (GstMixerTrack *track)
 {
   g_return_val_if_fail (GST_IS_MIXER_TRACK (track), NULL);
-  return g_object_get_data (G_OBJECT (track), "xfce-mixer-track-label");
+  return gst_mixer_track_get_name (track);
 }
 
 
@@ -436,40 +431,6 @@ set_mixer_name (GstMixer *mixer, const gchar *name)
 }
 
 
-static void
-_xfce_mixer_add_track_labels (gpointer data,
-                              gpointer user_data)
-{
-  GstMixer      *mixer = GST_MIXER (data);
-  const GList   *iter;
-  GstMixerTrack *track;
-  gchar         *label;
-  gchar         *xfce_mixer_label;
-  guint          track_index;
-
-  for (iter = gst_mixer_list_tracks (mixer); iter != NULL; iter = g_list_next (iter))
-    {
-      track = GST_MIXER_TRACK (iter->data);
-
-      g_object_get (track, "label", &label, "index", &track_index, NULL);
-
-      /*
-       * Build display label including the index if there are mutiple tracks of
-       * the same name
-       */
-      if (track_index > 0)
-        xfce_mixer_label = g_strdup_printf ("%s (%d)", label, track_index);
-      else
-        xfce_mixer_label = g_strdup (label);
-
-      /* Set label to be used by xfce4-mixer */
-      g_object_set_data_full (G_OBJECT (track), "xfce-mixer-track-label", xfce_mixer_label, (GDestroyNotify) g_free);
-
-      g_free (label);
-    }
-}
-
-
 
 static void
 _xfce_mixer_init_mixer (gpointer data,
@@ -477,13 +438,8 @@ _xfce_mixer_init_mixer (gpointer data,
 {
   GstMixer *card = GST_MIXER (data);
 
-  /* Add custom labels to all tracks */
-  _xfce_mixer_add_track_labels (card, NULL);
-
   set_mixer_name (card, gst_mixer_get_card_name (card));
-  /* Add bus to every card and connect to internal signal handler */
   gst_element_set_bus (GST_ELEMENT (card), bus);
-  g_signal_connect (bus, "message::element", G_CALLBACK (_xfce_mixer_bus_message), NULL);
 }
 
 
@@ -491,22 +447,8 @@ _xfce_mixer_init_mixer (gpointer data,
 static void
 _xfce_mixer_destroy_mixer (GstMixer *mixer)
 {
-  g_signal_handlers_disconnect_by_func (bus, _xfce_mixer_bus_message, NULL);
-
   gst_element_set_state (GST_ELEMENT (mixer), GST_STATE_NULL);
   gst_object_unref (GST_OBJECT (mixer));
-}
-
-
-
-static void
-_xfce_mixer_bus_message (GstBus     *bus_,
-                         GstMessage *message,
-                         gpointer    user_data)
-{
-  /* Add labels in case the tracks have changed */
-  if (gst_mixer_message_get_type (message) == GST_MIXER_MESSAGE_MIXER_CHANGED)
-    _xfce_mixer_add_track_labels (GST_MIXER (GST_MESSAGE_SRC (message)), NULL);
 }
 
 
