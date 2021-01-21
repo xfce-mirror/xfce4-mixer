@@ -422,9 +422,88 @@ gst_mixer_pulse_get_sink_input_cb (pa_context               *context,
 
   g_free(full_name);
 
+  pa_threaded_mainloop_signal(pulse->mainloop, 0);
+
   gst_mixer_track_added (GST_MIXER(pulse), GST_MIXER_TRACK(track));
+}
+
+
+static void
+gst_mixer_pulse_get_source_output_cb (pa_context                  *context,
+                                      const pa_source_output_info *info,
+                                      int                          eol,
+                                      GstMixerPulse               *pulse)
+{
+  GstMixerPulseTrack *track;
+  const gchar *name;
+  const gchar *prop;
+  gchar *full_name;
+  int i;
+
+  if (info == NULL || eol < 0 || info->client == PA_INVALID_INDEX)
+  {
+    pa_threaded_mainloop_signal(pulse->mainloop, 0);
+    return;
+  }
+
+  if (eol < 0)
+  {
+    if (pa_context_errno(context) == PA_ERR_NOENTITY)
+    {
+      pa_threaded_mainloop_signal(pulse->mainloop, 0);
+      return;
+    }
+  }
+
+  if ((prop = pa_proplist_gets(info->proplist, "module-stream-restore.id")))
+  {
+    if (strcmp(prop, "sink-input-by-media-role:event") == 0) {
+      pa_threaded_mainloop_signal(pulse->mainloop, 0);
+      return;
+    }
+  }
+
+  if ((prop = pa_proplist_gets(info->proplist, PA_PROP_APPLICATION_ID))) {
+    if (strcmp(prop, "org.PulseAudio.pavucontrol") == 0
+        || strcmp(prop, "org.gnome.VolumeControl") == 0
+        || strcmp(prop, "org.kde.kmixd") == 0)
+    {
+      return;
+    }
+  }
+
+  name = (const gchar *)g_hash_table_lookup(pulse->clients, GINT_TO_POINTER(info->client));
+
+  if(name)
+    full_name = g_strdup_printf ("%s : %s", name, info->name);
+  else
+    full_name = g_strdup (info->name);
+
+  track = g_object_new (GST_MIXER_TYPE_PULSE_TRACK,
+                        "label", full_name,
+                        "untranslated-label", info->name,
+                        "index", info->index,
+                        "flags", GST_MIXER_TRACK_INPUT | GST_MIXER_TRACK_SOFTWARE,
+                        "parent-track-id", info->source,
+                        "num-channels", info->channel_map.channels,
+                        "has-volume", TRUE,
+                        "has-switch", TRUE,
+                        "min-volume", PA_VOLUME_MUTED,
+                        "max-volume", PA_VOLUME_NORM,
+                        NULL);
+
+  g_free(full_name);
+
+  GST_MIXER_TRACK(track)->volumes = g_new (gint, info->channel_map.channels);
+
+  for (i = 0; i < info->channel_map.channels; i++)
+  {
+    GST_MIXER_TRACK(track)->volumes[i] = info->volume.values[i];
+  }
 
   pa_threaded_mainloop_signal(pulse->mainloop, 0);
+
+  gst_mixer_track_added (GST_MIXER(pulse), GST_MIXER_TRACK(track));
 }
 
 
@@ -444,12 +523,12 @@ gst_mixer_pulse_event_cb (pa_context                   *context,
     case PA_SUBSCRIPTION_EVENT_SINK_INPUT:
       if ((t & PA_SUBSCRIPTION_EVENT_TYPE_MASK) == PA_SUBSCRIPTION_EVENT_REMOVE)
       {
-        g_debug ("Removing track index %d\n", index);
-        gst_mixer_remove_track (mixer, index);
+        g_debug ("Removing sink track index %d\n", index);
+        gst_mixer_remove_track_with_flags (mixer, GST_MIXER_TRACK_OUTPUT, index);
       }
       else if ((t & PA_SUBSCRIPTION_EVENT_TYPE_MASK) == PA_SUBSCRIPTION_EVENT_NEW)
       {
-        g_debug ("New track index %d\n", index);
+        g_debug ("New sink track index %d\n", index);
         o =
           pa_context_get_sink_input_info(pulse->context,
                                          index,
@@ -457,6 +536,25 @@ gst_mixer_pulse_event_cb (pa_context                   *context,
                                          pulse);
         pa_operation_unref(o);
       }
+      break;
+    case PA_SUBSCRIPTION_EVENT_SOURCE_OUTPUT:
+      if ((t & PA_SUBSCRIPTION_EVENT_TYPE_MASK) == PA_SUBSCRIPTION_EVENT_REMOVE)
+      {
+        g_debug ("Removing source track index %d\n", index);
+        gst_mixer_remove_track_with_flags (mixer, GST_MIXER_TRACK_INPUT, index);
+      }
+      else if ((t & PA_SUBSCRIPTION_EVENT_TYPE_MASK) == PA_SUBSCRIPTION_EVENT_NEW)
+      {
+        g_debug ("New source track index %d\n", index);
+        o =
+          pa_context_get_source_output_info(pulse->context,
+                                            index,
+                                            (pa_source_output_info_cb_t)gst_mixer_pulse_get_source_output_cb,
+                                            pulse);
+        pa_operation_unref(o);
+      }
+      break;
+    default:
       break;
   }
 }
@@ -688,6 +786,15 @@ gst_mixer_pulse_new (GstMixer **mixer_ret)
   pa_context_get_sink_input_info_list(pulse->context,
                                      (pa_sink_input_info_cb_t)gst_mixer_pulse_get_sink_input_cb,
                                      pulse);
+  while (pa_operation_get_state(o) != PA_OPERATION_DONE)
+    pa_threaded_mainloop_wait(pulse->mainloop);
+  pa_operation_unref(o);
+
+  /* Get Source outputs */
+  o =
+  pa_context_get_source_output_info_list(pulse->context,
+                                         (pa_source_output_info_cb_t)gst_mixer_pulse_get_source_output_cb,
+                                         pulse);
   while (pa_operation_get_state(o) != PA_OPERATION_DONE)
     pa_threaded_mainloop_wait(pulse->mainloop);
   pa_operation_unref(o);
