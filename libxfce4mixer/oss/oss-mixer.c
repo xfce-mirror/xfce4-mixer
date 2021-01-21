@@ -40,12 +40,13 @@
 #include "oss-options.h"
 
 #define MAX_DEVS     16
-#define POLL_TIME_MS 250
+#define POLL_TIME_MS 500
 
 static const char *names[SOUND_MIXER_NRDEVICES] = SOUND_DEVICE_NAMES;
 static const char *labels[SOUND_MIXER_NRDEVICES] = SOUND_DEVICE_LABELS;
 
 static GSource *mixers_source = NULL;
+static GList   *mixer_list = NULL;
 
 struct _GstMixerOss
 {
@@ -53,6 +54,7 @@ struct _GstMixerOss
 
   int devfd;
   int card_id;
+  int modify_counter;
 };
 
 G_DEFINE_TYPE (GstMixerOss, gst_mixer_oss, GST_TYPE_MIXER)
@@ -195,7 +197,45 @@ gst_mixer_oss_class_init (GstMixerOssClass *klass)
 static void
 gst_mixer_oss_poll (GstMixerOss *mixer, gpointer data)
 {
+  mixer_info inf;
+  if (ioctl (mixer->devfd, SOUND_MIXER_INFO, &inf) == -1)
+  {
+    perror ("SOUND_MIXER_INFO");
+    return;
+  }
 
+  if (mixer->modify_counter != inf.modify_counter)
+  {
+    GList *l;
+    GList *tracks;
+
+    mixer->modify_counter = inf.modify_counter;
+
+    tracks = gst_mixer_list_tracks (GST_MIXER(mixer));
+
+    for (l = tracks; l; l = l->next)
+    {
+      GstMixerTrack *track;
+      gint vol = 0;
+
+      track = GST_MIXER_TRACK(l->data);
+
+      if (ioctl(mixer->devfd, MIXER_READ(track->index), &vol) == -1)
+      {
+        g_warning ("MIXER_READ failed %s", g_strerror(errno));
+      }
+      else
+      {
+        if (track->volumes[0] != (vol & 0x7f) ||
+            track->volumes[1] != ((vol >> 8 ) & 0x7f))
+        {
+          track->volumes[0] = vol & 0x7f;
+          track->volumes[1] = (vol >> 8 ) & 0x7f;
+          g_signal_emit_by_name (track, "volume-changed", 0);
+        }
+      }
+    }
+  }
 }
 
 
@@ -251,6 +291,8 @@ static void gst_mixer_oss_create_track_list (GstMixerOss *mixer)
 
     if (((1 << i) & recmask))
       flags |= GST_MIXER_TRACK_INPUT;
+    else
+      flags |= GST_MIXER_TRACK_OUTPUT;
 
     /* Default recording source */
     if ((1 << i) & recsrc)
@@ -262,15 +304,10 @@ static void gst_mixer_oss_create_track_list (GstMixerOss *mixer)
       flags |= GST_MIXER_TRACK_MASTER;
     }
 
-    if (!g_strcmp0(names[i], "vol") || !g_strcmp0 (names[i], "pcm"))
-    {
-      flags |= GST_MIXER_TRACK_OUTPUT;
-    }
-
     GST_MIXER_TRACK(track)->label = g_strdup_printf ("%s%s", labels[i], "");
     GST_MIXER_TRACK(track)->untranslated_label = g_strdup (names[i]);
     GST_MIXER_TRACK(track)->flags = flags;
-    GST_MIXER_TRACK(track)->index = 0;
+    GST_MIXER_TRACK(track)->index = i;
     GST_MIXER_TRACK(track)->num_channels = 2;
     GST_MIXER_TRACK(track)->volumes = g_new (gint, 2);
 
@@ -315,6 +352,7 @@ gst_mixer_oss_new (gint devfd, gint card_id)
 
   mixer->devfd = devfd;
   mixer->card_id = card_id;
+  mixer->modify_counter = 0;
 
   gst_mixer_oss_create_track_list (mixer);
 
@@ -345,7 +383,9 @@ GList *gst_mixer_oss_probe (GList *card_list)
     GstMixer *mixer;
     gchar *dev;
     int devfd;
+
     dev = g_strdup_printf("/dev/mixer%i", i);
+
     if (g_file_test (dev, G_FILE_TEST_EXISTS | G_FILE_TEST_IS_REGULAR))
     {
       devfd = open (dev, O_RDWR);
@@ -358,6 +398,7 @@ GList *gst_mixer_oss_probe (GList *card_list)
       {
         g_debug ("New mixer device '%s'", dev);
         mixer = gst_mixer_oss_new(devfd, i);
+        mixer_list = g_list_append (mixer_list, mixer);
         card_list = g_list_append (card_list, mixer);
       }
     }
@@ -368,7 +409,7 @@ GList *gst_mixer_oss_probe (GList *card_list)
   mixers_source = g_timeout_source_new (POLL_TIME_MS);
   g_source_set_callback (mixers_source,
                          (GSourceFunc) gst_mixer_oss_poll_all,
-                         card_list,
+                         mixer_list,
                          NULL);
   g_source_attach (mixers_source, g_main_context_get_thread_default());
   return card_list;
