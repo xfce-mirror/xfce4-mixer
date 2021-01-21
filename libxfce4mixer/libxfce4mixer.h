@@ -24,8 +24,6 @@
 
 #include <glib.h>
 
-#include <dbus/dbus-glib.h>
-
 #include "gst-mixer.h"
 #include "gst-mixer-track.h"
 #include "gst-mixer-options.h"
@@ -34,8 +32,6 @@
 #include "xfce-mixer-track-combo.h"
 #include "xfce-mixer-track-type.h"
 #include "xfce-mixer-debug.h"
-
-#define XFCE_MIXER_TYPE_VALUE_ARRAY (xfce_mixer_value_array_get_type ())
 
 G_BEGIN_DECLS
 

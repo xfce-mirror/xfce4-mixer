@@ -29,8 +29,6 @@
 
 #include <glib.h>
 
-#include <dbus/dbus-glib.h>
-
 
 #include <libxfce4util/libxfce4util.h>
 
@@ -465,21 +463,3 @@ xfce_mixer_utf8_cmp (const gchar *s1, const gchar *s2)
 
   return g_utf8_collate (s1, s2);
 }
-
-
-
-GType
-xfce_mixer_value_array_get_type (void)
-{
-  static volatile gsize type__volatile = 0;
-  GType                 type;
-
-  if (g_once_init_enter (&type__volatile))
-    {
-      type = dbus_g_type_get_collection ("GPtrArray", G_TYPE_VALUE);
-      g_once_init_leave (&type__volatile, type);
-    }
-
-  return type__volatile;
-}
-

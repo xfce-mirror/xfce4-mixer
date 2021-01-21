@@ -123,7 +123,7 @@ xfce_mixer_preferences_class_init (XfceMixerPreferencesClass *klass)
                                    g_param_spec_boxed ("controls",
                                                        "controls",
                                                        "controls",
-                                                       XFCE_MIXER_TYPE_VALUE_ARRAY,
+                                                       G_TYPE_PTR_ARRAY,
                                                        G_PARAM_READABLE | G_PARAM_WRITABLE));
 }
 
@@ -244,7 +244,7 @@ xfce_mixer_preferences_set_property (GObject      *object,
         {
           /* Bind to the property corresponding to the new sound card */
           sound_cards_property_name = g_strdup_printf ("/sound-cards/%s", preferences->sound_card);
-          preferences->sound_cards_property_bind_id = xfconf_g_property_bind (preferences->channel, sound_cards_property_name, XFCE_MIXER_TYPE_VALUE_ARRAY, G_OBJECT (preferences), "controls");
+          preferences->sound_cards_property_bind_id = xfconf_g_property_bind (preferences->channel, sound_cards_property_name, G_TYPE_PTR_ARRAY, G_OBJECT (preferences), "controls");
           g_free (sound_cards_property_name);
         }
 
