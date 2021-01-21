@@ -128,6 +128,10 @@ void gst_mixer_track_added                     (GstMixer *mixer,
 void gst_mixer_remove_track                    (GstMixer *mixer,
                                                 gint      index);
 
+void gst_mixer_remove_track_with_flags         (GstMixer *mixer,
+                                                int       flag,
+                                                gint      index);
+
 void gst_mixer_message_parse_mute_toggled      (GstMessage *message,
                                                 GstMixerTrack **track,
                                                 gboolean *mute);

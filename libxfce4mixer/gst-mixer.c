@@ -458,27 +458,11 @@ void gst_mixer_new_track (GstMixer *mixer,
 void gst_mixer_track_added (GstMixer *mixer,
                             GstMixerTrack *track)
 {
-  GstMixerPrivate *priv;
   GstStructure *s;
   GstMessage *m;
-  GList *l;
 
   g_return_if_fail (GST_IS_MIXER(mixer));
   g_return_if_fail (GST_IS_MIXER_TRACK(track));
-
-  priv = GET_PRIV(mixer);
-
-  for (l = priv->tracklist; l; l = l->next)
-  {
-    GstMixerTrack *track1;
-
-    track1 = (GstMixerTrack*)l->data;
-    if (track1->index == track->index)
-    {
-      g_object_unref (track);
-      return;
-    }
-  }
 
   gst_mixer_new_track (mixer, track);
 
@@ -492,6 +476,14 @@ void gst_mixer_track_added (GstMixer *mixer,
 
 void gst_mixer_remove_track (GstMixer *mixer,
                              gint      index)
+{
+  gst_mixer_remove_track_with_flags (mixer, GST_MIXER_TRACK_FLAG_ANY, index);
+}
+
+
+void gst_mixer_remove_track_with_flags (GstMixer *mixer,
+                                        int       flag,
+                                        gint      index)
 {
   GstStructure *s;
   GstMessage *m;
@@ -509,9 +501,10 @@ void gst_mixer_remove_track (GstMixer *mixer,
     GstMixerTrack *track;
 
     track = (GstMixerTrack*)l->data;
-    if (track->index == index)
+    if (track->index == index && GST_MIXER_TRACK_HAS_FLAG(track, flag))
     {
-      priv->tracklist = g_list_remove_link (priv->tracklist, l);
+      priv->tracklist = g_list_remove (priv->tracklist, track);
+      g_object_unref(track);
       removed = TRUE;
       break;
     }
