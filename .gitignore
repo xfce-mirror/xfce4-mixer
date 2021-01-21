@@ -1,4 +1,7 @@
 *.o
+*.lo
+*.la
+*.dirstamp
 ltmain.sh
 mkinstalldirs
 depcomp
@@ -25,3 +28,9 @@ install-sh
 compile
 autom4te*
 .vimprj
+cscope.files
+cscope.out
+configure.ac
+tags
+xfce4-mixer/xfce4-mixer
+panel-plugin/mixer.desktop
