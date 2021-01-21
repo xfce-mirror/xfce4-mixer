@@ -52,7 +52,6 @@ G_DEFINE_ABSTRACT_TYPE (GstMixerTrack, gst_mixer_track, G_TYPE_OBJECT)
 static void
 gst_mixer_track_init (GstMixerTrack *track)
 {
-
   track->label = NULL;
   track->untranslated_label = NULL;
 
@@ -64,6 +63,19 @@ gst_mixer_track_init (GstMixerTrack *track)
 static void
 gst_mixer_track_finalize (GObject *self)
 {
+  GstMixerTrack *track;
+
+  track = GST_MIXER_TRACK(self);
+
+  if (track->label)
+    g_free(track->label);
+
+  if (track->untranslated_label)
+    g_free(track->untranslated_label);
+
+  if (track->volumes)
+    g_free(track->volumes);
+
   G_OBJECT_CLASS (gst_mixer_track_parent_class)->finalize (self);
 }
 

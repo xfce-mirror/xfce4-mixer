@@ -44,6 +44,8 @@ typedef enum {
   GST_MIXER_TRACK_WRITEONLY = (1<<11)
 } GstMixerTrackFlags;
 
+#define GST_MIXER_TRACK_FLAG_ANY 0xFFFFFFFF
+
 #define GST_MIXER_TRACK_HAS_FLAG(track, flag) \
   (gst_mixer_track_get_flags(GST_MIXER_TRACK(track)) & (flag))
   /*((track)->flags & (flag))*/
