@@ -235,7 +235,7 @@ static void gst_mixer_oss_create_track_list (GstMixerOss *mixer)
   for (i = 0; i < SOUND_MIXER_NRDEVICES; i++)
   {
     GstMixerOssTrack *track;
-    GstMixerTrackFlags flags = GST_MIXER_TRACK_INVALID;
+    GstMixerTrackFlags flags = GST_MIXER_TRACK_NONE;
     gint vol = 0;
 
     if (!((1 << i) & devmask))
