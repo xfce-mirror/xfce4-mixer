@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020  Ali Abdallah <ali.abdallah@suse.com>
+ * Copyright (C) 2020-2021  Ali Abdallah <ali.abdallah@suse.com>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -38,7 +38,6 @@ struct _GstMixerPulse
   pa_threaded_mainloop     *mainloop;
   pa_context               *context;
   GHashTable               *clients;
-
 };
 
 G_DEFINE_TYPE (GstMixerPulse, gst_mixer_pulse, GST_TYPE_MIXER)
@@ -295,6 +294,37 @@ gst_mixer_pulse_set_mute (GstMixer *mixer, GstMixerTrack *track, gboolean mute)
                                     track);
 }
 
+static void gst_mixer_track_input_moved (pa_context *context,
+                                         const pa_sink_input_info *info,
+                                         int eol,
+                                         void *userdata)
+{
+  GstMixerTrack *track;
+
+  if (info == NULL) return;
+
+  track = GST_MIXER_TRACK(userdata);
+
+  g_object_set (G_OBJECT(track),
+                "parent-track-id", info->sink,
+                NULL);
+}
+
+static void gst_mixer_pulse_track_input_moved_cb (pa_context *context,
+                                                  int success,
+                                                  void *userdata)
+{
+  GstMixerTrack *track;
+
+  track = GST_MIXER_TRACK(userdata);
+
+  /* FIXME: Handle errors */
+  if (success)
+    pa_context_get_sink_input_info (context,
+                                    gst_mixer_track_get_id(track),
+                                    gst_mixer_track_input_moved,
+                                    track);
+}
 
 static const gchar *
 gst_mixer_pulse_get_option (GstMixer *mixer, GstMixerOptions *opts)
@@ -306,6 +336,18 @@ gst_mixer_pulse_get_option (GstMixer *mixer, GstMixerOptions *opts)
 static void
 gst_mixer_pulse_set_option (GstMixer *mixer, GstMixerOptions *opts, gchar *value)
 {
+}
+
+static void gst_mixer_pulse_move_track (GstMixer *mixer,
+                                        GstMixerTrack *track,
+                                        gint track_number)
+{
+  GstMixerPulse *pulse = GST_MIXER_PULSE (mixer);
+  pa_context_move_sink_input_by_index (pulse->context,
+                                       gst_mixer_track_get_id(track),
+                                       track_number,
+                                       gst_mixer_pulse_track_input_moved_cb,
+                                       track);
 }
 
 
@@ -328,6 +370,7 @@ gst_mixer_pulse_class_init (GstMixerPulseClass *klass)
   mixer_class->set_mute    = gst_mixer_pulse_set_mute;
   mixer_class->get_option  = gst_mixer_pulse_get_option;
   mixer_class->set_option  = gst_mixer_pulse_set_option;
+  mixer_class->move_track  = gst_mixer_pulse_move_track;
 
   object_class->finalize = (void (*) (GObject *object)) gst_mixer_pulse_finalize;
 }
@@ -362,13 +405,13 @@ gst_mixer_pulse_get_sink_input_cb (pa_context               *context,
                         "untranslated-label", info->name,
                         "index", info->index,
                         "flags", GST_MIXER_TRACK_OUTPUT | GST_MIXER_TRACK_SOFTWARE,
+                        "parent-track-id", info->sink,
                         "num-channels", info->channel_map.channels,
                         "has-volume", TRUE,
                         "has-switch", TRUE,
                         "min-volume", PA_VOLUME_MUTED,
                         "max-volume", PA_VOLUME_NORM,
                         NULL);
-
 
   GST_MIXER_TRACK(track)->volumes = g_new (gint, info->channel_map.channels);
 
@@ -487,7 +530,7 @@ gst_mixer_pulse_get_sink_cb (pa_context           *context,
   track = g_object_new (GST_MIXER_TYPE_PULSE_TRACK,
                         "label", name,
                         "untranslated-label", info->name,
-                        "index", 0,
+                        "index", info->index,
                         "flags", GST_MIXER_TRACK_OUTPUT,
                         /*(info->index == 0) ? GST_MIXER_TRACK_MASTER : GST_MIXER_TRACK_NONE,*/
                         "num-channels", info->channel_map.channels,
@@ -498,6 +541,7 @@ gst_mixer_pulse_get_sink_cb (pa_context           *context,
                         NULL);
 
   g_free(name);
+
   gst_mixer_new_track (GST_MIXER(pulse), GST_MIXER_TRACK(track));
 
   GST_MIXER_TRACK(track)->volumes = g_new (gint, info->channel_map.channels);
