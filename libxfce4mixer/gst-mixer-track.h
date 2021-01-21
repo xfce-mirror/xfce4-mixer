@@ -74,7 +74,9 @@ struct _GstMixerTrack
   GstMixerTrackFlags flags;
   gchar *label;
   gchar *untranslated_label;
-  guint index;
+  gint  index;
+  gint  parent_track_id; /* Only valid for software tracks, it indicates on which
+                         hardware track the software is running */
   gint num_channels;
   gint *volumes;
   gint min_volume;
@@ -108,7 +110,8 @@ gboolean             gst_mixer_track_get_has_volume      (GstMixerTrack *track);
 gboolean             gst_mixer_track_get_has_switch      (GstMixerTrack *track);
 gint                 gst_mixer_track_get_min_volume      (GstMixerTrack *track);
 gint                 gst_mixer_track_get_max_volume      (GstMixerTrack *track);
-
+gint                 gst_mixer_track_get_parent_track_id (GstMixerTrack *track);
+gint                 gst_mixer_track_get_id              (GstMixerTrack *track);
 /* Private methods, called by subclass implementations */
 void                 gst_mixer_track_update_recording    (GstMixerTrack *track,
                                                           gboolean recording);

@@ -27,6 +27,7 @@ enum {
   PROP_UNTRANSLATED_LABEL,
   PROP_INDEX,
   PROP_FLAGS,
+  PROP_PARENT_TRACK_ID,
   PROP_HAS_VOLUME,
   PROP_HAS_SWITCH,
   PROP_NUM_CHANNELS,
@@ -88,6 +89,9 @@ static void gst_mixer_track_get_property (GObject *object,
     case PROP_FLAGS:
       g_value_set_int (value, track->flags);
       break;
+    case PROP_PARENT_TRACK_ID:
+      g_value_set_int (value, track->parent_track_id);
+      break;
     case PROP_HAS_VOLUME:
       g_value_set_boolean (value, track->has_volume);
       break;
@@ -130,6 +134,9 @@ static void gst_mixer_track_set_property (GObject *object,
       break;
     case PROP_FLAGS:
       track->flags = g_value_get_int (value);
+      break;
+    case PROP_PARENT_TRACK_ID:
+      track->parent_track_id = g_value_get_int (value);
       break;
     case PROP_HAS_VOLUME:
       track->has_volume = g_value_get_boolean (value);
@@ -212,9 +219,16 @@ gst_mixer_track_class_init (GstMixerTrackClass *klass)
     g_param_spec_int ("index",
                       NULL,
                       NULL,
-                      0, G_MAXINT, 1,
+                      0, G_MAXINT, 0,
                       G_PARAM_READWRITE|
                       G_PARAM_CONSTRUCT_ONLY);
+
+  properties[PROP_PARENT_TRACK_ID] =
+    g_param_spec_int ("parent-track-id",
+                      NULL,
+                      NULL,
+                      -1, G_MAXINT, -1,
+                      G_PARAM_READWRITE);
 
   properties[PROP_FLAGS] =
     g_param_spec_int ("flags",
@@ -327,6 +341,17 @@ gint gst_mixer_track_get_max_volume (GstMixerTrack *track)
   return track->max_volume;
 }
 
+gint gst_mixer_track_get_parent_track_id (GstMixerTrack *track)
+{
+  g_return_val_if_fail(GST_IS_MIXER_TRACK(track), -1);
+  return track->parent_track_id;
+}
+
+gint gst_mixer_track_get_id (GstMixerTrack *track)
+{
+  g_return_val_if_fail(GST_IS_MIXER_TRACK(track), -1);
+  return track->index;
+}
 
 void gst_mixer_track_update_recording (GstMixerTrack *track, gboolean recording)
 {

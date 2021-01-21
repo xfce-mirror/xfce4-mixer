@@ -75,6 +75,11 @@ struct _GstMixerClass
                                            gchar *value);
   const gchar*         (*get_option)      (GstMixer *mixer,
                                            GstMixerOptions *opts);
+  /* Move track to a specific card */
+  void                 (*move_track)      (GstMixer *mixer,
+                                           GstMixerTrack *track,
+                                           gint track_number);
+
   /* signals */
   void                 (*track_added)     (GstMixer      *mixer,
                                            GstMixerTrack *track);
@@ -107,6 +112,12 @@ void             gst_mixer_set_option         (GstMixer *mixer,
 const gchar*     gst_mixer_get_option         (GstMixer *mixer,
                                                 GstMixerOptions *opts);
 
+GList           *gst_mixer_get_outputs         (GstMixer *mixer);
+GList           *gst_mixer_get_inputs          (GstMixer *mixer);
+
+void             gst_mixer_move_track          (GstMixer *mixer,
+                                                GstMixerTrack *track,
+                                                gint track_number);
 /* Private methods */
 void gst_mixer_new_track                       (GstMixer *mixer,
                                                 GstMixerTrack *track);
@@ -115,7 +126,7 @@ void gst_mixer_track_added                     (GstMixer *mixer,
                                                 GstMixerTrack *track);
 
 void gst_mixer_remove_track                    (GstMixer *mixer,
-                                                guint     index);
+                                                gint      index);
 
 void gst_mixer_message_parse_mute_toggled      (GstMessage *message,
                                                 GstMixerTrack **track,

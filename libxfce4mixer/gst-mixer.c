@@ -210,6 +210,7 @@ gst_mixer_class_init (GstMixerClass *klass)
   mixer_class->set_record  = gst_mixer_set_record;
   mixer_class->set_option  = gst_mixer_set_option;
   mixer_class->get_option  = gst_mixer_get_option;
+  mixer_class->move_track  = gst_mixer_move_track;
 
   properties[PROP_NAME] =
     g_param_spec_string ("name",
@@ -369,6 +370,17 @@ const gchar* gst_mixer_get_option (GstMixer *mixer,
 }
 
 
+void gst_mixer_move_track (GstMixer *mixer,
+                           GstMixerTrack *track,
+                           gint track_number)
+{
+  g_return_if_fail(GST_IS_MIXER(mixer));
+  g_return_if_fail(GST_IS_MIXER_TRACK(track));
+
+  GST_MIXER_GET_CLASS(mixer)->move_track(mixer, track, track_number);
+}
+
+
 GstMixerMessageType
 gst_mixer_message_get_type (GstMessage * message)
 {
@@ -479,7 +491,7 @@ void gst_mixer_track_added (GstMixer *mixer,
 
 
 void gst_mixer_remove_track (GstMixer *mixer,
-                             guint     index)
+                             gint      index)
 {
   GstStructure *s;
   GstMessage *m;
