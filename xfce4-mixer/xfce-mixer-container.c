@@ -213,7 +213,9 @@ xfce_mixer_container_create_contents (XfceMixerContainer *mixer_container)
   XfceMixerPreferences *preferences;
   XfceMixerTrackType    type;
   GstMixerTrack        *track;
+  GstMixerTrack        *parent;
   const GList          *iter;
+  const GList          *iter1;
   const gchar          *titles[4] = { N_("_Playback"), N_("C_apture"), N_("S_witches"), N_("_Options") };
   GtkWidget            *track_widget;
   GtkWidget            *track_label_widget;
@@ -222,6 +224,8 @@ xfce_mixer_container_create_contents (XfceMixerContainer *mixer_container)
   GtkWidget            *views[4];
   GtkWidget            *last_separator[4] = { NULL, NULL, NULL, NULL };
   GtkWidget            *vbox;
+  GtkWidget            *hbox;
+  GtkWidget            *card_track;
   GtkWidget            *label1;
   GtkWidget            *label2;
   GtkWidget            *label3;
@@ -268,16 +272,60 @@ xfce_mixer_container_create_contents (XfceMixerContainer *mixer_container)
           /* Determine the type of the mixer track */
           type = xfce_mixer_track_type_new (track);
 
-          switch (type) 
+          switch (type)
             {
             case XFCE_MIXER_TRACK_TYPE_PLAYBACK:
+              hbox = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 6);
               /* Create a regular volume control for this track */
               track_label_widget = gtk_label_new (track_label);
-              gtk_box_pack_start(GTK_BOX(views[0]), track_label_widget, FALSE, FALSE, 1);
-              /*gtk_grid_attach (GTK_GRID (views[0]), track_label_widget, 0, num_children[0], 1, 1);*/
+              gtk_box_pack_start(GTK_BOX(hbox), track_label_widget, FALSE, FALSE, 1);
               gtk_widget_show (track_label_widget);
               g_object_set (G_OBJECT (track_label_widget), "halign", GTK_ALIGN_START, NULL);
+
+              gtk_widget_show (hbox);
+              gtk_box_pack_start(GTK_BOX(views[0]), hbox, FALSE, FALSE, 1);
               track_widget = xfce_mixer_track_new (mixer_container->card, track);
+
+              if (GST_MIXER_TRACK_HAS_FLAG(track, GST_MIXER_TRACK_SOFTWARE))
+              {
+                int pos = 0;
+                card_track = gtk_combo_box_text_new();
+                gtk_box_pack_start(GTK_BOX(hbox), card_track, FALSE, FALSE, 1);
+
+                for (iter1 = gst_mixer_list_tracks (GST_MIXER (mixer_container->card)); iter1 != NULL; iter1 = g_list_next (iter1))
+                {
+                  parent = GST_MIXER_TRACK (iter1->data);
+                  if (GST_MIXER_TRACK_HAS_FLAG(parent, GST_MIXER_TRACK_OUTPUT) &&
+                      !GST_MIXER_TRACK_HAS_FLAG(parent, GST_MIXER_TRACK_SOFTWARE))
+                  {
+                    gchar *tid;
+
+                    tid = g_strdup_printf("%d", gst_mixer_track_get_id (parent));
+
+                    gtk_combo_box_text_insert(GTK_COMBO_BOX_TEXT(card_track),
+                                              pos,
+                                              tid,
+                                              gst_mixer_track_get_name(parent));
+                    g_free(tid);
+
+                    if (gst_mixer_track_get_parent_track_id(track) ==
+                        gst_mixer_track_get_id (parent))
+                    {
+                      gtk_combo_box_set_active(GTK_COMBO_BOX(card_track),
+                                               pos);
+                    }
+                    pos++;
+                  }
+                }
+                /* Only show if we have more than 2 outputs */
+                if (pos > 1)
+                {
+                  gtk_widget_show(card_track);
+                  /* Connect to changed signal */
+                  xfce_mixer_track_connect (XFCE_MIXER_TRACK(track_widget), card_track);
+                }
+              }
+
               num_children[0]++;
               gtk_box_pack_start(GTK_BOX(views[0]), track_widget, FALSE, TRUE, 1);
               g_object_set (G_OBJECT (track_widget), "halign", GTK_ALIGN_FILL, "vexpand", FALSE, NULL);

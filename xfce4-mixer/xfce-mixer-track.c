@@ -553,6 +553,20 @@ xfce_mixer_track_record_toggled (GtkToggleButton *button,
 }
 
 
+static void xfce_mixer_track_output_changed_cb (GtkComboBox *widget,
+                                                gpointer     user_data)
+{
+  XfceMixerTrack *track;
+  const gchar *tid;
+
+  track = XFCE_MIXER_TRACK(user_data);
+  tid = gtk_combo_box_get_active_id(widget);
+
+  gst_mixer_move_track (GST_MIXER(track->card),
+                        track->gst_track,
+                        atoi(tid));
+}
+
 
 void 
 xfce_mixer_track_update_mute (XfceMixerTrack *track)
@@ -607,3 +621,12 @@ xfce_mixer_track_update_volume (XfceMixerTrack *track)
 
   g_free (volumes);
 }
+
+
+void xfce_mixer_track_connect (XfceMixerTrack *track,
+                               GtkWidget      *combo)
+{
+  g_signal_connect(G_OBJECT(combo), "changed",
+                   G_CALLBACK(xfce_mixer_track_output_changed_cb), track);
+}
+
