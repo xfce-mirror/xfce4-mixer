@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Hugo Carvalho <hugokarvalho@hotmail.com>, 2021
 # José Vieira <jvieira33@sapo.pt>, 2020
 # Nuno Miguel <nunomgue@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-22 12:36+0200\n"
-"PO-Revision-Date: 2020-12-27 17:27+0000\n"
+"POT-Creation-Date: 2021-01-22 00:47+0100\n"
+"PO-Revision-Date: 2021-01-22 13:18+0000\n"
 "Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>\n"
 "Language-Team: Portuguese (http://www.transifex.com/xfce/xfce-apps/language/pt/)\n"
 "MIME-Version: 1.0\n"
@@ -48,47 +49,47 @@ msgid ""
 "providing the full path to the command."
 msgstr "Incapaz de executar o comando \"%s\". Certifique-se que a localização do comando está incluída na variável de ambiente PATH ou de que forneceu o caminho completo para o comando."
 
-#: ../panel-plugin/xfce-plugin-dialog.c:150
+#: ../panel-plugin/xfce-plugin-dialog.c:149
 msgid "Audio Mixer Plugin"
 msgstr "\"Plugin\" gestor de som"
 
-#: ../panel-plugin/xfce-plugin-dialog.c:152
+#: ../panel-plugin/xfce-plugin-dialog.c:151
 msgid "Configure the sound card and mixer track"
 msgstr "Configurar a(s) placa(s) de som e o volume do sistema"
 
-#: ../panel-plugin/xfce-plugin-dialog.c:154
-#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:122
+#: ../panel-plugin/xfce-plugin-dialog.c:153
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:121
 msgid "_Close"
-msgstr "_Fechar"
+msgstr "Fe_char"
 
-#: ../panel-plugin/xfce-plugin-dialog.c:165
-#: ../xfce4-mixer/xfce-mixer-window.c:184
+#: ../panel-plugin/xfce-plugin-dialog.c:164
+#: ../xfce4-mixer/xfce-mixer-window.c:182
 msgid "Sound _card:"
 msgstr "Pla_ca de som:"
 
-#: ../panel-plugin/xfce-plugin-dialog.c:175
+#: ../panel-plugin/xfce-plugin-dialog.c:174
 msgid "Mixer _track:"
 msgstr "Mis_turador:"
 
-#: ../panel-plugin/xfce-volume-button.c:890
+#: ../panel-plugin/xfce-volume-button.c:893
 msgid "No valid device and/or element."
 msgstr "Nenhum dispositivo ou elemento válido."
 
-#: ../panel-plugin/xfce-volume-button.c:895
+#: ../panel-plugin/xfce-volume-button.c:898
 #, c-format
 msgid "%s: muted"
 msgstr "%s: sem som"
 
-#: ../panel-plugin/xfce-volume-button.c:897
+#: ../panel-plugin/xfce-volume-button.c:900
 #, c-format
 msgid "%s: %i%%"
 msgstr "%s: %i%%"
 
 #. Set application name
 #: ../panel-plugin/mixer.desktop.in.h:1 ../xfce4-mixer/main.c:45
-#: ../xfce4-mixer/xfce-mixer-window.c:164
-#: ../xfce4-mixer/xfce-mixer-window.c:449
-#: ../xfce4-mixer/xfce-mixer-window.c:463
+#: ../xfce4-mixer/xfce-mixer-window.c:162
+#: ../xfce4-mixer/xfce-mixer-window.c:447
+#: ../xfce4-mixer/xfce-mixer-window.c:461
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.h:1
 msgid "Audio Mixer"
 msgstr "Gestor de som"
@@ -98,78 +99,73 @@ msgstr "Gestor de som"
 msgid "Adjust volume levels"
 msgstr "Ajustar nível de volume"
 
-#: ../libxfce4mixer/libxfce4mixer.c:422
-#, c-format
-msgid "Unknown Volume Control %d"
-msgstr "Controlador de volume desconhecido %d"
-
-#: ../xfce4-mixer/xfce-mixer-container.c:218
+#: ../xfce4-mixer/xfce-mixer-container.c:219
 msgid "_Playback"
 msgstr "Re_produção"
 
-#: ../xfce4-mixer/xfce-mixer-container.c:218
+#: ../xfce4-mixer/xfce-mixer-container.c:219
 msgid "C_apture"
 msgstr "C_aptura"
 
-#: ../xfce4-mixer/xfce-mixer-container.c:218
+#: ../xfce4-mixer/xfce-mixer-container.c:219
 msgid "S_witches"
 msgstr "Interr_uptores"
 
-#: ../xfce4-mixer/xfce-mixer-container.c:218
+#: ../xfce4-mixer/xfce-mixer-container.c:219
 msgid "_Options"
 msgstr "_Opções"
 
-#: ../xfce4-mixer/xfce-mixer-container.c:368
+#: ../xfce4-mixer/xfce-mixer-container.c:469
 msgid "No controls visible"
 msgstr "Nenhum controlo visível"
 
-#: ../xfce4-mixer/xfce-mixer-container.c:377
+#: ../xfce4-mixer/xfce-mixer-container.c:478
 msgid "<span weight=\"bold\" size=\"larger\">No controls visible</span>"
 msgstr "<span weight=\"bold\" size=\"larger\">Nenhum controlo visível</span>"
 
-#: ../xfce4-mixer/xfce-mixer-container.c:383
+#: ../xfce4-mixer/xfce-mixer-container.c:484
 msgid ""
 "In order to toggle the visibility of mixer controls, open the <b>\"Select "
 "Controls\"</b> dialog."
 msgstr "Para poder trocar a visibilidade dos controlos, abra a caixa de diálogo <b>\"Selecione os controlos\"</b>."
 
-#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:118
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:117
 msgid "Select Controls"
 msgstr "Selecione os controlos"
 
-#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:120
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:119
 msgid "Select which controls should be visible"
 msgstr "Selecione os controlos a visualizar"
 
-#: ../xfce4-mixer/xfce-mixer-track.c:245
+#: ../xfce4-mixer/xfce-mixer-track.c:243
 #, c-format
 msgid "Volume of channel %d on %s"
 msgstr "Volume do canal %d em %s"
 
 #. Lock button
-#: ../xfce4-mixer/xfce-mixer-track.c:281
+#: ../xfce4-mixer/xfce-mixer-track.c:280
 #, c-format
 msgid "Lock channels for %s together"
 msgstr "Bloquear canais para %s"
 
-#: ../xfce4-mixer/xfce-mixer-track.c:325
+#: ../xfce4-mixer/xfce-mixer-track.c:324
 #, c-format
 msgid "Mute/unmute %s"
 msgstr "Silenciar/restaurar %s"
 
-#: ../xfce4-mixer/xfce-mixer-track.c:345
+#: ../xfce4-mixer/xfce-mixer-track.c:344
 #, c-format
 msgid "Enable/disable audible input from %s in output"
 msgstr "Ativar/desativar entrada audível para %s na saída"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:167
+#: ../xfce4-mixer/xfce-mixer-window.c:165
 msgid "Configure sound card(s) and control the volume of selected tracks"
-msgstr "Configurar a(s) placa(s) de som e o volume do sistema"
+msgstr "Configurar placa(s) de som e controlar o volume das faixas selecionadas"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:212
+#: ../xfce4-mixer/xfce-mixer-window.c:210
 msgid "_Select Controls..."
-msgstr "Sele_cione os controlos..."
+msgstr "_Selecionar controlos..."
 
-#: ../xfce4-mixer/xfce-mixer-window.c:220
+#: ../xfce4-mixer/xfce-mixer-window.c:218
 msgid "_Quit"
 msgstr "_Sair"
