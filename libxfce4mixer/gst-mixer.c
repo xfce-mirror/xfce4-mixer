@@ -441,6 +441,10 @@ void gst_mixer_new_track (GstMixer *mixer,
 
   if (IS_INPUT(track))
   {
+    g_signal_connect (track, "volume-changed",
+                      G_CALLBACK (gst_mixer_volume_changed),
+                      mixer);
+
     g_signal_connect (track, "recording-changed",
                       G_CALLBACK (gst_mixer_recording_changed),
                       mixer);
