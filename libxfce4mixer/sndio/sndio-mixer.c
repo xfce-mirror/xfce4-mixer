@@ -48,7 +48,7 @@ static gboolean gst_mixer_sndio_reconnect(gpointer);
 G_DEFINE_TYPE (GstMixerSndio, gst_mixer_sndio, GST_TYPE_MIXER)
 
 /* sndio callbacks */
-void
+static void
 onval(void *arg, unsigned addr, unsigned val)
 {
   int i;
@@ -82,7 +82,7 @@ onval(void *arg, unsigned addr, unsigned val)
 }
 
 /* callback called when a description changes - e.g when a new track is added/removed */
-void
+static void
 ondesc(void *arg, struct sioctl_desc *d, int curval)
 {
   
@@ -135,8 +135,8 @@ ondesc(void *arg, struct sioctl_desc *d, int curval)
     GST_MIXER_TRACK(track)->flags = flags;
     GST_MIXER_TRACK(track)->num_channels = nchan;
     GST_MIXER_TRACK(track)->volumes = g_new (gint, nchan);
-    track->vol_addr = g_new (gint, nchan);
-    track->mute_addr = g_new (gint, nchan);
+    track->vol_addr = g_new (guint, nchan);
+    track->mute_addr = g_new (guint, nchan);
     track->saved_volumes = g_new (gint, nchan);
     g_debug("Inserting new track in hashtable for %s", d->node0.name);
     g_hash_table_insert (mixer->tracks, g_strdup(d->node0.name), track);
@@ -308,7 +308,7 @@ gst_mixer_sndio_class_init (GstMixerSndioClass *klass)
   object_class->finalize = (void (*) (GObject *object)) gst_mixer_sndio_finalize;
 }
 
-gboolean gst_mixer_sndio_connect (GstMixerSndio *sndio)
+static gboolean gst_mixer_sndio_connect (GstMixerSndio *sndio)
 {
   struct sioctl_hdl *hdl;
   char *devname = SIO_DEVANY;
@@ -371,8 +371,8 @@ static gboolean gst_mixer_sndio_src_callback (gint fd, GIOCondition condition, g
   return G_SOURCE_CONTINUE;
 }
 
-GstMixer*
-gst_mixer_sndio_new ()
+static GstMixer*
+gst_mixer_sndio_new (void)
 {
   GstMixerSndio *sndio;
   gboolean rc;
