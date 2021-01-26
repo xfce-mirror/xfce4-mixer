@@ -30,6 +30,7 @@
 #include <unistd.h>
 #include <sys/soundcard.h>
 #include <errno.h>
+#include <sys/ioctl.h>
 
 #if HOST_TYPE_FREEBSD
 #include <sys/sysctl.h>
