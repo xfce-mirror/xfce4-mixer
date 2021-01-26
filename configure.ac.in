@@ -67,7 +67,7 @@ if test "x$ac_cv_prog_cc_c99" = xno; then
 fi
 AC_PROG_LD()
 AC_PROG_INSTALL()
-AC_PROG_INTLTOOL()
+IT_PROG_INTLTOOL()
 
 dnl **************************
 dnl *** Initialize libtool ***
