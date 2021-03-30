@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-01-22 00:47+0100\n"
-"PO-Revision-Date: 2021-01-23 19:29+0000\n"
+"PO-Revision-Date: 2021-03-30 11:33+0000\n"
 "Last-Translator: Toni Estévez <toni.estevez@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/xfce/xfce-apps/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -28,7 +28,7 @@ msgstr ""
 #. Add menu item for muting
 #: ../panel-plugin/xfce-mixer-plugin.c:307
 msgid "Mu_te"
-msgstr "_Silencio"
+msgstr "_Silenciar"
 
 #. Add menu item for running the user-defined command
 #: ../panel-plugin/xfce-mixer-plugin.c:313
@@ -122,7 +122,7 @@ msgstr "_Opciones"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:469
 msgid "No controls visible"
-msgstr "Ningún control visible"
+msgstr "No hay controles visibles"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:478
 msgid "<span weight=\"bold\" size=\"larger\">No controls visible</span>"
@@ -156,7 +156,7 @@ msgstr "Bloquear juntos los canales de %s"
 #: ../xfce4-mixer/xfce-mixer-track.c:324
 #, c-format
 msgid "Mute/unmute %s"
-msgstr "Silenciar/desactivar %s"
+msgstr "Silenciar/restaurar %s"
 
 #: ../xfce4-mixer/xfce-mixer-track.c:344
 #, c-format
