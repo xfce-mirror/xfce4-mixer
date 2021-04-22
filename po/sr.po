@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-22 12:36+0200\n"
-"PO-Revision-Date: 2018-09-14 00:15+0000\n"
-"Last-Translator: Саша Петровић <salepetronije@gmail.com>\n"
+"POT-Creation-Date: 2021-01-22 00:47+0100\n"
+"PO-Revision-Date: 2021-01-21 23:47+0000\n"
+"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
 "Language-Team: Serbian (http://www.transifex.com/xfce/xfce-apps/language/sr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -47,47 +47,47 @@ msgid ""
 "providing the full path to the command."
 msgstr "Нисам могао да извршим нарадбу „%s“. Осигурајте или да је место наредбе укључено у PATH промениву окружења и да одредите потпуну путању до наредбе"
 
-#: ../panel-plugin/xfce-plugin-dialog.c:150
+#: ../panel-plugin/xfce-plugin-dialog.c:149
 msgid "Audio Mixer Plugin"
 msgstr "Прикључак мешач звука"
 
-#: ../panel-plugin/xfce-plugin-dialog.c:152
+#: ../panel-plugin/xfce-plugin-dialog.c:151
 msgid "Configure the sound card and mixer track"
 msgstr "Подесите звучну картицу и управљајте јачином одабраног канала"
 
-#: ../panel-plugin/xfce-plugin-dialog.c:154
-#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:122
+#: ../panel-plugin/xfce-plugin-dialog.c:153
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:121
 msgid "_Close"
 msgstr "_Затвори"
 
-#: ../panel-plugin/xfce-plugin-dialog.c:165
-#: ../xfce4-mixer/xfce-mixer-window.c:184
+#: ../panel-plugin/xfce-plugin-dialog.c:164
+#: ../xfce4-mixer/xfce-mixer-window.c:182
 msgid "Sound _card:"
 msgstr "Звучна _картица:"
 
-#: ../panel-plugin/xfce-plugin-dialog.c:175
+#: ../panel-plugin/xfce-plugin-dialog.c:174
 msgid "Mixer _track:"
 msgstr "_Канал мешача:"
 
-#: ../panel-plugin/xfce-volume-button.c:890
+#: ../panel-plugin/xfce-volume-button.c:893
 msgid "No valid device and/or element."
 msgstr "Нема ваљаног уређаја и/или елемента."
 
-#: ../panel-plugin/xfce-volume-button.c:895
+#: ../panel-plugin/xfce-volume-button.c:898
 #, c-format
 msgid "%s: muted"
 msgstr "%s: утишано"
 
-#: ../panel-plugin/xfce-volume-button.c:897
+#: ../panel-plugin/xfce-volume-button.c:900
 #, c-format
 msgid "%s: %i%%"
 msgstr "%s: %i%%"
 
 #. Set application name
 #: ../panel-plugin/mixer.desktop.in.h:1 ../xfce4-mixer/main.c:45
-#: ../xfce4-mixer/xfce-mixer-window.c:164
-#: ../xfce4-mixer/xfce-mixer-window.c:449
-#: ../xfce4-mixer/xfce-mixer-window.c:463
+#: ../xfce4-mixer/xfce-mixer-window.c:162
+#: ../xfce4-mixer/xfce-mixer-window.c:447
+#: ../xfce4-mixer/xfce-mixer-window.c:461
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.h:1
 msgid "Audio Mixer"
 msgstr "Мешач звука"
@@ -97,78 +97,73 @@ msgstr "Мешач звука"
 msgid "Adjust volume levels"
 msgstr "Прилагоди јачинe звука"
 
-#: ../libxfce4mixer/libxfce4mixer.c:422
-#, c-format
-msgid "Unknown Volume Control %d"
-msgstr "Непознат управљач управљања звуком %d"
-
-#: ../xfce4-mixer/xfce-mixer-container.c:218
+#: ../xfce4-mixer/xfce-mixer-container.c:219
 msgid "_Playback"
 msgstr "_Извођење"
 
-#: ../xfce4-mixer/xfce-mixer-container.c:218
+#: ../xfce4-mixer/xfce-mixer-container.c:219
 msgid "C_apture"
 msgstr "С_нимање"
 
-#: ../xfce4-mixer/xfce-mixer-container.c:218
+#: ../xfce4-mixer/xfce-mixer-container.c:219
 msgid "S_witches"
 msgstr "П_рекидачи"
 
-#: ../xfce4-mixer/xfce-mixer-container.c:218
+#: ../xfce4-mixer/xfce-mixer-container.c:219
 msgid "_Options"
 msgstr "_Могућности"
 
-#: ../xfce4-mixer/xfce-mixer-container.c:368
+#: ../xfce4-mixer/xfce-mixer-container.c:469
 msgid "No controls visible"
 msgstr "Нема видљивих управљача"
 
-#: ../xfce4-mixer/xfce-mixer-container.c:377
+#: ../xfce4-mixer/xfce-mixer-container.c:478
 msgid "<span weight=\"bold\" size=\"larger\">No controls visible</span>"
 msgstr "<span weight=\"bold\" size=\"larger\"> Нема видљивих контрола</span>"
 
-#: ../xfce4-mixer/xfce-mixer-container.c:383
+#: ../xfce4-mixer/xfce-mixer-container.c:484
 msgid ""
 "In order to toggle the visibility of mixer controls, open the <b>\"Select "
 "Controls\"</b> dialog."
 msgstr "Да би мењали стање видљивости контрола мешача, отворите прозор <b> „Одаберите управљаче“</b>."
 
-#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:118
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:117
 msgid "Select Controls"
 msgstr "Изаберите управљаче"
 
-#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:120
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:119
 msgid "Select which controls should be visible"
 msgstr "Изаберите који управљачи требају бити видљиви"
 
-#: ../xfce4-mixer/xfce-mixer-track.c:245
+#: ../xfce4-mixer/xfce-mixer-track.c:243
 #, c-format
 msgid "Volume of channel %d on %s"
 msgstr "Јачина звука канала %d на %s"
 
 #. Lock button
-#: ../xfce4-mixer/xfce-mixer-track.c:281
+#: ../xfce4-mixer/xfce-mixer-track.c:280
 #, c-format
 msgid "Lock channels for %s together"
 msgstr "Закључај заједно све канале за %s"
 
-#: ../xfce4-mixer/xfce-mixer-track.c:325
+#: ../xfce4-mixer/xfce-mixer-track.c:324
 #, c-format
 msgid "Mute/unmute %s"
 msgstr "Искључи/укључи звук %s"
 
-#: ../xfce4-mixer/xfce-mixer-track.c:345
+#: ../xfce4-mixer/xfce-mixer-track.c:344
 #, c-format
 msgid "Enable/disable audible input from %s in output"
 msgstr "Омогући/онемогући звучни улаз из %s на излазу"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:167
+#: ../xfce4-mixer/xfce-mixer-window.c:165
 msgid "Configure sound card(s) and control the volume of selected tracks"
 msgstr "Подесите звучну картицу(е) и управљајте јачином одабраног канала"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:212
+#: ../xfce4-mixer/xfce-mixer-window.c:210
 msgid "_Select Controls..."
 msgstr "_Изаберите управљаче..."
 
-#: ../xfce4-mixer/xfce-mixer-window.c:220
+#: ../xfce4-mixer/xfce-mixer-window.c:218
 msgid "_Quit"
 msgstr "_Напусти"
