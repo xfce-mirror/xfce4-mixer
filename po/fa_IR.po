@@ -1,0 +1,169 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Mos B <mos.b_as@yahoo.com>, 2021
+msgid ""
+msgstr ""
+"Project-Id-Version: Xfce Apps\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-01-22 00:47+0100\n"
+"PO-Revision-Date: 2021-04-26 14:19+0000\n"
+"Last-Translator: Mos B <mos.b_as@yahoo.com>\n"
+"Language-Team: Persian (Iran) (http://www.transifex.com/xfce/xfce-apps/language/fa_IR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fa_IR\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#. Add menu item for muting
+#: ../panel-plugin/xfce-mixer-plugin.c:307
+msgid "Mu_te"
+msgstr ""
+
+#. Add menu item for running the user-defined command
+#: ../panel-plugin/xfce-mixer-plugin.c:313
+msgid "Run Audio Mi_xer"
+msgstr ""
+
+#: ../panel-plugin/xfce-mixer-plugin.c:581
+msgid ""
+"GStreamer was unable to detect any sound devices. Some sound system specific"
+" GStreamer packages may be missing. It may also be a permissions problem."
+msgstr "GStreamer نتوانست هیچ دستگاه صوتی را شناسایی کند. ممکن است که برخی از پکیج‌های GStreamer مخصوص سیستم صوتی وجود نداشته باشد. همچنین می‌تواند یک مشکل مجوز باشد."
+
+#: ../panel-plugin/xfce-mixer-plugin.c:954
+msgid "No command defined"
+msgstr "دستور تعریف نشده است"
+
+#. Generate error message and insert the current command
+#: ../panel-plugin/xfce-mixer-plugin.c:962
+#, c-format
+msgid ""
+"Could not execute the command \"%s\". Ensure that either the location of the"
+" command is included in the PATH environment variable or that you are "
+"providing the full path to the command."
+msgstr "نمیتوان فرمان \"%s\" را اجرا کرد. اطمینان حاصل کنید که یا مکان فرمان در متغییر محیط PATH گنجانده شده است یا اینکه شما مسیر کاملی را برای فرمان ارائه می‌کتید."
+
+#: ../panel-plugin/xfce-plugin-dialog.c:149
+msgid "Audio Mixer Plugin"
+msgstr ""
+
+#: ../panel-plugin/xfce-plugin-dialog.c:151
+msgid "Configure the sound card and mixer track"
+msgstr "پیکربندی کارت صدا و mixer track"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:153
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:121
+msgid "_Close"
+msgstr "بستن"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:164
+#: ../xfce4-mixer/xfce-mixer-window.c:182
+msgid "Sound _card:"
+msgstr "کارت ـ‌صدا:"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:174
+msgid "Mixer _track:"
+msgstr ""
+
+#: ../panel-plugin/xfce-volume-button.c:893
+msgid "No valid device and/or element."
+msgstr "دستگاه و/یا عنصر معتبر نیست"
+
+#: ../panel-plugin/xfce-volume-button.c:898
+#, c-format
+msgid "%s: muted"
+msgstr "%s: بی صدا شده"
+
+#: ../panel-plugin/xfce-volume-button.c:900
+#, c-format
+msgid "%s: %i%%"
+msgstr "%s: %i%%"
+
+#. Set application name
+#: ../panel-plugin/mixer.desktop.in.h:1 ../xfce4-mixer/main.c:45
+#: ../xfce4-mixer/xfce-mixer-window.c:162
+#: ../xfce4-mixer/xfce-mixer-window.c:447
+#: ../xfce4-mixer/xfce-mixer-window.c:461
+#: ../xfce4-mixer/xfce4-mixer.desktop.in.h:1
+msgid "Audio Mixer"
+msgstr "میکسر صوتی"
+
+#: ../panel-plugin/mixer.desktop.in.h:2
+#: ../xfce4-mixer/xfce4-mixer.desktop.in.h:2
+msgid "Adjust volume levels"
+msgstr "تنظیم میزان صدا"
+
+#: ../xfce4-mixer/xfce-mixer-container.c:219
+msgid "_Playback"
+msgstr ""
+
+#: ../xfce4-mixer/xfce-mixer-container.c:219
+msgid "C_apture"
+msgstr ""
+
+#: ../xfce4-mixer/xfce-mixer-container.c:219
+msgid "S_witches"
+msgstr ""
+
+#: ../xfce4-mixer/xfce-mixer-container.c:219
+msgid "_Options"
+msgstr "ـ‌گزینه‌ها"
+
+#: ../xfce4-mixer/xfce-mixer-container.c:469
+msgid "No controls visible"
+msgstr ""
+
+#: ../xfce4-mixer/xfce-mixer-container.c:478
+msgid "<span weight=\"bold\" size=\"larger\">No controls visible</span>"
+msgstr ""
+
+#: ../xfce4-mixer/xfce-mixer-container.c:484
+msgid ""
+"In order to toggle the visibility of mixer controls, open the <b>\"Select "
+"Controls\"</b> dialog."
+msgstr ""
+
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:117
+msgid "Select Controls"
+msgstr "انتخاب کنترل‌ها"
+
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:119
+msgid "Select which controls should be visible"
+msgstr "انتخاب کنترل‌هایی که باید نمایان باشند"
+
+#: ../xfce4-mixer/xfce-mixer-track.c:243
+#, c-format
+msgid "Volume of channel %d on %s"
+msgstr "میزان صدای کانال %d روی %s"
+
+#. Lock button
+#: ../xfce4-mixer/xfce-mixer-track.c:280
+#, c-format
+msgid "Lock channels for %s together"
+msgstr ""
+
+#: ../xfce4-mixer/xfce-mixer-track.c:324
+#, c-format
+msgid "Mute/unmute %s"
+msgstr "بی‌صدا/با صدا %s"
+
+#: ../xfce4-mixer/xfce-mixer-track.c:344
+#, c-format
+msgid "Enable/disable audible input from %s in output"
+msgstr "فعال/غیرفعال کردن ورودی شنیداری از %s در خروجی"
+
+#: ../xfce4-mixer/xfce-mixer-window.c:165
+msgid "Configure sound card(s) and control the volume of selected tracks"
+msgstr ""
+
+#: ../xfce4-mixer/xfce-mixer-window.c:210
+msgid "_Select Controls..."
+msgstr ""
+
+#: ../xfce4-mixer/xfce-mixer-window.c:218
+msgid "_Quit"
+msgstr "ـخروج"
