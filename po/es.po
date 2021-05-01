@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# 629cf3e396111bb8c5fb6664e2dbc91d, 2015
 # Adolfo Jayme-Barrientos, 2014
 # Adolfo Jayme Barrientos, 2014
 # Adolfo Jayme-Barrientos, 2014
@@ -16,7 +17,7 @@ msgstr ""
 "Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-01-22 00:47+0100\n"
-"PO-Revision-Date: 2021-03-30 11:33+0000\n"
+"PO-Revision-Date: 2021-05-01 06:25+0000\n"
 "Last-Translator: Toni Estévez <toni.estevez@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/xfce/xfce-apps/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -74,7 +75,7 @@ msgstr "Tarjeta de _sonido:"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:174
 msgid "Mixer _track:"
-msgstr "_Pista del mezclador"
+msgstr "_Pista del mezclador:"
 
 #: ../panel-plugin/xfce-volume-button.c:893
 msgid "No valid device and/or element."
@@ -169,7 +170,7 @@ msgstr "Configure las tarjetas de sonido y controle de volumen de las pistas sel
 
 #: ../xfce4-mixer/xfce-mixer-window.c:210
 msgid "_Select Controls..."
-msgstr "_Seleccionar los controles…"
+msgstr "_Seleccionar los controles..."
 
 #: ../xfce4-mixer/xfce-mixer-window.c:218
 msgid "_Quit"
