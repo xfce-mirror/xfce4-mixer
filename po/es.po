@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-01-22 00:47+0100\n"
-"PO-Revision-Date: 2021-05-09 09:20+0000\n"
+"PO-Revision-Date: 2021-05-22 12:57+0000\n"
 "Last-Translator: Toni Estévez <toni.estevez@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/xfce/xfce-apps/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -57,11 +57,11 @@ msgstr "No se ha podido ejecutar la orden «%s». Compruebe que la ubicación de
 
 #: ../panel-plugin/xfce-plugin-dialog.c:149
 msgid "Audio Mixer Plugin"
-msgstr "Complemento para el mezclador de audio"
+msgstr "Mezclador de audio"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:151
 msgid "Configure the sound card and mixer track"
-msgstr "Configurar la tarjeta de sonido y la pista del mezclador"
+msgstr "Configura la tarjeta de sonido y la pista del mezclador"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:153
 #: ../xfce4-mixer/xfce-mixer-controls-dialog.c:121
