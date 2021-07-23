@@ -6,7 +6,7 @@
 # 629cf3e396111bb8c5fb6664e2dbc91d, 2015
 # Adolfo Jayme-Barrientos, 2014
 # Adolfo Jayme Barrientos, 2014
-# Adolfo Jayme-Barrientos, 2014
+# Adolfo Jayme Barrientos, 2014
 # César Enrique García <cquike@gmail.com>, 2013
 # César Enrique García <cquike@gmail.com>, 2013
 # César Enrique García <cquike@gmail.com>, 2013
