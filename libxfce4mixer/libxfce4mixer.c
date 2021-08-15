@@ -50,9 +50,9 @@
 #include "sndio-mixer.h"
 #endif
 
-static void     _xfce_mixer_init_mixer       (gpointer    data,
-                                              gpointer    user_data);
-static void     _xfce_mixer_destroy_mixer    (GstMixer   *mixer);
+static void     _xfce_mixer_init_mixer       (gpointer data,
+                                              gpointer user_data);
+static void     _xfce_mixer_destroy_mixer    (gpointer data);
 
 
 
@@ -125,8 +125,7 @@ xfce_mixer_shutdown (void)
 {
   if (G_LIKELY (--refcount <= 0))
     {
-      g_list_foreach (mixers, (GFunc) _xfce_mixer_destroy_mixer, NULL);
-      g_list_free (mixers);
+      g_list_free_full (mixers, _xfce_mixer_destroy_mixer);
 
       gst_bus_remove_signal_watch (bus);
       gst_object_unref (bus);
@@ -451,10 +450,10 @@ _xfce_mixer_init_mixer (gpointer data,
 
 
 static void
-_xfce_mixer_destroy_mixer (GstMixer *mixer)
+_xfce_mixer_destroy_mixer (gpointer data)
 {
-  gst_element_set_state (GST_ELEMENT (mixer), GST_STATE_NULL);
-  gst_object_unref (GST_OBJECT (mixer));
+  gst_element_set_state (GST_ELEMENT (data), GST_STATE_NULL);
+  gst_object_unref (GST_OBJECT (data));
 }
 
 
