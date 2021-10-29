@@ -264,8 +264,9 @@ gst_mixer_sndio_set_mute (GstMixer *mixer, GstMixerTrack *track, gboolean mute)
         g_debug("restoring volume to saved value (%d) on track not having a switch", GST_MIXER_SNDIO_TRACK(track)->saved_volumes[0]);
       }
       gst_mixer_sndio_set_volume(mixer, track, volumes);
+      g_free(volumes);
     }
-    gst_mixer_track_update_mute (track, mute);
+    gst_mixer_track_update_mute(track, mute);
   } else
     g_critical ("%s isnt an output track, cant set mute status to %d", track->label, mute);
   sndio = NULL;
