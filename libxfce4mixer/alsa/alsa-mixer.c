@@ -71,7 +71,8 @@ gst_mixer_alsa_get_mixer_flags (GstMixer *mixer)
 }
 
 
-static void gst_mixer_alsa_set_volume (GstMixer *mixer, GstMixerTrack *track, gint *volumes)
+static void
+gst_mixer_alsa_set_volume (GstMixer *mixer, GstMixerTrack *track, gint channels, gint *volumes)
 {
   gst_mixer_alsa_track_set_volumes (GST_MIXER_ALSA_TRACK(track), volumes);
 }
