@@ -33,6 +33,7 @@
 
 #if HOST_TYPE_FREEBSD
 #include <sys/sysctl.h>
+#include <sys/ioctl.h>
 #endif
 
 #include "oss-mixer.h"
