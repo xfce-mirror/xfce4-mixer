@@ -233,12 +233,13 @@ static void gst_mixer_pulse_set_source_output_volume (pa_context *context,
 }
 
 
-static void gst_mixer_pulse_set_volume (GstMixer *mixer, GstMixerTrack *track, gint *volumes)
+static void
+gst_mixer_pulse_set_volume (GstMixer *mixer, GstMixerTrack *track, gint channels, gint *volumes)
 {
   GstMixerPulse *pulse = GST_MIXER_PULSE (mixer);
   int i;
 
-  for (i = 0; i < NUM_CHANNELS(track); i++)
+  for (i = 0; i < channels; i++)
     track->volumes[i] = volumes[i];
 
   if (IS_OUTPUT(track))
