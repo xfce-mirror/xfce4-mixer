@@ -70,6 +70,7 @@ static gboolean same_volumes (gint num_channels, const gint *volumes)
 static void gst_mixer_alsa_track_update (GstMixerAlsaTrack *track)
 {
   gboolean vol_changed = FALSE;
+  gint channels = NUM_CHANNELS(track);
   int i;
 
   if (IS_OUTPUT(track))
@@ -77,7 +78,7 @@ static void gst_mixer_alsa_track_update (GstMixerAlsaTrack *track)
     int audible = 0;
     if (HAS_SWITCH(track))
     {
-      for (i = 0; i < NUM_CHANNELS(track); i++)
+      for (i = 0; i < channels; i++)
       {
         int v = 0;
         snd_mixer_selem_get_playback_switch (track->element, i, &v);
@@ -88,7 +89,7 @@ static void gst_mixer_alsa_track_update (GstMixerAlsaTrack *track)
 
     if (HAS_VOLUME(track))
     {
-      for (i = 0; i < NUM_CHANNELS(track); i++)
+      for (i = 0; i < channels; i++)
       {
         long vol = 0;
         snd_mixer_selem_get_playback_volume (track->element, i, &vol);
@@ -109,7 +110,7 @@ static void gst_mixer_alsa_track_update (GstMixerAlsaTrack *track)
     int recording = 0;
     if (HAS_SWITCH(track))
     {
-      for (i = 0; i < NUM_CHANNELS(track); i++)
+      for (i = 0; i < channels; i++)
       {
         int v = 0;
         snd_mixer_selem_get_capture_switch (track->element, i, &v);
@@ -120,7 +121,7 @@ static void gst_mixer_alsa_track_update (GstMixerAlsaTrack *track)
 
     if (HAS_VOLUME(track))
     {
-      for (i = 0; i < NUM_CHANNELS(track); i++)
+      for (i = 0; i < channels; i++)
       {
         long vol = 0;
         snd_mixer_selem_get_capture_volume (track->element, i, &vol);
@@ -208,6 +209,7 @@ GstMixerAlsaTrack *gst_mixer_alsa_track_new (snd_mixer_elem_t *element,
 void gst_mixer_alsa_track_set_volumes (GstMixerAlsaTrack *track,
                                        gint *volumes)
 {
+  gint channels = NUM_CHANNELS(track);
   int i;
 
   g_return_if_fail (GST_MIXER_IS_ALSA_TRACK (track));
@@ -217,7 +219,7 @@ void gst_mixer_alsa_track_set_volumes (GstMixerAlsaTrack *track,
   if (!HAS_VOLUME(track))
     return;
 
-  for (i = 0; i < NUM_CHANNELS(track); i++)
+  for (i = 0; i < channels; i++)
     GST_MIXER_TRACK(track)->volumes[i] = volumes[i];
 
   if (IS_OUTPUT(track))
@@ -225,14 +227,14 @@ void gst_mixer_alsa_track_set_volumes (GstMixerAlsaTrack *track,
     if (HAS_SWITCH(track) && IS_MUTE(track))
       return;
 
-    if (same_volumes (NUM_CHANNELS(track), volumes))
+    if (same_volumes (channels, volumes))
     {
       snd_mixer_selem_set_playback_volume_all (track->element,
                                                volumes[0]);
     }
     else
     {
-      for (i = 0; i < NUM_CHANNELS(track); i++)
+      for (i = 0; i < channels; i++)
         snd_mixer_selem_set_playback_volume (track->element,
                                              i,
                                              volumes[i]);
@@ -242,14 +244,14 @@ void gst_mixer_alsa_track_set_volumes (GstMixerAlsaTrack *track,
   {
     if (HAS_SWITCH(track) && !IS_RECORD(track))
       return;
-    if (same_volumes (NUM_CHANNELS(track), volumes))
+    if (same_volumes (channels, volumes))
     {
       snd_mixer_selem_set_capture_volume_all (track->element,
                                               volumes[0]);
     }
     else
     {
-      for (i = 0; i < NUM_CHANNELS(track); i++)
+      for (i = 0; i < channels; i++)
         snd_mixer_selem_set_capture_volume (track->element,
                                             i,
                                             volumes[i]);

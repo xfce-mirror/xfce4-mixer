@@ -415,7 +415,7 @@ xfce_mixer_track_fader_changed (GtkRange       *range,
     }
 
   /* Deliver the volume update to GStreamer */
-  gst_mixer_set_volume (GST_MIXER (track->card), track->gst_track, new_volumes);
+  gst_mixer_set_volume (GST_MIXER (track->card), track->gst_track, NUM_CHANNELS(track->gst_track), new_volumes);
 
   /* Determine new maximum value of all channels */
   new_max_volume = xfce_mixer_get_max_volume (new_volumes, track->gst_track->num_channels);
@@ -522,7 +522,7 @@ xfce_mixer_track_lock_toggled (GtkToggleButton *button,
     }
 
   /* Deliver the volume update to GStreamer */
-  gst_mixer_set_volume (GST_MIXER (track->card), track->gst_track, volumes);
+  gst_mixer_set_volume (GST_MIXER (track->card), track->gst_track, NUM_CHANNELS(track->gst_track), volumes);
 
   /* Free the volume array */
   g_free (volumes);
