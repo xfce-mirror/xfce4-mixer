@@ -48,7 +48,7 @@ gst_mixer_sndio_track_class_init (GstMixerSndioTrackClass *klass)
 }
 
 
-GstMixerSndioTrack *gst_mixer_sndio_track_new ()
+GstMixerSndioTrack *gst_mixer_sndio_track_new (void)
 {
   GstMixerSndioTrack *track = NULL;
 
