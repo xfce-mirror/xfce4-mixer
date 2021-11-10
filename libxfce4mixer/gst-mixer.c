@@ -295,10 +295,9 @@ void gst_mixer_get_volume (GstMixer *mixer,
 }
 
 
-
-
 void gst_mixer_set_volume (GstMixer *mixer,
                            GstMixerTrack *track,
+                           gint channels,
                            gint *volumes)
 {
   gboolean muted = TRUE;
@@ -307,9 +306,9 @@ void gst_mixer_set_volume (GstMixer *mixer,
   g_return_if_fail(GST_IS_MIXER(mixer));
   g_return_if_fail(GST_IS_MIXER_TRACK(track));
 
-  GST_MIXER_GET_CLASS(mixer)->set_volume(mixer, track, volumes);
+  GST_MIXER_GET_CLASS(mixer)->set_volume(mixer, track, channels, volumes);
 
-  for (i = 0; i < NUM_CHANNELS(track); i++)
+  for (i = 0; i < channels; i++)
   {
     if (track->volumes[i] != track->min_volume)
     {

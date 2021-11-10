@@ -63,6 +63,7 @@ struct _GstMixerClass
                                            gint *volumes);
   void                 (*set_volume)      (GstMixer *mixer,
                                            GstMixerTrack *track,
+                                           gint channels,
                                            gint *volumes);
   void                 (*set_mute)        (GstMixer *mixer,
                                            GstMixerTrack *track,
@@ -99,6 +100,7 @@ void             gst_mixer_get_volume         (GstMixer *mixer,
                                                 gint *volumes);
 void             gst_mixer_set_volume         (GstMixer *mixer,
                                                 GstMixerTrack *track,
+                                                gint channels,
                                                 gint *volumes);
 void             gst_mixer_set_mute           (GstMixer *mixer,
                                                 GstMixerTrack *track,

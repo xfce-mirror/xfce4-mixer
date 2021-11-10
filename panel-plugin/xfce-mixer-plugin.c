@@ -701,7 +701,8 @@ xfce_mixer_plugin_set_volume (XfceMixerPlugin *mixer_plugin,
 
       for (i = 0; i < mixer_plugin->track->num_channels; ++i)
         volumes[i] = volume;
-      gst_mixer_set_volume (GST_MIXER (mixer_plugin->card), mixer_plugin->track, volumes);
+      gst_mixer_set_volume (GST_MIXER (mixer_plugin->card), mixer_plugin->track,
+              NUM_CHANNELS(mixer_plugin->track), volumes);
 
       xfce_mixer_debug ("set volume to %d", volume);
 
