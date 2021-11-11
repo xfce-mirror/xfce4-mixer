@@ -189,17 +189,18 @@ gst_mixer_sndio_get_mixer_flags (GstMixer *mixer)
   return GST_MIXER_FLAG_AUTO_NOTIFICATIONS;
 }
 
-static void gst_mixer_sndio_set_volume (GstMixer *mixer, GstMixerTrack *track, gint *volumes)
+static void
+gst_mixer_sndio_set_volume (GstMixer *mixer, GstMixerTrack *track, gint num_channels, gint *volumes)
 {
   int i;
   GstMixerSndio *sndio = GST_MIXER_SNDIO (mixer);
-  if (NUM_CHANNELS(track) == 2)
+  if (num_channels == 2)
     g_debug("gst_mixer_sndio_set_volume called on track %s with vol[]=(%d,%d)", track->label, volumes[0], volumes[1]);
-  else
+  else if (num_channels == 1)
     g_debug("gst_mixer_sndio_set_volume called on track %s with vol[0]=%d", track->label, volumes[0]);
 
   /* call sioctl_setval for each volume addr */
-  for (i = 0; i < NUM_CHANNELS(track); i++) {
+  for (i = 0; i < num_channels; i++) {
     sioctl_setval(sndio->hdl, GST_MIXER_SNDIO_TRACK(track)->vol_addr[i], volumes[i]);
     track->volumes[i] = volumes[i];
   }
@@ -211,15 +212,16 @@ static void gst_mixer_sndio_set_volume (GstMixer *mixer, GstMixerTrack *track, g
 static void
 gst_mixer_sndio_get_volume (GstMixer *mixer, GstMixerTrack *track, gint *volumes)
 {
+  gint num_channels = NUM_CHANNELS(track);
   int i;
 
-  for (i = 0; i < NUM_CHANNELS(track); i++)
+  for (i = 0; i < num_channels; i++)
   {
     volumes[i] = track->volumes[i];
   }
-  if (NUM_CHANNELS(track) == 2)
+  if (num_channels == 2)
     g_debug("gst_mixer_sndio_get_volume called on track %s filled vol[]=(%d,%d)", track->label, volumes[0], volumes[1]);
-  else
+  else if (num_channels == 1)
     g_debug("gst_mixer_sndio_get_volume called on track %s filled vol[0]=%d", track->label, volumes[0]);
 }
 
@@ -241,29 +243,30 @@ static void
 gst_mixer_sndio_set_mute (GstMixer *mixer, GstMixerTrack *track, gboolean mute)
 {
   GstMixerSndio *sndio = GST_MIXER_SNDIO (mixer);
-  g_debug("gst_mixer_sndio_set_mute called on track %s with mute=%d, track has switch=%d, nchan=%d", track->label, mute, HAS_SWITCH(track), NUM_CHANNELS(track));
+  gint num_channels = NUM_CHANNELS(track);
+  g_debug("gst_mixer_sndio_set_mute called on track %s with mute=%d, track has switch=%d, nchan=%d", track->label, mute, HAS_SWITCH(track), num_channels);
   if (IS_OUTPUT(track)) {
     if (HAS_SWITCH(track)) {
       /* call sioctl_setval for the first mute addr */
       sioctl_setval(sndio->hdl, GST_MIXER_SNDIO_TRACK(track)->mute_addr[0], mute);
     } else {
       int i;
-      gint* volumes = g_new(gint, NUM_CHANNELS(track));
+      gint* volumes = g_new(gint, num_channels);
       if (mute) {
-        for (i = 0; i < NUM_CHANNELS(track); i++)
+        for (i = 0; i < num_channels; i++)
         {
           GST_MIXER_SNDIO_TRACK(track)->saved_volumes[i] = track->volumes[i];
           volumes[i] = 0;
         }
         g_debug("saving volume (%d) and setting values to 0 on track not having a switch", GST_MIXER_SNDIO_TRACK(track)->saved_volumes[0]);
       } else {
-        for (i = 0; i < NUM_CHANNELS(track); i++)
+        for (i = 0; i < num_channels; i++)
         {
           volumes[i] = GST_MIXER_SNDIO_TRACK(track)->saved_volumes[i];
         }
         g_debug("restoring volume to saved value (%d) on track not having a switch", GST_MIXER_SNDIO_TRACK(track)->saved_volumes[0]);
       }
-      gst_mixer_sndio_set_volume(mixer, track, volumes);
+      gst_mixer_sndio_set_volume(mixer, track, num_channels, volumes);
       g_free(volumes);
     }
     gst_mixer_track_update_mute(track, mute);
