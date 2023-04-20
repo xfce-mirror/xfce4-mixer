@@ -5,6 +5,8 @@ panel-plugin/xfce-plugin-dialog.h
 panel-plugin/xfce-volume-button.h
 panel-plugin/mixer.desktop.in
 libxfce4mixer/libxfce4mixer.c
+libxfce4mixer/pulse/pulse-mixer.c
+libxfce4mixer/sndio/sndio-mixer.c
 libxfce4mixer/xfce-mixer-card-combo.c
 libxfce4mixer/xfce-mixer-preferences.c
 libxfce4mixer/xfce-mixer-track-combo.c
@@ -14,6 +16,7 @@ libxfce4mixer/xfce-mixer-preferences.h
 libxfce4mixer/xfce-mixer-track-combo.h
 libxfce4mixer/xfce-mixer-track-type.h
 xfce4-mixer/main.c
+xfce4-mixer/xfce-mixer-application.c
 xfce4-mixer/xfce-mixer-container.c
 xfce4-mixer/xfce-mixer-controls-dialog.c
 xfce4-mixer/xfce-mixer-option.c
