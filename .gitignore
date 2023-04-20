@@ -2,12 +2,13 @@
 *.lo
 *.la
 *.dirstamp
+ChangeLog
 ltmain.sh
 mkinstalldirs
 depcomp
 *.gmo
 Makefile.in.in
-.intltool-merge-cache
+.intltool-merge-cache*
 configure.in
 libtool
 configure
