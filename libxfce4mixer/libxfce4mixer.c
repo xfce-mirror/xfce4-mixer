@@ -35,19 +35,19 @@
 #include "libxfce4mixer.h"
 
 #ifdef HAVE_ALSA
-#include "alsa-mixer.h"
+#include "alsa/alsa-mixer.h"
 #endif
 
 #ifdef HAVE_OSS
-#include "oss-mixer.h"
+#include "oss/oss-mixer.h"
 #endif
 
 #ifdef HAVE_PULSE
-#include "pulse-mixer.h"
+#include "pulse/pulse-mixer.h"
 #endif
 
 #ifdef HAVE_SNDIO
-#include "sndio-mixer.h"
+#include "sndio/sndio-mixer.h"
 #endif
 
 static void     _xfce_mixer_init_mixer       (gpointer data,
