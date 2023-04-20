@@ -11,10 +11,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-22 00:47+0100\n"
-"PO-Revision-Date: 2021-01-21 23:47+0000\n"
-"Last-Translator: Xfce Bot <transifex@xfce.org>\n"
-"Language-Team: Slovak (http://www.transifex.com/xfce/xfce-apps/language/sk/)\n"
+"POT-Creation-Date: 2023-04-20 12:48+0200\n"
+"PO-Revision-Date: 2013-07-03 18:38+0000\n"
+"Last-Translator: Dušan Kazik <prescott66@gmail.com>, 2016\n"
+"Language-Team: Slovak (http://app.transifex.com/xfce/xfce-apps/language/sk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -32,17 +32,18 @@ msgid "Run Audio Mi_xer"
 msgstr "Spustiť _Zmiešavač zvuku"
 
 #: ../panel-plugin/xfce-mixer-plugin.c:581
+#: ../xfce4-mixer/xfce-mixer-application.c:162
 msgid ""
 "GStreamer was unable to detect any sound devices. Some sound system specific"
 " GStreamer packages may be missing. It may also be a permissions problem."
 msgstr "GStreamer nenašiel žiadne zvukové zariadenia. Pravdepodobne nie sú nainštalované niektoré balíčky GStreamer alebo nemáte príslušné oprávnenie."
 
-#: ../panel-plugin/xfce-mixer-plugin.c:954
+#: ../panel-plugin/xfce-mixer-plugin.c:955
 msgid "No command defined"
 msgstr "Nie je definovaný príkaz"
 
 #. Generate error message and insert the current command
-#: ../panel-plugin/xfce-mixer-plugin.c:962
+#: ../panel-plugin/xfce-mixer-plugin.c:963
 #, c-format
 msgid ""
 "Could not execute the command \"%s\". Ensure that either the location of the"
@@ -99,6 +100,32 @@ msgstr "Zmiešavač zvuku"
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.h:2
 msgid "Adjust volume levels"
 msgstr "Upraviť úrovne hlasitostí"
+
+#: ../libxfce4mixer/pulse/pulse-mixer.c:881
+#: ../libxfce4mixer/pulse/pulse-mixer.c:930
+msgid "Card"
+msgstr ""
+
+#: ../libxfce4mixer/pulse/pulse-mixer.c:993
+msgid "Pulse Audio Volume Control"
+msgstr ""
+
+#: ../libxfce4mixer/sndio/sndio-mixer.c:386
+msgid "Sndio Volume Control"
+msgstr ""
+
+#: ../xfce4-mixer/xfce-mixer-application.c:78
+msgid "Enable debugging output"
+msgstr "Zapnúť ladiaci výstup"
+
+#: ../xfce4-mixer/xfce-mixer-application.c:79
+msgid "Show version and exit"
+msgstr "Zobraziť verziu s skončiť"
+
+#: ../xfce4-mixer/xfce-mixer-application.c:144
+#, c-format
+msgid "xfce4-mixer: Failed to initialize xfconf: %s\n"
+msgstr "xfce4-mixer: Zlyhala inicializácia xfconf: %s\n"
 
 #: ../xfce4-mixer/xfce-mixer-container.c:219
 msgid "_Playback"
