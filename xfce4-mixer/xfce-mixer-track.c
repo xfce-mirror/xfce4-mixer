@@ -26,6 +26,7 @@
 #ifdef HAVE_MATH_H
 #include <math.h>
 #endif
+#include <stdlib.h>
 
 #include <gst/gst.h>
 
