@@ -4,14 +4,14 @@
 # 
 # Translators:
 # Masato HASHIMOTO <cabezon.hashimoto@gmail.com>, 2012
-# Nobuhiro Iwamatsu <iwamatsu@nigauri.org>, 2008,2016
+# Nobuhiro Iwamatsu <iwamatsu@nigauri.org>, 2008,2016,2023
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-20 12:48+0200\n"
 "PO-Revision-Date: 2013-07-03 18:38+0000\n"
-"Last-Translator: Nobuhiro Iwamatsu <iwamatsu@nigauri.org>, 2008,2016\n"
+"Last-Translator: Nobuhiro Iwamatsu <iwamatsu@nigauri.org>, 2008,2016,2023\n"
 "Language-Team: Japanese (http://app.transifex.com/xfce/xfce-apps/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -102,15 +102,15 @@ msgstr "音量レベルを調整します"
 #: ../libxfce4mixer/pulse/pulse-mixer.c:881
 #: ../libxfce4mixer/pulse/pulse-mixer.c:930
 msgid "Card"
-msgstr ""
+msgstr "カード"
 
 #: ../libxfce4mixer/pulse/pulse-mixer.c:993
 msgid "Pulse Audio Volume Control"
-msgstr ""
+msgstr "Pulse Audio 音量コントロール"
 
 #: ../libxfce4mixer/sndio/sndio-mixer.c:386
 msgid "Sndio Volume Control"
-msgstr ""
+msgstr "Sndio 音量コントロール"
 
 #: ../xfce4-mixer/xfce-mixer-application.c:78
 msgid "Enable debugging output"
@@ -186,7 +186,7 @@ msgstr "出力 %s からの音声入力の有効/無効を切り替えます"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:165
 msgid "Configure sound card(s) and control the volume of selected tracks"
-msgstr "サウンドカードを設定し、選択されたトラックのボリュームを調整します"
+msgstr "サウンドカードを設定し、選択されたトラックの音量を調整します"
 
 #: ../xfce4-mixer/xfce-mixer-window.c:210
 msgid "_Select Controls..."
