@@ -113,7 +113,7 @@ msgstr "Kontroll Sndio i Volumit"
 
 #: ../xfce4-mixer/xfce-mixer-application.c:78
 msgid "Enable debugging output"
-msgstr ""
+msgstr "Aktivizo output diagnostikimi"
 
 #: ../xfce4-mixer/xfce-mixer-application.c:79
 msgid "Show version and exit"
