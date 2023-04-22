@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Andrei Stepanov, 2023
 # Anthony Ivanoff <a-i@bk.ru>, 2004-2005
 # Denis Koryavov <dkoryavov@yandex.ru>, 2009
 # Igor <f2404@yandex.ru>, 2016
@@ -14,7 +15,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-04-20 12:48+0200\n"
 "PO-Revision-Date: 2013-07-03 18:38+0000\n"
-"Last-Translator: Igor <f2404@yandex.ru>, 2016\n"
+"Last-Translator: Andrei Stepanov, 2023\n"
 "Language-Team: Russian (http://app.transifex.com/xfce/xfce-apps/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -105,15 +106,15 @@ msgstr "Настроить уровень звука"
 #: ../libxfce4mixer/pulse/pulse-mixer.c:881
 #: ../libxfce4mixer/pulse/pulse-mixer.c:930
 msgid "Card"
-msgstr ""
+msgstr "Карта"
 
 #: ../libxfce4mixer/pulse/pulse-mixer.c:993
 msgid "Pulse Audio Volume Control"
-msgstr ""
+msgstr "Регулятор громкости Pulse Audio"
 
 #: ../libxfce4mixer/sndio/sndio-mixer.c:386
 msgid "Sndio Volume Control"
-msgstr ""
+msgstr "Регулятор громкости Sndio"
 
 #: ../xfce4-mixer/xfce-mixer-application.c:78
 msgid "Enable debugging output"
