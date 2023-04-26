@@ -255,7 +255,7 @@ gst_mixer_sndio_set_mute (GstMixer *mixer, GstMixerTrack *track, gboolean mute)
       if (mute) {
         for (i = 0; i < num_channels; i++)
         {
-          GST_MIXER_SNDIO_TRACK(track)->saved_volumes[i] = track->volumes[i];
+          GST_MIXER_SNDIO_TRACK(track)->saved_volumes[i] = (track->volumes[i] > 0 ? track->volumes[i] : 1);
           volumes[i] = 0;
         }
         g_debug("saving volume (%d) and setting values to 0 on track not having a switch", GST_MIXER_SNDIO_TRACK(track)->saved_volumes[0]);
