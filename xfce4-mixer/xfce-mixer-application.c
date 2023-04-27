@@ -141,7 +141,7 @@ xfce_mixer_application_startup (GApplication *app)
     {
       if (G_LIKELY (error != NULL))
         {
-          g_printerr (_("xfce4-mixer: Failed to initialize xfconf: %s\n"), error->message);
+          g_critical ("Failed to initialize xfconf: %s", error->message);
           g_error_free (error);
         }
 
