@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-20 12:48+0200\n"
+"POT-Creation-Date: 2023-04-28 00:47+0200\n"
 "PO-Revision-Date: 2013-07-03 18:38+0000\n"
 "Last-Translator: Andre Miranda <andre42m@gmail.com>, 2016\n"
 "Language-Team: Portuguese (Brazil) (http://app.transifex.com/xfce/xfce-apps/language/pt_BR/)\n"
@@ -121,11 +121,6 @@ msgstr "Habilita mensagens de depuração"
 msgid "Show version and exit"
 msgstr "Mostra versão e sai"
 
-#: ../xfce4-mixer/xfce-mixer-application.c:144
-#, c-format
-msgid "xfce4-mixer: Failed to initialize xfconf: %s\n"
-msgstr "xfce4-mixer: Falha ao inicializar o xfconf: %s\n"
-
 #: ../xfce4-mixer/xfce-mixer-container.c:219
 msgid "_Playback"
 msgstr "_Reprodução"
@@ -164,23 +159,23 @@ msgstr "Selecionar controles"
 msgid "Select which controls should be visible"
 msgstr "Seleciona quais controles são mostrados"
 
-#: ../xfce4-mixer/xfce-mixer-track.c:243
+#: ../xfce4-mixer/xfce-mixer-track.c:244
 #, c-format
 msgid "Volume of channel %d on %s"
 msgstr "Volume do canal %d em %s"
 
 #. Lock button
-#: ../xfce4-mixer/xfce-mixer-track.c:280
+#: ../xfce4-mixer/xfce-mixer-track.c:281
 #, c-format
 msgid "Lock channels for %s together"
 msgstr "Travar canais de %s juntos"
 
-#: ../xfce4-mixer/xfce-mixer-track.c:324
+#: ../xfce4-mixer/xfce-mixer-track.c:325
 #, c-format
 msgid "Mute/unmute %s"
 msgstr "Ativar/desativar mudo %s"
 
-#: ../xfce4-mixer/xfce-mixer-track.c:344
+#: ../xfce4-mixer/xfce-mixer-track.c:345
 #, c-format
 msgid "Enable/disable audible input from %s in output"
 msgstr "Ativar/desativar entrada audível de %s na saída"
