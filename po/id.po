@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-20 12:48+0200\n"
+"POT-Creation-Date: 2023-04-28 00:47+0200\n"
 "PO-Revision-Date: 2013-07-03 18:38+0000\n"
 "Last-Translator: Guido Berhoerster <guido+xfce.org@berhoerster.name>, 2012\n"
 "Language-Team: Indonesian (http://app.transifex.com/xfce/xfce-apps/language/id/)\n"
@@ -120,11 +120,6 @@ msgstr "Aktifkan keluaran debug"
 msgid "Show version and exit"
 msgstr "Tampilkan versi dan keluar"
 
-#: ../xfce4-mixer/xfce-mixer-application.c:144
-#, c-format
-msgid "xfce4-mixer: Failed to initialize xfconf: %s\n"
-msgstr "xfce4-mixer: Gagal menginisialisasi xfconf: %s\n"
-
 #: ../xfce4-mixer/xfce-mixer-container.c:219
 msgid "_Playback"
 msgstr "_Playback"
@@ -163,23 +158,23 @@ msgstr "Pilih Kendali-kendali"
 msgid "Select which controls should be visible"
 msgstr "Pilih kendali-kendali mana yang harus tampak"
 
-#: ../xfce4-mixer/xfce-mixer-track.c:243
+#: ../xfce4-mixer/xfce-mixer-track.c:244
 #, c-format
 msgid "Volume of channel %d on %s"
 msgstr "Volume kanal %d pada %s"
 
 #. Lock button
-#: ../xfce4-mixer/xfce-mixer-track.c:280
+#: ../xfce4-mixer/xfce-mixer-track.c:281
 #, c-format
 msgid "Lock channels for %s together"
 msgstr "Kunci kanal untuk %s bersama"
 
-#: ../xfce4-mixer/xfce-mixer-track.c:324
+#: ../xfce4-mixer/xfce-mixer-track.c:325
 #, c-format
 msgid "Mute/unmute %s"
 msgstr "Bisu/suarakan %s"
 
-#: ../xfce4-mixer/xfce-mixer-track.c:344
+#: ../xfce4-mixer/xfce-mixer-track.c:345
 #, c-format
 msgid "Enable/disable audible input from %s in output"
 msgstr "Hidupkan/matikan input yang terdengar dari %s ke dalam output"
