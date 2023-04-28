@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-20 12:48+0200\n"
+"POT-Creation-Date: 2023-04-28 00:47+0200\n"
 "PO-Revision-Date: 2013-07-03 18:38+0000\n"
 "Last-Translator: Marek Adamski, 2023\n"
 "Language-Team: Polish (http://app.transifex.com/xfce/xfce-apps/language/pl/)\n"
@@ -24,7 +24,7 @@ msgstr ""
 #. Add menu item for muting
 #: ../panel-plugin/xfce-mixer-plugin.c:307
 msgid "Mu_te"
-msgstr "Wycisz"
+msgstr "_Wycisz"
 
 #. Add menu item for running the user-defined command
 #: ../panel-plugin/xfce-mixer-plugin.c:313
@@ -71,7 +71,7 @@ msgstr "_Karta dźwiękowa:"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:174
 msgid "Mixer _track:"
-msgstr "Mikser_ścieżka"
+msgstr "Ścieżka _miksera:"
 
 #: ../panel-plugin/xfce-volume-button.c:893
 msgid "No valid device and/or element."
@@ -122,11 +122,6 @@ msgstr "Wypisuje komunikaty diagnozowania błędów"
 msgid "Show version and exit"
 msgstr "Wypisuje informacje o wersji i kończy"
 
-#: ../xfce4-mixer/xfce-mixer-application.c:144
-#, c-format
-msgid "xfce4-mixer: Failed to initialize xfconf: %s\n"
-msgstr "xfce4-mixer: nie udało się zainicjować xfconf: %s\n"
-
 #: ../xfce4-mixer/xfce-mixer-container.c:219
 msgid "_Playback"
 msgstr "_Odtwarzanie"
@@ -165,23 +160,23 @@ msgstr "Elementy sterujące"
 msgid "Select which controls should be visible"
 msgstr "Wybiera widoczne elementy sterujące"
 
-#: ../xfce4-mixer/xfce-mixer-track.c:243
+#: ../xfce4-mixer/xfce-mixer-track.c:244
 #, c-format
 msgid "Volume of channel %d on %s"
 msgstr "Głośność kanału %d na %s"
 
 #. Lock button
-#: ../xfce4-mixer/xfce-mixer-track.c:280
+#: ../xfce4-mixer/xfce-mixer-track.c:281
 #, c-format
 msgid "Lock channels for %s together"
 msgstr "Blokuje kanały dla %s równocześnie"
 
-#: ../xfce4-mixer/xfce-mixer-track.c:324
+#: ../xfce4-mixer/xfce-mixer-track.c:325
 #, c-format
 msgid "Mute/unmute %s"
 msgstr "Wyciszenie/brak wyciszenia %s"
 
-#: ../xfce4-mixer/xfce-mixer-track.c:344
+#: ../xfce4-mixer/xfce-mixer-track.c:345
 #, c-format
 msgid "Enable/disable audible input from %s in output"
 msgstr "Włącza/wyłącza słyszalne wejście z %s na wyjściu"
