@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-20 12:48+0200\n"
+"POT-Creation-Date: 2023-04-28 00:47+0200\n"
 "PO-Revision-Date: 2013-07-03 18:38+0000\n"
 "Last-Translator: Seong-ho Cho <darkcircle.0426@gmail.com>, 2012-2013,2016\n"
 "Language-Team: Korean (http://app.transifex.com/xfce/xfce-apps/language/ko/)\n"
@@ -120,11 +120,6 @@ msgstr "디버깅 출력 활성화"
 msgid "Show version and exit"
 msgstr "버전 출력하고 나가기"
 
-#: ../xfce4-mixer/xfce-mixer-application.c:144
-#, c-format
-msgid "xfce4-mixer: Failed to initialize xfconf: %s\n"
-msgstr "xfce4-mixer: xfconf를 초기화 하는데 실패했습니다: %s\n"
-
 #: ../xfce4-mixer/xfce-mixer-container.c:219
 msgid "_Playback"
 msgstr "재생(_P)"
@@ -163,23 +158,23 @@ msgstr "조절기 선택"
 msgid "Select which controls should be visible"
 msgstr "보일 컨트롤을 선택합니다"
 
-#: ../xfce4-mixer/xfce-mixer-track.c:243
+#: ../xfce4-mixer/xfce-mixer-track.c:244
 #, c-format
 msgid "Volume of channel %d on %s"
 msgstr "%2$s의 %1$d번 채널 음량"
 
 #. Lock button
-#: ../xfce4-mixer/xfce-mixer-track.c:280
+#: ../xfce4-mixer/xfce-mixer-track.c:281
 #, c-format
 msgid "Lock channels for %s together"
 msgstr "%s에 대한 채널을 함께 잠금"
 
-#: ../xfce4-mixer/xfce-mixer-track.c:324
+#: ../xfce4-mixer/xfce-mixer-track.c:325
 #, c-format
 msgid "Mute/unmute %s"
 msgstr "%s 음소거/음소거해제"
 
-#: ../xfce4-mixer/xfce-mixer-track.c:344
+#: ../xfce4-mixer/xfce-mixer-track.c:345
 #, c-format
 msgid "Enable/disable audible input from %s in output"
 msgstr "출력부의 %s(으)로부터 음성 입력 활성화/비활성화"
