@@ -1,3 +1,115 @@
+4.18.0 (2023-04-29)
+======
+- Use g_critical() and don't translate warning message
+- [sndio] make sure to save a non-zero volume when setting mute (fixes 
+#5)
+- Update copyright year and bug report address
+- build: Add missing include
+- build: Use same automake options as other projects
+- Update `.gitignore`
+- Add basic GitLab pipeline
+- build: Fix intltool lock file problem during make distcheck
+- build: Add missing translated files to POTFILES.in
+- build: Fix includes for make distcheck
+- Fix compilation warnings
+- automake: Add `ACLOCAL_AMFLAGS = -I m4`
+- autoconf: Sndio >= 1.7.0 is required
+- autoconf: Some updates
+- Reduce NUM_CHANNELS() invocations
+- Fix memory leak
+- pulse: emit volume changed signals for input/output tracks
+- gst: emit changed signal for input tracks
+- Only show possible inputs for a track when we have more than 1
+- Bump version to 4.15
+- Update authors
+- Merge branch 'multiple-backends'
+- Merge branch 'landry/xfce4-mixer-sndio' into multiple-backends
+- alsa: change print to debug output
+- Update gitignore
+- oss: Handle mixer volume changes.
+- oss: fix compilation
+- Remove dbus-glib check from configure.ac.in
+- Remove dbus-glib dependency.
+- pulse: fix missing capture track index.
+- Add newly discovered capture tracks.
+- pulse: Implement source output handling
+- Free track resources when it is removed
+- Fix wrong track removals
+- Simplify track labeling
+- Show combo box to change track output
+- pulse: Implement gst move track method
+- gst: implement move tracks to different track outputs/inputs
+- [sndio] remove erroneous statement making finalize dump core on exit
+- [sndio] gst_mixer_sndio_set_mute: handle app tracks not having a 
+separate mute control
+- [sndio] improve debug msg with app tracks having only one channel
+- [sndio] add saved_volumes track member for tracks that dont have a 
+mute control
+- [sndio] add comment about GST_MIXER_TRACK_NO_MUTE flag
+- [sndio] restructure code to properly reconnect to sndiod upon 
+disconnections
+- [sndio] log sioctl_desc type
+- [sndio] declare callbacks prototypes upfront
+- [sndio] gracefully handle sioctl_revents returning POLLHUP and return 
+G_SOURCE_REMOVE
+- drop useless g_print calls
+- Implement gst_mixer_sndio_set_volume
+- Implement gst_mixer_sndio_set_mute()
+- Implement gst_mixer_sndio_set_record()
+- emit volume-changed signal upon setting volume via onval callback
+- initial implem of onval sndio callback
+- initial implem for ondesc sndio callback
+- add two hashtables for easy access to track objects
+- add vol_addr & mute_addr arrays used to keep track of sndio addresses 
+for chans
+- Update gst_mixer_sndio_track_new() prototype
+- create a GSource to handle events on the pollfd struct filled by 
+sioctl_pollfd
+- use g_print for now and print desc addr & channel unit in debug msg
+- first baby steps calling sioctl_open and ondesc callback
+- define HAVE_SNDIO if sndio.h is found
+- call gst_mixer_sndio_probe() if sndio backend is enabled
+- add build plumbing for sndio backend
+- add skeleton for an sndio backend
+- update .gitignore
+- pulse: ignore client with PA_INVALID_INDEX
+- Change tracks orientation
+- pulse: Add card number on tracks
+- gst-mixer: avoid not needed GUI redraw
+- gst-mixer: remove dead code
+- pulse: fix adding a new track
+- Fix track flag limits
+- Don't filter out tracks for the moment
+- Implement add_track remove_track
+- Fix adjusting volume by scrolling on panel plugin button
+- Remove code moved to the parent Mixer class
+- Fix wrong input/output handling
+- Change mute and record bits when volume changes
+- Pulse: implement set_record and set_mute methods
+- Pulse: Implement set volume method
+- Move card name and tracklist to the parent gst class.
+- This is a mega initial commit for the new mixer
+- Bug #15546
+- Merge branch 'gtk3-port'
+- Replace libunique with GApplication/GtkApplication
+- Migrate to GTK 3.14+, except for xfce-mixer-window.{c,h}
+- Use $(datadir)/xfce4/mixer/ as MIXER_DATADIR
+- icons/Makefile.am: Remove unnecessary gtk-update-icon-cache
+- Fix build with GCC 4.8.1 by using G_GNUC_PRINTF (bug #10474)
+- Make Unique support optional
+- Post-release version bump.
+- Translation Updates:
+  Albanian, Arabic, Armenian (Armenia), Asturian, Basque, Belarusian,
+  Bulgarian, Catalan, Chinese (China), Chinese (Hong Kong), Chinese
+  (Taiwan), Croatian, Czech, Danish, Dutch, Eastern Armenian, English
+  (Australia), English (Canada), English (United Kingdom), Finnish,
+  French, Galician, German, Greek, Hebrew, Hungarian, Icelandic,
+  Indonesian, Interlingue, Italian, Japanese, Kazakh, Korean,
+  Lithuanian, Malay, Norwegian Bokmål, Occitan (post 1500), Persian
+  (Iran), Polish, Portuguese, Portuguese (Brazil), Romanian, Russian,
+  Serbian, Slovak, Slovenian, Spanish, Swedish, Thai, Turkish,
+  Ukrainian, Uyghur
+
 4.11.0
 ======
 - Updated translations.
