@@ -28,6 +28,9 @@
 G_BEGIN_DECLS
 
 #define XFCE_TYPE_MIXER_PLUGIN (xfce_mixer_plugin_get_type ())
+#if !LIBXFCE4PANEL_CHECK_VERSION (4, 19, 1)
+G_DEFINE_AUTOPTR_CLEANUP_FUNC (XfcePanelPlugin, g_object_unref)
+#endif
 G_DECLARE_FINAL_TYPE (XfceMixerPlugin, xfce_mixer_plugin, XFCE, MIXER_PLUGIN, XfcePanelPlugin)
 
 void  xfce_mixer_plugin_register_type (XfcePanelTypeModule *type_module);
