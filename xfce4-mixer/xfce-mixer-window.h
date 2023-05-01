@@ -23,20 +23,15 @@
 
 #include <gtk/gtk.h>
 #include <gst/gst.h>
+#include <libxfce4ui/libxfce4ui.h>
 
 G_BEGIN_DECLS
 
-typedef struct _XfceMixerWindowClass XfceMixerWindowClass;
-typedef struct _XfceMixerWindow      XfceMixerWindow;
-
-#define TYPE_XFCE_MIXER_WINDOW            (xfce_mixer_window_get_type ())
-#define XFCE_MIXER_WINDOW(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), TYPE_XFCE_MIXER_WINDOW, XfceMixerWindow))
-#define XFCE_MIXER_WINDOW_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), TYPE_XFCE_MIXER_WINDOW, XfceMixerWindowClass))
-#define IS_XFCE_MIXER_WINDOW(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), TYPE_XFCE_MIXER_WINDOW))
-#define IS_XFCE_MIXER_WINDOW_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), TYPE_XFCE_MIXER_WINDOW))
-#define XFCE_MIXER_WINDOW_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), TYPE_XFCE_MIXER_WINDOW, XfceMixerWindowClass))
-
-GType       xfce_mixer_window_get_type        (void) G_GNUC_CONST;
+#define XFCE_TYPE_MIXER_WINDOW (xfce_mixer_window_get_type ())
+#ifndef glib_autoptr_clear_XfceTitledDialog
+G_DEFINE_AUTOPTR_CLEANUP_FUNC (XfceTitledDialog, g_object_unref)
+#endif
+G_DECLARE_FINAL_TYPE (XfceMixerWindow, xfce_mixer_window, XFCE, MIXER_WINDOW, XfceTitledDialog)
 
 GtkWidget  *xfce_mixer_window_new             (GApplication    *app);
 GstElement *xfce_mixer_window_get_active_card (XfceMixerWindow *window);

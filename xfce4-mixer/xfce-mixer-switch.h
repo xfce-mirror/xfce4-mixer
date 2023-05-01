@@ -26,17 +26,8 @@
 
 G_BEGIN_DECLS
 
-typedef struct _XfceMixerSwitchClass XfceMixerSwitchClass;
-typedef struct _XfceMixerSwitch      XfceMixerSwitch;
-
-#define TYPE_XFCE_MIXER_SWITCH            (xfce_mixer_switch_get_type ())
-#define XFCE_MIXER_SWITCH(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), TYPE_XFCE_MIXER_SWITCH, XfceMixerSwitch))
-#define XFCE_MIXER_SWITCH_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), TYPE_XFCE_MIXER_SWITCH, XfceMixerSwitchClass))
-#define IS_XFCE_MIXER_SWITCH(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), TYPE_XFCE_MIXER_SWITCH))
-#define IS_XFCE_MIXER_SWITCH_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), TYPE_XFCE_MIXER_SWITCH))
-#define XFCE_MIXER_SWITCH_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), TYPE_XFCE_MIXER_SWITCH, XfceMixerSwitchClass))
-
-GType      xfce_mixer_switch_get_type (void) G_GNUC_CONST;
+#define XFCE_TYPE_MIXER_SWITCH (xfce_mixer_switch_get_type ())
+G_DECLARE_FINAL_TYPE (XfceMixerSwitch, xfce_mixer_switch, XFCE, MIXER_SWITCH, GtkCheckButton)
 
 GtkWidget *xfce_mixer_switch_new      (GstElement      *card,
                                        GstMixerTrack   *track);

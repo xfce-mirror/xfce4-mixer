@@ -62,11 +62,6 @@ static void xfce_mixer_container_bus_message     (GstBus                  *bus,
 
 
 
-struct _XfceMixerContainerClass
-{
-  GtkNotebookClass __parent__;
-};
-
 struct _XfceMixerContainer
 {
   GtkNotebook  __parent__;
@@ -200,7 +195,7 @@ xfce_mixer_container_new (GstElement *card)
 {
   GObject *object = NULL;
 
-  object = g_object_new (TYPE_XFCE_MIXER_CONTAINER, "card", card, NULL);
+  object = g_object_new (XFCE_TYPE_MIXER_CONTAINER, "card", card, NULL);
 
   return GTK_WIDGET (object);
 }
@@ -235,7 +230,7 @@ xfce_mixer_container_create_contents (XfceMixerContainer *mixer_container)
   gboolean              no_controls_visible = TRUE;
   gint                  i;
 
-  g_return_if_fail (IS_XFCE_MIXER_CONTAINER (mixer_container));
+  g_return_if_fail (XFCE_IS_MIXER_CONTAINER (mixer_container));
 
   preferences = xfce_mixer_preferences_get ();
 
@@ -500,7 +495,7 @@ xfce_mixer_container_update_contents (XfceMixerContainer *mixer_container)
   gint current_tab;
   gint i;
 
-  g_return_if_fail (IS_XFCE_MIXER_CONTAINER (mixer_container));
+  g_return_if_fail (XFCE_IS_MIXER_CONTAINER (mixer_container));
 
   g_list_free(mixer_container->widgets);
   mixer_container->widgets = NULL;
@@ -537,7 +532,7 @@ xfce_mixer_container_bus_message (GstBus             *bus,
   gint               *volumes;
   gint                num_channels;
 
-  g_return_if_fail (IS_XFCE_MIXER_CONTAINER (mixer_container));
+  g_return_if_fail (XFCE_IS_MIXER_CONTAINER (mixer_container));
 
   if (G_UNLIKELY (GST_MESSAGE_SRC (message) != GST_OBJECT (mixer_container->card)))
     return;
@@ -550,9 +545,9 @@ xfce_mixer_container_bus_message (GstBus             *bus,
         xfce_mixer_debug ("Track '%s' was %s", label, muted ? "muted" : "unmuted");
         widget = g_object_get_data(G_OBJECT(track), "track-widget");
 
-        if (IS_XFCE_MIXER_TRACK (widget))
+        if (XFCE_IS_MIXER_TRACK (widget))
           xfce_mixer_track_update_mute (XFCE_MIXER_TRACK (widget));
-        else if (IS_XFCE_MIXER_SWITCH (widget))
+        else if (XFCE_IS_MIXER_SWITCH (widget))
           xfce_mixer_switch_update (XFCE_MIXER_SWITCH (widget));
         break;
       case GST_MIXER_MESSAGE_RECORD_TOGGLED:
@@ -561,9 +556,9 @@ xfce_mixer_container_bus_message (GstBus             *bus,
         xfce_mixer_debug ("Recording on track '%s' was %s", label, record ? "turned on" : "turned off");
         widget = g_object_get_data(G_OBJECT(track), "track-widget");
 
-        if (IS_XFCE_MIXER_TRACK (widget))
+        if (XFCE_IS_MIXER_TRACK (widget))
           xfce_mixer_track_update_record (XFCE_MIXER_TRACK (widget));
-        else if (IS_XFCE_MIXER_SWITCH (widget))
+        else if (XFCE_IS_MIXER_SWITCH (widget))
           xfce_mixer_switch_update (XFCE_MIXER_SWITCH (widget));
         break;
       case GST_MIXER_MESSAGE_VOLUME_CHANGED:
@@ -572,7 +567,7 @@ xfce_mixer_container_bus_message (GstBus             *bus,
         xfce_mixer_debug ("Volume on track '%s' changed to %i", label, volumes[0]);
         widget = g_object_get_data(G_OBJECT(track), "track-widget");
 
-        if (IS_XFCE_MIXER_TRACK (widget))
+        if (XFCE_IS_MIXER_TRACK (widget))
           xfce_mixer_track_update_volume (XFCE_MIXER_TRACK (widget));
         break;
       case GST_MIXER_MESSAGE_OPTION_CHANGED:
@@ -581,7 +576,7 @@ xfce_mixer_container_bus_message (GstBus             *bus,
         xfce_mixer_debug ("Option '%s' was set to '%s'", label, option);
         widget = g_object_get_data(G_OBJECT(track), "track-widget");
 
-        if (IS_XFCE_MIXER_OPTION (widget))
+        if (XFCE_IS_MIXER_OPTION (widget))
           xfce_mixer_option_update (XFCE_MIXER_OPTION (widget));
         break;
       case GST_MIXER_MESSAGE_MIXER_CHANGED:

@@ -52,11 +52,6 @@ static void xfce_mixer_option_bus_message     (GstBus               *bus,
 
 
 
-struct _XfceMixerOptionClass
-{
-  GtkComboBoxClass __parent__;
-};
-
 struct _XfceMixerOption
 {
   GtkComboBox    __parent__;
@@ -132,7 +127,7 @@ xfce_mixer_option_new (GstElement    *card,
   g_return_val_if_fail (GST_IS_MIXER (card), NULL);
   g_return_val_if_fail (GST_IS_MIXER_TRACK (track), NULL);
   
-  option = g_object_new (TYPE_XFCE_MIXER_OPTION, NULL);
+  option = g_object_new (XFCE_TYPE_MIXER_OPTION, NULL);
   option->card = card;
   option->track = track;
 
@@ -214,7 +209,7 @@ xfce_mixer_option_update (XfceMixerOption *option)
   const gchar     *active_option;
   gchar           *current_option;
 
-  g_return_if_fail (IS_XFCE_MIXER_OPTION (option));
+  g_return_if_fail (XFCE_IS_MIXER_OPTION (option));
 
   options = GST_MIXER_OPTIONS (option->track);
   active_option = gst_mixer_get_option (GST_MIXER (option->card), options);

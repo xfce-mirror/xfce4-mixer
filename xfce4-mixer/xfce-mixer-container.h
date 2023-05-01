@@ -27,17 +27,8 @@
 
 G_BEGIN_DECLS
 
-typedef struct _XfceMixerContainerClass XfceMixerContainerClass;
-typedef struct _XfceMixerContainer      XfceMixerContainer;
-
-#define TYPE_XFCE_MIXER_CONTAINER            (xfce_mixer_container_get_type ())
-#define XFCE_MIXER_CONTAINER(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), TYPE_XFCE_MIXER_CONTAINER, XfceMixerContainer))
-#define XFCE_MIXER_CONTAINER_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), TYPE_XFCE_MIXER_CONTAINER, XfceMixerContainerClass))
-#define IS_XFCE_MIXER_CONTAINER(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), TYPE_XFCE_MIXER_CONTAINER))
-#define IS_XFCE_MIXER_CONTAINER_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), TYPE_XFCE_MIXER_CONTAINER))
-#define XFCE_MIXER_CONTAINER_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), TYPE_XFCE_MIXER_CONTAINER, XfceMixerContainerClass))
-
-GType      xfce_mixer_container_get_type (void) G_GNUC_CONST;
+#define XFCE_TYPE_MIXER_CONTAINER (xfce_mixer_container_get_type ())
+G_DECLARE_FINAL_TYPE (XfceMixerContainer, xfce_mixer_container, XFCE, MIXER_CONTAINER, GtkNotebook)
 
 GtkWidget  *xfce_mixer_container_new             (GstElement *card);
 void        xfce_mixer_container_update_contents (XfceMixerContainer  *mixer);
