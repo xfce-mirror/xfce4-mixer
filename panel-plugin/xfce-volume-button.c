@@ -545,31 +545,12 @@ xfce_volume_button_grab_input (XfceVolumeButton *button)
   GtkWidget        *dock = button->dock;
   GdkWindow        *window = gtk_widget_get_window (dock);
   GdkDisplay       *display = gtk_widget_get_display (dock);
-#if GTK_CHECK_VERSION(3, 20, 0)
   GdkSeat          *seat = gdk_display_get_default_seat (display);
-#else
-  GdkDeviceManager *device_manager = gdk_display_get_device_manager (display);
-  GdkDevice        *pointer = gdk_device_manager_get_client_pointer (device_manager);
-  GdkDevice        *keyboard = gdk_device_get_associated_device (pointer);
-#endif
 
   gtk_grab_add (dock);
 
-#if GTK_CHECK_VERSION(3, 20, 0)
   if (gdk_seat_grab (seat, window, GDK_SEAT_CAPABILITY_ALL, TRUE, NULL, NULL, NULL, NULL) != GDK_GRAB_SUCCESS)
     goto fail_remove_grab;
-#else
-  if (gdk_device_grab (pointer, window, GDK_OWNERSHIP_WINDOW, TRUE, GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK |
-      GDK_POINTER_MOTION_MASK | GDK_SCROLL_MASK, NULL, GDK_CURRENT_TIME) != GDK_GRAB_SUCCESS)
-    goto fail_remove_grab;
-
-  if (gdk_device_grab (keyboard, window, GDK_OWNERSHIP_WINDOW, TRUE, GDK_KEY_PRESS | GDK_KEY_RELEASE, NULL,
-      GDK_CURRENT_TIME) != GDK_GRAB_SUCCESS)
-    {
-      gdk_device_ungrab (pointer, GDK_CURRENT_TIME);
-      goto fail_remove_grab;
-    }
-#endif
 
   return TRUE;
 
@@ -585,20 +566,9 @@ xfce_volume_button_ungrab_input (XfceVolumeButton *button)
 {
   GtkWidget        *dock = button->dock;
   GdkDisplay       *display = gtk_widget_get_display (dock);
-#if GTK_CHECK_VERSION(3, 20, 0)
   GdkSeat          *seat = gdk_display_get_default_seat (display);
-#else
-  GdkDeviceManager *device_manager = gdk_display_get_device_manager (display);
-  GdkDevice        *pointer = gdk_device_manager_get_client_pointer (device_manager);
-  GdkDevice        *keyboard = gdk_device_get_associated_device (pointer);
-#endif
 
-#if GTK_CHECK_VERSION(3, 20, 0)
   gdk_seat_ungrab (seat);
-#else
-  gdk_device_ungrab (pointer, GDK_CURRENT_TIME);
-  gdk_device_ungrab (keyboard, GDK_CURRENT_TIME);
-#endif
 
   gtk_grab_remove (dock);
 }

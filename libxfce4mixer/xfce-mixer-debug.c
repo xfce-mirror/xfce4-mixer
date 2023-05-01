@@ -36,28 +36,10 @@
 
 
 
-#if !GLIB_CHECK_VERSION (2,32,0)
-static void
-xfce_mixer_dummy_log_handler (const gchar    *log_domain,
-                              GLogLevelFlags  log_level,
-                              const gchar    *message,
-                              gpointer        unused_data)
-{
-  /* Swallow all messages */
-}
-#endif
-
-
-
 void
 xfce_mixer_debug_init (const gchar *log_domain,
                        gboolean     debug_mode)
 {
-  /*
-   * glib >= 2.32 only shows debug messages if G_MESSAGES_DEBUG contains the
-   * log domain or "all", earlier glib version always show debugging output
-   */
-#if GLIB_CHECK_VERSION (2,32,0)
   const gchar        *debug_env;
   GString            *debug_env_new;
 
@@ -80,10 +62,6 @@ xfce_mixer_debug_init (const gchar *log_domain,
       g_setenv ("G_MESSAGES_DEBUG", debug_env_new->str, TRUE);
       g_string_free (debug_env_new, TRUE);
     }
-#else
-  if (!debug_mode)
-    g_log_set_handler (log_domain, G_LOG_LEVEL_DEBUG, xfce_mixer_dummy_log_handler, NULL);
-#endif /* GLIB_CHECK_VERSION (2,32,0) */
 }
 
 
