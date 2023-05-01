@@ -26,7 +26,6 @@
 #include <gst/gst.h>
 
 #include <libxfce4util/libxfce4util.h>
-#include <libxfce4ui/libxfce4ui.h>
 #include <xfconf/xfconf.h>
 
 #include "libxfce4mixer/libxfce4mixer.h"
@@ -58,11 +57,6 @@ static void  xfce_mixer_controls_dialog_bus_message           (GstBus           
                                                                XfceMixerControlsDialog      *dialog);
 
 
-
-struct _XfceMixerControlsDialogClass
-{
-  XfceTitledDialogClass __parent__;
-};
 
 struct _XfceMixerControlsDialog
 {
@@ -167,7 +161,7 @@ xfce_mixer_controls_dialog_new (XfceMixerWindow *window)
 {
   XfceMixerControlsDialog *dialog;
 
-  dialog = g_object_new (TYPE_XFCE_MIXER_CONTROLS_DIALOG, NULL);
+  dialog = g_object_new (XFCE_TYPE_MIXER_CONTROLS_DIALOG, NULL);
   dialog->parent = window;
 
   dialog->card = xfce_mixer_window_get_active_card (window);
@@ -227,7 +221,7 @@ xfce_mixer_controls_dialog_create_contents (XfceMixerControlsDialog *dialog)
 static void
 xfce_mixer_controls_dialog_update_contents (XfceMixerControlsDialog *dialog)
 {
-  g_return_if_fail (IS_XFCE_MIXER_CONTROLS_DIALOG (dialog));
+  g_return_if_fail (XFCE_IS_MIXER_CONTROLS_DIALOG (dialog));
 
   gtk_widget_destroy (dialog->frame);
   xfce_mixer_controls_dialog_create_contents (dialog);
@@ -338,7 +332,7 @@ void
 xfce_mixer_controls_dialog_set_soundcard (XfceMixerControlsDialog *dialog,
                                           GstElement              *card)
 {
-  g_return_if_fail (IS_XFCE_MIXER_CONTROLS_DIALOG (dialog));
+  g_return_if_fail (XFCE_IS_MIXER_CONTROLS_DIALOG (dialog));
   g_return_if_fail (GST_IS_MIXER (card));
 
   dialog->card = card;

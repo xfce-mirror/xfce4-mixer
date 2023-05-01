@@ -22,20 +22,8 @@
 
 G_BEGIN_DECLS
 
-#define GST_TYPE_MIXER_OPTIONS                (gst_mixer_options_get_type ())
-#define GST_MIXER_OPTIONS(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), GST_TYPE_MIXER_OPTIONS, GstMixerOptions))
-#define GST_MIXER_OPTIONS_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST((k), GST_TYPE_MIXER_OPTIONS, GstMixerOptionsClass))
-#define GST_IS_MIXER_OPTIONS(o)               (G_TYPE_CHECK_INSTANCE_TYPE ((o), GST_TYPE_MIXER_OPTIONS))
-#define GST_IS_MIXER_OPTIONS_CLASS(k)         (G_TYPE_CHECK_CLASS_TYPE ((k), GST_TYPE_MIXER_OPTIONS))
-#define GST_MIXER_OPTIONS_GET_CLASS(o)        (G_TYPE_INSTANCE_GET_CLASS ((o), GST_TYPE_MIXER_OPTIONS, GstMixerOptionsClass))
-
-typedef struct _GstMixerOptionsClass GstMixerOptionsClass;
-typedef struct _GstMixerOptions GstMixerOptions;
-
-struct _GstMixerOptions
-{
-  GstMixerTrack parent;
-};
+#define GST_TYPE_MIXER_OPTIONS (gst_mixer_options_get_type ())
+G_DECLARE_DERIVABLE_TYPE (GstMixerOptions, gst_mixer_options, GST, MIXER_OPTIONS, GstMixerTrack)
 
 struct _GstMixerOptionsClass
 {
@@ -46,7 +34,6 @@ struct _GstMixerOptionsClass
 };
 
 
-GType        gst_mixer_options_get_type   (void);
 const gchar *gst_mixer_options_get_name   (GstMixerOptions *mixer_options);
 GList *      gst_mixer_options_get_values (GstMixerOptions  *options);
 

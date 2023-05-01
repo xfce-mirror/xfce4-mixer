@@ -52,11 +52,6 @@ static gint xfce_mixer_application_handle_local_options (GApplication *app,
 
 
 
-struct _XfceMixerApplicationClass
-{
-  GtkApplicationClass __parent__;
-};
-
 struct _XfceMixerApplication
 {
   GtkApplication  __parent__;
@@ -226,7 +221,7 @@ xfce_mixer_application_new (void)
 {
   XfceMixerApplication *app;
 
-  app = g_object_new (TYPE_XFCE_MIXER_APPLICATION, "application-id", "org.xfce.xfce4-mixer", NULL);
+  app = g_object_new (XFCE_TYPE_MIXER_APPLICATION, "application-id", "org.xfce.xfce4-mixer", NULL);
 
   return G_APPLICATION (app);
 }

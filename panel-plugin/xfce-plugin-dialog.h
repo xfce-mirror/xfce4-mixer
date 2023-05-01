@@ -23,22 +23,17 @@
 #define __XFCE_PLUGIN_DIALOG_H__
 
 #include <gtk/gtk.h>
-
 #include <gst/gst.h>
+
+#include <libxfce4ui/libxfce4ui.h>
 
 G_BEGIN_DECLS
 
-typedef struct _XfcePluginDialogClass XfcePluginDialogClass;
-typedef struct _XfcePluginDialog      XfcePluginDialog;
-
-#define TYPE_XFCE_PLUGIN_DIALOG            (xfce_plugin_dialog_get_type ())
-#define XFCE_PLUGIN_DIALOG(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), TYPE_XFCE_PLUGIN_DIALOG, XfcePluginDialog))
-#define XFCE_PLUGIN_DIALOG_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), TYPE_XFCE_PLUGIN_DIALOG, XfcePluginDialogClass))
-#define IS_XFCE_PLUGIN_DIALOG(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), TYPE_XFCE_PLUGIN_DIALOG))
-#define IS_XFCE_PLUGIN_DIALOG_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), TYPE_XFCE_PLUGIN_DIALOG))
-#define XFCE_PLUGIN_DIALOG_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), TYPE_XFCE_PLUGIN_DIALOG, XfcePluginDialogClass))
-
-GType     xfce_plugin_dialog_get_type  (void) G_GNUC_CONST;
+#define XFCE_TYPE_PLUGIN_DIALOG (xfce_plugin_dialog_get_type ())
+#ifndef glib_autoptr_clear_XfceTitledDialog
+G_DEFINE_AUTOPTR_CLEANUP_FUNC (XfceTitledDialog, g_object_unref)
+#endif
+G_DECLARE_FINAL_TYPE (XfcePluginDialog, xfce_plugin_dialog, XFCE, PLUGIN_DIALOG, XfceTitledDialog)
 
 GtkWidget *xfce_plugin_dialog_new (XfcePanelPlugin *plugin);
 

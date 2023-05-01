@@ -41,11 +41,6 @@ static void xfce_mixer_switch_toggled         (GtkToggleButton      *button);
 
 
 
-struct _XfceMixerSwitchClass
-{
-  GtkCheckButtonClass __parent__;
-};
-
 struct _XfceMixerSwitch
 {
   GtkCheckButton  __parent__;
@@ -111,7 +106,7 @@ xfce_mixer_switch_new (GstElement    *card,
   g_return_val_if_fail (GST_IS_MIXER (card), NULL);
   g_return_val_if_fail (GST_IS_MIXER_TRACK (track), NULL);
   
-  mixer_switch = g_object_new (TYPE_XFCE_MIXER_SWITCH, NULL);
+  mixer_switch = g_object_new (XFCE_TYPE_MIXER_SWITCH, NULL);
   mixer_switch->card = card;
   mixer_switch->track = track;
 
@@ -162,7 +157,7 @@ xfce_mixer_switch_toggled (GtkToggleButton *button)
 void 
 xfce_mixer_switch_update (XfceMixerSwitch *mixer_switch)
 {
-  g_return_if_fail (IS_XFCE_MIXER_SWITCH (mixer_switch));
+  g_return_if_fail (XFCE_IS_MIXER_SWITCH (mixer_switch));
 
   mixer_switch->ignore_signals = TRUE;
 

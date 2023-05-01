@@ -23,24 +23,14 @@
 
 #include "gst-mixer-track.h"
 
-#define GST_MIXER_TYPE_PULSE_TRACK            gst_mixer_pulse_track_get_type ()
-#define GST_MIXER_PULSE_TRACK(o)             (G_TYPE_CHECK_INSTANCE_CAST ((o), GST_MIXER_TYPE_PULSE_TRACK, GstMixerPulseTrack))
-#define GST_MIXER_IS_PULSE_TRACK(o)          (G_TYPE_CHECK_INSTANCE_TYPE ((o), GST_MIXER_TYPE_PULSE_TRACK))
-
-typedef struct _GstMixerPulseTrack GstMixerPulseTrack;
-typedef struct _GstMixerPulseTrackClass GstMixerPulseTrackClass;
-
-struct _GstMixerPulseTrack
-{
-  GstMixerTrack parent;
-};
+#define GST_MIXER_TYPE_PULSE_TRACK gst_mixer_pulse_track_get_type ()
+G_DECLARE_DERIVABLE_TYPE (GstMixerPulseTrack, gst_mixer_pulse_track, GST_MIXER, PULSE_TRACK, GstMixerTrack)
 
 struct _GstMixerPulseTrackClass
 {
   GstMixerTrackClass parent;
 };
 
-GType                gst_mixer_pulse_track_get_type          (void);
 GstMixerPulseTrack  *gst_mixer_pulse_track_new               (gpointer info,
                                                               GstMixerTrackFlags flags);
 #endif /* GST_MIXER_PULSE_TRACK_H */

@@ -23,12 +23,13 @@
 
 #include "gst-mixer-track.h"
 
+typedef struct _GstMixerAlsaTrack GstMixerAlsaTrack;
+typedef struct _GstMixerAlsaTrackClass GstMixerAlsaTrackClass;
+
 #define GST_MIXER_TYPE_ALSA_TRACK            gst_mixer_alsa_track_get_type ()
 #define GST_MIXER_ALSA_TRACK(o)             (G_TYPE_CHECK_INSTANCE_CAST ((o), GST_MIXER_TYPE_ALSA_TRACK, GstMixerAlsaTrack))
 #define GST_MIXER_IS_ALSA_TRACK(o)          (G_TYPE_CHECK_INSTANCE_TYPE ((o), GST_MIXER_TYPE_ALSA_TRACK))
-
-typedef struct _GstMixerAlsaTrack GstMixerAlsaTrack;
-typedef struct _GstMixerAlsaTrackClass GstMixerAlsaTrackClass;
+G_DEFINE_AUTOPTR_CLEANUP_FUNC (GstMixerAlsaTrack, g_object_unref)
 
 struct _GstMixerAlsaTrack
 {

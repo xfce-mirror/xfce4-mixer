@@ -24,26 +24,11 @@
 #include "gst-mixer-options.h"
 #include "alsa-track.h"
 
-#define GST_MIXER_TYPE_ALSA_OPTIONS  gst_mixer_alsa_options_get_type ()
-#define GST_MIXER_ALSA_OPTIONS(o)    (G_TYPE_CHECK_INSTANCE_CAST ((o), GST_MIXER_TYPE_ALSA_OPTIONS, GstMixerAlsaOptions))
+#define GST_MIXER_TYPE_ALSA_OPTIONS (gst_mixer_alsa_options_get_type ())
+G_DECLARE_FINAL_TYPE (GstMixerAlsaOptions, gst_mixer_alsa_options, GST_MIXER, ALSA_OPTIONS, GstMixerAlsaTrack)
 
-typedef struct _GstMixerAlsaOptions GstMixerAlsaOptions;
-typedef struct _GstMixerAlsaOptionsClass GstMixerAlsaOptionsClass;
-
-struct _GstMixerAlsaOptions
-{
-  GstMixerAlsaTrack parent;
-  GList *values;
-};
-
-struct _GstMixerAlsaOptionsClass
-{
-  GstMixerAlsaTrack parent;
-};
-
-GType                 gst_mixer_alsa_options_get_type (void);
-
-GstMixerAlsaOptions  *gst_mixer_alsa_options_new      (snd_mixer_elem_t *element,
-                                                       guint index);
+GstMixerAlsaOptions  *gst_mixer_alsa_options_new            (snd_mixer_elem_t *element,
+                                                             guint index);
+GList                *gst_mixer_alsa_options_get_values     (GstMixerAlsaOptions *opts);
 
 #endif /* GST_MIXER_ALSA_OPTIONS_H */

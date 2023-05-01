@@ -26,17 +26,8 @@
 
 G_BEGIN_DECLS
 
-typedef struct _XfceMixerOptionClass XfceMixerOptionClass;
-typedef struct _XfceMixerOption      XfceMixerOption;
-
-#define TYPE_XFCE_MIXER_OPTION            (xfce_mixer_option_get_type ())
-#define XFCE_MIXER_OPTION(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), TYPE_XFCE_MIXER_OPTION, XfceMixerOption))
-#define XFCE_MIXER_OPTION_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), TYPE_XFCE_MIXER_OPTION, XfceMixerOptionClass))
-#define IS_XFCE_MIXER_OPTION(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), TYPE_XFCE_MIXER_OPTION))
-#define IS_XFCE_MIXER_OPTION_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), TYPE_XFCE_MIXER_OPTION))
-#define XFCE_MIXER_OPTION_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), TYPE_XFCE_MIXER_OPTION, XfceMixerOptionClass))
-
-GType      xfce_mixer_option_get_type (void) G_GNUC_CONST;
+#define XFCE_TYPE_MIXER_OPTION (xfce_mixer_option_get_type ())
+G_DECLARE_FINAL_TYPE (XfceMixerOption, xfce_mixer_option, XFCE, MIXER_OPTION, GtkComboBox)
 
 GtkWidget *xfce_mixer_option_new      (GstElement      *card,
                                        GstMixerTrack   *track);

@@ -105,8 +105,6 @@ static gboolean   xfce_volume_button_button_press_event   (GtkWidget            
                                                            GdkEventButton        *event);
 static gboolean   xfce_volume_button_scroll_event         (GtkWidget             *widget,
                                                            GdkEventScroll        *event);
-static void       xfce_volume_button_volume_changed       (XfceVolumeButton      *button,
-                                                           gdouble                volume);
 static void       xfce_volume_button_update_icons         (XfceVolumeButton      *button,
                                                            GtkIconTheme          *icon_theme);
 static void       xfce_volume_button_toggled              (GtkToggleButton       *toggle_button);
@@ -124,15 +122,6 @@ static gboolean   xfce_volume_button_dock_grab_broken     (XfceVolumeButton     
                                                            GtkWidget             *widget);
 
 
-
-struct _XfceVolumeButtonClass
-{
-  GtkToggleButtonClass __parent__;
-
-  /* Signals */
-  void (*volume_changed) (XfceVolumeButton *button,
-                          gdouble           volume);
-};
 
 struct _XfceVolumeButton
 {
@@ -199,8 +188,6 @@ xfce_volume_button_class_init (XfceVolumeButtonClass *klass)
   gtk_toggle_button_class = GTK_TOGGLE_BUTTON_CLASS (klass);
   gtk_toggle_button_class->toggled = xfce_volume_button_toggled;
 
-  klass->volume_changed = xfce_volume_button_volume_changed;
-
   g_object_class_install_property (gobject_class,
                                    PROP_TRACK_LABEL,
                                    g_param_spec_string ("track-label",
@@ -246,7 +233,7 @@ xfce_volume_button_class_init (XfceVolumeButtonClass *klass)
   button_signals[VOLUME_CHANGED] = g_signal_new ("volume-changed",
                                                  G_TYPE_FROM_CLASS (klass),
                                                  G_SIGNAL_RUN_LAST | G_SIGNAL_ACTION,
-                                                 G_STRUCT_OFFSET (XfceVolumeButtonClass, volume_changed),
+                                                 0,
                                                  NULL, 
                                                  NULL,
                                                  g_cclosure_marshal_VOID__DOUBLE,
@@ -442,7 +429,7 @@ static void xfce_volume_button_get_property (GObject      *object,
 GtkWidget*
 xfce_volume_button_new (void)
 {
-  return g_object_new (TYPE_XFCE_VOLUME_BUTTON, NULL);
+  return g_object_new (XFCE_TYPE_VOLUME_BUTTON, NULL);
 }
 
 
@@ -860,7 +847,7 @@ xfce_volume_button_update (XfceVolumeButton *button)
   guint      i;
   gchar     *tip_text;
 
-  g_return_if_fail (IS_XFCE_VOLUME_BUTTON (button));
+  g_return_if_fail (XFCE_IS_VOLUME_BUTTON (button));
 
   /* Get upper, lower bounds and current value of the adjustment */
   g_object_get (G_OBJECT (button->adjustment), "upper", &upper, "lower", &lower, "value", &value, NULL);
@@ -906,21 +893,12 @@ xfce_volume_button_update (XfceVolumeButton *button)
 
 
 static void
-xfce_volume_button_volume_changed (XfceVolumeButton *button,
-                                   gdouble           volume)
-{
-  /* Do nothing */
-}
-
-
-
-static void
 xfce_volume_button_update_icons (XfceVolumeButton *button,
                                  GtkIconTheme     *icon_theme)
 {
   guint i;
 
-  g_return_if_fail (IS_XFCE_VOLUME_BUTTON (button));
+  g_return_if_fail (XFCE_IS_VOLUME_BUTTON (button));
   g_return_if_fail (GTK_IS_ICON_THEME (icon_theme));
 
   /* Pre-load all icons */
@@ -1024,7 +1002,7 @@ xfce_volume_button_set_no_mute (XfceVolumeButton *button,
 {
   GValue value = { 0 };
 
-  g_return_if_fail (IS_XFCE_VOLUME_BUTTON (button));
+  g_return_if_fail (XFCE_IS_VOLUME_BUTTON (button));
 
   g_value_init (&value, G_TYPE_BOOLEAN);
   g_value_set_boolean (&value, no_mute);
@@ -1038,7 +1016,7 @@ xfce_volume_button_get_no_mute (XfceVolumeButton *button)
 {
   GValue value = { 0 };
 
-  g_return_val_if_fail (IS_XFCE_VOLUME_BUTTON (button), FALSE);
+  g_return_val_if_fail (XFCE_IS_VOLUME_BUTTON (button), FALSE);
 
   g_value_init (&value, G_TYPE_BOOLEAN);
   g_object_get_property (G_OBJECT (button), "no-mute", &value);
@@ -1054,7 +1032,7 @@ xfce_volume_button_set_muted (XfceVolumeButton *button,
 {
   GValue value = { 0 };
 
-  g_return_if_fail (IS_XFCE_VOLUME_BUTTON (button));
+  g_return_if_fail (XFCE_IS_VOLUME_BUTTON (button));
 
   g_value_init (&value, G_TYPE_BOOLEAN);
   g_value_set_boolean (&value, is_muted);
@@ -1068,7 +1046,7 @@ xfce_volume_button_get_muted (XfceVolumeButton *button)
 {
   GValue value = { 0 };
 
-  g_return_val_if_fail (IS_XFCE_VOLUME_BUTTON (button), FALSE);
+  g_return_val_if_fail (XFCE_IS_VOLUME_BUTTON (button), FALSE);
 
   g_value_init (&value, G_TYPE_BOOLEAN);
   g_object_get_property (G_OBJECT (button), "is-muted", &value);
@@ -1082,7 +1060,7 @@ void
 xfce_volume_button_set_volume (XfceVolumeButton *button,
                                gdouble           volume)
 {
-  g_return_if_fail (IS_XFCE_VOLUME_BUTTON (button));
+  g_return_if_fail (XFCE_IS_VOLUME_BUTTON (button));
 
   /* Set the value of the adjustment */
   gtk_adjustment_set_value (GTK_ADJUSTMENT (button->adjustment), volume);
@@ -1097,7 +1075,7 @@ void
 xfce_volume_button_set_icon_size (XfceVolumeButton *button,
                                   gint              size)
 {
-  g_return_if_fail (IS_XFCE_VOLUME_BUTTON (button));
+  g_return_if_fail (XFCE_IS_VOLUME_BUTTON (button));
   g_return_if_fail (size >= 0);
 
   /* Remember the icon size */
@@ -1114,7 +1092,7 @@ xfce_volume_button_set_track_label (XfceVolumeButton *button,
 {
   GValue value = { 0 };
 
-  g_return_if_fail (IS_XFCE_VOLUME_BUTTON (button));
+  g_return_if_fail (XFCE_IS_VOLUME_BUTTON (button));
 
   g_value_init (&value, G_TYPE_STRING);
   g_value_set_string (&value, track_label);
@@ -1128,7 +1106,7 @@ xfce_volume_button_get_track_label (XfceVolumeButton *button)
 {
   GValue value = { 0 };
 
-  g_return_val_if_fail (IS_XFCE_VOLUME_BUTTON (button), NULL);
+  g_return_val_if_fail (XFCE_IS_VOLUME_BUTTON (button), NULL);
 
   g_value_init (&value, G_TYPE_STRING);
   g_object_get_property (G_OBJECT (button), "track-label", &value);
@@ -1144,7 +1122,7 @@ xfce_volume_button_set_is_configured (XfceVolumeButton *button,
 {
   GValue value = { 0 };
 
-  g_return_if_fail (IS_XFCE_VOLUME_BUTTON (button));
+  g_return_if_fail (XFCE_IS_VOLUME_BUTTON (button));
 
   g_value_init (&value, G_TYPE_BOOLEAN);
   g_value_set_boolean (&value, is_configured);
@@ -1158,7 +1136,7 @@ xfce_volume_button_get_is_configured (XfceVolumeButton *button)
 {
   GValue value = { 0 };
 
-  g_return_val_if_fail (IS_XFCE_VOLUME_BUTTON (button), FALSE);
+  g_return_val_if_fail (XFCE_IS_VOLUME_BUTTON (button), FALSE);
 
   g_value_init (&value, G_TYPE_BOOLEAN);
   g_object_get_property (G_OBJECT (button), "is-configured", &value);
@@ -1174,7 +1152,7 @@ xfce_volume_button_set_screen_position (XfceVolumeButton   *button,
 {
   GValue value = { 0 };
 
-  g_return_if_fail (IS_XFCE_VOLUME_BUTTON (button));
+  g_return_if_fail (XFCE_IS_VOLUME_BUTTON (button));
 
   g_value_init (&value, XFCE_TYPE_SCREEN_POSITION);
   g_value_set_enum (&value, screen_position);
@@ -1188,7 +1166,7 @@ xfce_volume_button_get_screen_position (XfceVolumeButton *button)
 {
   GValue value = { 0 };
 
-  g_return_val_if_fail (IS_XFCE_VOLUME_BUTTON (button), FALSE);
+  g_return_val_if_fail (XFCE_IS_VOLUME_BUTTON (button), FALSE);
 
   g_value_init (&value, XFCE_TYPE_SCREEN_POSITION);
   g_object_get_property (G_OBJECT (button), "screen-position", &value);

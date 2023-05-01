@@ -22,21 +22,13 @@
 #ifndef __XFCE_MIXER_CONTROLS_DIALOG_H__
 #define __XFCE_MIXER_CONTROLS_DIALOG_H__
 
+/* includes libxfce4ui and the definition of glib_autoptr_clear_XfceTitledDialog */
 #include "xfce-mixer-window.h"
 
 G_BEGIN_DECLS
 
-typedef struct _XfceMixerControlsDialogClass XfceMixerControlsDialogClass;
-typedef struct _XfceMixerControlsDialog      XfceMixerControlsDialog;
-
-#define TYPE_XFCE_MIXER_CONTROLS_DIALOG            (xfce_mixer_controls_dialog_get_type ())
-#define XFCE_MIXER_CONTROLS_DIALOG(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), TYPE_XFCE_MIXER_CONTROLS_DIALOG, XfceMixerControlsDialog))
-#define XFCE_MIXER_CONTROLS_DIALOG_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), TYPE_XFCE_MIXER_CONTROLS_DIALOG, XfceMixerControlsDialogClass))
-#define IS_XFCE_MIXER_CONTROLS_DIALOG(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), TYPE_XFCE_MIXER_CONTROLS_DIALOG))
-#define IS_XFCE_MIXER_CONTROLS_DIALOG_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), TYPE_XFCE_MIXER_CONTROLS_DIALOG))
-#define XFCE_MIXER_CONTROLS_DIALOG_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), TYPE_XFCE_MIXER_CONTROLS_DIALOG, XfceMixerControlsDialogClass))
-
-GType      xfce_mixer_controls_dialog_get_type (void) G_GNUC_CONST;
+#define XFCE_TYPE_MIXER_CONTROLS_DIALOG (xfce_mixer_controls_dialog_get_type ())
+G_DECLARE_FINAL_TYPE (XfceMixerControlsDialog, xfce_mixer_controls_dialog, XFCE, MIXER_CONTROLS_DIALOG, XfceTitledDialog)
 
 GtkWidget *xfce_mixer_controls_dialog_new           (XfceMixerWindow         *parent);
 void       xfce_mixer_controls_dialog_set_soundcard (XfceMixerControlsDialog *dialog,

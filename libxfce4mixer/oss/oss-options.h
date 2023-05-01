@@ -23,24 +23,8 @@
 #include "gst-mixer-options.h"
 #include "oss-track.h"
 
-#define GST_MIXER_TYPE_OSS_OPTIONS  gst_mixer_oss_options_get_type ()
-#define GST_MIXER_OSS_OPTIONS(o)    (G_TYPE_CHECK_INSTANCE_CAST ((o), GST_MIXER_TYPE_OSS_OPTIONS, GstMixerOssOptions))
-
-typedef struct _GstMixerOssOptions GstMixerOssOptions;
-typedef struct _GstMixerOssOptionsClass GstMixerOssOptionsClass;
-
-struct _GstMixerOssOptions
-{
-  GstMixerOssTrack parent;
-  GList *values;
-};
-
-struct _GstMixerOssOptionsClass
-{
-  GstMixerOssTrack parent;
-};
-
-GType                 gst_mixer_oss_options_get_type (void);
+#define GST_MIXER_TYPE_OSS_OPTIONS (gst_mixer_oss_options_get_type ())
+G_DECLARE_FINAL_TYPE (GstMixerOssOptions, gst_mixer_oss_options, GST_MIXER, OSS_OPTIONS, GstMixerOssTrack)
 
 GstMixerOssOptions   *gst_mixer_oss_options_new      (void);
 

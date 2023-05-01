@@ -60,14 +60,9 @@ static void     xfce_mixer_track_record_toggled                (GtkToggleButton 
 
 
 
-struct _XfceMixerTrackClass
-{
-  GtkVBoxClass __parent__;
-};
-
 struct _XfceMixerTrack
 {
-  GtkVBox        __parent__;
+  GtkBox         __parent__;
 
   GtkWidget     *mute_button;
   GtkWidget     *lock_button;
@@ -138,7 +133,7 @@ xfce_mixer_track_new (GstElement    *card,
   g_return_val_if_fail (GST_IS_MIXER (card), NULL);
   g_return_val_if_fail (GST_IS_MIXER_TRACK (gst_track), NULL);
   
-  track = g_object_new (TYPE_XFCE_MIXER_TRACK, "orientation", GTK_ORIENTATION_HORIZONTAL, NULL);
+  track = g_object_new (XFCE_TYPE_MIXER_TRACK, "orientation", GTK_ORIENTATION_HORIZONTAL, NULL);
   track->card = card;
   track->gst_track = gst_track;
 
@@ -574,7 +569,7 @@ xfce_mixer_track_update_mute (XfceMixerTrack *track)
 {
   gboolean muted;
 
-  g_return_if_fail (IS_XFCE_MIXER_TRACK (track));
+  g_return_if_fail (XFCE_IS_MIXER_TRACK (track));
 
   if (G_LIKELY (xfce_mixer_track_type_new (track->gst_track) != XFCE_MIXER_TRACK_TYPE_CAPTURE))
     {
@@ -590,7 +585,7 @@ xfce_mixer_track_update_record (XfceMixerTrack *track)
 {
   gboolean record;
 
-  g_return_if_fail (IS_XFCE_MIXER_TRACK (track));
+  g_return_if_fail (XFCE_IS_MIXER_TRACK (track));
 
   if (G_UNLIKELY (xfce_mixer_track_type_new (track->gst_track) == XFCE_MIXER_TRACK_TYPE_CAPTURE))
     {
@@ -608,7 +603,7 @@ xfce_mixer_track_update_volume (XfceMixerTrack *track)
   gint  *volumes;
   gint   channel;
 
-  g_return_if_fail (IS_XFCE_MIXER_TRACK (track));
+  g_return_if_fail (XFCE_IS_MIXER_TRACK (track));
 
   volumes = g_new0 (gint, track->gst_track->num_channels);
   gst_mixer_get_volume (GST_MIXER (track->card), track->gst_track, volumes);

@@ -26,7 +26,6 @@
 #include <gst/gst.h>
 
 #include <libxfce4util/libxfce4util.h>
-#include <libxfce4ui/libxfce4ui.h>
 
 #include "libxfce4mixer/libxfce4mixer.h"
 
@@ -61,11 +60,6 @@ static void     xfce_mixer_window_close                       (GSimpleAction    
 static void     xfce_mixer_window_update_contents             (XfceMixerWindow      *window);
 
 
-
-struct _XfceMixerWindowClass
-{
-  XfceTitledDialogClass __parent__;
-};
 
 struct _XfceMixerWindow
 {
@@ -300,7 +294,7 @@ xfce_mixer_window_destroy (GtkWidget *widget)
 GtkWidget*
 xfce_mixer_window_new (GApplication *app)
 {
-  return g_object_new (TYPE_XFCE_MIXER_WINDOW, "application", app, NULL);
+  return g_object_new (XFCE_TYPE_MIXER_WINDOW, "application", app, NULL);
 }
 
 
@@ -310,8 +304,8 @@ xfce_mixer_window_soundcard_changed (XfceMixerCardCombo *combo,
                                      GstElement         *card,
                                      XfceMixerWindow    *window)
 {
-  g_return_if_fail (IS_XFCE_MIXER_CARD_COMBO (combo));
-  g_return_if_fail (IS_XFCE_MIXER_WINDOW (window));
+  g_return_if_fail (XFCE_IS_MIXER_CARD_COMBO (combo));
+  g_return_if_fail (XFCE_IS_MIXER_WINDOW (window));
   g_return_if_fail (GST_IS_MIXER (card));
 
   /* Remember the card for next time */
@@ -338,7 +332,7 @@ xfce_mixer_window_soundcard_property_changed (XfceMixerWindow *window,
   GstElement  *new_card = NULL;
   GstElement  *old_card;
 
-  g_return_if_fail (IS_XFCE_MIXER_WINDOW (window));
+  g_return_if_fail (XFCE_IS_MIXER_WINDOW (window));
   g_return_if_fail (G_IS_OBJECT (object));
 
   g_object_get (object, "sound-card", &new_card_name, NULL);
@@ -427,7 +421,7 @@ xfce_mixer_window_close (GSimpleAction *action,
 GstElement *
 xfce_mixer_window_get_active_card (XfceMixerWindow *window)
 {
-  g_return_val_if_fail (IS_XFCE_MIXER_WINDOW (window), NULL);
+  g_return_val_if_fail (XFCE_IS_MIXER_WINDOW (window), NULL);
   return xfce_mixer_card_combo_get_active_card (XFCE_MIXER_CARD_COMBO (window->soundcard_combo));
 }
 
@@ -439,7 +433,7 @@ xfce_mixer_window_update_contents (XfceMixerWindow *window)
   gchar       *title;
   GstElement  *card;
 
-  g_return_if_fail (IS_XFCE_MIXER_WINDOW (window));
+  g_return_if_fail (XFCE_IS_MIXER_WINDOW (window));
 
   card = xfce_mixer_card_combo_get_active_card (XFCE_MIXER_CARD_COMBO (window->soundcard_combo));
   if (G_LIKELY (GST_IS_MIXER (card)))

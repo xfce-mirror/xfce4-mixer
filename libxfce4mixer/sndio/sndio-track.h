@@ -22,12 +22,13 @@
 
 #include "gst-mixer-track.h"
 
+typedef struct _GstMixerSndioTrack GstMixerSndioTrack;
+typedef struct _GstMixerSndioTrackClass GstMixerSndioTrackClass;
+
 #define GST_MIXER_TYPE_SNDIO_TRACK            gst_mixer_sndio_track_get_type ()
 #define GST_MIXER_SNDIO_TRACK(o)             (G_TYPE_CHECK_INSTANCE_CAST ((o), GST_MIXER_TYPE_SNDIO_TRACK, GstMixerSndioTrack))
 #define GST_MIXER_IS_SNDIO_TRACK(o)          (G_TYPE_CHECK_INSTANCE_TYPE ((o), GST_MIXER_TYPE_SNDIO_TRACK))
-
-typedef struct _GstMixerSndioTrack GstMixerSndioTrack;
-typedef struct _GstMixerSndioTrackClass GstMixerSndioTrackClass;
+G_DEFINE_AUTOPTR_CLEANUP_FUNC (GstMixerSndioTrack, g_object_unref)
 
 struct _GstMixerSndioTrack
 {

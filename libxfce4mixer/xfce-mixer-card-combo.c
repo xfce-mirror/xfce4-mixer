@@ -54,11 +54,6 @@ static void  xfce_mixer_card_combo_changed           (XfceMixerCardCombo      *c
 
 
 
-struct _XfceMixerCardComboClass
-{
-  GtkComboBoxClass __parent__;
-};
-
 struct _XfceMixerCardCombo
 {
   GtkComboBox __parent__;
@@ -140,7 +135,7 @@ xfce_mixer_card_combo_new (GstElement *card)
 {
   GtkWidget *combo;
   
-  combo = g_object_new (TYPE_XFCE_MIXER_CARD_COMBO, NULL);
+  combo = g_object_new (XFCE_TYPE_MIXER_CARD_COMBO, NULL);
 
   xfce_mixer_card_combo_set_active_card (XFCE_MIXER_CARD_COMBO (combo), card);
 
@@ -170,7 +165,7 @@ xfce_mixer_card_combo_get_active_card (XfceMixerCardCombo *combo)
   GstElement *card = NULL;
   GtkTreeIter iter;
 
-  g_return_val_if_fail (IS_XFCE_MIXER_CARD_COMBO (combo), NULL);
+  g_return_val_if_fail (XFCE_IS_MIXER_CARD_COMBO (combo), NULL);
   
   if (G_LIKELY (gtk_combo_box_get_active_iter (GTK_COMBO_BOX (combo), &iter)))
     gtk_tree_model_get (GTK_TREE_MODEL (combo->list_store), &iter, CARD_COLUMN, &card, -1);
@@ -188,7 +183,7 @@ xfce_mixer_card_combo_set_active_card (XfceMixerCardCombo *combo,
   GtkTreeIter iter;
   gboolean    valid_iter;
 
-  g_return_if_fail (IS_XFCE_MIXER_CARD_COMBO (combo));
+  g_return_if_fail (XFCE_IS_MIXER_CARD_COMBO (combo));
 
   if (G_LIKELY (GST_IS_MIXER (card)))
     {

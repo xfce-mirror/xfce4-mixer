@@ -23,17 +23,8 @@
 
 G_BEGIN_DECLS
 
-typedef struct _XfceMixerApplicationClass XfceMixerApplicationClass;
-typedef struct _XfceMixerApplication      XfceMixerApplication;
-
-#define TYPE_XFCE_MIXER_APPLICATION            (xfce_mixer_application_get_type ())
-#define XFCE_MIXER_APPLICATION(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), TYPE_XFCE_MIXER_APPLICATION, XfceMixerApplication))
-#define XFCE_MIXER_APPLICATION_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), TYPE_XFCE_MIXER_APPLICATION, XfceMixerApplicationClass))
-#define IS_XFCE_MIXER_APPLICATION(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), TYPE_XFCE_MIXER_APPLICATION))
-#define IS_XFCE_MIXER_APPLICATION_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), TYPE_XFCE_MIXER_APPLICATION))
-#define XFCE_MIXER_APPLICATION_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), TYPE_XFCE_MIXER_APPLICATION, XfceMixerApplicationClass))
-
-GType         xfce_mixer_application_get_type        (void) G_GNUC_CONST;
+#define XFCE_TYPE_MIXER_APPLICATION (xfce_mixer_application_get_type ())
+G_DECLARE_FINAL_TYPE (XfceMixerApplication, xfce_mixer_application, XFCE, MIXER_APPLICATION, GtkApplication)
 
 GApplication *xfce_mixer_application_new             (void);
 

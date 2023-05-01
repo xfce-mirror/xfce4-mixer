@@ -22,7 +22,8 @@ config.*
 stamp-it
 stamp-h1
 POTFILES
-*.m4
+aclocal.m4
+m4/
 *.swp
 .deps
 .libs

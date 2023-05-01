@@ -26,17 +26,8 @@
 
 G_BEGIN_DECLS
 
-typedef struct _XfceMixerTrackClass XfceMixerTrackClass;
-typedef struct _XfceMixerTrack      XfceMixerTrack;
-
-#define TYPE_XFCE_MIXER_TRACK            (xfce_mixer_track_get_type ())
-#define XFCE_MIXER_TRACK(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), TYPE_XFCE_MIXER_TRACK, XfceMixerTrack))
-#define XFCE_MIXER_TRACK_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), TYPE_XFCE_MIXER_TRACK, XfceMixerTrackClass))
-#define IS_XFCE_MIXER_TRACK(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), TYPE_XFCE_MIXER_TRACK))
-#define IS_XFCE_MIXER_TRACK_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), TYPE_XFCE_MIXER_TRACK))
-#define XFCE_MIXER_TRACK_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), TYPE_XFCE_MIXER_TRACK, XfceMixerTrackClass))
-
-GType      xfce_mixer_track_get_type      (void) G_GNUC_CONST;
+#define XFCE_TYPE_MIXER_TRACK (xfce_mixer_track_get_type ())
+G_DECLARE_FINAL_TYPE (XfceMixerTrack, xfce_mixer_track, XFCE, MIXER_TRACK, GtkBox)
 
 GtkWidget *xfce_mixer_track_new           (GstElement     *card,
                                            GstMixerTrack  *gst_track);

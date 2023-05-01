@@ -62,11 +62,6 @@ static void  xfce_mixer_track_combo_changed           (XfceMixerTrackCombo      
 
 
 
-struct _XfceMixerTrackComboClass
-{
-  GtkComboBoxClass __parent__;
-};
-
 struct _XfceMixerTrackCombo
 {
   GtkComboBox    __parent__;
@@ -153,7 +148,7 @@ xfce_mixer_track_combo_new (GstElement    *card,
   GtkWidget           *widget;
   XfceMixerTrackCombo *combo;
 
-  widget = g_object_new (TYPE_XFCE_MIXER_TRACK_COMBO, NULL);
+  widget = g_object_new (XFCE_TYPE_MIXER_TRACK_COMBO, NULL);
   combo = XFCE_MIXER_TRACK_COMBO (widget);
 
   xfce_mixer_track_combo_set_soundcard (combo, card);
@@ -215,7 +210,7 @@ void
 xfce_mixer_track_combo_set_soundcard (XfceMixerTrackCombo *combo,
                                       GstElement          *card)
 {
-  g_return_if_fail (IS_XFCE_MIXER_TRACK_COMBO (combo));
+  g_return_if_fail (XFCE_IS_MIXER_TRACK_COMBO (combo));
 
   /* Remember card. If the card is invalid, use the first one available */
   if (GST_IS_MIXER (card))
@@ -241,7 +236,7 @@ xfce_mixer_track_combo_changed (XfceMixerTrackCombo *combo)
   GstMixerTrack *track;
   GtkTreeIter    iter;
 
-  g_return_if_fail (IS_XFCE_MIXER_TRACK_COMBO (combo));
+  g_return_if_fail (XFCE_IS_MIXER_TRACK_COMBO (combo));
 
   if (G_LIKELY (gtk_combo_box_get_active_iter (GTK_COMBO_BOX (combo), &iter)))
     {
@@ -258,7 +253,7 @@ xfce_mixer_track_combo_get_active_track (XfceMixerTrackCombo *combo)
   GstMixerTrack *track = NULL;
   GtkTreeIter    iter;
 
-  g_return_val_if_fail (IS_XFCE_MIXER_TRACK_COMBO (combo), NULL);
+  g_return_val_if_fail (XFCE_IS_MIXER_TRACK_COMBO (combo), NULL);
 
   if (G_LIKELY (gtk_combo_box_get_active_iter (GTK_COMBO_BOX (combo), &iter)))
     gtk_tree_model_get (GTK_TREE_MODEL (combo->list_store), &iter, TRACK_COLUMN, &track, -1);
@@ -274,7 +269,7 @@ xfce_mixer_track_combo_set_active_track (XfceMixerTrackCombo *combo,
   GtkTreeIter    iter;
   gboolean       valid_iter;
 
-  g_return_if_fail (IS_XFCE_MIXER_TRACK_COMBO (combo));
+  g_return_if_fail (XFCE_IS_MIXER_TRACK_COMBO (combo));
 
   if (G_UNLIKELY (!GST_IS_MIXER_TRACK (track)))
     {
