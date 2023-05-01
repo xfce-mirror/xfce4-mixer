@@ -33,7 +33,6 @@
 
 #include <libxfce4util/libxfce4util.h>
 #include <libxfce4ui/libxfce4ui.h>
-#include <libxfce4panel/libxfce4panel.h>
 #include <xfconf/xfconf.h>
 
 #ifdef HAVE_KEYBINDER
@@ -120,14 +119,6 @@ static void     xfce_mixer_plugin_mute_pressed            (const char         *k
                                                            void               *user_data);
 #endif
 
-
-
-
-struct _XfceMixerPluginClass
-{
-  /* Parent class */
-  XfcePanelPluginClass __parent__;
-};
 
 
 
@@ -637,7 +628,7 @@ xfce_mixer_plugin_screen_position_changed (XfcePanelPlugin    *plugin,
 {
   XfceMixerPlugin *mixer_plugin = XFCE_MIXER_PLUGIN (plugin);
 
-  g_return_if_fail (IS_XFCE_MIXER_PLUGIN (mixer_plugin));
+  g_return_if_fail (XFCE_IS_MIXER_PLUGIN (mixer_plugin));
   g_return_if_fail (GTK_IS_WIDGET (mixer_plugin->button));
 
   xfce_volume_button_set_screen_position (XFCE_VOLUME_BUTTON (mixer_plugin->button), screen_position);
@@ -665,7 +656,7 @@ xfce_mixer_plugin_get_volume (XfceMixerPlugin *mixer_plugin)
   gint *volumes;
   gint  volume;
 
-  g_return_val_if_fail (IS_XFCE_MIXER_PLUGIN (mixer_plugin), 0);
+  g_return_val_if_fail (XFCE_IS_MIXER_PLUGIN (mixer_plugin), 0);
   g_return_val_if_fail (GST_IS_MIXER (mixer_plugin->card), 0);
   g_return_val_if_fail (GST_IS_MIXER_TRACK (mixer_plugin->track), 0);
 
@@ -688,7 +679,7 @@ xfce_mixer_plugin_set_volume (XfceMixerPlugin *mixer_plugin,
   gint *volumes;
   gint  i;
 
-  g_return_if_fail (IS_XFCE_MIXER_PLUGIN (mixer_plugin));
+  g_return_if_fail (XFCE_IS_MIXER_PLUGIN (mixer_plugin));
   g_return_if_fail (GST_IS_MIXER (mixer_plugin->card));
   g_return_if_fail (GST_IS_MIXER_TRACK (mixer_plugin->track));
 
@@ -720,7 +711,7 @@ xfce_mixer_plugin_get_muted (XfceMixerPlugin *mixer_plugin)
   XfceMixerTrackType track_type;
   gboolean           muted = FALSE;
 
-  g_return_val_if_fail (IS_XFCE_MIXER_PLUGIN (mixer_plugin), FALSE);
+  g_return_val_if_fail (XFCE_IS_MIXER_PLUGIN (mixer_plugin), FALSE);
   g_return_val_if_fail (GST_IS_MIXER (mixer_plugin->card), FALSE);
   g_return_val_if_fail (GST_IS_MIXER_TRACK (mixer_plugin->track), FALSE);
 
@@ -742,7 +733,7 @@ xfce_mixer_plugin_set_muted (XfceMixerPlugin *mixer_plugin,
 {
   XfceMixerTrackType track_type;
 
-  g_return_if_fail (IS_XFCE_MIXER_PLUGIN (mixer_plugin));
+  g_return_if_fail (XFCE_IS_MIXER_PLUGIN (mixer_plugin));
   g_return_if_fail (GST_IS_MIXER (mixer_plugin->card));
   g_return_if_fail (GST_IS_MIXER_TRACK (mixer_plugin->track));
 
@@ -785,7 +776,7 @@ xfce_mixer_plugin_update_volume (XfceMixerPlugin *mixer_plugin,
 {
   gdouble button_volume;
 
-  g_return_if_fail (IS_XFCE_MIXER_PLUGIN (mixer_plugin));
+  g_return_if_fail (XFCE_IS_MIXER_PLUGIN (mixer_plugin));
   g_return_if_fail (GST_IS_MIXER (mixer_plugin->card));
   g_return_if_fail (GST_IS_MIXER_TRACK (mixer_plugin->track));
 
@@ -804,7 +795,7 @@ static void
 xfce_mixer_plugin_update_muted (XfceMixerPlugin *mixer_plugin,
                                 gboolean         muted)
 {
-  g_return_if_fail (IS_XFCE_MIXER_PLUGIN (mixer_plugin));
+  g_return_if_fail (XFCE_IS_MIXER_PLUGIN (mixer_plugin));
 
   /* Update the button */
   g_signal_handlers_block_by_func (G_OBJECT (mixer_plugin->button), xfce_mixer_plugin_button_is_muted, mixer_plugin);
@@ -825,7 +816,7 @@ xfce_mixer_plugin_update_track (XfceMixerPlugin *mixer_plugin)
   XfceMixerTrackType track_type;
   gboolean           muted;
 
-  g_return_if_fail (IS_XFCE_MIXER_PLUGIN (mixer_plugin));
+  g_return_if_fail (XFCE_IS_MIXER_PLUGIN (mixer_plugin));
 
   /* Set the volume button to invalid state and return if the card or track is invalid */
   if (!GST_IS_MIXER (mixer_plugin->card) || !GST_IS_MIXER_TRACK (mixer_plugin->track))

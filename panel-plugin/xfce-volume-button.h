@@ -28,17 +28,8 @@
 
 G_BEGIN_DECLS
 
-typedef struct _XfceVolumeButtonClass XfceVolumeButtonClass;
-typedef struct _XfceVolumeButton      XfceVolumeButton;
-
-#define TYPE_XFCE_VOLUME_BUTTON            (xfce_volume_button_get_type ())
-#define XFCE_VOLUME_BUTTON(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), TYPE_XFCE_VOLUME_BUTTON, XfceVolumeButton))
-#define XFCE_VOLUME_BUTTON_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), TYPE_XFCE_VOLUME_BUTTON, XfceVolumeButtonClass))
-#define IS_XFCE_VOLUME_BUTTON(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), TYPE_XFCE_VOLUME_BUTTON))
-#define IS_XFCE_VOLUME_BUTTON_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), TYPE_XFCE_VOLUME_BUTTON))
-#define XFCE_VOLUME_BUTTON_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), TYPE_XFCE_VOLUME_BUTTON, XfceVolumeButtonClass))
-
-GType     xfce_volume_button_get_type           (void) G_GNUC_CONST;
+#define XFCE_TYPE_VOLUME_BUTTON (xfce_volume_button_get_type ())
+G_DECLARE_FINAL_TYPE (XfceVolumeButton, xfce_volume_button, XFCE, VOLUME_BUTTON, GtkToggleButton)
 
 GtkWidget *        xfce_volume_button_new                 (void);
 void               xfce_volume_button_set_no_mute         (XfceVolumeButton   *button,

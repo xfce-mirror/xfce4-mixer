@@ -27,7 +27,6 @@
 
 #include <gst/gst.h>
 
-#include <libxfce4ui/libxfce4ui.h>
 #include <libxfce4panel/libxfce4panel.h>
 #include <xfconf/xfconf.h>
 
@@ -54,13 +53,6 @@ static void xfce_plugin_dialog_soundcard_property_changed (XfcePluginDialog     
 static void xfce_plugin_dialog_track_property_changed     (XfcePluginDialog      *dialog,
                                                            GParamSpec            *pspec,
                                                            GObject               *object);
-
-
-
-struct _XfcePluginDialogClass
-{
-  XfceTitledDialogClass __parent__;
-};
 
 
 
@@ -128,7 +120,7 @@ xfce_plugin_dialog_new (XfcePanelPlugin *plugin)
 {
   XfcePluginDialog *dialog;
 
-  dialog = XFCE_PLUGIN_DIALOG (g_object_new (TYPE_XFCE_PLUGIN_DIALOG, NULL));
+  dialog = XFCE_PLUGIN_DIALOG (g_object_new (XFCE_TYPE_PLUGIN_DIALOG, NULL));
   dialog->plugin = XFCE_MIXER_PLUGIN (plugin);
 
   xfce_plugin_dialog_create_contents (dialog);
@@ -240,7 +232,7 @@ xfce_plugin_dialog_soundcard_property_changed (XfcePluginDialog *dialog,
   gchar       *new_card_name;
   const gchar *old_card_name = NULL;
 
-  g_return_if_fail (IS_XFCE_PLUGIN_DIALOG (dialog));
+  g_return_if_fail (XFCE_IS_PLUGIN_DIALOG (dialog));
   g_return_if_fail (G_IS_OBJECT (object));
   g_return_if_fail (IS_XFCE_MIXER_CARD_COMBO (dialog->card_combo));
   g_return_if_fail (IS_XFCE_MIXER_TRACK_COMBO (dialog->track_combo));
@@ -280,7 +272,7 @@ xfce_plugin_dialog_track_property_changed (XfcePluginDialog *dialog,
   const gchar   *old_track_label = NULL;
   gchar         *new_track_label;
 
-  g_return_if_fail (IS_XFCE_PLUGIN_DIALOG (dialog));
+  g_return_if_fail (XFCE_IS_PLUGIN_DIALOG (dialog));
   g_return_if_fail (G_IS_OBJECT (object));
   g_return_if_fail (IS_XFCE_MIXER_CARD_COMBO (dialog->card_combo));
   g_return_if_fail (IS_XFCE_MIXER_TRACK_COMBO (dialog->track_combo));
