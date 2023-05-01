@@ -1,3 +1,21 @@
+4.18.1 (2023-05-01)
+======
+- panel-plugin: Fix blurry icons when UI scale > 1
+- build: Bump GTK version and fix deprecation warnings
+- build: Bump GTK version and remove dead code
+- panel-plugin: Define glib_autoptr_clear_XfcePanelPlugin if needed
+- mixer-window: Fix exit icon name
+- mixer-container: Fix container type
+- gst-mixer: Properly disconnect signal handlers
+- mixer-track: Ensure max_volume > min_volume for GtkScale
+- sndio: Remove useless G_SOURCE_FUNC casts
+- libxfce4mixer: Use G_DECLARE_FINAL_TYPE and G_DECLARE_DERIVABLE_TYPE
+- panel-plugin: Use G_DECLARE_FINAL_TYPE
+- xfce4-mixer: Use G_DECLARE_FINAL_TYPE
+- Update `.gitignore`
+- build: Remove some duplicate statements
+- build: Decrease make log level
+
 4.18.0 (2023-04-29)
 ======
 - Use g_critical() and don't translate warning message
