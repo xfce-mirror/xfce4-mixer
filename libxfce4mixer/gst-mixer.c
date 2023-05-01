@@ -429,28 +429,28 @@ void gst_mixer_new_track (GstMixer *mixer,
 
   if (IS_OUTPUT(track))
   {
-    g_signal_connect (track, "volume-changed",
-                      G_CALLBACK (gst_mixer_volume_changed),
-                      mixer);
+    g_signal_connect_object (track, "volume-changed",
+                             G_CALLBACK (gst_mixer_volume_changed),
+                             mixer, 0);
 
-    g_signal_connect (track, "mute-changed",
-                      G_CALLBACK (gst_mixer_mute_changed),
-                      mixer);
+    g_signal_connect_object (track, "mute-changed",
+                             G_CALLBACK (gst_mixer_mute_changed),
+                             mixer, 0);
   }
 
   if (IS_INPUT(track))
   {
-    g_signal_connect (track, "volume-changed",
-                      G_CALLBACK (gst_mixer_volume_changed),
-                      mixer);
+    g_signal_connect_object (track, "volume-changed",
+                             G_CALLBACK (gst_mixer_volume_changed),
+                             mixer, 0);
 
-    g_signal_connect (track, "recording-changed",
-                      G_CALLBACK (gst_mixer_recording_changed),
-                      mixer);
+    g_signal_connect_object (track, "recording-changed",
+                             G_CALLBACK (gst_mixer_recording_changed),
+                             mixer, 0);
 
-    g_signal_connect (track, "mute-changed",
-                      G_CALLBACK (gst_mixer_mute_changed),
-                      mixer);
+    g_signal_connect_object (track, "mute-changed",
+                             G_CALLBACK (gst_mixer_mute_changed),
+                             mixer, 0);
   }
 
   priv->tracklist = g_list_append (priv->tracklist, track);
