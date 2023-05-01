@@ -137,6 +137,9 @@ xfce_mixer_track_new (GstElement    *card,
   track->card = card;
   track->gst_track = gst_track;
 
+  /* ensure max_volume > min_volume for GtkScale */
+  gst_track->max_volume = MAX (gst_track->max_volume, gst_track->min_volume + 1);
+
   xfce_mixer_track_create_contents (track);
 
   return GTK_WIDGET (track);
