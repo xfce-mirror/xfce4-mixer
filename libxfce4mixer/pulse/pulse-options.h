@@ -23,24 +23,8 @@
 #include "gst-mixer-options.h"
 #include "pulse-track.h"
 
-#define GST_MIXER_TYPE_PULSE_OPTIONS  gst_mixer_pulse_options_get_type ()
-#define GST_MIXER_PULSE_OPTIONS(o)    (G_TYPE_CHECK_INSTANCE_CAST ((o), GST_MIXER_TYPE_PULSE_OPTIONS, GstMixerPulseOptions))
-
-typedef struct _GstMixerPulseOptions GstMixerPulseOptions;
-typedef struct _GstMixerPulseOptionsClass GstMixerPulseOptionsClass;
-
-struct _GstMixerPulseOptions
-{
-  GstMixerPulseTrack parent;
-  GList *values;
-};
-
-struct _GstMixerPulseOptionsClass
-{
-  GstMixerPulseTrack parent;
-};
-
-GType                 gst_mixer_pulse_options_get_type (void);
+#define GST_MIXER_TYPE_PULSE_OPTIONS (gst_mixer_pulse_options_get_type ())
+G_DECLARE_FINAL_TYPE (GstMixerPulseOptions, gst_mixer_pulse_options, GST_MIXER, PULSE_OPTIONS, GstMixerPulseTrack)
 
 GstMixerPulseOptions *gst_mixer_pulse_options_new      (void);
 

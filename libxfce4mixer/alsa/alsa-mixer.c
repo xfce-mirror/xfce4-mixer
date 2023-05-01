@@ -112,12 +112,14 @@ static const gchar *
 gst_mixer_alsa_get_option (GstMixer *mixer, GstMixerOptions *opts)
 {
   GstMixerAlsaOptions *alsa_opts;
+  GstMixerAlsaTrack *track;
   unsigned int idx;
 
   alsa_opts = GST_MIXER_ALSA_OPTIONS(opts);
-  if (snd_mixer_selem_get_enum_item (alsa_opts->parent.element, 0, &idx) < 0)
+  track = GST_MIXER_ALSA_TRACK (opts);
+  if (snd_mixer_selem_get_enum_item (track->element, 0, &idx) < 0)
     return "error";
-  return g_list_nth_data (alsa_opts->values, idx);
+  return g_list_nth_data (gst_mixer_alsa_options_get_values (alsa_opts), idx);
 }
 
 
@@ -126,13 +128,15 @@ gst_mixer_alsa_set_option (GstMixer *mixer, GstMixerOptions *opts, gchar *value)
 {
   int n = 0;
   GstMixerAlsaOptions *alsa_opts;
+  GstMixerAlsaTrack *track;
   GList *item;
 
   alsa_opts = GST_MIXER_ALSA_OPTIONS(opts);
+  track = GST_MIXER_ALSA_TRACK (opts);
 
-  for (item = alsa_opts->values; item; item = item->next, n++) {
+  for (item = gst_mixer_alsa_options_get_values (alsa_opts); item; item = item->next, n++) {
     if (!strcmp (item->data, value)) {
-      snd_mixer_selem_set_enum_item (alsa_opts->parent.element, 0, n);
+      snd_mixer_selem_set_enum_item (track->element, 0, n);
       break;
     }
   }
@@ -452,4 +456,3 @@ GList *gst_mixer_alsa_probe (GList *card_list)
 
   return card_list;
 }
-

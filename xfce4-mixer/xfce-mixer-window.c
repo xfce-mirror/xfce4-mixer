@@ -304,7 +304,7 @@ xfce_mixer_window_soundcard_changed (XfceMixerCardCombo *combo,
                                      GstElement         *card,
                                      XfceMixerWindow    *window)
 {
-  g_return_if_fail (IS_XFCE_MIXER_CARD_COMBO (combo));
+  g_return_if_fail (XFCE_IS_MIXER_CARD_COMBO (combo));
   g_return_if_fail (XFCE_IS_MIXER_WINDOW (window));
   g_return_if_fail (GST_IS_MIXER (card));
 

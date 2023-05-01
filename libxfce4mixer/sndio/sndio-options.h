@@ -23,24 +23,8 @@
 #include "gst-mixer-options.h"
 #include "sndio-track.h"
 
-#define GST_MIXER_TYPE_SNDIO_OPTIONS  gst_mixer_sndio_options_get_type ()
-#define GST_MIXER_SNDIO_OPTIONS(o)    (G_TYPE_CHECK_INSTANCE_CAST ((o), GST_MIXER_TYPE_PULSE_OPTIONS, GstMixerSndioOptions))
-
-typedef struct _GstMixerSndioOptions GstMixerSndioOptions;
-typedef struct _GstMixerSndioOptionsClass GstMixerSndioOptionsClass;
-
-struct _GstMixerSndioOptions
-{
-  GstMixerSndioTrack parent;
-  GList *values;
-};
-
-struct _GstMixerSndioOptionsClass
-{
-  GstMixerSndioTrack parent;
-};
-
-GType                 gst_mixer_sndio_options_get_type (void);
+#define GST_MIXER_TYPE_SNDIO_OPTIONS (gst_mixer_sndio_options_get_type ())
+G_DECLARE_FINAL_TYPE (GstMixerSndioOptions, gst_mixer_sndio_options, GST_MIXER, SNDIO_OPTIONS, GstMixerSndioTrack)
 
 GstMixerSndioOptions *gst_mixer_sndio_options_new      (void);
 

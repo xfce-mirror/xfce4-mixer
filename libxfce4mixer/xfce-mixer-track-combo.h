@@ -23,22 +23,12 @@
 #define __XFCE_MIXER_TRACK_COMBO_H__
 
 #include <gtk/gtk.h>
-
 #include <gst/gst.h>
 
 G_BEGIN_DECLS
 
-typedef struct _XfceMixerTrackComboClass XfceMixerTrackComboClass;
-typedef struct _XfceMixerTrackCombo      XfceMixerTrackCombo;
-
-#define TYPE_XFCE_MIXER_TRACK_COMBO            (xfce_mixer_track_combo_get_type ())
-#define XFCE_MIXER_TRACK_COMBO(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), TYPE_XFCE_MIXER_TRACK_COMBO, XfceMixerTrackCombo))
-#define XFCE_MIXER_TRACK_COMBO_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), TYPE_XFCE_MIXER_TRACK_COMBO, XfceMixerTrackComboClass))
-#define IS_XFCE_MIXER_TRACK_COMBO(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), TYPE_XFCE_MIXER_TRACK_COMBO))
-#define IS_XFCE_MIXER_TRACK_COMBO_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), TYPE_XFCE_MIXER_TRACK_COMBO))
-#define XFCE_MIXER_TRACK_COMBO_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), TYPE_XFCE_MIXER_TRACK_COMBO, XfceMixerTrackComboClass))
-
-GType          xfce_mixer_track_combo_get_type         (void) G_GNUC_CONST;
+#define XFCE_TYPE_MIXER_TRACK_COMBO (xfce_mixer_track_combo_get_type ())
+G_DECLARE_FINAL_TYPE (XfceMixerTrackCombo, xfce_mixer_track_combo, XFCE, MIXER_TRACK_COMBO, GtkComboBox)
 
 GtkWidget     *xfce_mixer_track_combo_new              (GstElement          *card,
                                                         GstMixerTrack       *track);

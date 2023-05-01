@@ -22,12 +22,16 @@
 
 G_BEGIN_DECLS
 
+typedef struct _GstMixerTrack GstMixerTrack;
+typedef struct _GstMixerTrackClass GstMixerTrackClass;
+
 #define GST_TYPE_MIXER_TRACK                (gst_mixer_track_get_type ())
 #define GST_MIXER_TRACK(o)                  (G_TYPE_CHECK_INSTANCE_CAST ((o), GST_TYPE_MIXER_TRACK, GstMixerTrack))
 #define GST_MIXER_TRACK_CLASS(k)            (G_TYPE_CHECK_CLASS_CAST((k), GST_TYPE_MIXER_TRACK, GstMixerTrackClass))
 #define GST_IS_MIXER_TRACK(o)               (G_TYPE_CHECK_INSTANCE_TYPE ((o), GST_TYPE_MIXER_TRACK))
 #define GST_IS_MIXER_TRACK_CLASS(k)         (G_TYPE_CHECK_CLASS_TYPE ((k), GST_TYPE_MIXER_TRACK))
 #define GST_MIXER_TRACK_GET_CLASS(o)        (G_TYPE_INSTANCE_GET_CLASS ((o), GST_TYPE_MIXER_TRACK, GstMixerTrackClass))
+G_DEFINE_AUTOPTR_CLEANUP_FUNC (GstMixerTrack, g_object_unref)
 
 typedef enum {
   GST_MIXER_TRACK_NONE = (1<<0),
@@ -65,9 +69,6 @@ typedef enum {
 #define HAS_SWITCH(track) gst_mixer_track_get_has_switch(GST_MIXER_TRACK(track))
 #define HAS_VOLUME(track) gst_mixer_track_get_has_volume(GST_MIXER_TRACK(track))
 #define NUM_CHANNELS(track) gst_mixer_track_get_num_channels(GST_MIXER_TRACK(track))
-
-typedef struct _GstMixerTrack GstMixerTrack;
-typedef struct _GstMixerTrackClass GstMixerTrackClass;
 
 struct _GstMixerTrack
 {

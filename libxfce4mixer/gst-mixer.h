@@ -50,9 +50,6 @@ typedef enum {
 } GstMixerMessageType;
 
 
-typedef struct _GstMixer GstMixer;
-
-
 struct _GstMixerClass
 {
   GstElementClass parent_class;

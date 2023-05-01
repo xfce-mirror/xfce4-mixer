@@ -234,8 +234,8 @@ xfce_plugin_dialog_soundcard_property_changed (XfcePluginDialog *dialog,
 
   g_return_if_fail (XFCE_IS_PLUGIN_DIALOG (dialog));
   g_return_if_fail (G_IS_OBJECT (object));
-  g_return_if_fail (IS_XFCE_MIXER_CARD_COMBO (dialog->card_combo));
-  g_return_if_fail (IS_XFCE_MIXER_TRACK_COMBO (dialog->track_combo));
+  g_return_if_fail (XFCE_IS_MIXER_CARD_COMBO (dialog->card_combo));
+  g_return_if_fail (XFCE_IS_MIXER_TRACK_COMBO (dialog->track_combo));
 
   g_object_get (object, "sound-card", &new_card_name, NULL);
   if (new_card_name != NULL)
@@ -274,8 +274,8 @@ xfce_plugin_dialog_track_property_changed (XfcePluginDialog *dialog,
 
   g_return_if_fail (XFCE_IS_PLUGIN_DIALOG (dialog));
   g_return_if_fail (G_IS_OBJECT (object));
-  g_return_if_fail (IS_XFCE_MIXER_CARD_COMBO (dialog->card_combo));
-  g_return_if_fail (IS_XFCE_MIXER_TRACK_COMBO (dialog->track_combo));
+  g_return_if_fail (XFCE_IS_MIXER_CARD_COMBO (dialog->card_combo));
+  g_return_if_fail (XFCE_IS_MIXER_TRACK_COMBO (dialog->track_combo));
 
   g_object_get (object, "track", &new_track_label, NULL);
 

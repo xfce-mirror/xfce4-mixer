@@ -26,6 +26,11 @@
 #include "alsa-options.h"
 #include "gst-mixer.h"
 
+struct _GstMixerAlsaOptions
+{
+  GstMixerAlsaTrack parent;
+  GList *values;
+};
 
 G_DEFINE_TYPE (GstMixerAlsaOptions, gst_mixer_alsa_options, GST_MIXER_TYPE_ALSA_TRACK)
 
@@ -91,3 +96,8 @@ GstMixerAlsaOptions *gst_mixer_alsa_options_new (snd_mixer_elem_t *element,
   return options;
 }
 
+GList *gst_mixer_alsa_options_get_values (GstMixerAlsaOptions *opts)
+{
+  g_return_val_if_fail (GST_MIXER_IS_ALSA_OPTIONS (opts), NULL);
+  return opts->values;
+}

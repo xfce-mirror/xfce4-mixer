@@ -22,12 +22,13 @@
 
 #include "gst-mixer-track.h"
 
+typedef struct _GstMixerOssTrack GstMixerOssTrack;
+typedef struct _GstMixerOssTrackClass GstMixerOssTrackClass;
+
 #define GST_MIXER_TYPE_OSS_TRACK            gst_mixer_oss_track_get_type ()
 #define GST_MIXER_OSS_TRACK(o)             (G_TYPE_CHECK_INSTANCE_CAST ((o), GST_MIXER_TYPE_OSS_TRACK, GstMixerOssTrack))
 #define GST_MIXER_IS_OSS_TRACK(o)          (G_TYPE_CHECK_INSTANCE_TYPE ((o), GST_MIXER_TYPE_OSS_TRACK))
-
-typedef struct _GstMixerOssTrack GstMixerOssTrack;
-typedef struct _GstMixerOssTrackClass GstMixerOssTrackClass;
+G_DEFINE_AUTOPTR_CLEANUP_FUNC (GstMixerOssTrack, g_object_unref)
 
 struct _GstMixerOssTrack
 {

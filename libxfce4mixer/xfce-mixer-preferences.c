@@ -57,11 +57,6 @@ static GPtrArray *xfce_mixer_preferences_get_default_tracks (XfceMixerPreference
 
 
 
-struct _XfceMixerPreferencesClass
-{
-  GObjectClass __parent__;
-};
-
 struct _XfceMixerPreferences
 {
   GObject        __parent__;
@@ -289,7 +284,7 @@ xfce_mixer_preferences_get (void)
 
   if (G_UNLIKELY (preferences == NULL))
     {
-      preferences = g_object_new (TYPE_XFCE_MIXER_PREFERENCES, NULL);
+      preferences = g_object_new (XFCE_TYPE_MIXER_PREFERENCES, NULL);
       g_object_add_weak_pointer (G_OBJECT (preferences), (gpointer) &preferences);
     }
   else
@@ -304,7 +299,7 @@ void
 xfce_mixer_preferences_set_controls (XfceMixerPreferences *preferences,
                                      GPtrArray            *controls)
 {
-  g_return_if_fail (IS_XFCE_MIXER_PREFERENCES (preferences));
+  g_return_if_fail (XFCE_IS_MIXER_PREFERENCES (preferences));
   g_return_if_fail (controls != NULL);
 
   g_object_set (G_OBJECT (preferences), "controls", controls, NULL);
@@ -317,7 +312,7 @@ xfce_mixer_preferences_get_controls (XfceMixerPreferences *preferences)
 {
   GPtrArray *controls;
 
-  g_return_val_if_fail (IS_XFCE_MIXER_PREFERENCES (preferences), NULL);
+  g_return_val_if_fail (XFCE_IS_MIXER_PREFERENCES (preferences), NULL);
 
   g_object_get (G_OBJECT (preferences), "controls", &controls, NULL);
 
@@ -333,7 +328,7 @@ xfce_mixer_preferences_get_control_visible (XfceMixerPreferences *preferences,
   gboolean       visible = FALSE;
   guint          i;
 
-  g_return_val_if_fail (IS_XFCE_MIXER_PREFERENCES (preferences), FALSE);
+  g_return_val_if_fail (XFCE_IS_MIXER_PREFERENCES (preferences), FALSE);
   g_return_val_if_fail (preferences->controls != NULL, FALSE);
 
   for (i = 0; i < preferences->controls->len; ++i)
