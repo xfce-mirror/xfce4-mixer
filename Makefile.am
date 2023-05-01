@@ -29,9 +29,6 @@ SUBDIRS =								\
 	xfce4-mixer							\
 	po
 
-AUTOMAKE_OPTIONS =							\
-	dist-bzip2
-
 distclean-local:
 	rm -rf *.cache *~ ChangeLog
 
