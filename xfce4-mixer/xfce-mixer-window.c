@@ -211,7 +211,7 @@ G_GNUC_END_IGNORE_DEPRECATIONS
 
   button = gtk_button_new_with_mnemonic (_("_Quit"));
   gtk_button_set_image (GTK_BUTTON (button),
-                        gtk_image_new_from_icon_name ("exit", GTK_ICON_SIZE_BUTTON));
+                        gtk_image_new_from_icon_name ("application-exit", GTK_ICON_SIZE_BUTTON));
   gtk_actionable_set_action_name (GTK_ACTIONABLE (button), "app.quit");
   gtk_box_pack_start (GTK_BOX (bbox), button, FALSE, TRUE, 0);
   gtk_widget_show (button);
