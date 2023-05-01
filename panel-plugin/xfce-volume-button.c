@@ -273,7 +273,7 @@ xfce_volume_button_init (XfceVolumeButton *button)
   button->is_muted = TRUE;
 
   /* Create a new scaled image for the button icon */
-  button->image = xfce_panel_image_new ();
+  button->image = gtk_image_new ();
   gtk_container_add (GTK_CONTAINER (button), button->image);
   gtk_widget_show (button->image);
 
@@ -581,9 +581,9 @@ xfce_volume_button_popup_dock (XfceVolumeButton *button)
   GtkWidget       *button_widget = GTK_WIDGET (button);
   GtkOrientation   orientation;
   GtkRequisition   dock_requisition;
-  GdkScreen       *screen;
+  GdkDisplay      *display;
+  GdkMonitor      *gdkmonitor;
   GdkRectangle     monitor;
-  gint             monitor_num;
   gint             window_x;
   gint             window_y;
   GdkWindow       *window;
@@ -626,10 +626,10 @@ xfce_volume_button_popup_dock (XfceVolumeButton *button)
   y += button_allocation.y;
 
   /* Determine the geometry of the monitor containing the window containing the button */
-  screen = gtk_widget_get_screen (button_widget);
+  display = gtk_widget_get_display (button_widget);
   window = gtk_widget_get_window (GTK_WIDGET (button));
-  monitor_num = gdk_screen_get_monitor_at_window (screen, window);
-  gdk_screen_get_monitor_geometry (screen, monitor_num, &monitor);
+  gdkmonitor = gdk_display_get_monitor_at_window (display, window);
+  gdk_monitor_get_geometry (gdkmonitor, &monitor);
 
   /* Determine the position of the window containing the button */
   if (xfce_screen_position_is_top (button->screen_position))
@@ -843,7 +843,7 @@ xfce_volume_button_update (XfceVolumeButton *button)
 
   /* Update the button icon */
   if (G_LIKELY (pixbuf != NULL))
-    xfce_panel_image_set_from_pixbuf (XFCE_PANEL_IMAGE (button->image), pixbuf);
+    gtk_image_set_from_pixbuf (GTK_IMAGE (button->image), pixbuf);
 
   /* Update the tooltip */
   if (!button->is_configured)
