@@ -146,9 +146,6 @@ struct _XfceVolumeButton
   /* Icon size currently used */
   gint                 icon_size;
 
-  /* Array of preloaded icons */
-  GdkPixbuf          **pixbufs;
-
   /* Track label used in tooltip */
   gchar               *track_label;
 
@@ -260,9 +257,6 @@ xfce_volume_button_init (XfceVolumeButton *button)
   /* Default position is floating horizontal */
   button->screen_position = XFCE_SCREEN_POSITION_FLOATING_H;
 
-  /* Allocate array for preloaded icons */
-  button->pixbufs = g_new0 (GdkPixbuf*, G_N_ELEMENTS (icons)-1);
-
   /* Create adjustment for the button (from 0.0 to 1.0 in 5% steps) */
   button->adjustment = gtk_adjustment_new (0.0, 0.0, 1.0, 0.01, 0.05, 0.0);
 
@@ -306,8 +300,6 @@ xfce_volume_button_dispose (GObject *object)
 static void
 xfce_volume_button_finalize (GObject *object)
 {
-  guint i;
-
   XfceVolumeButton *button = XFCE_VOLUME_BUTTON (object);
 
   if (button->dock != NULL)
@@ -315,12 +307,6 @@ xfce_volume_button_finalize (GObject *object)
       gtk_widget_destroy (button->dock);
       button->dock = NULL;
     }
-
-  /* Free pre-allocated icon pixbufs */
-  for (i = 0; i < G_N_ELEMENTS (icons)-1; ++i)
-    if (GDK_IS_PIXBUF (button->pixbufs[i]))
-      g_object_unref (G_OBJECT (button->pixbufs[i]));
-  g_free (button->pixbufs);
 
   if (button->track_label != NULL)
     {
@@ -809,12 +795,12 @@ xfce_volume_button_scroll_event (GtkWidget      *widget,
 void 
 xfce_volume_button_update (XfceVolumeButton *button)
 {
-  GdkPixbuf *pixbuf = NULL;
+  XfcePanelPlugin *plugin;
   gdouble    upper;
   gdouble    lower;
   gdouble    value;
   gdouble    range;
-  guint      i;
+  guint      i = 0;
   gchar     *tip_text;
 
   g_return_if_fail (XFCE_IS_VOLUME_BUTTON (button));
@@ -825,25 +811,20 @@ xfce_volume_button_update (XfceVolumeButton *button)
   /* Determine the difference between upper and lower bound (= volume range) */
   range = (upper - lower) / (G_N_ELEMENTS (icons) - 2);
 
-  if (G_UNLIKELY (!button->is_configured || button->is_muted || value < VOLUME_EPSILON))
-    {
-      /* By definition, use the first icon if the button is muted or the volume is 0% */
-      pixbuf = button->pixbufs[0];
-    }
-  else
+  /* By definition, use the first icon if the button is muted or the volume is 0% */
+  if (G_LIKELY (button->is_configured && !button->is_muted && value >= VOLUME_EPSILON))
     {
       /* Find the correct icon for the current volume */
       for (i = 1; i < G_N_ELEMENTS (icons) - 1; ++i)
         if (value <= range * i)
-          {
-            pixbuf = button->pixbufs[i];
-            break;
-          }
+          break;
     }
 
   /* Update the button icon */
-  if (G_LIKELY (pixbuf != NULL))
-    gtk_image_set_from_pixbuf (GTK_IMAGE (button->image), pixbuf);
+  gtk_image_set_from_icon_name (GTK_IMAGE (button->image), icons[i], GTK_ICON_SIZE_BUTTON);
+  plugin = XFCE_PANEL_PLUGIN (gtk_widget_get_ancestor (GTK_WIDGET (button), XFCE_TYPE_PANEL_PLUGIN));
+  if (plugin != NULL)
+    gtk_image_set_pixel_size (GTK_IMAGE (button->image), xfce_panel_plugin_get_icon_size (plugin));
 
   /* Update the tooltip */
   if (!button->is_configured)
@@ -866,23 +847,8 @@ static void
 xfce_volume_button_update_icons (XfceVolumeButton *button,
                                  GtkIconTheme     *icon_theme)
 {
-  guint i;
-
   g_return_if_fail (XFCE_IS_VOLUME_BUTTON (button));
   g_return_if_fail (GTK_IS_ICON_THEME (icon_theme));
-
-  /* Pre-load all icons */
-  for (i = 0; i < G_N_ELEMENTS (icons)-1; ++i)
-    {
-      if (GDK_IS_PIXBUF (button->pixbufs[i]))
-        g_object_unref (G_OBJECT (button->pixbufs[i]));
-
-      button->pixbufs[i] = gtk_icon_theme_load_icon (icon_theme,
-                                                     icons[i],
-                                                     button->icon_size,
-                                                     GTK_ICON_LOOKUP_USE_BUILTIN,
-                                                     NULL);
-    }
 
   /* Update the state of the button */
   xfce_volume_button_update (button);
