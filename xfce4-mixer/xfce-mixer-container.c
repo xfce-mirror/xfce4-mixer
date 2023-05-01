@@ -243,7 +243,10 @@ xfce_mixer_container_create_contents (XfceMixerContainer *mixer_container)
       gtk_container_set_border_width (GTK_CONTAINER (scrollwins[i]), 6);
       gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrollwins[i]), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
       gtk_scrolled_window_set_overlay_scrolling(GTK_SCROLLED_WINDOW (scrollwins[i]), FALSE);
-      views[i] = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
+      if (i < 2)
+        views[i] = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
+      else
+        views[i] = gtk_grid_new ();
       g_object_set (G_OBJECT (views[i]), "border-width", 6, NULL);
       gtk_container_add (GTK_CONTAINER (scrollwins[i]), views[i]);
       gtk_viewport_set_shadow_type (GTK_VIEWPORT (gtk_bin_get_child (GTK_BIN (scrollwins[i]))), GTK_SHADOW_NONE);
