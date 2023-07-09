@@ -6,13 +6,14 @@
 # Andre Miranda <andre@andreldm.com>, 2016
 # Fábio Nogueira <deb-user-ba@ubuntu.com>, 2008
 # secipolla <secipolla@gmail.com>, 2011
+# The Cat, 2023
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-05-30 00:51+0200\n"
 "PO-Revision-Date: 2013-07-03 18:38+0000\n"
-"Last-Translator: Andre Miranda <andre@andreldm.com>, 2016\n"
+"Last-Translator: The Cat, 2023\n"
 "Language-Team: Portuguese (Brazil) (http://app.transifex.com/xfce/xfce-apps/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -103,15 +104,15 @@ msgstr "Ajusta os níveis de volume"
 #: ../libxfce4mixer/pulse/pulse-mixer.c:881
 #: ../libxfce4mixer/pulse/pulse-mixer.c:930
 msgid "Card"
-msgstr ""
+msgstr "Cartão"
 
 #: ../libxfce4mixer/pulse/pulse-mixer.c:993
 msgid "Pulse Audio Volume Control"
-msgstr ""
+msgstr "Controle de Volume do Pulse Audio"
 
 #: ../libxfce4mixer/sndio/sndio-mixer.c:386
 msgid "Sndio Volume Control"
-msgstr ""
+msgstr "Controle de Volume do Sndio"
 
 #: ../xfce4-mixer/xfce-mixer-application.c:73
 msgid "Enable debugging output"
