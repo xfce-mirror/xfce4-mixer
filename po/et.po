@@ -1,0 +1,191 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Priit Jõerüüt <transifex@joeruut.com>, 2020,2023
+msgid ""
+msgstr ""
+"Project-Id-Version: Xfce Apps\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-05-30 00:51+0200\n"
+"PO-Revision-Date: 2013-07-03 18:38+0000\n"
+"Last-Translator: Priit Jõerüüt <transifex@joeruut.com>, 2020,2023\n"
+"Language-Team: Estonian (http://app.transifex.com/xfce/xfce-apps/language/et/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: et\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. Add menu item for muting
+#: ../panel-plugin/xfce-mixer-plugin.c:298
+msgid "Mu_te"
+msgstr "Summu_ta"
+
+#. Add menu item for running the user-defined command
+#: ../panel-plugin/xfce-mixer-plugin.c:304
+msgid "Run Audio Mi_xer"
+msgstr "Käivita _Helipult"
+
+#: ../panel-plugin/xfce-mixer-plugin.c:572
+#: ../xfce4-mixer/xfce-mixer-application.c:157
+msgid ""
+"GStreamer was unable to detect any sound devices. Some sound system specific"
+" GStreamer packages may be missing. It may also be a permissions problem."
+msgstr "GStreamer ei suutnud ühtegi healiseadet tuvastada. Võib-olla on mõned helisüsteemi jaoks olulised GStreameri pakid paigaldamata. Aga samuti võib olla küsimus rakenduse õigustes."
+
+#: ../panel-plugin/xfce-mixer-plugin.c:946
+msgid "No command defined"
+msgstr "Käsk on määratlemata"
+
+#. Generate error message and insert the current command
+#: ../panel-plugin/xfce-mixer-plugin.c:954
+#, c-format
+msgid ""
+"Could not execute the command \"%s\". Ensure that either the location of the"
+" command is included in the PATH environment variable or that you are "
+"providing the full path to the command."
+msgstr "„%s“ käsu käivitamine ei õnnestunud. Palun kontrolli, et kas käsufailide asukoht oleks PATH keskkonnamuutujates määratud või sa oled käsule lisanud täispika asukoha."
+
+#: ../panel-plugin/xfce-plugin-dialog.c:141
+msgid "Audio Mixer Plugin"
+msgstr "Helipuldi pistikprogramm"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:143
+msgid "Configure the sound card and mixer track"
+msgstr "Seadista helikaarti ning -sisendit ja -väljundit"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:145
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:115
+msgid "_Close"
+msgstr "_Sulge"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:156
+#: ../xfce4-mixer/xfce-mixer-window.c:176
+msgid "Sound _card:"
+msgstr "Heli_kaart:"
+
+#: ../panel-plugin/xfce-plugin-dialog.c:166
+msgid "Mixer _track:"
+msgstr "Helimikseri _rada:"
+
+#: ../panel-plugin/xfce-volume-button.c:831
+msgid "No valid device and/or element."
+msgstr "Ei leidu õiget seadet ja/või elementi."
+
+#: ../panel-plugin/xfce-volume-button.c:836
+#, c-format
+msgid "%s: muted"
+msgstr "%s: summutatud"
+
+#: ../panel-plugin/xfce-volume-button.c:838
+#, c-format
+msgid "%s: %i%%"
+msgstr "%s: %i%%"
+
+#. Set application name
+#: ../panel-plugin/mixer.desktop.in.h:1 ../xfce4-mixer/main.c:45
+#: ../xfce4-mixer/xfce-mixer-window.c:156
+#: ../xfce4-mixer/xfce-mixer-window.c:441
+#: ../xfce4-mixer/xfce-mixer-window.c:455
+#: ../xfce4-mixer/xfce4-mixer.desktop.in.h:1
+msgid "Audio Mixer"
+msgstr "Helipult"
+
+#: ../panel-plugin/mixer.desktop.in.h:2
+#: ../xfce4-mixer/xfce4-mixer.desktop.in.h:2
+msgid "Adjust volume levels"
+msgstr "Kohanda helitaset"
+
+#: ../libxfce4mixer/pulse/pulse-mixer.c:881
+#: ../libxfce4mixer/pulse/pulse-mixer.c:930
+msgid "Card"
+msgstr "Kaart"
+
+#: ../libxfce4mixer/pulse/pulse-mixer.c:993
+msgid "Pulse Audio Volume Control"
+msgstr "Pulse Audio helihaldus"
+
+#: ../libxfce4mixer/sndio/sndio-mixer.c:386
+msgid "Sndio Volume Control"
+msgstr "Sndio helihaldus"
+
+#: ../xfce4-mixer/xfce-mixer-application.c:73
+msgid "Enable debugging output"
+msgstr "Lülita silumisväljund sisse"
+
+#: ../xfce4-mixer/xfce-mixer-application.c:74
+msgid "Show version and exit"
+msgstr "Näita versiooniteavet ja lõpeta rakenduse töö"
+
+#: ../xfce4-mixer/xfce-mixer-container.c:214
+msgid "_Playback"
+msgstr "_Taasesitus"
+
+#: ../xfce4-mixer/xfce-mixer-container.c:214
+msgid "C_apture"
+msgstr "_Salvestus"
+
+#: ../xfce4-mixer/xfce-mixer-container.c:214
+msgid "S_witches"
+msgstr "_Nupud"
+
+#: ../xfce4-mixer/xfce-mixer-container.c:214
+msgid "_Options"
+msgstr "_Valikud"
+
+#: ../xfce4-mixer/xfce-mixer-container.c:467
+msgid "No controls visible"
+msgstr "Juhtnuppe ei paista"
+
+#: ../xfce4-mixer/xfce-mixer-container.c:476
+msgid "<span weight=\"bold\" size=\"larger\">No controls visible</span>"
+msgstr "<span weight=\"bold\" size=\"larger\">Juhtnuppe ei paista</span>"
+
+#: ../xfce4-mixer/xfce-mixer-container.c:482
+msgid ""
+"In order to toggle the visibility of mixer controls, open the <b>\"Select "
+"Controls\"</b> dialog."
+msgstr "Helipuldi juhtnuppude kuvamiseks või peitmiseks palun kasuta vaadet <b>Vali juhtnupud</b>."
+
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:111
+msgid "Select Controls"
+msgstr "Vali juhtnupud"
+
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:113
+msgid "Select which controls should be visible"
+msgstr "Vali kuvatavad juhtnupud"
+
+#: ../xfce4-mixer/xfce-mixer-track.c:242
+#, c-format
+msgid "Volume of channel %d on %s"
+msgstr "Kanali %d helitugevus %s"
+
+#. Lock button
+#: ../xfce4-mixer/xfce-mixer-track.c:279
+#, c-format
+msgid "Lock channels for %s together"
+msgstr "Lukusta %s kanalite helitasemed sarnaselt"
+
+#: ../xfce4-mixer/xfce-mixer-track.c:323
+#, c-format
+msgid "Mute/unmute %s"
+msgstr "Lülita %s summutamine sisse/välja"
+
+#: ../xfce4-mixer/xfce-mixer-track.c:343
+#, c-format
+msgid "Enable/disable audible input from %s in output"
+msgstr "Lülita väljundist sisse/välja %s sisendist kuuldav sisend"
+
+#: ../xfce4-mixer/xfce-mixer-window.c:159
+msgid "Configure sound card(s) and control the volume of selected tracks"
+msgstr "Seadista helikaarte ja reguleeri valitud lugude helitugevust"
+
+#: ../xfce4-mixer/xfce-mixer-window.c:204
+msgid "_Select Controls..."
+msgstr "_Vali juhtnupud..."
+
+#: ../xfce4-mixer/xfce-mixer-window.c:212
+msgid "_Quit"
+msgstr "_Sulge"
