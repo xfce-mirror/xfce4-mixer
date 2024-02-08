@@ -110,8 +110,6 @@ xfce_mixer_controls_dialog_init (XfceMixerControlsDialog *dialog)
   gtk_window_set_icon_name (GTK_WINDOW (dialog), "preferences-desktop");
   gtk_window_set_title (GTK_WINDOW (dialog), _("Select Controls"));
 
-  xfce_titled_dialog_set_subtitle (XFCE_TITLED_DIALOG (dialog), _("Select which controls should be visible"));
-
   button = gtk_button_new_with_mnemonic (_("_Close"));
   gtk_button_set_image (GTK_BUTTON (button),
                         gtk_image_new_from_icon_name ("window-close", GTK_ICON_SIZE_BUTTON));

@@ -156,7 +156,6 @@ xfce_mixer_window_init (XfceMixerWindow *window)
   gtk_window_set_title (GTK_WINDOW (window), _("Audio Mixer"));
   gtk_window_set_default_size (GTK_WINDOW (window), window->current_width, window->current_height);
   gtk_window_set_position (GTK_WINDOW (window), GTK_WIN_POS_CENTER);
-  xfce_titled_dialog_set_subtitle (XFCE_TITLED_DIALOG (window), _("Configure sound card(s) and control the volume of selected tracks"));
 
   /* Install actions */
   g_action_map_add_action_entries (G_ACTION_MAP (app), action_entries, G_N_ELEMENTS (action_entries), window);
