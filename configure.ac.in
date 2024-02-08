@@ -193,7 +193,6 @@ Makefile
 icons/Makefile
 icons/16x16/Makefile
 icons/scalable/Makefile
-pixmaps/Makefile
 libxfce4mixer/Makefile
 panel-plugin/Makefile
 xfce4-mixer/Makefile

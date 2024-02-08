@@ -23,7 +23,6 @@ ACLOCAL_AMFLAGS = -I m4 ${ACLOCAL_FLAGS}
 
 SUBDIRS =								\
 	icons								\
-	pixmaps								\
 	libxfce4mixer							\
 	panel-plugin							\
 	xfce4-mixer							\
