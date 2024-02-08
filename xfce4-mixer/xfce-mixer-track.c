@@ -278,7 +278,7 @@ xfce_mixer_track_create_contents (XfceMixerTrack *track)
   /* Lock button */
   tooltip_text = g_strdup_printf (_("Lock channels for %s together"), track_label);
   track->lock_button = gtk_toggle_button_new ();
-  image = gtk_image_new_from_file (DATADIR "/pixmaps/xfce4-mixer/chain.png");
+  image = gtk_image_new_from_icon_name ("changes-prevent-symbolic", GTK_ICON_SIZE_BUTTON);
   gtk_button_set_image (GTK_BUTTON (track->lock_button), image);
   gtk_widget_set_tooltip_text (track->lock_button, tooltip_text);
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (track->lock_button), TRUE);
@@ -299,7 +299,7 @@ xfce_mixer_track_create_contents (XfceMixerTrack *track)
   gtk_widget_show (lock_button_line2);
 
   /*
-   * Destroy the chain button and lines and replace them with an equally sized
+   * Destroy the lock channels button and lines and replace them with an equally sized
    * placeholder if there is only one fader
    */
   if (track->gst_track->num_channels < 2)
@@ -323,7 +323,7 @@ xfce_mixer_track_create_contents (XfceMixerTrack *track)
       tooltip_text = g_strdup_printf (_("Mute/unmute %s"), track_label);
 
       track->mute_button = gtk_toggle_button_new ();
-      image = gtk_image_new_from_icon_name ("audio-volume-high", XFCE_MIXER_ICON_SIZE);
+      image = gtk_image_new_from_icon_name ("audio-volume-high-symbolic", XFCE_MIXER_ICON_SIZE);
       gtk_button_set_image (GTK_BUTTON (track->mute_button), image);
       gtk_widget_set_tooltip_text (track->mute_button, tooltip_text);
       /* Make button insensitive for tracks without mute or read-only tracks */
@@ -343,7 +343,7 @@ xfce_mixer_track_create_contents (XfceMixerTrack *track)
       tooltip_text = g_strdup_printf (_("Enable/disable audible input from %s in output"), track_label);
 
       track->record_button = gtk_toggle_button_new ();
-      image = gtk_image_new_from_icon_name ("audio-input-microphone-muted", XFCE_MIXER_ICON_SIZE);
+      image = gtk_image_new_from_icon_name ("audio-input-microphone-muted-symbolic", XFCE_MIXER_ICON_SIZE);
       gtk_button_set_image (GTK_BUTTON (track->record_button), image);
       gtk_widget_set_tooltip_text (track->record_button, tooltip_text);
       /* Make button insensitive for tracks without record or read-only tracks */
@@ -466,12 +466,12 @@ xfce_mixer_track_mute_toggled (GtkToggleButton *button,
 
   if (gtk_toggle_button_get_active (button))
     {
-      stock = "audio-volume-muted";
+      stock = "audio-volume-muted-symbolic";
       gst_mixer_set_mute (GST_MIXER (track->card), track->gst_track, TRUE);
     }
   else
     {
-      stock = "audio-volume-high";
+      stock = "audio-volume-high-symbolic";
       gst_mixer_set_mute (GST_MIXER (track->card), track->gst_track, FALSE);
     }
 
@@ -494,12 +494,12 @@ xfce_mixer_track_lock_toggled (GtkToggleButton *button,
   /* Do nothing if the channels were unlocked */
   if (G_UNLIKELY (!gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (track->lock_button))))
     {
-      image = gtk_image_new_from_file (DATADIR "/pixmaps/xfce4-mixer/chain-broken.png");
+      image = gtk_image_new_from_icon_name ("changes-allow-symbolic", GTK_ICON_SIZE_BUTTON);
       gtk_button_set_image (GTK_BUTTON (track->lock_button), image);
       return;
     }
 
-  image = gtk_image_new_from_file (DATADIR "/pixmaps/xfce4-mixer/chain.png");
+  image = gtk_image_new_from_icon_name ("changes-prevent-symbolic", GTK_ICON_SIZE_BUTTON);
   gtk_button_set_image (GTK_BUTTON (track->lock_button), image);
 
   /* Allocate array for volumes of all channels */
@@ -534,20 +534,20 @@ xfce_mixer_track_record_toggled (GtkToggleButton *button,
                                  XfceMixerTrack  *track)
 {
   GtkWidget   *image;
-  const gchar *stock;
+  const gchar *icon_name;
 
   if (gtk_toggle_button_get_active (button))
     {
-      stock = "audio-input-microphone";
+      icon_name = "audio-input-microphone-symbolic";
       gst_mixer_set_record (GST_MIXER (track->card), track->gst_track, TRUE);
     }
   else
     {
-      stock = "audio-input-microphone-muted";
+      icon_name = "audio-input-microphone-muted-symbolic";
       gst_mixer_set_record (GST_MIXER (track->card), track->gst_track, FALSE);
     }
 
-  image = gtk_image_new_from_icon_name (stock, XFCE_MIXER_ICON_SIZE);
+  image = gtk_image_new_from_icon_name (icon_name, XFCE_MIXER_ICON_SIZE);
   gtk_button_set_image (GTK_BUTTON (button), image);
 }
 

@@ -75,10 +75,10 @@ static guint button_signals[LAST_SIGNAL];
 
 /* Icons for different volume levels */
 static const char *icons[] = {
-  "audio-volume-muted",
-  "audio-volume-low",
-  "audio-volume-medium",
-  "audio-volume-high",
+  "audio-volume-muted-symbolic",
+  "audio-volume-low-symbolic",
+  "audio-volume-medium-symbolic",
+  "audio-volume-high-symbolic",
   NULL
 };
 
@@ -485,7 +485,7 @@ xfce_volume_button_create_dock_contents (XfceVolumeButton *button)
   gtk_box_pack_start (GTK_BOX (box), button->hbox, TRUE, TRUE, 0);
 
   /* Show the position of lowest and highest volume through icons */
-  image = gtk_image_new_from_icon_name ("audio-volume-low", GTK_ICON_SIZE_BUTTON);
+  image = gtk_image_new_from_icon_name ("audio-volume-low-symbolic", GTK_ICON_SIZE_BUTTON);
   gtk_box_pack_start (GTK_BOX (button->hbox), image, TRUE, TRUE, 0);
   gtk_widget_show (image);
 
@@ -496,7 +496,7 @@ xfce_volume_button_create_dock_contents (XfceVolumeButton *button)
   g_signal_connect_swapped (G_OBJECT (scale), "change-value", G_CALLBACK (xfce_volume_button_scale_changed_value), button);
   gtk_widget_show (scale);
 
-  image = gtk_image_new_from_icon_name ("audio-volume-high", GTK_ICON_SIZE_BUTTON);
+  image = gtk_image_new_from_icon_name ("audio-volume-high-symbolic", GTK_ICON_SIZE_BUTTON);
   gtk_box_pack_start (GTK_BOX (button->hbox), image, TRUE, TRUE, 0);
   gtk_widget_show (image);
 
