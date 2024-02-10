@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-05 10:53+0200\n"
+"POT-Creation-Date: 2024-02-10 00:49+0100\n"
 "PO-Revision-Date: 2013-07-03 18:38+0000\n"
 "Last-Translator: Demiray Muhterem <mdemiray@msn.com>, 2023\n"
 "Language-Team: Turkish (http://app.transifex.com/xfce/xfce-apps/language/tr/)\n"
@@ -58,20 +58,16 @@ msgid "Audio Mixer Plugin"
 msgstr "Ses Karıştırıcı Eklentisi"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:143
-msgid "Configure the sound card and mixer track"
-msgstr "Ses kartı ve karıştırıcı izlerini yapılandır"
-
-#: ../panel-plugin/xfce-plugin-dialog.c:145
-#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:115
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:113
 msgid "_Close"
 msgstr "_Kapat"
 
-#: ../panel-plugin/xfce-plugin-dialog.c:156
-#: ../xfce4-mixer/xfce-mixer-window.c:176
+#: ../panel-plugin/xfce-plugin-dialog.c:154
+#: ../xfce4-mixer/xfce-mixer-window.c:175
 msgid "Sound _card:"
 msgstr "Ses _kartı:"
 
-#: ../panel-plugin/xfce-plugin-dialog.c:166
+#: ../panel-plugin/xfce-plugin-dialog.c:164
 msgid "Mixer _track:"
 msgstr "Karıştırıcı _izi:"
 
@@ -92,8 +88,8 @@ msgstr "%s: %%%i"
 #. Set application name
 #: ../panel-plugin/mixer.desktop.in.h:1 ../xfce4-mixer/main.c:45
 #: ../xfce4-mixer/xfce-mixer-window.c:156
-#: ../xfce4-mixer/xfce-mixer-window.c:441
-#: ../xfce4-mixer/xfce-mixer-window.c:455
+#: ../xfce4-mixer/xfce-mixer-window.c:440
+#: ../xfce4-mixer/xfce-mixer-window.c:454
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.h:1
 msgid "Audio Mixer"
 msgstr "Ses Karıştırıcı"
@@ -158,10 +154,6 @@ msgstr "Karıştırıcı denetimlerinin görünürlüğünü değiştirmek için
 msgid "Select Controls"
 msgstr "Düzenekleri Seç"
 
-#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:113
-msgid "Select which controls should be visible"
-msgstr "Görünecek düzenekleri seç"
-
 #: ../xfce4-mixer/xfce-mixer-track.c:242
 #, c-format
 msgid "Volume of channel %d on %s"
@@ -183,14 +175,10 @@ msgstr "%s için sesi kapat/aç"
 msgid "Enable/disable audible input from %s in output"
 msgstr "Çıkışta %s içinden duyulabilir girdiyi etkinleştir/kapat"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:159
-msgid "Configure sound card(s) and control the volume of selected tracks"
-msgstr "Ses kart(lar)ınızı ve seçili izlerin ses düzeylerini yapılandırın"
-
-#: ../xfce4-mixer/xfce-mixer-window.c:204
+#: ../xfce4-mixer/xfce-mixer-window.c:203
 msgid "_Select Controls..."
 msgstr "_Düzenekleri Seç..."
 
-#: ../xfce4-mixer/xfce-mixer-window.c:212
+#: ../xfce4-mixer/xfce-mixer-window.c:211
 msgid "_Quit"
 msgstr "Çı_k"
