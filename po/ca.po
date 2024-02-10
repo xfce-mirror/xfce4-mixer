@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-28 00:47+0200\n"
+"POT-Creation-Date: 2024-02-10 00:49+0100\n"
 "PO-Revision-Date: 2013-07-03 18:38+0000\n"
 "Last-Translator: Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>, 2016-2018\n"
 "Language-Team: Catalan (http://app.transifex.com/xfce/xfce-apps/language/ca/)\n"
@@ -21,28 +21,28 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. Add menu item for muting
-#: ../panel-plugin/xfce-mixer-plugin.c:307
+#: ../panel-plugin/xfce-mixer-plugin.c:298
 msgid "Mu_te"
 msgstr "_Silencia"
 
 #. Add menu item for running the user-defined command
-#: ../panel-plugin/xfce-mixer-plugin.c:313
+#: ../panel-plugin/xfce-mixer-plugin.c:304
 msgid "Run Audio Mi_xer"
 msgstr "Executa el mesclador d'_àudio"
 
-#: ../panel-plugin/xfce-mixer-plugin.c:581
-#: ../xfce4-mixer/xfce-mixer-application.c:162
+#: ../panel-plugin/xfce-mixer-plugin.c:572
+#: ../xfce4-mixer/xfce-mixer-application.c:157
 msgid ""
 "GStreamer was unable to detect any sound devices. Some sound system specific"
 " GStreamer packages may be missing. It may also be a permissions problem."
 msgstr "GStreamer no ha pogut detectar cap targeta de so. Pot ser que falti algun paquet específic del sistema de so de GStreamer. També pot ser un problema de permisos."
 
-#: ../panel-plugin/xfce-mixer-plugin.c:955
+#: ../panel-plugin/xfce-mixer-plugin.c:946
 msgid "No command defined"
 msgstr "No s'ha definit cap ordre"
 
 #. Generate error message and insert the current command
-#: ../panel-plugin/xfce-mixer-plugin.c:963
+#: ../panel-plugin/xfce-mixer-plugin.c:954
 #, c-format
 msgid ""
 "Could not execute the command \"%s\". Ensure that either the location of the"
@@ -50,47 +50,43 @@ msgid ""
 "providing the full path to the command."
 msgstr "No s'ha pogut executar l'ordre «%s». Comproveu que la ubicació de l'ordre estigui inclosa en la variable d'entorn PATH o que hàgiu posat tot el camí a l'ordre."
 
-#: ../panel-plugin/xfce-plugin-dialog.c:149
+#: ../panel-plugin/xfce-plugin-dialog.c:141
 msgid "Audio Mixer Plugin"
 msgstr "Connector del mesclador d'àudio "
 
-#: ../panel-plugin/xfce-plugin-dialog.c:151
-msgid "Configure the sound card and mixer track"
-msgstr "Configureu la vostra targeta de so i la pista del mesclador"
-
-#: ../panel-plugin/xfce-plugin-dialog.c:153
-#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:121
+#: ../panel-plugin/xfce-plugin-dialog.c:143
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:113
 msgid "_Close"
 msgstr "Tan_ca"
 
-#: ../panel-plugin/xfce-plugin-dialog.c:164
-#: ../xfce4-mixer/xfce-mixer-window.c:182
+#: ../panel-plugin/xfce-plugin-dialog.c:154
+#: ../xfce4-mixer/xfce-mixer-window.c:175
 msgid "Sound _card:"
 msgstr "Tar_geta de so:"
 
-#: ../panel-plugin/xfce-plugin-dialog.c:174
+#: ../panel-plugin/xfce-plugin-dialog.c:164
 msgid "Mixer _track:"
 msgstr "Pis_ta del mesclador:"
 
-#: ../panel-plugin/xfce-volume-button.c:893
+#: ../panel-plugin/xfce-volume-button.c:831
 msgid "No valid device and/or element."
 msgstr "El dispositiu i/o l'element no són vàlids."
 
-#: ../panel-plugin/xfce-volume-button.c:898
+#: ../panel-plugin/xfce-volume-button.c:836
 #, c-format
 msgid "%s: muted"
 msgstr "%s: silenciat"
 
-#: ../panel-plugin/xfce-volume-button.c:900
+#: ../panel-plugin/xfce-volume-button.c:838
 #, c-format
 msgid "%s: %i%%"
 msgstr "%s: %i%%"
 
 #. Set application name
 #: ../panel-plugin/mixer.desktop.in.h:1 ../xfce4-mixer/main.c:45
-#: ../xfce4-mixer/xfce-mixer-window.c:162
-#: ../xfce4-mixer/xfce-mixer-window.c:447
-#: ../xfce4-mixer/xfce-mixer-window.c:461
+#: ../xfce4-mixer/xfce-mixer-window.c:156
+#: ../xfce4-mixer/xfce-mixer-window.c:440
+#: ../xfce4-mixer/xfce-mixer-window.c:454
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.h:1
 msgid "Audio Mixer"
 msgstr "Mesclador d'àudio"
@@ -113,81 +109,73 @@ msgstr ""
 msgid "Sndio Volume Control"
 msgstr ""
 
-#: ../xfce4-mixer/xfce-mixer-application.c:78
+#: ../xfce4-mixer/xfce-mixer-application.c:73
 msgid "Enable debugging output"
 msgstr "Mostra la sortida de depuració"
 
-#: ../xfce4-mixer/xfce-mixer-application.c:79
+#: ../xfce4-mixer/xfce-mixer-application.c:74
 msgid "Show version and exit"
 msgstr "Mostra la versió i surt"
 
-#: ../xfce4-mixer/xfce-mixer-container.c:219
+#: ../xfce4-mixer/xfce-mixer-container.c:214
 msgid "_Playback"
 msgstr "Re_producció"
 
-#: ../xfce4-mixer/xfce-mixer-container.c:219
+#: ../xfce4-mixer/xfce-mixer-container.c:214
 msgid "C_apture"
 msgstr "_Captura"
 
-#: ../xfce4-mixer/xfce-mixer-container.c:219
+#: ../xfce4-mixer/xfce-mixer-container.c:214
 msgid "S_witches"
 msgstr "Com_mutadors "
 
-#: ../xfce4-mixer/xfce-mixer-container.c:219
+#: ../xfce4-mixer/xfce-mixer-container.c:214
 msgid "_Options"
 msgstr "_Opcions"
 
-#: ../xfce4-mixer/xfce-mixer-container.c:469
+#: ../xfce4-mixer/xfce-mixer-container.c:467
 msgid "No controls visible"
 msgstr "Cap control visible"
 
-#: ../xfce4-mixer/xfce-mixer-container.c:478
+#: ../xfce4-mixer/xfce-mixer-container.c:476
 msgid "<span weight=\"bold\" size=\"larger\">No controls visible</span>"
 msgstr "<span weight=\"bold\" size=\"larger\">Cap control visible</span>"
 
-#: ../xfce4-mixer/xfce-mixer-container.c:484
+#: ../xfce4-mixer/xfce-mixer-container.c:482
 msgid ""
 "In order to toggle the visibility of mixer controls, open the <b>\"Select "
 "Controls\"</b> dialog."
 msgstr "Per canviar la visibilitat dels controls del mesclador, obriu el diàleg <b>«Selecció dels controls»</b>."
 
-#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:117
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:111
 msgid "Select Controls"
 msgstr "Selecció dels controls"
 
-#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:119
-msgid "Select which controls should be visible"
-msgstr "Seleccioneu quins controls es mostraran"
-
-#: ../xfce4-mixer/xfce-mixer-track.c:244
+#: ../xfce4-mixer/xfce-mixer-track.c:242
 #, c-format
 msgid "Volume of channel %d on %s"
 msgstr "Volum del canal %d a %s"
 
 #. Lock button
-#: ../xfce4-mixer/xfce-mixer-track.c:281
+#: ../xfce4-mixer/xfce-mixer-track.c:279
 #, c-format
 msgid "Lock channels for %s together"
 msgstr "Bloqueja els canals junts per a %s"
 
-#: ../xfce4-mixer/xfce-mixer-track.c:325
+#: ../xfce4-mixer/xfce-mixer-track.c:323
 #, c-format
 msgid "Mute/unmute %s"
 msgstr "Silencia/dóna veu a %s"
 
-#: ../xfce4-mixer/xfce-mixer-track.c:345
+#: ../xfce4-mixer/xfce-mixer-track.c:343
 #, c-format
 msgid "Enable/disable audible input from %s in output"
 msgstr "Habilita/inhabilita l'entrada d'àudio de %s a la sortida"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:165
-msgid "Configure sound card(s) and control the volume of selected tracks"
-msgstr "Configureu les vostres targetes de so i controleu el volum de les pistes seleccionades"
-
-#: ../xfce4-mixer/xfce-mixer-window.c:210
+#: ../xfce4-mixer/xfce-mixer-window.c:203
 msgid "_Select Controls..."
 msgstr "_Selecció dels controls..."
 
-#: ../xfce4-mixer/xfce-mixer-window.c:218
+#: ../xfce4-mixer/xfce-mixer-window.c:211
 msgid "_Quit"
 msgstr "S_urt"
