@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-05 10:53+0200\n"
+"POT-Creation-Date: 2024-02-10 00:49+0100\n"
 "PO-Revision-Date: 2013-07-03 18:38+0000\n"
 "Last-Translator: Elishai Eliyahu <elishai@mailfence.com>, 2023\n"
 "Language-Team: Hebrew (http://app.transifex.com/xfce/xfce-apps/language/he/)\n"
@@ -56,20 +56,16 @@ msgid "Audio Mixer Plugin"
 msgstr "תוסף מערבל שמע"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:143
-msgid "Configure the sound card and mixer track"
-msgstr "הגדר את הכרטיס קול ורצועת מערבל"
-
-#: ../panel-plugin/xfce-plugin-dialog.c:145
-#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:115
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:113
 msgid "_Close"
 msgstr "_סגור"
 
-#: ../panel-plugin/xfce-plugin-dialog.c:156
-#: ../xfce4-mixer/xfce-mixer-window.c:176
+#: ../panel-plugin/xfce-plugin-dialog.c:154
+#: ../xfce4-mixer/xfce-mixer-window.c:175
 msgid "Sound _card:"
 msgstr "_כרטיס קול:"
 
-#: ../panel-plugin/xfce-plugin-dialog.c:166
+#: ../panel-plugin/xfce-plugin-dialog.c:164
 msgid "Mixer _track:"
 msgstr "_רצועת מערבל:"
 
@@ -90,8 +86,8 @@ msgstr "%s: %i%%"
 #. Set application name
 #: ../panel-plugin/mixer.desktop.in.h:1 ../xfce4-mixer/main.c:45
 #: ../xfce4-mixer/xfce-mixer-window.c:156
-#: ../xfce4-mixer/xfce-mixer-window.c:441
-#: ../xfce4-mixer/xfce-mixer-window.c:455
+#: ../xfce4-mixer/xfce-mixer-window.c:440
+#: ../xfce4-mixer/xfce-mixer-window.c:454
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.h:1
 msgid "Audio Mixer"
 msgstr "מערבל שמע"
@@ -156,10 +152,6 @@ msgstr "כדי להחליף ראות של פקדי מערבל, פתח את דו 
 msgid "Select Controls"
 msgstr "בחירת פקדים"
 
-#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:113
-msgid "Select which controls should be visible"
-msgstr "בחר על אילו פקדים להיראות"
-
 #: ../xfce4-mixer/xfce-mixer-track.c:242
 #, c-format
 msgid "Volume of channel %d on %s"
@@ -181,14 +173,10 @@ msgstr "השתק/בטל השתק %s"
 msgid "Enable/disable audible input from %s in output"
 msgstr "אפשר/נטרל קלט שמיע מ %s בפלט"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:159
-msgid "Configure sound card(s) and control the volume of selected tracks"
-msgstr "הגדר כרטיסי קול ושלוט על עוצמת קול של רצועות נבחרות"
-
-#: ../xfce4-mixer/xfce-mixer-window.c:204
+#: ../xfce4-mixer/xfce-mixer-window.c:203
 msgid "_Select Controls..."
 msgstr "_בחר פקדים..."
 
-#: ../xfce4-mixer/xfce-mixer-window.c:212
+#: ../xfce4-mixer/xfce-mixer-window.c:211
 msgid "_Quit"
 msgstr "י_ציאה"
