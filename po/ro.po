@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-28 00:47+0200\n"
+"POT-Creation-Date: 2024-02-10 00:49+0100\n"
 "PO-Revision-Date: 2013-07-03 18:38+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Romanian (http://app.transifex.com/xfce/xfce-apps/language/ro/)\n"
@@ -18,28 +18,28 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
 
 #. Add menu item for muting
-#: ../panel-plugin/xfce-mixer-plugin.c:307
+#: ../panel-plugin/xfce-mixer-plugin.c:298
 msgid "Mu_te"
 msgstr "_Fără sonor"
 
 #. Add menu item for running the user-defined command
-#: ../panel-plugin/xfce-mixer-plugin.c:313
+#: ../panel-plugin/xfce-mixer-plugin.c:304
 msgid "Run Audio Mi_xer"
 msgstr "Porniți mi_xerul audio"
 
-#: ../panel-plugin/xfce-mixer-plugin.c:581
-#: ../xfce4-mixer/xfce-mixer-application.c:162
+#: ../panel-plugin/xfce-mixer-plugin.c:572
+#: ../xfce4-mixer/xfce-mixer-application.c:157
 msgid ""
 "GStreamer was unable to detect any sound devices. Some sound system specific"
 " GStreamer packages may be missing. It may also be a permissions problem."
 msgstr "GStreamer nu a detectat niciun dispozitiv de sunet. S-ar putea să lipsească unele pachete GStreamer din sistem sau poate aveți drepturi insuficiente."
 
-#: ../panel-plugin/xfce-mixer-plugin.c:955
+#: ../panel-plugin/xfce-mixer-plugin.c:946
 msgid "No command defined"
 msgstr "Nu s-a definit o comandă"
 
 #. Generate error message and insert the current command
-#: ../panel-plugin/xfce-mixer-plugin.c:963
+#: ../panel-plugin/xfce-mixer-plugin.c:954
 #, c-format
 msgid ""
 "Could not execute the command \"%s\". Ensure that either the location of the"
@@ -47,47 +47,43 @@ msgid ""
 "providing the full path to the command."
 msgstr "Nu s-a putut executa comanda „%s”. Asigurați-vă că în variabila de mediu PATH este inclusă calea programului sau indicați calea completă către acesta."
 
-#: ../panel-plugin/xfce-plugin-dialog.c:149
+#: ../panel-plugin/xfce-plugin-dialog.c:141
 msgid "Audio Mixer Plugin"
 msgstr "Modul de mixer audio"
 
-#: ../panel-plugin/xfce-plugin-dialog.c:151
-msgid "Configure the sound card and mixer track"
-msgstr "Configurați placa de sunet și pistele mixerului"
-
-#: ../panel-plugin/xfce-plugin-dialog.c:153
-#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:121
+#: ../panel-plugin/xfce-plugin-dialog.c:143
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:113
 msgid "_Close"
 msgstr "În_chide"
 
-#: ../panel-plugin/xfce-plugin-dialog.c:164
-#: ../xfce4-mixer/xfce-mixer-window.c:182
+#: ../panel-plugin/xfce-plugin-dialog.c:154
+#: ../xfce4-mixer/xfce-mixer-window.c:175
 msgid "Sound _card:"
 msgstr "_Placă de sunet:"
 
-#: ../panel-plugin/xfce-plugin-dialog.c:174
+#: ../panel-plugin/xfce-plugin-dialog.c:164
 msgid "Mixer _track:"
 msgstr "Piste de mi_xer:"
 
-#: ../panel-plugin/xfce-volume-button.c:893
+#: ../panel-plugin/xfce-volume-button.c:831
 msgid "No valid device and/or element."
 msgstr "Niciun dispozitiv și/sau element valid."
 
-#: ../panel-plugin/xfce-volume-button.c:898
+#: ../panel-plugin/xfce-volume-button.c:836
 #, c-format
 msgid "%s: muted"
 msgstr "%s: fără sonor"
 
-#: ../panel-plugin/xfce-volume-button.c:900
+#: ../panel-plugin/xfce-volume-button.c:838
 #, c-format
 msgid "%s: %i%%"
 msgstr "%s: %i%%"
 
 #. Set application name
 #: ../panel-plugin/mixer.desktop.in.h:1 ../xfce4-mixer/main.c:45
-#: ../xfce4-mixer/xfce-mixer-window.c:162
-#: ../xfce4-mixer/xfce-mixer-window.c:447
-#: ../xfce4-mixer/xfce-mixer-window.c:461
+#: ../xfce4-mixer/xfce-mixer-window.c:156
+#: ../xfce4-mixer/xfce-mixer-window.c:440
+#: ../xfce4-mixer/xfce-mixer-window.c:454
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.h:1
 msgid "Audio Mixer"
 msgstr "Mixer audio"
@@ -110,81 +106,73 @@ msgstr ""
 msgid "Sndio Volume Control"
 msgstr ""
 
-#: ../xfce4-mixer/xfce-mixer-application.c:78
+#: ../xfce4-mixer/xfce-mixer-application.c:73
 msgid "Enable debugging output"
 msgstr "Activează depanarea"
 
-#: ../xfce4-mixer/xfce-mixer-application.c:79
+#: ../xfce4-mixer/xfce-mixer-application.c:74
 msgid "Show version and exit"
 msgstr "Arată versiunea și ieși"
 
-#: ../xfce4-mixer/xfce-mixer-container.c:219
+#: ../xfce4-mixer/xfce-mixer-container.c:214
 msgid "_Playback"
 msgstr "_Redare"
 
-#: ../xfce4-mixer/xfce-mixer-container.c:219
+#: ../xfce4-mixer/xfce-mixer-container.c:214
 msgid "C_apture"
 msgstr "Capt_ură"
 
-#: ../xfce4-mixer/xfce-mixer-container.c:219
+#: ../xfce4-mixer/xfce-mixer-container.c:214
 msgid "S_witches"
 msgstr "Co_mutatoare"
 
-#: ../xfce4-mixer/xfce-mixer-container.c:219
+#: ../xfce4-mixer/xfce-mixer-container.c:214
 msgid "_Options"
 msgstr "_Opțiuni"
 
-#: ../xfce4-mixer/xfce-mixer-container.c:469
+#: ../xfce4-mixer/xfce-mixer-container.c:467
 msgid "No controls visible"
 msgstr "Fără controale vizibile"
 
-#: ../xfce4-mixer/xfce-mixer-container.c:478
+#: ../xfce4-mixer/xfce-mixer-container.c:476
 msgid "<span weight=\"bold\" size=\"larger\">No controls visible</span>"
 msgstr "<span weight=\"bold\" size=\"larger\">Fără controale vizibile</span>"
 
-#: ../xfce4-mixer/xfce-mixer-container.c:484
+#: ../xfce4-mixer/xfce-mixer-container.c:482
 msgid ""
 "In order to toggle the visibility of mixer controls, open the <b>\"Select "
 "Controls\"</b> dialog."
 msgstr "Pentru a comuta vizibilitatea controalelor mixerului, deschideți fereastra <b>„Selectare de controale”</b>."
 
-#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:117
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:111
 msgid "Select Controls"
 msgstr "Selectare de controale"
 
-#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:119
-msgid "Select which controls should be visible"
-msgstr "Alegeți ce controale doriți să fie vizibile"
-
-#: ../xfce4-mixer/xfce-mixer-track.c:244
+#: ../xfce4-mixer/xfce-mixer-track.c:242
 #, c-format
 msgid "Volume of channel %d on %s"
 msgstr "Volumul canalului %d pentru %s"
 
 #. Lock button
-#: ../xfce4-mixer/xfce-mixer-track.c:281
+#: ../xfce4-mixer/xfce-mixer-track.c:279
 #, c-format
 msgid "Lock channels for %s together"
 msgstr "Înlănțuie canalele pentru %s"
 
-#: ../xfce4-mixer/xfce-mixer-track.c:325
+#: ../xfce4-mixer/xfce-mixer-track.c:323
 #, c-format
 msgid "Mute/unmute %s"
 msgstr "Comută sonorul pentru %s"
 
-#: ../xfce4-mixer/xfce-mixer-track.c:345
+#: ../xfce4-mixer/xfce-mixer-track.c:343
 #, c-format
 msgid "Enable/disable audible input from %s in output"
 msgstr "Comută inputul audio din %s în output"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:165
-msgid "Configure sound card(s) and control the volume of selected tracks"
-msgstr "Schimbați opțiunile plăcilor de sunet și volumul pistelor selectate"
-
-#: ../xfce4-mixer/xfce-mixer-window.c:210
+#: ../xfce4-mixer/xfce-mixer-window.c:203
 msgid "_Select Controls..."
 msgstr "_Selectați controale..."
 
-#: ../xfce4-mixer/xfce-mixer-window.c:218
+#: ../xfce4-mixer/xfce-mixer-window.c:211
 msgid "_Quit"
 msgstr "_Ieșire"
