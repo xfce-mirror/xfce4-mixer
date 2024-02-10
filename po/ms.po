@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-28 00:47+0200\n"
+"POT-Creation-Date: 2024-02-10 00:49+0100\n"
 "PO-Revision-Date: 2013-07-03 18:38+0000\n"
 "Last-Translator: abuyop <abuyop@gmail.com>, 2014,2016\n"
 "Language-Team: Malay (http://app.transifex.com/xfce/xfce-apps/language/ms/)\n"
@@ -19,28 +19,28 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #. Add menu item for muting
-#: ../panel-plugin/xfce-mixer-plugin.c:307
+#: ../panel-plugin/xfce-mixer-plugin.c:298
 msgid "Mu_te"
 msgstr "sen_yap"
 
 #. Add menu item for running the user-defined command
-#: ../panel-plugin/xfce-mixer-plugin.c:313
+#: ../panel-plugin/xfce-mixer-plugin.c:304
 msgid "Run Audio Mi_xer"
 msgstr "Jalankan Pen_gadun Audio"
 
-#: ../panel-plugin/xfce-mixer-plugin.c:581
-#: ../xfce4-mixer/xfce-mixer-application.c:162
+#: ../panel-plugin/xfce-mixer-plugin.c:572
+#: ../xfce4-mixer/xfce-mixer-application.c:157
 msgid ""
 "GStreamer was unable to detect any sound devices. Some sound system specific"
 " GStreamer packages may be missing. It may also be a permissions problem."
 msgstr "GStreamer tidak dapat kesan mana-mana peranti bunyi. Sesetengah pakej GStreamer khusus sistem bunyi mungkin telah hilang. Ia mungki juga berpunca dari masalah keizinan."
 
-#: ../panel-plugin/xfce-mixer-plugin.c:955
+#: ../panel-plugin/xfce-mixer-plugin.c:946
 msgid "No command defined"
 msgstr "Tiada perintah ditakrif"
 
 #. Generate error message and insert the current command
-#: ../panel-plugin/xfce-mixer-plugin.c:963
+#: ../panel-plugin/xfce-mixer-plugin.c:954
 #, c-format
 msgid ""
 "Could not execute the command \"%s\". Ensure that either the location of the"
@@ -48,47 +48,43 @@ msgid ""
 "providing the full path to the command."
 msgstr "Tidak dapat lakukan perintah \"%s\". Pastikan ia sama ada lokasi perintah disertakan di dalam pembolehubah persekitaran PATH atau  anda menyediakan laluan penuh ke perintah."
 
-#: ../panel-plugin/xfce-plugin-dialog.c:149
+#: ../panel-plugin/xfce-plugin-dialog.c:141
 msgid "Audio Mixer Plugin"
 msgstr "Pemalam Pengadun Audio"
 
-#: ../panel-plugin/xfce-plugin-dialog.c:151
-msgid "Configure the sound card and mixer track"
-msgstr "Konfigur kad bunyi dan trek pengadun"
-
-#: ../panel-plugin/xfce-plugin-dialog.c:153
-#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:121
+#: ../panel-plugin/xfce-plugin-dialog.c:143
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:113
 msgid "_Close"
 msgstr "_Tutup"
 
-#: ../panel-plugin/xfce-plugin-dialog.c:164
-#: ../xfce4-mixer/xfce-mixer-window.c:182
+#: ../panel-plugin/xfce-plugin-dialog.c:154
+#: ../xfce4-mixer/xfce-mixer-window.c:175
 msgid "Sound _card:"
 msgstr "_Kad bunyi:"
 
-#: ../panel-plugin/xfce-plugin-dialog.c:174
+#: ../panel-plugin/xfce-plugin-dialog.c:164
 msgid "Mixer _track:"
 msgstr "_Trek pengadun:"
 
-#: ../panel-plugin/xfce-volume-button.c:893
+#: ../panel-plugin/xfce-volume-button.c:831
 msgid "No valid device and/or element."
 msgstr "Tiada peranti dan/atau unsur yang sah."
 
-#: ../panel-plugin/xfce-volume-button.c:898
+#: ../panel-plugin/xfce-volume-button.c:836
 #, c-format
 msgid "%s: muted"
 msgstr "%s: disenyapkan"
 
-#: ../panel-plugin/xfce-volume-button.c:900
+#: ../panel-plugin/xfce-volume-button.c:838
 #, c-format
 msgid "%s: %i%%"
 msgstr "%s: %i%%"
 
 #. Set application name
 #: ../panel-plugin/mixer.desktop.in.h:1 ../xfce4-mixer/main.c:45
-#: ../xfce4-mixer/xfce-mixer-window.c:162
-#: ../xfce4-mixer/xfce-mixer-window.c:447
-#: ../xfce4-mixer/xfce-mixer-window.c:461
+#: ../xfce4-mixer/xfce-mixer-window.c:156
+#: ../xfce4-mixer/xfce-mixer-window.c:440
+#: ../xfce4-mixer/xfce-mixer-window.c:454
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.h:1
 msgid "Audio Mixer"
 msgstr "Pengadun Audio"
@@ -111,81 +107,73 @@ msgstr ""
 msgid "Sndio Volume Control"
 msgstr ""
 
-#: ../xfce4-mixer/xfce-mixer-application.c:78
+#: ../xfce4-mixer/xfce-mixer-application.c:73
 msgid "Enable debugging output"
 msgstr "Benarkan output penyahpepijatan"
 
-#: ../xfce4-mixer/xfce-mixer-application.c:79
+#: ../xfce4-mixer/xfce-mixer-application.c:74
 msgid "Show version and exit"
 msgstr "Tunjuk versi kemudian keluar"
 
-#: ../xfce4-mixer/xfce-mixer-container.c:219
+#: ../xfce4-mixer/xfce-mixer-container.c:214
 msgid "_Playback"
 msgstr "_Main Balik"
 
-#: ../xfce4-mixer/xfce-mixer-container.c:219
+#: ../xfce4-mixer/xfce-mixer-container.c:214
 msgid "C_apture"
 msgstr "T_angkap"
 
-#: ../xfce4-mixer/xfce-mixer-container.c:219
+#: ../xfce4-mixer/xfce-mixer-container.c:214
 msgid "S_witches"
 msgstr "S_uis"
 
-#: ../xfce4-mixer/xfce-mixer-container.c:219
+#: ../xfce4-mixer/xfce-mixer-container.c:214
 msgid "_Options"
 msgstr "P_ilihan"
 
-#: ../xfce4-mixer/xfce-mixer-container.c:469
+#: ../xfce4-mixer/xfce-mixer-container.c:467
 msgid "No controls visible"
 msgstr "Tiada kawalan tampak"
 
-#: ../xfce4-mixer/xfce-mixer-container.c:478
+#: ../xfce4-mixer/xfce-mixer-container.c:476
 msgid "<span weight=\"bold\" size=\"larger\">No controls visible</span>"
 msgstr "<span weight=\"bold\" size=\"larger\">Tiada kawalan tampak</span>"
 
-#: ../xfce4-mixer/xfce-mixer-container.c:484
+#: ../xfce4-mixer/xfce-mixer-container.c:482
 msgid ""
 "In order to toggle the visibility of mixer controls, open the <b>\"Select "
 "Controls\"</b> dialog."
 msgstr "Untuk menogol ketampakan kawalan pengadun, buka dialog <b>\"Pilih Kawalan\"</b>."
 
-#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:117
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:111
 msgid "Select Controls"
 msgstr "Pilih Kawalan"
 
-#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:119
-msgid "Select which controls should be visible"
-msgstr "Pilih kawalan yang seharusnya tampak"
-
-#: ../xfce4-mixer/xfce-mixer-track.c:244
+#: ../xfce4-mixer/xfce-mixer-track.c:242
 #, c-format
 msgid "Volume of channel %d on %s"
 msgstr "Vokum saluran %d pada %s"
 
 #. Lock button
-#: ../xfce4-mixer/xfce-mixer-track.c:281
+#: ../xfce4-mixer/xfce-mixer-track.c:279
 #, c-format
 msgid "Lock channels for %s together"
 msgstr "Kunci saluran bagi %s bersama-sama"
 
-#: ../xfce4-mixer/xfce-mixer-track.c:325
+#: ../xfce4-mixer/xfce-mixer-track.c:323
 #, c-format
 msgid "Mute/unmute %s"
 msgstr "Senyap/suarakan %s"
 
-#: ../xfce4-mixer/xfce-mixer-track.c:345
+#: ../xfce4-mixer/xfce-mixer-track.c:343
 #, c-format
 msgid "Enable/disable audible input from %s in output"
 msgstr "Benar/lumpuhkan input boleh dengar dari %s di dalam output"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:165
-msgid "Configure sound card(s) and control the volume of selected tracks"
-msgstr "Konfigur kad bunyi(s) dan kawalan volum bagi trek terpilih"
-
-#: ../xfce4-mixer/xfce-mixer-window.c:210
+#: ../xfce4-mixer/xfce-mixer-window.c:203
 msgid "_Select Controls..."
 msgstr "_Pilih Kawalan..."
 
-#: ../xfce4-mixer/xfce-mixer-window.c:218
+#: ../xfce4-mixer/xfce-mixer-window.c:211
 msgid "_Quit"
 msgstr "K_eluar"
