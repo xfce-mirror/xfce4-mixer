@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-30 00:51+0200\n"
+"POT-Creation-Date: 2024-02-10 00:49+0100\n"
 "PO-Revision-Date: 2013-07-03 18:38+0000\n"
 "Last-Translator: Ivica  Kolić <ikoli@yahoo.com>, 2013-2014,2016\n"
 "Language-Team: Croatian (http://app.transifex.com/xfce/xfce-apps/language/hr/)\n"
@@ -55,20 +55,16 @@ msgid "Audio Mixer Plugin"
 msgstr "Priključak miksera zvuka"
 
 #: ../panel-plugin/xfce-plugin-dialog.c:143
-msgid "Configure the sound card and mixer track"
-msgstr "Konfiguriraj zvučnu karticu i zapis miksera"
-
-#: ../panel-plugin/xfce-plugin-dialog.c:145
-#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:115
+#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:113
 msgid "_Close"
 msgstr "_Zatvori"
 
-#: ../panel-plugin/xfce-plugin-dialog.c:156
-#: ../xfce4-mixer/xfce-mixer-window.c:176
+#: ../panel-plugin/xfce-plugin-dialog.c:154
+#: ../xfce4-mixer/xfce-mixer-window.c:175
 msgid "Sound _card:"
 msgstr "Zvučna _kartica:"
 
-#: ../panel-plugin/xfce-plugin-dialog.c:166
+#: ../panel-plugin/xfce-plugin-dialog.c:164
 msgid "Mixer _track:"
 msgstr "Zapis _miksera:"
 
@@ -89,8 +85,8 @@ msgstr "%s: %i%%"
 #. Set application name
 #: ../panel-plugin/mixer.desktop.in.h:1 ../xfce4-mixer/main.c:45
 #: ../xfce4-mixer/xfce-mixer-window.c:156
-#: ../xfce4-mixer/xfce-mixer-window.c:441
-#: ../xfce4-mixer/xfce-mixer-window.c:455
+#: ../xfce4-mixer/xfce-mixer-window.c:440
+#: ../xfce4-mixer/xfce-mixer-window.c:454
 #: ../xfce4-mixer/xfce4-mixer.desktop.in.h:1
 msgid "Audio Mixer"
 msgstr "Mikser zvuka"
@@ -155,10 +151,6 @@ msgstr "Kako bi mijenjali vidljivost kontrola miksera, otvorite okvir <b>\"Odabe
 msgid "Select Controls"
 msgstr "Odaberite kontrole"
 
-#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:113
-msgid "Select which controls should be visible"
-msgstr "Odaberite koje kontrole trebaju biti vidljive"
-
 #: ../xfce4-mixer/xfce-mixer-track.c:242
 #, c-format
 msgid "Volume of channel %d on %s"
@@ -180,14 +172,10 @@ msgstr "Isključi/uključi zvuk %s"
 msgid "Enable/disable audible input from %s in output"
 msgstr "Omogući/onemogući čujni ulaz iz %s izlaza"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:159
-msgid "Configure sound card(s) and control the volume of selected tracks"
-msgstr "Konfiguriraj zvučnu karticu(e) i kontroliraj glasnoću odabranih zapisa"
-
-#: ../xfce4-mixer/xfce-mixer-window.c:204
+#: ../xfce4-mixer/xfce-mixer-window.c:203
 msgid "_Select Controls..."
 msgstr "_Odaberite kontrole..."
 
-#: ../xfce4-mixer/xfce-mixer-window.c:212
+#: ../xfce4-mixer/xfce-mixer-window.c:211
 msgid "_Quit"
 msgstr "_Isključi"
