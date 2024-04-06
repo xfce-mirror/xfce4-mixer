@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-10 00:49+0100\n"
+"POT-Creation-Date: 2024-04-06 12:50+0200\n"
 "PO-Revision-Date: 2013-07-03 18:38+0000\n"
 "Last-Translator: Kiril Kirilov <cybercop_montana@abv.bg>, 2016,2023\n"
 "Language-Team: Bulgarian (http://app.transifex.com/xfce/xfce-apps/language/bg/)\n"
@@ -82,20 +82,6 @@ msgstr "%s: звукът е заглушен"
 msgid "%s: %i%%"
 msgstr "%s: %i%%"
 
-#. Set application name
-#: ../panel-plugin/mixer.desktop.in.h:1 ../xfce4-mixer/main.c:45
-#: ../xfce4-mixer/xfce-mixer-window.c:156
-#: ../xfce4-mixer/xfce-mixer-window.c:440
-#: ../xfce4-mixer/xfce-mixer-window.c:454
-#: ../xfce4-mixer/xfce4-mixer.desktop.in.h:1
-msgid "Audio Mixer"
-msgstr "Звуков Миксер"
-
-#: ../panel-plugin/mixer.desktop.in.h:2
-#: ../xfce4-mixer/xfce4-mixer.desktop.in.h:2
-msgid "Adjust volume levels"
-msgstr "Регулиране нивото на звука"
-
 #: ../libxfce4mixer/pulse/pulse-mixer.c:881
 #: ../libxfce4mixer/pulse/pulse-mixer.c:930
 msgid "Card"
@@ -108,6 +94,13 @@ msgstr "Контрол на звука на Pulse Audio"
 #: ../libxfce4mixer/sndio/sndio-mixer.c:386
 msgid "Sndio Volume Control"
 msgstr "Контрол на звука на Sndio"
+
+#. Set application name
+#: ../xfce4-mixer/main.c:45 ../xfce4-mixer/xfce-mixer-window.c:156
+#: ../xfce4-mixer/xfce-mixer-window.c:440
+#: ../xfce4-mixer/xfce-mixer-window.c:454
+msgid "Audio Mixer"
+msgstr "Звуков Миксер"
 
 #: ../xfce4-mixer/xfce-mixer-application.c:73
 msgid "Enable debugging output"
