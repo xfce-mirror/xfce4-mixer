@@ -22,18 +22,7 @@
 dnl ***************************
 dnl *** Version information ***
 dnl ***************************
-m4_define([xfce4_mixer_version_major], [4])
-m4_define([xfce4_mixer_version_minor], [18])
-m4_define([xfce4_mixer_version_micro], [1])
-m4_define([xfce4_mixer_version_nano],  []) dnl leave this empty to have no nano version
-m4_define([xfce4_mixer_version_build], [r@REVISION@])
-m4_define([xfce4_mixer_version_tag],   [git])
-m4_define([xfce4_mixer_version], [xfce4_mixer_version_major().xfce4_mixer_version_minor().xfce4_mixer_version_micro()ifelse(xfce4_mixer_version_nano(), [], [], [.xfce4_mixer_version_nano()])ifelse(xfce4_mixer_version_tag(), [git], [xfce4_mixer_version_tag()-xfce4_mixer_version_build()], [xfce4_mixer_version_tag()])])
-
-dnl *******************************************
-dnl *** Debugging support for git snapshots ***
-dnl *******************************************
-m4_define([mixer_debug_default], [ifelse(xfce4_mixer_version_tag(), [git], [full], [minimum])])
+XDT_VERSION_INIT([4.18.1], [git])
 
 dnl ***************************
 dnl *** Initialize autoconf ***
@@ -41,10 +30,11 @@ dnl ***************************
 AC_COPYRIGHT([Copyright (c) 2008-2011 Jannis Pohlmann <jannis@xfce.org>.
 Copyright (c) 2012 Guido Berhoerster <guido+xfce@berhoerster.name>.
 Copyright (c) 2013-2023 The Xfce development team. All rights reserved.])
-AC_INIT([xfce4-mixer], [xfce4_mixer_version], [https://gitlab.xfce.org/apps/xfce4-mixer], [xfce4-mixer])
-AC_PREREQ([2.60])
+AC_INIT([xfce4-mixer], [xdt_version], [https://gitlab.xfce.org/apps/xfce4-mixer], [xfce4-mixer])
+AC_PREREQ([2.69])
 AC_CONFIG_MACRO_DIRS([m4])
 m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
+AC_REVISION([xdt_version_build])
 
 dnl ***************************
 dnl *** Initialize automake ***
@@ -172,7 +162,7 @@ AM_CONDITIONAL([SNDIO_BACKEND], [test x"$SNDIO_FOUND" = x"yes"])
 dnl ***********************************
 dnl *** Check for debugging support ***
 dnl ***********************************
-XDT_FEATURE_DEBUG(mixer_debug_default)
+XDT_FEATURE_DEBUG([xdt_debug_default])
 
 dnl **************************************
 dnl *** Check for linker optimizations ***
