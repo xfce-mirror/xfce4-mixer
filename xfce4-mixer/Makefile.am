@@ -54,7 +54,9 @@ dist_man_MANS = xfce4-mixer.1
 desktop_in_files = xfce4-mixer.desktop.in
 desktopdir = $(datadir)/applications
 desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
-@INTLTOOL_DESKTOP_RULE@
+
+xfce4-mixer.desktop: xfce4-mixer.desktop.in
+	$(AM_V_GEN)$(MSGFMT) --desktop --template $< -d $(top_srcdir)/po -o $@
 
 EXTRA_DIST = 								\
  	$(desktop_in_files)
