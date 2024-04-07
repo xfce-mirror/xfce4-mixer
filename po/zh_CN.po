@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the xfce-apps.xfce4-mixer package.
 # 
 # Translators:
 # Chipong Luo <chipong.luo@yahoo.com>, 2013
@@ -11,8 +11,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Apps\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-06 12:50+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2024-04-07 00:50+0200\n"
 "PO-Revision-Date: 2013-07-03 18:38+0000\n"
 "Last-Translator: 玉堂白鹤 <yjwork@qq.com>, 2023\n"
 "Language-Team: Chinese (China) (http://app.transifex.com/xfce/xfce-apps/language/zh_CN/)\n"
@@ -23,28 +23,28 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #. Add menu item for muting
-#: ../panel-plugin/xfce-mixer-plugin.c:298
+#: panel-plugin/xfce-mixer-plugin.c:298
 msgid "Mu_te"
 msgstr "静音(_T)"
 
 #. Add menu item for running the user-defined command
-#: ../panel-plugin/xfce-mixer-plugin.c:304
+#: panel-plugin/xfce-mixer-plugin.c:304
 msgid "Run Audio Mi_xer"
 msgstr "运行混音器(_X)"
 
-#: ../panel-plugin/xfce-mixer-plugin.c:572
-#: ../xfce4-mixer/xfce-mixer-application.c:157
+#: panel-plugin/xfce-mixer-plugin.c:572
+#: xfce4-mixer/xfce-mixer-application.c:157
 msgid ""
 "GStreamer was unable to detect any sound devices. Some sound system specific"
 " GStreamer packages may be missing. It may also be a permissions problem."
 msgstr "Gstreamer 未能检测到任何声音设备。一些声音系统的特定 Gstreamer 软件包可能缺失。也可能是权限问题。"
 
-#: ../panel-plugin/xfce-mixer-plugin.c:946
+#: panel-plugin/xfce-mixer-plugin.c:946
 msgid "No command defined"
 msgstr "未定义命令"
 
 #. Generate error message and insert the current command
-#: ../panel-plugin/xfce-mixer-plugin.c:954
+#: panel-plugin/xfce-mixer-plugin.c:954
 #, c-format
 msgid ""
 "Could not execute the command \"%s\". Ensure that either the location of the"
@@ -52,125 +52,127 @@ msgid ""
 "providing the full path to the command."
 msgstr "未能执行命令 “%s”。确保要么此命令的路径包含在路径环境变量中，要么您提供了此命令的完整路径。"
 
-#: ../panel-plugin/xfce-plugin-dialog.c:141
+#: panel-plugin/xfce-plugin-dialog.c:141
 msgid "Audio Mixer Plugin"
 msgstr "混音器插件"
 
-#: ../panel-plugin/xfce-plugin-dialog.c:143
-#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:113
+#: panel-plugin/xfce-plugin-dialog.c:143
+#: xfce4-mixer/xfce-mixer-controls-dialog.c:113
 msgid "_Close"
 msgstr "关闭(_C)"
 
-#: ../panel-plugin/xfce-plugin-dialog.c:154
-#: ../xfce4-mixer/xfce-mixer-window.c:175
+#: panel-plugin/xfce-plugin-dialog.c:154 xfce4-mixer/xfce-mixer-window.c:175
 msgid "Sound _card:"
 msgstr "声卡(_C)："
 
-#: ../panel-plugin/xfce-plugin-dialog.c:164
+#: panel-plugin/xfce-plugin-dialog.c:164
 msgid "Mixer _track:"
 msgstr "混音器音轨(_T)："
 
-#: ../panel-plugin/xfce-volume-button.c:831
+#: panel-plugin/xfce-volume-button.c:831
 msgid "No valid device and/or element."
 msgstr "无有效的设备和/或元素。"
 
-#: ../panel-plugin/xfce-volume-button.c:836
+#: panel-plugin/xfce-volume-button.c:836
 #, c-format
 msgid "%s: muted"
 msgstr "%s:已静音"
 
-#: ../panel-plugin/xfce-volume-button.c:838
+#: panel-plugin/xfce-volume-button.c:838
 #, c-format
 msgid "%s: %i%%"
 msgstr "%s:%i%%"
 
-#: ../libxfce4mixer/pulse/pulse-mixer.c:881
-#: ../libxfce4mixer/pulse/pulse-mixer.c:930
-msgid "Card"
-msgstr "声卡"
-
-#: ../libxfce4mixer/pulse/pulse-mixer.c:993
-msgid "Pulse Audio Volume Control"
-msgstr "Pulse Audio 音量控制"
-
-#: ../libxfce4mixer/sndio/sndio-mixer.c:386
-msgid "Sndio Volume Control"
-msgstr "Sndio 音量控制"
-
 #. Set application name
-#: ../xfce4-mixer/main.c:45 ../xfce4-mixer/xfce-mixer-window.c:156
-#: ../xfce4-mixer/xfce-mixer-window.c:440
-#: ../xfce4-mixer/xfce-mixer-window.c:454
+#: panel-plugin/mixer.desktop.in:4 xfce4-mixer/main.c:45
+#: xfce4-mixer/xfce-mixer-window.c:156 xfce4-mixer/xfce-mixer-window.c:440
+#: xfce4-mixer/xfce-mixer-window.c:454 xfce4-mixer/xfce4-mixer.desktop.in:4
 msgid "Audio Mixer"
 msgstr "混音器"
 
-#: ../xfce4-mixer/xfce-mixer-application.c:73
+#: panel-plugin/mixer.desktop.in:5 xfce4-mixer/xfce4-mixer.desktop.in:5
+msgid "Adjust volume levels"
+msgstr "调整音量"
+
+#: libxfce4mixer/pulse/pulse-mixer.c:881 libxfce4mixer/pulse/pulse-mixer.c:930
+msgid "Card"
+msgstr "声卡"
+
+#: libxfce4mixer/pulse/pulse-mixer.c:993
+msgid "Pulse Audio Volume Control"
+msgstr "Pulse Audio 音量控制"
+
+#: libxfce4mixer/sndio/sndio-mixer.c:386
+msgid "Sndio Volume Control"
+msgstr "Sndio 音量控制"
+
+#: xfce4-mixer/xfce-mixer-application.c:73
 msgid "Enable debugging output"
 msgstr "启用调试输出"
 
-#: ../xfce4-mixer/xfce-mixer-application.c:74
+#: xfce4-mixer/xfce-mixer-application.c:74
 msgid "Show version and exit"
 msgstr "显示版本信息并退出"
 
-#: ../xfce4-mixer/xfce-mixer-container.c:214
+#: xfce4-mixer/xfce-mixer-container.c:214
 msgid "_Playback"
 msgstr "播放(_P)"
 
-#: ../xfce4-mixer/xfce-mixer-container.c:214
+#: xfce4-mixer/xfce-mixer-container.c:214
 msgid "C_apture"
 msgstr "捕获(_A)"
 
-#: ../xfce4-mixer/xfce-mixer-container.c:214
+#: xfce4-mixer/xfce-mixer-container.c:214
 msgid "S_witches"
 msgstr "开关(_W)"
 
-#: ../xfce4-mixer/xfce-mixer-container.c:214
+#: xfce4-mixer/xfce-mixer-container.c:214
 msgid "_Options"
 msgstr "选项(_O)"
 
-#: ../xfce4-mixer/xfce-mixer-container.c:467
+#: xfce4-mixer/xfce-mixer-container.c:467
 msgid "No controls visible"
 msgstr "没有可见的控制项"
 
-#: ../xfce4-mixer/xfce-mixer-container.c:476
+#: xfce4-mixer/xfce-mixer-container.c:476
 msgid "<span weight=\"bold\" size=\"larger\">No controls visible</span>"
 msgstr "<span weight=\"bold\" size=\"larger\">无可见控制项</span>"
 
-#: ../xfce4-mixer/xfce-mixer-container.c:482
+#: xfce4-mixer/xfce-mixer-container.c:482
 msgid ""
 "In order to toggle the visibility of mixer controls, open the <b>\"Select "
 "Controls\"</b> dialog."
 msgstr "要切换显示的混音器控制，请打开 <b>\"选择控制器\"</b>对话框。"
 
-#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:111
+#: xfce4-mixer/xfce-mixer-controls-dialog.c:111
 msgid "Select Controls"
 msgstr "选择控制器"
 
-#: ../xfce4-mixer/xfce-mixer-track.c:242
+#: xfce4-mixer/xfce-mixer-track.c:242
 #, c-format
 msgid "Volume of channel %d on %s"
 msgstr "%d 声道音量，%s"
 
 #. Lock button
-#: ../xfce4-mixer/xfce-mixer-track.c:279
+#: xfce4-mixer/xfce-mixer-track.c:279
 #, c-format
 msgid "Lock channels for %s together"
 msgstr "与 %s 一道锁定频道"
 
-#: ../xfce4-mixer/xfce-mixer-track.c:323
+#: xfce4-mixer/xfce-mixer-track.c:323
 #, c-format
 msgid "Mute/unmute %s"
 msgstr "静音/取消静音 %s"
 
-#: ../xfce4-mixer/xfce-mixer-track.c:343
+#: xfce4-mixer/xfce-mixer-track.c:343
 #, c-format
 msgid "Enable/disable audible input from %s in output"
 msgstr "从输出中的 %s 启用/禁用音频输入"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:203
+#: xfce4-mixer/xfce-mixer-window.c:203
 msgid "_Select Controls..."
 msgstr "选择控制器(_S)..."
 
-#: ../xfce4-mixer/xfce-mixer-window.c:211
+#: xfce4-mixer/xfce-mixer-window.c:211
 msgid "_Quit"
 msgstr "退出(_Q)"
