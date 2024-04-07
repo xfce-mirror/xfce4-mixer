@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the xfce-apps.xfce4-mixer package.
 # 
 # Translators:
 # Elishai Eliyahu <elishai@mailfence.com>, 2016
@@ -10,8 +10,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Apps\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-06 12:50+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2024-04-07 00:50+0200\n"
 "PO-Revision-Date: 2013-07-03 18:38+0000\n"
 "Last-Translator: Elishai Eliyahu <elishai@mailfence.com>, 2023\n"
 "Language-Team: Hebrew (http://app.transifex.com/xfce/xfce-apps/language/he/)\n"
@@ -22,28 +22,28 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n == 1 && n % 1 == 0) ? 0 : (n == 2 && n % 1 == 0) ? 1: 2;\n"
 
 #. Add menu item for muting
-#: ../panel-plugin/xfce-mixer-plugin.c:298
+#: panel-plugin/xfce-mixer-plugin.c:298
 msgid "Mu_te"
 msgstr "ה_שתק"
 
 #. Add menu item for running the user-defined command
-#: ../panel-plugin/xfce-mixer-plugin.c:304
+#: panel-plugin/xfce-mixer-plugin.c:304
 msgid "Run Audio Mi_xer"
 msgstr "הרץ מ_ערבל שמע"
 
-#: ../panel-plugin/xfce-mixer-plugin.c:572
-#: ../xfce4-mixer/xfce-mixer-application.c:157
+#: panel-plugin/xfce-mixer-plugin.c:572
+#: xfce4-mixer/xfce-mixer-application.c:157
 msgid ""
 "GStreamer was unable to detect any sound devices. Some sound system specific"
 " GStreamer packages may be missing. It may also be a permissions problem."
 msgstr "GStreamer לא היה מסוגל לגלות שום התקני שמע. אולי מערכות צליל מסוימות האופייניות לחבילות GStreamer חסרות. יכול להיות כי זו גם בעיה של הרשאות."
 
-#: ../panel-plugin/xfce-mixer-plugin.c:946
+#: panel-plugin/xfce-mixer-plugin.c:946
 msgid "No command defined"
 msgstr "לא הוגדרה פקודה"
 
 #. Generate error message and insert the current command
-#: ../panel-plugin/xfce-mixer-plugin.c:954
+#: panel-plugin/xfce-mixer-plugin.c:954
 #, c-format
 msgid ""
 "Could not execute the command \"%s\". Ensure that either the location of the"
@@ -51,125 +51,127 @@ msgid ""
 "providing the full path to the command."
 msgstr "לא היתה אפשרות לבצע את הפקודה \"%s\". ודא כי המיקום של הפקודה הינו כלול בתוך משתנה סביבה PATH או ודא כי אתה מספק את הנתיב המלא של הפקודה."
 
-#: ../panel-plugin/xfce-plugin-dialog.c:141
+#: panel-plugin/xfce-plugin-dialog.c:141
 msgid "Audio Mixer Plugin"
 msgstr "תוסף מערבל שמע"
 
-#: ../panel-plugin/xfce-plugin-dialog.c:143
-#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:113
+#: panel-plugin/xfce-plugin-dialog.c:143
+#: xfce4-mixer/xfce-mixer-controls-dialog.c:113
 msgid "_Close"
 msgstr "_סגור"
 
-#: ../panel-plugin/xfce-plugin-dialog.c:154
-#: ../xfce4-mixer/xfce-mixer-window.c:175
+#: panel-plugin/xfce-plugin-dialog.c:154 xfce4-mixer/xfce-mixer-window.c:175
 msgid "Sound _card:"
 msgstr "_כרטיס קול:"
 
-#: ../panel-plugin/xfce-plugin-dialog.c:164
+#: panel-plugin/xfce-plugin-dialog.c:164
 msgid "Mixer _track:"
 msgstr "_רצועת מערבל:"
 
-#: ../panel-plugin/xfce-volume-button.c:831
+#: panel-plugin/xfce-volume-button.c:831
 msgid "No valid device and/or element."
 msgstr "אין התקן ו/או אלמנט תקפים."
 
-#: ../panel-plugin/xfce-volume-button.c:836
+#: panel-plugin/xfce-volume-button.c:836
 #, c-format
 msgid "%s: muted"
 msgstr "%s: מושתק"
 
-#: ../panel-plugin/xfce-volume-button.c:838
+#: panel-plugin/xfce-volume-button.c:838
 #, c-format
 msgid "%s: %i%%"
 msgstr "%s: %i%%"
 
-#: ../libxfce4mixer/pulse/pulse-mixer.c:881
-#: ../libxfce4mixer/pulse/pulse-mixer.c:930
-msgid "Card"
-msgstr "כרטיס"
-
-#: ../libxfce4mixer/pulse/pulse-mixer.c:993
-msgid "Pulse Audio Volume Control"
-msgstr "בקרת ווליום Pulse Audio "
-
-#: ../libxfce4mixer/sndio/sndio-mixer.c:386
-msgid "Sndio Volume Control"
-msgstr "בקרת ווליום Sndio "
-
 #. Set application name
-#: ../xfce4-mixer/main.c:45 ../xfce4-mixer/xfce-mixer-window.c:156
-#: ../xfce4-mixer/xfce-mixer-window.c:440
-#: ../xfce4-mixer/xfce-mixer-window.c:454
+#: panel-plugin/mixer.desktop.in:4 xfce4-mixer/main.c:45
+#: xfce4-mixer/xfce-mixer-window.c:156 xfce4-mixer/xfce-mixer-window.c:440
+#: xfce4-mixer/xfce-mixer-window.c:454 xfce4-mixer/xfce4-mixer.desktop.in:4
 msgid "Audio Mixer"
 msgstr "מערבל שמע"
 
-#: ../xfce4-mixer/xfce-mixer-application.c:73
+#: panel-plugin/mixer.desktop.in:5 xfce4-mixer/xfce4-mixer.desktop.in:5
+msgid "Adjust volume levels"
+msgstr "התאם רמות עוצמת קול"
+
+#: libxfce4mixer/pulse/pulse-mixer.c:881 libxfce4mixer/pulse/pulse-mixer.c:930
+msgid "Card"
+msgstr "כרטיס"
+
+#: libxfce4mixer/pulse/pulse-mixer.c:993
+msgid "Pulse Audio Volume Control"
+msgstr "בקרת ווליום Pulse Audio "
+
+#: libxfce4mixer/sndio/sndio-mixer.c:386
+msgid "Sndio Volume Control"
+msgstr "בקרת ווליום Sndio "
+
+#: xfce4-mixer/xfce-mixer-application.c:73
 msgid "Enable debugging output"
 msgstr "Enable debugging output"
 
-#: ../xfce4-mixer/xfce-mixer-application.c:74
+#: xfce4-mixer/xfce-mixer-application.c:74
 msgid "Show version and exit"
 msgstr "Show version and exit"
 
-#: ../xfce4-mixer/xfce-mixer-container.c:214
+#: xfce4-mixer/xfce-mixer-container.c:214
 msgid "_Playback"
 msgstr "_השמעה"
 
-#: ../xfce4-mixer/xfce-mixer-container.c:214
+#: xfce4-mixer/xfce-mixer-container.c:214
 msgid "C_apture"
 msgstr "_לכידה"
 
-#: ../xfce4-mixer/xfce-mixer-container.c:214
+#: xfce4-mixer/xfce-mixer-container.c:214
 msgid "S_witches"
 msgstr "_מפסקים"
 
-#: ../xfce4-mixer/xfce-mixer-container.c:214
+#: xfce4-mixer/xfce-mixer-container.c:214
 msgid "_Options"
 msgstr "_אפשרויות"
 
-#: ../xfce4-mixer/xfce-mixer-container.c:467
+#: xfce4-mixer/xfce-mixer-container.c:467
 msgid "No controls visible"
 msgstr "אין פקדים נראים"
 
-#: ../xfce4-mixer/xfce-mixer-container.c:476
+#: xfce4-mixer/xfce-mixer-container.c:476
 msgid "<span weight=\"bold\" size=\"larger\">No controls visible</span>"
 msgstr "<span weight=\"bold\" size=\"larger\">אין פקדים נראים</span>"
 
-#: ../xfce4-mixer/xfce-mixer-container.c:482
+#: xfce4-mixer/xfce-mixer-container.c:482
 msgid ""
 "In order to toggle the visibility of mixer controls, open the <b>\"Select "
 "Controls\"</b> dialog."
 msgstr "כדי להחליף ראות של פקדי מערבל, פתח את דו שיח <b>\"בחירת פקדים\"</b>."
 
-#: ../xfce4-mixer/xfce-mixer-controls-dialog.c:111
+#: xfce4-mixer/xfce-mixer-controls-dialog.c:111
 msgid "Select Controls"
 msgstr "בחירת פקדים"
 
-#: ../xfce4-mixer/xfce-mixer-track.c:242
+#: xfce4-mixer/xfce-mixer-track.c:242
 #, c-format
 msgid "Volume of channel %d on %s"
 msgstr "עוצמת קול של ערוץ %d על %s"
 
 #. Lock button
-#: ../xfce4-mixer/xfce-mixer-track.c:279
+#: xfce4-mixer/xfce-mixer-track.c:279
 #, c-format
 msgid "Lock channels for %s together"
 msgstr "נעל ערוצים עבור %s יחדיו"
 
-#: ../xfce4-mixer/xfce-mixer-track.c:323
+#: xfce4-mixer/xfce-mixer-track.c:323
 #, c-format
 msgid "Mute/unmute %s"
 msgstr "השתק/בטל השתק %s"
 
-#: ../xfce4-mixer/xfce-mixer-track.c:343
+#: xfce4-mixer/xfce-mixer-track.c:343
 #, c-format
 msgid "Enable/disable audible input from %s in output"
 msgstr "אפשר/נטרל קלט שמיע מ %s בפלט"
 
-#: ../xfce4-mixer/xfce-mixer-window.c:203
+#: xfce4-mixer/xfce-mixer-window.c:203
 msgid "_Select Controls..."
 msgstr "_בחר פקדים..."
 
-#: ../xfce4-mixer/xfce-mixer-window.c:211
+#: xfce4-mixer/xfce-mixer-window.c:211
 msgid "_Quit"
 msgstr "י_ציאה"
