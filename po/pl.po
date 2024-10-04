@@ -36,7 +36,7 @@ msgstr "_Uruchom mikser dźwięku"
 msgid ""
 "GStreamer was unable to detect any sound devices. Some sound system specific"
 " GStreamer packages may be missing. It may also be a permissions problem."
-msgstr "Program GStreamer nie odnalazł żadnego urządzenia muzycznego. Przypuszczalnie brakuje niektórych pakietów systemu dźwiękowego GStreamer lub istnieje problem z prawami dostępu."
+msgstr "Program GStreamer nie odnalazł żadnych urządzeń dźwiękowych. Niektóre pakiety GStreamer specyficzne dla systemu dźwiękowego mogą być niedostępne. Może to być również problem z uprawnieniami."
 
 #: panel-plugin/xfce-mixer-plugin.c:946
 msgid "No command defined"
@@ -141,7 +141,7 @@ msgstr "<span weight=\"bold\" size=\"larger\">Brak widocznych elementów steruj�
 msgid ""
 "In order to toggle the visibility of mixer controls, open the <b>\"Select "
 "Controls\"</b> dialog."
-msgstr "Aby zmienić widoczność kontrolerów miksera, należy otworzyć okno <b>„Elementy sterujące”</b>."
+msgstr "Aby zmienić widoczność elementów sterujących miksera, należy otworzyć okno <b>„Elementy sterujące”</b>."
 
 #: xfce4-mixer/xfce-mixer-controls-dialog.c:111
 msgid "Select Controls"
