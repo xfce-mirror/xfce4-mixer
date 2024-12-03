@@ -36,7 +36,7 @@ msgstr "_Uruchom mikser dźwięku"
 msgid ""
 "GStreamer was unable to detect any sound devices. Some sound system specific"
 " GStreamer packages may be missing. It may also be a permissions problem."
-msgstr "Program GStreamer nie odnalazł żadnych urządzeń dźwiękowych. Niektóre pakiety GStreamer specyficzne dla systemu dźwiękowego mogą być niedostępne. Może to być również problem z uprawnieniami."
+msgstr "Program GStreamer nie odnalazł żadnych urządzeń dźwiękowych. Niektóre pakiety GStreamer specyficzne dla systemu dźwiękowego mogą być niedostępne. Może to być również problem z uprawnieniami."
 
 #: panel-plugin/xfce-mixer-plugin.c:946
 msgid "No command defined"
@@ -49,7 +49,7 @@ msgid ""
 "Could not execute the command \"%s\". Ensure that either the location of the"
 " command is included in the PATH environment variable or that you are "
 "providing the full path to the command."
-msgstr "Nie można wykonać polecenia „%s”. Proszę upewnić się, że wprowadzono pełną ścieżkę do programu albo że położenie programu uwzględniono w zmiennej systemowej PATH."
+msgstr "Nie można wykonać polecenia „%s”. Upewnij się, że wprowadzono pełną ścieżkę do programu albo że położenie programu uwzględniono w zmiennej systemowej PATH."
 
 #: panel-plugin/xfce-plugin-dialog.c:141
 msgid "Audio Mixer Plugin"
@@ -166,7 +166,7 @@ msgstr "Wyciszenie/brak wyciszenia %s"
 #: xfce4-mixer/xfce-mixer-track.c:343
 #, c-format
 msgid "Enable/disable audible input from %s in output"
-msgstr "Włącza/wyłącza słyszalne wejście z %s na wyjściu"
+msgstr "Włącza/wyłącza słyszalne wejście z %s na wyjściu"
 
 #: xfce4-mixer/xfce-mixer-window.c:203
 msgid "_Select Controls..."
