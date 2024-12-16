@@ -5,13 +5,14 @@
 # Translators:
 # Gabor Kelemen <kelemeng at gnome dot hu>, 2009
 # Gábor P., 2017
+# László Varga, 2024
 msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
 "POT-Creation-Date: 2024-04-07 00:50+0200\n"
 "PO-Revision-Date: 2013-07-03 18:38+0000\n"
-"Last-Translator: Gábor P., 2017\n"
+"Last-Translator: László Varga, 2024\n"
 "Language-Team: Hungarian (http://app.transifex.com/xfce/xfce-apps/language/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -93,11 +94,11 @@ msgstr "Hangerőszintek beállítása"
 
 #: libxfce4mixer/pulse/pulse-mixer.c:881 libxfce4mixer/pulse/pulse-mixer.c:930
 msgid "Card"
-msgstr ""
+msgstr "kártya"
 
 #: libxfce4mixer/pulse/pulse-mixer.c:993
 msgid "Pulse Audio Volume Control"
-msgstr ""
+msgstr "Pulse Audio hangerőszabályzó"
 
 #: libxfce4mixer/sndio/sndio-mixer.c:386
 msgid "Sndio Volume Control"
