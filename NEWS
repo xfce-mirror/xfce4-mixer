@@ -1,3 +1,28 @@
+4.18.2 (2024-12-25)
+======
+- Update copyright year
+- I18n: Update po/LINGUAS list
+- I18n: Update po/LINGUAS list
+- I18n: Update po/LINGUAS list
+- I18n: Update po/LINGUAS list
+- build: Use XDT_VERSION_INIT and get rid of configure.ac.in
+- build: Switch from intltool to gettext
+- Use symbolic icons
+- Remove dialog subtitle
+- Align gst_mixer_oss_set_volume prototype with _GstMixerClass 
+definition.
+- Translation Updates:
+  Albanian, Arabic, Armenian (Armenia), Asturian, Basque, Belarusian,
+  Bulgarian, Catalan, Chinese (China), Chinese (Hong Kong), Chinese
+  (Taiwan), Croatian, Czech, Danish, Dutch, Eastern Armenian, English
+  (Australia), English (Canada), English (United Kingdom), Estonian,
+  Finnish, French, Galician, German, Greek, Hebrew, Hungarian,
+  Icelandic, Indonesian, Interlingue, Italian, Japanese, Kazakh,
+  Korean, Malay, Norwegian Bokmål, Occitan (post 1500), Persian
+  (Iran), Polish, Portuguese, Portuguese (Brazil), Romanian, Russian,
+  Serbian, Slovak, Slovenian, Spanish, Swedish, Thai, Turkish,
+  Ukrainian, Uyghur
+
 4.18.1 (2023-05-01)
 ======
 - panel-plugin: Fix blurry icons when UI scale > 1
