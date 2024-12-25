@@ -29,7 +29,7 @@ dnl *** Initialize autoconf ***
 dnl ***************************
 AC_COPYRIGHT([Copyright (c) 2008-2011 Jannis Pohlmann <jannis@xfce.org>.
 Copyright (c) 2012 Guido Berhoerster <guido+xfce@berhoerster.name>.
-Copyright (c) 2013-2023 The Xfce development team. All rights reserved.])
+Copyright (c) 2013-2024 The Xfce development team. All rights reserved.])
 AC_INIT([xfce4-mixer], [xdt_version], [https://gitlab.xfce.org/apps/xfce4-mixer], [xfce4-mixer])
 AC_PREREQ([2.69])
 AC_CONFIG_MACRO_DIRS([m4])
