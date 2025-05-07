@@ -32,7 +32,7 @@
 #include <errno.h>
 #include <sys/ioctl.h>
 
-#if HOST_TYPE_FREEBSD
+#ifdef HAVE_SYS_SYSCTL_H
 #include <sys/sysctl.h>
 #endif
 

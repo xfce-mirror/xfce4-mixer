@@ -22,6 +22,9 @@
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
+#ifdef HAVE_XFCE_REVISION_H
+#include "xfce-revision.h"
+#endif
 
 #ifdef HAVE_STDLIB_H
 #include <stdlib.h>
@@ -163,7 +166,7 @@ xfce_mixer_application_startup (GApplication *app)
   /* Initialize debugging code */
   xfce_mixer_debug_init (G_LOG_DOMAIN, debug_mode);
 
-  xfce_mixer_debug ("xfce4-mixer version " VERSION " starting up");
+  xfce_mixer_debug ("xfce4-mixer version " VERSION_FULL " starting up");
 
   if (debug_mode)
     xfce_mixer_dump_gst_data ();
@@ -207,7 +210,7 @@ xfce_mixer_application_handle_local_options (GApplication *app,
 {
   if (show_version)
     {
-      g_print ("xfce4-mixer " VERSION "\n");
+      g_print ("xfce4-mixer " VERSION_FULL "\n");
       return EXIT_SUCCESS;
     }
 
