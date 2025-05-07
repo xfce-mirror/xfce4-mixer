@@ -35,6 +35,7 @@ AC_PREREQ([2.69])
 AC_CONFIG_MACRO_DIRS([m4])
 m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
 AC_REVISION([xdt_version_build])
+AC_DEFINE([VERSION_FULL], [PACKAGE_VERSION], [Alias for VERSION and PACKAGE_VERSION for meson compatibility])
 
 dnl ***************************
 dnl *** Initialize automake ***
@@ -80,18 +81,6 @@ if test x$with_host = x; then
 		[*-*dragonfly*], [with_host=freebsd],
 		[*-openbsd*], [with_host=openbsd])
 fi
-AC_DEFINE_UNQUOTED(HOST_OS, "$with_host", [backend])
-AC_SUBST(HOST_OS, "$with_host")
-
-if test x$with_host = xlinux; then
-    AC_DEFINE(HOST_TYPE_LINUX, 1, [Linux Host])
-fi
-if test x$with_host = xfreebsd; then
-    AC_DEFINE(HOST_TYPE_FREEBSD, 1, [FreeBSD Host])
-fi
-if test x$with_host = xopenbsd; then
-    AC_DEFINE(HOST_TYPE_OPENBSD, 1, [OpenBSD Host])
-fi
 
 dnl ******************************
 dnl *** Check for i18n support ***
@@ -106,7 +95,7 @@ AM_GNU_GETTEXT_VERSION([0.19.8])
 dnl **********************
 dnl *** Check for libm ***
 dnl **********************
-AC_CHECK_HEADERS([math.h])
+AC_CHECK_HEADERS([math.h sys/sysctl.h])
 AC_CHECK_LIB([m],[round])
 
 dnl ***********************************
