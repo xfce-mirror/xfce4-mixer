@@ -22,6 +22,9 @@
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
+#ifdef HAVE_XFCE_REVISION_H
+#include "xfce-revision.h"
+#endif
 
 #include <gst/gst.h>
 
@@ -51,9 +54,12 @@ static void     xfce_mixer_window_soundcard_property_changed  (XfceMixerWindow  
 static void     xfce_mixer_window_action_select_controls      (GSimpleAction        *action,
                                                                GVariant             *parameter,
                                                                gpointer              user_data);
-static void     xfce_mixer_window_controls_property_changed   (XfceMixerWindow *window,
-                                                               GParamSpec      *pspec,
-                                                               GObject         *object);
+static void     xfce_mixer_window_controls_property_changed   (XfceMixerWindow      *window,
+                                                               GParamSpec           *pspec,
+                                                               GObject              *object);
+static void     xfce_mixer_window_show_about_dialog           (GSimpleAction        *action,
+                                                               GVariant             *parameter,
+                                                               gpointer              user_data);
 static void     xfce_mixer_window_close                       (GSimpleAction        *action,
                                                                GVariant             *parameter,
                                                                gpointer              user_data);
@@ -88,6 +94,7 @@ struct _XfceMixerWindow
 
 static const GActionEntry action_entries[] =
 {
+  { "about", &xfce_mixer_window_show_about_dialog, NULL, NULL, NULL },
   { "quit", &xfce_mixer_window_close, NULL, NULL, NULL },
   { "select-controls", &xfce_mixer_window_action_select_controls, NULL, NULL, NULL },
 };
@@ -121,7 +128,8 @@ xfce_mixer_window_init (XfceMixerWindow *window)
 {
   GApplication  *app = g_application_get_default ();
   GtkWidget     *label;
-  GtkWidget     *button;
+  GtkWidget     *about_button;
+  GtkWidget     *quit_button;
   GtkWidget     *vbox;
   GtkWidget     *hbox;
   GtkWidget     *bbox;
@@ -197,7 +205,7 @@ G_GNUC_BEGIN_IGNORE_DEPRECATIONS
      Suffice it to say, new API is quite limited. */
   bbox = gtk_dialog_get_action_area (GTK_DIALOG (window));
 G_GNUC_END_IGNORE_DEPRECATIONS
-  gtk_button_box_set_layout (GTK_BUTTON_BOX (bbox), GTK_BUTTONBOX_EDGE);
+  gtk_button_box_set_layout (GTK_BUTTON_BOX (bbox), GTK_BUTTONBOX_END);
   gtk_container_set_border_width (GTK_CONTAINER (bbox), 6);
 
   window->select_controls_button = gtk_button_new_with_mnemonic (_("_Select Controls..."));
@@ -208,12 +216,19 @@ G_GNUC_END_IGNORE_DEPRECATIONS
   gtk_box_pack_start (GTK_BOX (bbox), window->select_controls_button, FALSE, TRUE, 0);
   gtk_widget_show (window->select_controls_button);
 
-  button = gtk_button_new_with_mnemonic (_("_Quit"));
-  gtk_button_set_image (GTK_BUTTON (button),
+  about_button = gtk_button_new_with_mnemonic (_("_About"));
+  gtk_button_set_image (GTK_BUTTON (about_button),
+                        gtk_image_new_from_icon_name ("help-about", GTK_ICON_SIZE_BUTTON));
+  gtk_actionable_set_action_name (GTK_ACTIONABLE (about_button), "app.about");
+  gtk_box_pack_start (GTK_BOX (bbox), about_button, FALSE, TRUE, 0);
+  gtk_widget_show (about_button);
+
+  quit_button = gtk_button_new_with_mnemonic (_("_Quit"));
+  gtk_button_set_image (GTK_BUTTON (quit_button),
                         gtk_image_new_from_icon_name ("application-exit", GTK_ICON_SIZE_BUTTON));
-  gtk_actionable_set_action_name (GTK_ACTIONABLE (button), "app.quit");
-  gtk_box_pack_start (GTK_BOX (bbox), button, FALSE, TRUE, 0);
-  gtk_widget_show (button);
+  gtk_actionable_set_action_name (GTK_ACTIONABLE (quit_button), "app.quit");
+  gtk_box_pack_start (GTK_BOX (bbox), quit_button, FALSE, TRUE, 0);
+  gtk_widget_show (quit_button);
 
   g_signal_connect_swapped (G_OBJECT (window->preferences), "notify::sound-card", G_CALLBACK (xfce_mixer_window_soundcard_property_changed), window);
 
@@ -399,6 +414,32 @@ xfce_mixer_window_controls_property_changed (XfceMixerWindow *window,
   /* Update the controls dialog */
   if (window->controls_dialog != NULL)
     xfce_mixer_controls_dialog_update_dialog (XFCE_MIXER_CONTROLS_DIALOG (window->controls_dialog));
+}
+
+
+
+static void
+xfce_mixer_window_show_about_dialog (GSimpleAction *action,
+                                     GVariant      *parameter,
+                                     gpointer       user_data)
+{
+  const gchar *auth[] = {
+    "Ali Abdallah <ali.abdallah@suse.com>",
+    "Landry Breuil <landry@xfce.org>",
+    "Jannis Pohlmann <jannis@xfce.org>",
+    "Guido Berhoerster <guido+xfce@berhoerster.name>",
+    NULL
+  };
+
+  gtk_show_about_dialog (NULL,
+    "logo-icon-name", "multimedia-volume-control",
+    "license", xfce_get_license_text (XFCE_LICENSE_TEXT_GPL),
+    "version", VERSION_FULL,
+    "program-name", PACKAGE_NAME,
+    "comments", _("Adjust volume levels"),
+    "website", PACKAGE_URL,
+    "copyright", "Copyright \302\251 2003-2025 The Xfce development team",
+    "authors", auth, NULL);
 }
 
 
