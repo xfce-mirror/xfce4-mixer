@@ -438,7 +438,7 @@ xfce_mixer_window_show_about_dialog (GSimpleAction *action,
     "program-name", PACKAGE_NAME,
     "comments", _("Adjust volume levels"),
     "website", PACKAGE_URL,
-    "copyright", "Copyright \302\251 2003-2025 The Xfce development team",
+    "copyright", "Copyright \302\251 2003-" COPYRIGHT_YEAR " The Xfce development team",
     "authors", auth, NULL);
 }
 
