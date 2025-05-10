@@ -22,6 +22,9 @@
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
+#ifdef HAVE_XFCE_REVISION_H
+#include "xfce-revision.h"
+#endif
 
 #ifdef HAVE_MATH_H
 #include <math.h>
@@ -261,7 +264,7 @@ xfce_mixer_plugin_init (XfceMixerPlugin *mixer_plugin)
     debug_mode = TRUE;
   xfce_mixer_debug_init (G_LOG_DOMAIN, debug_mode);
 
-  xfce_mixer_debug ("mixer plugin version " VERSION " starting up");
+  xfce_mixer_debug ("mixer plugin version " VERSION_FULL " starting up");
 
   if (debug_mode)
     xfce_mixer_dump_gst_data ();

@@ -431,17 +431,17 @@ error:
 
 GList *gst_mixer_alsa_probe (GList *card_list)
 {
-#ifdef HOST_TYPE_LINUX
+#ifdef __linux__
   int card = -1;
 #endif
 
-#ifdef HOST_TYPE_LINUX
+#ifdef __linux__
   while (snd_card_next(&card) >= 0 && card >= 0) {
     char name [16];
 #endif
     GstMixer *mixer;
     int err;
-#ifdef HOST_TYPE_LINUX
+#ifdef __linux__
     sprintf (name, "hw:%d", card);
     err = gst_mixer_alsa_new (name, &mixer);
 #else
@@ -450,7 +450,7 @@ GList *gst_mixer_alsa_probe (GList *card_list)
     if (err < 0)
       return NULL;
     card_list = g_list_append (card_list, mixer);
-#ifdef HOST_TYPE_LINUX
+#ifdef __linux__
   }
 #endif
 

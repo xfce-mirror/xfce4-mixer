@@ -132,3 +132,6 @@ libxfce4mixer_la_LIBADD +=						\
 	-lsndio
 endif
 
+EXTRA_DIST = 								\
+	meson.build							\
+	$(NULL)
