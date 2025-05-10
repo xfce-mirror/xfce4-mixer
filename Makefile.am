@@ -48,4 +48,9 @@ EXTRA_DIST =								\
 	AUTHORS								\
 	ChangeLog							\
 	COPYING								\
-	NEWS
+	NEWS								\
+	meson_options.txt						\
+	meson.build							\
+	po/meson.build							\
+	xfce-revision.h.in						\
+	$(NULL)

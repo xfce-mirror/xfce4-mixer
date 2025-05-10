@@ -1,0 +1,34 @@
+option(
+  'keybinder',
+  type: 'feature',
+  value: 'auto',
+  description: 'Keybinder support',
+)
+
+option(
+  'pulse',
+  type: 'feature',
+  value: 'auto',
+  description: 'Pulse backend support',
+)
+
+option(
+  'alsa',
+  type: 'feature',
+  value: 'auto',
+  description: 'Alsa backend support',
+)
+
+option(
+  'sndio',
+  type: 'feature',
+  value: 'auto',
+  description: 'Sndio backend support',
+)
+
+option(
+  'oss',
+  type: 'feature',
+  value: 'auto',
+  description: 'OSS sound support (FreeBSD only)',
+)
