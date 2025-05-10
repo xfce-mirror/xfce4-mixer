@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
-"POT-Creation-Date: 2024-04-07 00:50+0200\n"
+"POT-Creation-Date: 2025-05-10 12:48+0200\n"
 "PO-Revision-Date: 2013-07-03 18:38+0000\n"
 "Last-Translator: Luna Jernberg <droidbittin@gmail.com>, 2023\n"
 "Language-Team: Swedish (http://app.transifex.com/xfce/xfce-apps/language/sv/)\n"
@@ -21,28 +21,28 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. Add menu item for muting
-#: panel-plugin/xfce-mixer-plugin.c:298
+#: panel-plugin/xfce-mixer-plugin.c:301
 msgid "Mu_te"
 msgstr "Ty_st"
 
 #. Add menu item for running the user-defined command
-#: panel-plugin/xfce-mixer-plugin.c:304
+#: panel-plugin/xfce-mixer-plugin.c:307
 msgid "Run Audio Mi_xer"
 msgstr "Kör ljudmi_xer"
 
-#: panel-plugin/xfce-mixer-plugin.c:572
+#: panel-plugin/xfce-mixer-plugin.c:575
 #: xfce4-mixer/xfce-mixer-application.c:157
 msgid ""
 "GStreamer was unable to detect any sound devices. Some sound system specific"
 " GStreamer packages may be missing. It may also be a permissions problem."
 msgstr "GStreamer kunde inte hitta några ljudenheter. Vissa ljudsystemsspecifika GStreamer-paket kanske saknas. Det kan också vara ett behörighetsproblem."
 
-#: panel-plugin/xfce-mixer-plugin.c:946
+#: panel-plugin/xfce-mixer-plugin.c:949
 msgid "No command defined"
 msgstr "Inget kommando definerat"
 
 #. Generate error message and insert the current command
-#: panel-plugin/xfce-mixer-plugin.c:954
+#: panel-plugin/xfce-mixer-plugin.c:957
 #, c-format
 msgid ""
 "Could not execute the command \"%s\". Ensure that either the location of the"
@@ -59,7 +59,7 @@ msgstr "Insticksprogram för ljudmixer"
 msgid "_Close"
 msgstr "St_äng"
 
-#: panel-plugin/xfce-plugin-dialog.c:154 xfce4-mixer/xfce-mixer-window.c:175
+#: panel-plugin/xfce-plugin-dialog.c:154 xfce4-mixer/xfce-mixer-window.c:182
 msgid "Sound _card:"
 msgstr "Ljud_kort:"
 
@@ -83,12 +83,13 @@ msgstr "%s: %i%%"
 
 #. Set application name
 #: panel-plugin/mixer.desktop.in:4 xfce4-mixer/main.c:45
-#: xfce4-mixer/xfce-mixer-window.c:156 xfce4-mixer/xfce-mixer-window.c:440
-#: xfce4-mixer/xfce-mixer-window.c:454 xfce4-mixer/xfce4-mixer.desktop.in:4
+#: xfce4-mixer/xfce-mixer-window.c:163 xfce4-mixer/xfce-mixer-window.c:480
+#: xfce4-mixer/xfce-mixer-window.c:494 xfce4-mixer/xfce4-mixer.desktop.in:4
 msgid "Audio Mixer"
 msgstr "Ljudmixer"
 
-#: panel-plugin/mixer.desktop.in:5 xfce4-mixer/xfce4-mixer.desktop.in:5
+#: panel-plugin/mixer.desktop.in:5 xfce4-mixer/xfce-mixer-window.c:438
+#: xfce4-mixer/xfce4-mixer.desktop.in:5
 msgid "Adjust volume levels"
 msgstr "Justera ljudvolymer"
 
@@ -167,10 +168,14 @@ msgstr "Tyst/sätt på %s"
 msgid "Enable/disable audible input from %s in output"
 msgstr "Aktivera/avaktivera ljudingång från %s i utmatning"
 
-#: xfce4-mixer/xfce-mixer-window.c:203
+#: xfce4-mixer/xfce-mixer-window.c:210
 msgid "_Select Controls..."
 msgstr "_Välj kontroller..."
 
-#: xfce4-mixer/xfce-mixer-window.c:211
+#: xfce4-mixer/xfce-mixer-window.c:218
+msgid "_About"
+msgstr "_Om"
+
+#: xfce4-mixer/xfce-mixer-window.c:225
 msgid "_Quit"
 msgstr "A_vsluta"
