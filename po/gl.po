@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
-"POT-Creation-Date: 2024-04-07 00:50+0200\n"
+"POT-Creation-Date: 2025-05-10 12:48+0200\n"
 "PO-Revision-Date: 2013-07-03 18:38+0000\n"
 "Last-Translator: Daniel Muñiz Fontoira <dani@damufo.eu>, 2024\n"
 "Language-Team: Galician (http://app.transifex.com/xfce/xfce-apps/language/gl/)\n"
@@ -22,28 +22,28 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. Add menu item for muting
-#: panel-plugin/xfce-mixer-plugin.c:298
+#: panel-plugin/xfce-mixer-plugin.c:301
 msgid "Mu_te"
 msgstr "_Silencio"
 
 #. Add menu item for running the user-defined command
-#: panel-plugin/xfce-mixer-plugin.c:304
+#: panel-plugin/xfce-mixer-plugin.c:307
 msgid "Run Audio Mi_xer"
 msgstr "Executar o mesturador de son"
 
-#: panel-plugin/xfce-mixer-plugin.c:572
+#: panel-plugin/xfce-mixer-plugin.c:575
 #: xfce4-mixer/xfce-mixer-application.c:157
 msgid ""
 "GStreamer was unable to detect any sound devices. Some sound system specific"
 " GStreamer packages may be missing. It may also be a permissions problem."
 msgstr "GStreamer non foi quen de detectar ningún dispositivo de son. Pode que falten algúns paquetes de GStreamer específicos para o sistema de son. Tamén podería ser un problema de permisos."
 
-#: panel-plugin/xfce-mixer-plugin.c:946
+#: panel-plugin/xfce-mixer-plugin.c:949
 msgid "No command defined"
 msgstr "Non hai ningunha orde definida"
 
 #. Generate error message and insert the current command
-#: panel-plugin/xfce-mixer-plugin.c:954
+#: panel-plugin/xfce-mixer-plugin.c:957
 #, c-format
 msgid ""
 "Could not execute the command \"%s\". Ensure that either the location of the"
@@ -60,7 +60,7 @@ msgstr "Engadido de mesturador de son"
 msgid "_Close"
 msgstr "_Pechar"
 
-#: panel-plugin/xfce-plugin-dialog.c:154 xfce4-mixer/xfce-mixer-window.c:175
+#: panel-plugin/xfce-plugin-dialog.c:154 xfce4-mixer/xfce-mixer-window.c:182
 msgid "Sound _card:"
 msgstr "_Placa de son:"
 
@@ -84,12 +84,13 @@ msgstr "%s: %i%%"
 
 #. Set application name
 #: panel-plugin/mixer.desktop.in:4 xfce4-mixer/main.c:45
-#: xfce4-mixer/xfce-mixer-window.c:156 xfce4-mixer/xfce-mixer-window.c:440
-#: xfce4-mixer/xfce-mixer-window.c:454 xfce4-mixer/xfce4-mixer.desktop.in:4
+#: xfce4-mixer/xfce-mixer-window.c:163 xfce4-mixer/xfce-mixer-window.c:480
+#: xfce4-mixer/xfce-mixer-window.c:494 xfce4-mixer/xfce4-mixer.desktop.in:4
 msgid "Audio Mixer"
 msgstr "Mesturador de son"
 
-#: panel-plugin/mixer.desktop.in:5 xfce4-mixer/xfce4-mixer.desktop.in:5
+#: panel-plugin/mixer.desktop.in:5 xfce4-mixer/xfce-mixer-window.c:438
+#: xfce4-mixer/xfce4-mixer.desktop.in:5
 msgid "Adjust volume levels"
 msgstr "Axustar os niveis de volume"
 
@@ -168,10 +169,14 @@ msgstr "Enmudecer/desenmudecer %s"
 msgid "Enable/disable audible input from %s in output"
 msgstr "Activar/Desactivar a entrada audíbel de %s na saída"
 
-#: xfce4-mixer/xfce-mixer-window.c:203
+#: xfce4-mixer/xfce-mixer-window.c:210
 msgid "_Select Controls..."
 msgstr "_Seleccionar controis..."
 
-#: xfce4-mixer/xfce-mixer-window.c:211
+#: xfce4-mixer/xfce-mixer-window.c:218
+msgid "_About"
+msgstr "_Sobre"
+
+#: xfce4-mixer/xfce-mixer-window.c:225
 msgid "_Quit"
 msgstr "_Saír"
