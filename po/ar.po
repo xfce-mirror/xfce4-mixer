@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Xfce Apps\n"
 "Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
-"POT-Creation-Date: 2024-04-07 00:50+0200\n"
+"POT-Creation-Date: 2025-05-10 12:48+0200\n"
 "PO-Revision-Date: 2013-07-03 18:38+0000\n"
 "Last-Translator: Oukiki Saleh <salehoukiki@gmail.com>, 2016\n"
 "Language-Team: Arabic (http://app.transifex.com/xfce/xfce-apps/language/ar/)\n"
@@ -22,28 +22,28 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
 #. Add menu item for muting
-#: panel-plugin/xfce-mixer-plugin.c:298
+#: panel-plugin/xfce-mixer-plugin.c:301
 msgid "Mu_te"
 msgstr "اص_مت"
 
 #. Add menu item for running the user-defined command
-#: panel-plugin/xfce-mixer-plugin.c:304
+#: panel-plugin/xfce-mixer-plugin.c:307
 msgid "Run Audio Mi_xer"
 msgstr "تشغيل مازج الصوت"
 
-#: panel-plugin/xfce-mixer-plugin.c:572
+#: panel-plugin/xfce-mixer-plugin.c:575
 #: xfce4-mixer/xfce-mixer-application.c:157
 msgid ""
 "GStreamer was unable to detect any sound devices. Some sound system specific"
 " GStreamer packages may be missing. It may also be a permissions problem."
 msgstr "GStreamer غير قادر على الكشف عن أية أجهزة الصوت. قد تكون بعض حزم صوت GStreamer مفقودة. أو قد يكون مشكلة في الأذونات."
 
-#: panel-plugin/xfce-mixer-plugin.c:946
+#: panel-plugin/xfce-mixer-plugin.c:949
 msgid "No command defined"
 msgstr "لم تعرف أوامر"
 
 #. Generate error message and insert the current command
-#: panel-plugin/xfce-mixer-plugin.c:954
+#: panel-plugin/xfce-mixer-plugin.c:957
 #, c-format
 msgid ""
 "Could not execute the command \"%s\". Ensure that either the location of the"
@@ -60,7 +60,7 @@ msgstr "ملحق مازج الصوت"
 msgid "_Close"
 msgstr "_غلق"
 
-#: panel-plugin/xfce-plugin-dialog.c:154 xfce4-mixer/xfce-mixer-window.c:175
+#: panel-plugin/xfce-plugin-dialog.c:154 xfce4-mixer/xfce-mixer-window.c:182
 msgid "Sound _card:"
 msgstr "كرت صوت:"
 
@@ -84,12 +84,13 @@ msgstr "%s: %i%%"
 
 #. Set application name
 #: panel-plugin/mixer.desktop.in:4 xfce4-mixer/main.c:45
-#: xfce4-mixer/xfce-mixer-window.c:156 xfce4-mixer/xfce-mixer-window.c:440
-#: xfce4-mixer/xfce-mixer-window.c:454 xfce4-mixer/xfce4-mixer.desktop.in:4
+#: xfce4-mixer/xfce-mixer-window.c:163 xfce4-mixer/xfce-mixer-window.c:480
+#: xfce4-mixer/xfce-mixer-window.c:494 xfce4-mixer/xfce4-mixer.desktop.in:4
 msgid "Audio Mixer"
 msgstr "مازج الصوت"
 
-#: panel-plugin/mixer.desktop.in:5 xfce4-mixer/xfce4-mixer.desktop.in:5
+#: panel-plugin/mixer.desktop.in:5 xfce4-mixer/xfce-mixer-window.c:438
+#: xfce4-mixer/xfce4-mixer.desktop.in:5
 msgid "Adjust volume levels"
 msgstr "ضبط مستوى الصوت"
 
@@ -168,10 +169,14 @@ msgstr "اكتم/شغّل %s"
 msgid "Enable/disable audible input from %s in output"
 msgstr "تمكين/تعطيل إدخال الصوت من %s في الإخراج"
 
-#: xfce4-mixer/xfce-mixer-window.c:203
+#: xfce4-mixer/xfce-mixer-window.c:210
 msgid "_Select Controls..."
 msgstr "_اختر المتحكمات..."
 
-#: xfce4-mixer/xfce-mixer-window.c:211
+#: xfce4-mixer/xfce-mixer-window.c:218
+msgid "_About"
+msgstr "ع_ن"
+
+#: xfce4-mixer/xfce-mixer-window.c:225
 msgid "_Quit"
 msgstr "_اخرج"
