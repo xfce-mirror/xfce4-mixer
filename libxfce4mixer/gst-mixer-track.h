@@ -85,8 +85,8 @@ struct _GstMixerTrack
   gint min_volume;
   gint max_volume;
   GstMixerTrack *shared_mute;
-  gboolean has_volume:1;
-  gboolean has_switch:1;
+  gboolean has_volume;
+  gboolean has_switch;
 
 };
 
