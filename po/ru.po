@@ -144,7 +144,7 @@ msgstr "<span weight=\"bold\" size=\"larger\">Нет видимых регуля
 msgid ""
 "In order to toggle the visibility of mixer controls, open the <b>\"Select "
 "Controls\"</b> dialog."
-msgstr "Для изменения отображения элементов управления откройте диалог <b>«Выбрать каналы»/b>."
+msgstr "Для изменения отображения элементов управления откройте диалог <b>«Выбрать каналы»</b>."
 
 #: xfce4-mixer/xfce-mixer-controls-dialog.c:111
 msgid "Select Controls"
