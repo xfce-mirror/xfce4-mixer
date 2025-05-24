@@ -17,7 +17,7 @@ gnome = import('gnome')
 i18n = import('i18n')
 
 dependency_versions = {
-  'glib': '>= 2.50.0',
+  'glib': '>= 2.58.0',
   'gtk': '>= 3.22.0',
   'xfce4': '>= 4.16.0',
   'libnotify': '>= 0.7.0',

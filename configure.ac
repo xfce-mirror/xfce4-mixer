@@ -105,8 +105,8 @@ AC_CHECK_LIB([m],[round])
 dnl ***********************************
 dnl *** Check for required packages ***
 dnl ***********************************
-XDT_CHECK_PACKAGE([GLIB], [glib-2.0], [2.50.0])
-XDT_CHECK_PACKAGE([GTHREAD], [gthread-2.0], [2.50.0])
+XDT_CHECK_PACKAGE([GLIB], [glib-2.0], [2.58.0])
+XDT_CHECK_PACKAGE([GTHREAD], [gthread-2.0], [2.58.0])
 XDT_CHECK_PACKAGE([GST], [gstreamer-1.0], [1.0])
 XDT_CHECK_PACKAGE([GTK], [gtk+-3.0], [3.22.0])
 XDT_CHECK_PACKAGE([LIBXFCE4UTIL], [libxfce4util-1.0], [4.12.0])

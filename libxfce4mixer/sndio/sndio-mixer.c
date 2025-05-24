@@ -42,7 +42,7 @@ struct _GstMixerSndio
   GHashTable *tracks_by_addr;
 };
 
-static gboolean gst_mixer_sndio_src_callback (gpointer);
+static gboolean gst_mixer_sndio_src_callback (gint, GIOCondition, gpointer);
 static gboolean gst_mixer_sndio_reconnect(gpointer);
 
 G_DEFINE_TYPE (GstMixerSndio, gst_mixer_sndio, GST_TYPE_MIXER)
@@ -336,7 +336,7 @@ static gboolean gst_mixer_sndio_connect (GstMixerSndio *sndio)
   }
 
   sndio->src = g_unix_fd_source_new (sndio->pfd.fd, G_IO_IN);
-  g_source_set_callback (sndio->src, gst_mixer_sndio_src_callback, sndio, NULL);
+  g_source_set_callback (sndio->src, G_SOURCE_FUNC(gst_mixer_sndio_src_callback), sndio, NULL);
   g_source_attach (sndio->src, g_main_context_default ());
   g_debug("[sndio] attached g_source with id %d", g_source_get_id(sndio->src));
   return TRUE;
@@ -353,7 +353,12 @@ gboolean gst_mixer_sndio_reconnect(gpointer user_data)
   return G_SOURCE_REMOVE;
 }
 
-static gboolean gst_mixer_sndio_src_callback (gpointer user_data)
+/*
+ * Warning: this must be a GUnixFDSourceFunc and not a GSourceFunc, even though it is
+ * attached to a GSource. See the documentation for g_unix_fd_source_new() in glib/glib-unix.c
+ * (the information has been lost in the online doc).
+ */
+static gboolean gst_mixer_sndio_src_callback (gint fd, GIOCondition condition, gpointer user_data)
 {
   int rc, revents;
   GstMixerSndio *sndio = (GstMixerSndio *)user_data;
