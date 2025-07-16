@@ -156,6 +156,8 @@ struct _XfceMixerPlugin
 
   /* GstBus connection id */
   gulong           message_handler_id;
+
+  GtkWidget       *settings_dialog;
 };
 
 
@@ -557,12 +559,8 @@ static void
 xfce_mixer_plugin_configure_plugin (XfcePanelPlugin *plugin)
  {
   XfceMixerPlugin *mixer_plugin = XFCE_MIXER_PLUGIN (plugin);
-  GtkWidget       *dialog;
 
   g_return_if_fail (mixer_plugin != NULL);
-
-  /* Block the panel menu as long as the config dialog is shown */
-  xfce_panel_plugin_block_menu (plugin);
 
   /* Warn user if no sound cards are available */
   if (G_UNLIKELY (g_list_length (xfce_mixer_get_cards ()) <= 0))
@@ -576,16 +574,18 @@ xfce_mixer_plugin_configure_plugin (XfcePanelPlugin *plugin)
     }
   else
     {
+      if (mixer_plugin->settings_dialog != NULL)
+        {
+          gtk_window_present (GTK_WINDOW (mixer_plugin->settings_dialog));
+          return;
+        }
+
       /* Create and run the config dialog */
-      dialog = xfce_plugin_dialog_new (plugin);
-      gtk_dialog_run (GTK_DIALOG (dialog));
-
-      /* Destroy the config dialog */
-      gtk_widget_destroy (dialog);
+      mixer_plugin->settings_dialog = xfce_plugin_dialog_new (plugin);
+      g_signal_connect (mixer_plugin->settings_dialog, "response", G_CALLBACK (gtk_widget_destroy), NULL);
+      g_object_add_weak_pointer (G_OBJECT (mixer_plugin->settings_dialog), (gpointer *) &mixer_plugin->settings_dialog);
+      gtk_widget_show_all (mixer_plugin->settings_dialog);
     }
-
-  /* Make the plugin menu accessable again */
-  xfce_panel_plugin_unblock_menu (plugin);
 }
 
 
