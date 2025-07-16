@@ -16,10 +16,6 @@
  */
 
 
-#ifdef HAVE_CONFIG_H
-#include "config.h"
-#endif
-
 #include <sndio.h>
 #include <poll.h>
 /* needed for g_unix_fd_source_new () */

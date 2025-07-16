@@ -16,10 +16,6 @@
  */
 
 
-#ifdef HAVE_CONFIG_H
-#include "config.h"
-#endif
-
 #include <pulse/glib-mainloop.h>
 
 #include <libxfce4ui/libxfce4ui.h>
