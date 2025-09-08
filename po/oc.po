@@ -47,7 +47,7 @@ msgid ""
 "Could not execute the command \"%s\". Ensure that either the location of the"
 " command is included in the PATH environment variable or that you are "
 "providing the full path to the command."
-msgstr "Impossible d'executar la comanda « %s ». Verificatz que lo camin cap a la comanda es inclús dins la variabla d'environament PATH o que provesissètz lo camin complet cap a la comanda."
+msgstr "Impossible d'executar la comanda « %s ». Verificatz que lo camin cap a la comanda es inclús dins la variabla d'environament PATH o que provesissètz lo camin complèt cap a la comanda."
 
 #: panel-plugin/xfce-plugin-dialog.c:141
 msgid "Audio Mixer Plugin"
