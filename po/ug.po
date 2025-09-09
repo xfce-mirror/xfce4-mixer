@@ -25,7 +25,7 @@ msgstr "ئۈنسىزلە(_M)"
 #. Add menu item for running the user-defined command
 #: panel-plugin/xfce-mixer-plugin.c:307
 msgid "Run Audio Mi_xer"
-msgstr "ئۈن كىرىشتۈرگۈنى ئىجرا قىل(_R)"
+msgstr "ئۈن بىرىكتۈرگۈچنى ئىجرا قىل(_R)"
 
 #: panel-plugin/xfce-mixer-plugin.c:575
 #: xfce4-mixer/xfce-mixer-application.c:157
@@ -45,16 +45,16 @@ msgid ""
 "Could not execute the command \"%s\". Ensure that either the location of the"
 " command is included in the PATH environment variable or that you are "
 "providing the full path to the command."
-msgstr "بۇيرۇق «%s» نى ئىجرا قىلغىلى بولمىدى. بۇيرۇقنىڭ يولى PATH دېگەن مۇھىت ئۆزگەرگۈچىنىڭ ئىچىدىمۇ ئەمەسمۇ، ياكى بۇيرۇقنى تولۇق يولى بىلەن يازدىڭىزمۇ يامىدىڭىزمۇ تەكشۈرۈڭ"
+msgstr "بۇيرۇق «%s» نى ئىجرا قىلغىلى بولمىدى. بۇيرۇقنىڭ يولى PATH دېگەن مۇھىت ئۆزگەرگۈچىنىڭ ئىچىدىمۇ ئەمەسمۇ، ياكى بۇيرۇقنى تولۇق يولى بىلەن يازدىڭىزمۇ يامىدىڭىزمۇ تەكشۈرۈڭ."
 
 #: panel-plugin/xfce-plugin-dialog.c:141
 msgid "Audio Mixer Plugin"
-msgstr "ئۈن كىرىشتۈرگۈ قىستۇرمىسى"
+msgstr "ئۈن بىرىكتۈرگۈچ قىستۇرمىسى"
 
 #: panel-plugin/xfce-plugin-dialog.c:143
 #: xfce4-mixer/xfce-mixer-controls-dialog.c:113
 msgid "_Close"
-msgstr "تاقا(_C)"
+msgstr "ياپ(_C)"
 
 #: panel-plugin/xfce-plugin-dialog.c:154 xfce4-mixer/xfce-mixer-window.c:182
 msgid "Sound _card:"
@@ -62,7 +62,7 @@ msgstr "ئۈن كارتىسى(_C):"
 
 #: panel-plugin/xfce-plugin-dialog.c:164
 msgid "Mixer _track:"
-msgstr "كىرىشتۈرگۈ(_R):"
+msgstr "كىرىشتۈرگۈچ ئاۋاز يولى(_R):"
 
 #: panel-plugin/xfce-volume-button.c:831
 msgid "No valid device and/or element."
@@ -83,7 +83,7 @@ msgstr "%s: %i%%"
 #: xfce4-mixer/xfce-mixer-window.c:163 xfce4-mixer/xfce-mixer-window.c:480
 #: xfce4-mixer/xfce-mixer-window.c:494 xfce4-mixer/xfce4-mixer.desktop.in:4
 msgid "Audio Mixer"
-msgstr "ئۈن كىرىشتۈرگۈ"
+msgstr "ئۈن بىرىكتۈرگۈچ"
 
 #: panel-plugin/mixer.desktop.in:5 xfce4-mixer/xfce-mixer-window.c:438
 #: xfce4-mixer/xfce4-mixer.desktop.in:5
@@ -92,15 +92,15 @@ msgstr "ئاۋاز دەرىجىسىنى تەڭشەش"
 
 #: libxfce4mixer/pulse/pulse-mixer.c:881 libxfce4mixer/pulse/pulse-mixer.c:930
 msgid "Card"
-msgstr ""
+msgstr "كارتا"
 
 #: libxfce4mixer/pulse/pulse-mixer.c:993
 msgid "Pulse Audio Volume Control"
-msgstr ""
+msgstr "Pulse Audio ئاۋاز مىقدارىنى تىزگىنلەش"
 
 #: libxfce4mixer/sndio/sndio-mixer.c:386
 msgid "Sndio Volume Control"
-msgstr ""
+msgstr "Sndio ئاۋاز مىقدارىنى تىزگىنلەش"
 
 #: xfce4-mixer/xfce-mixer-application.c:73
 msgid "Enable debugging output"
@@ -112,7 +112,7 @@ msgstr "نەشر ئۇچۇرىنى كۆرسىتىپ ئاخىرلاشتۇرىدۇ"
 
 #: xfce4-mixer/xfce-mixer-container.c:214
 msgid "_Playback"
-msgstr "قوي(_P)"
+msgstr "ياڭرات(_P)"
 
 #: xfce4-mixer/xfce-mixer-container.c:214
 msgid "C_apture"
@@ -120,19 +120,19 @@ msgstr "تۇت(_A)"
 
 #: xfce4-mixer/xfce-mixer-container.c:214
 msgid "S_witches"
-msgstr "ئۈزچاتلار(_W)"
+msgstr "ئۈزچات(_W)"
 
 #: xfce4-mixer/xfce-mixer-container.c:214
 msgid "_Options"
-msgstr "تاللانمىلار(_O)"
+msgstr "تاللانما(_O)"
 
 #: xfce4-mixer/xfce-mixer-container.c:467
 msgid "No controls visible"
-msgstr "تىزگىنلىگۈچلەر(controls) نىڭ ھېچقايسىسى كۆرۈنمەيدۇ"
+msgstr "تىزگىنلىگۈچنىڭ ھېچقايسىسى كۆرۈنمەيدۇ"
 
 #: xfce4-mixer/xfce-mixer-container.c:476
 msgid "<span weight=\"bold\" size=\"larger\">No controls visible</span>"
-msgstr "<span weight=\"bold\" size=\"larger\">تىزگىنلىگۈچلەر(controls) نىڭ ھېچقايسىسى كۆرۈنمەيدۇ</span>"
+msgstr "<span weight=\"bold\" size=\"larger\">تىزگىنلىگۈچنىڭ ھېچقايسىسى كۆرۈنمەيدۇ</span>"
 
 #: xfce4-mixer/xfce-mixer-container.c:482
 msgid ""
@@ -163,7 +163,7 @@ msgstr "%s نى ئۈنسىزلە/زۇۋاننى ئاچ"
 #: xfce4-mixer/xfce-mixer-track.c:343
 #, c-format
 msgid "Enable/disable audible input from %s in output"
-msgstr "چىقىش %s دىن كىرگۈزۈلگەن ئاۋازنى ئىناۋەتلىك/ئىناۋەتسىز قىلىدۇ"
+msgstr "چىقىش %s دىن كىرگۈزۈلگەن ئاۋازنى قوزغىتىدۇ/چەكلەيدۇ"
 
 #: xfce4-mixer/xfce-mixer-window.c:210
 msgid "_Select Controls..."
@@ -175,4 +175,4 @@ msgstr "ھەققىدە(_A)"
 
 #: xfce4-mixer/xfce-mixer-window.c:225
 msgid "_Quit"
-msgstr "ئاخىرلاشتۇر(_Q)"
+msgstr "چېكىن(_Q)"
