@@ -4,6 +4,8 @@
 # 
 # Translators:
 # Cédric Valmary <cvalmary@yahoo.fr>, 2013
+# Cédric Valmary <cvalmary@yahoo.fr>, 2013
+# Quentin PAGÈS, 2025
 # Quentin PAGÈS, 2025
 msgid ""
 msgstr ""
@@ -22,12 +24,12 @@ msgstr ""
 #. Add menu item for muting
 #: panel-plugin/xfce-mixer-plugin.c:301
 msgid "Mu_te"
-msgstr "Sordina"
+msgstr "Sor_dina"
 
 #. Add menu item for running the user-defined command
 #: panel-plugin/xfce-mixer-plugin.c:307
 msgid "Run Audio Mi_xer"
-msgstr "Executar lo mesclador àudio"
+msgstr "Executar lo _mesclador àudio"
 
 #: panel-plugin/xfce-mixer-plugin.c:575
 #: xfce4-mixer/xfce-mixer-application.c:157
@@ -60,11 +62,11 @@ msgstr "_Tampar"
 
 #: panel-plugin/xfce-plugin-dialog.c:154 xfce4-mixer/xfce-mixer-window.c:182
 msgid "Sound _card:"
-msgstr "Carte son :"
+msgstr "Carte _son :"
 
 #: panel-plugin/xfce-plugin-dialog.c:164
 msgid "Mixer _track:"
-msgstr "Contrarotlador de volum :"
+msgstr "Contrarotlador de _volum :"
 
 #: panel-plugin/xfce-volume-button.c:831
 msgid "No valid device and/or element."
@@ -114,7 +116,7 @@ msgstr "Afichar la version e quitar"
 
 #: xfce4-mixer/xfce-mixer-container.c:214
 msgid "_Playback"
-msgstr "Lectura"
+msgstr "_Lectura"
 
 #: xfce4-mixer/xfce-mixer-container.c:214
 msgid "C_apture"
