@@ -1,0 +1,178 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the xfce-apps.xfce4-mixer package.
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: Xfce Apps\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2025-05-10 12:48+0200\n"
+"PO-Revision-Date: 2013-07-03 18:38+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Lao (http://app.transifex.com/xfce/xfce-apps/language/lo/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: lo\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. Add menu item for muting
+#: panel-plugin/xfce-mixer-plugin.c:301
+msgid "Mu_te"
+msgstr "_ປິດສຽງ"
+
+#. Add menu item for running the user-defined command
+#: panel-plugin/xfce-mixer-plugin.c:307
+msgid "Run Audio Mi_xer"
+msgstr "ເປີດເຄື່ອງ_ປັບສຽງ"
+
+#: panel-plugin/xfce-mixer-plugin.c:575
+#: xfce4-mixer/xfce-mixer-application.c:157
+msgid ""
+"GStreamer was unable to detect any sound devices. Some sound system specific"
+" GStreamer packages may be missing. It may also be a permissions problem."
+msgstr "GStreamer ບໍ່ສາມາດກວດພົບອຸປະກອນສຽງໃດໆ. ບາງແພັກເກດ GStreamer ສະເພາະສຳລັບລະບົບສຽງອາດຈະຂາດຫາຍໄປ. ມັນອາດຈະເປັນບັນຫາເລື່ອງສິດອະນຸຍາດນຳອີກ."
+
+#: panel-plugin/xfce-mixer-plugin.c:949
+msgid "No command defined"
+msgstr "ບໍ່ມີການກຳນົດຄຳສັ່ງ"
+
+#. Generate error message and insert the current command
+#: panel-plugin/xfce-mixer-plugin.c:957
+#, c-format
+msgid ""
+"Could not execute the command \"%s\". Ensure that either the location of the"
+" command is included in the PATH environment variable or that you are "
+"providing the full path to the command."
+msgstr "ບໍ່ສາມາດຮຽກໃຊ້ຄຳສັ່ງ \"%s\" ໄດ້. ກະລຸນາກວດເບິ່ງວ່າຕຳແໜ່ງຂອງຄຳສັ່ງໄດ້ລວມຢູ່ໃນຕົວປ່ຽນ PATH ແລ້ວ ຫຼື ທ່ານໄດ້ລະບຸເສັ້ນທາງເຕັມຂອງຄຳສັ່ງນັ້ນແລ້ວ."
+
+#: panel-plugin/xfce-plugin-dialog.c:141
+msgid "Audio Mixer Plugin"
+msgstr "ປລັກອິນເຄື່ອງປັບສຽງ"
+
+#: panel-plugin/xfce-plugin-dialog.c:143
+#: xfce4-mixer/xfce-mixer-controls-dialog.c:113
+msgid "_Close"
+msgstr "_ປິດ"
+
+#: panel-plugin/xfce-plugin-dialog.c:154 xfce4-mixer/xfce-mixer-window.c:182
+msgid "Sound _card:"
+msgstr "_ກາດສຽງ:"
+
+#: panel-plugin/xfce-plugin-dialog.c:164
+msgid "Mixer _track:"
+msgstr "ແທຣັກ_ເຄື່ອງປັບສຽງ:"
+
+#: panel-plugin/xfce-volume-button.c:831
+msgid "No valid device and/or element."
+msgstr "ບໍ່ມີອຸປະກອນ ຫຼື ອົງປະກອບທີ່ຖືກຕ້ອງ."
+
+#: panel-plugin/xfce-volume-button.c:836
+#, c-format
+msgid "%s: muted"
+msgstr "%s: ປິດສຽງແລ້ວ"
+
+#: panel-plugin/xfce-volume-button.c:838
+#, c-format
+msgid "%s: %i%%"
+msgstr "%s: %i%%"
+
+#. Set application name
+#: panel-plugin/mixer.desktop.in:4 xfce4-mixer/main.c:45
+#: xfce4-mixer/xfce-mixer-window.c:163 xfce4-mixer/xfce-mixer-window.c:480
+#: xfce4-mixer/xfce-mixer-window.c:494 xfce4-mixer/xfce4-mixer.desktop.in:4
+msgid "Audio Mixer"
+msgstr "ເຄື່ອງປັບສຽງ"
+
+#: panel-plugin/mixer.desktop.in:5 xfce4-mixer/xfce-mixer-window.c:438
+#: xfce4-mixer/xfce4-mixer.desktop.in:5
+msgid "Adjust volume levels"
+msgstr "ປັບລະດັບຄວາມແຮງສຽງ"
+
+#: libxfce4mixer/pulse/pulse-mixer.c:881 libxfce4mixer/pulse/pulse-mixer.c:930
+msgid "Card"
+msgstr "ກາດ"
+
+#: libxfce4mixer/pulse/pulse-mixer.c:993
+msgid "Pulse Audio Volume Control"
+msgstr "ການຄວບຄຸມຄວາມແຮງສຽງ Pulse Audio"
+
+#: libxfce4mixer/sndio/sndio-mixer.c:386
+msgid "Sndio Volume Control"
+msgstr "ການຄວບຄຸມຄວາມແຮງສຽງ Sndio"
+
+#: xfce4-mixer/xfce-mixer-application.c:73
+msgid "Enable debugging output"
+msgstr "ເປີດໃຊ້ການສະແດງຜົນການແກ້ໄຂຈຸດບົກພ່ອງ"
+
+#: xfce4-mixer/xfce-mixer-application.c:74
+msgid "Show version and exit"
+msgstr "ສະແດງເວີຊັນແລ້ວອອກ"
+
+#: xfce4-mixer/xfce-mixer-container.c:214
+msgid "_Playback"
+msgstr "_ການຫຼິ້ນ"
+
+#: xfce4-mixer/xfce-mixer-container.c:214
+msgid "C_apture"
+msgstr "ການ_ບັນທຶກສຽງ"
+
+#: xfce4-mixer/xfce-mixer-container.c:214
+msgid "S_witches"
+msgstr "_ສະວິດ"
+
+#: xfce4-mixer/xfce-mixer-container.c:214
+msgid "_Options"
+msgstr "_ຕົວເລືອກ"
+
+#: xfce4-mixer/xfce-mixer-container.c:467
+msgid "No controls visible"
+msgstr "ບໍ່ມີປຸ່ມຄວບຄຸມສະແດງໃຫ້ເຫັນ"
+
+#: xfce4-mixer/xfce-mixer-container.c:476
+msgid "<span weight=\"bold\" size=\"larger\">No controls visible</span>"
+msgstr "<span weight=\"bold\" size=\"larger\">ບໍ່ມີປຸ່ມຄວບຄຸມສະແດງໃຫ້ເຫັນ</span>"
+
+#: xfce4-mixer/xfce-mixer-container.c:482
+msgid ""
+"In order to toggle the visibility of mixer controls, open the <b>\"Select "
+"Controls\"</b> dialog."
+msgstr "ເພື່ອສະຫຼັບການສະແດງປຸ່ມຄວບຄຸມເຄື່ອງປັບສຽງ, ໃຫ້ເປີດກ່ອງໂຕ້ຕອບ <b>\"ເລືອກປຸ່ມຄວບຄຸມ\"</b>."
+
+#: xfce4-mixer/xfce-mixer-controls-dialog.c:111
+msgid "Select Controls"
+msgstr "ເລືອກປຸ່ມຄວບຄຸມ"
+
+#: xfce4-mixer/xfce-mixer-track.c:242
+#, c-format
+msgid "Volume of channel %d on %s"
+msgstr "ຄວາມແຮງສຽງຂອງຊ່ອງ %d ໃນ %s"
+
+#. Lock button
+#: xfce4-mixer/xfce-mixer-track.c:279
+#, c-format
+msgid "Lock channels for %s together"
+msgstr "ລັອກຊ່ອງສຳລັບ %s ເຂົ້າກັນ"
+
+#: xfce4-mixer/xfce-mixer-track.c:323
+#, c-format
+msgid "Mute/unmute %s"
+msgstr "ປິດ/ເປີດສຽງ %s"
+
+#: xfce4-mixer/xfce-mixer-track.c:343
+#, c-format
+msgid "Enable/disable audible input from %s in output"
+msgstr "ເປີດ/ປິດ ການຮັບສຽງຈາກ %s ໃນຂາອອກ"
+
+#: xfce4-mixer/xfce-mixer-window.c:210
+msgid "_Select Controls..."
+msgstr "_ເລືອກປຸ່ມຄວບຄຸມ..."
+
+#: xfce4-mixer/xfce-mixer-window.c:218
+msgid "_About"
+msgstr "_ກ່ຽວກັບ"
+
+#: xfce4-mixer/xfce-mixer-window.c:225
+msgid "_Quit"
+msgstr "_ອອກ"
