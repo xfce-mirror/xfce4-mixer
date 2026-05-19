@@ -110,6 +110,8 @@ xfce_mixer_option_finalize (GObject *object)
 
   gtk_list_store_clear (option->list_store);
   g_object_unref (option->list_store);
+
+  G_OBJECT_CLASS (xfce_mixer_option_parent_class)->finalize (object);
 }
 
 
