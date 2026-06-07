@@ -135,7 +135,7 @@ msgstr "Nejsou zobrazeny žádné ovládací prvky"
 
 #: xfce4-mixer/xfce-mixer-container.c:476
 msgid "<span weight=\"bold\" size=\"larger\">No controls visible</span>"
-msgstr "<span weight=\"bold\" size=\"larger\">Nejsou viditelné žádné ovládací prvky</span>"
+msgstr "<span weight=\"bold\" size=\"larger\">Nejsou zobrazeny žádné ovládací prvky</span>"
 
 #: xfce4-mixer/xfce-mixer-container.c:482
 msgid ""
