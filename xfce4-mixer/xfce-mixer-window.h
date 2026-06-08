@@ -28,7 +28,7 @@
 G_BEGIN_DECLS
 
 #define XFCE_TYPE_MIXER_WINDOW (xfce_mixer_window_get_type ())
-#ifndef glib_autoptr_clear_XfceTitledDialog
+#if !LIBXFCE4UI_CHECK_VERSION(4, 21, 8)
 G_DEFINE_AUTOPTR_CLEANUP_FUNC (XfceTitledDialog, g_object_unref)
 #endif
 G_DECLARE_FINAL_TYPE (XfceMixerWindow, xfce_mixer_window, XFCE, MIXER_WINDOW, XfceTitledDialog)

@@ -30,7 +30,7 @@
 G_BEGIN_DECLS
 
 #define XFCE_TYPE_PLUGIN_DIALOG (xfce_plugin_dialog_get_type ())
-#ifndef glib_autoptr_clear_XfceTitledDialog
+#if !LIBXFCE4UI_CHECK_VERSION(4, 21, 8)
 G_DEFINE_AUTOPTR_CLEANUP_FUNC (XfceTitledDialog, g_object_unref)
 #endif
 G_DECLARE_FINAL_TYPE (XfcePluginDialog, xfce_plugin_dialog, XFCE, PLUGIN_DIALOG, XfceTitledDialog)
