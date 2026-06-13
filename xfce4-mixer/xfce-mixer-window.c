@@ -394,8 +394,7 @@ xfce_mixer_window_action_select_controls (GSimpleAction *action,
   window->controls_dialog = xfce_mixer_controls_dialog_new (window);
 
   gtk_dialog_run (GTK_DIALOG (window->controls_dialog));
-  gtk_widget_destroy (window->controls_dialog);
-  window->controls_dialog = NULL;
+  g_clear_pointer (&window->controls_dialog, gtk_widget_destroy);
 }
 
 

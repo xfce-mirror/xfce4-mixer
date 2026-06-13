@@ -146,17 +146,8 @@ xfce_mixer_preferences_finalize (GObject *object)
 {
   XfceMixerPreferences *preferences = XFCE_MIXER_PREFERENCES (object);
 
-  if (preferences->sound_card != NULL)
-    {
-      g_free (preferences->sound_card);
-      preferences->sound_card = NULL;
-    }
-
-  if (preferences->controls != NULL)
-    {
-      xfconf_array_free (preferences->controls);
-      preferences->controls = NULL;
-    }
+  g_clear_pointer (&preferences->sound_card, g_free);
+  g_clear_pointer (&preferences->controls, xfconf_array_free);
 
   (*G_OBJECT_CLASS (xfce_mixer_preferences_parent_class)->finalize) (object);
 }

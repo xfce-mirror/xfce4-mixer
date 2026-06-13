@@ -221,8 +221,7 @@ xfce_mixer_dump_gst_data (void)
           g_free (track_untranslated_label);
         }
 
-      g_free (card_device_name);
-      card_device_name = NULL;
+      g_clear_pointer (&card_device_name, g_free);
     }
 
   /* Remove trailing newline */

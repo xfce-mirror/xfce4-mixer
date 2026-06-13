@@ -298,17 +298,8 @@ xfce_volume_button_finalize (GObject *object)
 {
   XfceVolumeButton *button = XFCE_VOLUME_BUTTON (object);
 
-  if (button->dock != NULL)
-    {
-      gtk_widget_destroy (button->dock);
-      button->dock = NULL;
-    }
-
-  if (button->track_label != NULL)
-    {
-      g_free (button->track_label);
-      button->track_label = NULL;
-    }
+  g_clear_pointer (&button->dock, gtk_widget_destroy);
+  g_clear_pointer (&button->track_label, g_free);
 
   (*G_OBJECT_CLASS (xfce_volume_button_parent_class)->finalize) (object);
 }

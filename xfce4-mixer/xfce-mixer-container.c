@@ -496,8 +496,7 @@ xfce_mixer_container_update_contents (XfceMixerContainer *mixer_container)
 
   g_return_if_fail (XFCE_IS_MIXER_CONTAINER (mixer_container));
 
-  g_list_free(mixer_container->widgets);
-  mixer_container->widgets = NULL;
+  g_clear_list (&mixer_container->widgets, NULL);
 
   /* Remember active tab */
   current_tab = gtk_notebook_get_current_page (GTK_NOTEBOOK (mixer_container));

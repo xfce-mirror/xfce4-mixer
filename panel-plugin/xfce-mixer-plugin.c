@@ -362,8 +362,7 @@ xfce_mixer_plugin_set_property (GObject      *object,
         /* Freeze "notify" signals since the "track" property is manipulated */
         g_object_freeze_notify (object);
 
-        g_free (mixer_plugin->card_name);
-        mixer_plugin->card_name = NULL;
+        g_clear_pointer (&mixer_plugin->card_name, g_free);
         mixer_plugin->card = NULL;
 
         card_name = g_value_get_string (value);
@@ -403,8 +402,7 @@ xfce_mixer_plugin_set_property (GObject      *object,
         g_object_thaw_notify (object);
         break;
       case PROP_TRACK:
-        g_free (mixer_plugin->track_label);
-        mixer_plugin->track_label = NULL;
+        g_clear_pointer (&mixer_plugin->track_label, g_free);
         mixer_plugin->track = NULL;
 
         if (GST_IS_MIXER (mixer_plugin->card))
