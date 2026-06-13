@@ -174,7 +174,7 @@ GstMixerAlsaTrack *gst_mixer_alsa_track_new (snd_mixer_elem_t *element,
     label = g_strdup_printf ("%s%s", name,
                              append_capture ? " Capture" : "");
   else
-    label = g_strdup_printf ("%s%s %d", name,
+    label = g_strdup_printf ("%s%s %u", name,
                              append_capture ? " Capture" : "",
                              index);
 

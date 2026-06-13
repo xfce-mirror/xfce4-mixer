@@ -78,7 +78,7 @@ GstMixerAlsaOptions *gst_mixer_alsa_options_new (snd_mixer_elem_t *element,
   if (!index)
     track->label = g_strdup (label);
   else
-    track->label = g_strdup_printf ("%s %d", label, index);
+    track->label = g_strdup_printf ("%s %u", label, index);
 
   nitems = snd_mixer_selem_get_enum_items (element);
   for (i = 0; i < nitems; i++)

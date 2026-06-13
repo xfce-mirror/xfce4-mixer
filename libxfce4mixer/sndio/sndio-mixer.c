@@ -47,29 +47,28 @@ G_DEFINE_TYPE (GstMixerSndio, gst_mixer_sndio, GST_TYPE_MIXER)
 static void
 onval(void *arg, unsigned addr, unsigned val)
 {
-  int i;
   GstMixerSndioTrack *track;
   GstMixerSndio *mixer = GST_MIXER_SNDIO (arg);
-  g_debug("onval callback called: addr=%d, val=%d", addr, val);
+  g_debug("onval callback called: addr=%u, val=%u", addr, val);
   /* find the track by its addr in the tracks_by_addr hash and update the corresponding flag */
   track = g_hash_table_lookup(mixer->tracks_by_addr, GINT_TO_POINTER(addr));
   if (!track) {
-    g_critical("found no track by addr %d ?", addr);
+    g_critical("found no track by addr %u ?", addr);
   } else {
-    g_debug("for addr %d found track %s", addr, GST_MIXER_TRACK(track)->label);
+    g_debug("for addr %u found track %s", addr, GST_MIXER_TRACK(track)->label);
 
     /* lookup addr in vol_addr and then mute_addr */
-    for (i = 0; i < NUM_CHANNELS(track); i++) {
+    for (guint i = 0; i < NUM_CHANNELS(track); i++) {
       if (track->vol_addr[i] == addr) {
-        g_debug("%d is a level control for chan %d, updating value with %d", addr, i, val);
+        g_debug("%u is a level control for chan %u, updating value with %u", addr, i, val);
         GST_MIXER_TRACK(track)->volumes[i] = val;
         g_signal_emit_by_name (track, "volume-changed", 0);
       } else if (track->mute_addr[i] == addr) {
         if (IS_INPUT(track)) {
-          g_debug("%d is a mute control for an input track, updating recording flag with %d", addr, val);
+          g_debug("%u is a mute control for an input track, updating recording flag with %u", addr, val);
           gst_mixer_track_update_recording(GST_MIXER_TRACK(track), val);
         } else if (IS_OUTPUT(track)) {
-          g_debug("%d is a mute control for an output track, updating mute flag with %d", addr, val);
+          g_debug("%u is a mute control for an output track, updating mute flag with %u", addr, val);
           gst_mixer_track_update_mute(GST_MIXER_TRACK(track), val);
         }
       }

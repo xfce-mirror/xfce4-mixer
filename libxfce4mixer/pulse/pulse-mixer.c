@@ -745,12 +745,12 @@ gst_mixer_pulse_event_cb (pa_context                   *context,
     case PA_SUBSCRIPTION_EVENT_SINK_INPUT:
       if ((t & PA_SUBSCRIPTION_EVENT_TYPE_MASK) == PA_SUBSCRIPTION_EVENT_REMOVE)
       {
-        g_debug ("Removing sink track index %d\n", index);
+        g_debug ("Removing sink track index %u\n", index);
         gst_mixer_remove_track_with_flags (mixer, GST_MIXER_TRACK_OUTPUT, index);
       }
       else if ((t & PA_SUBSCRIPTION_EVENT_TYPE_MASK) == PA_SUBSCRIPTION_EVENT_NEW)
       {
-        g_debug ("New sink track index %d\n", index);
+        g_debug ("New sink track index %u\n", index);
         o =
           pa_context_get_sink_input_info(pulse->context,
                                          index,
@@ -769,12 +769,12 @@ gst_mixer_pulse_event_cb (pa_context                   *context,
     case PA_SUBSCRIPTION_EVENT_SOURCE_OUTPUT:
       if ((t & PA_SUBSCRIPTION_EVENT_TYPE_MASK) == PA_SUBSCRIPTION_EVENT_REMOVE)
       {
-        g_debug ("Removing source track index %d\n", index);
+        g_debug ("Removing source track index %u\n", index);
         gst_mixer_remove_track_with_flags (mixer, GST_MIXER_TRACK_INPUT, index);
       }
       else if ((t & PA_SUBSCRIPTION_EVENT_TYPE_MASK) == PA_SUBSCRIPTION_EVENT_NEW)
       {
-        g_debug ("New source track index %d\n", index);
+        g_debug ("New source track index %u\n", index);
         o =
           pa_context_get_source_output_info(pulse->context,
                                             index,
