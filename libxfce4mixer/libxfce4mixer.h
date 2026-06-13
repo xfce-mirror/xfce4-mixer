@@ -57,7 +57,6 @@ gint           xfce_mixer_get_max_volume         (gint          *volumes,
                                                   gint           num_channels);
 int            xfce_mixer_utf8_cmp               (const gchar   *s1,
                                                   const gchar   *s2);
-GType          xfce_mixer_value_array_get_type   (void);
 
 G_END_DECLS
 
