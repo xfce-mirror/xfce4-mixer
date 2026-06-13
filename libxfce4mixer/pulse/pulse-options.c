@@ -22,7 +22,6 @@
 struct _GstMixerPulseOptions
 {
   GstMixerPulseTrack parent;
-  GList *values;
 };
 
 G_DEFINE_TYPE (GstMixerPulseOptions, gst_mixer_pulse_options, GST_MIXER_TYPE_PULSE_TRACK)

@@ -22,7 +22,6 @@
 struct _GstMixerOssOptions
 {
   GstMixerOssTrack parent;
-  GList *values;
 };
 
 G_DEFINE_TYPE (GstMixerOssOptions, gst_mixer_oss_options, GST_MIXER_TYPE_OSS_TRACK)
