@@ -1105,16 +1105,14 @@ xfce_mixer_plugin_mute_pressed (const char *keystring,
                                 void       *user_data)
 {
   XfceMixerPlugin *mixer_plugin = XFCE_MIXER_PLUGIN (user_data);
-  gboolean         muted = TRUE;
 
   if (G_UNLIKELY (!GST_IS_MIXER (mixer_plugin->card) || !GST_IS_MIXER_TRACK (mixer_plugin->track) || mixer_plugin->track_label == NULL))
     return;
 
   xfce_mixer_debug ("'%s' pressed", XFCE_MIXER_PLUGIN_MUTE_KEY);
 
-  muted = xfce_mixer_plugin_get_muted (mixer_plugin);
-
   /* Toggle the mute state */
+  gboolean muted = xfce_mixer_plugin_get_muted (mixer_plugin);
   xfce_mixer_plugin_set_muted (mixer_plugin, !muted);
   xfce_mixer_plugin_update_muted (mixer_plugin, !muted);
 }
