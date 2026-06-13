@@ -264,9 +264,6 @@ static void gst_mixer_alsa_create_track_list (GstMixerAlsa *mixer)
   snd_mixer_elem_t *element, *temp;
   GList *item;
 
-  if (tracklist)
-    return;
-
   for (element = snd_mixer_first_elem (mixer->handle); element;
        element = snd_mixer_elem_next (element))
   {
