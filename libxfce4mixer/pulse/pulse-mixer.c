@@ -668,15 +668,6 @@ gst_mixer_pulse_get_source_output_cb (pa_context                  *context,
     return;
   }
 
-  if (eol < 0)
-  {
-    if (pa_context_errno(context) == PA_ERR_NOENTITY)
-    {
-      pa_threaded_mainloop_signal(pulse->mainloop, 0);
-      return;
-    }
-  }
-
   if ((prop = pa_proplist_gets(info->proplist, "module-stream-restore.id")))
   {
     if (strcmp(prop, "sink-input-by-media-role:event") == 0) {
