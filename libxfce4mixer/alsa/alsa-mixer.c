@@ -131,7 +131,7 @@ gst_mixer_alsa_set_option (GstMixer *mixer, GstMixerOptions *opts, gchar *value)
   track = GST_MIXER_ALSA_TRACK (opts);
 
   for (item = gst_mixer_alsa_options_get_values (alsa_opts); item; item = item->next, n++) {
-    if (!strcmp (item->data, value)) {
+    if (strcmp (item->data, value) == 0) {
       snd_mixer_selem_set_enum_item (track->element, 0, n);
       break;
     }
@@ -200,7 +200,7 @@ static GstMixerAlsaTrack *get_named_playback_track (GstMixerAlsa *mixer,
     track = GST_MIXER_TRACK (item->data);
     if (! IS_OUTPUT(track))
       continue;
-    if (!strcmp (gst_mixer_track_get_name (track), name))
+    if (strcmp (gst_mixer_track_get_name (track), name) == 0)
       return GST_MIXER_ALSA_TRACK(track);
   }
   return NULL;
@@ -263,9 +263,6 @@ static void gst_mixer_alsa_create_track_list (GstMixerAlsa *mixer)
   GList *tracklist = gst_mixer_list_tracks (GST_MIXER(mixer));
   snd_mixer_elem_t *element, *temp;
   GList *item;
-
-  if (tracklist)
-    return;
 
   for (element = snd_mixer_first_elem (mixer->handle); element;
        element = snd_mixer_elem_next (element))

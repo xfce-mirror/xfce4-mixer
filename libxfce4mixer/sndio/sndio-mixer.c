@@ -50,26 +50,26 @@ onval(void *arg, unsigned addr, unsigned val)
   int i;
   GstMixerSndioTrack *track;
   GstMixerSndio *mixer = GST_MIXER_SNDIO (arg);
-  g_debug("onval callback called: addr=%d, val=%d", addr, val);
+  g_debug("onval callback called: addr=%u, val=%u", addr, val);
   /* find the track by its addr in the tracks_by_addr hash and update the corresponding flag */
   track = g_hash_table_lookup(mixer->tracks_by_addr, GINT_TO_POINTER(addr));
   if (!track) {
-    g_critical("found no track by addr %d ?", addr);
+    g_critical("found no track by addr %u ?", addr);
   } else {
-    g_debug("for addr %d found track %s", addr, GST_MIXER_TRACK(track)->label);
+    g_debug("for addr %u found track %s", addr, GST_MIXER_TRACK(track)->label);
 
     /* lookup addr in vol_addr and then mute_addr */
     for (i = 0; i < NUM_CHANNELS(track); i++) {
       if (track->vol_addr[i] == addr) {
-        g_debug("%d is a level control for chan %d, updating value with %d", addr, i, val);
+        g_debug("%u is a level control for chan %d, updating value with %u", addr, i, val);
         GST_MIXER_TRACK(track)->volumes[i] = val;
         g_signal_emit_by_name (track, "volume-changed", 0);
       } else if (track->mute_addr[i] == addr) {
         if (IS_INPUT(track)) {
-          g_debug("%d is a mute control for an input track, updating recording flag with %d", addr, val);
+          g_debug("%u is a mute control for an input track, updating recording flag with %u", addr, val);
           gst_mixer_track_update_recording(GST_MIXER_TRACK(track), val);
         } else if (IS_OUTPUT(track)) {
-          g_debug("%d is a mute control for an output track, updating mute flag with %d", addr, val);
+          g_debug("%u is a mute control for an output track, updating mute flag with %u", addr, val);
           gst_mixer_track_update_mute(GST_MIXER_TRACK(track), val);
         }
       }
@@ -100,19 +100,19 @@ ondesc(void *arg, struct sioctl_desc *d, int curval)
   }
 
   /* skip server.device for now */
-  if (!g_strcmp0 (d->func, "device"))
+  if (g_strcmp0 (d->func, "device") == 0)
     return;
 
   track = g_hash_table_lookup(mixer->tracks, d->node0.name);
   if (!track) {
     track = gst_mixer_sndio_track_new ();
 
-    if (! g_strcmp0(d->node0.name, "input"))
+    if (g_strcmp0(d->node0.name, "input") == 0)
       flags |= GST_MIXER_TRACK_INPUT;
     else
       flags |= GST_MIXER_TRACK_OUTPUT;
 
-    if (! g_strcmp0(d->node0.name, "output"))
+    if (g_strcmp0(d->node0.name, "output") == 0)
       flags |= GST_MIXER_TRACK_MASTER;
 
     /* app tracks dont have a mute control but that just makes the mute button
@@ -142,11 +142,11 @@ ondesc(void *arg, struct sioctl_desc *d, int curval)
   }
 
   /* now we have a valid track, update volume/mute/recording status */
-  if (!g_strcmp0 (d->func, "level")) {
+  if (g_strcmp0 (d->func, "level") == 0) {
     GST_MIXER_TRACK(track)->volumes[chan] = curval;
     track->vol_addr[chan] = d->addr;
   }
-  if (!g_strcmp0 (d->func, "mute")) {
+  if (g_strcmp0 (d->func, "mute") == 0) {
     GST_MIXER_TRACK(track)->has_switch = TRUE;
     track->mute_addr[chan] = d->addr;
     if (IS_INPUT(track)) {

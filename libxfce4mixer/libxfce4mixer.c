@@ -119,7 +119,7 @@ xfce_mixer_init (void)
 void
 xfce_mixer_shutdown (void)
 {
-  if (G_LIKELY (--refcount <= 0))
+  if (G_LIKELY (--refcount == 0))
     {
       g_list_free_full (mixers, _xfce_mixer_destroy_mixer);
 

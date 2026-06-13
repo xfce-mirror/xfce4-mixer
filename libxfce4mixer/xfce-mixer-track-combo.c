@@ -65,7 +65,6 @@ struct _XfceMixerTrackCombo
   GtkListStore  *list_store;
 
   GstElement    *card;
-  GstMixerTrack *track;
   gulong         signal_handler_id;
 };
 

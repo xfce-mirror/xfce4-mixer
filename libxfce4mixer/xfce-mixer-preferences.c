@@ -91,7 +91,7 @@ xfce_mixer_preferences_class_init (XfceMixerPreferencesClass *klass)
                                                      "window-width",
                                                      "window-width",
                                                      1, G_MAXINT, 600,
-                                                     G_PARAM_READABLE | G_PARAM_WRITABLE));
+                                                     G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
 
   g_object_class_install_property (gobject_class, 
                                    PROP_WINDOW_HEIGHT,
@@ -99,7 +99,7 @@ xfce_mixer_preferences_class_init (XfceMixerPreferencesClass *klass)
                                                      "window-height",
                                                      "window-height",
                                                      1, G_MAXINT, 400,
-                                                     G_PARAM_READABLE | G_PARAM_WRITABLE));
+                                                     G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
 
   g_object_class_install_property (gobject_class, 
                                    PROP_SOUND_CARD,
@@ -107,7 +107,7 @@ xfce_mixer_preferences_class_init (XfceMixerPreferencesClass *klass)
                                                         "sound-card",
                                                         "sound-card",
                                                         NULL,
-                                                        G_PARAM_READABLE | G_PARAM_WRITABLE));
+                                                        G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
 
   g_object_class_install_property (gobject_class, 
                                    PROP_CONTROLS,
@@ -115,7 +115,7 @@ xfce_mixer_preferences_class_init (XfceMixerPreferencesClass *klass)
                                                        "controls",
                                                        "controls",
                                                        G_TYPE_PTR_ARRAY,
-                                                       G_PARAM_READABLE | G_PARAM_WRITABLE));
+                                                       G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
 }
 
 
@@ -146,17 +146,8 @@ xfce_mixer_preferences_finalize (GObject *object)
 {
   XfceMixerPreferences *preferences = XFCE_MIXER_PREFERENCES (object);
 
-  if (preferences->sound_card != NULL)
-    {
-      g_free (preferences->sound_card);
-      preferences->sound_card = NULL;
-    }
-
-  if (preferences->controls != NULL)
-    {
-      xfconf_array_free (preferences->controls);
-      preferences->controls = NULL;
-    }
+  g_clear_pointer (&preferences->sound_card, g_free);
+  g_clear_pointer (&preferences->controls, xfconf_array_free);
 
   (*G_OBJECT_CLASS (xfce_mixer_preferences_parent_class)->finalize) (object);
 }

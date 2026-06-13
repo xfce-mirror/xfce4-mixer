@@ -111,9 +111,6 @@ void             gst_mixer_set_option         (GstMixer *mixer,
 const gchar*     gst_mixer_get_option         (GstMixer *mixer,
                                                 GstMixerOptions *opts);
 
-GList           *gst_mixer_get_outputs         (GstMixer *mixer);
-GList           *gst_mixer_get_inputs          (GstMixer *mixer);
-
 void             gst_mixer_move_track          (GstMixer *mixer,
                                                 GstMixerTrack *track,
                                                 gint track_number);

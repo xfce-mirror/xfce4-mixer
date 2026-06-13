@@ -190,7 +190,7 @@ xfce_mixer_plugin_class_init (XfceMixerPluginClass *klass)
                                                         "sound-card",
                                                         "sound-card",
                                                         NULL,
-                                                        G_PARAM_READABLE | G_PARAM_WRITABLE));
+                                                        G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
 
   g_object_class_install_property (gobject_class,
                                    PROP_TRACK,
@@ -198,7 +198,7 @@ xfce_mixer_plugin_class_init (XfceMixerPluginClass *klass)
                                                         "track",
                                                         "track",
                                                         NULL,
-                                                        G_PARAM_READABLE | G_PARAM_WRITABLE));
+                                                        G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
 
   g_object_class_install_property (gobject_class,
                                    PROP_COMMAND,
@@ -206,7 +206,7 @@ xfce_mixer_plugin_class_init (XfceMixerPluginClass *klass)
                                                         "command",
                                                         "command",
                                                         NULL,
-                                                        G_PARAM_READABLE | G_PARAM_WRITABLE));
+                                                        G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
 
 #ifdef HAVE_KEYBINDER
   g_object_class_install_property (gobject_class,
@@ -215,7 +215,7 @@ xfce_mixer_plugin_class_init (XfceMixerPluginClass *klass)
                                                          "enable-keyboard-shortcuts",
                                                          "enable-keyboard-shortcuts",
                                                          TRUE,
-                                                         G_PARAM_READABLE | G_PARAM_WRITABLE));
+                                                         G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
 #endif
 }
 
@@ -362,8 +362,7 @@ xfce_mixer_plugin_set_property (GObject      *object,
         /* Freeze "notify" signals since the "track" property is manipulated */
         g_object_freeze_notify (object);
 
-        g_free (mixer_plugin->card_name);
-        mixer_plugin->card_name = NULL;
+        g_clear_pointer (&mixer_plugin->card_name, g_free);
         mixer_plugin->card = NULL;
 
         card_name = g_value_get_string (value);
@@ -403,8 +402,7 @@ xfce_mixer_plugin_set_property (GObject      *object,
         g_object_thaw_notify (object);
         break;
       case PROP_TRACK:
-        g_free (mixer_plugin->track_label);
-        mixer_plugin->track_label = NULL;
+        g_clear_pointer (&mixer_plugin->track_label, g_free);
         mixer_plugin->track = NULL;
 
         if (GST_IS_MIXER (mixer_plugin->card))
@@ -1107,16 +1105,14 @@ xfce_mixer_plugin_mute_pressed (const char *keystring,
                                 void       *user_data)
 {
   XfceMixerPlugin *mixer_plugin = XFCE_MIXER_PLUGIN (user_data);
-  gboolean         muted = TRUE;
 
   if (G_UNLIKELY (!GST_IS_MIXER (mixer_plugin->card) || !GST_IS_MIXER_TRACK (mixer_plugin->track) || mixer_plugin->track_label == NULL))
     return;
 
   xfce_mixer_debug ("'%s' pressed", XFCE_MIXER_PLUGIN_MUTE_KEY);
 
-  muted = xfce_mixer_plugin_get_muted (mixer_plugin);
-
   /* Toggle the mute state */
+  gboolean muted = xfce_mixer_plugin_get_muted (mixer_plugin);
   xfce_mixer_plugin_set_muted (mixer_plugin, !muted);
   xfce_mixer_plugin_update_muted (mixer_plugin, !muted);
 }

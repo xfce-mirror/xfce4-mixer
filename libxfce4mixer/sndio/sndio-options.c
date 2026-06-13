@@ -22,7 +22,6 @@
 struct _GstMixerSndioOptions
 {
   GstMixerSndioTrack parent;
-  GList *values;
 };
 
 G_DEFINE_TYPE (GstMixerSndioOptions, gst_mixer_sndio_options, GST_MIXER_TYPE_SNDIO_TRACK)

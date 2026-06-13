@@ -160,7 +160,7 @@ xfce_mixer_dump_gst_data (void)
                         "max-volume", &max_volume,
                         "min-volume", &min_volume, NULL);
           g_string_append_printf (result, "\t\t\tlabel: \"%s\"\n", track_label);
-          g_string_append_printf (result, "\t\t\tindex: %d\n", track_index);
+          g_string_append_printf (result, "\t\t\tindex: %u\n", track_index);
           g_string_append_printf (result, "\t\t\tuntranslated-label: \"%s\"\n", track_untranslated_label);
 
           if (GST_MIXER_TRACK_HAS_FLAG (track, GST_MIXER_TRACK_INPUT))
@@ -221,8 +221,7 @@ xfce_mixer_dump_gst_data (void)
           g_free (track_untranslated_label);
         }
 
-      g_free (card_device_name);
-      card_device_name = NULL;
+      g_clear_pointer (&card_device_name, g_free);
     }
 
   /* Remove trailing newline */

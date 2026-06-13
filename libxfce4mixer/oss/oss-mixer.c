@@ -297,7 +297,7 @@ static void gst_mixer_oss_create_track_list (GstMixerOss *mixer)
       flags |= GST_MIXER_TRACK_MASTER;
 
     /* Master output */
-    if (!g_strcmp0(names[i], "vol"))
+    if (g_strcmp0(names[i], "vol") == 0)
     {
       flags |= GST_MIXER_TRACK_MASTER;
     }

@@ -187,7 +187,7 @@ xfce_volume_button_class_init (XfceVolumeButtonClass *klass)
                                                         "track-label",
                                                         "track-label",
                                                         "Unknown",
-                                                        G_PARAM_READABLE | G_PARAM_WRITABLE));
+                                                        G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
 
   g_object_class_install_property (gobject_class,
                                    PROP_IS_CONFIGURED,
@@ -195,7 +195,7 @@ xfce_volume_button_class_init (XfceVolumeButtonClass *klass)
                                                          "is-configured",
                                                          "is-configured",
                                                          FALSE,
-                                                         G_PARAM_READABLE | G_PARAM_WRITABLE));
+                                                         G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
 
   g_object_class_install_property (gobject_class,
                                    PROP_NO_MUTE,
@@ -203,7 +203,7 @@ xfce_volume_button_class_init (XfceVolumeButtonClass *klass)
                                                          "no-mute",
                                                          "no-mute",
                                                          TRUE,
-                                                         G_PARAM_READABLE | G_PARAM_WRITABLE));
+                                                         G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
 
 
   g_object_class_install_property (gobject_class,
@@ -212,7 +212,7 @@ xfce_volume_button_class_init (XfceVolumeButtonClass *klass)
                                                          "is-muted",
                                                          "is-muted",
                                                          TRUE,
-                                                         G_PARAM_READABLE | G_PARAM_WRITABLE));
+                                                         G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
 
   g_object_class_install_property (gobject_class,
                                    PROP_SCREEN_POSITION,
@@ -221,7 +221,7 @@ xfce_volume_button_class_init (XfceVolumeButtonClass *klass)
                                                       "screen-position",
                                                       XFCE_TYPE_SCREEN_POSITION,
                                                       XFCE_SCREEN_POSITION_FLOATING_H,
-                                                      G_PARAM_READABLE | G_PARAM_WRITABLE));
+                                                      G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
 
   button_signals[VOLUME_CHANGED] = g_signal_new ("volume-changed",
                                                  G_TYPE_FROM_CLASS (klass),
@@ -298,17 +298,8 @@ xfce_volume_button_finalize (GObject *object)
 {
   XfceVolumeButton *button = XFCE_VOLUME_BUTTON (object);
 
-  if (button->dock != NULL)
-    {
-      gtk_widget_destroy (button->dock);
-      button->dock = NULL;
-    }
-
-  if (button->track_label != NULL)
-    {
-      g_free (button->track_label);
-      button->track_label = NULL;
-    }
+  g_clear_pointer (&button->dock, gtk_widget_destroy);
+  g_clear_pointer (&button->track_label, g_free);
 
   (*G_OBJECT_CLASS (xfce_volume_button_parent_class)->finalize) (object);
 }
