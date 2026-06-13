@@ -213,16 +213,14 @@ gst_mixer_class_init (GstMixerClass *klass)
                          NULL,
                          NULL,
                          NULL,
-                         G_PARAM_READWRITE|
-                         G_PARAM_CONSTRUCT_ONLY);
+                         G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY | G_PARAM_STATIC_STRINGS);
 
   properties[PROP_CARD_NAME] =
     g_param_spec_string ("card-name",
                          NULL,
                          NULL,
                          NULL,
-                         G_PARAM_READWRITE|
-                         G_PARAM_CONSTRUCT_ONLY);
+                         G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY | G_PARAM_STATIC_STRINGS);
 
   g_object_class_install_properties (object_class,
                                      LAST_PROP,

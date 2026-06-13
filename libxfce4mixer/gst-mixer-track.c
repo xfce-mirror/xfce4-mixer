@@ -212,79 +212,70 @@ gst_mixer_track_class_init (GstMixerTrackClass *klass)
                          NULL,
                          NULL,
                          NULL,
-                         G_PARAM_READWRITE|
-                         G_PARAM_CONSTRUCT_ONLY);
+                         G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY | G_PARAM_STATIC_STRINGS);
 
   properties[PROP_UNTRANSLATED_LABEL] =
     g_param_spec_string ("untranslated-label",
                          NULL,
                          NULL,
                          NULL,
-                         G_PARAM_READWRITE|
-                         G_PARAM_CONSTRUCT_ONLY);
+                         G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY | G_PARAM_STATIC_STRINGS);
 
   properties[PROP_INDEX] =
     g_param_spec_int ("index",
                       NULL,
                       NULL,
                       0, G_MAXINT, 0,
-                      G_PARAM_READWRITE|
-                      G_PARAM_CONSTRUCT_ONLY);
+                      G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY | G_PARAM_STATIC_STRINGS);
 
   properties[PROP_PARENT_TRACK_ID] =
     g_param_spec_int ("parent-track-id",
                       NULL,
                       NULL,
                       -1, G_MAXINT, -1,
-                      G_PARAM_READWRITE);
+                      G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS);
 
   properties[PROP_FLAGS] =
     g_param_spec_int ("flags",
                        NULL,
                        NULL,
                        0, 1000, GST_MIXER_TRACK_NONE,
-                       G_PARAM_READWRITE|
-                       G_PARAM_CONSTRUCT_ONLY);
+                       G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY | G_PARAM_STATIC_STRINGS);
 
   properties[PROP_HAS_VOLUME] =
     g_param_spec_boolean ("has-volume",
                           NULL,
                           NULL,
                           FALSE,
-                          G_PARAM_READWRITE|
-                          G_PARAM_CONSTRUCT_ONLY);
+                          G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY | G_PARAM_STATIC_STRINGS);
 
   properties[PROP_HAS_SWITCH] =
     g_param_spec_boolean ("has-switch",
                           NULL,
                           NULL,
                           FALSE,
-                          G_PARAM_READWRITE|
-                          G_PARAM_CONSTRUCT_ONLY);
+                          G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY | G_PARAM_STATIC_STRINGS);
 
   properties[PROP_NUM_CHANNELS] =
     g_param_spec_int ("num-channels",
                       NULL,
                       NULL,
                       0, 255, 0,
-                      G_PARAM_READWRITE|
-                      G_PARAM_CONSTRUCT_ONLY);
+                      G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY | G_PARAM_STATIC_STRINGS);
 
   properties[PROP_MIN_VOLUME] =
     g_param_spec_int ("min-volume",
                       NULL,
                       NULL,
                       0, 0, 0,
-                      G_PARAM_READWRITE|
-                      G_PARAM_CONSTRUCT_ONLY);
+                      G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY | G_PARAM_STATIC_STRINGS);
 
   properties[PROP_MAX_VOLUME] =
     g_param_spec_int ("max-volume",
                       NULL,
                       NULL,
                       0, G_MAXINT, 0,
-                      G_PARAM_READWRITE|
-                      G_PARAM_CONSTRUCT_ONLY);
+                      G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY | G_PARAM_STATIC_STRINGS);
 
   g_object_class_install_properties (object_class,
                                      LAST_PROP,

@@ -92,7 +92,7 @@ xfce_mixer_container_class_init (XfceMixerContainerClass *klass)
                                                         "card",
                                                         "card",
                                                         GST_TYPE_ELEMENT,
-                                                        G_PARAM_READABLE | G_PARAM_WRITABLE));
+                                                        G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
 }
 
 

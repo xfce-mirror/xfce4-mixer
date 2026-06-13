@@ -190,7 +190,7 @@ xfce_mixer_plugin_class_init (XfceMixerPluginClass *klass)
                                                         "sound-card",
                                                         "sound-card",
                                                         NULL,
-                                                        G_PARAM_READABLE | G_PARAM_WRITABLE));
+                                                        G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
 
   g_object_class_install_property (gobject_class,
                                    PROP_TRACK,
@@ -198,7 +198,7 @@ xfce_mixer_plugin_class_init (XfceMixerPluginClass *klass)
                                                         "track",
                                                         "track",
                                                         NULL,
-                                                        G_PARAM_READABLE | G_PARAM_WRITABLE));
+                                                        G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
 
   g_object_class_install_property (gobject_class,
                                    PROP_COMMAND,
@@ -206,7 +206,7 @@ xfce_mixer_plugin_class_init (XfceMixerPluginClass *klass)
                                                         "command",
                                                         "command",
                                                         NULL,
-                                                        G_PARAM_READABLE | G_PARAM_WRITABLE));
+                                                        G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
 
 #ifdef HAVE_KEYBINDER
   g_object_class_install_property (gobject_class,
@@ -215,7 +215,7 @@ xfce_mixer_plugin_class_init (XfceMixerPluginClass *klass)
                                                          "enable-keyboard-shortcuts",
                                                          "enable-keyboard-shortcuts",
                                                          TRUE,
-                                                         G_PARAM_READABLE | G_PARAM_WRITABLE));
+                                                         G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
 #endif
 }
 

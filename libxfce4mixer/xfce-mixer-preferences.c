@@ -91,7 +91,7 @@ xfce_mixer_preferences_class_init (XfceMixerPreferencesClass *klass)
                                                      "window-width",
                                                      "window-width",
                                                      1, G_MAXINT, 600,
-                                                     G_PARAM_READABLE | G_PARAM_WRITABLE));
+                                                     G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
 
   g_object_class_install_property (gobject_class, 
                                    PROP_WINDOW_HEIGHT,
@@ -99,7 +99,7 @@ xfce_mixer_preferences_class_init (XfceMixerPreferencesClass *klass)
                                                      "window-height",
                                                      "window-height",
                                                      1, G_MAXINT, 400,
-                                                     G_PARAM_READABLE | G_PARAM_WRITABLE));
+                                                     G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
 
   g_object_class_install_property (gobject_class, 
                                    PROP_SOUND_CARD,
@@ -107,7 +107,7 @@ xfce_mixer_preferences_class_init (XfceMixerPreferencesClass *klass)
                                                         "sound-card",
                                                         "sound-card",
                                                         NULL,
-                                                        G_PARAM_READABLE | G_PARAM_WRITABLE));
+                                                        G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
 
   g_object_class_install_property (gobject_class, 
                                    PROP_CONTROLS,
@@ -115,7 +115,7 @@ xfce_mixer_preferences_class_init (XfceMixerPreferencesClass *klass)
                                                        "controls",
                                                        "controls",
                                                        G_TYPE_PTR_ARRAY,
-                                                       G_PARAM_READABLE | G_PARAM_WRITABLE));
+                                                       G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS));
 }
 
 
