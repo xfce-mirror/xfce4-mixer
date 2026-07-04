@@ -37,7 +37,7 @@ typedef enum
 
 #define TYPE_XFCE_MIXER_TRACK_TYPE  (xfce_mixer_track_type_get_type ())
 
-GType              xfce_mixer_track_type_get_type (void) G_GNUC_CONST G_GNUC_INTERNAL;
+GType              xfce_mixer_track_type_get_type (void) G_GNUC_INTERNAL;
 
 XfceMixerTrackType xfce_mixer_track_type_new      (GstMixerTrack *track);
 
