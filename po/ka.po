@@ -1,0 +1,178 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Xfce
+# This file is distributed under the same license as the xfce-apps.xfce4-mixer package.
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: Xfce Apps\n"
+"Report-Msgid-Bugs-To: https://gitlab.xfce.org/\n"
+"POT-Creation-Date: 2025-05-10 12:48+0200\n"
+"PO-Revision-Date: 2013-07-03 18:38+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Georgian (http://app.transifex.com/xfce/xfce-apps/language/ka/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ka\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#. Add menu item for muting
+#: panel-plugin/xfce-mixer-plugin.c:301
+msgid "Mu_te"
+msgstr "დად_უმება"
+
+#. Add menu item for running the user-defined command
+#: panel-plugin/xfce-mixer-plugin.c:307
+msgid "Run Audio Mi_xer"
+msgstr "აუდიომი_ქსერის გაშვება"
+
+#: panel-plugin/xfce-mixer-plugin.c:575
+#: xfce4-mixer/xfce-mixer-application.c:157
+msgid ""
+"GStreamer was unable to detect any sound devices. Some sound system specific"
+" GStreamer packages may be missing. It may also be a permissions problem."
+msgstr ""
+
+#: panel-plugin/xfce-mixer-plugin.c:949
+msgid "No command defined"
+msgstr "ბრძანება აღწერილი არაა"
+
+#. Generate error message and insert the current command
+#: panel-plugin/xfce-mixer-plugin.c:957
+#, c-format
+msgid ""
+"Could not execute the command \"%s\". Ensure that either the location of the"
+" command is included in the PATH environment variable or that you are "
+"providing the full path to the command."
+msgstr ""
+
+#: panel-plugin/xfce-plugin-dialog.c:141
+msgid "Audio Mixer Plugin"
+msgstr "აუდიომიქსერის დამატება"
+
+#: panel-plugin/xfce-plugin-dialog.c:143
+#: xfce4-mixer/xfce-mixer-controls-dialog.c:113
+msgid "_Close"
+msgstr "დახურვა"
+
+#: panel-plugin/xfce-plugin-dialog.c:154 xfce4-mixer/xfce-mixer-window.c:182
+msgid "Sound _card:"
+msgstr "_ხმის ბარათი:"
+
+#: panel-plugin/xfce-plugin-dialog.c:164
+msgid "Mixer _track:"
+msgstr "მიქსერის _ტრეკი:"
+
+#: panel-plugin/xfce-volume-button.c:831
+msgid "No valid device and/or element."
+msgstr "არასწორი მოწყობილობა და/ან ელემენტი."
+
+#: panel-plugin/xfce-volume-button.c:836
+#, c-format
+msgid "%s: muted"
+msgstr "%s: დადუმებულია"
+
+#: panel-plugin/xfce-volume-button.c:838
+#, c-format
+msgid "%s: %i%%"
+msgstr "%s: %i%%"
+
+#. Set application name
+#: panel-plugin/mixer.desktop.in:4 xfce4-mixer/main.c:45
+#: xfce4-mixer/xfce-mixer-window.c:163 xfce4-mixer/xfce-mixer-window.c:480
+#: xfce4-mixer/xfce-mixer-window.c:494 xfce4-mixer/xfce4-mixer.desktop.in:4
+msgid "Audio Mixer"
+msgstr "აუდიომიქსერი"
+
+#: panel-plugin/mixer.desktop.in:5 xfce4-mixer/xfce-mixer-window.c:438
+#: xfce4-mixer/xfce4-mixer.desktop.in:5
+msgid "Adjust volume levels"
+msgstr "ხმის დონეების გასწორება"
+
+#: libxfce4mixer/pulse/pulse-mixer.c:881 libxfce4mixer/pulse/pulse-mixer.c:930
+msgid "Card"
+msgstr "ბარათი"
+
+#: libxfce4mixer/pulse/pulse-mixer.c:993
+msgid "Pulse Audio Volume Control"
+msgstr "Pulse Audio-ის ხმის დონის მართვა"
+
+#: libxfce4mixer/sndio/sndio-mixer.c:386
+msgid "Sndio Volume Control"
+msgstr "Sndio-ის ხმის დონის მართვა"
+
+#: xfce4-mixer/xfce-mixer-application.c:73
+msgid "Enable debugging output"
+msgstr "დამატებითი ინფორმაციის გამოტანა"
+
+#: xfce4-mixer/xfce-mixer-application.c:74
+msgid "Show version and exit"
+msgstr "ვერსიის ჩვენება და გასვლა"
+
+#: xfce4-mixer/xfce-mixer-container.c:214
+msgid "_Playback"
+msgstr "_დაკვრა"
+
+#: xfce4-mixer/xfce-mixer-container.c:214
+msgid "C_apture"
+msgstr "ჩ_აწერა"
+
+#: xfce4-mixer/xfce-mixer-container.c:214
+msgid "S_witches"
+msgstr "გა_დამრთველები"
+
+#: xfce4-mixer/xfce-mixer-container.c:214
+msgid "_Options"
+msgstr "_პარამეტრები"
+
+#: xfce4-mixer/xfce-mixer-container.c:467
+msgid "No controls visible"
+msgstr "კონტროლის ელემენტები ხილული არაა"
+
+#: xfce4-mixer/xfce-mixer-container.c:476
+msgid "<span weight=\"bold\" size=\"larger\">No controls visible</span>"
+msgstr "<span weight=\"bold\" size=\"larger\">კონტროლის ელემენტები ხილული არაა</span>"
+
+#: xfce4-mixer/xfce-mixer-container.c:482
+msgid ""
+"In order to toggle the visibility of mixer controls, open the <b>\"Select "
+"Controls\"</b> dialog."
+msgstr ""
+
+#: xfce4-mixer/xfce-mixer-controls-dialog.c:111
+msgid "Select Controls"
+msgstr "აირჩიეთ კონტროლის ლემენტები"
+
+#: xfce4-mixer/xfce-mixer-track.c:242
+#, c-format
+msgid "Volume of channel %d on %s"
+msgstr "ხმის დონე არხისთვის %d %s-ზე"
+
+#. Lock button
+#: xfce4-mixer/xfce-mixer-track.c:279
+#, c-format
+msgid "Lock channels for %s together"
+msgstr "%s-ის არხების ერთად ჩაკეტვა"
+
+#: xfce4-mixer/xfce-mixer-track.c:323
+#, c-format
+msgid "Mute/unmute %s"
+msgstr "%s-ის დადუმება/დადუმების მოხსნა"
+
+#: xfce4-mixer/xfce-mixer-track.c:343
+#, c-format
+msgid "Enable/disable audible input from %s in output"
+msgstr "%s-დან ხმოვანი შეყვანის ჩართვა/გამორთვა გამოტანაში"
+
+#: xfce4-mixer/xfce-mixer-window.c:210
+msgid "_Select Controls..."
+msgstr "აირჩიეთ კონტროლი_ს ელემენტები..."
+
+#: xfce4-mixer/xfce-mixer-window.c:218
+msgid "_About"
+msgstr "_შესახებ"
+
+#: xfce4-mixer/xfce-mixer-window.c:225
+msgid "_Quit"
+msgstr "გასვ_ლა"
